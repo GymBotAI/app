@@ -1,20 +1,26 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, SafeAreaView } from "react-native";
+
+const bgPrimary = "#1360dd";
+const fgPrimary = "#ffffff";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
+    <SafeAreaView style={styles.body}>
+      <Text style={styles.h1}>GymBot AI</Text>
       <StatusBar style='auto' />
-    </View>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+  body: {
+    backgroundColor: bgPrimary,
+    width: "100%",
+    height: "100%",
+  },
+  h1: {
+    fontSize: 32,
+    color: fgPrimary,
   },
 });
