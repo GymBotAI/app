@@ -17,4 +17,18 @@ export default StyleSheet.create({
     fontSize: 32,
     color: fgPrimary,
   },
+  input: {
+    width: "100%",
+    borderWidth: 1,
+    borderColor: borderDefault,
+    borderStyle: "solid",
+    borderRadius: 5,
+    color: "black",
+    backgroundColor: fgPrimary,
+  },
+  messageInputContainer: {
+    width: "100%",
+    backgroundColor: fgPrimary,
+    padding: 5,
+  },
 });
