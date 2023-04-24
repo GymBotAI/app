@@ -2,6 +2,7 @@ import { StyleSheet } from "react-native";
 
 const bgPrimary = "#1360dd";
 const fgPrimary = "#ffffff";
+const borderDefault = "#a3a3a3";
 
 export default StyleSheet.create({
   body: {
