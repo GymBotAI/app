@@ -15,7 +15,7 @@ export default function messageInputContainer({
         inputMode='text'
         returnKeyType={returnKeyType || "send"}
         style={styles.input}
-        value={value || ""}
+        value={value}
       />
     </View>
   );
