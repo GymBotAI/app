@@ -6,13 +6,14 @@ export default function messageInputContainer({
   placeholder,
   returnKeyType,
   value,
+  multiline,
   onSubmit,
 }) {
   return (
     <View style={styles.messageInputContainer}>
       <TextInput
         placeholder={placeholder || "Talk to GymBot AI!"}
-        multiline={true}
+        multiline={typeof multiline == "boolean" ? multiline : false}
         inputMode='text'
         returnKeyType={returnKeyType || "send"}
         style={styles.input}
