@@ -6,6 +6,7 @@ export default function messageInputContainer({
   placeholder,
   returnKeyType,
   value,
+  onSubmit,
 }) {
   return (
     <View style={styles.messageInputContainer}>
@@ -16,6 +17,7 @@ export default function messageInputContainer({
         returnKeyType={returnKeyType || "send"}
         style={styles.input}
         value={value}
+        onSubmitEditing={(e) => onSubmit(e.nativeEvent.text.trim())}
       />
     </View>
   );

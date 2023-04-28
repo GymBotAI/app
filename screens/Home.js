@@ -9,7 +9,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <SafeAreaView style={styles.body}>
       <Text style={styles.h1}>GymBot AI</Text>
-      <MessageInputContainer />
+      <MessageInputContainer onSubmit={(text) => console.log(text)} />
       <StatusBar style='auto' />
     </SafeAreaView>
   );
