@@ -21,7 +21,6 @@ export default StyleSheet.create({
     width: "100%",
     borderWidth: 1,
     borderColor: borderDefault,
-    borderStyle: "solid",
     borderRadius: 5,
     color: "black",
     backgroundColor: fgPrimary,
