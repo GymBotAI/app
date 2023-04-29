@@ -27,7 +27,7 @@ export default StyleSheet.create({
     backgroundColor: fgPrimary,
     padding: 5,
   },
-  messageInputContainer: {
+  MessageInputContainer: {
     width: "100%",
     backgroundColor: fgPrimary,
     padding: 5,

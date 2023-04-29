@@ -2,7 +2,7 @@ import { TextInput, View } from "react-native";
 
 import styles from "../styles";
 
-export default function messageInputContainer({
+export default function MessageInputContainer({
   placeholder,
   returnKeyType,
   value,
@@ -10,7 +10,7 @@ export default function messageInputContainer({
   onSubmit,
 }) {
   return (
-    <View style={styles.messageInputContainer}>
+    <View style={styles.MessageInputContainer}>
       <TextInput
         placeholder={placeholder || "Talk to GymBot AI!"}
         multiline={typeof multiline == "boolean" ? multiline : false}
