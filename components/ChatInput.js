@@ -18,7 +18,15 @@ export default function ChatInput({
         returnKeyType={returnKeyType || "send"}
         style={styles.input}
         value={value}
-        onSubmitEditing={(e) => onSubmit(e.nativeEvent.text.trim())}
+        onSubmitEditing={(e) => {
+          const text = e.nativeEvent.text.trim();
+
+          if (!text) {
+            return;
+          }
+
+          onSubmit(text);
+        }}
       />
     </View>
   );
