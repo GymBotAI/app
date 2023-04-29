@@ -27,6 +27,15 @@ export default StyleSheet.create({
     backgroundColor: fgPrimary,
     padding: 5,
   },
+  ChatMessages: {
+    padding: 10,
+    backgroundColor: fgPrimary,
+    display: "flex",
+    gap: 10,
+  },
+  ChatMessage: {
+    color: "red",
+  },
   ChatInput: {
     width: "100%",
     backgroundColor: fgPrimary,

@@ -5,7 +5,13 @@ import styles from "../styles";
 export default function ChatMessage({ message, key }) {
   return (
     <View style={styles.ChatMessage} key={key}>
-      <Text>{message.content}</Text>
+      <Text
+        style={{
+          color: styles.ChatMessage.color,
+        }}
+      >
+        {message.content}
+      </Text>
     </View>
   );
 }
