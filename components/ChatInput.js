@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { TextInput, View } from "react-native";
 
 import styles from "../styles";
@@ -9,6 +10,8 @@ export default function ChatInput({
   multiline,
   onSubmit,
 }) {
+  const [text, setText] = useState(value);
+
   return (
     <View style={styles.ChatInput}>
       <TextInput
@@ -17,13 +20,16 @@ export default function ChatInput({
         inputMode='text'
         returnKeyType={returnKeyType || "send"}
         style={styles.input}
-        value={value}
+        value={text}
+        onChange={(e) => setText(e.nativeEvent.text)}
         onSubmitEditing={(e) => {
           const text = e.nativeEvent.text.trim();
 
           if (!text) {
             return;
           }
+
+          setText("");
 
           onSubmit(text);
         }}
