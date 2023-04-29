@@ -32,4 +32,7 @@ export default StyleSheet.create({
     backgroundColor: fgPrimary,
     padding: 5,
   },
+  Chat: {
+    width: "100%",
+  },
 });
