@@ -32,9 +32,6 @@ export default StyleSheet.create({
     display: "flex",
     gap: 10,
   },
-  ChatMessage: {
-    color: "red",
-  },
   ChatMessageIcon: {
     width: 32,
     height: 32,

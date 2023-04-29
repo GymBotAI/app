@@ -11,13 +11,7 @@ export default function ChatMessage({ message, key }) {
   return (
     <View style={styles.ChatMessage} key={key}>
       <Image style={styles.ChatMessageIcon} source={roleIcons[message.role]} />
-      <Text
-        style={{
-          color: styles.ChatMessage.color,
-        }}
-      >
-        {message.content}
-      </Text>
+      <Text style={styles.ChatMessageText}>{message.content}</Text>
     </View>
   );
 }
