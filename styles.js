@@ -35,6 +35,13 @@ export default StyleSheet.create({
   ChatMessage: {
     color: "red",
   },
+  ChatMessageIcon: {
+    width: 32,
+    height: 32,
+    borderRadius: 16,
+    borderColor: borderDefault,
+    borderWidth: 1,
+  },
   ChatInput: {
     width: "100%",
     backgroundColor: fgPrimary,
