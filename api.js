@@ -5,7 +5,6 @@ const secret = [53, 54, 99, 104, 97]
   .join("");
 
 export async function askGymBotAI(role, message, messages, setMessages) {
-  console.debug(0);
   setMessages((messages) => [
     ...messages,
     {
@@ -13,7 +12,6 @@ export async function askGymBotAI(role, message, messages, setMessages) {
       content: message,
     },
   ]);
-  console.debug(2);
 
   const resp = await fetch(`${serverUrl}/chat`, {
     method: "POST",
@@ -35,9 +33,7 @@ export async function askGymBotAI(role, message, messages, setMessages) {
   const data = await resp.json();
 
   if (data.message) {
-    console.debug(3);
     setMessages((messages) => [...messages, data.message]);
-    console.debug(5);
   } else {
     throw new Error("No message received in response");
   }
