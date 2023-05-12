@@ -1,11 +1,11 @@
 import { StyleSheet } from "react-native";
 
 const bgPrimary = "#4DBCC1";
-const bgMenu = '#408589';
+const bgMenu = "#408589";
 const borderDefault = "#FFFFFF";
-const WHITE = '#FFFFFF';
-const FONTSIZE = 16;
-const FONT = 'Georgia';
+const white = "#FFFFFF";
+const fontSize = 16;
+const font = "Georgia";
 
 export default StyleSheet.create({
   body: {
@@ -35,28 +35,28 @@ export default StyleSheet.create({
     color: 'white',
     backgroundColor: bgPrimary,
     padding: 10,
-    width: '95%',
-    justifyContent: 'center',
-    fontFamily: FONT,
-    fontSize: FONTSIZE
+    width: "95%",
+    justifyContent: "center",
+    fontFamily: font,
+    fontSize: fontSize,
   },
   ChatInput: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: '100%'
+    justifyContent: "center",
+    alignItems: "center",
+    width: "100%",
   },
   ChatMessages: {
     padding: 10,
     display: "flex",
     flex: 1,
     gap: 10,
-    flexGrow: '1',
-    justifyContent: 'flex-end',
+    flexGrow: "1",
+    justifyContent: "flex-end",
   },
   ChatMessageText: {
-    color: WHITE,
-    fontSize: FONTSIZE,
-    fontFamily: FONT
+    color: white,
+    fontSize: fontSize,
+    fontFamily: font,
   },
   ChatMessageIcon: {
     width: 32,
@@ -72,6 +72,6 @@ export default StyleSheet.create({
   Chat: {
     padding: 24,
     flex: 1,
-    justifyContent: 'space-around',
+    justifyContent: "space-around",
   },
 });
