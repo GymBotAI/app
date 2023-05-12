@@ -1,7 +1,6 @@
 import {
   View,
   KeyboardAvoidingView,
-  StyleSheet,
   TouchableWithoutFeedback,
   Keyboard,
 } from "react-native";
