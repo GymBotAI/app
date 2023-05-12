@@ -1,4 +1,11 @@
-import { View } from "react-native";
+import {
+  View,
+  KeyboardAvoidingView,
+  StyleSheet,
+  Platform,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from 'react-native';
 import { useState } from "react";
 
 import ChatMessages from "./ChatMessages";
@@ -9,13 +16,18 @@ import { askGymBotAI } from "../api";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
-
   return (
-    <View style={styles.Chat}>
-      <ChatMessages messages={messages} />
-      <ChatInput
-        onSubmit={(text) => askGymBotAI("user", text, messages, setMessages)}
-      />
-    </View>
+    <KeyboardAvoidingView
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      style={styles.container}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.Chat}>
+          <ChatMessages messages={messages} />
+          <ChatInput style={styles.ChatInput}
+          onSubmit={(text) => askGymBotAI("user", text, messages, setMessages)}
+        />
+        </View>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
-}
+};
