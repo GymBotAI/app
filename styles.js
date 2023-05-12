@@ -1,8 +1,11 @@
 import { StyleSheet } from "react-native";
 
-const bgPrimary = "#1360dd";
-const fgPrimary = "#ffffff";
-const borderDefault = "#a3a3a3";
+const bgPrimary = "#4DBCC1";
+const bgMenu = '#408589';
+const borderDefault = "#FFFFFF";
+const WHITE = '#FFFFFF';
+const FONTSIZE = 16;
+const FONT = 'Georgia';
 
 export default StyleSheet.create({
   body: {
@@ -15,36 +18,65 @@ export default StyleSheet.create({
   },
   h1: {
     fontSize: 32,
-    color: fgPrimary,
+    color: WHITE,
+    textAlign: 'center',
+    backgroundColor: bgMenu,
+    width: "100%",
+    height: "6.5%",
+    paddingTop: '0.5%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    fontFamily: 'Impact',
+    letterSpacing: '.5px',
+    wordSpacing: '1px',
+    position: 'absolute',
+    top: 0
   },
   input: {
     width: "100%",
-    borderWidth: 1,
+    borderWidth: 2,
     borderColor: borderDefault,
     borderRadius: 5,
     color: "black",
-    backgroundColor: fgPrimary,
-    padding: 5,
+    backgroundColor: bgPrimary,
+    padding: 10,
+    width: '95%',
+    justifyContent: 'center',
+    fontFamily: FONT,
+    fontSize: FONTSIZE
+  },
+  ChatInput: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%'
   },
   ChatMessages: {
     padding: 10,
-    backgroundColor: fgPrimary,
     display: "flex",
+    flex: 1,
     gap: 10,
+    flexGrow: '1',
+    justifyContent: 'flex-end',
+  },
+  ChatMessageText: {
+    color: WHITE,
+    fontSize: FONTSIZE,
+    fontFamily: FONT
   },
   ChatMessageIcon: {
     width: 32,
     height: 32,
-    borderRadius: 16,
+    borderRadius: 15,
     borderColor: borderDefault,
     borderWidth: 1,
   },
-  ChatInput: {
-    width: "100%",
-    backgroundColor: fgPrimary,
-    padding: 5,
+  container: {
+    flex: 1,
   },
   Chat: {
-    width: "100%",
+    padding: 24,
+    flex: 1,
+    justifyContent: 'space-around',
   },
 });
