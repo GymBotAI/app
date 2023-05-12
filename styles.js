@@ -18,27 +18,21 @@ export default StyleSheet.create({
   },
   h1: {
     fontSize: 32,
-    color: WHITE,
-    textAlign: 'center',
-    backgroundColor: bgMenu,
-    width: "100%",
-    height: "6.5%",
-    paddingTop: '0.5%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
+    color: 'white',
     fontFamily: 'Impact',
-    letterSpacing: '.5px',
-    wordSpacing: '1px',
-    position: 'absolute',
-    top: 0
+    letterSpacing: 0.5,
+    wordSpacing: 1,
+    backgroundColor: bgMenu,
+    width: '100%',
+    justifyContent: 'center',
+    textAlign: 'center'
   },
   input: {
     width: "100%",
     borderWidth: 2,
     borderColor: borderDefault,
     borderRadius: 5,
-    color: "black",
+    color: 'white',
     backgroundColor: bgPrimary,
     padding: 10,
     width: '95%',
@@ -73,6 +67,7 @@ export default StyleSheet.create({
   },
   container: {
     flex: 1,
+    width: '100%'
   },
   Chat: {
     padding: 24,
