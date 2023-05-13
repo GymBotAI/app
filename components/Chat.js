@@ -19,9 +19,9 @@ export default function Chat() {
     >
       <View
         style={{
-          // padding: 24,
-          flex: 1,
-          justifyContent: "space-around",
+          display: "flex",
+          flexDirection: "column",
+          height: "100%",
         }}
       >
         <ChatMessages messages={messages} />

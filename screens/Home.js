@@ -28,17 +28,15 @@ export default function HomeScreen({ navigation }) {
         justifyContent: "center",
       }}
     >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View
-          style={{
-            height: "100%",
-            width: "100%",
-          }}
-        >
-          <ScreenHeader text="GymBot AI" />
-          <Chat />
-        </View>
-      </TouchableWithoutFeedback>
+      <View
+        style={{
+          height: "100%",
+          width: "100%",
+        }}
+      >
+        <ScreenHeader text="GymBot AI" />
+        <Chat />
+      </View>
     </ImageBackground>
   );
 }
