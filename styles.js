@@ -18,6 +18,8 @@ export default StyleSheet.create({
   },
   h1: {
     fontSize: 32,
+    paddingTop: 40,
+    paddingBottom: 5,
     color: "white",
     fontFamily: "Impact",
     letterSpacing: 0.5,
