@@ -2,6 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import {
   Text,
   SafeAreaView,
+  ImageBackground,
   Image,
   View,
   TouchableWithoutFeedback,
@@ -15,11 +16,12 @@ import styles from "../styles";
 export default function HomeScreen({ navigation }) {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <SafeAreaView style={styles.body}>
-        <Text style={styles.h1}>GymBot AI</Text>
-        <Chat />
-        <StatusBar style='auto' />
-      </SafeAreaView>
+      <View style={styles.body}>
+        <ImageBackground source={require('../assets/gymbgdark.jpg')} resizeMode="cover" style={styles.image}>
+          <Text style={styles.h1}>GymBot AI</Text>
+          <Chat />
+        </ImageBackground>
+      </View>
     </TouchableWithoutFeedback>
   );
 }
