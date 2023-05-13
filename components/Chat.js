@@ -9,6 +9,7 @@ import { askGymBotAI } from "../api";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
+
   return (
     <KeyboardAvoidingView
       behavior={Device.osName == "Android" ? "height" : "padding"}
@@ -36,7 +37,9 @@ export default function Chat() {
             paddingRight: 10,
             paddingLeft: 10,
           }}
-          onSubmit={(text) => askGymBotAI("user", text, messages, setMessages)}
+          onSubmit={(text) => {
+            askGymBotAI("user", text, messages, setMessages);
+          }}
         />
       </View>
     </KeyboardAvoidingView>
