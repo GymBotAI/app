@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TextInput, View } from "react-native";
+import { TextInput, View, Button } from "react-native";
 
 import { font, fontSize } from "../styles";
 
@@ -12,6 +12,16 @@ export default function ChatInput({
 }) {
   const [text, setText] = useState(value);
 
+  const _onSubmit = (e) => {
+    if (!text) {
+      return;
+    }
+
+    setText("");
+
+    onSubmit(text);
+  };
+
   return (
     <View
       style={{
@@ -23,6 +33,9 @@ export default function ChatInput({
         paddingBottom: 20,
         paddingRight: 10,
         paddingLeft: 10,
+        gap: 5,
+        display: "flex",
+        flexDirection: "row",
       }}
     >
       <TextInput
@@ -32,31 +45,27 @@ export default function ChatInput({
         inputMode="text"
         returnKeyType={returnKeyType || "send"}
         style={{
-          width: "100%",
           borderWidth: 2,
           borderColor: "#ACB3BF",
           borderRadius: 10,
           color: "black",
           backgroundColor: "white",
           padding: 10,
-          width: "95%",
           justifyContent: "center",
           fontFamily: font,
           fontSize: fontSize,
+          flexGrow: 1,
         }}
         value={text}
         onChange={(e) => setText(e.nativeEvent.text)}
-        onSubmitEditing={(e) => {
-          const text = e.nativeEvent.text.trim();
-
-          if (!text) {
-            return;
-          }
-
-          setText("");
-
-          onSubmit(text);
+        onSubmitEditing={_onSubmit}
+      />
+      <Button
+        title="Send"
+        style={{
+          backgroundColor: "blue",
         }}
+        onPress={_onSubmit}
       />
     </View>
   );

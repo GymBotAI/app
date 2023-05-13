@@ -40,6 +40,7 @@ export default function Chat() {
           onSubmit={(text) => {
             askGymBotAI("user", text, messages, setMessages);
           }}
+          multiline
         />
       </View>
     </KeyboardAvoidingView>
