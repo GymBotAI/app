@@ -14,6 +14,7 @@ export default function ScreenHeader({ text }) {
         width: "100%",
         justifyContent: "center",
         textAlign: "center",
+        zIndex: 2,
       }}
     >
       {text}
