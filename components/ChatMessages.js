@@ -24,7 +24,7 @@ export default function ChatMessages({ messages }) {
           paddingBottom: 15,
           display: "flex",
           flex: 1,
-          gap: 10,
+          gap: 20,
           flexGrow: "1",
           height: "100%",
         }}
