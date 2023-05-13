@@ -16,7 +16,11 @@ import styles from "../styles";
 
 export default function HomeScreen({ navigation }) {
   return (
-    <ImageBackground source={require('../assets/gymbgdark.jpg')} resizeMode="cover" style={styles.body}>
+    <ImageBackground
+      source={require("../assets/gymbgdark.jpg")}
+      resizeMode="cover"
+      style={styles.body}
+    >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.image}>
           <ScreenHeader text="GymBot AI" />

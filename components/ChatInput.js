@@ -17,7 +17,7 @@ export default function ChatInput({
       <TextInput
         placeholder={placeholder || "Talk to GymBot AI!"}
         multiline={typeof multiline == "boolean" ? multiline : false}
-        inputMode='text'
+        inputMode="text"
         returnKeyType={returnKeyType || "send"}
         style={styles.input}
         value={text}

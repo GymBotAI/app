@@ -23,7 +23,7 @@ export default StyleSheet.create({
     color: "black",
     fontFamily: "Impact",
     letterSpacing: 0.5,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     width: "100%",
     justifyContent: "center",
     textAlign: "center",
@@ -31,10 +31,10 @@ export default StyleSheet.create({
   input: {
     width: "100%",
     borderWidth: 2,
-    borderColor: '#ACB3BF',
+    borderColor: "#ACB3BF",
     borderRadius: 10,
     color: "black",
-    backgroundColor: 'white',
+    backgroundColor: "white",
     padding: 10,
     width: "95%",
     justifyContent: "center",
@@ -45,11 +45,11 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
-    backgroundColor: 'white',
+    backgroundColor: "white",
     paddingTop: 10,
     paddingBottom: 20,
     paddingRight: 10,
-    paddingLeft: 10
+    paddingLeft: 10,
   },
   ChatMessages: {
     padding: 20,
@@ -82,7 +82,7 @@ export default StyleSheet.create({
     justifyContent: "space-around",
   },
   image: {
-    height: '100%',
-    width: '100%'
-  }
+    height: "100%",
+    width: "100%",
+  },
 });

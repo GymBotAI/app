@@ -1,0 +1,13 @@
+# NPM
+node_modules
+
+# Assets
+assets
+
+# Expo
+.Expo
+
+# Replit
+.config
+.cache
+.upm
