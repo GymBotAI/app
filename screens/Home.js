@@ -10,6 +10,7 @@ import {
 } from "react-native";
 
 import Chat from "../components/Chat";
+import ScreenHeader from "../components/ScreenHeader";
 
 import styles from "../styles";
 
@@ -18,7 +19,7 @@ export default function HomeScreen({ navigation }) {
     <ImageBackground source={require('../assets/gymbgdark.jpg')} resizeMode="cover" style={styles.body}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.image}>
-          <Text style={styles.h1}>GymBot AI</Text>
+          <ScreenHeader text="GymBot AI" />
           <Chat />
         </View>
       </TouchableWithoutFeedback>
