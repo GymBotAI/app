@@ -26,6 +26,7 @@ export default function ChatInput({
       }}
     >
       <TextInput
+        blurOnSubmit={false}
         placeholder={placeholder || "Talk to GymBot AI!"}
         multiline={typeof multiline == "boolean" ? multiline : false}
         inputMode="text"
