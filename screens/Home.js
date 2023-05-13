@@ -37,6 +37,7 @@ export default function HomeScreen({ navigation }) {
         <ScreenHeader text="GymBot AI" />
         <Chat />
       </View>
+      <StatusBar style="auto" />
     </ImageBackground>
   );
 }
