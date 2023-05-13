@@ -44,6 +44,7 @@ export default function ChatInput({
         multiline={typeof multiline == "boolean" ? multiline : false}
         inputMode="text"
         returnKeyType={returnKeyType || "send"}
+        numberOfLines={4}
         style={{
           borderWidth: 2,
           borderColor: "#ACB3BF",
@@ -55,6 +56,7 @@ export default function ChatInput({
           fontFamily: font,
           fontSize: fontSize,
           flexGrow: 1,
+          maxHeight: 100,
         }}
         value={text}
         onChange={(e) => setText(e.nativeEvent.text)}
