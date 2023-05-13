@@ -7,3 +7,4 @@ To do List:
 - [ ] Premade prompts to place at the top of ChatMessages (Like suggestions for what they should ask)
 - [ ] Make the Chat a scrollbox
 - [ ] Make aesthetic changes
+- [ ] Make it so that when the keyboard raises the bottom padding decreases (look at WhatsApp for example)
