@@ -31,7 +31,7 @@ export default StyleSheet.create({
   input: {
     width: "100%",
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: '#ACB3BF',
     borderRadius: 10,
     color: "black",
     backgroundColor: 'white',
@@ -45,9 +45,15 @@ export default StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: "100%",
+    backgroundColor: 'white',
+    paddingTop: 10,
+    paddingBottom: 20,
+    paddingRight: 10,
+    paddingLeft: 10
   },
   ChatMessages: {
-    padding: 10,
+    padding: 20,
+    paddingBottom: 15,
     display: "flex",
     flex: 1,
     gap: 10,
@@ -71,7 +77,7 @@ export default StyleSheet.create({
     width: "100%",
   },
   Chat: {
-    padding: 24,
+    // padding: 24,
     flex: 1,
     justifyContent: "space-around",
   },
