@@ -5,7 +5,6 @@ import * as Device from "expo-device";
 import ChatMessages from "./ChatMessages";
 import ChatInput from "./ChatInput";
 
-import styles from "../styles";
 import { askGymBotAI } from "../api";
 
 export default function Chat() {
@@ -13,12 +12,30 @@ export default function Chat() {
   return (
     <KeyboardAvoidingView
       behavior={Device.osName == "Android" ? "height" : "padding"}
-      style={styles.container}
+      style={{
+        flex: 1,
+        width: "100%",
+      }}
     >
-      <View style={styles.Chat}>
+      <View
+        style={{
+          // padding: 24,
+          flex: 1,
+          justifyContent: "space-around",
+        }}
+      >
         <ChatMessages messages={messages} />
         <ChatInput
-          style={styles.ChatInput}
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            width: "100%",
+            backgroundColor: "white",
+            paddingTop: 10,
+            paddingBottom: 20,
+            paddingRight: 10,
+            paddingLeft: 10,
+          }}
           onSubmit={(text) => askGymBotAI("user", text, messages, setMessages)}
         />
       </View>

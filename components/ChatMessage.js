@@ -1,6 +1,6 @@
 import { View, Text, Image } from "react-native";
 
-import styles from "../styles";
+import { borderDefault, white, fontSize, font } from "../styles";
 
 const roleIcons = {
   assistant: require("../assets/icon.jpg"),
@@ -9,9 +9,26 @@ const roleIcons = {
 
 export default function ChatMessage({ message, key }) {
   return (
-    <View style={styles.ChatMessage} key={key}>
-      <Image style={styles.ChatMessageIcon} source={roleIcons[message.role]} />
-      <Text style={styles.ChatMessageText}>{message.content}</Text>
+    <View key={key}>
+      <Image
+        style={{
+          width: 32,
+          height: 32,
+          borderRadius: 15,
+          borderColor: borderDefault,
+          borderWidth: 1,
+        }}
+        source={roleIcons[message.role]}
+      />
+      <Text
+        style={{
+          color: white,
+          fontSize: fontSize,
+          fontFamily: font,
+        }}
+      >
+        {message.content}
+      </Text>
     </View>
   );
 }

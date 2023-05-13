@@ -12,17 +12,29 @@ import {
 import Chat from "../components/Chat";
 import ScreenHeader from "../components/ScreenHeader";
 
-import styles from "../styles";
+import { bgPrimary } from "../styles";
 
 export default function HomeScreen({ navigation }) {
   return (
     <ImageBackground
       source={require("../assets/gymbgdark.jpg")}
       resizeMode="cover"
-      style={styles.body}
+      style={{
+        backgroundColor: bgPrimary,
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+      }}
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <View style={styles.image}>
+        <View
+          style={{
+            height: "100%",
+            width: "100%",
+          }}
+        >
           <ScreenHeader text="GymBot AI" />
           <Chat />
         </View>

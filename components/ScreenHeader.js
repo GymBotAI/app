@@ -1,7 +1,22 @@
 import { Text } from "react-native";
 
-import styles from "../styles";
-
 export default function ScreenHeader({ text }) {
-  return <Text style={styles.h1}>{text}</Text>;
+  return (
+    <Text
+      style={{
+        fontSize: 32,
+        paddingTop: 40,
+        paddingBottom: 5,
+        color: "black",
+        fontFamily: "Impact",
+        letterSpacing: 0.5,
+        backgroundColor: "white",
+        width: "100%",
+        justifyContent: "center",
+        textAlign: "center",
+      }}
+    >
+      {text}
+    </Text>
+  );
 }
