@@ -58,7 +58,6 @@ export default StyleSheet.create({
     flex: 1,
     gap: 10,
     flexGrow: "1",
-    justifyContent: "flex-end",
   },
   ChatMessageText: {
     color: white,
