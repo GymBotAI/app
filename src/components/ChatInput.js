@@ -19,7 +19,7 @@ export default function ChatInput({
 
     setText("");
 
-    onSubmit(text);
+    onSubmit(text.trim());
   };
 
   return (
