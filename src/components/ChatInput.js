@@ -30,7 +30,7 @@ export default function ChatInput({
         width: "100%",
         backgroundColor: "white",
         paddingTop: 10,
-        paddingBottom: 20,
+        paddingBottom: 25,
         paddingRight: 10,
         paddingLeft: 10,
         gap: 5,
@@ -40,7 +40,6 @@ export default function ChatInput({
     >
       <TextInput
         blurOnSubmit={false}
-        placeholder={placeholder || "Talk to GymBot AI!"}
         multiline={typeof multiline == "boolean" ? multiline : false}
         inputMode="text"
         returnKeyType={returnKeyType || "send"}
@@ -57,6 +56,7 @@ export default function ChatInput({
           fontSize: fontSize,
           flexGrow: 1,
           maxHeight: 100,
+          height: 40,
         }}
         value={text}
         onChange={(e) => setText(e.nativeEvent.text)}
