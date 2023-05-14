@@ -55,6 +55,7 @@ export default function ChatInput({
           fontFamily: font,
           fontSize: fontSize,
           flexGrow: 1,
+          flexBasis: 0,
           maxHeight: 100,
           height: 40,
         }}
