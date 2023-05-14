@@ -21,6 +21,7 @@ export async function askGymBotAI(role, message, messages, setMessages) {
     }),
     headers: {
       "X-Requested-With": "GymBotAI-App",
+      "Cache-Control": "no-store",
     },
   });
 
