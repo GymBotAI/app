@@ -57,7 +57,6 @@ export default function ChatInput({
           flexGrow: 1,
           flexBasis: 0,
           maxHeight: 100,
-          height: 40,
         }}
         value={text}
         onChange={(e) => setText(e.nativeEvent.text)}
