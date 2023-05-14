@@ -2,11 +2,11 @@ import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Chat from "./components/Chat";
+import Chat from "./src/components/Chat";
 
-import styles from "./styles";
+import styles from "./src/styles";
 
-import HomeScreen from "./screens/Home";
+import HomeScreen from "./src/screens/Home";
 
 const Stack = createNativeStackNavigator();
 

@@ -17,7 +17,7 @@ import { bgPrimary } from "../styles";
 export default function HomeScreen({ navigation }) {
   return (
     <ImageBackground
-      source={require("../assets/gymbgdark.jpg")}
+      source={require("../../assets/gymbgdark.jpg")}
       resizeMode="cover"
       style={{
         backgroundColor: bgPrimary,

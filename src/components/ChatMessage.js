@@ -3,8 +3,8 @@ import { View, Text, Image } from "react-native";
 import { borderDefault, white, fontSize, font } from "../styles";
 
 const roleIcons = {
-  assistant: require("../assets/icon.jpg"),
-  user: require("../assets/user.png"),
+  assistant: require("../../assets/icon.jpg"),
+  user: require("../../assets/user.png"),
 };
 
 export default function ChatMessage({ message, key }) {
