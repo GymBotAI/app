@@ -5,18 +5,20 @@ const secret = [53, 54, 99, 104, 97]
   .join("");
 
 export async function askGymBotAI(role, message, messages, setMessages) {
-  setMessages((messages) => [
+  const realMessages = [
     ...messages,
     {
       role,
       content: message,
     },
-  ]);
+  ];
+
+  setMessages(() => realMessages);
 
   const resp = await fetch(`${serverUrl}/chat`, {
     method: "POST",
     body: JSON.stringify({
-      messages,
+      messages: realMessages,
       secret,
     }),
     headers: {
