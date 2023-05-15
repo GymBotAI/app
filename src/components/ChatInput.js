@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TextInput, View, Button } from "react-native";
+import { TextInput, View, TouchableOpacity, Image } from "react-native";
 
 import { font, fontSize } from "../styles";
 
@@ -62,13 +62,25 @@ export default function ChatInput({
         onChange={(e) => setText(e.nativeEvent.text)}
         onSubmitEditing={_onSubmit}
       />
-      <Button
-        title="Send"
+      
+      <TouchableOpacity
+      style={{
+        padding: 10,
+        borderRadius: 5,
+        alignItems: "center",
+        paddingBottom: 12,
+      }}
+      onPress={_onSubmit}
+    >
+      <Image
+        source={require("../../assets/send.png")}
         style={{
-          backgroundColor: "blue",
+          width: 25,
+          height: 25,
         }}
-        onPress={_onSubmit}
       />
+    </TouchableOpacity>
+    
     </View>
   );
 }
