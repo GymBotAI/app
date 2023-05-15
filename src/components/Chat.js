@@ -4,6 +4,7 @@ import * as Device from "expo-device";
 
 import ChatMessages from "./ChatMessages";
 import ChatInput from "./ChatInput";
+import Prompts from "./Prompts";
 
 import { askGymBotAI } from "../api";
 
@@ -25,6 +26,7 @@ export default function Chat() {
           height: "100%",
         }}
       >
+        <Prompts />
         <ChatMessages messages={messages} />
         <ChatInput
           style={{
