@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, View, TouchableOpacity } from "react-native";
 
 const styles = {
     
@@ -15,7 +15,12 @@ const styles = {
     flexGrow: 1
 }
 
-export default function Prompts({}) {
+export default function Prompts({onPromptSelection}) {
+
+    const pressHandler = (text) => {
+        onPromptSelection(text);
+    }
+
   return (
     <>
         <Text
@@ -42,22 +47,35 @@ export default function Prompts({}) {
             width: '100%',
             padding: 10,
         }}>
-            <Text
-            style={styles}
+            <TouchableOpacity
+            key='prompt1'
+            onPress={() => pressHandler("Give me a chest workout")}
             >
-            "Give me a chest a workout!"
-            </Text>
+                <Text
+                style={styles}
+                >
+                "Give me a chest a workout!"
+                </Text>
+            </TouchableOpacity>
 
-            <Text
-            style={styles}
+            <TouchableOpacity
+            key='prompt2'
+            onPress={() => pressHandler("How can I strengthen my knee to prevent injury?")}
             >
-            "How can I strengthen my knee to prevent injury?"
-            </Text>
-            <Text
-            style={styles}
-            >
-            "What are the health benefits of cardio?"
-            </Text>
+                <Text
+                style={styles}
+                >
+                "How can I strengthen my knee to prevent injury?"
+                </Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity key='prompt3'>
+                <Text
+                style={styles}
+                >
+                "What are the health benefits of cardio?"
+                </Text>
+            </TouchableOpacity>
 
 
         </View>

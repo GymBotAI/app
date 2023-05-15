@@ -4,7 +4,7 @@ import { TextInput, View, TouchableOpacity, Image } from "react-native";
 import { font, fontSize } from "../styles";
 
 export default function ChatInput({
-  placeholder,
+  suggestedPrompt,
   returnKeyType,
   value,
   multiline,
