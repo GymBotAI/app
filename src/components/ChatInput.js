@@ -9,6 +9,7 @@ export default function ChatInput({
   value,
   multiline,
   onSubmit,
+  onDeletePrompts
 }) {
   const [text, setText] = useState(value);
 
@@ -16,6 +17,8 @@ export default function ChatInput({
     if (!text) {
       return;
     }
+    
+    onDeletePrompts(); // Call the callback function from props to delete prompts
 
     setText("");
 

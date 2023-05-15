@@ -10,6 +10,11 @@ import { askGymBotAI } from "../api";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
+  const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
+  
+  const handlePromptPress = () => {
+    setShowPrompts(false) //Sets show prompts to false
+  }
 
   return (
     <KeyboardAvoidingView
@@ -26,7 +31,7 @@ export default function Chat() {
           height: "100%",
         }}
       >
-        <Prompts />
+        {showPrompts && <Prompts />}
         <ChatMessages messages={messages} />
         <ChatInput
           style={{
@@ -42,6 +47,7 @@ export default function Chat() {
           onSubmit={(text) => {
             askGymBotAI("user", text, messages, setMessages);
           }}
+          onDeletePrompts={handlePromptPress} // Pass the callback function to ChatInput
           multiline
         />
       </View>
