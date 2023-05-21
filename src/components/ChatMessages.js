@@ -1,6 +1,6 @@
 import { Keyboard, View, ScrollView } from "react-native";
-import { useRef, useEffect  } from "react";
-import * as Device from 'expo-device';
+import { useRef, useEffect } from "react";
+import * as Device from "expo-device";
 
 import ChatMessage from "./ChatMessage";
 
@@ -8,9 +8,12 @@ export default function ChatMessages({ messages }) {
   const scrollRef = useRef();
 
   useEffect(() => {
-    const listener = Keyboard.addListener(Device.osName == "Android"? 'keyboardDidShow' : 'keyboardWillShow', () => {
-      scrollRef.current?.scrollToEnd({ animated: true });
-    });
+    const listener = Keyboard.addListener(
+      Device.osName == "Android" ? "keyboardDidShow" : "keyboardWillShow",
+      () => {
+        scrollRef.current?.scrollToEnd({ animated: true });
+      }
+    );
 
     return listener.remove;
   }, []);

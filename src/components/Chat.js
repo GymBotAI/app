@@ -11,18 +11,16 @@ import { askGymBotAI } from "../api";
 export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
-  let selectedPrompt = '';
-
+  let selectedPrompt = "";
 
   const handlePromptSelection = (text) => {
-
-    selectedPrompt = text
-    console.log(selectedPrompt)
+    selectedPrompt = text;
+    console.log(selectedPrompt);
   };
-  
+
   const handlePromptPress = () => {
-    setShowPrompts(false) //Sets show prompts to false
-  }
+    setShowPrompts(false); //Sets show prompts to false
+  };
 
   return (
     <KeyboardAvoidingView
@@ -39,10 +37,7 @@ export default function Chat() {
           height: "100%",
         }}
       >
-
-        {showPrompts && <Prompts
-        onPromptSelection={handlePromptSelection}
-        />}
+        {showPrompts && <Prompts onPromptSelection={handlePromptSelection} />}
 
         <ChatMessages messages={messages} />
         <ChatInput

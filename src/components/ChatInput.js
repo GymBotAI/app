@@ -9,7 +9,7 @@ export default function ChatInput({
   value,
   multiline,
   onSubmit,
-  onDeletePrompts
+  onDeletePrompts,
 }) {
   const [text, setText] = useState(value);
 
@@ -17,7 +17,7 @@ export default function ChatInput({
     if (!text) {
       return;
     }
-    
+
     onDeletePrompts(); // Call the callback function from props to delete prompts
 
     setText("");
@@ -65,25 +65,24 @@ export default function ChatInput({
         onChange={(e) => setText(e.nativeEvent.text)}
         onSubmitEditing={_onSubmit}
       />
-      
+
       <TouchableOpacity
-      style={{
-        padding: 10,
-        borderRadius: 5,
-        alignItems: "center",
-        paddingBottom: 12,
-      }}
-      onPress={_onSubmit}
-    >
-      <Image
-        source={require("../../assets/send.png")}
         style={{
-          width: 25,
-          height: 25,
+          padding: 10,
+          borderRadius: 5,
+          alignItems: "center",
+          paddingBottom: 12,
         }}
-      />
-    </TouchableOpacity>
-    
+        onPress={_onSubmit}
+      >
+        <Image
+          source={require("../../assets/send.png")}
+          style={{
+            width: 25,
+            height: 25,
+          }}
+        />
+      </TouchableOpacity>
     </View>
   );
 }
