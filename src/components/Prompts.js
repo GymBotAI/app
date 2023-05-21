@@ -15,10 +15,6 @@ const styles = {
 };
 
 export default function Prompts({ onPromptSelection }) {
-  const pressHandler = (text) => {
-    onPromptSelection(text);
-  };
-
   return (
     <>
       <Text
@@ -49,7 +45,7 @@ export default function Prompts({ onPromptSelection }) {
       >
         <TouchableOpacity
           key="prompt1"
-          onPress={() => pressHandler("Give me a chest workout")}
+          onPress={() => onPromptSelection("Give me a chest workout")}
         >
           <Text style={styles}>"Give me a chest a workout!"</Text>
         </TouchableOpacity>
@@ -57,7 +53,7 @@ export default function Prompts({ onPromptSelection }) {
         <TouchableOpacity
           key="prompt2"
           onPress={() =>
-            pressHandler("How can I strengthen my knee to prevent injury?")
+            onPromptSelection("How can I strengthen my knee to prevent injury?")
           }
         >
           <Text style={styles}>
@@ -65,7 +61,10 @@ export default function Prompts({ onPromptSelection }) {
           </Text>
         </TouchableOpacity>
 
-        <TouchableOpacity key="prompt3">
+        <TouchableOpacity
+          key="prompt3"
+          onPress={() => onPromptSelection("prompt3")}
+        >
           <Text style={styles}>"What are the health benefits of cardio?"</Text>
         </TouchableOpacity>
       </View>
