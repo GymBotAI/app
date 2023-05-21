@@ -12,7 +12,7 @@ export default function ChatInput({
 }) {
   const [text, setText] = useState(value);
 
-  if (setValueRef) {
+  if (typeof setValueRef?.current == "object") {
     setValueRef.current.setText = setText;
   }
 

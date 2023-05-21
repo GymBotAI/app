@@ -29,7 +29,14 @@ export default function Chat() {
         }}
       >
         {text ? null : (
-          <Prompts onPromptSelection={chatInputRef.current.setText} />
+          <Prompts
+            onPromptSelection={chatInputRef.current?.setText || null}
+            prompts={[
+              "Give me a chest a workout!",
+              "How can I strengthen my knee to prevent injury?",
+              "What are the health benefits of cardio?",
+            ]}
+          />
         )}
 
         <ChatMessages messages={messages} />

@@ -14,7 +14,7 @@ const styles = {
   flexGrow: 1,
 };
 
-export default function Prompts({ onPromptSelection }) {
+export default function Prompts({ onPromptSelection, prompts }) {
   return (
     <>
       <Text
@@ -43,30 +43,18 @@ export default function Prompts({ onPromptSelection }) {
           padding: 10,
         }}
       >
-        <TouchableOpacity
-          key="prompt1"
-          onPress={() => onPromptSelection("Give me a chest workout")}
-        >
-          <Text style={styles}>"Give me a chest a workout!"</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          key="prompt2"
-          onPress={() =>
-            onPromptSelection("How can I strengthen my knee to prevent injury?")
-          }
-        >
-          <Text style={styles}>
-            "How can I strengthen my knee to prevent injury?"
-          </Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          key="prompt3"
-          onPress={() => onPromptSelection("prompt3")}
-        >
-          <Text style={styles}>"What are the health benefits of cardio?"</Text>
-        </TouchableOpacity>
+        {prompts.map((prompt, i) => (
+          <TouchableOpacity
+            key={i}
+            onPress={() => {
+              if (onPromptSelection) {
+                onPromptSelection(prompt);
+              }
+            }}
+          >
+            <Text style={styles}>{prompt}</Text>
+          </TouchableOpacity>
+        ))}
       </View>
     </>
   );
