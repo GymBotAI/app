@@ -4,21 +4,22 @@ import { TextInput, View, TouchableOpacity, Image } from "react-native";
 import { font, fontSize } from "../styles";
 
 export default function ChatInput({
-  suggestedPrompt,
   returnKeyType,
   value,
   multiline,
   onSubmit,
-  onDeletePrompts,
+  setValueRef,
 }) {
   const [text, setText] = useState(value);
+
+  if (setValueRef) {
+    setValueRef.current.setText = setText;
+  }
 
   const _onSubmit = (e) => {
     if (!text) {
       return;
     }
-
-    onDeletePrompts(); // Call the callback function from props to delete prompts
 
     setText("");
 

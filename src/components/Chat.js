@@ -1,5 +1,5 @@
 import { View, KeyboardAvoidingView } from "react-native";
-import { useState, useEffect } from "react";
+import { useState, useRef } from "react";
 import * as Device from "expo-device";
 
 import ChatMessages from "./ChatMessages";
@@ -10,17 +10,8 @@ import { askGymBotAI } from "../api";
 
 export default function Chat() {
   const [messages, setMessages] = useState([]);
-  const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
-  let selectedPrompt = "";
-
-  const handlePromptSelection = (text) => {
-    selectedPrompt = text;
-    console.log(selectedPrompt);
-  };
-
-  const handlePromptPress = () => {
-    setShowPrompts(false); //Sets show prompts to false
-  };
+  const [text, setText] = useState("");
+  const chatInputRef = useRef({});
 
   return (
     <KeyboardAvoidingView
@@ -37,7 +28,9 @@ export default function Chat() {
           height: "100%",
         }}
       >
-        {showPrompts && <Prompts onPromptSelection={handlePromptSelection} />}
+        {text ? null : (
+          <Prompts onPromptSelection={chatInputRef.current.setText} />
+        )}
 
         <ChatMessages messages={messages} />
         <ChatInput
@@ -54,8 +47,7 @@ export default function Chat() {
           onSubmit={(text) => {
             askGymBotAI("user", text, messages, setMessages);
           }}
-          onDeletePrompts={handlePromptPress} // Pass the callback function to ChatInput
-          suggestedPrompt={selectedPrompt}
+          setValueRef={chatInputRef}
           multiline
         />
       </View>
