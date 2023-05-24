@@ -39,7 +39,7 @@ export default function Chat() {
                 chatInputRef.current?.setText?.(prompt);
               }}
               prompts={[
-                "Give me a chest a workout!",
+                "Give me a chest workout!",
                 "How can I strengthen my knee to prevent injury?",
                 "What are the health benefits of cardio?",
               ]}
