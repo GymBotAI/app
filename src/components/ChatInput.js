@@ -9,6 +9,7 @@ export default function ChatInput({
   multiline,
   onSubmit,
   setValueRef,
+  onDeletePrompts,
 }) {
   const [text, setText] = useState(value);
 
@@ -21,6 +22,7 @@ export default function ChatInput({
       return;
     }
 
+    onDeletePrompts();
     setText("");
 
     onSubmit(text.trim());

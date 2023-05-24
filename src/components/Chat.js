@@ -12,6 +12,12 @@ export default function Chat() {
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
   const chatInputRef = useRef({});
+  const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
+
+  const handlePromptPress = () => {
+    setShowPrompts(false) //Sets show prompts to false
+  }
+  
 
   return (
     <KeyboardAvoidingView
@@ -28,18 +34,17 @@ export default function Chat() {
           height: "100%",
         }}
       >
-        {text ? null : (
-          <Prompts
-            onPromptSelection={(prompt) => {
-              chatInputRef.current?.setText?.(prompt);
-            }}
-            prompts={[
-              "Give me a chest a workout!",
-              "How can I strengthen my knee to prevent injury?",
-              "What are the health benefits of cardio?",
-            ]}
-          />
-        )}
+        {showPrompts && <Prompts
+              onPromptSelection={(prompt) => {
+                chatInputRef.current?.setText?.(prompt);
+              }}
+              prompts={[
+                "Give me a chest a workout!",
+                "How can I strengthen my knee to prevent injury?",
+                "What are the health benefits of cardio?",
+              ]}
+            />
+          }
 
         <ChatMessages messages={messages} />
         <ChatInput
@@ -57,6 +62,7 @@ export default function Chat() {
             askGymBotAI("user", text, messages, setMessages);
           }}
           setValueRef={chatInputRef}
+          onDeletePrompts={handlePromptPress} // Pass the callback function to ChatInput
           multiline
         />
       </View>
