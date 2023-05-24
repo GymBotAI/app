@@ -3,10 +3,7 @@ import {
   Text,
   SafeAreaView,
   ImageBackground,
-  Image,
   View,
-  TouchableWithoutFeedback,
-  Keyboard,
 } from "react-native";
 
 import Chat from "../components/Chat";
