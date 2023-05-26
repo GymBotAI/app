@@ -30,7 +30,7 @@ export default function ChatMessages({ messages }) {
         height: "100%",
       }}
     >
-      <View
+      <View key = '1'
         style={{
           padding: 20,
           paddingBottom: 15,
@@ -41,9 +41,11 @@ export default function ChatMessages({ messages }) {
           flexDirection: 'column',
         }}
       >
-        {messages?.length
-          ? messages.map((message, i) => ChatMessage({ message, key: i }))
-          : null}
+      
+      {messages?.length
+  ? messages.map((message, i) => <ChatMessage key={i} message={message} />)
+  : null}
+
       </View>
     </ScrollView>
   );

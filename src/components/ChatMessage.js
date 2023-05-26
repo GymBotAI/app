@@ -26,21 +26,6 @@ export default function ChatMessage({ message }) {
       }}
     >
 
-
-      {/* {message.role === "user" && (
-        <Image
-          style={{
-            width: 32,
-            height: 32,
-            borderRadius: 15,
-            borderColor: borderDefault,
-            borderWidth: 1,
-            marginRight: 10, // Add margin only for user messages
-          }}
-          source={roleIcons[message.role]}
-        />
-      )} */}
-
       {message.role === "assistant" && (
         <Image
           style={{
@@ -49,6 +34,7 @@ export default function ChatMessage({ message }) {
             borderRadius: 15,
             borderColor: borderDefault,
             borderWidth: 1,
+            marginTop: 'auto',
             marginLeft: -10, // Add margin only for assistant messages
             marginRight: 5,
           }}
