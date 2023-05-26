@@ -1,7 +1,5 @@
 import { StatusBar } from "expo-status-bar";
 import {
-  Text,
-  SafeAreaView,
   ImageBackground,
   View,
 } from "react-native";
@@ -31,7 +29,7 @@ export default function HomeScreen({ navigation }) {
           width: "100%",
         }}
       >
-        <ScreenHeader text="GymBot AI" />
+        <ScreenHeader text="GYMBOT" />
         <Chat />
       </View>
       <StatusBar style="auto" />
