@@ -7,28 +7,74 @@ const roleIcons = {
   user: require("../../assets/user.png"),
 };
 
-export default function ChatMessage({ message, key }) {
+const roleAlign = {
+  assistant: 'flex-start',
+  user: 'flex-end',
+};
+
+export default function ChatMessage({ message }) {
+  const side = roleAlign[message.role];
+
   return (
-    <View key={key}>
-      <Image
+    <View
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "center",
+        alignSelf: side, // Align the message to the specified side
+        marginBottom: 10,
+      }}
+    >
+
+
+      {message.role === "user" && (
+        <Image
+          style={{
+            width: 32,
+            height: 32,
+            borderRadius: 15,
+            borderColor: borderDefault,
+            borderWidth: 1,
+            marginRight: 10, // Add margin only for user messages
+          }}
+          source={roleIcons[message.role]}
+        />
+      )}
+      <View
         style={{
-          width: 32,
-          height: 32,
-          borderRadius: 15,
-          borderColor: borderDefault,
-          borderWidth: 1,
-        }}
-        source={roleIcons[message.role]}
-      />
-      <Text
-        style={{
-          color: white,
-          fontSize: fontSize,
-          fontFamily: font,
+          backgroundColor: message.role === "user" ? "#0084ff" : "#888",
+          borderRadius: 10,
+          paddingHorizontal: 10,
+          paddingVertical: 6,
+          maxWidth: "80%", // Limit the message width
         }}
       >
-        {message.content}
-      </Text>
+        <Text
+          style={{
+            textAlign: "left",
+            color: white,
+            fontSize: fontSize,
+            fontFamily: font,
+          }}
+        >
+          {message.content}
+        </Text>
+      </View>
+
+
+      {message.role === "assistant" && (
+        <Image
+          style={{
+            width: 32,
+            height: 32,
+            borderRadius: 15,
+            borderColor: borderDefault,
+            borderWidth: 1,
+            marginLeft: 10, // Add margin only for assistant messages
+          }}
+          source={roleIcons[message.role]}
+        />
+      )}
     </View>
   );
 }

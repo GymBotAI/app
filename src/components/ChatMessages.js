@@ -34,11 +34,11 @@ export default function ChatMessages({ messages }) {
         style={{
           padding: 20,
           paddingBottom: 15,
-          display: "flex",
           flex: 1,
           gap: 20,
-          flexGrow: "1",
           height: "100%",
+          display: 'flex',
+          flexDirection: 'column',
         }}
       >
         {messages?.length
