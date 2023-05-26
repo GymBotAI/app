@@ -27,7 +27,7 @@ export default function ChatMessage({ message }) {
     >
 
 
-      {message.role === "user" && (
+      {/* {message.role === "user" && (
         <Image
           style={{
             width: 32,
@@ -39,6 +39,21 @@ export default function ChatMessage({ message }) {
           }}
           source={roleIcons[message.role]}
         />
+      )} */}
+
+      {message.role === "assistant" && (
+        <Image
+          style={{
+            width: 28,
+            height: 28,
+            borderRadius: 15,
+            borderColor: borderDefault,
+            borderWidth: 1,
+            marginLeft: -10, // Add margin only for assistant messages
+            marginRight: 5,
+          }}
+          source={roleIcons[message.role]}
+        />
       )}
       <View
         style={{
@@ -46,9 +61,10 @@ export default function ChatMessage({ message }) {
           borderRadius: 10,
           paddingHorizontal: 10,
           paddingVertical: 6,
-          maxWidth: "80%", // Limit the message width
+          maxWidth: "72%", // Limit the message width
         }}
       >
+      
         <Text
           style={{
             textAlign: "left",
@@ -62,19 +78,6 @@ export default function ChatMessage({ message }) {
       </View>
 
 
-      {message.role === "assistant" && (
-        <Image
-          style={{
-            width: 32,
-            height: 32,
-            borderRadius: 15,
-            borderColor: borderDefault,
-            borderWidth: 1,
-            marginLeft: 10, // Add margin only for assistant messages
-          }}
-          source={roleIcons[message.role]}
-        />
-      )}
     </View>
   );
 }
