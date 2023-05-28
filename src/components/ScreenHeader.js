@@ -23,22 +23,24 @@ export default function ScreenHeader({ text }) {
 
   return (
     <View
-    style={{
-          paddingTop: 40,
-          paddingBottom: 5,
-          backgroundColor: "white",
-          width: "100%",
-          display: 'flex',
-          flexDirection: 'row',
-          
-        }}>
-      
+      style={{
+        paddingTop: 40,
+        paddingBottom: 5,
+        backgroundColor: "white",
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        position: "relative",
+      }}
+    >
       <TouchableOpacity
         style={{
           padding: 10,
           borderRadius: 5,
           alignItems: "center",
           paddingBottom: 12,
+          position: "absolute",
+          bottom: 0,
         }}
       >
         <Image
@@ -62,7 +64,6 @@ export default function ScreenHeader({ text }) {
       >
         {text}
       </Text>
-
     </View>
   );
 }
