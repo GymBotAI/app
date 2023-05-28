@@ -44,24 +44,6 @@ export function useGymBotAI(initialMessages = []) {
     setHasAuthed(true);
   }
 
-  // ws.onmessage = (e) => {
-  //   if (e.data == streamEndToken) {
-  //     isStreaming = false;
-  //     return;
-  //   }
-
-  //   setMessages((a) => {
-  //     const previousData = isStreaming ? a.pop().content : '';
-
-  //     isStreaming = true;
-
-  //     return [...a, {
-  //       role: 'assistant',
-  //       content: previousData + e.data
-  //     }];
-  //   });
-  // };
-
   const _sendMessage = (msg) => {
     setMessages((a) => [
       ...a,
