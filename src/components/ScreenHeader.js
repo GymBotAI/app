@@ -1,8 +1,6 @@
 import { Text } from "react-native";
-import * as Font from 'expo-font';
-import React, { useState, useEffect } from 'react';
-
-
+import * as Font from "expo-font";
+import React, { useState, useEffect } from "react";
 
 export default function ScreenHeader({ text }) {
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -10,18 +8,18 @@ export default function ScreenHeader({ text }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-      'custom-font': require('../../assets/fonts/impwrench.ttf'),
-    });
-    
+        "custom-font": require("../../assets/fonts/impwrench.ttf"),
+      });
+
       setFontLoaded(true);
     }
-    
+
     loadFont();
-    }, []);
-    
-    if (!fontLoaded) {
+  }, []);
+
+  if (!fontLoaded) {
     return <Text>Loading...</Text>;
-    }
+  }
 
   return (
     <Text

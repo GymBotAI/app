@@ -1,45 +1,78 @@
-const serverUrl = "https://gymbot-ai-server.luisafk.repl.co";
+import { useState, useEffect } from "react";
+import useWebSocket from "react-use-websocket";
+
+const serverHost = "gymbot-ai-server.luisafk.repl.co";
+const streamEndToken = "[DONE]";
 
 const secret = [53, 54, 99, 104, 97]
   .map((c) => String.fromCharCode(c))
   .join("");
 
-export async function askGymBotAI(role, message, messages, setMessages) {
-  const realMessages = [
-    ...messages,
-    {
-      role,
-      content: message,
-    },
-  ];
+export function useGymBotAI(initialMessages = []) {
+  const [messages, setMessages] = useState(initialMessages);
+  const { sendMessage, lastMessage, readyState } = useWebSocket(
+    `wss://${serverHost}/chat`
+  );
+  const [hasAuthed, setHasAuthed] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
 
-  setMessages(() => realMessages);
+  useEffect(() => {
+    if (lastMessage != null) {
+      if (lastMessage.data == streamEndToken) {
+        setIsStreaming(false);
+        return;
+      }
 
-  const resp = await fetch(`${serverUrl}/chat`, {
-    method: "POST",
-    body: JSON.stringify({
-      messages: realMessages,
-      secret,
-    }),
-    headers: {
-      "X-Requested-With": "GymBotAI-App",
-      "Cache-Control": "no-store",
-    },
-  });
+      setMessages((a) => {
+        const previousData = isStreaming ? a.pop().content : "";
 
-  if (!resp.ok) {
-    const text = await resp.text();
+        setIsStreaming(true);
 
-    throw new Error(text);
+        return [
+          ...a,
+          {
+            role: "assistant",
+            content: previousData + lastMessage.data,
+          },
+        ];
+      });
+    }
+  }, [lastMessage, setMessages]);
+
+  if (!hasAuthed) {
+    sendMessage(secret);
+    setHasAuthed(true);
   }
 
-  const data = await resp.json();
+  // ws.onmessage = (e) => {
+  //   if (e.data == streamEndToken) {
+  //     isStreaming = false;
+  //     return;
+  //   }
 
-  if (data.message) {
-    setMessages((messages) => [...messages, data.message]);
-  } else {
-    throw new Error("No message received in response");
-  }
+  //   setMessages((a) => {
+  //     const previousData = isStreaming ? a.pop().content : '';
 
-  return data;
+  //     isStreaming = true;
+
+  //     return [...a, {
+  //       role: 'assistant',
+  //       content: previousData + e.data
+  //     }];
+  //   });
+  // };
+
+  const _sendMessage = (msg) => {
+    setMessages((a) => [
+      ...a,
+      {
+        role: "user",
+        content: msg,
+      },
+    ]);
+
+    sendMessage(msg);
+  };
+
+  return [messages, _sendMessage];
 }

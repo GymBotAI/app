@@ -1,23 +1,26 @@
 import { View, KeyboardAvoidingView } from "react-native";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import * as Device from "expo-device";
 
 import ChatMessages from "./ChatMessages";
 import ChatInput from "./ChatInput";
 import Prompts from "./Prompts";
 
-import { askGymBotAI } from "../api";
+import { useGymBotAI } from "../api";
 
 export default function Chat() {
-  const [messages, setMessages] = useState([]);
   const [text, setText] = useState("");
   const chatInputRef = useRef({});
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
+  const [messages, sendMessage, closeWs] = useGymBotAI([]);
+
+  useEffect(() => {
+    return closeWs;
+  }, []);
 
   const handlePromptPress = () => {
-    setShowPrompts(false) //Sets show prompts to false
-  }
-  
+    setShowPrompts(false); //Sets show prompts to false
+  };
 
   return (
     <KeyboardAvoidingView
@@ -34,17 +37,18 @@ export default function Chat() {
           height: "100%",
         }}
       >
-        {showPrompts && <Prompts
-              onPromptSelection={(prompt) => {
-                chatInputRef.current?.setText?.(prompt);
-              }}
-              prompts={[
-                "Give me a chest workout!",
-                "How can I strengthen my knee to prevent injury?",
-                "What are the health benefits of cardio?",
-              ]}
-            />
-          }
+        {showPrompts && (
+          <Prompts
+            onPromptSelection={(prompt) => {
+              chatInputRef.current?.setText?.(prompt);
+            }}
+            prompts={[
+              "Give me a chest workout!",
+              "How can I strengthen my knee to prevent injury?",
+              "What are the health benefits of cardio?",
+            ]}
+          />
+        )}
 
         <ChatMessages messages={messages} />
         <ChatInput
@@ -59,7 +63,7 @@ export default function Chat() {
             paddingLeft: 10,
           }}
           onSubmit={(text) => {
-            askGymBotAI("user", text, messages, setMessages);
+            sendMessage(text);
           }}
           setValueRef={chatInputRef}
           onDeletePrompts={handlePromptPress} // Pass the callback function to ChatInput

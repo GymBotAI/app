@@ -1,8 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import {
-  ImageBackground,
-  View,
-} from "react-native";
+import { ImageBackground, View } from "react-native";
 
 import Chat from "../components/Chat";
 import ScreenHeader from "../components/ScreenHeader";

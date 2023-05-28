@@ -8,8 +8,8 @@ const roleIcons = {
 };
 
 const roleAlign = {
-  assistant: 'flex-start',
-  user: 'flex-end',
+  assistant: "flex-start",
+  user: "flex-end",
 };
 
 export default function ChatMessage({ message }) {
@@ -25,7 +25,6 @@ export default function ChatMessage({ message }) {
         marginBottom: 10,
       }}
     >
-
       {message.role === "assistant" && (
         <Image
           style={{
@@ -34,7 +33,7 @@ export default function ChatMessage({ message }) {
             borderRadius: 15,
             borderColor: borderDefault,
             borderWidth: 1,
-            marginTop: 'auto',
+            marginTop: "auto",
             marginLeft: -10, // Add margin only for assistant messages
             marginRight: 5,
           }}
@@ -50,7 +49,6 @@ export default function ChatMessage({ message }) {
           maxWidth: "72%", // Limit the message width
         }}
       >
-      
         <Text
           style={{
             textAlign: "left",
@@ -62,8 +60,6 @@ export default function ChatMessage({ message }) {
           {message.content}
         </Text>
       </View>
-
-
     </View>
   );
 }
