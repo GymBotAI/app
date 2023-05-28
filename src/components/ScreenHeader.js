@@ -31,6 +31,7 @@ export default function ScreenHeader({ text, onOpenNavbar }) {
         display: "flex",
         flexDirection: "row",
         position: "relative",
+        zIndex: 1,
       }}
     >
       <TouchableOpacity
