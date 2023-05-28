@@ -1,4 +1,4 @@
-import { Text } from "react-native";
+import { Text, View } from "react-native";
 import * as Font from "expo-font";
 import React, { useState, useEffect } from "react";
 
@@ -22,23 +22,26 @@ export default function ScreenHeader({ text }) {
   }
 
   return (
-    <Text
-      style={{
-        fontSize: 56,
-        paddingTop: 40,
-        paddingBottom: 5,
-        color: "black",
-        fontFamily: "custom-font",
-        // fontWeight: 'bold',
-        letterSpacing: 1.5,
-        backgroundColor: "white",
-        width: "100%",
-        justifyContent: "center",
-        textAlign: "center",
-        zIndex: 2,
-      }}
-    >
-      {text}
-    </Text>
+    <View
+    style={{
+          paddingTop: 40,
+          paddingBottom: 5,
+          backgroundColor: "white",
+          width: "100%",
+          zIndex: 2,
+        }}>
+      <Text
+        style={{
+          fontSize: 56,
+          color: "black",
+          fontFamily: "custom-font",
+          letterSpacing: 1.5,
+          textAlign: "center",
+          zIndex: 2,
+        }}
+      >
+        {text}
+      </Text>
+    </View>
   );
 }
