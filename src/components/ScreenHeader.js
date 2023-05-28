@@ -2,7 +2,7 @@ import { Image, TouchableOpacity, Text, View } from "react-native";
 import * as Font from "expo-font";
 import React, { useState, useEffect } from "react";
 
-export default function ScreenHeader({ text }) {
+export default function ScreenHeader({ text, onOpenNavbar }) {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -43,6 +43,7 @@ export default function ScreenHeader({ text }) {
           bottom: 0,
           zIndex: 2,
         }}
+        onPress={onOpenNavbar}
       >
         <Image
           source={require("../../assets/navbar.png")}

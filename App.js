@@ -6,8 +6,8 @@ import Chat from "./src/components/Chat";
 
 import styles from "./src/styles";
 
-import HomeScreen from "./src/screens/Home";
-import AccountScreen from "./src/screens/Account";
+import Home from "./src/screens/Home";
+import Account from "./src/screens/Account";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,12 +17,12 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={HomeScreen}
+          component={Home}
           options={{ headerShown: false }}
         />
         <Stack.Screen
           name="Account"
-          component={AccountScreen}
+          component={Account}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>
