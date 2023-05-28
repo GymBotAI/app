@@ -2,7 +2,7 @@
 
 The app for GymBot AI.
 
-# Usage
+## Usage
 
 Clone:
 
