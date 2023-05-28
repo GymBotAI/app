@@ -56,7 +56,8 @@ export default function ScreenHeader({ text }) {
           color: "black",
           fontFamily: "custom-font",
           letterSpacing: 1.5,
-          flexBasis: 'flexEnd',
+          flex: 1,
+          textAlign: "center",
         }}
       >
         {text}
