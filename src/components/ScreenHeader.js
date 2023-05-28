@@ -41,6 +41,7 @@ export default function ScreenHeader({ text }) {
           paddingBottom: 12,
           position: "absolute",
           bottom: 0,
+          zIndex: 2,
         }}
       >
         <Image
