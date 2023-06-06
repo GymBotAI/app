@@ -1,12 +1,15 @@
 import { StatusBar } from "expo-status-bar";
-import { ImageBackground, View, Text } from "react-native";
+import { Button, View, TextInput } from "react-native";
+import {useState} from "react";
 
-import Chat from "../components/Chat";
-import ScreenHeader from "../components/ScreenHeader";
+import LoginBox from "../components/LoginBox";
 
 import { bgPrimary } from "../styles";
 
 export default function AccountScreen({ navigation }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
   return (
     <View
       style={{
@@ -25,10 +28,8 @@ export default function AccountScreen({ navigation }) {
         }}
         >
 
-            <Text>
-
-            </Text>
-
+        <LoginBox></LoginBox>
+      
         </View>
 
         <StatusBar style="auto" />
