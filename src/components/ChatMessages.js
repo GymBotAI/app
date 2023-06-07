@@ -33,8 +33,8 @@ export default function ChatMessages({ messages }) {
       <View
         key="1"
         style={{
-          padding: 20,
-          paddingBottom: 15,
+          padding: 25,
+          paddingBottom: 25,
           flex: 1,
           gap: 20,
           height: "100%",

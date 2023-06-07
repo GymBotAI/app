@@ -57,10 +57,6 @@ export default function Chat() {
             alignItems: "center",
             width: "100%",
             backgroundColor: "white",
-            paddingTop: 10,
-            paddingBottom: 20,
-            paddingRight: 10,
-            paddingLeft: 10,
           }}
           onSubmit={(text) => {
             sendMessage(text);

@@ -22,7 +22,7 @@ export default function ChatMessage({ message }) {
         flexDirection: "row",
         alignItems: "center",
         alignSelf: side, // Align the message to the specified side
-        marginBottom: 10,
+        marginBottom: -8,
       }}
     >
       {message.role === "assistant" && (

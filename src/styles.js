@@ -5,6 +5,6 @@ const bgMenu = "#408589";
 const borderDefault = "#FFFFFF";
 const white = "#FFFFFF";
 const fontSize = 16;
-const font = "Georgia";
+const font = "Helvetica Neue";
 
 export { bgPrimary, bgMenu, borderDefault, white, fontSize, font };
