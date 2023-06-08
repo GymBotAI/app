@@ -1,6 +1,9 @@
 import { View, Text, Image } from "react-native";
+import * as Font from "expo-font";
 
 import { borderDefault, white, fontSize, font } from "../styles";
+
+import {useEffect, useState} from 'react'
 
 const roleIcons = {
   assistant: require("../../assets/icon.jpg"),
@@ -14,6 +17,23 @@ const roleAlign = {
 
 export default function ChatMessage({ message }) {
   const side = roleAlign[message.role];
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  useEffect(() => {
+    async function loadFont() {
+      await Font.loadAsync({
+        "roboto-regular": require("../../assets/fonts/Roboto-Regular.ttf"),
+      });
+
+      setFontLoaded(true);
+    }
+
+    loadFont();
+  }, []);
+
+  if (!fontLoaded) {
+    return <Text>Loading...</Text>;
+  }
 
   return (
     <View
@@ -54,7 +74,7 @@ export default function ChatMessage({ message }) {
             textAlign: "left",
             color: white,
             fontSize: fontSize,
-            fontFamily: font,
+            fontFamily: 'roboto-regular',
           }}
         >
           {message.content}
