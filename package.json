@@ -29,5 +29,11 @@
     "@babel/core": "^7.20.0",
     "prettier": "^2.8.8"
   },
+  "rnpm": {
+    "assets": [
+      "./fonts"
+    ]
+  },
   "private": true
+  
 }
