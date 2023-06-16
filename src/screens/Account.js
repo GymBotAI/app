@@ -9,35 +9,42 @@ export default function AccountScreen({ navigation }) {
   const [password, setPassword] = useState("");
 
   return (
-    <View style={{ flex: 1, backgroundColor: 'blue'}}>
+    <View style={{ flex: 1, backgroundColor: '#82ffbc' }}>
       <ImageBackground
         source={require("../../assets/accountbgdark.jpg")}
         resizeMode="cover"
         style={{
           width: "100%",
           height: "100%",
-          opacity: .9, // Adjust the opacity as per your preference
+          opacity: 0.8, // Adjust the opacity as per your preference
+        }}
+      >
+        <View style={{ flex: 1 }} />
+      </ImageBackground>
+
+      <View
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <View
           style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
+            width: "90%",
+            height: "32%",
+            // backgroundColor: "rgba(245, 245, 245, 1)",
+            borderRadius: 15,
           }}
         >
-          <View
-            style={{
-              width: "90%",
-              height: "32%",
-              backgroundColor: "rgba(245, 245, 245, 0.2)",
-              borderRadius: 15,
-            }}
-          >
-            <LoginBox />
-          </View>
+          <LoginBox />
         </View>
-      </ImageBackground>
+      </View>
+
       <StatusBar style="auto" />
     </View>
   );
