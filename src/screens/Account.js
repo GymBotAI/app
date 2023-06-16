@@ -20,11 +20,12 @@ export default function AccountScreen({ navigation }) {
     >
         <View
         style={{
-            width: '50%',
-            height: '20%',
-            alignSelf: 'center',
-            marginTop: '75%',
-            backgroundColor: '#F5F5F5',
+          width: '75%',
+          height: '32%',
+          alignSelf: 'center',
+          marginTop: 'auto',
+          marginBottom: 'auto',
+          backgroundColor: '#F5F5F5',
         }}
         >
 
