@@ -4,6 +4,7 @@ import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 import LoginBox from "../components/LoginBox";
+import LoginHeader from "../components/LoginHeader"
 
 export default function AccountScreen({ navigation }) {
   const [username, setUsername] = useState("");
@@ -25,6 +26,10 @@ export default function AccountScreen({ navigation }) {
       >
         <View style={{ flex: 1 }} />
       </ImageBackground>
+
+      <View style={{ position: "absolute", top: 40, left: 0, right: 0 }}>
+        <LoginHeader />
+      </View>
 
       <View
         style={{
