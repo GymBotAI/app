@@ -4,7 +4,7 @@ import { ImageBackground, View } from "react-native";
 import Chat from "../components/Chat";
 import ScreenHeader from "../components/ScreenHeader";
 
-import { bgPrimary } from "../styles";
+import { bgPrimary, white } from "../styles";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -12,7 +12,7 @@ export default function HomeScreen({ navigation }) {
       source={require("../../assets/gymbgdark.jpg")}
       resizeMode="cover"
       style={{
-        backgroundColor: bgPrimary,
+        backgroundColor: white,
         width: "100%",
         height: "100%",
         display: "flex",
