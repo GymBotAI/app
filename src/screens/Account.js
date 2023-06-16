@@ -16,7 +16,7 @@ export default function AccountScreen({ navigation }) {
         style={{
           width: "100%",
           height: "100%",
-          opacity: 0.7, // Adjust the opacity as per your preference
+          opacity: 0.91, // Adjust the opacity as per your preference
         }}
       >
         <View style={{ flex: 1 }} />
