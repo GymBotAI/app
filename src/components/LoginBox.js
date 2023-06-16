@@ -38,13 +38,18 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest }
         secureTextEntry
       />
       <TouchableOpacity style={styles.login} onPress={handleLogin}>
-        <Text style={styles.buttonText}>Login</Text>
+        <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
-      <View style={styles.buttonContainer}>
-        <TouchableOpacity style={styles.button} onPress={handleCreateAccount}>
+
+      <View style={styles.additionalTextContainer}>
+        <Text style={styles.additionalText}>New to GymBot?</Text>
+        <TouchableOpacity style={styles.createAccountButton} onPress={handleCreateAccount}>
           <Text style={styles.buttonText}>Create Account</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={handleContinueAsGuest}>
+      </View>
+      <View style={styles.additionalTextContainer}>
+        <Text style={styles.additionalText}>Just Visiting?</Text>
+        <TouchableOpacity style={styles.guestButton} onPress={handleContinueAsGuest}>
           <Text style={styles.buttonText}>Continue as Guest</Text>
         </TouchableOpacity>
       </View>
@@ -66,18 +71,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 16,
   },
-  buttonContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  button: {
-    backgroundColor: "#ddd",
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    borderRadius: 8,
-    flex: 1,
-    marginHorizontal: 8,
-  },
   login: {
     alignSelf: "center",
     width: "100%",
@@ -93,11 +86,31 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5, // For Android shadow
   },  
-  buttonText: {
+  loginText: {
     fontSize: 18,
     fontWeight: "bold",
     color: "#333",
     textAlign: "center",
   },
+  additionalTextContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginTop: 10,
+  },
+  additionalText: {
+    color: "white",
+    fontSize: 16,
+  },
+  createAccountButton: {
+    marginLeft: 8,
+  },
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#ddd",
+  },
+  guestButton: {
+    marginTop: 6,
+    marginLeft: 8,
+  }
 });
-
