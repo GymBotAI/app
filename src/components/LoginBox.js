@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, Button, Text, StyleSheet } from "react-native";
+import { View, TextInput, TouchableOpacity, Text, StyleSheet } from "react-native";
 
 export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest }) {
   const [username, setUsername] = useState("");
@@ -7,17 +7,17 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest }
 
   const handleLogin = () => {
     // Perform login action
-    onLogin(username, password);
+    // onLogin(username, password);
   };
 
   const handleCreateAccount = () => {
     // Navigate to create account screen or perform create account action
-    onCreateAccount();
+    // onCreateAccount();
   };
 
   const handleContinueAsGuest = () => {
     // Continue as guest action
-    onContinueAsGuest();
+    // onContinueAsGuest();
   };
 
   return (
@@ -35,9 +35,17 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest }
         onChangeText={setPassword}
         secureTextEntry
       />
-      <Button title="Login" onPress={handleLogin} />
-      <Button title="Create Account" onPress={handleCreateAccount} />
-      <Button title="Continue as Guest" onPress={handleContinueAsGuest} />
+      <TouchableOpacity style={styles.login} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Login</Text>
+      </TouchableOpacity>
+      <View style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.button} onPress={handleCreateAccount}>
+          <Text style={styles.buttonText}>Create Account</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button} onPress={handleContinueAsGuest}>
+          <Text style={styles.buttonText}>Continue as Guest</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -53,4 +61,35 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     borderColor: "#ccc",
   },
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+  },
+  button: {
+    backgroundColor: "#ddd",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+    borderRadius: 8,
+    flex: 1,
+    marginHorizontal: 8,
+    marginBottom: 16,
+  },
+  login: {
+    alignSelf: "center",
+    width: "80%",
+    backgroundColor: "#ddd",
+    paddingVertical: 10,
+    borderRadius: 8,
+    marginHorizontal: 8,
+    marginBottom: 16,
+
+
+  },  
+  buttonText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#333",
+    textAlign: "center",
+  },
 });
+

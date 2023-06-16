@@ -9,7 +9,7 @@ import { bgPrimary, white } from "../styles";
 export default function HomeScreen({ navigation }) {
   return (
     <ImageBackground
-      source={require("../../assets/gymbgdark.jpg")}
+      source={require("../../assets/homebgdark.jpg")}
       resizeMode="cover"
       style={{
         backgroundColor: white,
