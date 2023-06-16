@@ -24,7 +24,7 @@ export default function AccountScreen({ navigation }) {
             height: '20%',
             alignSelf: 'center',
             marginTop: '75%',
-            backgroundColor: 'grey',
+            backgroundColor: '#F5F5F5',
         }}
         >
 

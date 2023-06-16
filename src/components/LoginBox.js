@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, Button, Text } from "react-native";
+import { View, TextInput, Button, Text, StyleSheet } from "react-native";
 
 export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest }) {
   const [username, setUsername] = useState("");
@@ -21,16 +21,15 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest }
   };
 
   return (
-    <View
-    styles={{
-        padding:'10px',
-    }}>
+    <View style={styles.container}>
       <TextInput
+        style={styles.input}
         placeholder="Username"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
+        style={styles.input}
         placeholder="Password"
         value={password}
         onChangeText={setPassword}
@@ -42,3 +41,16 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest }
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+  },
+  input: {
+    marginBottom: 16,
+    padding: 12,
+    borderWidth: 1,
+    borderRadius: 8,
+    borderColor: "#ccc",
+  },
+});
