@@ -25,12 +25,14 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest }
       <TextInput
         style={styles.input}
         placeholder="Username"
+        placeholderTextColor="white"
         value={username}
         onChangeText={setUsername}
       />
       <TextInput
         style={styles.input}
         placeholder="Password"
+        placeholderTextColor="white"
         value={password}
         onChangeText={setPassword}
         secureTextEntry
@@ -55,11 +57,12 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   input: {
+    color: 'white',
     marginBottom: 16,
     padding: 12,
     borderWidth: 1,
     borderRadius: 8,
-    borderColor: "#ccc",
+    borderColor: "#ddd",
   },
   buttonContainer: {
     flexDirection: "row",
