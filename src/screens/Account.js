@@ -1,6 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { ImageBackground, View, TextInput } from "react-native";
 import { useState } from "react";
+import { LinearGradient } from "expo-linear-gradient";
 
 import LoginBox from "../components/LoginBox";
 
@@ -9,14 +10,17 @@ export default function AccountScreen({ navigation }) {
   const [password, setPassword] = useState("");
 
   return (
-    <View style={{ flex: 1, backgroundColor: '#82ffbc' }}>
+    <LinearGradient
+      colors={["blue", "black"]}
+      style={{ flex: 1 }}
+    >
       <ImageBackground
         source={require("../../assets/accountbgdark.jpg")}
         resizeMode="cover"
         style={{
           width: "100%",
           height: "100%",
-          opacity: 0.91, // Adjust the opacity as per your preference
+          opacity: 0.3, // Adjust the opacity as per your preference
         }}
       >
         <View style={{ flex: 1 }} />
@@ -46,6 +50,6 @@ export default function AccountScreen({ navigation }) {
       </View>
 
       <StatusBar style="auto" />
-    </View>
+    </LinearGradient>
   );
 }
