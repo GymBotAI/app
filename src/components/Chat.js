@@ -44,8 +44,8 @@ export default function Chat() {
             }}
             prompts={[
               "Give me a chest workout!",
-              "How can I strengthen my knee to prevent injury?",
-              "What are the health benefits of cardio?",
+              "Explain Chest Flyes to me",
+              "How do I increase my mile time?",
             ]}
           />
         )}
