@@ -26,7 +26,7 @@ export default function ScreenHeader({ text, onOpenNavbar }) {
       style={{
         paddingTop: 40,
         paddingBottom: 8,
-        backgroundColor: "white",
+        backgroundColor: "blue",
         width: "100%",
         display: "flex",
         flexDirection: 'row',

@@ -2,7 +2,7 @@ import { Text, View, TouchableOpacity } from "react-native";
 
 const styles = {
   fontSize: 16,
-  color: "white",
+  color: "black",
   padding: 10,
   fontFamily: "Georgia",
   letterSpacing: 0.5,
@@ -22,7 +22,7 @@ export default function Prompts({ onPromptSelection, prompts }) {
           fontSize: 32,
           paddingTop: 20,
           paddingBottom: 5,
-          color: "white",
+          color: "black",
           fontFamily: "Georgia",
           fontWeight: "bold",
           letterSpacing: 0.5,

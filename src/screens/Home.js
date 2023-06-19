@@ -8,18 +8,7 @@ import { bgPrimary, white } from "../styles";
 
 export default function HomeScreen({ navigation }) {
   return (
-    <ImageBackground
-      source={require("../../assets/homebgdark.jpg")}
-      resizeMode="cover"
-      style={{
-        backgroundColor: white,
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    
       <View
         style={{
           height: "100%",
@@ -28,8 +17,7 @@ export default function HomeScreen({ navigation }) {
       >
         <ScreenHeader text="GymBot"/>
         <Chat />
-      </View>
       <StatusBar style="auto" />
-    </ImageBackground>
+      </View>
   );
 }
