@@ -1,4 +1,4 @@
-import { Image, TouchableOpacity, Text, View } from "react-native";
+import { TouchableOpacity, Text, View, Image } from "react-native";
 import * as Font from "expo-font";
 import React, { useState, useEffect } from "react";
 
@@ -26,19 +26,22 @@ export default function ScreenHeader({ text, onOpenNavbar }) {
       style={{
         paddingTop: 40,
         paddingBottom: 8,
-        backgroundColor: "blue",
+        backgroundColor: "#1260de",
         width: "100%",
         display: "flex",
-        flexDirection: 'row',
+        flexDirection: "row",
         zIndex: 1,
         justifyContent: "center",
         alignItems: "center",
+        borderBottomLeftRadius: 40, // Adjust the value as needed
+        borderBottomRightRadius: 40, // Adjust the value as needed
+        overflow: "hidden",
       }}
     >
       <Text
         style={{
           fontSize: 48,
-          color: "black",
+          color: "#e0e0e0",
           fontFamily: "custom-font",
           fontWeight: "bold",
           letterSpacing: 1.5,
