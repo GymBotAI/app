@@ -6,7 +6,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import LoginBox from "../components/LoginBox";
 import LoginHeader from "../components/LoginHeader"
 
-export default function AccountScreen({ navigation }) {
+export default function Account({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -50,7 +50,8 @@ export default function AccountScreen({ navigation }) {
             borderRadius: 15,
           }}
         >
-          <LoginBox />
+         <LoginBox navigation={navigation} />
+
         </View>
       </View>
 
