@@ -6,7 +6,7 @@ export default function LoginHeader({  }) {
     <View style={styles.container}>
       <Text style={styles.headerText}>GymBot</Text>
       <View style={styles.logoContainer}>
-        <Image source={require("../../assets/icon.jpg")} style={styles.logo} resizeMode="contain" />
+        <Image source={require("../../assets/circleicon.png")} style={styles.logo} resizeMode="contain" />
       </View>
     </View>
   );
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
   logo: {
     width: 50, // Adjust the size as needed
     height: 50, // Adjust the size as needed
-    borderRadius: 55,
   },
   headerText: {
     fontSize: 36,
