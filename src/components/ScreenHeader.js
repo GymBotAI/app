@@ -50,26 +50,43 @@ export default function WavyHeader({ text, customStyles }) {
         overflow: "hidden",
       }}
     >
-      <Text
-        style={{
-          fontSize: 48,
-          color: "#e0e0e0",
-          fontFamily: "custom-font",
-          fontWeight: "bold",
-          letterSpacing: 1.5,
-          textAlign: "center",
-        }}
-      >
-        {text}
-      </Text>
+    
       <Image
-        source={require("../../assets/circleicon.png")}
-        style={{
-          width: 50, // Adjust the size as needed
-          height: 50, // Adjust the size as needed
-          marginLeft: 10, // Add this line to set the desired spacing between the image and text
-        }}
-      />
+          source={require("../../assets/icon.jpg")}
+          style={{
+            width: 65, // Adjust the size as needed
+            height: 65, // Adjust the size as needed
+            borderRadius: 20,
+            marginLeft: -50,
+            marginRight: 10, // Add this line to set the desired spacing between the image and text
+          }}
+        />
+        <View style={{
+
+        }}>  
+          <Text style={{
+              fontSize: 14,
+              color: "#e0e0e0",
+              fontFamily: "custom-font",
+              letterSpacing: 1.5,
+              marginBottom: -5,
+          }}>
+            Talk to
+          </Text>
+          <Text
+            style={{
+              fontSize: 48,
+              color: "#e0e0e0",
+              fontFamily: "custom-font",
+              fontWeight: "bold",
+              letterSpacing: 1.5,
+              textAlign: "center",
+              marginBottom: -5,
+            }}
+          >
+            {text}
+          </Text>
+        </View>
     </View>
 
 
