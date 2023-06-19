@@ -29,9 +29,10 @@ export default function ScreenHeader({ text, onOpenNavbar }) {
         backgroundColor: "white",
         width: "100%",
         display: "flex",
-        flexDirection: "row",
+        flexDirection: 'row',
+        zIndex: 1,
         justifyContent: "center",
-        alignItems: "center", // Add this line to vertically align the image and text
+        alignItems: "center",
       }}
     >
       <Text
