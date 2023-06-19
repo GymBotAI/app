@@ -12,11 +12,13 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest, 
   };
 
   const handleCreateAccount = () => {
+    navigation.navigate('Home');
     // Navigate to create account screen or perform create account action
     // onCreateAccount();
   };
 
   const handleContinueAsGuest = () => {
+    navigation.navigate('Home');
     // Continue as guest action
     // onContinueAsGuest();
   };

@@ -8,7 +8,7 @@ export default function ScreenHeader({ text, onOpenNavbar }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "custom-font": require("../../assets/fonts/impwrench.ttf"),
+        "custom-font": require("../../assets/fonts/Roboto-Black.ttf"),
       });
 
       setFontLoaded(true);
@@ -25,7 +25,7 @@ export default function ScreenHeader({ text, onOpenNavbar }) {
     <View
       style={{
         paddingTop: 40,
-        paddingBottom: 5,
+        paddingBottom: 8,
         backgroundColor: "white",
         width: "100%",
         display: "flex",
@@ -37,9 +37,10 @@ export default function ScreenHeader({ text, onOpenNavbar }) {
 
       <Text
         style={{
-          fontSize: 56,
+          fontSize: 48,
           color: "black",
           fontFamily: "custom-font",
+          fontWeight: 'bold',
           letterSpacing: 1.5,
           flex: 1,
           textAlign: "center",
