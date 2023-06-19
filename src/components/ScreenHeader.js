@@ -34,26 +34,6 @@ export default function ScreenHeader({ text, onOpenNavbar }) {
         zIndex: 1,
       }}
     >
-      <TouchableOpacity
-        style={{
-          padding: 10,
-          borderRadius: 5,
-          alignItems: "center",
-          paddingBottom: 12,
-          position: "absolute",
-          bottom: 0,
-          zIndex: 2,
-        }}
-        onPress={onOpenNavbar}
-      >
-        <Image
-          source={require("../../assets/navbar.png")}
-          style={{
-            width: 30,
-            height: 30,
-          }}
-        />
-      </TouchableOpacity>
 
       <Text
         style={{

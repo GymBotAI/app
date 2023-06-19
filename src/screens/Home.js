@@ -26,9 +26,7 @@ export default function HomeScreen({ navigation }) {
           width: "100%",
         }}
       >
-        <ScreenHeader text="GYMBOT" onOpenNavbar={() => {
-          navigation.navigate('Account');
-        }} />
+        <ScreenHeader text="GYMBOT"/>
         <Chat />
       </View>
       <StatusBar style="auto" />
