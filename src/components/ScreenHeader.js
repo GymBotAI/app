@@ -30,24 +30,30 @@ export default function ScreenHeader({ text, onOpenNavbar }) {
         width: "100%",
         display: "flex",
         flexDirection: "row",
-        position: "relative",
-        zIndex: 1,
+        justifyContent: "center",
+        alignItems: "center", // Add this line to vertically align the image and text
       }}
     >
-
       <Text
         style={{
           fontSize: 48,
           color: "black",
           fontFamily: "custom-font",
-          fontWeight: 'bold',
+          fontWeight: "bold",
           letterSpacing: 1.5,
-          flex: 1,
           textAlign: "center",
         }}
       >
         {text}
       </Text>
+      <Image
+        source={require("../../assets/circleicon.png")}
+        style={{
+          width: 50, // Adjust the size as needed
+          height: 50, // Adjust the size as needed
+          marginLeft: 10, // Add this line to set the desired spacing between the image and text
+        }}
+      />
     </View>
   );
 }
