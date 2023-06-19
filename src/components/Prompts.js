@@ -16,7 +16,9 @@ const styles = {
 
 export default function Prompts({ onPromptSelection, prompts }) {
   return (
-    <>
+    <View style={{
+      // marginTop: 20,
+    }}>
       <Text
         style={{
           fontSize: 32,
@@ -56,6 +58,6 @@ export default function Prompts({ onPromptSelection, prompts }) {
           </TouchableOpacity>
         ))}
       </View>
-    </>
+    </View>
   );
 }
