@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { View, TextInput, TouchableOpacity, Text, StyleSheet } from "react-native";
 
+import LoginButton from "./LoginButton";
+
 export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest, navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -44,25 +46,35 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest, 
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
 
-      <View style={styles.additionalTextContainer}>
-        <Text style={styles.additionalText}>New to GymBot?</Text>
-        <TouchableOpacity style={styles.createAccountButton} onPress={handleCreateAccount}>
-          <Text style={styles.buttonText}>Create Account</Text>
-        </TouchableOpacity>
-      </View>
-      <View style={styles.additionalTextContainer}>
-        <Text style={styles.additionalText}>Just Visiting?</Text>
-        <TouchableOpacity style={styles.guestButton} onPress={handleContinueAsGuest}>
-          <Text style={styles.buttonText}>Continue as Guest</Text>
-        </TouchableOpacity>
-      </View>
+    {/* Dark gray line */}
+    <View
+        style={{
+          position: "absolute",
+          top: 300,
+          left: 0,
+          right: 0,
+          height: 2,
+          backgroundColor: "white",
+        }}
+      />
+
+      <LoginButton
+        text="New to GymBot?"
+        question="Create Account"
+      />
+      
+      <LoginButton
+      text="Just visiting?"
+      question="Continue as Guest"
+      />
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
+    padding: 10,
   },
   input: {
     marginBottom: 22,
@@ -95,25 +107,4 @@ const styles = StyleSheet.create({
     color: "#333",
     textAlign: "center",
   },
-  additionalTextContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginTop: 10,
-  },
-  additionalText: {
-    color: "white",
-    fontSize: 16,
-  },
-  createAccountButton: {
-    marginLeft: 8,
-  },
-  buttonText: {
-    fontSize: 16,
-    fontWeight: "bold",
-    color: "#ddd",
-  },
-  guestButton: {
-    marginTop: 6,
-    marginLeft: 8,
-  }
 });
