@@ -1,7 +1,7 @@
 import React, { } from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 
-export default function LoginButtons({ text, question }) {
+export default function LoginButtons({ text, question, navigation }) {
 
   const handleCreateAccount = () => {
     navigation.navigate('Home');
