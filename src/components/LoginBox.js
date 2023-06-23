@@ -62,12 +62,13 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest, 
         text="New to GymBot?"
         question="Create Account"
         navigation={navigation}
+        handleAction={handleCreateAccount}
       />
       
       <LoginButton
-      text="Just visiting?"
-      question="Continue as Guest"
-      navigation={navigation}
+        text="Just visiting?"
+        question="Continue as Guest"
+        handleAction={handleContinueAsGuest}
       />
 
     </View>

@@ -1,10 +1,10 @@
 import React, { } from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 
-export default function LoginButtons({ text, question, navigation }) {
+export default function LoginButtons({ text, question, handleAction }) {
 
-  const handleCreateAccount = () => {
-    navigation.navigate('Home');
+  const handleClick = () => {
+    handleAction();
     // Navigate to create account screen or perform create account action
     // onCreateAccount();
   };
@@ -14,7 +14,7 @@ export default function LoginButtons({ text, question, navigation }) {
 
         <Text style={styles.text}>{text}</Text>
             
-        <TouchableOpacity style={styles.button} onPress={handleCreateAccount}>
+        <TouchableOpacity style={styles.button} onPress={handleClick}>
         
             <Text style={styles.buttonText}>{question}</Text>
 
