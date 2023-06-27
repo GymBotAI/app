@@ -3,7 +3,7 @@ import * as Font from "expo-font";
 import React, { useState, useEffect } from "react";
 import Svg, { Path } from 'react-native-svg';
 
-export default function WavyHeader({ text }) {
+export default function WavyHeader({ text, minitext }) {
   
     const [fontLoaded, setFontLoaded] = useState(false);
 
@@ -71,7 +71,7 @@ export default function WavyHeader({ text }) {
               letterSpacing: 1.5,
               marginBottom: -5,
           }}>
-            Talk to
+            {minitext}
           </Text>
           <Text
             style={{

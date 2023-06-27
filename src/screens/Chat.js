@@ -17,7 +17,7 @@ export default function HomeScreen({ navigation }) {
           width: "100%",
         }}
       >
-        <ScreenHeader text="GymBot"/>
+        <ScreenHeader text="GymBot" minitext="Talk to"/>
         <ChatContainer />
       <StatusBar style="auto" />
       
