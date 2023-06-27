@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 
 import GymBotNavigation from "../components/navbar";
+import ViewWorkouts from "../components/ViewWorkouts";
 import ScreenHeader from "../components/ScreenHeader";
 
 export default function Workouts({ navigation }) {
@@ -18,6 +19,7 @@ export default function Workouts({ navigation }) {
         title="Workouts"
       />
       
+      <ViewWorkouts/>
       
       <GymBotNavigation
       navigation={navigation}
