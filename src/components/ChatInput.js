@@ -36,7 +36,7 @@ export default function ChatInput({
         width: "100%",
         backgroundColor: "white",
         paddingTop: 10,
-        paddingBottom: 25,
+        paddingBottom: 10,
         paddingRight: 10,
         paddingLeft: 10,
         gap: 5,
