@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 import EditSettings from "../components/EditSettings";
 import GymBotNavigation from "../components/navbar";
-import ScreenHeader from "../components/ChatHeader";
+import ScreenHeader from "../components/ScreenHeader";
 
 export default function Settings({ navigation }) {
 
@@ -16,8 +16,8 @@ export default function Settings({ navigation }) {
       >
 
       <ScreenHeader
-        text="Settings"
-        minitext='Edit your'
+        title="Settings"
+        navigation={navigation}
       />
       
       <EditSettings/>
