@@ -11,7 +11,7 @@ export default function HomeScreen({ navigation }) {
   
   // Handle navigation actions
   const handlePressChat = () => {
-    // Navigation action to chat screen
+    navigation.navigate('Chat');
   };
 
   const handlePressWorkouts = () => {
@@ -19,7 +19,7 @@ export default function HomeScreen({ navigation }) {
   };
 
   const handlePressSettings = () => {
-    // Navigation action to settings screen
+    navigation.navigate('Account');
   };
 
   return (
