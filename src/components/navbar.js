@@ -9,7 +9,7 @@ export default function GymBotNavigation({ navigation }) {
   };
 
   const handlePressWorkouts = () => {
-    // Navigation action to workouts screen
+    navigation.navigate('Workouts');
   };
 
   const handlePressSettings = () => {

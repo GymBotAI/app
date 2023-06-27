@@ -26,13 +26,3 @@ export default function Settings({ navigation }) {
       </View>
   );
 }
-
-
-const styles = StyleSheet.create({
-  heading: {
-    fontSize: 24,
-    fontWeight: "bold",
-    marginTop: 40,
-    marginBottom: 20,
-  },
-});
