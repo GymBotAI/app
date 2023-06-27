@@ -17,7 +17,7 @@ export default function Settings({ navigation }) {
 
   return (
     
-      <View>
+      <View style={styles.container}>
 
       <TextInput
         style={styles.input}
@@ -74,8 +74,8 @@ export default function Settings({ navigation }) {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 20,
+    flexGrow: 1,
+    overflow: "auto",
   },
   heading: {
     fontSize: 24,
