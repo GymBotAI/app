@@ -63,12 +63,12 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest, 
 
       </View>
 
-    {/* <View style={styles.guestContainer}>
-      <Text style={styles.text}>Just Visiting?</Text>
+    <View style={styles.guestContainer}>
+      <Text style={styles.guestText}>Just Visiting?</Text>
       <TouchableOpacity style={styles.button} onPress={handleContinueAsGuest}>
-        <Text style={styles.buttonText}>Continue as Guest</Text>
+        <Text style={styles.forgotText}>Continue as Guest</Text>
       </TouchableOpacity>
-    </View> */}
+    </View>
 
     </View>
   );
@@ -130,11 +130,22 @@ const styles = StyleSheet.create({
     color: "#ddd",
     textAlign: "center",
   },
-
   forgotText: {
     fontSize: 16,
     fontWeight: "bold",
     color: "#ddd",
     marginLeft: 'auto',
   },
+  guestContainer: {
+    display:'flex',
+    flexDirection: 'row',
+    marginTop: 40,
+  },
+  guestText: {
+    fontSize: 16,
+    color: 'white',
+  },
+  button: {
+    marginLeft: 10,
+  }
 });
