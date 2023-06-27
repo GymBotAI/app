@@ -11,6 +11,7 @@ const styles = {
     marginRight: 10,
     borderRadius: 20,
     borderWidth: 1.5,
+    backgroundColor: '#dbdbdb',
   },
   buttonContainer: {
     display: 'flex',
