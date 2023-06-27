@@ -16,9 +16,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#ddd",
+    // backgroundColor: "#ddd",
     paddingTop: 40,
+    marginBottom: 10,
     height: 90,
+    borderWidth: .5,
+    borderColor: '#c9c9c9',
   },
   backButton: {
     paddingRight: 10,

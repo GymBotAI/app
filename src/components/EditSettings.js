@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     overflow: "auto",
-    marginTop: 40,
+    padding: 10,
   },
   heading: {
     fontSize: 24,
