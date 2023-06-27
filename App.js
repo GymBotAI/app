@@ -15,27 +15,16 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Account"
-          component={Account}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Chat"
-          component={Chat}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Settings"
-          component={Settings}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name="Workouts"
-          component={Workouts}
-          options={{ headerShown: false }}
-        />
+      <Stack.Navigator
+        screenOptions={{
+          animationEnabled: false, // Disable screen animations
+          headerShown: false, // Hide the default header
+        }}
+      >
+        <Stack.Screen name="Account" component={Account} />
+        <Stack.Screen name="Chat" component={Chat} />
+        <Stack.Screen name="Settings" component={Settings} />
+        <Stack.Screen name="Workouts" component={Workouts} />
       </Stack.Navigator>
     </NavigationContainer>
   );
