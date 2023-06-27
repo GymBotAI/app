@@ -48,14 +48,7 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest, 
 
     {/* Dark gray line */}
     <View
-        style={{
-          position: "absolute",
-          top: 300,
-          left: 0,
-          right: 0,
-          height: 2,
-          backgroundColor: "white",
-        }}
+        style={styles.line}
       />
 
       <LoginButton
@@ -96,7 +89,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 8,
     marginHorizontal: 8,
-    marginBottom: 20,
+    marginBottom: 40,
     marginTop: 10,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
@@ -109,5 +102,13 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#333",
     textAlign: "center",
+  },
+  line: {
+    position: "absolute",
+    top: 220,
+    left: 0,
+    right: 0,
+    height: 1.5,
+    backgroundColor: "white",
   },
 });
