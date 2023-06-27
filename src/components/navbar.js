@@ -1,29 +1,43 @@
 import React from "react";
 import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 
-export default function GymBotNavigation({ onPressChat, onPressWorkouts, onPressSettings }) {
+export default function GymBotNavigation({ navigation }) {
+
+  // Handle navigation actions
+  const handlePressChat = () => {
+    navigation.navigate('Chat');
+  };
+
+  const handlePressWorkouts = () => {
+    // Navigation action to workouts screen
+  };
+
+  const handlePressSettings = () => {
+    navigation.navigate('Settings');
+  };
+
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={onPressWorkouts}>
+      <TouchableOpacity style={styles.button} onPress={handlePressWorkouts}>
         <Image
-            source={require("../../assets/navbar/workout.png")}
-            style={styles.image}
-            />
+          source={require("../../assets/navbar/workout.png")}
+          style={styles.image}
+        />
         <Text style={styles.buttonText}>Workouts</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={onPressChat}>
+      <TouchableOpacity style={styles.button} onPress={handlePressChat}>
         <Image
-            source={require("../../assets/navbar/chat.png")}
-            style={styles.image}
+          source={require("../../assets/navbar/chat.png")}
+          style={styles.image}
         />
         <Text style={styles.buttonText}>Chat</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.button} onPress={onPressSettings}>
+      <TouchableOpacity style={styles.button} onPress={handlePressSettings}>
         <Image
-            source={require("../../assets/navbar/settings.png")}
-            style={styles.image}
+          source={require("../../assets/navbar/settings.png")}
+          style={styles.image}
         />
         <Text style={styles.buttonText}>Settings</Text>
       </TouchableOpacity>
@@ -41,6 +55,10 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
     paddingHorizontal: 0,
     backgroundColor: "white",
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
   },
   button: {
     flex: 1,
@@ -54,5 +72,5 @@ const styles = StyleSheet.create({
   image: {
     width: 35,
     height: 35,
-}
+  },
 });
