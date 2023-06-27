@@ -1,35 +1,27 @@
-import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-import ScreenHeader from "../components/ScreenHeader";
 import GymBotNavigation from "../components/navbar";
+import ScreenHeader from "../components/ScreenHeader";
 
-export default function Workouts(navigation) {
+export default function Workouts({ navigation }) {
+
   return (
-    <View style={styles.container}>
+    
+      <View
+        style={{
+          height: "100%",
+          width: "100%",
+        }}
+      >
 
-        <ScreenHeader
-            title='Workouts'
-        />
-
-      <Text style={styles.title}>Saved Workouts</Text>
-      {/* Display the saved workouts here */}
-
-        <GymBotNavigation/>
-
-    </View>
+      <ScreenHeader
+        title="Workouts"
+      />
+      
+      
+      <GymBotNavigation
+      navigation={navigation}
+      />
+      </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    height: "100%",
-    width: "100%",
-    
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
-    marginBottom: 20,
-  },
-});

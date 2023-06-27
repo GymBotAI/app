@@ -28,24 +28,11 @@ const styles = {
     justifyContent: "center",
     textAlign: "center",
   },
-  heading: {
-    fontSize: 32,
-    paddingTop: 20,
-    paddingBottom: 5,
-    color: "black",
-    fontFamily: "Georgia",
-    fontWeight: "bold",
-    letterSpacing: 0.5,
-    width: "100%",
-    justifyContent: "center",
-    textAlign: "center",
-  }
 };
 
 export default function Prompts({ onPromptSelection, prompts }) {
   return (
     <View>
-      <Text style={styles.heading}>Try These Prompts:</Text>
 
       <View style={styles.buttonContainer}>
         {prompts.map((prompt, i) => (
