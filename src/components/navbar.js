@@ -47,12 +47,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonText: {
-    fontSize: 13,
+    fontSize: 12,
     fontWeight: "bold",
     color: "#333",
   },
   image: {
-    width: 40,
-    height: 40,
+    width: 35,
+    height: 35,
 }
 });

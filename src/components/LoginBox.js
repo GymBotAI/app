@@ -8,19 +8,19 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest, 
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    navigation.navigate('Home');
+    navigation.navigate('Chat');
     // Perform login action
     // onLogin(username, password);
   };
 
   const handleCreateAccount = () => {
-    navigation.navigate('Home');
+    navigation.navigate('Chat');
     // Navigate to create account screen or perform create account action
     // onCreateAccount();
   };
 
   const handleContinueAsGuest = () => {
-    navigation.navigate('Home');
+    navigation.navigate('Chat');
     // Continue as guest action
     // onContinueAsGuest();
   };
