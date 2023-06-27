@@ -28,7 +28,7 @@ export default function WavyHeader({ text, minitext }) {
     
     <View
       style={{
-        paddingBottom: 50,
+        paddingBottom: 40,
         width: "100%",
         display: "flex",
         zIndex: 1,
