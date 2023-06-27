@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: "row",
         alignItems: "center",
-        marginTop: 10,
+        marginTop: 15,
     },
     text: {
         color: "white",
