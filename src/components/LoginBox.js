@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { View, TextInput, TouchableOpacity, Text, StyleSheet } from "react-native";
 
-import LoginButton from "./LoginButton";
-
 export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest, navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -42,27 +40,35 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest, 
         onChangeText={setPassword}
         secureTextEntry
       />
-      <TouchableOpacity style={styles.login} onPress={handleLogin}>
-        <Text style={styles.loginText}>Login</Text>
+      
+      <TouchableOpacity>
+        <Text style={styles.forgotText}>Forgot Password?</Text>
       </TouchableOpacity>
 
-    {/* Dark gray line */}
-    <View
-        style={styles.line}
-      />
-
-      <LoginButton
-        text="New to GymBot?"
-        question="Create Account"
-        navigation={navigation}
-        handleAction={handleCreateAccount}
-      />
       
-      <LoginButton
-        text="Just visiting?"
-        question="Continue as Guest"
-        handleAction={handleContinueAsGuest}
-      />
+      <View style={{
+        marginTop: 30,
+        alignContent: 'center',
+        marginLeft: -10,
+        display: 'flex',
+        flexDirection: 'column',
+      }}>
+        <TouchableOpacity style={styles.login} onPress={handleLogin}>
+          <Text style={styles.loginText}>Login</Text>
+        </TouchableOpacity>
+        
+        <TouchableOpacity style={styles.signup} onPress={handleCreateAccount}>
+          <Text style={styles.signupText}>Sign Up</Text>
+        </TouchableOpacity>
+
+      </View>
+
+    {/* <View style={styles.guestContainer}>
+      <Text style={styles.text}>Just Visiting?</Text>
+      <TouchableOpacity style={styles.button} onPress={handleContinueAsGuest}>
+        <Text style={styles.buttonText}>Continue as Guest</Text>
+      </TouchableOpacity>
+    </View> */}
 
     </View>
   );
@@ -84,13 +90,13 @@ const styles = StyleSheet.create({
   },
   login: {
     alignSelf: "center",
-    width: "100%",
+    width: "95%",
     backgroundColor: "#ddd",
     paddingVertical: 10,
     borderRadius: 8,
-    marginHorizontal: 8,
-    marginBottom: 40,
-    marginTop: 10,
+    marginHorizontal: 10,
+    marginBottom: 50,
+    marginTop: 25,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
@@ -103,12 +109,32 @@ const styles = StyleSheet.create({
     color: "#333",
     textAlign: "center",
   },
-  line: {
-    position: "absolute",
-    top: 220,
-    left: 0,
-    right: 0,
-    height: 1.5,
-    backgroundColor: "white",
+  signup: {
+    alignSelf: "center",
+    width: "95%",
+    // backgroundColor: "#333",
+    paddingVertical: 10,
+    borderRadius: 8,
+    marginHorizontal: 10,
+    borderWidth: 1,
+    borderColor: '#ddd',
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+    elevation: 5, // For Android shadow
+  },  
+  signupText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#ddd",
+    textAlign: "center",
+  },
+
+  forgotText: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "#ddd",
+    marginLeft: 'auto',
   },
 });
