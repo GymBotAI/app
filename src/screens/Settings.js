@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { ImageBackground, View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
 
-import Chat from "../components/ChatContainer";
-import ScreenHeader from "../components/ScreenHeader";
+
+import EditSettings from "../components/EditSettings";
 import GymBotNavigation from "../components/navbar";
 
 import { bgPrimary, white } from "../styles";
@@ -30,55 +30,7 @@ export default function Settings({ navigation }) {
       >
       
       <Text style={styles.heading}>Settings</Text>
-
-      <TextInput
-        style={styles.input}
-        placeholder="Name"
-        value={name}
-        onChangeText={setName}
-      />
-
-      <TextInput
-        style={styles.input}
-        placeholder="Email"
-        value={email}
-        onChangeText={setEmail}
-      />
-
-      <TextInput
-        style={styles.input}
-        placeholder="Weight"
-        value={weight}
-        onChangeText={setWeight}
-        keyboardType="numeric"
-      />
-
-      <TextInput
-        style={styles.input}
-        placeholder="Age"
-        value={age}
-        onChangeText={setAge}
-        keyboardType="numeric"
-      />
-
-      <TextInput
-        style={styles.input}
-        placeholder="Fitness Goal"
-        value={fitnessGoal}
-        onChangeText={setFitnessGoal}
-      />
-
-      <TextInput
-        style={styles.input}
-        placeholder="Gender"
-        value={gender}
-        onChangeText={setGender}
-      />
-
-      <TouchableOpacity style={styles.saveButton} onPress={handleSaveChanges}>
-        <Text style={styles.buttonText}>Save Changes</Text>
-      </TouchableOpacity>
-      
+      <EditSettings/>
       <GymBotNavigation
       navigation={navigation}
       />

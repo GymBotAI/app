@@ -55,10 +55,6 @@ const styles = StyleSheet.create({
     paddingBottom: 25,
     paddingHorizontal: 0,
     backgroundColor: "white",
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
   },
   button: {
     flex: 1,

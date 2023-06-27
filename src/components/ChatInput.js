@@ -36,7 +36,7 @@ export default function ChatInput({
         width: "100%",
         backgroundColor: "white",
         paddingTop: 10,
-        paddingBottom: 80,
+        paddingBottom: 5,
         paddingRight: 10,
         paddingLeft: 10,
         gap: 5,
@@ -83,8 +83,8 @@ export default function ChatInput({
         <Image
           source={require("../../assets/send.png")}
           style={{
-            width: 45,
-            height: 45,
+            width: 40,
+            height: 40,
           }}
         />
       </TouchableOpacity>
