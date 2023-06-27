@@ -71,18 +71,20 @@ export default function ChatInput({
 
       <TouchableOpacity
         style={{
-          padding: 10,
           borderRadius: 5,
           alignItems: "center",
-          paddingBottom: 12,
+          paddingTop: 0,
+          paddingBottom: 0,
+          paddingRight: 0,
+          paddingLeft: 5,
         }}
         onPress={_onSubmit}
       >
         <Image
           source={require("../../assets/send.png")}
           style={{
-            width: 25,
-            height: 25,
+            width: 45,
+            height: 45,
           }}
         />
       </TouchableOpacity>
