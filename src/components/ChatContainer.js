@@ -37,7 +37,7 @@ export default function Chat() {
           height: "100%",
         }}
       >
-        {showPrompts && (
+        {/* {showPrompts && (
           <Prompts
             onPromptSelection={(prompt) => {
               chatInputRef.current?.setText?.(prompt);
@@ -48,7 +48,7 @@ export default function Chat() {
               "How do I increase my mile time?",
             ]}
           />
-        )}
+        )} */}
 
         <ChatMessages messages={messages} />
         <ChatInput
