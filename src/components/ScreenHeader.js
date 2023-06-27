@@ -1,17 +1,11 @@
 import React from "react";
-import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
+// import { AntDesign } from "@expo/vector-icons";
 
-export default function ScreenHeader({ title, navigation }) {
-  const handlePressBack = () => {
-    navigation.goBack();
-  };
+export default function ScreenHeader({ title }) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.backButton} onPress={handlePressBack}>
-        <Text>Back</Text>
-        
-      </TouchableOpacity>
       <Text style={styles.title}>{title}</Text>
     </View>
   );
@@ -21,16 +15,13 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
+    justifyContent: "center",
     backgroundColor: "#ddd",
-    paddingHorizontal: 10,
-    height: 60,
+    paddingTop: 40,
+    height: 90,
   },
   backButton: {
     paddingRight: 10,
-  },
-  backIcon: {
-    width: 25,
-    height: 25,
   },
   title: {
     fontSize: 18,

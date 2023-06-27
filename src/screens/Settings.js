@@ -17,7 +17,6 @@ export default function Settings({ navigation }) {
 
       <ScreenHeader
         title="Settings"
-        navigation={navigation}
       />
       
       <EditSettings/>
