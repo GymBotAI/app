@@ -1,9 +1,9 @@
-import { TouchableOpacity, Text, View, Image } from "react-native";
+import { Text, View, Image } from "react-native";
 import * as Font from "expo-font";
 import React, { useState, useEffect } from "react";
 import Svg, { Path } from 'react-native-svg';
 
-export default function WavyHeader({ text, customStyles }) {
+export default function WavyHeader({ text }) {
   
     const [fontLoaded, setFontLoaded] = useState(false);
 
