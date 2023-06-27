@@ -64,6 +64,7 @@ export default function WavyHeader({ text, minitext }) {
         <View style={{
 
         }}>  
+
           <Text style={{
               fontSize: 14,
               color: "#e0e0e0",
@@ -73,6 +74,7 @@ export default function WavyHeader({ text, minitext }) {
           }}>
             {minitext}
           </Text>
+          
           <Text
             style={{
               fontSize: 48,
@@ -86,6 +88,7 @@ export default function WavyHeader({ text, minitext }) {
           >
             {text}
           </Text>
+
         </View>
     </View>
 

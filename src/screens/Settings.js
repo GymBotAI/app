@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 
 import EditSettings from "../components/EditSettings";
 import GymBotNavigation from "../components/navbar";
-import ScreenHeader from "../components/ScreenHeader";
+import ScreenHeader from "../components/ChatHeader";
 
 export default function Settings({ navigation }) {
 

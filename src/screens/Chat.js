@@ -2,7 +2,7 @@ import { StatusBar } from "expo-status-bar";
 import { ImageBackground, View } from "react-native";
 
 import ChatContainer from "../components/ChatContainer";
-import ScreenHeader from "../components/ScreenHeader";
+import ScreenHeader from "../components/ChatHeader";
 import GymBotNavigation from "../components/navbar";
 
 import { bgPrimary, white } from "../styles";
