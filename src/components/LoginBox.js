@@ -12,7 +12,7 @@ export default function LoginBox({ onLogin, onCreateAccount, onContinueAsGuest, 
   };
 
   const handleCreateAccount = () => {
-    navigation.navigate('Chat');
+    navigation.navigate('SignUp');
     // Navigate to create account screen or perform create account action
     // onCreateAccount();
   };
