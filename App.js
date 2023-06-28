@@ -1,8 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import styles from "./src/styles";
-
 import Chat from "./src/screens/Chat";
 import Account from "./src/screens/Account";
 import Settings from "./src/screens/Settings";
