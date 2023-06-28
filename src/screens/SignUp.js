@@ -7,6 +7,7 @@ import * as Font from "expo-font";
 
 import Question from "../components/Question";
 import GenderSelect from "../components/Gender";
+import WavyHeader from "../components/ChatHeader"
 
 let inputOptions = null;
 
@@ -122,6 +123,14 @@ export default function SignUp({ navigation }) {
         { transform: [{ translateY: slideUpAnim }], opacity: fadeAnim },
       ]}
     >
+      <View style={{
+        position: 'absolute',
+        top: -200,
+        width: '110%',
+      }}>
+      <WavyHeader text="GymBot" minitext="Welcome to"/>
+      </View>
+
       <Question prompt={prompt} input={inputOptions} handleSignUp={handleSignUp} />
 
       <StatusBar barStyle="dark-content" />
