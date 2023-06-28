@@ -15,26 +15,10 @@ export default function SignUp({ navigation }) {
   const [name, setName] = useState("")
   const [birthdate, setBirthdate] = useState(new Date()); // Set initial value to the current date
 
-  const slideUpAnim = useRef(new Animated.Value(300)).current;
-  const fadeAnim = useRef(new Animated.Value(0)).current;
-
   const [prompt, setPrompt] = useState("What is your name?");
   const [highlight, setHighlight] = useState("");
 
-  useEffect(() => {
-    Animated.parallel([
-      Animated.timing(slideUpAnim, {
-        toValue: 0,
-        duration: 750,
-        useNativeDriver: true,
-      }),
-      Animated.timing(fadeAnim, {
-        toValue: 1,
-        duration: 750,
-        useNativeDriver: true,
-      }),
-    ]).start();
-  }, [slideUpAnim, fadeAnim]);
+  
   
   const handleHighlight = (text) => {
     setHighlight(text)
@@ -117,12 +101,8 @@ export default function SignUp({ navigation }) {
     }
 
   return (
-    <Animated.View
-      style={[
-        styles.container,
-        { transform: [{ translateY: slideUpAnim }], opacity: fadeAnim },
-      ]}
-    >
+    <View style={styles.container}>
+    
       <View style={{
         position: 'absolute',
         top: -200,
@@ -134,7 +114,7 @@ export default function SignUp({ navigation }) {
       <Question prompt={prompt} input={inputOptions} handleSignUp={handleSignUp} />
 
       <StatusBar barStyle="dark-content" />
-    </Animated.View>
+    </View>
   );
 }
 
@@ -146,14 +126,13 @@ const styles = StyleSheet.create({
     marginTop: 200,
   },
   input: {
-    width: "95%",
     height: 40,
     borderColor: "black",
     marginTop: 20,
     fontSize: 16,
     borderBottomWidth: 2,
     paddingVertical: 5,
-    paddingHorizontal: 5,
+    paddingHorizontal: -5,
   },
   boxContainer: {
     flex: 1,

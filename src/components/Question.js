@@ -13,10 +13,11 @@ import * as Font from "expo-font";
 
 export default function Question({ prompt, input, handleSignUp }) {
     const [name, setName] = useState("");
-
     const [fontLoaded, setFontLoaded] = useState(false);
+    const slideUpAnim = useRef(new Animated.Value(300)).current;
+    const fadeAnim = useRef(new Animated.Value(0)).current;
 
-    useEffect(() => {
+  useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
         "custom-font": require("../../assets/fonts/Roboto-Black.ttf"),
@@ -26,14 +27,33 @@ export default function Question({ prompt, input, handleSignUp }) {
     }
 
     loadFont();
-  }, []);
+  
+    Animated.parallel([
+      Animated.timing(slideUpAnim, {
+        toValue: 0,
+        duration: 750,
+        useNativeDriver: true,
+      }),
+      Animated.timing(fadeAnim, {
+        toValue: 1,
+        duration: 750,
+        useNativeDriver: true,
+      }),
+    ]).start();
+  }, [slideUpAnim, fadeAnim]);
 
+  
   if (!fontLoaded) {
     return <Text>Loading...</Text>;
   }
 
   return (
-    <>
+    <Animated.View
+      style={[
+        styles.container,
+        { transform: [{ translateY: slideUpAnim }], opacity: fadeAnim },
+      ]}
+    >
       <Text style={styles.label}>{prompt}</Text>
       {input}
 
@@ -42,16 +62,13 @@ export default function Question({ prompt, input, handleSignUp }) {
       </TouchableOpacity>
 
       <StatusBar barStyle="dark-content" />
-    </>
+    </Animated.View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     padding: 16,
-    alignItems: "center",
-    marginTop: 200,
   },
   text: {
     alignSelf: "center",
@@ -63,10 +80,9 @@ const styles = StyleSheet.create({
   button: {
     position: 'absolute',
     top: 200,
-    width: "95%",
+    width: "100%",
     backgroundColor: "#1260de",
     borderRadius: 8,
-    marginHorizontal: 30,
     marginTop: 250,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
