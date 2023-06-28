@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, StatusBar } from "react-native";
+import { View, StatusBar } from "react-native";
 
 import EditSettings from "../components/EditSettings";
 import GymBotNavigation from "../components/navbar";
