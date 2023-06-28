@@ -1,4 +1,7 @@
 import { Text, View, TouchableOpacity } from "react-native";
+import * as Font from "expo-font";
+
+import { useEffect, useState } from "react";
 
 const styles = {
   button: {
@@ -22,7 +25,7 @@ const styles = {
     fontSize: 15,
     color: "black",
     padding: 10,
-    fontFamily: "Georgia",
+    fontFamily: "roboto-regular",
     letterSpacing: 0.5,
     width: "100%",
     justifyContent: "center",
@@ -31,6 +34,24 @@ const styles = {
 };
 
 export default function Prompts({ onPromptSelection, prompts }) {
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  useEffect(() => {
+    async function loadFont() {
+      await Font.loadAsync({
+        "roboto-regular": require("../../assets/fonts/Roboto-Regular.ttf"),
+      });
+
+      setFontLoaded(true);
+    }
+
+    loadFont();
+  }, []);
+
+  if (!fontLoaded) {
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <View style={styles.buttonContainer}>
       {prompts.map((prompt, i) => (
