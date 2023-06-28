@@ -21,7 +21,6 @@ export default function SignUp({ navigation }) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const [prompt, setPrompt] = useState("What is your name?");
-  const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
     Animated.parallel([
@@ -37,11 +36,6 @@ export default function SignUp({ navigation }) {
       }),
     ]).start();
   }, [slideUpAnim, fadeAnim]);
-
-
-  const handlePress = () => {
-    setIsSelected(!isSelected);
-  };
   
   const handleSignUp = () => {
     if (prompt === "What is your name?") {
@@ -89,28 +83,21 @@ export default function SignUp({ navigation }) {
         <GenderSelect
           image={require("../../assets/man.png")}
           text="Male"
-          handlePress={handlePress}
         />
         <GenderSelect
           image={require("../../assets/woman.png")}
           text="Female"
-          handlePress={handlePress}
         />
         </View>
         
-        <View style={{
-          display: 'flex',
-          flexDirection: 'row',
-        }}>
+        <View style={{display: 'flex', flexDirection: 'row'}}>
         <GenderSelect
           image={require("../../assets/user.png")}
           text="Other"
-          handlePress={handlePress}
         />
         <GenderSelect
           image={require("../../assets/user.png")}
           text="Prefer Not to Say"
-          handlePress={handlePress}
         />
         </View>
 
@@ -165,27 +152,5 @@ const styles = StyleSheet.create({
     display: 'flex',
     alignItems: "center",
     marginBottom: 20,
-  },
-  buttonBox: {
-    margin: 5,
-    width: '45%',
-    borderWidth: 1,
-    borderColor: '#444',
-    borderRadius: 10,
-    padding: 10,
-  },
-  selectedButton: {
-    backgroundColor: "#ff9800", // Change to your desired background color when selected
-  },
-  boxImage: {
-    alignSelf: 'center',
-    width: 100,
-    height: 100,
-    marginBottom: 8,
-  },
-  boxText: {
-    alignSelf: "center",
-    borderColor: "black",
-    fontSize: 16,
   },
 });
