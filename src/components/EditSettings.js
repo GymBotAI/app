@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from "react-native";
-
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+} from "react-native";
 
 export default function Settings({ navigation }) {
   const [name, setName] = useState("");
@@ -16,9 +21,7 @@ export default function Settings({ navigation }) {
   };
 
   return (
-    
-      <View style={styles.container}>
-
+    <View style={styles.container}>
       <TextInput
         style={styles.input}
         placeholder="Name"
@@ -66,11 +69,9 @@ export default function Settings({ navigation }) {
       <TouchableOpacity style={styles.saveButton} onPress={handleSaveChanges}>
         <Text style={styles.buttonText}>Save Changes</Text>
       </TouchableOpacity>
-
-      </View>
+    </View>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {

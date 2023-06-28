@@ -5,25 +5,18 @@ import ViewWorkouts from "../components/ViewWorkouts";
 import ScreenHeader from "../components/ScreenHeader";
 
 export default function Workouts({ navigation }) {
-
   return (
-    
-      <View
-        style={{
-          height: "100%",
-          width: "100%",
-        }}
-      >
+    <View
+      style={{
+        height: "100%",
+        width: "100%",
+      }}
+    >
+      <ScreenHeader title="Workouts" />
 
-      <ScreenHeader
-        title="Workouts"
-      />
-      
-      <ViewWorkouts/>
-      
-      <GymBotNavigation
-      navigation={navigation}
-      />
-      </View>
+      <ViewWorkouts />
+
+      <GymBotNavigation navigation={navigation} />
+    </View>
   );
 }

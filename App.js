@@ -19,7 +19,7 @@ export default function App() {
       <Stack.Navigator
         screenOptions={{
           headerShown: false, // Hide the default header
-          animation: 'none',
+          animation: "none",
         }}
       >
         <Stack.Screen name="Account" component={Account} />

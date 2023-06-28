@@ -5,24 +5,17 @@ import GymBotNavigation from "../components/navbar";
 import ScreenHeader from "../components/ScreenHeader";
 
 export default function Settings({ navigation }) {
-
   return (
-    
-      <View
-        style={{
-          height: "100%",
-          width: "100%",
-        }}
-      >
+    <View
+      style={{
+        height: "100%",
+        width: "100%",
+      }}
+    >
+      <ScreenHeader title="Settings" />
 
-      <ScreenHeader
-        title="Settings"
-      />
-      
-      <EditSettings/>
-      <GymBotNavigation
-      navigation={navigation}
-      />
-      </View>
+      <EditSettings />
+      <GymBotNavigation navigation={navigation} />
+    </View>
   );
 }

@@ -2,18 +2,17 @@ import React from "react";
 import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 
 export default function GymBotNavigation({ navigation }) {
-
   // Handle navigation actions
   const handlePressChat = () => {
-    navigation.navigate('Chat');
+    navigation.navigate("Chat");
   };
 
   const handlePressWorkouts = () => {
-    navigation.navigate('Workouts');
+    navigation.navigate("Workouts");
   };
 
   const handlePressSettings = () => {
-    navigation.navigate('Settings');
+    navigation.navigate("Settings");
   };
 
   return (

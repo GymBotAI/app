@@ -3,19 +3,19 @@ import { Text, View, TouchableOpacity, TouchableHighlight } from "react-native";
 const styles = {
   button: {
     borderRadius: 1,
-    borderColor: 'black',
+    borderColor: "black",
     borderWidth: 1,
     marginBottom: 10,
     flex: 1,
-    flexWrap: 'wrap',
+    flexWrap: "wrap",
     marginRight: 10,
     borderRadius: 20,
     borderWidth: 1.5,
-    backgroundColor: '#dbdbdb',
+    backgroundColor: "#dbdbdb",
   },
   buttonContainer: {
-    display: 'flex',
-    flexDirection: 'row',
+    display: "flex",
+    flexDirection: "row",
     padding: 10,
   },
   text: {
@@ -33,7 +33,6 @@ const styles = {
 export default function Prompts({ onPromptSelection, prompts }) {
   return (
     <View>
-
       <View style={styles.buttonContainer}>
         {prompts.map((prompt, i) => (
           <TouchableOpacity

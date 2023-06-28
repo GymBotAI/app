@@ -1,10 +1,16 @@
 import { StatusBar } from "expo-status-bar";
-import { ImageBackground, View, TextInput, TouchableWithoutFeedback, Keyboard } from "react-native";
+import {
+  ImageBackground,
+  View,
+  TextInput,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
 import LoginBox from "../components/LoginBox";
-import LoginHeader from "../components/LoginHeader"
+import LoginHeader from "../components/LoginHeader";
 
 import * as Device from "expo-device";
 
@@ -18,10 +24,7 @@ export default function Account({ navigation }) {
 
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
-      <LinearGradient
-        colors={["blue", "black"]}
-        style={{ flex: 1 }}
-      >
+      <LinearGradient colors={["blue", "black"]} style={{ flex: 1 }}>
         <ImageBackground
           source={require("../../assets/accountbgdark.jpg")}
           resizeMode="cover"
@@ -57,8 +60,7 @@ export default function Account({ navigation }) {
               borderRadius: 15,
             }}
           >
-          <LoginBox navigation={navigation} />
-
+            <LoginBox navigation={navigation} />
           </View>
         </View>
 

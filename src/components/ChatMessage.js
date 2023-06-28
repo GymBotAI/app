@@ -3,7 +3,7 @@ import * as Font from "expo-font";
 
 import { borderDefault, white, fontSize, font } from "../styles";
 
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from "react";
 
 const roleIcons = {
   assistant: require("../../assets/icon.jpg"),
@@ -74,7 +74,7 @@ export default function ChatMessage({ message }) {
             textAlign: "left",
             color: white,
             fontSize: fontSize,
-            fontFamily: 'roboto-regular',
+            fontFamily: "roboto-regular",
           }}
         >
           {message.content}

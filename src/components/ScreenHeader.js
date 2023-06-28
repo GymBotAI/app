@@ -3,7 +3,6 @@ import { View, Text, Image, StyleSheet } from "react-native";
 // import { AntDesign } from "@expo/vector-icons";
 
 export default function ScreenHeader({ title }) {
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
@@ -19,8 +18,8 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     marginBottom: 10,
     height: 90,
-    borderWidth: .5,
-    borderColor: '#c9c9c9',
+    borderWidth: 0.5,
+    borderColor: "#c9c9c9",
   },
   backButton: {
     paddingRight: 10,
