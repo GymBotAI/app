@@ -12,10 +12,10 @@ import {
 import * as Font from "expo-font";
 
 export default function Question({ prompt, input, handleSignUp }) {
-    const [name, setName] = useState("");
-    const [fontLoaded, setFontLoaded] = useState(false);
-    const slideUpAnim = useRef(new Animated.Value(300)).current;
-    const fadeAnim = useRef(new Animated.Value(0)).current;
+  const [name, setName] = useState("");
+  const [fontLoaded, setFontLoaded] = useState(false);
+  const slideUpAnim = useRef(new Animated.Value(300)).current;
+  const fadeAnim = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     async function loadFont() {
@@ -27,7 +27,7 @@ export default function Question({ prompt, input, handleSignUp }) {
     }
 
     loadFont();
-  
+
     Animated.parallel([
       Animated.timing(slideUpAnim, {
         toValue: 0,
@@ -40,9 +40,14 @@ export default function Question({ prompt, input, handleSignUp }) {
         useNativeDriver: true,
       }),
     ]).start();
-  }, [slideUpAnim, fadeAnim]);
 
-  
+    return () => {
+      // Reset the animation values when the component unmounts
+      slideUpAnim.setValue(300);
+      fadeAnim.setValue(0);
+    };
+  }, [prompt]);
+
   if (!fontLoaded) {
     return <Text>Loading...</Text>;
   }
@@ -51,7 +56,7 @@ export default function Question({ prompt, input, handleSignUp }) {
     <Animated.View
       style={[
         styles.container,
-        { transform: [{ translateY: slideUpAnim }], opacity: fadeAnim },
+        { transform: [{ translateX: slideUpAnim }], opacity: fadeAnim },
       ]}
     >
       <Text style={styles.label}>{prompt}</Text>
@@ -78,9 +83,10 @@ const styles = StyleSheet.create({
     color: "#dbdbdb",
   },
   button: {
-    position: 'absolute',
+    alignSelf: 'center',
+    position: "absolute",
     top: 200,
-    width: "100%",
+    width: '100%',
     backgroundColor: "#1260de",
     borderRadius: 8,
     marginTop: 250,
@@ -91,7 +97,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   label: {
-    alignSelf: 'left',
+    alignSelf: "left",
     marginLeft: 10,
     fontSize: 30,
     fontWeight: "bold",

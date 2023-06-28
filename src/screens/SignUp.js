@@ -132,7 +132,6 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderBottomWidth: 2,
     paddingVertical: 5,
-    paddingHorizontal: -5,
   },
   boxContainer: {
     flex: 1,
