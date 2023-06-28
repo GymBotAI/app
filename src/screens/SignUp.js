@@ -11,6 +11,8 @@ import {
 
 import * as Font from "expo-font";
 
+import Question from "../components/Question";
+
 export default function SignUp({ navigation }) {
   const [name, setName] = useState("");
   const [age, setAge] = useState("");
@@ -18,21 +20,8 @@ export default function SignUp({ navigation }) {
   const [gender, setGender] = useState("");
   const [fitnessGoal, setFitnessGoal] = useState("");
 
-  const [fontLoaded, setFontLoaded] = useState(false);
   const slideUpAnim = useRef(new Animated.Value(300)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
-
-  useEffect(() => {
-    async function loadFont() {
-      await Font.loadAsync({
-        "custom-font": require("../../assets/fonts/Roboto-Black.ttf"),
-      });
-
-      setFontLoaded(true);
-    }
-
-    loadFont();
-  }, []);
 
   useEffect(() => {
     Animated.parallel([
@@ -49,9 +38,7 @@ export default function SignUp({ navigation }) {
     ]).start();
   }, [slideUpAnim, fadeAnim]);
 
-  if (!fontLoaded) {
-    return <Text>Loading...</Text>;
-  }
+
   const handleSignUp = () => {
     // Perform sign-up logic using the collected user data
 
@@ -66,17 +53,11 @@ export default function SignUp({ navigation }) {
         { transform: [{ translateY: slideUpAnim }], opacity: fadeAnim },
       ]}
     >
-      <Text style={styles.label}>What is your name?</Text>
-      <TextInput
-        style={styles.input}
-        value={name}
-        onChangeText={setName}
-        placeholder="Enter your name"
+      <Question
+        prompt="What is your name?"
+        input="Enter your name"
+        handleSignUp={handleSignUp}
       />
-
-      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
-        <Text style={styles.text}>Continue</Text>
-      </TouchableOpacity>
 
       <StatusBar barStyle="dark-content" />
     </Animated.View>
