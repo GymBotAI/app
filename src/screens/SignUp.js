@@ -45,7 +45,7 @@ export default function SignUp({ navigation }) {
       setPrompt("What is your gender?");
 
     } else if (prompt === "What is your gender?") {
-      setPrompt("What are your fitness goals?");
+      setPrompt("What are your goals?");
     } else {
       navigation.navigate("Chat");
     }
