@@ -56,5 +56,5 @@ export function useGymBotAI(initialMessages = []) {
     sendMessage(msg);
   };
 
-  return [messages, _sendMessage];
+  return [messages, _sendMessage, setMessages];
 }
