@@ -11,17 +11,47 @@ import { useGymBotAI } from "../api";
 export default function Chat() {
   const chatInputRef = useRef({});
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
-  const [messages, sendMessage, closeWs] = useGymBotAI([
+  const [messages, sendMessage, setMessages] = useGymBotAI([
     {
       role: "assistant",
-      content:
-        "Hello! I'm GymBot, your personal trainer. How can I help you today?",
+      content: "",
     },
   ]);
 
-  useEffect(() => {
-    return closeWs;
-  }, []);
+  const initialMessage = "Hello! I'm GymBot, your personal trainer. How can I help you today?";
+  const [initialMessagePos, setInitialMessagePos] = useState(0);
+  const [hasDoneInitialMessage, setHasDoneInitialMessage] = useState(false);
+
+  const initialMessageTypeSpeed = 100;
+  const initialMessageTypeChars = 2;
+
+  if (initialMessagePos >= initialMessage.length) {
+    setHasDoneInitialMessage(() => true);
+  } else if (!hasDoneInitialMessage) {
+    useEffect(() => {
+      const timeout = setTimeout(() => {
+        setInitialMessagePos((oldPos) => oldPos + initialMessageTypeChars);
+        setMessages((oldMessages) => {
+          return [{
+            ...oldMessages[0],
+            content: oldMessages[0].content + initialMessage.substr(initialMessagePos, initialMessageTypeChars)
+          }];
+        });
+      }, initialMessageTypeSpeed);
+
+      return () => {
+        clearTimeout(timeout);
+      };
+    }, [
+      setInitialMessagePos,
+      setMessages,
+      messages
+    ]);
+  }
+
+  // useEffect(() => {
+  //   return closeWs;
+  // }, []);
 
   const handlePromptPress = () => {
     setShowPrompts(false); //Sets show prompts to false
@@ -42,6 +72,8 @@ export default function Chat() {
           height: "100%",
         }}
       >
+        <ChatMessages messages={messages} />
+
         {showPrompts && (
           <Prompts
             onPromptSelection={(prompt) => {
@@ -54,8 +86,7 @@ export default function Chat() {
             ]}
           />
         )}
-
-        <ChatMessages messages={messages} />
+        
         <ChatInput
           style={{
             justifyContent: "center",
