@@ -18,20 +18,14 @@ export default function LoginBox({
 
   const handleLogin = () => {
     navigation.navigate("Chat");
-    // Perform login action
-    // onLogin(username, password);
   };
 
   const handleCreateAccount = () => {
     navigation.navigate("SignUp");
-    // Navigate to create account screen or perform create account action
-    // onCreateAccount();
   };
 
   const handleContinueAsGuest = () => {
-    navigation.navigate("Chat");
-    // Continue as guest action
-    // onContinueAsGuest();
+    navigation.navigate("Signup");
   };
 
   return (
