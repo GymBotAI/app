@@ -10,6 +10,7 @@ const styles = {
     borderWidth: 1,
     flex: 1,
     flexWrap: "wrap",
+    padding: 10,
     borderRadius: 20,
     borderWidth: 1.5,
     backgroundColor: "#dbdbdb",
@@ -25,7 +26,6 @@ const styles = {
   text: {
     fontSize: 15,
     color: "black",
-    padding: 10,
     fontFamily: "roboto-regular",
     letterSpacing: 0.5,
     width: "100%",
