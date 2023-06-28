@@ -25,7 +25,6 @@ const styles = {
   },
   text: {
     fontSize: 15,
-    color: "black",
     fontFamily: "roboto-regular",
     letterSpacing: 0.5,
     width: "100%",
