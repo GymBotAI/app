@@ -97,11 +97,11 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   label: {
+    textAlign: 'center',
     alignSelf: "center",
-    marginLeft: 10,
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 8,
-    marginHorizontal: -10,
+    marginHorizontal: -5,
   },
 });

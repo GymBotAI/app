@@ -6,6 +6,7 @@ import DateTimePicker from "@react-native-community/datetimepicker";
 import * as Font from "expo-font";
 
 import Question from "../components/Question";
+import Goals from "../components/Goals"
 import GenderSelect from "../components/Gender";
 import SignUpHeader from "../components/SignUpHeader"
 
@@ -15,7 +16,7 @@ export default function SignUp({ navigation }) {
   const [name, setName] = useState("")
   const [birthdate, setBirthdate] = useState(new Date()); // Set initial value to the current date
 
-  const [prompt, setPrompt] = useState("What is your name?");
+  const [prompt, setPrompt] = useState("Welcome! What is your name?");
   const [highlight, setHighlight] = useState("");
 
   
@@ -25,7 +26,7 @@ export default function SignUp({ navigation }) {
   }
 
   const handleSignUp = () => {
-    if (prompt === "What is your name?") {
+    if (prompt === "Welcome! What is your name?") {
       setPrompt("When were you born?");
 
       inputOptions = (
@@ -46,12 +47,34 @@ export default function SignUp({ navigation }) {
 
     } else if (prompt === "What is your gender?") {
       setPrompt("What are your goals?");
+
+      inputOptions = (
+        <>
+        <View style={{display: 'flex', flexDirection: 'row'}}>
+          <Goals text="Build Muscle"/>
+          <Goals text="Lose Weight"/>
+        </View>
+        <View style={{display: 'flex', flexDirection: 'row'}}>
+          <Goals text="Run Faster"/>
+          <Goals text="Better Abs"/>
+        </View>
+        <View style={{display: 'flex', flexDirection: 'row'}}>
+          <Goals text="Get Larger"/>
+          <Goals text="Do a Pull Up"/>
+        </View>
+        <View style={{alignItems: 'center'}}>
+        <Goals text="Other"/>
+        </View>
+
+        </>
+      )
+
     } else {
       navigation.navigate("Chat");
     }
   };
 
-  if (prompt === "What is your name?") {
+  if (prompt === "Welcome! What is your name?") {
     inputOptions = (
       <TextInput
         style={styles.input}
@@ -132,6 +155,8 @@ const styles = StyleSheet.create({
     fontSize: 16,
     borderBottomWidth: 2,
     paddingVertical: 5,
+    paddingHorizontal: 2,
+    marginHorizontal: -10,
   },
   boxContainer: {
     flex: 1,
