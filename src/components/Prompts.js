@@ -22,6 +22,7 @@ const styles = {
     gap: 10,
     justifyContent: "center",
     width: "100%",
+    zIndex: 1,
   },
   text: {
     fontSize: 15,
