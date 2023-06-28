@@ -78,6 +78,7 @@ export default function Chat() {
           <Prompts
             onPromptSelection={(text) => {
             sendMessage(text);
+            handlePromptPress();
           }}
             prompts={[
               "Give me a chest workout!",
