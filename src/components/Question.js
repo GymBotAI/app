@@ -78,6 +78,8 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   label: {
+    alignSelf: 'left',
+    marginLeft: 10,
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 8,

@@ -23,6 +23,9 @@ export default function SignUp({ navigation }) {
   const slideUpAnim = useRef(new Animated.Value(300)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
+  const [prompt, setPrompt] = useState("What is your name?")
+  const [input, setInput] = useState ("Enter your name")
+
   useEffect(() => {
     Animated.parallel([
       Animated.timing(slideUpAnim, {
@@ -40,10 +43,15 @@ export default function SignUp({ navigation }) {
 
 
   const handleSignUp = () => {
-    // Perform sign-up logic using the collected user data
-
-    // Navigate to the next screen
-    navigation.navigate("Chat");
+    if (prompt === "What is your name?") {
+      setPrompt("When were you born?");
+    } else if (prompt === "When were you born?") {
+      setPrompt("What are your fitness goals?")
+    } else if (prompt === "What are your fitness goals?") {
+      setPrompt("What is your gender?")
+    } else {
+      navigation.navigate("Chat");
+    }
   };
 
   return (
@@ -54,8 +62,8 @@ export default function SignUp({ navigation }) {
       ]}
     >
       <Question
-        prompt="What is your name?"
-        input="Enter your name"
+        prompt={prompt}
+        input={input}
         handleSignUp={handleSignUp}
       />
 
@@ -70,39 +78,5 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: "center",
     marginTop: 200,
-  },
-  text: {
-    alignSelf: "center",
-    fontSize: 24,
-    fontFamily: "custom-font",
-    paddingVertical: 10,
-    color: "#dbdbdb",
-  },
-  button: {
-    width: "95%",
-    backgroundColor: "#1260de",
-    borderRadius: 8,
-    marginHorizontal: 30,
-    marginTop: 250,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.4,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  label: {
-    fontSize: 30,
-    fontWeight: "bold",
-    marginBottom: 8,
-  },
-  input: {
-    width: "95%",
-    height: 40,
-    borderColor: "black",
-    marginTop: 20,
-    fontSize: 16,
-    borderBottomWidth: 2,
-    paddingVertical: 5,
-    paddingHorizontal: 5,
   },
 });
