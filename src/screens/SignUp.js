@@ -1,11 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
-import { TextInput, StyleSheet, StatusBar, Animated } from "react-native";
+import { View, Image, Text, TouchableOpacity, TextInput, StyleSheet, StatusBar, Animated, FlatList } from "react-native";
 
 import DateTimePicker from "@react-native-community/datetimepicker";
 
 import * as Font from "expo-font";
 
 import Question from "../components/Question";
+import GenderSelect from "../components/Gender";
 
 let inputOptions = null;
 
@@ -20,6 +21,7 @@ export default function SignUp({ navigation }) {
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const [prompt, setPrompt] = useState("What is your name?");
+  const [isSelected, setIsSelected] = useState(false);
 
   useEffect(() => {
     Animated.parallel([
@@ -36,6 +38,11 @@ export default function SignUp({ navigation }) {
     ]).start();
   }, [slideUpAnim, fadeAnim]);
 
+
+  const handlePress = () => {
+    setIsSelected(!isSelected);
+  };
+  
   const handleSignUp = () => {
     if (prompt === "What is your name?") {
       setPrompt("When were you born?");
@@ -54,25 +61,73 @@ export default function SignUp({ navigation }) {
       );
 
     } else if (prompt === "When were you born?") {
-      setPrompt("What are your fitness goals?");
-    } else if (prompt === "What are your fitness goals?") {
       setPrompt("What is your gender?");
+
+      inputOptions = (
+        <View style={styles.boxContainer}>
+
+          <View style={styles.box}>
+            <Image source={require("../../assets/user.png")} style={styles.boxImage} />
+            <Text style={styles.boxTextInput}>Male</Text>
+          </View>
+
+        </View>
+      );
+
+    } else if (prompt === "What is your gender?") {
+      setPrompt("What are your fitness goals?");
     } else {
       navigation.navigate("Chat");
     }
   };
 
-
   if (prompt === "What is your name?") {
     inputOptions = (
-      <TextInput
-        style={styles.input}
-        placeholder="Enter your name"
-        value={name}
-        onChangeText={setName}
-      />
+      <View style={styles.boxContainer}>
+
+        <View style={{display: 'flex', flexDirection: 'row'}}>
+        <GenderSelect
+          image={require("../../assets/man.png")}
+          text="Male"
+          handlePress={handlePress}
+        />
+        <GenderSelect
+          image={require("../../assets/woman.png")}
+          text="Female"
+          handlePress={handlePress}
+        />
+        </View>
+        
+        <View style={{
+          display: 'flex',
+          flexDirection: 'row',
+        }}>
+        <GenderSelect
+          image={require("../../assets/user.png")}
+          text="Other"
+          handlePress={handlePress}
+        />
+        <GenderSelect
+          image={require("../../assets/user.png")}
+          text="Prefer Not to Say"
+          handlePress={handlePress}
+        />
+        </View>
+
+      </View>
     );
     }
+
+  // if (prompt === "What is your name?") {
+  //   inputOptions = (
+  //     <TextInput
+  //       style={styles.input}
+  //       placeholder="Enter your name"
+  //       value={name}
+  //       onChangeText={setName}
+  //     />
+  //   );
+  //   }
 
   return (
     <Animated.View
@@ -104,5 +159,33 @@ const styles = StyleSheet.create({
     borderBottomWidth: 2,
     paddingVertical: 5,
     paddingHorizontal: 5,
+  },
+  boxContainer: {
+    flex: 1,
+    display: 'flex',
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  buttonBox: {
+    margin: 5,
+    width: '45%',
+    borderWidth: 1,
+    borderColor: '#444',
+    borderRadius: 10,
+    padding: 10,
+  },
+  selectedButton: {
+    backgroundColor: "#ff9800", // Change to your desired background color when selected
+  },
+  boxImage: {
+    alignSelf: 'center',
+    width: 100,
+    height: 100,
+    marginBottom: 8,
+  },
+  boxText: {
+    alignSelf: "center",
+    borderColor: "black",
+    fontSize: 16,
   },
 });
