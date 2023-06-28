@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 const styles = {
   button: {
     borderRadius: 1,
-    borderColor: "black",
+    borderColor: "#81a6cc",
     borderWidth: 1,
     flex: 1,
     flexWrap: "wrap",
@@ -26,9 +26,11 @@ const styles = {
   },
   text: {
     fontSize: 15,
+    fontWeight: 'bold',
     fontFamily: "roboto-regular",
     letterSpacing: 0.5,
     width: "100%",
+    color: "#1c81e8",
     justifyContent: "center",
     textAlign: "center",
   },
@@ -55,6 +57,7 @@ export default function Prompts({ onPromptSelection, prompts }) {
 
   return (
     <View style={styles.buttonContainer}>
+
       {prompts.map((prompt, i) => (
         <TouchableOpacity
           key={i}
@@ -65,6 +68,7 @@ export default function Prompts({ onPromptSelection, prompts }) {
             }
           }}
         >
+        
           <Text style={styles.text}>{prompt}</Text>
         </TouchableOpacity>
       ))}
