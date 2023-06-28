@@ -32,22 +32,20 @@ const styles = {
 
 export default function Prompts({ onPromptSelection, prompts }) {
   return (
-    <View>
-      <View style={styles.buttonContainer}>
-        {prompts.map((prompt, i) => (
-          <TouchableOpacity
-            key={i}
-            style={styles.button}
-            onPress={() => {
-              if (onPromptSelection) {
-                onPromptSelection(prompt);
-              }
-            }}
-          >
-            <Text style={styles.text}>{prompt}</Text>
-          </TouchableOpacity>
-        ))}
-      </View>
+    <View style={styles.buttonContainer}>
+      {prompts.map((prompt, i) => (
+        <TouchableOpacity
+          key={i}
+          style={styles.button}
+          onPress={() => {
+            if (onPromptSelection) {
+              onPromptSelection(prompt);
+            }
+          }}
+        >
+          <Text style={styles.text}>{prompt}</Text>
+        </TouchableOpacity>
+      ))}
     </View>
   );
 }
