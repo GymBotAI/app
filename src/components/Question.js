@@ -35,12 +35,7 @@ export default function Question({ prompt, input, handleSignUp }) {
   return (
     <>
       <Text style={styles.label}>{prompt}</Text>
-      <TextInput
-        style={styles.input}
-        value={name}
-        onChangeText={setName}
-        placeholder={input}
-      />
+      {input}
 
       <TouchableOpacity style={styles.button} onPress={handleSignUp}>
         <Text style={styles.text}>Continue</Text>
@@ -66,6 +61,8 @@ const styles = StyleSheet.create({
     color: "#dbdbdb",
   },
   button: {
+    position: 'absolute',
+    top: 200,
     width: "95%",
     backgroundColor: "#1260de",
     borderRadius: 8,
@@ -83,15 +80,5 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 8,
-  },
-  input: {
-    width: "95%",
-    height: 40,
-    borderColor: "black",
-    marginTop: 20,
-    fontSize: 16,
-    borderBottomWidth: 2,
-    paddingVertical: 5,
-    paddingHorizontal: 5,
   },
 });
