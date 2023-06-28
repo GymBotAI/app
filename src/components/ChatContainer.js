@@ -14,7 +14,7 @@ export default function Chat() {
   const [messages, sendMessage, setMessages] = useGymBotAI([
     {
       role: "assistant",
-      content: "",
+      content: "Hello! I'm GymBot, your personal trainer. How can I help you today?",
     },
   ]);
 
@@ -25,29 +25,29 @@ export default function Chat() {
   const initialMessageTypeSpeed = 100;
   const initialMessageTypeChars = 2;
 
-  if (initialMessagePos >= initialMessage.length) {
-    setHasDoneInitialMessage(() => true);
-  } else if (!hasDoneInitialMessage) {
-    useEffect(() => {
-      const timeout = setTimeout(() => {
-        setInitialMessagePos((oldPos) => oldPos + initialMessageTypeChars);
-        setMessages((oldMessages) => {
-          return [{
-            ...oldMessages[0],
-            content: oldMessages[0].content + initialMessage.substr(initialMessagePos, initialMessageTypeChars)
-          }];
-        });
-      }, initialMessageTypeSpeed);
+  // if (initialMessagePos >= initialMessage.length) {
+  //   setHasDoneInitialMessage(() => true);
+  // } else if (!hasDoneInitialMessage) {
+  //   useEffect(() => {
+  //     const timeout = setTimeout(() => {
+  //       setInitialMessagePos((oldPos) => oldPos + initialMessageTypeChars);
+  //       setMessages((oldMessages) => {
+  //         return [{
+  //           ...oldMessages[0],
+  //           content: oldMessages[0].content + initialMessage.substr(initialMessagePos, initialMessageTypeChars)
+  //         }];
+  //       });
+  //     }, initialMessageTypeSpeed);
 
-      return () => {
-        clearTimeout(timeout);
-      };
-    }, [
-      setInitialMessagePos,
-      setMessages,
-      messages
-    ]);
-  }
+  //     return () => {
+  //       clearTimeout(timeout);
+  //     };
+  //   }, [
+  //     setInitialMessagePos,
+  //     setMessages,
+  //     messages
+  //   ]);
+  // }
 
   // useEffect(() => {
   //   return closeWs;
@@ -76,9 +76,9 @@ export default function Chat() {
 
         {showPrompts && (
           <Prompts
-            onPromptSelection={(prompt) => {
-              chatInputRef.current?.setText?.(prompt);
-            }}
+            onPromptSelection={(text) => {
+            sendMessage(text);
+          }}
             prompts={[
               "Give me a chest workout!",
               "Explain Chest Flyes to me",

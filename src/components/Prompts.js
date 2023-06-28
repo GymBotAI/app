@@ -55,6 +55,11 @@ export default function Prompts({ onPromptSelection, prompts }) {
     return <Text>Loading...</Text>;
   }
 
+  const _onSubmit = (prompt) => {
+    
+    onPromptSelection(prompt);
+  };
+
   return (
     <View style={styles.buttonContainer}>
 
