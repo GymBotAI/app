@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, Button, StyleSheet } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  Button,
+  StyleSheet,
+  StatusBar,
+} from "react-native";
 
 export default function SignUp({ navigation }) {
   const [name, setName] = useState("");
@@ -60,6 +67,8 @@ export default function SignUp({ navigation }) {
       />
 
       <Button title="Sign Up" onPress={handleSignUp} />
+
+      <StatusBar barStyle="dark-content" />
     </View>
   );
 }

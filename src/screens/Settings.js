@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, StatusBar } from "react-native";
 
 import EditSettings from "../components/EditSettings";
 import GymBotNavigation from "../components/navbar";
@@ -13,8 +13,9 @@ export default function Settings({ navigation }) {
       }}
     >
       <ScreenHeader title="Settings" />
-
       <EditSettings />
+      <StatusBar barStyle="dark" />
+
       <GymBotNavigation navigation={navigation} />
     </View>
   );

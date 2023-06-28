@@ -1,11 +1,8 @@
-import { StatusBar } from "expo-status-bar";
-import { ImageBackground, View } from "react-native";
+import { View, StatusBar } from "react-native";
 
 import ChatContainer from "../components/ChatContainer";
 import ScreenHeader from "../components/ChatHeader";
 import GymBotNavigation from "../components/navbar";
-
-import { bgPrimary, white } from "../styles";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -17,7 +14,7 @@ export default function HomeScreen({ navigation }) {
     >
       <ScreenHeader text="GymBot" minitext="Talk to" />
       <ChatContainer />
-      <StatusBar style="auto" />
+      <StatusBar barStyle="light-content" />
 
       <GymBotNavigation navigation={navigation} />
     </View>

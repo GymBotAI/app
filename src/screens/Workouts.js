@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, StatusBar } from "react-native";
 
 import GymBotNavigation from "../components/navbar";
 import ViewWorkouts from "../components/ViewWorkouts";
@@ -15,6 +15,8 @@ export default function Workouts({ navigation }) {
       <ScreenHeader title="Workouts" />
 
       <ViewWorkouts />
+
+      <StatusBar barStyle="dark-content" />
 
       <GymBotNavigation navigation={navigation} />
     </View>

@@ -1,10 +1,10 @@
-import { StatusBar } from "expo-status-bar";
 import {
   ImageBackground,
   View,
   TextInput,
   TouchableWithoutFeedback,
   Keyboard,
+  StatusBar,
 } from "react-native";
 import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
@@ -64,7 +64,7 @@ export default function Account({ navigation }) {
           </View>
         </View>
 
-        <StatusBar style="auto" />
+        <StatusBar barStyle="light-content" />
       </LinearGradient>
     </TouchableWithoutFeedback>
   );
