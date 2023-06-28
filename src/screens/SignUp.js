@@ -11,16 +11,14 @@ import GenderSelect from "../components/Gender";
 let inputOptions = null;
 
 export default function SignUp({ navigation }) {
-  const [name, setName] = useState("");
+  const [name, setName] = useState("")
   const [birthdate, setBirthdate] = useState(new Date()); // Set initial value to the current date
-  const [weight, setWeight] = useState("");
-  const [gender, setGender] = useState("");
-  const [fitnessGoal, setFitnessGoal] = useState("");
 
   const slideUpAnim = useRef(new Animated.Value(300)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
 
   const [prompt, setPrompt] = useState("What is your name?");
+  const [highlight, setHighlight] = useState("");
 
   useEffect(() => {
     Animated.parallel([
@@ -37,6 +35,10 @@ export default function SignUp({ navigation }) {
     ]).start();
   }, [slideUpAnim, fadeAnim]);
   
+  const handleHighlight = (text) => {
+    setHighlight(text)
+  }
+
   const handleSignUp = () => {
     if (prompt === "What is your name?") {
       setPrompt("When were you born?");
@@ -57,17 +59,6 @@ export default function SignUp({ navigation }) {
     } else if (prompt === "When were you born?") {
       setPrompt("What is your gender?");
 
-      inputOptions = (
-        <View style={styles.boxContainer}>
-
-          <View style={styles.box}>
-            <Image source={require("../../assets/user.png")} style={styles.boxImage} />
-            <Text style={styles.boxTextInput}>Male</Text>
-          </View>
-
-        </View>
-      );
-
     } else if (prompt === "What is your gender?") {
       setPrompt("What are your fitness goals?");
     } else {
@@ -77,16 +68,31 @@ export default function SignUp({ navigation }) {
 
   if (prompt === "What is your name?") {
     inputOptions = (
+      <TextInput
+        style={styles.input}
+        placeholder="Enter your name"
+        value={name}
+        onChangeText={setName}
+      />
+    );
+    }
+  
+  if (prompt === "What is your gender?") {
+    inputOptions = (
       <View style={styles.boxContainer}>
 
         <View style={{display: 'flex', flexDirection: 'row'}}>
         <GenderSelect
           image={require("../../assets/man.png")}
           text="Male"
+          handleHighlight={handleHighlight}
+          selected={highlight}
         />
         <GenderSelect
           image={require("../../assets/woman.png")}
           text="Female"
+          handleHighlight={handleHighlight}
+          selected={highlight}
         />
         </View>
         
@@ -94,27 +100,20 @@ export default function SignUp({ navigation }) {
         <GenderSelect
           image={require("../../assets/user.png")}
           text="Other"
+          handleHighlight={handleHighlight}
+          selected={highlight}
         />
         <GenderSelect
           image={require("../../assets/user.png")}
           text="Prefer Not to Say"
+          handleHighlight={handleHighlight}
+          selected={highlight}
         />
         </View>
 
       </View>
     );
     }
-
-  // if (prompt === "What is your name?") {
-  //   inputOptions = (
-  //     <TextInput
-  //       style={styles.input}
-  //       placeholder="Enter your name"
-  //       value={name}
-  //       onChangeText={setName}
-  //     />
-  //   );
-  //   }
 
   return (
     <Animated.View

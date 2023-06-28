@@ -2,16 +2,14 @@ import React, { useState } from "react";
 import { Image, Text, TouchableOpacity, StyleSheet, } from "react-native";
 
 
-export default function GenderSelect({ image, text }) {
-    const [isSelected, setIsSelected] = useState(false);
+export default function GenderSelect({ image, text, handleHighlight, selected }) {
 
-
-const handlePress = () => {
-    setIsSelected(!isSelected);
-  };
+    const handlePress = () => {
+        handleHighlight(text)
+    };
 
   return (
-    <TouchableOpacity style={[styles.buttonBox, isSelected && styles.selectedButton]} onPress={handlePress}>
+    <TouchableOpacity style={[styles.buttonBox, selected === text && styles.selectedButton]} onPress={handlePress}>
     <Image source={image} style={styles.boxImage} />
     <Text style={styles.boxText}>{text}</Text>
   </TouchableOpacity>
