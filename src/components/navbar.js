@@ -1,45 +1,27 @@
 import React from "react";
 import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 
+const navImages = {
+  Workouts: require("../../assets/navbar/workouts.png"),
+  Chat: require("../../assets/navbar/chat.png"),
+  Settings: require("../../assets/navbar/settings.png"),
+};
+
 export default function GymBotNavigation({ navigation }) {
-  // Handle navigation actions
-  const handlePressChat = () => {
-    navigation.navigate("Chat");
-  };
-
-  const handlePressWorkouts = () => {
-    navigation.navigate("Workouts");
-  };
-
-  const handlePressSettings = () => {
-    navigation.navigate("Settings");
-  };
-
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={handlePressWorkouts}>
-        <Image
-          source={require("../../assets/navbar/workout.png")}
-          style={styles.image}
-        />
-        <Text style={styles.buttonText}>Workouts</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={handlePressChat}>
-        <Image
-          source={require("../../assets/navbar/chat.png")}
-          style={styles.image}
-        />
-        <Text style={styles.buttonText}>Chat</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.button} onPress={handlePressSettings}>
-        <Image
-          source={require("../../assets/navbar/settings.png")}
-          style={styles.image}
-        />
-        <Text style={styles.buttonText}>Settings</Text>
-      </TouchableOpacity>
+      {Object.entries(navImages).map(([name, image]) => (
+        <TouchableOpacity
+          key={name}
+          style={styles.button}
+          onPress={() => {
+            navigation.navigate(name);
+          }}
+        >
+          <Image source={image} style={styles.image} />
+          <Text style={styles.buttonText}>{name}</Text>
+        </TouchableOpacity>
+      ))}
     </View>
   );
 }
