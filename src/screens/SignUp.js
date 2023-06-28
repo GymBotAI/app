@@ -85,6 +85,10 @@ export default function SignUp({ navigation }) {
     }
   };
 
+  if (prompt === "Welcome to GymBot! To get started you will need to answer some questions") {
+    inputOptions = (null)
+  }
+
   if (prompt === "What is your gender?") {
     inputOptions = (
       <View style={styles.boxContainer}>
