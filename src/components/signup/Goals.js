@@ -1,27 +1,26 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 
-import Goals from "../GoalSelect";
+import GoalSelect from "../GoalSelect";
 
-export default function Name({ }) {
-    const [name, setName] = useState("")
+export default function Goals({ }) {
 
   return (
     <>
         <View style={{display: 'flex', flexDirection: 'row'}}>
-          <Goals text="Build Muscle"/>
-          <Goals text="Lose Weight"/>
+          <GoalSelect text="Build Muscle"/>
+          <GoalSelect text="Lose Weight"/>
         </View>
         <View style={{display: 'flex', flexDirection: 'row'}}>
-          <Goals text="Run Faster"/>
-          <Goals text="Better Abs"/>
+          <GoalSelect text="Run Faster"/>
+          <GoalSelect text="Better Abs"/>
         </View>
         <View style={{display: 'flex', flexDirection: 'row'}}>
-          <Goals text="Get Larger"/>
-          <Goals text="Do a Pull Up"/>
+          <GoalSelect text="Jump Higher"/>
+          <GoalSelect text="Do a Pull Up"/>
         </View>
         <View style={{alignItems: 'center'}}>
-        <Goals text="Other"/>
+        <GoalSelect text="Other"/>
         </View>
 
     </>

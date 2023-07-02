@@ -6,20 +6,9 @@ import Question from "../components/Question";
 import SignUpHeader from "../components/signup/SignUpHeader"
 
 
-let inputOptions = null;
-
 export default function SignUp({ navigation }) {
-  const [name, setName] = useState("")
-  const [birthdate, setBirthdate] = useState(new Date()); // Set initial value to the current date
 
   const [prompt, setPrompt] = useState("Welcome to GymBot! To get started, tell us your name");
-  const [highlight, setHighlight] = useState("");
-
-  
-  
-  const handleHighlight = (text) => {
-    setHighlight(text)
-  }
 
   const handleSignUp = () => {
     if (prompt === "Welcome to GymBot! To get started, tell us your name") {
@@ -46,7 +35,7 @@ export default function SignUp({ navigation }) {
       <SignUpHeader text="GymBot" minitext="Welcome to"/>
       </View>
 
-      <Question prompt={prompt} input={inputOptions} handleSignUp={handleSignUp} />
+      <Question prompt={prompt} handleSignUp={handleSignUp} />
 
       <StatusBar barStyle="dark-content" />
     </View>
@@ -59,11 +48,5 @@ const styles = StyleSheet.create({
     padding: 16,
     alignItems: "center",
     marginTop: 200,
-  },
-  boxContainer: {
-    flex: 1,
-    display: 'flex',
-    alignItems: "center",
-    marginBottom: 20,
   },
 });

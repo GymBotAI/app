@@ -11,7 +11,14 @@ import {
 
 import * as Font from "expo-font";
 
-export default function Question({ prompt, input, handleSignUp }) {
+import Name from "./signup/Name";
+import Age from "./signup/Age";
+import Gender from "./signup/Gender";
+import Goals from "./signup/Goals";
+
+let input = (null)
+
+export default function Question({ prompt, handleSignUp }) {
   const [name, setName] = useState("");
   const [fontLoaded, setFontLoaded] = useState(false);
   const slideUpAnim = useRef(new Animated.Value(300)).current;
@@ -52,6 +59,16 @@ export default function Question({ prompt, input, handleSignUp }) {
     return <Text>Loading...</Text>;
   }
 
+  if (prompt === "Welcome to GymBot! To get started, tell us your name") {
+    inputOption = <Name/>
+  } else if (prompt === "When were you born?") {
+    inputOption = <Age/>
+  } else if (prompt === "What is your gender?") {
+    inputOption = <Gender/>
+  } else if (prompt === "What are your goals?") {
+    inputOption = <Goals/>
+  }
+
   return (
     <Animated.View
       style={[
@@ -60,7 +77,7 @@ export default function Question({ prompt, input, handleSignUp }) {
       ]}
     >
       <Text style={styles.label}>{prompt}</Text>
-      {input}
+      {inputOption}
 
       <TouchableOpacity style={styles.button} onPress={handleSignUp}>
         <Text style={styles.text}>Continue</Text>
