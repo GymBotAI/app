@@ -8,7 +8,7 @@ import * as Font from "expo-font";
 import Question from "../components/Question";
 import Goals from "../components/Goals"
 import GenderSelect from "../components/Gender";
-import SignUpHeader from "../components/SignUpHeader"
+import SignUpHeader from "../components/signup/SignUpHeader"
 
 let inputOptions = null;
 
@@ -16,7 +16,7 @@ export default function SignUp({ navigation }) {
   const [name, setName] = useState("")
   const [birthdate, setBirthdate] = useState(new Date()); // Set initial value to the current date
 
-  const [prompt, setPrompt] = useState("Welcome to GymBot! To get started you will need to answer some questions");
+  const [prompt, setPrompt] = useState("Welcome to GymBot! To get started, tell us your name");
   const [highlight, setHighlight] = useState("");
 
   
@@ -26,18 +26,7 @@ export default function SignUp({ navigation }) {
   }
 
   const handleSignUp = () => {
-    if (prompt === "Welcome to GymBot! To get started you will need to answer some questions") {
-      setPrompt("What is your name?")
-    inputOptions = (
-      <TextInput
-        style={styles.input}
-        placeholder="Enter your name"
-        value={name}
-        onChangeText={setName}
-      /> 
-      );
-
-    } else if (prompt === "What is your name?") {
+    if (prompt === "Welcome to GymBot! To get started, tell us your name") {
       setPrompt("When were you born?");
 
       inputOptions = (
@@ -85,8 +74,14 @@ export default function SignUp({ navigation }) {
     }
   };
 
-  if (prompt === "Welcome to GymBot! To get started you will need to answer some questions") {
-    inputOptions = (null)
+  if (prompt === "Welcome to GymBot! To get started, tell us your name") {
+    inputOptions = (
+      <TextInput
+        style={styles.input}
+        placeholder="Enter your name"
+        value={name}
+        onChangeText={setName}
+      /> )
   }
 
   if (prompt === "What is your gender?") {

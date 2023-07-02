@@ -9,7 +9,7 @@ export default function SignUpHeader({ text, minitext }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "custom-font": require("../../assets/fonts/Roboto-Black.ttf"),
+        "custom-font": require("../../../assets/fonts/Roboto-Black.ttf"),
       });
 
       setFontLoaded(true);
@@ -47,7 +47,7 @@ export default function SignUpHeader({ text, minitext }) {
           }}
         >
           <Image
-            source={require("../../assets/icon.jpg")}
+            source={require("../../../assets/icon.jpg")}
             style={{
               width: 65, // Adjust the size as needed
               height: 65, // Adjust the size as needed
