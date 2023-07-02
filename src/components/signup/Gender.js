@@ -1,0 +1,44 @@
+import React, { useState } from "react";
+import { View } from "react-native";
+
+import GenderSelect from "../GenderSelect";
+
+export default function Gender({ text, }) {
+    const [name, setName] = useState("")
+
+  return (
+    <View style={styles.boxContainer}>
+
+        <View style={{display: 'flex', flexDirection: 'row'}}>
+        <GenderSelect
+          image={require("../../assets/man.png")}
+          text="Male"
+          handleHighlight={handleHighlight}
+          selected={highlight}
+        />
+        <GenderSelect
+          image={require("../../assets/woman.png")}
+          text="Female"
+          handleHighlight={handleHighlight}
+          selected={highlight}
+        />
+        </View>
+        
+        <View style={{display: 'flex', flexDirection: 'row'}}>
+        <GenderSelect
+          image={require("../../assets/user.png")}
+          text="Other"
+          handleHighlight={handleHighlight}
+          selected={highlight}
+        />
+        <GenderSelect
+          image={require("../../assets/user.png")}
+          text="Prefer Not to Say"
+          handleHighlight={handleHighlight}
+          selected={highlight}
+        />
+        </View>
+
+      </View>
+  );
+}

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Text, TouchableOpacity, StyleSheet, } from "react-native";
 
 
-export default function GenderSelect({ text, }) {
+export default function GoalSelect({ text, }) {
     const [selected, setSelected] = useState(false)
 
     const handlePress = () => {
