@@ -9,11 +9,10 @@ export default function Age() {
 
   const toggleShow = () => {
     setShowPicker(true)
-    console.log(showPicker)
   }
 
   const onChange = ({type}, selectedDate) => {
-    if (type == 'set') {
+    if (type === 'set') {
       const currentDate = selectedDate;
       setDate(currentDate);
 
@@ -31,30 +30,28 @@ export default function Age() {
 
   return (
     <View>
-
       {showPicker && 
       (<DateTimePicker
         mode='date'
         display='spinner'
         value={date}
         onChange={onChange}
+        minimumDate={new Date(1900, 0, 1)} // Replace with your minimum date
+        maximumDate={date} // Replace with your maximum date (e.g., new Date() for today)
       />)}
 
       {!showPicker && (
         <Pressable onPress={toggleShow}>
-
-        <TextInput 
-          style={styles.input}
-          placeholder={date.toDateString()}
-          value={dateOfBirth}
-          onChangeText={setDateOfBirth}
-          editable={false}
-          onPressIn={toggleShow}
-        />
-
-      </Pressable>
+          <TextInput 
+            style={styles.input}
+            placeholder={date.toDateString()}
+            value={dateOfBirth}
+            onChangeText={setDateOfBirth}
+            editable={false}
+            onPressIn={toggleShow}
+          />
+        </Pressable>
       )}
-
     </View>
   );
 }
@@ -64,7 +61,8 @@ const styles = StyleSheet.create({
     fontSize: 24, // Adjust the font size as needed
     textAlign: 'center',
     marginTop: 20,
-  }, input: {
+  },
+  input: {
     borderBottomWidth: 1,
     paddingVertical: 10,
     marginTop: 20,
