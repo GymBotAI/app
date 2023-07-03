@@ -8,7 +8,7 @@ export default function Age() {
   const [showPicker, setShowPicker] = useState(false);
 
   const toggleShow = () => {
-    setShowPicker(!showPicker)
+    setShowPicker(true)
     console.log(showPicker)
   }
 
@@ -45,7 +45,7 @@ export default function Age() {
 
         <TextInput 
           style={styles.input}
-          placeholder="Sat Aug 21 2004"
+          placeholder={date.toDateString()}
           value={dateOfBirth}
           onChangeText={setDateOfBirth}
           editable={false}
