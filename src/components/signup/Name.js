@@ -11,7 +11,7 @@ export default function Name({ }) {
     height: 40,
     borderColor: "black",
     marginTop: 20,
-    fontSize: 16,
+    fontSize: 18,
     borderBottomWidth: 2,
     paddingVertical: 5,
     paddingHorizontal: 2,

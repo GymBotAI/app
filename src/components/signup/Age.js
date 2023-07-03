@@ -63,9 +63,13 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   input: {
-    borderBottomWidth: 1,
-    paddingVertical: 10,
+    height: 40,
+    borderColor: "black",
     marginTop: 20,
-    fontSize: 20,
+    fontSize: 18,
+    borderBottomWidth: 2,
+    paddingVertical: 5,
+    paddingHorizontal: 2,
+    marginHorizontal: -10,
   }
 });

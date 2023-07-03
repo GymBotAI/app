@@ -19,7 +19,7 @@ export default function GenderSelect({ image, text, handleHighlight, selected })
 const styles = StyleSheet.create({
   buttonBox: {
     margin: 5,
-    width: '45%',
+    width: '47%',
     borderWidth: 1,
     borderColor: '#444',
     borderRadius: 10,
