@@ -11,7 +11,7 @@ export default function GenderSelect({ image, text, handleHighlight, selected })
   return (
     <TouchableOpacity style={[styles.buttonBox, selected === text && styles.selectedButton]} onPress={handlePress}>
     <Image source={image} style={styles.boxImage} />
-    <Text style={styles.boxText}>{text}</Text>
+    <Text style={[styles.boxText, selected === text && styles.selectedText]}>{text}</Text>
   </TouchableOpacity>
   );
 }
@@ -19,7 +19,7 @@ export default function GenderSelect({ image, text, handleHighlight, selected })
 const styles = StyleSheet.create({
   buttonBox: {
     margin: 5,
-    width: '47%',
+    width: '48%',
     borderWidth: 1,
     borderColor: '#444',
     borderRadius: 10,
@@ -37,6 +37,11 @@ const styles = StyleSheet.create({
   boxText: {
     alignSelf: "center",
     borderColor: "black",
-    fontSize: 16,
+    fontSize: 15.5,
+    color: "#444",
+    fontWeight: "bold",
+  },
+  selectedText: {
+    color: "#fff", // Change to your desired text color when selected
   },
 });
