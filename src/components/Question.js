@@ -16,10 +16,10 @@ import Age from "./signup/Age";
 import Gender from "./signup/Gender";
 import Goals from "./signup/Goals";
 
-let input = (null)
+let inputOption = (null)
 
 export default function Question({ prompt, handleSignUp }) {
-  const [name, setName] = useState("");
+  const [isInputFilled, setInputFilled] = useState(false);
   const [fontLoaded, setFontLoaded] = useState(false);
   const slideUpAnim = useRef(new Animated.Value(300)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
@@ -60,7 +60,7 @@ export default function Question({ prompt, handleSignUp }) {
   }
 
   if (prompt === "Welcome to GymBot! To get started, tell us your name") {
-    inputOption = <Name/>
+    inputOption = <Name onNameChange={setInputFilled} />;
   } else if (prompt === "When were you born?") {
     inputOption = <Age/>
   } else if (prompt === "What is your gender?") {
@@ -79,7 +79,11 @@ export default function Question({ prompt, handleSignUp }) {
       <Text style={styles.label}>{prompt}</Text>
       {inputOption}
 
-      <TouchableOpacity style={styles.button} onPress={handleSignUp}>
+      <TouchableOpacity
+        style={[styles.button, !isInputFilled && styles.disabledButton]}
+        onPress={handleSignUp}
+        disabled={!isInputFilled}
+      >
         <Text style={styles.text}>Continue</Text>
       </TouchableOpacity>
 
@@ -120,5 +124,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 8,
     marginHorizontal: -5,
-  },
+    
+  }, disabledButton: {
+    backgroundColor: "#fff", // Change the background color of the disabled button
+  } 
 });
