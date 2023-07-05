@@ -1,37 +1,33 @@
 import { Text, View, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
-
 import { useEffect, useState } from "react";
 
 const styles = {
-  button: {
-    borderRadius: 1,
-    borderColor: "#81a6cc",
-    borderWidth: 1,
-    flex: 1,
-    flexWrap: "wrap",
-    padding: 10,
-    borderRadius: 20,
-    borderWidth: 1.5,
-    backgroundColor: "#dbdbdb",
-  },
   buttonContainer: {
+    marginTop: -10,
     display: "flex",
-    flexDirection: "row",
+    flexDirection: "column",
     padding: 10,
     gap: 10,
     justifyContent: "center",
     width: "100%",
     zIndex: 1,
   },
+  button: {
+    marginLeft: 'auto',
+    width: "75%",
+    borderRadius: 20,
+    padding: 10,
+    borderWidth: 1.5,
+    borderColor: "#2360e8",
+    // backgroundColor: "#2360e8",
+  },
   text: {
-    fontSize: 15,
-    fontWeight: 'bold',
+    fontSize: 16,
+    fontWeight: "bold",
     fontFamily: "roboto-regular",
     letterSpacing: 0.5,
-    width: "100%",
-    color: "#1c81e8",
-    justifyContent: "center",
+    color: "#2360e8",
     textAlign: "center",
   },
 };
@@ -55,14 +51,8 @@ export default function Prompts({ onPromptSelection, prompts }) {
     return <Text>Loading...</Text>;
   }
 
-  const _onSubmit = (prompt) => {
-    
-    onPromptSelection(prompt);
-  };
-
   return (
     <View style={styles.buttonContainer}>
-
       {prompts.map((prompt, i) => (
         <TouchableOpacity
           key={i}
@@ -73,7 +63,6 @@ export default function Prompts({ onPromptSelection, prompts }) {
             }
           }}
         >
-        
           <Text style={styles.text}>{prompt}</Text>
         </TouchableOpacity>
       ))}

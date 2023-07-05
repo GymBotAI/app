@@ -62,7 +62,7 @@ export default function ChatMessage({ message }) {
       )}
       <View
         style={{
-          backgroundColor: message.role === "user" ? "#0084ff" : "#e0e0e0",
+          backgroundColor: message.role === "user" ? "#2360e8" : "#e0e0e0",
           borderRadius: 12,
           paddingHorizontal: 10,
           paddingVertical: 6,

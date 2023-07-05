@@ -3,8 +3,9 @@ import { useRef, useEffect } from "react";
 import * as Device from "expo-device";
 
 import ChatMessage from "./ChatMessage";
+import Prompts from "./Prompts";
 
-export default function ChatMessages({ messages }) {
+export default function ChatMessages({ messages, handlePromptPress, sendMessage, showPrompts}) {
   const scrollRef = useRef();
 
   useEffect(() => {
@@ -17,6 +18,7 @@ export default function ChatMessages({ messages }) {
 
     return listener.remove;
   }, []);
+
 
   return (
     <ScrollView
@@ -48,6 +50,19 @@ export default function ChatMessages({ messages }) {
             ))
           : null}
       </View>
+
+      {showPrompts && (
+          <Prompts
+            onPromptSelection={(text) => {
+            sendMessage(text);
+            handlePromptPress();
+          }}
+            prompts={[
+              "Give me a chest workout!",
+              "How do I run faster?",
+            ]}
+          />
+        )}
     </ScrollView>
   );
 }
