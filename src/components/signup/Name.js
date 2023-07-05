@@ -1,5 +1,8 @@
-import React, { useState } from "react";
-import { TextInput } from "react-native";
+import React, { useState, useRef, useEffect } from "react";
+import { TextInput, View, Keyboard } from "react-native";
+
+import * as Device from "expo-device";
+
 
 
 export default function Name({ onNameChange }) {
@@ -11,6 +14,13 @@ export default function Name({ onNameChange }) {
   };
 
   return (
+    
+    <View
+      style={{
+        flexGrow: 1,
+        overflow: "auto",
+      }}
+    >
     <TextInput
       style={{
         height: 40,
@@ -20,11 +30,12 @@ export default function Name({ onNameChange }) {
         borderBottomWidth: 2,
         paddingVertical: 5,
         paddingHorizontal: 2,
-        marginHorizontal: -10,
+        marginHorizontal: 10,
       }}
       placeholder="Enter your name"
       value={name}
       onChangeText={handleNameChange}
     />
+    </View>
   );
 }

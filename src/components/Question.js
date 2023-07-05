@@ -7,9 +7,13 @@ import {
   StyleSheet,
   StatusBar,
   Animated,
+  Keyboard,
+  TouchableWithoutFeedback,
 } from "react-native";
 
 import * as Font from "expo-font";
+import * as Device from "expo-device";
+
 
 import Name from "./signup/Name";
 import Age from "./signup/Age";
@@ -70,6 +74,12 @@ export default function Question({ prompt, handleSignUp }) {
   }
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}
+    style={{
+        flexGrow: 1,
+        overflow: "auto",
+        height: "95%",
+      }}>
     <Animated.View
       style={[
         styles.container,
@@ -89,12 +99,15 @@ export default function Question({ prompt, handleSignUp }) {
 
       <StatusBar barStyle="dark-content" />
     </Animated.View>
+    </TouchableWithoutFeedback>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     padding: 16,
+    display: "flex",
+    flex: 1,
   },
   text: {
     alignSelf: "center",
@@ -105,12 +118,11 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: 'center',
-    position: "absolute",
-    top: 200,
+    // position: "absolute",
+    // top: 200,
     width: '100%',
     backgroundColor: "#1260de",
     borderRadius: 8,
-    marginTop: 250,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
@@ -118,6 +130,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   label: {
+    marginTop: 50,
     textAlign: 'center',
     alignSelf: "center",
     fontSize: 30,
@@ -129,3 +142,4 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff", // Change the background color of the disabled button
   } 
 });
+
