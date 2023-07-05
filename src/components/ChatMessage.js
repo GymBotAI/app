@@ -72,7 +72,7 @@ export default function ChatMessage({ message }) {
         <Text
           style={{
             textAlign: "left",
-            color: 'black',
+            color: message.role === "user" ? "white" : "black",
             fontSize: fontSize,
             fontFamily: "roboto-regular",
             padding: 3,

@@ -1,7 +1,7 @@
 import { View, StatusBar } from "react-native";
 
 import SignUpContainer from "../components/signup/SignUpContainer";
-import SignUpHeader from "../components/signup/SignUpHeader";
+import MainHeader from "../components/MainHeader"
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -11,7 +11,7 @@ export default function HomeScreen({ navigation }) {
         width: "100%",
       }}
     >
-      <SignUpHeader text="GymBot" minitext="Welcome to" />
+      <MainHeader text="GymBot" minitext="Welcome to" />
       <SignUpContainer navigation={navigation}/>
       <View style={{paddingTop: 25,
     paddingBottom: 25,

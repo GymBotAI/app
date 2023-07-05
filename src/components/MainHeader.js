@@ -3,13 +3,13 @@ import * as Font from "expo-font";
 import React, { useState, useEffect } from "react";
 import Svg, { Path } from "react-native-svg";
 
-export default function SignUpHeader({ text, minitext }) {
+export default function MainHeader({ text, minitext }) {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "custom-font": require("../../../assets/fonts/Roboto-Black.ttf"),
+        "custom-font": require("../../assets/fonts/Roboto-Black.ttf"),
       });
 
       setFontLoaded(true);
@@ -36,7 +36,7 @@ export default function SignUpHeader({ text, minitext }) {
           style={{
             paddingTop: 50,
             paddingBottom: 8,
-            backgroundColor: "#81cce6",
+            backgroundColor: "#3d9aba",
             width: "100%",
             display: "flex",
             flexDirection: "row",
@@ -47,13 +47,11 @@ export default function SignUpHeader({ text, minitext }) {
           }}
         >
           <Image
-            source={require("../../../assets/icon.jpg")}
+            source={require("../../assets/icon.jpg")}
             style={{
               width: 65, // Adjust the size as needed
               height: 65, // Adjust the size as needed
-              borderRadius: 40,
-              borderColor: '#1a2f36',
-              borderWidth: 2,
+              borderRadius: 20,
               marginLeft: -50,
               marginRight: 10, // Add this line to set the desired spacing between the image and text
             }}
@@ -61,19 +59,17 @@ export default function SignUpHeader({ text, minitext }) {
           <View style={{}}>
             <Text
               style={{
-                fontSize: 20,
-                color: "#1a2f36",
+                fontSize: 14,
+                color: "#e0e0e0",
                 fontFamily: "custom-font",
                 letterSpacing: 1.5,
                 marginBottom: -5,
-                marginLeft: 5,
                 shadowColor: "black",
                 shadowOffset: { width: 0, height: 2 },
                 shadowOpacity: 0.3,
                 shadowRadius: 4,
                 elevation: 5, // For Android shadow
               }}
-              
             >
               {minitext}
             </Text>
@@ -81,7 +77,7 @@ export default function SignUpHeader({ text, minitext }) {
             <Text
               style={{
                 fontSize: 48,
-                color: "#1a2f36",
+                color: "#e0e0e0",
                 fontFamily: "custom-font",
                 fontWeight: "bold",
                 letterSpacing: 1.5,
@@ -101,15 +97,15 @@ export default function SignUpHeader({ text, minitext }) {
 
         <Svg
           style={{
-            marginTop: -15,
+            marginTop: -40,
           }}
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
         >
           <Path
-            fill="#81cce6"
+            fill="#3d9aba"
             fill-opacity="1"
-            d="M0,0L48,32C96,64,192,128,288,149.3C384,171,480,149,576,154.7C672,160,768,192,864,181.3C960,171,1056,117,1152,96C1248,75,1344,85,1392,90.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+            d="M0,288L40,250.7C80,213,160,139,240,138.7C320,139,400,213,480,213.3C560,213,640,139,720,138.7C800,139,880,213,960,218.7C1040,224,1120,160,1200,138.7C1280,117,1360,139,1400,149.3L1440,160L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
           ></Path>
         </Svg>
       </View>
