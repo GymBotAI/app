@@ -5,7 +5,7 @@ import * as Device from "expo-device";
 import Question from "../Question";
 
 
-export default function SignUpContainer( navigation ) {
+export default function SignUpContainer( {navigation }) {
 
   return (
     <KeyboardAvoidingView
