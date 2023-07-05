@@ -6,7 +6,7 @@ import { borderDefault, white, fontSize, font } from "../styles";
 import { useEffect, useState } from "react";
 
 const roleIcons = {
-  assistant: require("../../assets/icon.jpg"),
+  assistant: require("../../assets/circleicon.png"),
   user: require("../../assets/user.png"),
 };
 
@@ -48,12 +48,12 @@ export default function ChatMessage({ message }) {
       {message.role === "assistant" && (
         <Image
           style={{
-            width: 28,
-            height: 28,
-            borderRadius: 15,
+            width: 40,
+            height: 40,
+            // borderRadius: 50,
             borderColor: borderDefault,
-            borderWidth: 1,
-            marginTop: "auto",
+            marginTop: 5,
+            marginBottom: "auto",
             marginLeft: -10, // Add margin only for assistant messages
             marginRight: 5,
           }}
@@ -62,19 +62,20 @@ export default function ChatMessage({ message }) {
       )}
       <View
         style={{
-          backgroundColor: message.role === "user" ? "#0084ff" : "#888",
-          borderRadius: 10,
+          backgroundColor: message.role === "user" ? "#0084ff" : "#e0e0e0",
+          borderRadius: 12,
           paddingHorizontal: 10,
           paddingVertical: 6,
-          maxWidth: "72%", // Limit the message width
+          maxWidth: "75%", // Limit the message width
         }}
       >
         <Text
           style={{
             textAlign: "left",
-            color: white,
+            color: 'black',
             fontSize: fontSize,
             fontFamily: "roboto-regular",
+            padding: 3,
           }}
         >
           {message.content}
