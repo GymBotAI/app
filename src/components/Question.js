@@ -40,7 +40,7 @@ export default function Question({ navigation }) {
 
     } else if (prompt === "What is your gender?") {
       setPrompt("What are your goals?");
-      inputOption = <Goals/>
+      inputOption = <Goals onGoalChange={setInputFilled}/>
 
     } else {
       navigation.navigate("Chat");

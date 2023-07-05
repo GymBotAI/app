@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
 
-const GoalSelect = ({ text }) => {
+const GoalSelect = ({ text, onGoalChange }) => {
   const [selected, setSelected] = useState(false);
 
   const handlePress = () => {
+    onGoalChange(true);
     setSelected(!selected);
   };
 

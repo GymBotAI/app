@@ -3,23 +3,23 @@ import { View, StyleSheet } from "react-native";
 
 import GoalSelect from "../GoalSelect";
 
-const Goals = () => {
+export default function Goals({ onGoalChange }) {
   return (
     <View style={styles.container}>
       <View style={styles.row}>
-        <GoalSelect text="Build Muscle" />
-        <GoalSelect text="Lose Weight" />
+        <GoalSelect onGoalChange={onGoalChange} text="Build Muscle" />
+        <GoalSelect onGoalChange={onGoalChange} text="Lose Weight" />
       </View>
       <View style={styles.row}>
-        <GoalSelect text="Run Faster" />
-        <GoalSelect text="Better Abs" />
+        <GoalSelect onGoalChange={onGoalChange} text="Run Faster" />
+        <GoalSelect onGoalChange={onGoalChange} text="Better Abs" />
       </View>
       <View style={styles.row}>
-        <GoalSelect text="Jump Higher" />
-        <GoalSelect text="Do a Pull Up" />
+        <GoalSelect onGoalChange={onGoalChange} text="Jump Higher" />
+        <GoalSelect onGoalChange={onGoalChange} text="Do a Pull Up" />
       </View>
       <View style={styles.centered}>
-        <GoalSelect text="Other" />
+        <GoalSelect onGoalChange={onGoalChange} text="Other" />
       </View>
     </View>
   );
@@ -39,5 +39,3 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 });
-
-export default Goals;
