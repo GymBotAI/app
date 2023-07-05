@@ -3,19 +3,17 @@ import { View } from "react-native";
 
 import GenderSelect from "../GenderSelect";
 
-export default function Gender({ }) {
+export default function Gender({onGenderChange}) {
     const [highlight, setHighlight] = useState("");
     
     const handleHighlight = (text) => {
+      onGenderChange(true);
       setHighlight(text)
     }
 
   return (
     <View style={{
-        flex: 1,
-        display: 'flex',
-        alignItems: "center",
-        marginBottom: 20,}}>
+         flexGrow: 1, overflow: "auto" }}>
 
         <View style={{display: 'flex', flexDirection: 'row'}}>
         <GenderSelect

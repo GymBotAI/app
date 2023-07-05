@@ -36,7 +36,7 @@ export default function Question({ navigation }) {
 
     } else if (prompt === "When were you born?") {
       setPrompt("What is your gender?");
-      inputOption = <Gender/>
+      inputOption = <Gender onGenderChange={setInputFilled}/>
 
     } else if (prompt === "What is your gender?") {
       setPrompt("What are your goals?");
