@@ -63,10 +63,15 @@ export default function Question({ prompt, handleSignUp }) {
     return <Text>Loading...</Text>;
   }
 
+  const continueClick = () => {
+    handleSignUp()
+    setInputFilled(false)
+  }
+
   if (prompt === "Welcome to GymBot! To get started, tell us your name") {
     inputOption = <Name onNameChange={setInputFilled} />;
   } else if (prompt === "When were you born?") {
-    inputOption = <Age/>
+    inputOption = <Age onAgeChange={setInputFilled}/>
   } else if (prompt === "What is your gender?") {
     inputOption = <Gender/>
   } else if (prompt === "What are your goals?") {
@@ -91,7 +96,7 @@ export default function Question({ prompt, handleSignUp }) {
 
       <TouchableOpacity
         style={[styles.button, !isInputFilled && styles.disabledButton]}
-        onPress={handleSignUp}
+        onPress={continueClick}
         disabled={!isInputFilled}
       >
         <Text style={styles.text}>Continue</Text>

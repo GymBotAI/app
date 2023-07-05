@@ -15,12 +15,7 @@ export default function Name({ onNameChange }) {
 
   return (
     
-    <View
-      style={{
-        flexGrow: 1,
-        overflow: "auto",
-      }}
-    >
+    <View style={{ flexGrow: 1, overflow: "auto" }}>
     <TextInput
       style={{
         height: 40,
