@@ -12,7 +12,7 @@ export default function HomeScreen({ navigation }) {
       }}
     >
       <SignUpHeader text="GymBot" minitext="Welcome to" />
-      <SignUpContainer />
+      <SignUpContainer navigation={navigation}/>
       <View style={{paddingTop: 25,
     paddingBottom: 25,
     paddingHorizontal: 0,}}/>

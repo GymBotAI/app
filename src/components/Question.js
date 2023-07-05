@@ -12,7 +12,6 @@ import {
 } from "react-native";
 
 import * as Font from "expo-font";
-import * as Device from "expo-device";
 
 
 import Name from "./signup/Name";
@@ -22,11 +21,31 @@ import Goals from "./signup/Goals";
 
 let inputOption = (null)
 
-export default function Question({ prompt, handleSignUp }) {
+export default function Question({ navigation }) {
   const [isInputFilled, setInputFilled] = useState(false);
   const [fontLoaded, setFontLoaded] = useState(false);
   const slideUpAnim = useRef(new Animated.Value(300)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
+  const [prompt, setPrompt] = useState("Welcome to GymBot! To get started, tell us your name");
+
+  const handleSignUp = () => {
+    setInputFilled(false)
+    if (prompt === "Welcome to GymBot! To get started, tell us your name") {
+      setPrompt("When were you born?");
+      inputOption = <Age onAgeChange={setInputFilled}/>
+
+    } else if (prompt === "When were you born?") {
+      setPrompt("What is your gender?");
+      inputOption = <Gender/>
+
+    } else if (prompt === "What is your gender?") {
+      setPrompt("What are your goals?");
+      inputOption = <Goals/>
+
+    } else {
+      navigation.navigate("Chat");
+    }
+  };
 
   useEffect(() => {
     async function loadFont() {
@@ -63,19 +82,8 @@ export default function Question({ prompt, handleSignUp }) {
     return <Text>Loading...</Text>;
   }
 
-  const continueClick = () => {
-    handleSignUp()
-    setInputFilled(false)
-  }
-
   if (prompt === "Welcome to GymBot! To get started, tell us your name") {
     inputOption = <Name onNameChange={setInputFilled} />;
-  } else if (prompt === "When were you born?") {
-    inputOption = <Age onAgeChange={setInputFilled}/>
-  } else if (prompt === "What is your gender?") {
-    inputOption = <Gender/>
-  } else if (prompt === "What are your goals?") {
-    inputOption = <Goals/>
   }
 
   return (
@@ -96,7 +104,7 @@ export default function Question({ prompt, handleSignUp }) {
 
       <TouchableOpacity
         style={[styles.button, !isInputFilled && styles.disabledButton]}
-        onPress={continueClick}
+        onPress={handleSignUp}
         disabled={!isInputFilled}
       >
         <Text style={styles.text}>Continue</Text>
