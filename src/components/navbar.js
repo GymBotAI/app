@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     backgroundColor: "#ddd",
-    paddingTop: 10,
+    paddingTop: 5,
     paddingBottom: 25,
     paddingHorizontal: 0,
     backgroundColor: "white",
@@ -42,12 +42,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   buttonText: {
-    fontSize: 12,
+    fontSize: 10,
     fontWeight: "bold",
     color: "#333",
   },
   image: {
-    width: 32,
-    height: 32,
+    marginBottom: 3,
+    width: 27,
+    height: 27,
   },
 });

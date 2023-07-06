@@ -31,12 +31,12 @@ export default function MainHeader({ text, minitext }) {
         zIndex: 1,
       }}
     >
-      <View style={{ backgroundColor: "#1260de", height: 110 }}>
+      <View style={{ backgroundColor: "#60b8d6", height: 110 }}>
         <View
           style={{
             paddingTop: 50,
             paddingBottom: 8,
-            backgroundColor: "#3d9aba",
+            backgroundColor: "#60b8d6",
             width: "100%",
             display: "flex",
             flexDirection: "row",
@@ -103,7 +103,7 @@ export default function MainHeader({ text, minitext }) {
           viewBox="0 0 1440 320"
         >
           <Path
-            fill="#3d9aba"
+            fill="#60b8d6"
             fill-opacity="1"
             d="M0,288L40,250.7C80,213,160,139,240,138.7C320,139,400,213,480,213.3C560,213,640,139,720,138.7C800,139,880,213,960,218.7C1040,224,1120,160,1200,138.7C1280,117,1360,139,1400,149.3L1440,160L1440,0L1400,0C1360,0,1280,0,1200,0C1120,0,1040,0,960,0C880,0,800,0,720,0C640,0,560,0,480,0C400,0,320,0,240,0C160,0,80,0,40,0L0,0Z"
           ></Path>
