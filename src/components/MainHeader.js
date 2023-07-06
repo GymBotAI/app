@@ -63,7 +63,7 @@ export default function MainHeader({ text, minitext }) {
           <View style={{}}>
             <Text
               style={{
-                fontSize: 14,
+                fontSize: 19,
                 color: "#e0e0e0",
                 fontFamily: "custom-font",
                 letterSpacing: 1.5,
