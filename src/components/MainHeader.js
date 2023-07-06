@@ -31,8 +31,8 @@ export default function MainHeader({ text, minitext }) {
         zIndex: 1,
       shadowColor: "black",
       shadowOffset: { width: 2, height: 2 },
-      shadowOpacity: 0.3,
-      shadowRadius: 5,
+      shadowOpacity: 0.2,
+      shadowRadius: 4,
       elevation: 5,
       }}
     >
@@ -41,7 +41,6 @@ export default function MainHeader({ text, minitext }) {
           style={{
             paddingTop: 50,
             paddingBottom: 8,
-            backgroundColor: "#60b8d6",
             width: "100%",
             display: "flex",
             flexDirection: "row",
