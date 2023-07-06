@@ -42,6 +42,11 @@ export default function ChatInput({
         gap: 5,
         display: "flex",
         flexDirection: "row",
+      shadowColor: "black",
+      shadowOffset: { width: 2, height: 2 },
+      shadowOpacity: 0.3,
+      shadowRadius: 7,
+      elevation: 5,
       }}
     >
       <TextInput
