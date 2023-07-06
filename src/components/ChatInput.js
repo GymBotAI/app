@@ -1,7 +1,8 @@
-import { useState } from "react";
-import { TextInput, View, TouchableOpacity, Image } from "react-native";
+import { useState, useEffect } from "react";
+import { Text, TextInput, View, TouchableOpacity, Image } from "react-native";
+import * as Font from "expo-font";
 
-import { font, fontSize } from "../styles";
+import {fontSize} from '../styles'
 
 export default function ChatInput({
   returnKeyType,
@@ -12,6 +13,23 @@ export default function ChatInput({
   onDeletePrompts,
 }) {
   const [text, setText] = useState(value);
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+  useEffect(() => {
+    async function loadFont() {
+      await Font.loadAsync({
+        "roboto-regular": require("../../assets/fonts/Roboto-Regular.ttf"),
+      });
+
+      setFontLoaded(true);
+    }
+
+    loadFont();
+  }, []);
+
+  if (!fontLoaded) {
+    return <Text>Loading...</Text>;
+  }
 
   if (typeof setValueRef?.current == "object") {
     setValueRef.current.setText = setText;
@@ -63,8 +81,8 @@ export default function ChatInput({
           backgroundColor: "white",
           padding: 10,
           justifyContent: "center",
-          fontFamily: font,
-          fontSize: fontSize,
+          fontFamily: "roboto-regular",
+          fontSize: 16,
           flexGrow: 1,
           flexBasis: 0,
           maxHeight: 100,
