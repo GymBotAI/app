@@ -48,12 +48,12 @@ export default function ChatMessage({ message }) {
       {message.role === "assistant" && (
         <Image
           style={{
-            width: 35,
-            height: 35,
+            width: 30,
+            height: 30,
             // borderRadius: 50,
             borderColor: borderDefault,
-            marginTop: 5,
-            marginBottom: "auto",
+            marginTop: "auto",
+            marginBottom: 5,
             marginLeft: -10, // Add margin only for assistant messages
             marginRight: 5,
           }}
@@ -66,7 +66,8 @@ export default function ChatMessage({ message }) {
           borderRadius: 12,
           paddingHorizontal: 10,
           paddingVertical: 6,
-          maxWidth: "75%", // Limit the message width
+          maxWidth: "80%", // Limit the message width
+          marginRight: -10,
         }}
       >
         <Text
