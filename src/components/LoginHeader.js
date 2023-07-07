@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     borderRadius: 50,
   },
   headerText: {
-    fontSize: 36,
+    fontSize: 47.0838,
     fontWeight: "bold",
     color: "#fff",
     letterSpacing: 2,
