@@ -1,31 +1,23 @@
 import { Keyboard, View, ScrollView } from "react-native";
-import { useRef, useEffect } from "react";
-import * as Device from "expo-device";
+import { useRef, useLayoutEffect } from "react";
 
 import ChatMessage from "./ChatMessage";
 import Prompts from "./Prompts";
 
-export default function ChatMessages({ messages, handlePromptPress, sendMessage, showPrompts}) {
-  const scrollRef = useRef();
+export default function ChatMessages({ messages, handlePromptPress, sendMessage, showPrompts }) {
+  const scrollViewRef = useRef();
 
-  useEffect(() => {
-    const listener = Keyboard.addListener(
-      Device.osName == "Android" ? "keyboardDidShow" : "keyboardWillShow",
-      () => {
-        scrollRef.current?.scrollToEnd({ animated: true });
-      }
-    );
+  useLayoutEffect(() => {
+    scrollToBottom();
+  }, [messages]);
 
-    return listener.remove;
-  }, []);
-
+  const scrollToBottom = () => {
+    scrollViewRef.current?.scrollToEnd({ animated: false });
+  };
 
   return (
     <ScrollView
-      ref={scrollRef}
-      onContentSizeChange={() => {
-        scrollRef.current.scrollToEnd({ animated: true });
-      }}
+      ref={scrollViewRef}
       style={{
         flexGrow: 1,
         overflow: "auto",
@@ -39,7 +31,6 @@ export default function ChatMessages({ messages, handlePromptPress, sendMessage,
           paddingBottom: 25,
           flex: 1,
           gap: 20,
-          height: "100%",
           display: "flex",
           flexDirection: "column",
         }}
@@ -50,20 +41,16 @@ export default function ChatMessages({ messages, handlePromptPress, sendMessage,
             ))
           : null}
       </View>
-      
+
       {showPrompts && (
-          <Prompts
-            onPromptSelection={(text) => {
+        <Prompts
+          onPromptSelection={(text) => {
             sendMessage(text);
             handlePromptPress();
           }}
-            prompts={[
-              "Give me a chest workout!",
-              "How do I run faster?",
-            ]}
-          />
-        )}
-
+          prompts={["Give me a chest workout!", "How do I run faster?"]}
+        />
+      )}
     </ScrollView>
   );
 }
