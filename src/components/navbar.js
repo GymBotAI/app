@@ -31,11 +31,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    backgroundColor: "#ddd",
     paddingTop: 5,
     paddingBottom: 25,
     paddingHorizontal: 0,
-    backgroundColor: "white",
+    backgroundColor: "#F5F5F5",
   },
   button: {
     flex: 1,
