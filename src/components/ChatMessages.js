@@ -50,6 +50,19 @@ export default function ChatMessages({ messages, handlePromptPress, sendMessage,
             ))
           : null}
       </View>
+      
+      {showPrompts && (
+          <Prompts
+            onPromptSelection={(text) => {
+            sendMessage(text);
+            handlePromptPress();
+          }}
+            prompts={[
+              "Give me a chest workout!",
+              "How do I run faster?",
+            ]}
+          />
+        )}
 
     </ScrollView>
   );

@@ -72,22 +72,7 @@ export default function Chat() {
           height: "100%",
         }}
       >
-        <ChatMessages messages={messages} handlePromptPress={handlePromptPress} sendMessage={sendMessage} showPrompts={showPrompts}/>
-        
-        
-      {showPrompts && (
-          <Prompts
-            onPromptSelection={(text) => {
-            sendMessage(text);
-            handlePromptPress();
-          }}
-            prompts={[
-              "Give me a chest workout!",
-              "How do I run faster?",
-            ]}
-          />
-        )}
-        
+        <ChatMessages messages={messages} handlePromptPress={handlePromptPress} sendMessage={sendMessage} showPrompts={showPrompts}/>        
         
         <ChatInput
           style={{

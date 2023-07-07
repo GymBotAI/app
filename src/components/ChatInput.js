@@ -99,7 +99,7 @@ export default function ChatInput({
         onPress={handleOnSubmit}
       >
         <Image source={require("../../assets/send.png")}
-          style={{height: 25, width: 25,}}
+          style={{height: 22, width: 22}}
         />
         {/* <AntDesign name="arrowright" size={24} color="white" /> */}
       </TouchableOpacity>
