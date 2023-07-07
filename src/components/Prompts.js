@@ -20,7 +20,7 @@ const styles = {
     marginHorizontal: 6,
     marginVertical: 6,
     borderWidth: 1.5,
-    borderColor: "#2360e8",
+    borderColor: "#5585f2",
     backgroundColor: "transparent",
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
@@ -33,7 +33,7 @@ const styles = {
     fontWeight: "bold",
     fontFamily: "roboto-regular",
     letterSpacing: 0.5,
-    color: "#2360e8",
+    color: "#5585f2",
     textAlign: "center",
   },
 };
