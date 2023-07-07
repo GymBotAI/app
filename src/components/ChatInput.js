@@ -1,8 +1,9 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Text, TextInput, View, TouchableOpacity, Image } from "react-native";
 import * as Font from "expo-font";
+import { AntDesign } from "@expo/vector-icons";
 
-import {fontSize} from '../styles'
+import { fontSize } from "../styles";
 
 export default function ChatInput({
   returnKeyType,
@@ -31,11 +32,11 @@ export default function ChatInput({
     return <Text>Loading...</Text>;
   }
 
-  if (typeof setValueRef?.current == "object") {
+  if (typeof setValueRef?.current === "object") {
     setValueRef.current.setText = setText;
   }
 
-  const _onSubmit = (e) => {
+  const handleOnSubmit = () => {
     if (!text) {
       return;
     }
@@ -49,67 +50,53 @@ export default function ChatInput({
   return (
     <View
       style={{
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-        backgroundColor: "white",
-        paddingTop: 10,
-        paddingBottom: 5,
-        paddingRight: 10,
-        paddingLeft: 10,
-        gap: 5,
-        display: "flex",
+        borderTopWidth: 1,
+        borderColor: "#E2E2E2",
         flexDirection: "row",
-      shadowColor: "black",
-      shadowOffset: { width: 2, height: 2 },
-      shadowOpacity: 0.2,
-      shadowRadius: 4,
-      elevation: 5,
+        alignItems: "center",
+        paddingVertical: 10,
+        paddingHorizontal: 16,
+        backgroundColor: "#F5F5F5",
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: -2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 1,
+        elevation: 2,
       }}
     >
       <TextInput
         blurOnSubmit={false}
-        multiline={typeof multiline == "boolean" ? multiline : false}
+        multiline={typeof multiline === "boolean" ? multiline : false}
         inputMode="text"
         returnKeyType={returnKeyType || "send"}
         numberOfLines={4}
         style={{
-          borderWidth: 2,
-          borderColor: "#ACB3BF",
-          borderRadius: 10,
-          color: "black",
+          flex: 1,
+          borderWidth: 1,
+          borderColor: "#D8D8D8",
+          borderRadius: 20,
           backgroundColor: "white",
-          padding: 10,
-          justifyContent: "center",
+          paddingHorizontal: 16,
+          paddingVertical: 10,
           fontFamily: "roboto-regular",
           fontSize: 16,
-          flexGrow: 1,
-          flexBasis: 0,
           maxHeight: 100,
         }}
         value={text}
         onChange={(e) => setText(e.nativeEvent.text)}
-        onSubmitEditing={_onSubmit}
+        onSubmitEditing={handleOnSubmit}
       />
 
       <TouchableOpacity
         style={{
-          borderRadius: 5,
-          alignItems: "center",
-          paddingTop: 0,
-          paddingBottom: 0,
-          paddingRight: 0,
-          paddingLeft: 5,
+          marginLeft: 16,
+          borderRadius: 16,
+          backgroundColor: "#1877F2",
+          padding: 10,
         }}
-        onPress={_onSubmit}
+        onPress={handleOnSubmit}
       >
-        <Image
-          source={require("../../assets/send.png")}
-          style={{
-            width: 40,
-            height: 40,
-          }}
-        />
+        <AntDesign name="arrowright" size={24} color="white" />
       </TouchableOpacity>
     </View>
   );

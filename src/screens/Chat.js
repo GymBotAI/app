@@ -1,7 +1,7 @@
 import { View, StatusBar } from "react-native";
 
 import ChatContainer from "../components/ChatContainer";
-import MainHeader from "../components/MainHeader";
+import ChatHeader from "../components/ChatHeader";
 import GymBotNavigation from "../components/navbar";
 
 export default function HomeScreen({ navigation }) {
@@ -12,7 +12,7 @@ export default function HomeScreen({ navigation }) {
         width: "100%",
       }}
     >
-      <MainHeader text="GymBot" minitext="Talk to" />
+      <ChatHeader text="GymBot"/>
       <ChatContainer />
       <StatusBar barStyle="light-content" />
 
