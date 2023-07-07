@@ -1,11 +1,24 @@
 import { Keyboard, View, ScrollView } from "react-native";
-import { useRef, useLayoutEffect } from "react";
+import { useRef, useEffect, useLayoutEffect } from "react";
+
+import * as Device from "expo-device";
 
 import ChatMessage from "./ChatMessage";
 import Prompts from "./Prompts";
 
 export default function ChatMessages({ messages, handlePromptPress, sendMessage, showPrompts }) {
   const scrollViewRef = useRef();
+
+  useEffect(() => {
+    const listener = Keyboard.addListener(
+      Device.osName == "Android" ? "keyboardDidShow" : "keyboardWillShow",
+      () => {
+        scrollViewRef.current?.scrollToEnd({ animated: true });
+      }
+    );
+
+    return listener.remove;
+  }, []);
 
   useLayoutEffect(() => {
     scrollToBottom();
