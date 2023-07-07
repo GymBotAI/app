@@ -76,7 +76,7 @@ export default function ChatInput({
           borderColor: "#D8D8D8",
           borderRadius: 20,
           backgroundColor: "white",
-          paddingHorizontal: 16,
+          paddingHorizontal: 12,
           paddingVertical: 8,
           fontFamily: "roboto-regular",
           fontSize: 16,

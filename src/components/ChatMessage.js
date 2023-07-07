@@ -6,7 +6,7 @@ import { borderDefault, white, fontSize, font } from "../styles";
 import { useEffect, useState } from "react";
 
 const roleIcons = {
-  assistant: require("../../assets/circleicon.png"),
+  assistant: require("../../assets/icon.jpg"),
   user: require("../../assets/user.png"),
 };
 
@@ -50,7 +50,7 @@ export default function ChatMessage({ message }) {
           style={{
             width: 30,
             height: 30,
-            // borderRadius: 50,
+            borderRadius: 15,
             borderColor: borderDefault,
             marginTop: "auto",
             marginBottom: 5,
