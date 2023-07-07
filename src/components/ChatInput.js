@@ -54,8 +54,8 @@ export default function ChatInput({
         borderColor: "#E2E2E2",
         flexDirection: "row",
         alignItems: "center",
-        paddingVertical: 10,
-        paddingHorizontal: 16,
+        paddingVertical: 8,
+        paddingHorizontal: 15,
         backgroundColor: "#F5F5F5",
         shadowColor: "#000",
         shadowOffset: { width: 0, height: -2 },
@@ -77,7 +77,7 @@ export default function ChatInput({
           borderRadius: 20,
           backgroundColor: "white",
           paddingHorizontal: 16,
-          paddingVertical: 10,
+          paddingVertical: 8,
           fontFamily: "roboto-regular",
           fontSize: 16,
           maxHeight: 100,
@@ -90,13 +90,18 @@ export default function ChatInput({
       <TouchableOpacity
         style={{
           marginLeft: 16,
-          borderRadius: 16,
+          borderRadius: 12,
           backgroundColor: "#1877F2",
-          padding: 10,
+          padding: 6.2,
+          paddingHorizontal: 8,
+          paddingRight: 6,
         }}
         onPress={handleOnSubmit}
       >
-        <AntDesign name="arrowright" size={24} color="white" />
+        <Image source={require("../../assets/send.png")}
+          style={{height: 25, width: 25,}}
+        />
+        {/* <AntDesign name="arrowright" size={24} color="white" /> */}
       </TouchableOpacity>
     </View>
   );

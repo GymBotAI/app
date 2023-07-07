@@ -25,7 +25,7 @@ export default function MainHeader({ text, minitext }) {
   return (
     <View
       style={{
-        paddingBottom: 10,
+        paddingBottom: 8,
         width: "100%",
         display: "flex",
         zIndex: 1,
@@ -34,12 +34,12 @@ export default function MainHeader({ text, minitext }) {
         shadowOpacity: 0.2,
         shadowRadius: 4,
         elevation: 5,
-        backgroundColor: "#60b8d6",
+        backgroundColor: "#1877F2",
       }}
     >
         <View
           style={{
-            paddingTop: 45,
+            paddingTop: 40,
             paddingBottom: 8,
             width: "100%",
             display: "flex",
