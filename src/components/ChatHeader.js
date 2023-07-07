@@ -9,7 +9,7 @@ export default function MainHeader({ text, minitext }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "custom-font": require("../../assets/fonts/Roboto-Black.ttf"),
+        "custom-font": require("../../assets/fonts/ClashGrotesk-Semibold.ttf"),
       });
 
       setFontLoaded(true);
@@ -25,7 +25,7 @@ export default function MainHeader({ text, minitext }) {
   return (
     <View
       style={{
-        paddingBottom: 8,
+        paddingBottom: 6,
         width: "100%",
         display: "flex",
         zIndex: 1,
@@ -52,8 +52,8 @@ export default function MainHeader({ text, minitext }) {
           <Image
             source={require("../../assets/icon.jpg")}
             style={{
-              width: 65, // Adjust the size as needed
-              height: 65, // Adjust the size as needed
+              width: 60, // Adjust the size as needed
+              height: 60, // Adjust the size as needed
               borderRadius: 20,
               marginLeft: 30,
             }}
@@ -61,7 +61,7 @@ export default function MainHeader({ text, minitext }) {
           <View style={{ marginLeft: 10 }}>
             <Text
               style={{
-                fontSize: 48,
+                fontSize: 52,
                 color: "#e0e0e0",
                 fontFamily: "custom-font",
                 fontWeight: "bold",
@@ -70,8 +70,8 @@ export default function MainHeader({ text, minitext }) {
                 marginBottom: 0,
                 shadowColor: "black",
                 shadowOffset: { width: 3, height: 2 },
-                shadowOpacity: 0.6,
-                shadowRadius: 1,
+                shadowOpacity: 0.4,
+                shadowRadius: 3,
                 elevation: 5, // For Android shadow
               }}
             >
