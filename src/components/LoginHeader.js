@@ -8,7 +8,7 @@ export default function LoginHeader({}) {
       <View style={styles.logoContainer}>
         <View style={styles.logoBorder}>
           <Image
-            source={require("../../assets/circleicon.png")}
+            source={require("../../assets/icon.jpg")}
             style={styles.logo}
             resizeMode="contain"
           />
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   logo: {
     width: 50,
     height: 50,
+    borderRadius: 50,
   },
   headerText: {
     fontSize: 36,
