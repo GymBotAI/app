@@ -14,7 +14,7 @@ export default function Chat() {
   const [messages, sendMessage, setMessages] = useGymBotAI([
     {
       role: "assistant",
-      content: "Hello! I'm GymBot, your personal trainer. How can I help you today?",
+      content: "How can I help you today?",
     },
   ]);
 
