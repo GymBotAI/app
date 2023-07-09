@@ -12,6 +12,7 @@ export default function ChatInput({
   onSubmit,
   setValueRef,
   onDeletePrompts,
+  onInput,
 }) {
   const [text, setText] = useState(value);
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -40,6 +41,8 @@ export default function ChatInput({
     if (!text) {
       return;
     }
+
+    onInput();
 
     onDeletePrompts();
     setText("");
