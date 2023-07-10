@@ -7,7 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-import {nameValue} from "./signup/Name";
+import {nameValue,handleNameChange} from "./signup/Name";
 import {dateValue} from "./signup/Age";
 import {genderVal} from "./signup/Gender";
 import {Goals} from "./GoalSelect";
@@ -40,8 +40,8 @@ export default function Settings({ navigation }) {
     <View style={styles.container}>
       <TextInput
         style={styles.input}
-        value={nameValue}
-        onChangeText={setName}
+        value={name}
+        onChange={handleNameChange}
       />
 
       <TextInput
