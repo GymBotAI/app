@@ -11,6 +11,7 @@ import {nameValue} from "./signup/Name";
 import {dateValue} from "./signup/Age";
 import {genderVal} from "./signup/Gender";
 import {Goals} from "./GoalSelect";
+import { G } from "react-native-svg";
 
 function ageCalculation(date){
   const currentDate = new Date(); // Get the current date
@@ -46,7 +47,6 @@ export default function Settings({ navigation }) {
       <TextInput
         style={styles.input}
         value={dateValue}
-        onChangeText={setEmail}
       />
 
       <TextInput
@@ -58,7 +58,7 @@ export default function Settings({ navigation }) {
 
       <TextInput
         style={styles.input}
-        value={Goals}
+        value={Goals.join(", ")}
         onChangeText={setFitnessGoal}
       />
 

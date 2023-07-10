@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
 
-export let Goals = "";
+export let Goals = [];
 
 const GoalSelect = ({ text, onGoalChange }) => {
   const [selected, setSelected] = useState(false);
@@ -9,7 +9,10 @@ const GoalSelect = ({ text, onGoalChange }) => {
   const handlePress = () => {
     onGoalChange(true);
     setSelected(!selected);
-    Goals = Goals+text+", "
+    Goals.push(text) //Goals are pushed both when the buttons are clicked and unclicked so the are duplicated
+    let dupGoals =  Goals.filter((element, index) => {return Goals.indexOf(element) !== index;}); //This makes you find duplicates and stores them
+    Goals =  Goals.filter((element, index) => {return Goals.indexOf(element) === index;}); //This removes duplicates from Goals
+    Goals = Goals.filter(function(val) {return dupGoals.indexOf(val) == -1;}); //This compares both and removes any that were duplicated and the same
   };
 
   return (
