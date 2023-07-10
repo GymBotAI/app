@@ -4,6 +4,11 @@ The app for GymBot AI.
 
 ## Usage
 
+Install Git:
+-Go to this section of GitHub and select Download Git for Windows
+![image](https://github.com/GymBotAI/App/assets/94528565/f4e4b720-c5f1-4154-8b7c-856261682f4e)
+-Begin setup and be sure to select Windows Console when prompted
+
 Clone:
 
 ```sh
@@ -21,6 +26,7 @@ Install:
 
 ```sh
 npm i
+npm install expo
 ```
 
 Run:
