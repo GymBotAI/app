@@ -7,6 +7,22 @@ import {
   StyleSheet,
 } from "react-native";
 
+import {nameValue} from "./signup/Name";
+import {dateValue} from "./signup/Age";
+import {genderVal} from "./signup/Gender";
+import {Goals} from "./GoalSelect";
+
+function ageCalculation(date){
+  const currentDate = new Date(); // Get the current date
+  const [day, month, year] = date.split("/"); // Split the given date into day, month, and year
+
+  const givenDateObj = new Date(year, month - 1, day); // Create a new Date object for the given date (month - 1 because months are zero-based)
+
+  const diffTime = Math.abs(currentDate - givenDateObj); // Calculate the difference in milliseconds between the current date and the given date
+  const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25)); // Convert milliseconds to years
+  return diffYears;
+}
+
 export default function Settings({ navigation }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -23,45 +39,32 @@ export default function Settings({ navigation }) {
     <View style={styles.container}>
       <TextInput
         style={styles.input}
-        placeholder="Name"
-        value={name}
+        value={nameValue}
         onChangeText={setName}
       />
 
       <TextInput
         style={styles.input}
-        placeholder="Email"
-        value={email}
+        value={dateValue}
         onChangeText={setEmail}
       />
 
       <TextInput
         style={styles.input}
-        placeholder="Weight"
-        value={weight}
-        onChangeText={setWeight}
-        keyboardType="numeric"
-      />
-
-      <TextInput
-        style={styles.input}
-        placeholder="Age"
-        value={age}
+        value={ageCalculation(dateValue).toString()}
         onChangeText={setAge}
         keyboardType="numeric"
       />
 
       <TextInput
         style={styles.input}
-        placeholder="Fitness Goal"
-        value={fitnessGoal}
+        value={Goals}
         onChangeText={setFitnessGoal}
       />
 
       <TextInput
         style={styles.input}
-        placeholder="Gender"
-        value={gender}
+        value={genderVal}
         onChangeText={setGender}
       />
 

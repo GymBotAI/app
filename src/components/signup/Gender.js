@@ -3,12 +3,15 @@ import { View } from "react-native";
 
 import GenderSelect from "../GenderSelect";
 
+export let genderVal = "";
+
 export default function Gender({onGenderChange}) {
     const [highlight, setHighlight] = useState("");
     
     const handleHighlight = (text) => {
       onGenderChange(true);
-      setHighlight(text)
+      setHighlight(text);
+      genderVal = text;
     }
 
   return (
