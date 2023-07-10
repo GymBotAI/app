@@ -5,8 +5,8 @@ The app for GymBot AI.
 ## Usage
 
 Install Git:
--Go to the Git Section of VS Code and select Download Git for Windows
--Begin setup and be sure to select Windows Console when prompted
+* Go to the Git Section of VS Code and select Download Git for Windows
+* Begin setup and be sure to select Windows Console when prompted
 ![image](https://github.com/GymBotAI/App/assets/94528565/4707d973-ab8a-4ba6-bb21-bd87c6b8690f)
 
 Clone:
