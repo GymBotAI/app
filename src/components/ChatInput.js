@@ -51,6 +51,7 @@ export default function ChatInput({
   };
 
   return (
+    <>
     <View
       style={{
         borderTopWidth: 1,
@@ -107,5 +108,6 @@ export default function ChatInput({
         {/* <AntDesign name="arrowright" size={24} color="white" /> */}
       </TouchableOpacity>
     </View>
+    </>
   );
 }

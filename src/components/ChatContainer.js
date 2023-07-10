@@ -63,6 +63,7 @@ export default function Chat() {
       style={{
         flex: 1,
         width: "100%",
+        backgroundColor: '#F5F5F5',
       }}
     >
       <View

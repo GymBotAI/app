@@ -66,8 +66,7 @@ export default function ChatMessages({ messages, handlePromptPress, sendMessage,
       ref={scrollViewRef}
       style={{
         flexGrow: 1,
-        overflow: "auto",
-        height: "100%",
+        backgroundColor: 'white', 
       }}
       onScroll={handleScroll}
       onContentSizeChange={handleContentSizeChange}
