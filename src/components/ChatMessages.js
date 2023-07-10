@@ -31,7 +31,7 @@ export default function ChatMessages({ messages, handlePromptPress, sendMessage,
   };
 
   useEffect(() => {
-    const listener = Keyboard.addListener(
+    const showListener = Keyboard.addListener(
       Device.osName == "Android" ? "keyboardDidShow" : "keyboardWillShow",
       () => {
         const scrollHeight = scrollPositionRef.current+264;
@@ -40,8 +40,18 @@ export default function ChatMessages({ messages, handlePromptPress, sendMessage,
       }
     );
 
+    const hideListener = Keyboard.addListener(
+      Device.osName == "Android" ? "keyboardDidHide" : "keyboardWillHide",
+      () => {
+        const scrollHeight = scrollPositionRef.current-264;
+        console.log(scrollHeight)
+        scrollViewRef.current?.scrollTo({ y: scrollHeight, animated: true });
+      }
+    );
+
     return () => {
-      listener.remove();
+      showListener.remove();
+      hideListener.remove();
     };
   }, [messages]);
 
