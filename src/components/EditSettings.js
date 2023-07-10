@@ -5,9 +5,12 @@ import {
   TextInput,
   TouchableOpacity,
   StyleSheet,
+  KeyboardAvoidingView,
+  Pressable,
+  Keyboard,
 } from "react-native";
 
-import {nameValue,handleNameChange} from "./signup/Name";
+import {nameValue} from "./signup/Name";
 import {dateValue} from "./signup/Age";
 import {genderVal} from "./signup/Gender";
 import {Goals} from "./GoalSelect";
@@ -25,53 +28,48 @@ function ageCalculation(date){
 }
 
 export default function Settings({ navigation }) {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [weight, setWeight] = useState("");
-  const [age, setAge] = useState("");
-  const [fitnessGoal, setFitnessGoal] = useState("");
-  const [gender, setGender] = useState("");
+  const [name, setName] = useState(nameValue);
+  const [age, setAge] = useState(ageCalculation(dateValue).toString());
+  const [goal, setGoal] = useState(Goals.join(", "));
+  const [gender, setGender] = useState(genderVal);
 
   const handleSaveChanges = () => {
     // Perform saving changes logic here
   };
 
   return (
-    <View style={styles.container}>
+    <Pressable style={styles.container} onPress={Keyboard.dismiss}>
+    {/* <View style={styles.container}> */}
       <TextInput
         style={styles.input}
         value={name}
-        onChange={handleNameChange}
+        onChange={setName}
       />
 
       <TextInput
         style={styles.input}
-        value={dateValue}
-      />
-
-      <TextInput
-        style={styles.input}
-        value={ageCalculation(dateValue).toString()}
+        value={age}
         onChangeText={setAge}
         keyboardType="numeric"
       />
 
       <TextInput
         style={styles.input}
-        value={Goals.join(", ")}
-        onChangeText={setFitnessGoal}
+        value={goal}
+        onChangeText={setGoal}
       />
 
       <TextInput
         style={styles.input}
-        value={genderVal}
+        value={gender}
         onChangeText={setGender}
       />
 
       <TouchableOpacity style={styles.saveButton} onPress={handleSaveChanges}>
         <Text style={styles.buttonText}>Save Changes</Text>
       </TouchableOpacity>
-    </View>
+    {/* </View> */}
+    </Pressable>
   );
 }
 
