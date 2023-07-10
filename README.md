@@ -11,6 +11,11 @@ git clone https://github.com/GymBotAI/App.git
 cd App
 ```
 
+Config GitHub User and Password:
+```git config user.email a@a.com
+git config user.name your_username
+```
+
 Install:
 
 ```sh
