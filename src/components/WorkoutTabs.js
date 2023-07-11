@@ -1,7 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-web";
 
-import { circularColour } from "./ViewWorkouts";
+import { circularColour } from "../styles";
 
 //This file is used to handle the creation of workout popups
 

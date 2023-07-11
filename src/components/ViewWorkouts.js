@@ -10,8 +10,6 @@ import {
 import Workouts from "./WorkoutTabs";
 import React, { useState } from "react";
 
-export let circularColour = "#55BCF6";
-
 export default function ViewWorkouts({ navigation }) {
   const [workout, setWorkout] = useState();
   const [workoutItems, setWorkoutItems] = useState([]);
