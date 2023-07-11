@@ -1,4 +1,4 @@
-import { View, StatusBar } from "react-native";
+import { View } from "react-native";
 
 import SignUpContainer from "../components/signup/SignUpContainer";
 import MainHeader from "../components/MainHeader";
