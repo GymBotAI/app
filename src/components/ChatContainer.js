@@ -18,12 +18,12 @@ export default function Chat() {
     },
   ]);
 
-  const initialMessage = "Hello! I'm GymBot, your personal trainer. How can I help you today?";
-  const [initialMessagePos, setInitialMessagePos] = useState(0);
-  const [hasDoneInitialMessage, setHasDoneInitialMessage] = useState(false);
+  // const initialMessage = "Hello! I'm GymBot, your personal trainer. How can I help you today?";
+  // const [initialMessagePos, setInitialMessagePos] = useState(0);
+  // const [hasDoneInitialMessage, setHasDoneInitialMessage] = useState(false);
 
-  const initialMessageTypeSpeed = 100;
-  const initialMessageTypeChars = 2;
+  // const initialMessageTypeSpeed = 100;
+  // const initialMessageTypeChars = 2;
 
   // if (initialMessagePos >= initialMessage.length) {
   //   setHasDoneInitialMessage(() => true);
