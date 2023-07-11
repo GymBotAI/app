@@ -35,7 +35,6 @@ export default function ChatMessages({ messages, handlePromptPress, sendMessage,
       Device.osName == "Android" ? "keyboardDidShow" : "keyboardWillShow",
       () => {
         const scrollHeight = scrollPositionRef.current+264;
-        console.log(scrollHeight)
         scrollViewRef.current?.scrollTo({ y: scrollHeight, animated: true });
       }
     );
@@ -44,7 +43,6 @@ export default function ChatMessages({ messages, handlePromptPress, sendMessage,
       Device.osName == "Android" ? "keyboardDidHide" : "keyboardWillHide",
       () => {
         const scrollHeight = scrollPositionRef.current-264;
-        console.log(scrollHeight)
         scrollViewRef.current?.scrollTo({ y: scrollHeight, animated: true });
       }
     );
