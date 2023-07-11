@@ -1,9 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Text, TextInput, View, TouchableOpacity, Image } from "react-native";
 import * as Font from "expo-font";
-import { AntDesign } from "@expo/vector-icons";
-
-import { fontSize } from "../styles";
 
 export default function ChatInput({
   returnKeyType,
