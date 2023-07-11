@@ -1,11 +1,5 @@
 import { Keyboard, Text, View, ScrollView } from "react-native";
-import {
-  useRef,
-  useState,
-  useEffect,
-  useLayoutEffect,
-  useContext,
-} from "react";
+import { useRef, useState, useEffect, useLayoutEffect } from "react";
 
 import * as Device from "expo-device";
 
