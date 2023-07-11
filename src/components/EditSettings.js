@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import {
-  View,
   Text,
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  KeyboardAvoidingView,
   Pressable,
   Keyboard,
 } from "react-native";
@@ -16,7 +14,6 @@ import { nameValue } from "./signup/Name";
 import { dateValue } from "./signup/Age";
 import { genderVal } from "./signup/Gender";
 import { Goals } from "./GoalSelect";
-import { G } from "react-native-svg";
 
 function ageCalculation(date) {
   const currentDate = new Date(); // Get the current date
