@@ -12,8 +12,8 @@ import LoginBox from "../components/LoginBox";
 import LoginHeader from "../components/LoginHeader";
 
 export default function Account({ navigation }) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  // const [username, setUsername] = useState("");
+  // const [password, setPassword] = useState("");
 
   const dismissKeyboard = () => {
     Keyboard.dismiss();
