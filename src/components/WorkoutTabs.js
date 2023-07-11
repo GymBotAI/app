@@ -1,5 +1,4 @@
 import { View, Text, StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-web";
 
 import { circularColour } from "../styles";
 
