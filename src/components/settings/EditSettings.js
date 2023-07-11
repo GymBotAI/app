@@ -8,12 +8,12 @@ import {
   Keyboard,
 } from "react-native";
 
-import Option from "./settings/Option";
+import Option from "./Option";
 
-import { nameValue } from "./signup/Name";
-import { dateValue } from "./signup/Age";
-import { genderVal } from "./signup/Gender";
-import { Goals } from "./GoalSelect";
+import { nameValue } from "../signup/Name";
+import { dateValue } from "../signup/Age";
+import { genderVal } from "../signup/Gender";
+import { Goals } from "../GoalSelect";
 
 function ageCalculation(date) {
   const currentDate = new Date(); // Get the current date
@@ -41,12 +41,6 @@ export default function Settings({ navigation }) {
       {/* <View style={styles.container}> */}
 
       <Option question="Name" value={name} setValue={setName}></Option>
-
-      <Option question="Birthday" value={age} setValue={setAge}></Option>
-
-      <Option question="Goals" value={name} setValue={setName}></Option>
-
-      <Option question="Gender" value={name} setValue={setName}></Option>
 
       <Text>Birthday:</Text>
       <TextInput

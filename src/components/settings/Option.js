@@ -36,7 +36,6 @@ export default function Option({ question, value, setValue }) {
         style={{
           fontSize: 15,
           padding: 1,
-          alignSelf: "right",
         }}
         value={value}
         onChange={setValue}
