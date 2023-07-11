@@ -11,10 +11,10 @@ import {
 
 import * as Font from "expo-font";
 
-import Name from "./signup/Name";
-import Age from "./signup/Age";
-import Gender from "./signup/Gender";
-import Goals from "./signup/Goals";
+import Name from "./Name";
+import Age from "./Age";
+import Gender from "./Gender";
+import Goals from "./Goals";
 
 let inputOption = null;
 
