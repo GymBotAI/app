@@ -10,6 +10,8 @@ import {
   Keyboard,
 } from "react-native";
 
+import Option from "./settings/Option"
+
 import {nameValue} from "./signup/Name";
 import {dateValue} from "./signup/Age";
 import {genderVal} from "./signup/Gender";
@@ -40,12 +42,16 @@ export default function Settings({ navigation }) {
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
     {/* <View style={styles.container}> */}
-      <TextInput
-        style={styles.input}
-        value={name}
-        onChange={setName}
-      />
+      
+      <Option question="Name" value={name} setValue={setName}></Option>
+      
+      <Option question="Birthday" value={age} setValue={setAge}></Option>
+      
+      <Option question="Goals" value={name} setValue={setName}></Option>
+      
+      <Option question="Gender" value={name} setValue={setName}></Option>
 
+      <Text>Birthday:</Text>
       <TextInput
         style={styles.input}
         value={age}
@@ -53,12 +59,14 @@ export default function Settings({ navigation }) {
         keyboardType="numeric"
       />
 
+      <Text>Goals:</Text>
       <TextInput
         style={styles.input}
         value={goal}
         onChangeText={setGoal}
       />
 
+      <Text>Gender:</Text>
       <TextInput
         style={styles.input}
         value={gender}
