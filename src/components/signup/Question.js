@@ -46,7 +46,7 @@ export default function Question({ navigation }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "custom-font": require("../../assets/fonts/Roboto-Black.ttf"),
+        "custom-font": require("../../../assets/fonts/Roboto-Black.ttf"),
       });
 
       setFontLoaded(true);
