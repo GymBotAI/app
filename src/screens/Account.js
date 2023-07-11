@@ -11,8 +11,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import LoginBox from "../components/LoginBox";
 import LoginHeader from "../components/LoginHeader";
 
-import * as Device from "expo-device";
-
 export default function Account({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
