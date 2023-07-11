@@ -1,7 +1,6 @@
 import {
   Keyboard,
   View,
-  Image,
   Text,
   TouchableOpacity,
   StyleSheet,
