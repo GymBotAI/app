@@ -29,11 +29,11 @@ export default function MainHeader({ text, minitext }) {
         width: "100%",
         display: "flex",
         zIndex: 1,
-      shadowColor: "black",
-      shadowOffset: { width: 2, height: 2 },
-      shadowOpacity: 0.2,
-      shadowRadius: 4,
-      elevation: 5,
+        shadowColor: "black",
+        shadowOffset: { width: 2, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5,
       }}
     >
       <View style={{ backgroundColor: "#60b8d6", height: 110 }}>

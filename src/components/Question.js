@@ -13,35 +13,33 @@ import {
 
 import * as Font from "expo-font";
 
-
 import Name from "./signup/Name";
 import Age from "./signup/Age";
 import Gender from "./signup/Gender";
 import Goals from "./signup/Goals";
 
-let inputOption = (null)
+let inputOption = null;
 
 export default function Question({ navigation }) {
   const [isInputFilled, setInputFilled] = useState(false);
   const [fontLoaded, setFontLoaded] = useState(false);
   const slideUpAnim = useRef(new Animated.Value(300)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  const [prompt, setPrompt] = useState("Welcome to GymBot! To get started, tell us your name");
+  const [prompt, setPrompt] = useState(
+    "Welcome to GymBot! To get started, tell us your name"
+  );
 
   const handleSignUp = () => {
-    setInputFilled(false)
+    setInputFilled(false);
     if (prompt === "Welcome to GymBot! To get started, tell us your name") {
       setPrompt("When were you born?");
-      inputOption = <Age onAgeChange={setInputFilled}/>
-
+      inputOption = <Age onAgeChange={setInputFilled} />;
     } else if (prompt === "When were you born?") {
       setPrompt("What is your gender?");
-      inputOption = <Gender onGenderChange={setInputFilled}/>
-
+      inputOption = <Gender onGenderChange={setInputFilled} />;
     } else if (prompt === "What is your gender?") {
       setPrompt("What are your goals?");
-      inputOption = <Goals onGoalChange={setInputFilled}/>
-
+      inputOption = <Goals onGoalChange={setInputFilled} />;
     } else {
       navigation.navigate("Chat");
     }
@@ -87,31 +85,33 @@ export default function Question({ navigation }) {
   }
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}
-    style={{
+    <TouchableWithoutFeedback
+      onPress={Keyboard.dismiss}
+      style={{
         flexGrow: 1,
         overflow: "auto",
         height: "95%",
-      }}>
-    <Animated.View
-      style={[
-        styles.container,
-        { transform: [{ translateX: slideUpAnim }], opacity: fadeAnim },
-      ]}
+      }}
     >
-      <Text style={styles.label}>{prompt}</Text>
-      {inputOption}
-
-      <TouchableOpacity
-        style={[styles.button, !isInputFilled && styles.disabledButton]}
-        onPress={handleSignUp}
-        disabled={!isInputFilled}
+      <Animated.View
+        style={[
+          styles.container,
+          { transform: [{ translateX: slideUpAnim }], opacity: fadeAnim },
+        ]}
       >
-        <Text style={styles.text}>Continue</Text>
-      </TouchableOpacity>
+        <Text style={styles.label}>{prompt}</Text>
+        {inputOption}
 
-      <StatusBar barStyle="dark-content" />
-    </Animated.View>
+        <TouchableOpacity
+          style={[styles.button, !isInputFilled && styles.disabledButton]}
+          onPress={handleSignUp}
+          disabled={!isInputFilled}
+        >
+          <Text style={styles.text}>Continue</Text>
+        </TouchableOpacity>
+
+        <StatusBar barStyle="dark-content" />
+      </Animated.View>
     </TouchableWithoutFeedback>
   );
 }
@@ -130,10 +130,10 @@ const styles = StyleSheet.create({
     color: "#dbdbdb",
   },
   button: {
-    alignSelf: 'center',
+    alignSelf: "center",
     // position: "absolute",
     // top: 200,
-    width: '100%',
+    width: "100%",
     backgroundColor: "#1260de",
     borderRadius: 8,
     shadowColor: "black",
@@ -144,15 +144,14 @@ const styles = StyleSheet.create({
   },
   label: {
     marginTop: 50,
-    textAlign: 'center',
+    textAlign: "center",
     alignSelf: "center",
     fontSize: 30,
     fontWeight: "bold",
     marginBottom: 8,
     marginHorizontal: -5,
-    
-  }, disabledButton: {
+  },
+  disabledButton: {
     backgroundColor: "#fff", // Change the background color of the disabled button
-  } 
+  },
 });
-

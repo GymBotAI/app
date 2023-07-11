@@ -10,15 +10,15 @@ import {
   Keyboard,
 } from "react-native";
 
-import Option from "./settings/Option"
+import Option from "./settings/Option";
 
-import {nameValue} from "./signup/Name";
-import {dateValue} from "./signup/Age";
-import {genderVal} from "./signup/Gender";
-import {Goals} from "./GoalSelect";
+import { nameValue } from "./signup/Name";
+import { dateValue } from "./signup/Age";
+import { genderVal } from "./signup/Gender";
+import { Goals } from "./GoalSelect";
 import { G } from "react-native-svg";
 
-function ageCalculation(date){
+function ageCalculation(date) {
   const currentDate = new Date(); // Get the current date
   const [day, month, year] = date.split("/"); // Split the given date into day, month, and year
 
@@ -41,14 +41,14 @@ export default function Settings({ navigation }) {
 
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
-    {/* <View style={styles.container}> */}
-      
+      {/* <View style={styles.container}> */}
+
       <Option question="Name" value={name} setValue={setName}></Option>
-      
+
       <Option question="Birthday" value={age} setValue={setAge}></Option>
-      
+
       <Option question="Goals" value={name} setValue={setName}></Option>
-      
+
       <Option question="Gender" value={name} setValue={setName}></Option>
 
       <Text>Birthday:</Text>
@@ -60,23 +60,15 @@ export default function Settings({ navigation }) {
       />
 
       <Text>Goals:</Text>
-      <TextInput
-        style={styles.input}
-        value={goal}
-        onChangeText={setGoal}
-      />
+      <TextInput style={styles.input} value={goal} onChangeText={setGoal} />
 
       <Text>Gender:</Text>
-      <TextInput
-        style={styles.input}
-        value={gender}
-        onChangeText={setGender}
-      />
+      <TextInput style={styles.input} value={gender} onChangeText={setGender} />
 
       <TouchableOpacity style={styles.saveButton} onPress={handleSaveChanges}>
         <Text style={styles.buttonText}>Save Changes</Text>
       </TouchableOpacity>
-    {/* </View> */}
+      {/* </View> */}
     </Pressable>
   );
 }

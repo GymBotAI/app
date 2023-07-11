@@ -1,12 +1,10 @@
 import { View, KeyboardAvoidingView } from "react-native";
-import { useState, useRef,  } from "react";
+import { useState, useRef } from "react";
 
 import * as Device from "expo-device";
 import Question from "../Question";
 
-
-export default function SignUpContainer( {navigation }) {
-
+export default function SignUpContainer({ navigation }) {
   return (
     <KeyboardAvoidingView
       behavior={Device.osName == "Android" ? "height" : "padding"}
@@ -22,10 +20,8 @@ export default function SignUpContainer( {navigation }) {
           height: "100%",
         }}
       >
-        <Question navigation={navigation}/>
-        
+        <Question navigation={navigation} />
       </View>
-
     </KeyboardAvoidingView>
   );
 }

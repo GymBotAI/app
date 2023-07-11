@@ -5,20 +5,23 @@ import GenderSelect from "../GenderSelect";
 
 export let genderVal = "";
 
-export default function Gender({onGenderChange}) {
-    const [highlight, setHighlight] = useState("");
-    
-    const handleHighlight = (text) => {
-      onGenderChange(true);
-      setHighlight(text);
-      genderVal = text;
-    }
+export default function Gender({ onGenderChange }) {
+  const [highlight, setHighlight] = useState("");
+
+  const handleHighlight = (text) => {
+    onGenderChange(true);
+    setHighlight(text);
+    genderVal = text;
+  };
 
   return (
-    <View style={{
-         flexGrow: 1, overflow: "auto" }}>
-
-        <View style={{display: 'flex', flexDirection: 'row'}}>
+    <View
+      style={{
+        flexGrow: 1,
+        overflow: "auto",
+      }}
+    >
+      <View style={{ display: "flex", flexDirection: "row" }}>
         <GenderSelect
           image={require("../../../assets/man.png")}
           text="Male"
@@ -31,9 +34,9 @@ export default function Gender({onGenderChange}) {
           handleHighlight={handleHighlight}
           selected={highlight}
         />
-        </View>
-        
-        <View style={{display: 'flex', flexDirection: 'row'}}>
+      </View>
+
+      <View style={{ display: "flex", flexDirection: "row" }}>
         <GenderSelect
           image={require("../../../assets/user.png")}
           text="Other"
@@ -46,8 +49,7 @@ export default function Gender({onGenderChange}) {
           handleHighlight={handleHighlight}
           selected={highlight}
         />
-        </View>
-
       </View>
+    </View>
   );
 }
