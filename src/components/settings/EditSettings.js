@@ -41,25 +41,9 @@ export default function Settings({ navigation }) {
       {/* <View style={styles.container}> */}
 
       <Option question="Name" value={name} setValue={setName}></Option>
-
-      <Text>Birthday:</Text>
-      <TextInput
-        style={styles.input}
-        value={age}
-        onChangeText={setAge}
-        keyboardType="numeric"
-      />
-
-      <Text>Goals:</Text>
-      <TextInput style={styles.input} value={goal} onChangeText={setGoal} />
-
-      <Text>Gender:</Text>
-      <TextInput style={styles.input} value={gender} onChangeText={setGender} />
-
-      <TouchableOpacity style={styles.saveButton} onPress={handleSaveChanges}>
-        <Text style={styles.buttonText}>Save Changes</Text>
-      </TouchableOpacity>
-      {/* </View> */}
+      <Option question="Birthday" value={name} setValue={setName}></Option>
+      <Option question="Goals" value={name} setValue={setName}></Option>
+      <Option question="Gender" value={name} setValue={setName}></Option>
     </Pressable>
   );
 }
