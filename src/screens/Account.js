@@ -1,7 +1,6 @@
 import {
   ImageBackground,
   View,
-  TextInput,
   TouchableWithoutFeedback,
   Keyboard,
   StatusBar,
