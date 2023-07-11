@@ -1,5 +1,3 @@
-import { StyleSheet } from "react-native";
-
 const bgPrimary = "#4DBCC1";
 const bgMenu = "#408589";
 const borderDefault = "#FFFFFF";
