@@ -23,7 +23,7 @@ export default function Goals({ onGoalChange }) {
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {

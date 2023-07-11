@@ -1,13 +1,17 @@
 import { Keyboard, Text, View, ScrollView } from "react-native";
-import { useRef, useState, useEffect, useLayoutEffect, useContext } from "react";
+import { useRef, useState, useEffect, useLayoutEffect } from "react";
 
 import * as Device from "expo-device";
 
 import ChatMessage from "./ChatMessage";
 import Prompts from "./Prompts";
 
-
-export default function ChatMessages({ messages, handlePromptPress, sendMessage, showPrompts }) {
+export default function ChatMessages({
+  messages,
+  handlePromptPress,
+  sendMessage,
+  showPrompts,
+}) {
   const scrollViewRef = useRef();
   const scrollPositionRef = useRef(0);
   const [maxScrollPosition, setMaxScrollPosition] = useState(0);
@@ -34,7 +38,7 @@ export default function ChatMessages({ messages, handlePromptPress, sendMessage,
     const showListener = Keyboard.addListener(
       Device.osName == "Android" ? "keyboardDidShow" : "keyboardWillShow",
       () => {
-        const scrollHeight = scrollPositionRef.current+264;
+        const scrollHeight = scrollPositionRef.current + 264;
         scrollViewRef.current?.scrollTo({ y: scrollHeight, animated: true });
       }
     );
@@ -42,7 +46,7 @@ export default function ChatMessages({ messages, handlePromptPress, sendMessage,
     const hideListener = Keyboard.addListener(
       Device.osName == "Android" ? "keyboardDidHide" : "keyboardWillHide",
       () => {
-        const scrollHeight = scrollPositionRef.current-264;
+        const scrollHeight = scrollPositionRef.current - 264;
         scrollViewRef.current?.scrollTo({ y: scrollHeight, animated: true });
       }
     );
@@ -64,7 +68,7 @@ export default function ChatMessages({ messages, handlePromptPress, sendMessage,
       ref={scrollViewRef}
       style={{
         flexGrow: 1,
-        backgroundColor: 'white', 
+        backgroundColor: "white",
       }}
       onScroll={handleScroll}
       onContentSizeChange={handleContentSizeChange}

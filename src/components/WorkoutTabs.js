@@ -1,5 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-web";
+
+import { circularColour } from "../styles";
 
 //This file is used to handle the creation of workout popups
 
@@ -7,13 +8,13 @@ const Workouts = (props) => {
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
-        <View style={styles.square}></View> 
+        <View style={styles.square}></View>
         <Text style={styles.itemText}>{props.text}</Text>
       </View>
-      <View style={styles.circular}></View> 
+      <View style={styles.circular}></View>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   item: {
@@ -44,7 +45,7 @@ const styles = StyleSheet.create({
   circular: {
     width: 12,
     height: 12,
-    borderColor: "#55BCF6",
+    borderColor: circularColour,
     borderWidth: 2,
     borderRadius: 5,
   },

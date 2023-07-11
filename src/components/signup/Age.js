@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { TextInput, View, StyleSheet, Pressable } from "react-native";
-import DateTimePicker from '@react-native-community/datetimepicker';
+import DateTimePicker from "@react-native-community/datetimepicker";
 
 export let dateValue = ""; // Initialize ageValue as an empty string
 
