@@ -1,6 +1,8 @@
 import { View, Text, StyleSheet } from "react-native";
 import { TouchableOpacity } from "react-native-web";
 
+import { circularColour} from "./ViewWorkouts";
+
 //This file is used to handle the creation of workout popups
 
 const Workouts = (props) => {
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
   circular: {
     width: 12,
     height: 12,
-    borderColor: "#55BCF6",
+    borderColor: circularColour,
     borderWidth: 2,
     borderRadius: 5,
   },

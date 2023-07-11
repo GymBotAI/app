@@ -1,21 +1,41 @@
-import { View, Image, Text, TouchableOpacity, StyleSheet, KeyboardAvoidingView, TextInput, } from "react-native";
+import { Keyboard ,View, Image, Text, TouchableOpacity, StyleSheet, KeyboardAvoidingView, TextInput, } from "react-native";
 import Workouts from "./WorkoutTabs";
 import React, {useState} from "react"
 
+export let circularColour = "#55BCF6";
+
 export default function ViewWorkouts({ navigation }) {
-  const [task, setTask] = useState();
+  const [workout, setWorkout] = useState();
+  const [workoutItems, setWorkoutItems] = useState([]);
+
+  const handleAddWorkout = () => {
+    Keyboard.dismiss();
+    setWorkoutItems([...workoutItems, workout]);
+    setWorkout(null);
+  }
+
+  const completeWorkout = (index) => {
+  }
 
   return( 
    <View style={styles.container}>
      <View style={styles.tasksWrapper}>
         <Text style={styles.sectionTitle}>Todays workouts:</Text>
         <View style={styles.items}>
-          <Workouts text={"Leg Workout"}/>
+          {
+            workoutItems.map((item, index) => {
+              return (
+                <TouchableOpacity key={index} oPress={() => completeWorkout(index)}>
+                  <Workouts text={item}/>
+                </TouchableOpacity>
+              )
+            })
+          }
         </View>
      </View>
      <KeyboardAvoidingView behavior={Platform.OS === "ios" ? "padding": "height"} style={styles.writeTaskWrapper}>
-        <TextInput style={styles.input} placeholder={"Write a Workout"}/>
-        <TouchableOpacity>
+        <TextInput style={styles.input} placeholder={"Write a Workout"} value={workout} onChangeText={text => setWorkout(text)}/>
+        <TouchableOpacity onPress={() => handleAddWorkout()}>
           <View style={styles.addWrapper}>
             <Text style={styles.addText}>+</Text>
           </View>
