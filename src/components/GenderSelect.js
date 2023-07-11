@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Image, Text, TouchableOpacity, StyleSheet } from "react-native";
 
 export default function GenderSelect({
