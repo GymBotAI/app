@@ -63,7 +63,7 @@ export default function Chat() {
       style={{
         flex: 1,
         width: "100%",
-        backgroundColor: '#F5F5F5',
+        backgroundColor: "#F5F5F5",
       }}
     >
       <View
@@ -73,8 +73,13 @@ export default function Chat() {
           height: "100%",
         }}
       >
-        <ChatMessages messages={messages} handlePromptPress={handlePromptPress} sendMessage={sendMessage} showPrompts={showPrompts}/>        
-        
+        <ChatMessages
+          messages={messages}
+          handlePromptPress={handlePromptPress}
+          sendMessage={sendMessage}
+          showPrompts={showPrompts}
+        />
+
         <ChatInput
           style={{
             justifyContent: "center",
