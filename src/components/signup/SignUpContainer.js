@@ -1,5 +1,4 @@
 import { View, KeyboardAvoidingView } from "react-native";
-import { useState, useRef } from "react";
 
 import * as Device from "expo-device";
 import Question from "../Question";
