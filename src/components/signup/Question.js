@@ -129,8 +129,6 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: "center",
-    // position: "absolute",
-    // top: 200,
     width: "100%",
     backgroundColor: "#1260de",
     borderRadius: 8,
