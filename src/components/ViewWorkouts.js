@@ -23,12 +23,12 @@ export default function ViewWorkouts({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>Today's workouts:</Text>
-      </View>
-      {showAddWorkoutScreen ? (
-        <AddWorkoutScreen onClose={handleAddWorkoutScreenClose} />
-      ) : (
+      {!showAddWorkoutScreen && (
+        <View style={styles.tasksWrapper}>
+          <Text style={styles.sectionTitle}>Today's workouts:</Text>
+        </View>
+      )}
+      {!showAddWorkoutScreen && (
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
           style={styles.writeTaskWrapper}
@@ -40,6 +40,7 @@ export default function ViewWorkouts({ navigation }) {
           </TouchableOpacity>
         </KeyboardAvoidingView>
       )}
+      {showAddWorkoutScreen && <AddWorkoutScreen onClose={handleAddWorkoutScreenClose} />}
     </View>
   );
 }
@@ -53,6 +54,7 @@ const styles = StyleSheet.create({
   tasksWrapper: {
     paddingTop: 10,
     paddingHorizontal: 20,
+    zIndex: 1,
   },
   sectionTitle: {
     fontSize: 20,

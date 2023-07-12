@@ -62,7 +62,7 @@ export default function AddWorkoutScreen({ onClose }) {
         ]}
       >
         <TouchableOpacity style={styles.closeButton} onPress={handlePressClose}>
-          <Text>X</Text>
+          <Text  styles={styles.closeWindow}>X</Text>
         </TouchableOpacity>
         <Workouts title="Biceps" text="sdahiofuioñsafjioñsauipdbfadoñbfiasndsaiufhsdabhuifhsdauisdaauiosdfauisdfauisdfhauisdaiu" />
         <Workouts title="Test1" text="Demo Tab 2" />
@@ -89,8 +89,8 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     position: "absolute",
-    top: 10,
-    left: 10,
+    top: -12,
+    left: -5,
     padding: 10,
     zIndex: 1,
   },
