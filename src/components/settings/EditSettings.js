@@ -8,7 +8,7 @@ import {
   Keyboard,
 } from "react-native";
 
-import Option from "./Option";
+import Option from "./NameOption";
 
 import { nameValue } from "../signup/Name";
 import { dateValue } from "../signup/Age";
@@ -31,6 +31,8 @@ export default function Settings({ navigation }) {
   const [age, setAge] = useState(ageCalculation(dateValue).toString());
   const [goal, setGoal] = useState(Goals.join(", "));
   const [gender, setGender] = useState(genderVal);
+  const [weight, setWeight] = useState('0');
+  const [height, setHeight] = useState('0');
 
   const handleSaveChanges = () => {
     // Perform saving changes logic here
@@ -40,10 +42,12 @@ export default function Settings({ navigation }) {
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
 
-      <Option question="Name" value={name} setValue={setName}></Option>
-      <Option question="Birthday" value={name} setValue={setName}></Option>
-      <Option question="Goals" value={name} setValue={setName}></Option>
-      <Option question="Gender" value={name} setValue={setName}></Option>
+      <Option question="Name" value={name} setValue={setName}/>
+      <Option question="Age" value={age} setValue={setAge}/>
+      {/* <Option question="Goals" value={goal} setValue={setGoal}></Option> */}
+      <Option question="Gender" value={gender} setValue={setGender}/>
+      <Option question="Weight" value={weight} setValue={setWeight}/>
+      <Option question="Height" value={height} setValue={setHeight}/>
     </Pressable>
   );
 }

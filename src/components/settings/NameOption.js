@@ -8,6 +8,7 @@ import {
   KeyboardAvoidingView,
   Pressable,
   Keyboard,
+  TextInput,
 } from "react-native";
 
 import { circularColour } from "../../styles";
@@ -18,17 +19,17 @@ export default function Option({ question, value, setValue }) {
   return (
 
     
-    <View style={styles.item}>
+    <TouchableOpacity style={styles.item}>
       <Text style={styles.itemText}>{question}</Text>
       <View style={styles.itemLeft}>
-        <Text style={styles.current}>Daniel</Text>
+        <TextInput style={styles.current} value={value} onChange={setValue}/>
         <Image
               source={require("../../../assets/edit.png")}
               style={{width: 22, height: 22, marginLeft: 15,}}
               resizeMode="contain"
             />
           </View>
-      </View>
+      </TouchableOpacity>
   );
 }
 
@@ -40,7 +41,7 @@ const styles = StyleSheet.create({
       flexDirection: "row",
       alignItems: "center",
       justifyContent: 'space-between',
-      marginBottom: 20,
+      marginBottom: 15,
     },
     itemText: {
       maxWidth: "100%",
@@ -49,9 +50,10 @@ const styles = StyleSheet.create({
     itemLeft: {
       display: 'flex',
       flexDirection: 'row',
+      flexWrap: "wrap",
     },
     current: {
-      color: 'blue',
+      color: '#1260de',
       fontSize: 16,
     },
     circular: {
