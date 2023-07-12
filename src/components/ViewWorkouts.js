@@ -14,7 +14,11 @@ export default function ViewWorkouts({ navigation }) {
   const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
 
   const handleAddWorkout = () => {
-    setShowAddWorkoutScreen(!showAddWorkoutScreen);
+    setShowAddWorkoutScreen(true);
+  };
+
+  const handleAddWorkoutScreenClose = () => {
+    setShowAddWorkoutScreen(false);
   };
 
   return (
@@ -23,7 +27,7 @@ export default function ViewWorkouts({ navigation }) {
         <Text style={styles.sectionTitle}>Today's workouts:</Text>
       </View>
       {showAddWorkoutScreen ? (
-        <AddWorkoutScreen />
+        <AddWorkoutScreen onClose={handleAddWorkoutScreenClose} />
       ) : (
         <KeyboardAvoidingView
           behavior={Platform.OS === "ios" ? "padding" : "height"}
