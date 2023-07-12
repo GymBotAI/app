@@ -42,7 +42,7 @@ export default function AddWorkoutScreen({ onClose }) {
       <TouchableOpacity style={styles.closeButton} onPress={handlePressClose}>
         <Text>X</Text>
       </TouchableOpacity>
-      <Workouts title="Biceps" text="" />
+      <Workouts title="Biceps" text="sdahiofuioñsafjioñsauipdbfadoñbfiasndsaiufhsdabhuifhsdauisdaauiosdfauisdfauisdfhauisdaiu" />
       <Workouts title="Test1" text="Demo Tab 2" />
     </Animated.View>
   );
