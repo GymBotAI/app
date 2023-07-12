@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import {
   Keyboard,
   View,
@@ -5,64 +6,43 @@ import {
   TouchableOpacity,
   StyleSheet,
   KeyboardAvoidingView,
-  TextInput,
+  Platform,
 } from "react-native";
-import Workouts from "./WorkoutTabs";
-import React, { useState } from "react";
+import AddWorkoutScreen from "./AddWorkoutScreen";
 
 export default function ViewWorkouts({ navigation }) {
-  const [workout, setWorkout] = useState();
-  const [workoutItems, setWorkoutItems] = useState([]);
+  const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
 
   const handleAddWorkout = () => {
-    Keyboard.dismiss();
-    setWorkoutItems([...workoutItems, workout]);
-    setWorkout(null);
+    setShowAddWorkoutScreen(!showAddWorkoutScreen);
   };
-
-  const completeWorkout = (index) => {};
 
   return (
     <View style={styles.container}>
       <View style={styles.tasksWrapper}>
-        <Text style={styles.sectionTitle}>Todays workouts:</Text>
-        <View style={styles.items}>
-          {workoutItems.map((item, index) => {
-            return (
-              <TouchableOpacity
-                key={index}
-                oPress={() => completeWorkout(index)}
-              >
-                <Workouts text={item} />
-              </TouchableOpacity>
-            );
-          })}
-        </View>
+        <Text style={styles.sectionTitle}>Today's workouts:</Text>
       </View>
-      <KeyboardAvoidingView
-        behavior={Platform.OS === "ios" ? "padding" : "height"}
-        style={styles.writeTaskWrapper}
-      >
-        <TextInput
-          style={styles.input}
-          placeholder={"Write a Workout"}
-          value={workout}
-          onChangeText={(text) => setWorkout(text)}
-        />
-        <TouchableOpacity onPress={() => handleAddWorkout()}>
-          <View style={styles.addWrapper}>
-            <Text style={styles.addText}>+</Text>
-          </View>
-        </TouchableOpacity>
-      </KeyboardAvoidingView>
+      {showAddWorkoutScreen ? (
+        <AddWorkoutScreen />
+      ) : (
+        <KeyboardAvoidingView
+          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          style={styles.writeTaskWrapper}
+        >
+          <TouchableOpacity onPress={handleAddWorkout}>
+            <View style={styles.addWrapper}>
+              <Text style={styles.addText}>+</Text>
+            </View>
+          </TouchableOpacity>
+        </KeyboardAvoidingView>
+      )}
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flexGrow: 1,
-    overflow: "auto",
+    flex: 1,
     padding: 10,
     backgroundColor: "#F3F3F3",
   },
@@ -74,9 +54,6 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
   },
-  items: {
-    marginTop: 30,
-  },
   writeTaskWrapper: {
     position: "absolute",
     bottom: 60,
@@ -84,15 +61,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-  },
-  input: {
-    paddingVertical: 15,
-    paddingHorizontal: 15,
-    backgroundColor: "#FFF",
-    borderRadius: 60,
-    borderColor: "#C0C0C0",
-    borderWidth: 1,
-    width: 250,
   },
   addWrapper: {
     width: 60,
