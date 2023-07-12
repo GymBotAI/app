@@ -1,14 +1,13 @@
+import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-
 import { circularColour } from "../styles";
-
-//This file is used to handle the creation of workout popups
 
 const Workouts = (props) => {
   return (
     <View style={styles.item}>
       <View style={styles.itemLeft}>
         <View style={styles.square}></View>
+        <Text style={styles.itemTitle}>{props.title}</Text>
         <Text style={styles.itemText}>{props.text}</Text>
       </View>
       <View style={styles.circular}></View>
@@ -41,6 +40,12 @@ const styles = StyleSheet.create({
   },
   itemText: {
     maxWidth: "80%",
+  },
+  itemTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    maxWidth: "100%",
+    marginBottom: 20,
   },
   circular: {
     width: 12,
