@@ -20,7 +20,7 @@ export default function Age({ onAgeChange }) {
       setDate(currentDate);
       const formattedDate = currentDate.toLocaleDateString(); // Format the date as a string
       setDateOfBirth(formattedDate);
-      dateValue = formattedDate; // Assign the formatted date to ageValue
+      dateValue = selectedDate; // Assign the formatted date to ageValue
     }
   };
 

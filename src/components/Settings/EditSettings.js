@@ -45,7 +45,6 @@ export default function Settings({ navigation }) {
 
       <Option question="Name" value={name} setValue={setName}/>
       <WeightOption question="Age" value={age} setValue={setAge}/>
-      {/* <Option question="Goals" value={goal} setValue={setGoal}></Option> */}
       <Option question="Gender" value={gender} setValue={setGender}/>
       <Option question="Weight" value={weight} setValue={setWeight}/>
       <Option question="Height" value={height} setValue={setHeight}/>

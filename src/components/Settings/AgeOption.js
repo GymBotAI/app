@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   TextInput,
+  Modal,
 } from "react-native";
 
 import DateTimePicker from "@react-native-community/datetimepicker";
@@ -16,7 +17,6 @@ import { circularColour } from "../../styles";
 export default function Option({ question, value, setValue }) {
   const [name, setName] = useState("Daniel");
   const [showPicker, setShowPicker] = useState(false);
-  const [date, setDate] = useState(value);
 
   const show = () => {
     console.log("This is happening")
@@ -25,11 +25,7 @@ export default function Option({ question, value, setValue }) {
 
   const onChange = ({ type }, selectedDate) => {
     if (type === "set") {
-      const currentDate = selectedDate;
-      setDate(currentDate);
-      const formattedDate = currentDate.toLocaleDateString(); // Format the date as a string
-      setDateOfBirth(formattedDate);
-      // dateValue = formattedDate; // Assign the formatted date to ageValue
+      setValue(selectedDate)
     }
   };
 
@@ -52,7 +48,7 @@ export default function Option({ question, value, setValue }) {
         <DateTimePicker
           mode="date"
           display="spinner"
-          value={date}
+          value={value}
           onChange={onChange}
           minimumDate={new Date(1900, 0, 1)} // Replace with your minimum date
           maximumDate={new Date(2030, 0, 1)} // Replace with your maximum date (e.g., new Date() for today)
