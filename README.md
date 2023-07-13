@@ -20,7 +20,7 @@ cd App
 Config GitHub User and Password:
 
 ```sh
-git config user.email a@a.com
+git config user.email a@gmail.com
 git config user.name your_username
 ```
 
