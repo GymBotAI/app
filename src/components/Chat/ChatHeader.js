@@ -50,7 +50,7 @@ export default function MainHeader({ text, minitext }) {
           }}
         >
           <Image
-            source={require("../../../assets/icon.jpg")}
+            source={require("../../assets/icon.jpg")}
             style={{
               width: 60, // Adjust the size as needed
               height: 60, // Adjust the size as needed

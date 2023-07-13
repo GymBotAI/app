@@ -9,10 +9,16 @@ const GoalSelect = ({ text, onGoalChange }) => {
   const handlePress = () => {
     onGoalChange(true);
     setSelected(!selected);
-    Goals.push(text) //Goals are pushed both when the buttons are clicked and unclicked so the are duplicated
-    let dupGoals =  Goals.filter((element, index) => {return Goals.indexOf(element) !== index;}); //This makes you find duplicates and stores them
-    Goals =  Goals.filter((element, index) => {return Goals.indexOf(element) === index;}); //This removes duplicates from Goals
-    Goals = Goals.filter(function(val) {return dupGoals.indexOf(val) == -1;}); //This compares both and removes any that were duplicated and the same
+    Goals.push(text); //Goals are pushed both when the buttons are clicked and unclicked so the are duplicated
+    let dupGoals = Goals.filter((element, index) => {
+      return Goals.indexOf(element) !== index;
+    }); //This makes you find duplicates and stores them
+    Goals = Goals.filter((element, index) => {
+      return Goals.indexOf(element) === index;
+    }); //This removes duplicates from Goals
+    Goals = Goals.filter(function (val) {
+      return dupGoals.indexOf(val) == -1;
+    }); //This compares both and removes any that were duplicated and the same
   };
 
   return (
@@ -20,7 +26,9 @@ const GoalSelect = ({ text, onGoalChange }) => {
       style={[styles.buttonBox, selected && styles.selectedButton]}
       onPress={handlePress}
     >
-      <Text style={[styles.boxText, selected && styles.selectedText]}>{text}</Text>
+      <Text style={[styles.boxText, selected && styles.selectedText]}>
+        {text}
+      </Text>
     </TouchableOpacity>
   );
 };

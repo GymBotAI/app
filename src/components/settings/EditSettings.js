@@ -1,22 +1,21 @@
 import React, { useState } from "react";
 import {
-  View,
   Text,
   TextInput,
   TouchableOpacity,
   StyleSheet,
-  KeyboardAvoidingView,
   Pressable,
   Keyboard,
 } from "react-native";
 
-import {nameValue} from "./signup/Name";
-import {dateValue} from "./signup/Age";
-import {genderVal} from "./signup/Gender";
-import {Goals} from "./GoalSelect";
-import { G } from "react-native-svg";
+import Option from "./NameOption";
 
-function ageCalculation(date){
+import { nameValue } from "../signup/Name";
+import { dateValue } from "../signup/Age";
+import { genderVal } from "../signup/Gender";
+import { Goals } from "../GoalSelect";
+
+function ageCalculation(date) {
   const currentDate = new Date(); // Get the current date
   const [day, month, year] = date.split("/"); // Split the given date into day, month, and year
 
@@ -32,6 +31,8 @@ export default function Settings({ navigation }) {
   const [age, setAge] = useState(ageCalculation(dateValue).toString());
   const [goal, setGoal] = useState(Goals.join(", "));
   const [gender, setGender] = useState(genderVal);
+  const [weight, setWeight] = useState('0');
+  const [height, setHeight] = useState('0');
 
   const handleSaveChanges = () => {
     // Perform saving changes logic here
@@ -39,36 +40,14 @@ export default function Settings({ navigation }) {
 
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
-    {/* <View style={styles.container}> */}
-      <TextInput
-        style={styles.input}
-        value={name}
-        onChange={setName}
-      />
+      {/* <View style={styles.container}> */}
 
-      <TextInput
-        style={styles.input}
-        value={age}
-        onChangeText={setAge}
-        keyboardType="numeric"
-      />
-
-      <TextInput
-        style={styles.input}
-        value={goal}
-        onChangeText={setGoal}
-      />
-
-      <TextInput
-        style={styles.input}
-        value={gender}
-        onChangeText={setGender}
-      />
-
-      <TouchableOpacity style={styles.saveButton} onPress={handleSaveChanges}>
-        <Text style={styles.buttonText}>Save Changes</Text>
-      </TouchableOpacity>
-    {/* </View> */}
+      <Option question="Name" value={name} setValue={setName}/>
+      <Option question="Age" value={age} setValue={setAge}/>
+      {/* <Option question="Goals" value={goal} setValue={setGoal}></Option> */}
+      <Option question="Gender" value={gender} setValue={setGender}/>
+      <Option question="Weight" value={weight} setValue={setWeight}/>
+      <Option question="Height" value={height} setValue={setHeight}/>
     </Pressable>
   );
 }
