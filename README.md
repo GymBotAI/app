@@ -27,8 +27,7 @@ git config user.name your_username
 Install:
 
 ```sh
-npm i
-npm install expo
+pnpm i
 ```
 
 Run:
