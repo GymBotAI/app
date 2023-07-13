@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View } from "react-native";
 
-import GenderSelect from "../GenderSelect";
+import GenderSelect from "./GenderSelect";
 
 export let genderVal = "";
 
