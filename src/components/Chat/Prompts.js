@@ -44,7 +44,7 @@ export default function Prompts({ onPromptSelection, prompts }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "roboto-regular": require("../../assets/fonts/Roboto-Regular.ttf"),
+        "roboto-regular": require("../../../assets/fonts/Roboto-Regular.ttf"),
       });
 
       setFontLoaded(true);

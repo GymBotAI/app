@@ -10,10 +10,10 @@ import {
 
 import Option from "./NameOption";
 
-import { nameValue } from "../signup/Name";
-import { dateValue } from "../signup/Age";
-import { genderVal } from "../signup/Gender";
-import { Goals } from "../GoalSelect";
+import { nameValue } from "../SignUp/Name";
+import { dateValue } from "../SignUp/Age";
+import { genderVal } from "../SignUp/Gender";
+import { Goals } from "../SignUp/GoalSelect";
 
 function ageCalculation(date) {
   const currentDate = new Date(); // Get the current date

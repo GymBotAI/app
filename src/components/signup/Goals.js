@@ -1,7 +1,7 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
 
-import GoalSelect from "../GoalSelect";
+import GoalSelect from "./GoalSelect";
 
 export default function Goals({ onGoalChange }) {
   return (
