@@ -71,9 +71,9 @@ export default function AddWorkoutScreen({ onClose }) {
         ]}
       >
         <TouchableOpacity style={styles.closeButton} onPress={handlePressClose}>
-          <View style={styles.addWrapperCloseButton}>
-            <Text>X</Text> {/*Simple ASCII close button but it will evolve later*/}
-          </View>
+        <View style={styles.addWrapperCloseButton}>
+          <Text>X</Text>
+        </View>
         </TouchableOpacity>
         <TouchableOpacity style={styles.newWorkoutbutton} onPress={handleNewWorkout}>
           <View style={styles.newWorkoutButtonWrapper}>
