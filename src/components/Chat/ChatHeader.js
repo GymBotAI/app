@@ -37,47 +37,47 @@ export default function MainHeader({ text, minitext }) {
         backgroundColor: "#1877F2",
       }}
     >
-        <View
+      <View
+        style={{
+          paddingTop: 40,
+          paddingBottom: 8,
+          width: "100%",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          zIndex: 1,
+          overflow: "hidden",
+        }}
+      >
+        <Image
+          source={require("../../../assets/icon.jpg")}
           style={{
-            paddingTop: 40,
-            paddingBottom: 8,
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            alignItems: "center",
-            zIndex: 1,
-            overflow: "hidden",
+            width: 60, // Adjust the size as needed
+            height: 60, // Adjust the size as needed
+            borderRadius: 20,
+            marginLeft: 30,
           }}
-        >
-          <Image
-            source={require("../../../assets/icon.jpg")}
+        />
+        <View style={{ marginLeft: 10 }}>
+          <Text
             style={{
-              width: 60, // Adjust the size as needed
-              height: 60, // Adjust the size as needed
-              borderRadius: 20,
-              marginLeft: 30,
+              fontSize: 52,
+              color: "#e0e0e0",
+              fontFamily: "custom-font",
+              fontWeight: "bold",
+              letterSpacing: 1.5,
+              textAlign: "left",
+              marginBottom: 0,
+              shadowColor: "black",
+              shadowOffset: { width: 3, height: 2 },
+              shadowOpacity: 0.4,
+              shadowRadius: 3,
+              elevation: 5, // For Android shadow
             }}
-          />
-          <View style={{ marginLeft: 10 }}>
-            <Text
-              style={{
-                fontSize: 52,
-                color: "#e0e0e0",
-                fontFamily: "custom-font",
-                fontWeight: "bold",
-                letterSpacing: 1.5,
-                textAlign: "left",
-                marginBottom: 0,
-                shadowColor: "black",
-                shadowOffset: { width: 3, height: 2 },
-                shadowOpacity: 0.4,
-                shadowRadius: 3,
-                elevation: 5, // For Android shadow
-              }}
-            >
-              {text}
-            </Text>
-          </View>
+          >
+            {text}
+          </Text>
+        </View>
       </View>
     </View>
   );

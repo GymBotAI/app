@@ -24,54 +24,53 @@ export default function Option({ question, value, setValue }) {
   };
 
   return (
-
-    
     <TouchableOpacity style={styles.item} onPress={handleButtonPress}>
       <Text style={styles.itemText}>{question}</Text>
       <View style={styles.itemLeft}>
         <TextInput
-        ref={textInputRef}
-        style={styles.current}
-        value={value}
-        onChange={setValue}/>
+          ref={textInputRef}
+          style={styles.current}
+          value={value}
+          onChange={setValue}
+        />
         <Image
-              source={require("../../../assets/edit.png")}
-              style={{width: 22, height: 22, marginLeft: 15,}}
-              resizeMode="contain"
-            />
-          </View>
-      </TouchableOpacity>
+          source={require("../../../assets/edit.png")}
+          style={{ width: 22, height: 22, marginLeft: 15 }}
+          resizeMode="contain"
+        />
+      </View>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-    item: {
-      backgroundColor: "#FFF",
-      padding: 15,
-      borderRadius: 10,
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: 'space-between',
-      marginBottom: 15,
-    },
-    itemText: {
-      maxWidth: "100%",
-      fontSize: 16,
-    },
-    itemLeft: {
-      display: 'flex',
-      flexDirection: 'row',
-      flexWrap: "wrap",
-    },
-    current: {
-      color: '#1260de',
-      fontSize: 16,
-    },
-    circular: {
-      width: 12,
-      height: 12,
-      borderColor: circularColour,
-      borderWidth: 2,
-      borderRadius: 5,
-    },
-  });  
+  item: {
+    backgroundColor: "#FFF",
+    padding: 15,
+    borderRadius: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 15,
+  },
+  itemText: {
+    maxWidth: "100%",
+    fontSize: 16,
+  },
+  itemLeft: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  current: {
+    color: "#1260de",
+    fontSize: 16,
+  },
+  circular: {
+    width: 12,
+    height: 12,
+    borderColor: circularColour,
+    borderWidth: 2,
+    borderRadius: 5,
+  },
+});

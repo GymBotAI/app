@@ -40,7 +40,9 @@ export default function ViewWorkouts({ navigation }) {
           </TouchableOpacity>
         </KeyboardAvoidingView>
       )}
-      {showAddWorkoutScreen && <AddWorkoutScreen onClose={handleAddWorkoutScreenClose} />}
+      {showAddWorkoutScreen && (
+        <AddWorkoutScreen onClose={handleAddWorkoutScreenClose} />
+      )}
     </View>
   );
 }
