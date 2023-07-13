@@ -55,3 +55,9 @@ pnpm run start
 ```
 
 Then, scan the QR code on your phone and open it with the Expo Go app.
+
+You can also run the app as a website:
+
+```sh
+pnpm run web
+```
