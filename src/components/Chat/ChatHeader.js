@@ -66,7 +66,6 @@ export default function MainHeader({ text, minitext }) {
               fontFamily: "custom-font",
               fontWeight: "bold",
               letterSpacing: 1.5,
-              marginBottom: 0,
               textShadowColor: "black",
               textShadowOffset: { width: 3, height: 2 },
               textShadowOpacity: 0.4,
