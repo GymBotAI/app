@@ -37,7 +37,7 @@ export default function Option({ question, value, setValue }) {
     <TouchableOpacity style={styles.item} onPress={show}>
       <Text style={styles.itemText}>{question}</Text>
       <View style={styles.itemLeft}>
-        <TextInput style={styles.current} value={value} onChange={setValue}/>
+        <TextInput style={styles.current} value={value.toLocaleDateString()} onChange={setValue}/>
         <Image
               source={require("../../../assets/edit.png")}
               style={{width: 22, height: 22, marginLeft: 15,}}
