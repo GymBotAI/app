@@ -1,13 +1,13 @@
 import { View, Text, Image } from "react-native";
 import * as Font from "expo-font";
 
-import { borderDefault, white, fontSize, font } from "../styles";
+import { borderDefault, fontSize } from "../../styles";
 
 import { useEffect, useState } from "react";
 
 const roleIcons = {
-  assistant: require("../../assets/icon.jpg"),
-  user: require("../../assets/user.png"),
+  assistant: require("../../../assets/icon.jpg"),
+  user: require("../../../assets/user.png"),
 };
 
 const roleAlign = {
@@ -22,7 +22,7 @@ export default function ChatMessage({ message }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "roboto-regular": require("../../assets/fonts/Roboto-Regular.ttf"),
+        "roboto-regular": require("../../../assets/fonts/Roboto-Regular.ttf"),
       });
 
       setFontLoaded(true);

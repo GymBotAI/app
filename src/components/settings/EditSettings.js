@@ -9,11 +9,12 @@ import {
 } from "react-native";
 
 import Option from "./NameOption";
+import WeightOption from "./AgeOption"
 
-import { nameValue } from "../signup/Name";
-import { dateValue } from "../signup/Age";
-import { genderVal } from "../signup/Gender";
-import { Goals } from "../GoalSelect";
+import { nameValue } from "../SignUp/Name";
+import { dateValue } from "../SignUp/Age";
+import { genderVal } from "../SignUp/Gender";
+import { Goals } from "../SignUp/GoalSelect";
 
 function ageCalculation(date) {
   const currentDate = new Date(); // Get the current date
@@ -28,7 +29,7 @@ function ageCalculation(date) {
 
 export default function Settings({ navigation }) {
   const [name, setName] = useState(nameValue);
-  const [age, setAge] = useState(ageCalculation(dateValue).toString());
+  const [age, setAge] = useState(dateValue);
   const [goal, setGoal] = useState(Goals.join(", "));
   const [gender, setGender] = useState(genderVal);
   const [weight, setWeight] = useState('0');
@@ -43,7 +44,7 @@ export default function Settings({ navigation }) {
       {/* <View style={styles.container}> */}
 
       <Option question="Name" value={name} setValue={setName}/>
-      <Option question="Age" value={age} setValue={setAge}/>
+      <WeightOption question="Age" value={age} setValue={setAge}/>
       {/* <Option question="Goals" value={goal} setValue={setGoal}></Option> */}
       <Option question="Gender" value={gender} setValue={setGender}/>
       <Option question="Weight" value={weight} setValue={setWeight}/>

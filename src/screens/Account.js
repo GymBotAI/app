@@ -8,8 +8,8 @@ import {
 // import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
-import LoginBox from "../components/LoginBox";
-import LoginHeader from "../components/LoginHeader";
+import LoginBox from "../components/Login/LoginBox";
+import LoginHeader from "../components/Login/LoginHeader";
 
 export default function Account({ navigation }) {
   // const [username, setUsername] = useState("");
