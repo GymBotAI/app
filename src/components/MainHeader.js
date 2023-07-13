@@ -9,7 +9,7 @@ export default function MainHeader({ text, minitext }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "custom-font": require("../../assets/fonts/Roboto-Black.ttf"),
+        "roboto-black": require("../../assets/fonts/Roboto-Black.ttf"),
       });
 
       setFontLoaded(true);
@@ -65,7 +65,7 @@ export default function MainHeader({ text, minitext }) {
               style={{
                 fontSize: 19,
                 color: "#e0e0e0",
-                fontFamily: "custom-font",
+                fontFamily: "roboto-black",
                 letterSpacing: 1.5,
                 marginBottom: -5,
                 shadowColor: "black",
@@ -82,7 +82,7 @@ export default function MainHeader({ text, minitext }) {
               style={{
                 fontSize: 48,
                 color: "#e0e0e0",
-                fontFamily: "custom-font",
+                fontFamily: "roboto-black",
                 fontWeight: "bold",
                 letterSpacing: 1.5,
                 textAlign: "center",

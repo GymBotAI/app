@@ -9,7 +9,7 @@ export default function MainHeader({ text, minitext }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "custom-font": require("../../../assets/fonts/ClashGrotesk-Semibold.ttf"),
+        "clash-grotesk-semibold": require("../../../assets/fonts/ClashGrotesk-Semibold.ttf"),
       });
 
       setFontLoaded(true);
@@ -63,7 +63,7 @@ export default function MainHeader({ text, minitext }) {
             style={{
               fontSize: 52,
               color: "#e0e0e0",
-              fontFamily: "custom-font",
+              fontFamily: "clash-grotesk-semibold",
               fontWeight: "bold",
               letterSpacing: 1.5,
               textShadowColor: "black",

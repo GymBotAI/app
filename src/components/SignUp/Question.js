@@ -46,7 +46,7 @@ export default function Question({ navigation }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "custom-font": require("../../../assets/fonts/Roboto-Black.ttf"),
+        "roboto-black": require("../../../assets/fonts/Roboto-Black.ttf"),
       });
 
       setFontLoaded(true);
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
   text: {
     alignSelf: "center",
     fontSize: 24,
-    fontFamily: "custom-font",
+    fontFamily: "roboto-black",
     paddingVertical: 10,
     color: "#dbdbdb",
   },
