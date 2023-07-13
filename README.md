@@ -33,7 +33,7 @@ pnpm i
 Run:
 
 ```sh
-npx expo start
+pnpm run start
 ```
 
 Then, scan the QR code on your phone and install [Expo Go](https://apps.apple.com/us/app/expo-go/id982107779).
