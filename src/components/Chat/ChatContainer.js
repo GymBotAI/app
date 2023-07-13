@@ -4,9 +4,9 @@ import * as Device from "expo-device";
 
 import ChatMessages from "./ChatMessages";
 import ChatInput from "./ChatInput";
-import Prompts from "./Prompts";
+import Prompts from "../Prompts";
 
-import { useGymBotAI } from "../api";
+import { useGymBotAI } from "../../api";
 
 export default function Chat() {
   const chatInputRef = useRef({});

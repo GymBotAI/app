@@ -1,7 +1,7 @@
 import { View, StatusBar } from "react-native";
 
-import ChatContainer from "../components/ChatContainer";
-import ChatHeader from "../components/ChatHeader";
+import ChatContainer from "../components/Chat/ChatContainer";
+import ChatHeader from "../components/Chat/ChatHeader";
 import GymBotNavigation from "../components/navbar";
 
 export default function HomeScreen({ navigation }) {

@@ -9,7 +9,7 @@ export default function MainHeader({ text, minitext }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "custom-font": require("../../assets/fonts/ClashGrotesk-Semibold.ttf"),
+        "custom-font": require("../../../assets/fonts/ClashGrotesk-Semibold.ttf"),
       });
 
       setFontLoaded(true);
@@ -50,7 +50,7 @@ export default function MainHeader({ text, minitext }) {
           }}
         >
           <Image
-            source={require("../../assets/icon.jpg")}
+            source={require("../../../assets/icon.jpg")}
             style={{
               width: 60, // Adjust the size as needed
               height: 60, // Adjust the size as needed
