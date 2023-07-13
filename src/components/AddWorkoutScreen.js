@@ -28,13 +28,14 @@ export default function AddWorkoutScreen({ onClose }) {
     });
   };
 
-  const handleNewWorkout = () => {
+  const handleNewWorkout = () => { //Handles the creation of new workouts
     Keyboard.dismiss(); // Close the keyboard if it's already open
     textInputRef.current.focus(); // Focus on the text input to open the keyboard
   };
 
   const Scrollbar = ({ scrollAnim, contentSize, scrollViewSize }) => {
-    const scrollBarScaleY = scrollAnim.interpolate({
+    //controlls the Taskbar y-dir
+    const scrollBarScaleY = scrollAnim.interpolate({ 
       inputRange: [0, contentSize - scrollViewSize],
       outputRange: [1, 0],
       extrapolate: "clamp",
@@ -71,7 +72,7 @@ export default function AddWorkoutScreen({ onClose }) {
       >
         <TouchableOpacity style={styles.closeButton} onPress={handlePressClose}>
           <View style={styles.addWrapperCloseButton}>
-            <Text>X</Text>
+            <Text>X</Text> {/*Simple ASCII close button but it will evolve later*/}
           </View>
         </TouchableOpacity>
         <TouchableOpacity style={styles.newWorkoutbutton} onPress={handleNewWorkout}>
@@ -105,9 +106,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  contentContainer: {
-    paddingVertical: 60, // Padding at top & bottom.
-  },
+  contentContainer: {paddingVertical: 60,}, // Padding at top & bottom.
+
   closeButton: {
     position: "absolute",
     top: -7,
