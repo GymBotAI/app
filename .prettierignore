@@ -1,6 +1,9 @@
 # NPM
 node_modules
 
+# PNPM
+pnpm-lock.yaml
+
 # Assets
 assets
 
