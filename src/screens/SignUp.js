@@ -1,6 +1,6 @@
 import { View } from "react-native";
 
-import SignUpContainer from "../components/signup/SignUpContainer";
+import SignUpContainer from "../components/SignUp/SignUpContainer";
 import MainHeader from "../components/MainHeader";
 
 export default function SignUp({ navigation }) {
