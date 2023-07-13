@@ -8,7 +8,7 @@ export default function LoginHeader({}) {
       <View style={styles.logoContainer}>
         <View style={styles.logoBorder}>
           <Image
-            source={require("../../assets/icon.jpg")}
+            source={require("../../../assets/icon.jpg")}
             style={styles.logo}
             resizeMode="contain"
           />

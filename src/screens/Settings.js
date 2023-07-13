@@ -1,6 +1,6 @@
 import { View, StatusBar } from "react-native";
 
-import EditSettings from "../components/settings/EditSettings";
+import EditSettings from "../components/Settings/EditSettings";
 import GymBotNavigation from "../components/navbar";
 import ScreenHeader from "../components/ScreenHeader";
 
