@@ -1,7 +1,7 @@
 import { View, Text, Image } from "react-native";
 import * as Font from "expo-font";
 
-import { borderDefault, white, fontSize, font } from "../../styles";
+import { borderDefault, fontSize } from "../../styles";
 
 import { useEffect, useState } from "react";
 
