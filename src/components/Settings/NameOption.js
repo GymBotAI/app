@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
   View,
   Text,
@@ -15,14 +15,25 @@ import { circularColour } from "../../styles";
 
 export default function Option({ question, value, setValue }) {
   const [name, setName] = useState("Daniel");
+  const textInputRef = useRef(null);
+
+  const handleButtonPress = () => {
+    if (textInputRef.current) {
+      textInputRef.current.focus();
+    }
+  };
 
   return (
 
     
-    <TouchableOpacity style={styles.item}>
+    <TouchableOpacity style={styles.item} onPress={handleButtonPress}>
       <Text style={styles.itemText}>{question}</Text>
       <View style={styles.itemLeft}>
-        <TextInput style={styles.current} value={value} onChange={setValue}/>
+        <TextInput
+        ref={textInputRef}
+        style={styles.current}
+        value={value}
+        onChange={setValue}/>
         <Image
               source={require("../../../assets/edit.png")}
               style={{width: 22, height: 22, marginLeft: 15,}}
