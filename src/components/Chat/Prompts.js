@@ -4,11 +4,11 @@ import { useEffect, useState } from "react";
 
 const styles = {
   buttonContainer: {
-    marginTop: -10,
     display: "flex",
     alignItems: "flex-end",
     gap: 6,
     padding: 6,
+    paddingTop: 0,
     width: "100%",
     zIndex: 1,
     elevation: 3,
