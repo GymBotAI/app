@@ -4,7 +4,7 @@ import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import * as Device from "expo-device";
 
 import ChatMessage from "./ChatMessage";
-import Prompts from "../Prompts";
+import Prompts from "./Prompts";
 
 export default function ChatMessages({
   messages,
