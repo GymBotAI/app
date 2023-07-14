@@ -25,7 +25,7 @@ export default function Question({ navigation }) {
   const slideUpAnim = useRef(new Animated.Value(300)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const [prompt, setPrompt] = useState(
-    "Welcome to GymBot! To get started, tell us your name"
+    "What are your weight and height?"
   );
 
   const handleSignUp = () => {
@@ -45,6 +45,7 @@ export default function Question({ navigation }) {
     } else {
       navigation.navigate("Chat");
     }
+    
   };
 
   useEffect(() => {
@@ -82,8 +83,8 @@ export default function Question({ navigation }) {
     return <Text>Loading...</Text>;
   }
 
-  if (prompt === "Welcome to GymBot! To get started, tell us your name") {
-    inputOption = <Name onNameChange={setInputFilled} />;
+  if (prompt === "What are your weight and height?") {
+    inputOption = <HeightWeight onChange={setInputFilled} />;
   }
 
   return (
