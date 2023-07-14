@@ -4,7 +4,9 @@ import { FontAwesome } from '@expo/vector-icons';
 
 import * as Device from "expo-device";
 
-export let nameValue = ""; // Export the nameValue variable
+export let weightVal = ""; // Initialize ageValue as an empty string
+export let heightVal = ""; // Initialize ageValue as an empty string
+
 
 export default function HeightWeight({ onChange }) {
   const [weight, setWeight] = useState("");

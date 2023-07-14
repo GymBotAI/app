@@ -14,6 +14,8 @@ import WeightOption from "./AgeOption";
 import { nameValue } from "../SignUp/Name";
 import { dateValue } from "../SignUp/Age";
 import { genderVal } from "../SignUp/Gender";
+import { weightVal } from "../SignUp/HeightWeight"
+import { heightVal } from "../SignUp/HeightWeight"
 import { Goals } from "../SignUp/GoalSelect";
 
 function ageCalculation(date) {
@@ -32,8 +34,8 @@ export default function Settings({ navigation }) {
   const [age, setAge] = useState(dateValue);
   const [goal, setGoal] = useState(Goals.join(", "));
   const [gender, setGender] = useState(genderVal);
-  const [weight, setWeight] = useState("0");
-  const [height, setHeight] = useState("0");
+  const [weight, setWeight] = useState(weightVal);
+  const [height, setHeight] = useState(heightVal);
 
   const handleSaveChanges = () => {
     // Perform saving changes logic here
