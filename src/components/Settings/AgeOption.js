@@ -93,7 +93,7 @@ const styles = StyleSheet.create({
     margin: 0,
   },
   modalContainer: {
-    backgroundColor: "white",
+    backgroundColor: "transparent",
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     padding: 20,
