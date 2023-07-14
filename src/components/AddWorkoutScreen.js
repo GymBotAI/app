@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -7,10 +7,8 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
-  Keyboard,
 } from "react-native";
 import Workouts from "./WorkoutTabs";
-import { KeyboardAvoidingView } from "react-native-web";
 
 export default function AddWorkoutScreen({ onClose }) {
   const slideUpAnimation = useRef(new Animated.Value(0)).current;
@@ -18,11 +16,23 @@ export default function AddWorkoutScreen({ onClose }) {
   const contentSize = 700; // Adjust this value based on the total content size
   const scrollViewSize = 400; // Adjust this value based on the visible size of the scroll view
   const textInputRef = useRef(null);
+  const [isAddingWorkout, setIsAddingWorkout] = useState(false);
+  const [workoutTitle, setWorkoutTitle] = useState("");
+  const [workoutDescription, setWorkoutDescription] = useState("");
+  const [workouts, setWorkouts] = useState([
+    { title: "Biceps", text: "sdahiofuioñsafjioñsauipdbfadoñbfiasndsaiufhsdabhuifhsdauisdaauiosdfauisdfauisdfhauisdaiu" },
+    { title: "Test1", text: "Demo Tab 2" },
+    { title: "Test1", text: "Demo Tab 2" },
+    { title: "Test1", text: "Demo Tab 2" },
+    { title: "Test1", text: "Demo Tab 2" },
+    { title: "Test1", text: "Demo Tab 2" },
+    { title: "Test1", text: "Demo Tab 2" },
+  ]);
 
   useEffect(() => {
     Animated.timing(slideUpAnimation, {
       toValue: 1,
-      duration: 500, // Adjust the duration as needed
+      duration: 500,
       useNativeDriver: true,
     }).start();
   }, []);
@@ -30,7 +40,7 @@ export default function AddWorkoutScreen({ onClose }) {
   const handlePressClose = () => {
     Animated.timing(slideUpAnimation, {
       toValue: 0,
-      duration: 500, // Adjust the duration as needed
+      duration: 500,
       useNativeDriver: true,
     }).start(() => {
       onClose(); // Call the callback function to update the state in the parent component
@@ -38,13 +48,23 @@ export default function AddWorkoutScreen({ onClose }) {
   };
 
   const handleNewWorkout = () => {
-    //Handles the creation of new workouts
-    Keyboard.dismiss(); // Close the keyboard if it's already open
-    textInputRef.current.focus(); // Focus on the text input to open the keyboard
+    setIsAddingWorkout(true);
+  };
+
+  const handleSaveWorkout = () => {
+    setIsAddingWorkout(false);
+
+    const newWorkout = {
+      title: workoutTitle,
+      text: workoutDescription,
+    };
+
+    setWorkouts((prevWorkouts) => [...prevWorkouts, newWorkout]);
+    setWorkoutTitle("");
+    setWorkoutDescription("");
   };
 
   const Scrollbar = ({ scrollAnim, contentSize, scrollViewSize }) => {
-    //controlls the Taskbar y-dir
     const scrollBarScaleY = scrollAnim.interpolate({
       inputRange: [0, contentSize - scrollViewSize],
       outputRange: [1, 0],
@@ -92,30 +112,45 @@ export default function AddWorkoutScreen({ onClose }) {
             <Text>X</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.newWorkoutbutton}
-          onPress={handleNewWorkout}
-        >
-          <View style={styles.newWorkoutButtonWrapper}>
-            <Text>+</Text>
+        {!isAddingWorkout && (
+          <TouchableOpacity
+            style={styles.newWorkoutbutton}
+            onPress={handleNewWorkout}
+          >
+            <View style={styles.newWorkoutButtonWrapper}>
+              <Text>+</Text>
+            </View>
+          </TouchableOpacity>
+        )}
+        {isAddingWorkout && (
+          <View style={styles.newWorkoutInputContainer}>
+            <TextInput
+              style={styles.newWorkoutInput}
+              placeholder="Title"
+              value={workoutTitle}
+              onChangeText={setWorkoutTitle}
+            />
+            <TextInput
+              style={styles.newWorkoutInput}
+              placeholder="Description"
+              value={workoutDescription}
+              onChangeText={setWorkoutDescription}
+            />
+            <TouchableOpacity
+              style={styles.saveWorkoutButton}
+              onPress={handleSaveWorkout}
+            >
+              <Text>Save</Text>
+            </TouchableOpacity>
           </View>
-        </TouchableOpacity>
-        <TextInput
-          ref={textInputRef}
-          style={styles.newWorkoutInput}
-          placeholder="Enter workout"
-          autoFocus={false} // Set this to true if you want the input to be focused automatically when the screen opens
-        />
-        <Workouts
-          title="Biceps"
-          text="sdahiofuioñsafjioñsauipdbfadoñbfiasndsaiufhsdabhuifhsdauisdaauiosdfauisdfauisdfhauisdaiu"
-        />
-        <Workouts title="Test1" text="Demo Tab 2" />
-        <Workouts title="Test1" text="Demo Tab 2" />
-        <Workouts title="Test1" text="Demo Tab 2" />
-        <Workouts title="Test1" text="Demo Tab 2" />
-        <Workouts title="Test1" text="Demo Tab 2" />
-        <Workouts title="Test1" text="Demo Tab 2" />
+        )}
+        {workouts.map((workout, index) => (
+          <Workouts
+            key={index}
+            title={workout.title}
+            text={workout.text}
+          />
+        ))}
       </Animated.View>
       <Scrollbar
         scrollAnim={slideUpAnimation}
@@ -159,6 +194,9 @@ const styles = StyleSheet.create({
     borderColor: "#C0C0C0",
     borderWidth: 1,
   },
+  newWorkoutInputContainer: {
+    alignItems: "center",
+  },
   newWorkoutInput: {
     marginTop: 10,
     paddingHorizontal: 10,
@@ -167,6 +205,13 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     borderColor: "#C0C0C0",
     borderWidth: 1,
+  },
+  saveWorkoutButton: {
+    marginTop: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: "#C0C0C0",
+    borderRadius: 10,
   },
   addWrapperCloseButton: {
     width: 40,
