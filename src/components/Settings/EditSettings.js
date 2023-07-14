@@ -9,14 +9,14 @@ import {
 } from "react-native";
 
 import Option from "./NameOption";
-import WeightOption from "./AgeOption";
+import AgeOption from "./AgeOption";
+import GenderOption from "./GenderOption"
 
 import { nameValue } from "../SignUp/Name";
 import { dateValue } from "../SignUp/Age";
 import { genderVal } from "../SignUp/Gender";
 import { weightVal } from "../SignUp/HeightWeight"
 import { heightVal } from "../SignUp/HeightWeight"
-import { Goals } from "../SignUp/GoalSelect";
 
 function ageCalculation(date) {
   const currentDate = new Date(); // Get the current date
@@ -32,7 +32,6 @@ function ageCalculation(date) {
 export default function Settings({ navigation }) {
   const [name, setName] = useState(nameValue);
   const [age, setAge] = useState(dateValue);
-  const [goal, setGoal] = useState(Goals.join(", "));
   const [gender, setGender] = useState(genderVal);
   const [weight, setWeight] = useState(weightVal);
   const [height, setHeight] = useState(heightVal);
@@ -46,8 +45,8 @@ export default function Settings({ navigation }) {
       {/* <View style={styles.container}> */}
 
       <Option question="Name" value={name} setValue={setName} />
-      <WeightOption question="Age" value={age} setValue={setAge} />
-      <Option question="Gender" value={gender} setValue={setGender} />
+      <AgeOption question="Age" value={age} setValue={setAge} />
+      <GenderOption question="Gender" value={gender} setValue={setGender} />
       <Option question="Weight" value={weight} setValue={setWeight} />
       <Option question="Height" value={height} setValue={setHeight} />
     </Pressable>
