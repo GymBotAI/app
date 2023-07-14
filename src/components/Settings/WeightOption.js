@@ -8,7 +8,7 @@ export default function Option({ question, value, setValue }) {
   const [showPicker, setShowPicker] = useState(false);
   const [weightUnit, setWeightUnit] = useState("kg");
   const [selectedWeight, setSelectedWeight] = useState("");
-  const weightOptions = ["50 kg", "60 kg", "70 kg", "80 kg"]; // Add your desired weight options here
+  const weightOptions = generateWeightOptions(20, 300, 5); // Generate weight options from 20 to 300 in increments of 5
 
   const show = () => {
     setShowPicker(true);
@@ -28,6 +28,16 @@ export default function Option({ question, value, setValue }) {
   };
 
   console.log(showPicker);
+
+  // Helper function to generate weight options in the given range with a specified step
+  function generateWeightOptions(start, end, step) {
+    const options = [];
+    for (let i = start; i <= end; i += step) {
+      options.push(`${i} kg`);
+    }
+    return options;
+  }
+
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.item} onPress={show}>
@@ -49,8 +59,8 @@ export default function Option({ question, value, setValue }) {
               <Picker.Item key={option} label={option} value={option} />
             ))}
           </Picker>
-          <TouchableOpacity onPress={() => handleSelectWeight(selectedWeight)}>
-            <Text>Select</Text>
+          <TouchableOpacity style={styles.confirmButton} onPress={() => handleSelectWeight(selectedWeight)}>
+            <Text style={styles.confirmButtonText}>Confirm</Text>
           </TouchableOpacity>
         </View>
       </Modal>
@@ -110,5 +120,17 @@ const styles = StyleSheet.create({
   },
   weightText: {
     fontSize: 16,
+  },
+  confirmButton: {
+    backgroundColor: "#1260de",
+    padding: 12,
+    borderRadius: 8,
+    alignItems: "center",
+    marginTop: 20,
+  },
+  confirmButtonText: {
+    color: "#FFF",
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });
