@@ -144,8 +144,8 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
               returnKeyType="default"
               blurOnSubmit={false}
               onSubmitEditing={() => {
-                setWorkoutDescription((prevDescription) =>
-                  prevDescription + "\n"
+                setWorkoutDescription(
+                  (prevDescription) => prevDescription + "\n"
                 );
               }}
             />

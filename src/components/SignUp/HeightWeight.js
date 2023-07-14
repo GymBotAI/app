@@ -1,12 +1,17 @@
 import React, { useState, useRef, useEffect } from "react";
-import { TextInput, View, Keyboard, TouchableOpacity, Text } from "react-native";
-import { FontAwesome } from '@expo/vector-icons';
+import {
+  TextInput,
+  View,
+  Keyboard,
+  TouchableOpacity,
+  Text,
+} from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
 import * as Device from "expo-device";
 
 export let weightVal = ""; // Initialize ageValue as an empty string
 export let heightVal = ""; // Initialize ageValue as an empty string
-
 
 export default function HeightWeight({ onChange }) {
   const [weight, setWeight] = useState("");
@@ -18,8 +23,8 @@ export default function HeightWeight({ onChange }) {
 
   useEffect(() => {
     console.log(showHeight);
-    console.log(showWeight)
-    onChange(showHeight && showWeight)
+    console.log(showWeight);
+    onChange(showHeight && showWeight);
   }, [showHeight]);
 
   const handleHeightChange = (text) => {
@@ -43,13 +48,13 @@ export default function HeightWeight({ onChange }) {
   };
 
   const handleHeightBlur = () => {
-    if (height !== "" && height.length != 4 && height.indexOf('.') === -1) {
-        setHeight(height + ".0");
+    if (height !== "" && height.length != 4 && height.indexOf(".") === -1) {
+      setHeight(height + ".0");
     }
   };
 
   const handleWeightBlur = () => {
-    if (weight !== "" && weight.length != 4 && weight.indexOf('.') === -1) {
+    if (weight !== "" && weight.length != 4 && weight.indexOf(".") === -1) {
       setWeight(weight + ".0");
     }
   };
@@ -81,8 +86,11 @@ export default function HeightWeight({ onChange }) {
           onBlur={handleWeightBlur}
           maxLength={4}
         />
-        <TouchableOpacity onPress={toggleWeightUnit} style={{ position: 'absolute', top: 29, left: 72, padding: 20,}}>
-          <Text style={{fontSize: 18, color: "#bababa"}}>
+        <TouchableOpacity
+          onPress={toggleWeightUnit}
+          style={{ position: "absolute", top: 29, left: 72, padding: 20 }}
+        >
+          <Text style={{ fontSize: 18, color: "#bababa" }}>
             {weightUnit === "kg" ? "kg" : "lb"}
           </Text>
         </TouchableOpacity>
@@ -105,8 +113,11 @@ export default function HeightWeight({ onChange }) {
           onBlur={handleHeightBlur}
           maxLength={4}
         />
-        <TouchableOpacity onPress={toggleHeightUnit} style={{ position: 'absolute', top: 30, right: 10, padding: 20,}}>
-          <Text style={{fontSize: 18, color: "#bababa"}}>
+        <TouchableOpacity
+          onPress={toggleHeightUnit}
+          style={{ position: "absolute", top: 30, right: 10, padding: 20 }}
+        >
+          <Text style={{ fontSize: 18, color: "#bababa" }}>
             {heightUnit === "cm" ? "cm" : "in"}
           </Text>
         </TouchableOpacity>

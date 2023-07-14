@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  TextInput,
+} from "react-native";
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
 import { circularColour } from "../../styles";
@@ -43,9 +50,15 @@ export default function Option({ question, value, setValue }) {
       <TouchableOpacity style={styles.item} onPress={show}>
         <Text style={styles.itemText}>{question}</Text>
         <View style={styles.itemLeft}>
-          <TextInput style={styles.current} value={`${value} ${weightUnit}`} editable={false} />
+          <TextInput
+            style={styles.current}
+            value={`${value} ${weightUnit}`}
+            editable={false}
+          />
           <TouchableOpacity onPress={handleToggleUnit}>
-            <Text style={styles.unitText}>{weightUnit === "kg" ? "kg" : "lbs"}</Text>
+            <Text style={styles.unitText}>
+              {weightUnit === "kg" ? "kg" : "lbs"}
+            </Text>
           </TouchableOpacity>
         </View>
       </TouchableOpacity>
@@ -59,7 +72,10 @@ export default function Option({ question, value, setValue }) {
               <Picker.Item key={option} label={option} value={option} />
             ))}
           </Picker>
-          <TouchableOpacity style={styles.confirmButton} onPress={() => handleSelectWeight(selectedWeight)}>
+          <TouchableOpacity
+            style={styles.confirmButton}
+            onPress={() => handleSelectWeight(selectedWeight)}
+          >
             <Text style={styles.confirmButtonText}>Confirm</Text>
           </TouchableOpacity>
         </View>

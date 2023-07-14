@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  TextInput,
+} from "react-native";
 import Modal from "react-native-modal";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { circularColour } from "../../styles";
@@ -28,9 +35,10 @@ export default function Option({ question, value, setValue }) {
         <Text style={styles.itemText}>{question}</Text>
         <View style={styles.itemLeft}>
           <TextInput
-          style={styles.current}
-          value={value.toLocaleDateString()}
-          editable={false} />
+            style={styles.current}
+            value={value.toLocaleDateString()}
+            editable={false}
+          />
           <Image
             source={require("../../../assets/edit.png")}
             style={{ width: 22, height: 22, marginLeft: 15 }}
@@ -56,9 +64,7 @@ export default function Option({ question, value, setValue }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    
-  },
+  container: {},
   item: {
     backgroundColor: "#FFF",
     padding: 15,
