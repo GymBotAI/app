@@ -13,7 +13,7 @@ import Workouts from "./WorkoutTabs";
 
 const { width } = Dimensions.get("window");
 
-export default function AddWorkoutScreen({ onClose }) {
+export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
   const slideUpAnimation = useRef(new Animated.Value(0)).current;
   const scrollViewRef = useRef(null);
   const contentSize = 700; // Adjust this value based on the total content size
@@ -46,7 +46,7 @@ export default function AddWorkoutScreen({ onClose }) {
       duration: 500,
       useNativeDriver: true,
     }).start(() => {
-      onClose(); // Call the callback function to update the state in the parent component
+      onClose();
     });
   };
 
@@ -148,7 +148,15 @@ export default function AddWorkoutScreen({ onClose }) {
           </View>
         )}
         {workouts.map((workout, index) => (
-          <Workouts key={index} title={workout.title} text={workout.text} />
+          <Workouts
+            key={index}
+            title={workout.title}
+            text={workout.text}
+            onPress={() => {
+              onWorkoutSelect(workout);
+              setWorkouts(workouts.filter((w, i) => i !== index));
+            }}
+          />
         ))}
       </Animated.View>
       <Scrollbar

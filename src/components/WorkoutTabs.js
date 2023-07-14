@@ -1,10 +1,10 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 import { circularColour } from "../styles";
 
 const Workouts = (props) => {
   return (
-    <View style={styles.item}>
+    <TouchableOpacity style={styles.item} onPress={props.onPress}>
       <View style={styles.itemLeft}>
         <View style={styles.square}></View>
         <View style={styles.itemContent}>
@@ -13,7 +13,7 @@ const Workouts = (props) => {
         </View>
       </View>
       <View style={styles.circular}></View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

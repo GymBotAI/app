@@ -8,10 +8,12 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
+import Workouts from "./WorkoutTabs";
 import AddWorkoutScreen from "./AddWorkoutScreen";
 
 export default function ViewWorkouts({ navigation }) {
   const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
+  const [selectedWorkouts, setSelectedWorkouts] = useState([]);
 
   const handleAddWorkout = () => {
     setShowAddWorkoutScreen(true);
@@ -21,11 +23,18 @@ export default function ViewWorkouts({ navigation }) {
     setShowAddWorkoutScreen(false);
   };
 
+  const handleWorkoutSelect = (workout) => {
+    setSelectedWorkouts([...selectedWorkouts, workout]);
+  };
+
   return (
     <View style={styles.container}>
       {!showAddWorkoutScreen && (
         <View style={styles.tasksWrapper}>
           <Text style={styles.sectionTitle}>Today's workouts:</Text>
+          {selectedWorkouts.map((workout, index) => (
+            <Workouts key={index} title={workout.title} text={workout.text} />
+          ))}
         </View>
       )}
       {!showAddWorkoutScreen && (
@@ -40,8 +49,12 @@ export default function ViewWorkouts({ navigation }) {
           </TouchableOpacity>
         </KeyboardAvoidingView>
       )}
+
       {showAddWorkoutScreen && (
-        <AddWorkoutScreen onClose={handleAddWorkoutScreenClose} />
+        <AddWorkoutScreen
+          onClose={handleAddWorkoutScreenClose}
+          onWorkoutSelect={handleWorkoutSelect} // Pass the onWorkoutSelect function as a prop
+        />
       )}
     </View>
   );
@@ -80,4 +93,18 @@ const styles = StyleSheet.create({
     borderColor: "#C0C0C0",
     borderWidth: 1,
   },
+  scrollbarContainer: {
+   position: "absolute",
+   top: 0,
+   right: 0,
+   bottom: 0,
+   width: 10,
+   justifyContent: "flex-end",
+   alignItems: "center",
+ },
+ scrollbar: {
+   backgroundColor: "rgba(0, 0, 0, 0.2)",
+   width: 10,
+   borderRadius: 5,
+ },
 });
