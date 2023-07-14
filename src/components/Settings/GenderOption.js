@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput } from "react-native";
 import Modal from "react-native-modal";
-import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { circularColour } from "../../styles";
 
 export default function Option({ question, value, setValue }) {
-  const [name, setName] = useState("Daniel");
   const [showPicker, setShowPicker] = useState(false);
 
   const show = () => {
@@ -16,21 +14,18 @@ export default function Option({ question, value, setValue }) {
     setShowPicker(false);
   };
 
-  const handleConfirm = (selectedDate) => {
-    setValue(selectedDate);
+  const handleSelectGender = (gender) => {
+    setValue(gender);
     hide();
   };
 
-  console.log(value);
+  console.log(showPicker);
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.item} onPress={show}>
         <Text style={styles.itemText}>{question}</Text>
         <View style={styles.itemLeft}>
-          <TextInput
-          style={styles.current}
-          value={value.toLocaleDateString()}
-          editable={false} />
+          <TextInput style={styles.current} value={value} editable={false} />
           <Image
             source={require("../../../assets/edit.png")}
             style={{ width: 22, height: 22, marginLeft: 15 }}
@@ -40,15 +35,18 @@ export default function Option({ question, value, setValue }) {
       </TouchableOpacity>
       <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
         <View style={styles.modalContainer}>
-          <DateTimePickerModal
-            isVisible={showPicker}
-            mode="date"
-            date={value}
-            onConfirm={handleConfirm}
-            onCancel={hide}
-            minimumDate={new Date(1900, 0, 1)} // Replace with your minimum date
-            maximumDate={new Date(2030, 0, 1)} // Replace with your maximum date (e.g., new Date() for today)
-          />
+          <TouchableOpacity style={styles.genderOption} onPress={() => handleSelectGender("Male")}>
+            <Text style={styles.genderText}>Male</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.genderOption} onPress={() => handleSelectGender("Female")}>
+            <Text style={styles.genderText}>Female</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.genderOption} onPress={() => handleSelectGender("Other")}>
+            <Text style={styles.genderText}>Other</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.genderOption} onPress={() => handleSelectGender("Prefer Not to Say")}>
+            <Text style={styles.genderText}>Prefer Not to Say</Text>
+          </TouchableOpacity>
         </View>
       </Modal>
     </View>
@@ -57,7 +55,7 @@ export default function Option({ question, value, setValue }) {
 
 const styles = StyleSheet.create({
   container: {
-    
+
   },
   item: {
     backgroundColor: "#FFF",
@@ -93,9 +91,16 @@ const styles = StyleSheet.create({
     margin: 0,
   },
   modalContainer: {
-    backgroundColor: "transparent",
+    backgroundColor: "white",
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     padding: 20,
+    paddingBottom: 35,
+  },
+  genderOption: {
+    paddingVertical: 10,
+  },
+  genderText: {
+    fontSize: 18 ,
   },
 });
