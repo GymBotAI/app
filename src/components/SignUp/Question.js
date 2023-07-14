@@ -14,6 +14,7 @@ import * as Font from "expo-font";
 import Name from "./Name";
 import Age from "./Age";
 import Gender from "./Gender";
+import HeightWeight from "./HeightWeight"
 import Goals from "./Goals";
 
 let inputOption = null;
@@ -36,6 +37,9 @@ export default function Question({ navigation }) {
       setPrompt("What is your gender?");
       inputOption = <Gender onGenderChange={setInputFilled} />;
     } else if (prompt === "What is your gender?") {
+      setPrompt("What are your weight and height?")
+      inputOption = <HeightWeight onChange={setInputFilled} />;
+    } else if (prompt === "What are your weight and height?") {
       setPrompt("What are your goals?");
       inputOption = <Goals onGoalChange={setInputFilled} />;
     } else {
