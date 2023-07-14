@@ -1,5 +1,5 @@
 import { View, KeyboardAvoidingView } from "react-native";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import * as Device from "expo-device";
 
 import ChatMessages from "./ChatMessages";

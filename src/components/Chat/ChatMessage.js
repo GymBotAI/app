@@ -68,6 +68,10 @@ export default function ChatMessage({ message }) {
           paddingVertical: 6,
           maxWidth: "80%", // Limit the message width
           marginRight: -10,
+          shadowColor: "black",
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.2,
+          shadowRadius: 4,
         }}
       >
         <Text

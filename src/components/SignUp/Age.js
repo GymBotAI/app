@@ -36,15 +36,15 @@ export default function Age({ onAgeChange }) {
           onPressIn={toggleShow}
         />
       </Pressable>
-      
-        <DateTimePicker
-          mode="date"
-          display="spinner"
-          value={date}
-          onChange={onChange}
-          minimumDate={new Date(1900, 0, 1)} // Replace with your minimum date
-          maximumDate={new Date(2030, 0, 1)} // Replace with your maximum date (e.g., new Date() for today)
-        />
+
+      <DateTimePicker
+        mode="date"
+        display="spinner"
+        value={date}
+        onChange={onChange}
+        minimumDate={new Date(1900, 0, 1)} // Replace with your minimum date
+        maximumDate={new Date(2030, 0, 1)} // Replace with your maximum date (e.g., new Date() for today)
+      />
     </View>
   );
 }

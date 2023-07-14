@@ -1,5 +1,14 @@
 import React, { useRef, useEffect } from "react";
-import { View, Text, StyleSheet, Animated, TouchableOpacity, ScrollView, TextInput, Keyboard } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Animated,
+  TouchableOpacity,
+  ScrollView,
+  TextInput,
+  Keyboard,
+} from "react-native";
 import Workouts from "./WorkoutTabs";
 import { KeyboardAvoidingView } from "react-native-web";
 
@@ -28,14 +37,15 @@ export default function AddWorkoutScreen({ onClose }) {
     });
   };
 
-  const handleNewWorkout = () => { //Handles the creation of new workouts
+  const handleNewWorkout = () => {
+    //Handles the creation of new workouts
     Keyboard.dismiss(); // Close the keyboard if it's already open
     textInputRef.current.focus(); // Focus on the text input to open the keyboard
   };
 
   const Scrollbar = ({ scrollAnim, contentSize, scrollViewSize }) => {
     //controlls the Taskbar y-dir
-    const scrollBarScaleY = scrollAnim.interpolate({ 
+    const scrollBarScaleY = scrollAnim.interpolate({
       inputRange: [0, contentSize - scrollViewSize],
       outputRange: [1, 0],
       extrapolate: "clamp",
@@ -43,7 +53,12 @@ export default function AddWorkoutScreen({ onClose }) {
 
     return (
       <View style={styles.scrollbarContainer}>
-        <Animated.View style={[styles.scrollbar, { transform: [{ scaleY: scrollBarScaleY }] }]} />
+        <Animated.View
+          style={[
+            styles.scrollbar,
+            { transform: [{ scaleY: scrollBarScaleY }] },
+          ]}
+        />
       </View>
     );
   };
@@ -52,7 +67,9 @@ export default function AddWorkoutScreen({ onClose }) {
     <ScrollView
       contentContainerStyle={styles.container}
       ref={scrollViewRef}
-      onContentSizeChange={() => scrollViewRef.current.scrollToEnd({ animated: true })}
+      onContentSizeChange={() =>
+        scrollViewRef.current.scrollToEnd({ animated: true })
+      }
       onLayout={() => scrollViewRef.current.scrollToEnd({ animated: true })}
     >
       <Animated.View
@@ -71,11 +88,14 @@ export default function AddWorkoutScreen({ onClose }) {
         ]}
       >
         <TouchableOpacity style={styles.closeButton} onPress={handlePressClose}>
-        <View style={styles.addWrapperCloseButton}>
-          <Text>X</Text>
-        </View>
+          <View style={styles.addWrapperCloseButton}>
+            <Text>X</Text>
+          </View>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.newWorkoutbutton} onPress={handleNewWorkout}>
+        <TouchableOpacity
+          style={styles.newWorkoutbutton}
+          onPress={handleNewWorkout}
+        >
           <View style={styles.newWorkoutButtonWrapper}>
             <Text>+</Text>
           </View>
@@ -86,7 +106,10 @@ export default function AddWorkoutScreen({ onClose }) {
           placeholder="Enter workout"
           autoFocus={false} // Set this to true if you want the input to be focused automatically when the screen opens
         />
-        <Workouts title="Biceps" text="sdahiofuioñsafjioñsauipdbfadoñbfiasndsaiufhsdabhuifhsdauisdaauiosdfauisdfauisdfhauisdaiu" />
+        <Workouts
+          title="Biceps"
+          text="sdahiofuioñsafjioñsauipdbfadoñbfiasndsaiufhsdabhuifhsdauisdaauiosdfauisdfauisdfhauisdaiu"
+        />
         <Workouts title="Test1" text="Demo Tab 2" />
         <Workouts title="Test1" text="Demo Tab 2" />
         <Workouts title="Test1" text="Demo Tab 2" />
@@ -94,7 +117,11 @@ export default function AddWorkoutScreen({ onClose }) {
         <Workouts title="Test1" text="Demo Tab 2" />
         <Workouts title="Test1" text="Demo Tab 2" />
       </Animated.View>
-      <Scrollbar scrollAnim={slideUpAnimation} contentSize={contentSize} scrollViewSize={scrollViewSize} />
+      <Scrollbar
+        scrollAnim={slideUpAnimation}
+        contentSize={contentSize}
+        scrollViewSize={scrollViewSize}
+      />
     </ScrollView>
   );
 }
@@ -106,7 +133,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  contentContainer: {paddingVertical: 60,}, // Padding at top & bottom.
+  contentContainer: { paddingVertical: 60 }, // Padding at top & bottom.
 
   closeButton: {
     position: "absolute",
