@@ -7,8 +7,11 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
+  Dimensions,
 } from "react-native";
 import Workouts from "./WorkoutTabs";
+
+const { width } = Dimensions.get("window");
 
 export default function AddWorkoutScreen({ onClose }) {
   const slideUpAnimation = useRef(new Animated.Value(0)).current;
@@ -20,8 +23,8 @@ export default function AddWorkoutScreen({ onClose }) {
   const [workoutTitle, setWorkoutTitle] = useState("");
   const [workoutDescription, setWorkoutDescription] = useState("");
   const [workouts, setWorkouts] = useState([
-    { title: "Biceps", text: "sdahiofuioñsafjioñsauipdbfadoñbfiasndsaiufhsdabhuifhsdauisdaauiosdfauisdfauisdfhauisdaiu" },
-    { title: "Test1", text: "Demo Tab 2" },
+    { title: "Biceps", text: "sdahiofuio" },
+    { title: "Test1", text: "Demo \nTab 2" },
     { title: "Test1", text: "Demo Tab 2" },
     { title: "Test1", text: "Demo Tab 2" },
     { title: "Test1", text: "Demo Tab 2" },
@@ -53,17 +56,16 @@ export default function AddWorkoutScreen({ onClose }) {
 
   const handleSaveWorkout = () => {
     setIsAddingWorkout(false);
- 
-   const newWorkout = {
-     title: workoutTitle,
-     text: workoutDescription,
-   };
- 
-   setWorkouts((prevWorkouts) => [newWorkout, ...prevWorkouts]);
-   setWorkoutTitle("");
-   setWorkoutDescription("");
+
+    const newWorkout = {
+      title: workoutTitle,
+      text: workoutDescription,
+    };
+
+    setWorkouts((prevWorkouts) => [newWorkout, ...prevWorkouts]);
+    setWorkoutTitle("");
+    setWorkoutDescription("");
   };
- 
 
   const Scrollbar = ({ scrollAnim, contentSize, scrollViewSize }) => {
     const scrollBarScaleY = scrollAnim.interpolate({
@@ -115,7 +117,7 @@ export default function AddWorkoutScreen({ onClose }) {
         </TouchableOpacity>
         {!isAddingWorkout && (
           <TouchableOpacity
-            style={styles.newWorkoutbutton}
+            style={styles.newWorkoutButton}
             onPress={handleNewWorkout}
           >
             <View style={styles.newWorkoutButtonWrapper}>
@@ -146,11 +148,7 @@ export default function AddWorkoutScreen({ onClose }) {
           </View>
         )}
         {workouts.map((workout, index) => (
-          <Workouts
-            key={index}
-            title={workout.title}
-            text={workout.text}
-          />
+          <Workouts key={index} title={workout.title} text={workout.text} />
         ))}
       </Animated.View>
       <Scrollbar
@@ -166,23 +164,22 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: "#F3F3F3",
-    justifyContent: "center",
-    alignItems: "center",
   },
-  contentContainer: { paddingVertical: 60 }, // Padding at top & bottom.
+  contentContainer: {
+    paddingTop: 60,
+    paddingHorizontal: 20,
+  },
 
   closeButton: {
     position: "absolute",
-    top: -7,
-    left: -4,
-    padding: 10,
+    top: 0,
+    left: 20,
     zIndex: 1,
   },
-  newWorkoutbutton: {
+  newWorkoutButton: {
     position: "absolute",
-    top: -7,
-    left: 290,
-    padding: 10,
+    top: 0,
+    right: 20,
     zIndex: 1,
   },
   newWorkoutButtonWrapper: {
