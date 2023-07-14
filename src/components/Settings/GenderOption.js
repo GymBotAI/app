@@ -44,6 +44,9 @@ export default function Option({ question, value, setValue }) {
           <TouchableOpacity style={styles.genderOption} onPress={() => handleSelectGender("Other")}>
             <Text style={styles.genderText}>Other</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.genderOption} onPress={() => handleSelectGender("Prefer Not to Say")}>
+            <Text style={styles.genderText}>Prefer Not to Say</Text>
+          </TouchableOpacity>
         </View>
       </Modal>
     </View>
@@ -92,11 +95,12 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     padding: 20,
+    paddingBottom: 35,
   },
   genderOption: {
     paddingVertical: 10,
   },
   genderText: {
-    fontSize: 16,
+    fontSize: 18 ,
   },
 });
