@@ -53,16 +53,17 @@ export default function AddWorkoutScreen({ onClose }) {
 
   const handleSaveWorkout = () => {
     setIsAddingWorkout(false);
-
-    const newWorkout = {
-      title: workoutTitle,
-      text: workoutDescription,
-    };
-
-    setWorkouts((prevWorkouts) => [...prevWorkouts, newWorkout]);
-    setWorkoutTitle("");
-    setWorkoutDescription("");
+ 
+   const newWorkout = {
+     title: workoutTitle,
+     text: workoutDescription,
+   };
+ 
+   setWorkouts((prevWorkouts) => [newWorkout, ...prevWorkouts]);
+   setWorkoutTitle("");
+   setWorkoutDescription("");
   };
+ 
 
   const Scrollbar = ({ scrollAnim, contentSize, scrollViewSize }) => {
     const scrollBarScaleY = scrollAnim.interpolate({
