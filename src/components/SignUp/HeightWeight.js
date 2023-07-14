@@ -26,11 +26,13 @@ export default function Name({ onChange }) {
   };
   return (
     <View style={{ flexGrow: 1, overflow: "auto" }}>
+    <View style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
       <TextInput
         style={{
+            width: '40%',
           height: 40,
           borderColor: "black",
-          marginTop: 20,
+          marginTop: 40,
           fontSize: 18,
           borderBottomWidth: 2,
           paddingVertical: 5,
@@ -44,9 +46,10 @@ export default function Name({ onChange }) {
       />
       <TextInput
         style={{
+            width: "40%",
           height: 40,
           borderColor: "black",
-          marginTop: 20,
+          marginTop: 40,
           fontSize: 18,
           borderBottomWidth: 2,
           paddingVertical: 5,
@@ -58,6 +61,7 @@ export default function Name({ onChange }) {
         keyboardType="phone-pad"
         onChangeText={handleHeightChange}
       />
+      </View>
     </View>
   );
 }
