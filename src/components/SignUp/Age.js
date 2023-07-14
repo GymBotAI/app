@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { TextInput, View, StyleSheet, Pressable } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 
-export let dateValue = ""; // Initialize ageValue as an empty string
+export let dateValue = (new Date()); // Initialize ageValue as an empty string
 
 export default function Age({ onAgeChange }) {
   const [dateOfBirth, setDateOfBirth] = useState("");
