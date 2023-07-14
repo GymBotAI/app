@@ -11,6 +11,7 @@ import {
 import Option from "./NameOption";
 import AgeOption from "./AgeOption";
 import GenderOption from "./GenderOption"
+import WeightOption from "./WeightOption";
 
 import { nameValue } from "../SignUp/Name";
 import { dateValue } from "../SignUp/Age";
@@ -47,7 +48,7 @@ export default function Settings({ navigation }) {
       <Option question="Name" value={name} setValue={setName} />
       <AgeOption question="Age" value={age} setValue={setAge} />
       <GenderOption question="Gender" value={gender} setValue={setGender} />
-      <Option question="Weight" value={weight} setValue={setWeight} />
+      <WeightOption question="Weight" value={weight} setValue={setWeight} />
       <Option question="Height" value={height} setValue={setHeight} />
     </Pressable>
   );

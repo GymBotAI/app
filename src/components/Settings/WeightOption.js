@@ -1,0 +1,114 @@
+import React, { useState } from "react";
+import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput } from "react-native";
+import Modal from "react-native-modal";
+import { Picker } from "@react-native-picker/picker";
+import { circularColour } from "../../styles";
+
+export default function Option({ question, value, setValue }) {
+  const [showPicker, setShowPicker] = useState(false);
+  const [weightUnit, setWeightUnit] = useState("kg");
+  const [selectedWeight, setSelectedWeight] = useState("");
+  const weightOptions = ["50 kg", "60 kg", "70 kg", "80 kg"]; // Add your desired weight options here
+
+  const show = () => {
+    setShowPicker(true);
+  };
+
+  const hide = () => {
+    setShowPicker(false);
+  };
+
+  const handleSelectWeight = (weight) => {
+    setValue(weight);
+    hide();
+  };
+
+  const handleToggleUnit = () => {
+    setWeightUnit(weightUnit === "kg" ? "lbs" : "kg");
+  };
+
+  console.log(showPicker);
+  return (
+    <View style={styles.container}>
+      <TouchableOpacity style={styles.item} onPress={show}>
+        <Text style={styles.itemText}>{question}</Text>
+        <View style={styles.itemLeft}>
+          <TextInput style={styles.current} value={`${value} ${weightUnit}`} editable={false} />
+          <TouchableOpacity onPress={handleToggleUnit}>
+            <Text style={styles.unitText}>{weightUnit === "kg" ? "kg" : "lbs"}</Text>
+          </TouchableOpacity>
+        </View>
+      </TouchableOpacity>
+      <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
+        <View style={styles.modalContainer}>
+          <Picker
+            selectedValue={selectedWeight}
+            onValueChange={(itemValue) => setSelectedWeight(itemValue)}
+          >
+            {weightOptions.map((option) => (
+              <Picker.Item key={option} label={option} value={option} />
+            ))}
+          </Picker>
+          <TouchableOpacity onPress={() => handleSelectWeight(selectedWeight)}>
+            <Text>Select</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {},
+  item: {
+    backgroundColor: "#FFF",
+    padding: 15,
+    borderRadius: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginBottom: 15,
+  },
+  itemText: {
+    maxWidth: "100%",
+    fontSize: 16,
+  },
+  itemLeft: {
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  current: {
+    color: "#1260de",
+    fontSize: 16,
+  },
+  unitText: {
+    fontSize: 16,
+    color: "#888",
+    marginLeft: 10,
+  },
+  circular: {
+    width: 12,
+    height: 12,
+    borderColor: circularColour,
+    borderWidth: 2,
+    borderRadius: 5,
+  },
+  modal: {
+    justifyContent: "flex-end",
+    margin: 0,
+  },
+  modalContainer: {
+    backgroundColor: "white",
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    padding: 20,
+    height: 200,
+  },
+  weightOption: {
+    paddingVertical: 10,
+  },
+  weightText: {
+    fontSize: 16,
+  },
+});
