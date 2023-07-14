@@ -16,17 +16,21 @@ export default function HeightWeight({ onChange }) {
   const [weightUnit, setWeightUnit] = useState("kg");
   const [heightUnit, setHeightUnit] = useState("cm");
 
+  useEffect(() => {
+    console.log(showHeight);
+    console.log(showWeight)
+    onChange(showHeight && showWeight)
+  }, [showHeight]);
+
   const handleHeightChange = (text) => {
     setHeight(text);
-    setShowHeight(text !== "");
-    onChange(showWeight && showHeight); // Update the parent component with input status
+    setShowHeight(true);
     heightVal = text;
   };
 
   const handleWeightChange = (text) => {
     setWeight(text);
-    setShowWeight(text !== "");
-    onChange(showWeight && showHeight); // Update the parent component with input status
+    setShowWeight(true);
     weightVal = text;
   };
 
