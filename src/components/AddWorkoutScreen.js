@@ -8,6 +8,7 @@ import {
   ScrollView,
   TextInput,
   Dimensions,
+  Modal,
 } from "react-native";
 import Workouts from "./WorkoutTabs";
 
@@ -125,8 +126,8 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
             </View>
           </TouchableOpacity>
         )}
-        {isAddingWorkout && (
-          <View style={styles.newWorkoutInputContainer}>
+        <Modal visible={isAddingWorkout} animationType="slide">
+          <View style={styles.newWorkoutModal}>
             <TextInput
               style={styles.newWorkoutInput}
               placeholder="Title"
@@ -138,6 +139,15 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
               placeholder="Description"
               value={workoutDescription}
               onChangeText={setWorkoutDescription}
+              multiline={true}
+              numberOfLines={4}
+              returnKeyType="default"
+              blurOnSubmit={false}
+              onSubmitEditing={() => {
+                setWorkoutDescription((prevDescription) =>
+                  prevDescription + "\n"
+                );
+              }}
             />
             <TouchableOpacity
               style={styles.saveWorkoutButton}
@@ -145,8 +155,14 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
             >
               <Text>Save</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.cancelWorkoutButton}
+              onPress={() => setIsAddingWorkout(false)}
+            >
+              <Text>Cancel</Text>
+            </TouchableOpacity>
           </View>
-        )}
+        </Modal>
         {workouts.map((workout, index) => (
           <Workouts
             key={index}
@@ -177,7 +193,6 @@ const styles = StyleSheet.create({
     paddingTop: 60,
     paddingHorizontal: 20,
   },
-
   closeButton: {
     position: "absolute",
     top: 0,
@@ -200,8 +215,11 @@ const styles = StyleSheet.create({
     borderColor: "#C0C0C0",
     borderWidth: 1,
   },
-  newWorkoutInputContainer: {
+  newWorkoutModal: {
+    flex: 1,
+    justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#F3F3F3",
   },
   newWorkoutInput: {
     marginTop: 10,
@@ -217,6 +235,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     backgroundColor: "#C0C0C0",
+    borderRadius: 10,
+  },
+  cancelWorkoutButton: {
+    marginTop: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: "#FF0000",
     borderRadius: 10,
   },
   addWrapperCloseButton: {
