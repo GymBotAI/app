@@ -20,14 +20,14 @@ export default function HeightWeight({ onChange }) {
     setHeight(text);
     setShowHeight(text !== "");
     onChange(showWeight && showHeight); // Update the parent component with input status
-    heightValue = text;
+    heightVal = text;
   };
 
   const handleWeightChange = (text) => {
     setWeight(text);
     setShowWeight(text !== "");
     onChange(showWeight && showHeight); // Update the parent component with input status
-    weightValue = text;
+    weightVal = text;
   };
 
   const toggleWeightUnit = () => {
@@ -39,7 +39,7 @@ export default function HeightWeight({ onChange }) {
   };
 
   const handleHeightBlur = () => {
-    if (height !== "" && height.length != 4) {
+    if (height !== "" && height.length != 4 && height.indexOf('.') === -1) {
         setHeight(height + ".0");
     }
   };

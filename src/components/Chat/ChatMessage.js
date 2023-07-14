@@ -70,8 +70,8 @@ export default function ChatMessage({ message }) {
           marginRight: -10,
           shadowColor: "black",
           shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: 0.2,
-          shadowRadius: 4,
+          shadowOpacity: 0.05,
+          shadowRadius: 1,
         }}
       >
         <Text

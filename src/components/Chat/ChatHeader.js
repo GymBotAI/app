@@ -65,10 +65,10 @@ export default function MainHeader({ text, minitext }) {
               fontFamily: "clash-grotesk-semibold",
               fontWeight: "bold",
               letterSpacing: 1.5,
-              textShadowColor: "black",
-              textShadowOffset: { width: 3, height: 2 },
-              textShadowOpacity: 0.4,
-              textShadowRadius: 3,
+              shadowColor: "black",
+              shadowOffset: { width: 3, height: 2 },
+              shadowOpacity: 0.4,
+              shadowRadius: 3,
               elevation: 5, // For Android shadow
             }}
           >
