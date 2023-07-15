@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
-import { circularColour } from "../styles";
 
 const Workouts = (props) => {
+  const [circleColor, setCircleColor] = useState("blue");
+
+  const handlePress = () => {
+    setCircleColor("green");
+    props.onPress();
+  };
+
   return (
-    <TouchableOpacity style={styles.item} onPress={props.onPress}>
+    <TouchableOpacity style={styles.item} onPress={handlePress}>
       <View style={styles.itemLeft}>
         <View style={styles.square}></View>
         <View style={styles.itemContent}>
@@ -12,7 +18,7 @@ const Workouts = (props) => {
           <Text style={styles.itemText}>{props.text}</Text>
         </View>
       </View>
-      <View style={styles.circular}></View>
+      <View style={[styles.circular, { borderColor: circleColor }]}></View>
     </TouchableOpacity>
   );
 };
@@ -35,7 +41,7 @@ const styles = StyleSheet.create({
   square: {
     width: 24,
     height: 24,
-    backgroundColor: "#55BCF6",
+    backgroundColor: "blue",
     opacity: 0.4,
     borderRadius: 5,
     marginRight: 15,
@@ -58,7 +64,6 @@ const styles = StyleSheet.create({
   circular: {
     width: 12,
     height: 12,
-    borderColor: circularColour,
     borderWidth: 2,
     borderRadius: 5,
     alignSelf: "center",

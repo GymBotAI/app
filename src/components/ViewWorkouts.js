@@ -15,6 +15,7 @@ import AddWorkoutScreen from "./AddWorkoutScreen";
 export default function ViewWorkouts({ navigation }) {
   const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
   const [selectedWorkouts, setSelectedWorkouts] = useState([]);
+  const [circleColor, setCircleColor] = useState("blue");
 
   const handleAddWorkout = () => {
     setShowAddWorkoutScreen(true);
@@ -28,6 +29,10 @@ export default function ViewWorkouts({ navigation }) {
     setSelectedWorkouts([...selectedWorkouts, workout]);
   };
 
+  const handleWorkoutsPress = () => {
+    setCircleColor("green");
+  };
+
   return (
     <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.container}>
@@ -35,14 +40,23 @@ export default function ViewWorkouts({ navigation }) {
           <View style={styles.tasksWrapper}>
             <Text style={styles.sectionTitle}>Today's workouts:</Text>
             {selectedWorkouts.map((workout, index) => (
-              <Workouts key={index} title={workout.title} text={workout.text} />
+              <Workouts
+                key={index}
+                color={circleColor}
+                title={workout.title}
+                text={workout.text}
+                onPress={handleWorkoutsPress}
+              />
             ))}
           </View>
         )}
         {!showAddWorkoutScreen && (
           <View style={styles.addButtonContainer}>
             <TouchableOpacity
-              onPress={handleAddWorkout}
+              onPress={() => {
+                handleAddWorkout();
+                setCircleColor("blue");
+              }}
               style={styles.addButton}
             >
               <Text style={styles.addText}>+</Text>
