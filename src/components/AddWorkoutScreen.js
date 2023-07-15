@@ -7,10 +7,14 @@ import {
   TouchableOpacity,
   ScrollView,
   TextInput,
+  Dimensions,
+  Modal,
 } from "react-native";
 import Workouts from "./WorkoutTabs";
 
-export default function AddWorkoutScreen({ onClose }) {
+const { width } = Dimensions.get("window");
+
+export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
   const slideUpAnimation = useRef(new Animated.Value(0)).current;
   const scrollViewRef = useRef(null);
   const contentSize = 700; // Adjust this value based on the total content size
@@ -20,8 +24,8 @@ export default function AddWorkoutScreen({ onClose }) {
   const [workoutTitle, setWorkoutTitle] = useState("");
   const [workoutDescription, setWorkoutDescription] = useState("");
   const [workouts, setWorkouts] = useState([
-    { title: "Biceps", text: "sdahiofuioñsafjioñsauipdbfadoñbfiasndsaiufhsdabhuifhsdauisdaauiosdfauisdfauisdfhauisdaiu" },
-    { title: "Test1", text: "Demo Tab 2" },
+    { title: "Biceps", text: "sdahiofuio" },
+    { title: "Test1", text: "Demo \nTab 2" },
     { title: "Test1", text: "Demo Tab 2" },
     { title: "Test1", text: "Demo Tab 2" },
     { title: "Test1", text: "Demo Tab 2" },
@@ -43,7 +47,7 @@ export default function AddWorkoutScreen({ onClose }) {
       duration: 500,
       useNativeDriver: true,
     }).start(() => {
-      onClose(); // Call the callback function to update the state in the parent component
+      onClose();
     });
   };
 
@@ -53,17 +57,16 @@ export default function AddWorkoutScreen({ onClose }) {
 
   const handleSaveWorkout = () => {
     setIsAddingWorkout(false);
- 
-   const newWorkout = {
-     title: workoutTitle,
-     text: workoutDescription,
-   };
- 
-   setWorkouts((prevWorkouts) => [newWorkout, ...prevWorkouts]);
-   setWorkoutTitle("");
-   setWorkoutDescription("");
+
+    const newWorkout = {
+      title: workoutTitle,
+      text: workoutDescription,
+    };
+
+    setWorkouts((prevWorkouts) => [newWorkout, ...prevWorkouts]);
+    setWorkoutTitle("");
+    setWorkoutDescription("");
   };
- 
 
   const Scrollbar = ({ scrollAnim, contentSize, scrollViewSize }) => {
     const scrollBarScaleY = scrollAnim.interpolate({
@@ -115,7 +118,7 @@ export default function AddWorkoutScreen({ onClose }) {
         </TouchableOpacity>
         {!isAddingWorkout && (
           <TouchableOpacity
-            style={styles.newWorkoutbutton}
+            style={styles.newWorkoutButton}
             onPress={handleNewWorkout}
           >
             <View style={styles.newWorkoutButtonWrapper}>
@@ -123,8 +126,8 @@ export default function AddWorkoutScreen({ onClose }) {
             </View>
           </TouchableOpacity>
         )}
-        {isAddingWorkout && (
-          <View style={styles.newWorkoutInputContainer}>
+        <Modal visible={isAddingWorkout} animationType="slide">
+          <View style={styles.newWorkoutModal}>
             <TextInput
               style={styles.newWorkoutInput}
               placeholder="Title"
@@ -136,6 +139,15 @@ export default function AddWorkoutScreen({ onClose }) {
               placeholder="Description"
               value={workoutDescription}
               onChangeText={setWorkoutDescription}
+              multiline={true}
+              numberOfLines={4}
+              returnKeyType="default"
+              blurOnSubmit={false}
+              onSubmitEditing={() => {
+                setWorkoutDescription(
+                  (prevDescription) => prevDescription + "\n"
+                );
+              }}
             />
             <TouchableOpacity
               style={styles.saveWorkoutButton}
@@ -143,13 +155,23 @@ export default function AddWorkoutScreen({ onClose }) {
             >
               <Text>Save</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+              style={styles.cancelWorkoutButton}
+              onPress={() => setIsAddingWorkout(false)}
+            >
+              <Text>Cancel</Text>
+            </TouchableOpacity>
           </View>
-        )}
+        </Modal>
         {workouts.map((workout, index) => (
           <Workouts
             key={index}
             title={workout.title}
             text={workout.text}
+            onPress={() => {
+              onWorkoutSelect(workout);
+              setWorkouts(workouts.filter((w, i) => i !== index));
+            }}
           />
         ))}
       </Animated.View>
@@ -166,23 +188,21 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     backgroundColor: "#F3F3F3",
-    justifyContent: "center",
-    alignItems: "center",
   },
-  contentContainer: { paddingVertical: 60 }, // Padding at top & bottom.
-
+  contentContainer: {
+    paddingTop: 60,
+    paddingHorizontal: 20,
+  },
   closeButton: {
     position: "absolute",
-    top: -7,
-    left: -4,
-    padding: 10,
+    top: 0,
+    left: 20,
     zIndex: 1,
   },
-  newWorkoutbutton: {
+  newWorkoutButton: {
     position: "absolute",
-    top: -7,
-    left: 290,
-    padding: 10,
+    top: 0,
+    right: 20,
     zIndex: 1,
   },
   newWorkoutButtonWrapper: {
@@ -195,8 +215,11 @@ const styles = StyleSheet.create({
     borderColor: "#C0C0C0",
     borderWidth: 1,
   },
-  newWorkoutInputContainer: {
+  newWorkoutModal: {
+    flex: 1,
+    justifyContent: "center",
     alignItems: "center",
+    backgroundColor: "#F3F3F3",
   },
   newWorkoutInput: {
     marginTop: 10,
@@ -212,6 +235,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 10,
     backgroundColor: "#C0C0C0",
+    borderRadius: 10,
+  },
+  cancelWorkoutButton: {
+    marginTop: 10,
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+    backgroundColor: "#FF0000",
     borderRadius: 10,
   },
   addWrapperCloseButton: {

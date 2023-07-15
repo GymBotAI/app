@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  TextInput,
+} from "react-native";
 import Modal from "react-native-modal";
 import { circularColour } from "../../styles";
 
@@ -34,16 +41,28 @@ export default function Option({ question, value, setValue }) {
       </TouchableOpacity>
       <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
         <View style={styles.modalContainer}>
-          <TouchableOpacity style={styles.genderOption} onPress={() => handleSelectGender("Male")}>
+          <TouchableOpacity
+            style={styles.genderOption}
+            onPress={() => handleSelectGender("Male")}
+          >
             <Text style={styles.genderText}>Male</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.genderOption} onPress={() => handleSelectGender("Female")}>
+          <TouchableOpacity
+            style={styles.genderOption}
+            onPress={() => handleSelectGender("Female")}
+          >
             <Text style={styles.genderText}>Female</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.genderOption} onPress={() => handleSelectGender("Other")}>
+          <TouchableOpacity
+            style={styles.genderOption}
+            onPress={() => handleSelectGender("Other")}
+          >
             <Text style={styles.genderText}>Other</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.genderOption} onPress={() => handleSelectGender("Prefer Not to Say")}>
+          <TouchableOpacity
+            style={styles.genderOption}
+            onPress={() => handleSelectGender("Prefer Not to Say")}
+          >
             <Text style={styles.genderText}>Prefer Not to Say</Text>
           </TouchableOpacity>
         </View>
@@ -53,9 +72,7 @@ export default function Option({ question, value, setValue }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-
-  },
+  container: {},
   item: {
     backgroundColor: "#FFF",
     padding: 15,
@@ -100,6 +117,6 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   genderText: {
-    fontSize: 18 ,
+    fontSize: 18,
   },
 });

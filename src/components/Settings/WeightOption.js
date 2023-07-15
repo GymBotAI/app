@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput } from "react-native";
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
@@ -40,12 +40,9 @@ export default function Option({ question, value, setValue }) {
 
         <View style={styles.itemLeft}>
           <TextInput style={styles.current} value={`${value} ${weightUnit}`} editable={false} />
-          <Image
-            source={require("../../../assets/edit.png")}
-            style={{ width: 22, height: 22, marginLeft: 15 }}
-            resizeMode="contain"
-          />
-          
+          <TouchableOpacity onPress={handleToggleUnit}>
+            <Text style={styles.unitText}>{weightUnit === "kg" ? "kg" : "lbs"}</Text>
+          </TouchableOpacity>
         </View>
         
       </TouchableOpacity>
@@ -60,7 +57,6 @@ export default function Option({ question, value, setValue }) {
               <Picker.Item key={option} label={option} value={option} />
             ))}
           </Picker>
-          
           <TouchableOpacity style={styles.confirmButton} onPress={() => handleSelectWeight(selectedWeight)}>
             <Text style={styles.confirmButtonText}>Confirm</Text>
           </TouchableOpacity>

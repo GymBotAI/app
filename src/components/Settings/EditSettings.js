@@ -10,14 +10,14 @@ import {
 
 import Option from "./NameOption";
 import AgeOption from "./AgeOption";
-import GenderOption from "./GenderOption"
+import GenderOption from "./GenderOption";
 import WeightOption from "./WeightOption";
 
 import { nameValue } from "../SignUp/Name";
 import { dateValue } from "../SignUp/Age";
 import { genderVal } from "../SignUp/Gender";
-import { weightVal } from "../SignUp/HeightWeight"
-import { heightVal } from "../SignUp/HeightWeight"
+import { weightVal } from "../SignUp/HeightWeight";
+import { heightVal } from "../SignUp/HeightWeight";
 
 function ageCalculation(date) {
   const currentDate = new Date(); // Get the current date

@@ -7,11 +7,14 @@ import {
   StyleSheet,
   KeyboardAvoidingView,
   Platform,
+  ScrollView,
 } from "react-native";
+import Workouts from "./WorkoutTabs";
 import AddWorkoutScreen from "./AddWorkoutScreen";
 
 export default function ViewWorkouts({ navigation }) {
   const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
+  const [selectedWorkouts, setSelectedWorkouts] = useState([]);
 
   const handleAddWorkout = () => {
     setShowAddWorkoutScreen(true);
@@ -21,63 +24,77 @@ export default function ViewWorkouts({ navigation }) {
     setShowAddWorkoutScreen(false);
   };
 
+  const handleWorkoutSelect = (workout) => {
+    setSelectedWorkouts([...selectedWorkouts, workout]);
+  };
+
   return (
-    <View style={styles.container}>
-      {!showAddWorkoutScreen && (
-        <View style={styles.tasksWrapper}>
-          <Text style={styles.sectionTitle}>Today's workouts:</Text>
-        </View>
-      )}
-      {!showAddWorkoutScreen && (
-        <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "padding" : "height"}
-          style={styles.writeTaskWrapper}
-        >
-          <TouchableOpacity onPress={handleAddWorkout}>
-            <View style={styles.addWrapper}>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <View style={styles.container}>
+        {!showAddWorkoutScreen && (
+          <View style={styles.tasksWrapper}>
+            <Text style={styles.sectionTitle}>Today's workouts:</Text>
+            {selectedWorkouts.map((workout, index) => (
+              <Workouts key={index} title={workout.title} text={workout.text} />
+            ))}
+          </View>
+        )}
+        {!showAddWorkoutScreen && (
+          <View style={styles.addButtonContainer}>
+            <TouchableOpacity
+              onPress={handleAddWorkout}
+              style={styles.addButton}
+            >
               <Text style={styles.addText}>+</Text>
-            </View>
-          </TouchableOpacity>
-        </KeyboardAvoidingView>
-      )}
-      {showAddWorkoutScreen && (
-        <AddWorkoutScreen onClose={handleAddWorkoutScreenClose} />
-      )}
-    </View>
+            </TouchableOpacity>
+          </View>
+        )}
+        {showAddWorkoutScreen && (
+          <AddWorkoutScreen
+            onClose={handleAddWorkoutScreenClose}
+            onWorkoutSelect={handleWorkoutSelect}
+          />
+        )}
+      </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    flexGrow: 1,
+  },
   container: {
     flex: 1,
-    padding: 10,
-    backgroundColor: "#F3F3F3",
   },
   tasksWrapper: {
-    paddingTop: 10,
     paddingHorizontal: 20,
-    zIndex: 1,
+    paddingBottom: 80,
   },
   sectionTitle: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
+    marginTop: 20,
   },
-  writeTaskWrapper: {
+  addButtonContainer: {
     position: "absolute",
-    bottom: 60,
-    width: "100%",
-    flexDirection: "row",
-    justifyContent: "space-around",
+    bottom: 0,
+    left: 0,
+    right: 0,
     alignItems: "center",
+    justifyContent: "center",
+    paddingBottom: 20,
   },
-  addWrapper: {
+  addButton: {
     width: 60,
     height: 60,
-    backgroundColor: "#FFF",
-    borderRadius: 60,
-    justifyContent: "center",
+    borderRadius: 30,
+    backgroundColor: "blue",
     alignItems: "center",
-    borderColor: "#C0C0C0",
-    borderWidth: 1,
+    justifyContent: "center",
+  },
+  addText: {
+    color: "white",
+    fontSize: 30,
   },
 });
