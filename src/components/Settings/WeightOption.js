@@ -24,8 +24,6 @@ export default function Option({ question, value, setValue }) {
     hide();
   };
 
-  console.log(showPicker);
-
   // Helper function to generate weight options in the given range with a specified step
   function generateWeightOptions(start, end, step) {
     const options = [];

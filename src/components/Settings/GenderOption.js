@@ -19,7 +19,6 @@ export default function Option({ question, value, setValue }) {
     hide();
   };
 
-  console.log(showPicker);
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.item} onPress={show}>
