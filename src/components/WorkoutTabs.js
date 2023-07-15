@@ -5,7 +5,11 @@ const Workouts = (props) => {
   const [circleColor, setCircleColor] = useState("blue");
 
   const handlePress = () => {
-    setCircleColor("green");
+    if (circleColor === "green") {
+      setCircleColor("blue");
+    } else {
+      setCircleColor("green");
+    }
     props.onPress();
   };
 
