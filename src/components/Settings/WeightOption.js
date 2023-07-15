@@ -7,6 +7,7 @@ import { circularColour } from "../../styles";
 export default function Option({ question, value, setValue }) {
   const [showPicker, setShowPicker] = useState(false);
   const [weightUnit, setWeightUnit] = useState("kg");
+  const [selectedUnit, setSelectedUnit] = useState("")
   const [selectedWeight, setSelectedWeight] = useState(value);
   const weightOptions = generateWeightOptions(0, 300, 1); // Generate weight options from 0 to 300 in increments of 1
 
@@ -17,9 +18,10 @@ export default function Option({ question, value, setValue }) {
 
   const hide = () => {
     setShowPicker(false);
-  };
+  };4
 
-  const handleSelectWeight = (weight) => {
+  const handleClick = (weight) => {
+    setWeightUnit(selectedUnit)
     setValue(weight);
     hide();
   };
@@ -61,23 +63,26 @@ export default function Option({ question, value, setValue }) {
               <Picker.Item key={option} label={option} value={option} />
             ))}
           </Picker>
+
           <View style={styles.unitContainer}>
             <TouchableOpacity
-              style={[styles.unitButton, weightUnit === "kg" && styles.activeUnitButton]}
-              onPress={() => handleToggleUnit("kg")}
+              style={[styles.unitButton, selectedUnit === "kg" && styles.activeUnitButton]}
+              onPress={() => setSelectedUnit("kg")}
             >
-              <Text style={[styles.unitButtonText, weightUnit === "kg" && styles.activeUnitButtonText]}>kg</Text>
+              <Text style={[styles.unitButtonText, selectedUnit === "kg" && styles.activeUnitButtonText]}>kg</Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.unitButton, weightUnit === "lb" && styles.activeUnitButton]}
-              onPress={() => handleToggleUnit("lb")}
+              style={[styles.unitButton, selectedUnit === "lb" && styles.activeUnitButton]}
+              onPress={() => setSelectedUnit("lb")}
             >
-              <Text style={[styles.unitButtonText, weightUnit === "lb" && styles.activeUnitButtonText]}>lb</Text>
+              <Text style={[styles.unitButtonText, selectedUnit === "lb" && styles.activeUnitButtonText]}>lb</Text>
             </TouchableOpacity>
           </View>
+
+
           <TouchableOpacity
             style={styles.confirmButton}
-            onPress={() => handleSelectWeight(selectedWeight)}
+            onPress={() => handleClick(selectedWeight,selectedUnit)}
           >
             <Text style={styles.confirmButtonText}>Confirm</Text>
           </TouchableOpacity>
