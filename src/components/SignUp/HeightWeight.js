@@ -11,6 +11,7 @@ import { FontAwesome } from "@expo/vector-icons";
 import * as Device from "expo-device";
 
 export let weightVal = ""; // Initialize ageValue as an empty string
+export let wUnit = ""
 export let heightVal = ""; // Initialize ageValue as an empty string
 
 export default function HeightWeight({ onChange }) {
@@ -31,6 +32,7 @@ export default function HeightWeight({ onChange }) {
     setHeight(text);
     setShowHeight(true);
     heightVal = text;
+    wUnit = weightUnit
   };
 
   const handleWeightChange = (text) => {

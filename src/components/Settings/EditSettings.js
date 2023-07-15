@@ -16,7 +16,7 @@ import WeightOption from "./WeightOption";
 import { nameValue } from "../SignUp/Name";
 import { dateValue } from "../SignUp/Age";
 import { genderVal } from "../SignUp/Gender";
-import { weightVal } from "../SignUp/HeightWeight";
+import { weightVal, wUnit } from "../SignUp/HeightWeight";
 import { heightVal } from "../SignUp/HeightWeight";
 
 function ageCalculation(date) {
@@ -48,7 +48,7 @@ export default function Settings({ navigation }) {
       <Option question="Name" value={name} setValue={setName} />
       <AgeOption question="Age" value={age} setValue={setAge} />
       <GenderOption question="Gender" value={gender} setValue={setGender} />
-      <WeightOption question="Weight" value={weight} setValue={setWeight} />
+      <WeightOption question="Weight" value={weight} setValue={setWeight} unit={wUnit}/>
       <Option question="Height" value={height} setValue={setHeight} />
     </Pressable>
   );

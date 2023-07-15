@@ -4,15 +4,16 @@ import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
 import { circularColour } from "../../styles";
 
-export default function Option({ question, value, setValue }) {
+export default function Option({ question, value, setValue, unit }) {
   const [showPicker, setShowPicker] = useState(false);
-  const [weightUnit, setWeightUnit] = useState("kg");
+  const [weightUnit, setWeightUnit] = useState(unit);
   const [selectedUnit, setSelectedUnit] = useState("")
   const [selectedWeight, setSelectedWeight] = useState(value);
   const weightOptions = generateWeightOptions(0, 300, 1); // Generate weight options from 0 to 300 in increments of 1
 
   const show = () => {
     setSelectedWeight(value); // Set selectedWeight to the current value when opening the modal
+    setSelectedUnit(weightUnit)
     setShowPicker(true);
   };
 
