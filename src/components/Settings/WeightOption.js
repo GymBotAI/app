@@ -40,9 +40,11 @@ export default function Option({ question, value, setValue }) {
 
         <View style={styles.itemLeft}>
           <TextInput style={styles.current} value={`${value} ${weightUnit}`} editable={false} />
-          <TouchableOpacity onPress={handleToggleUnit}>
-            <Text style={styles.unitText}>{weightUnit === "kg" ? "kg" : "lbs"}</Text>
-          </TouchableOpacity>
+        <Image
+          source={require("../../../assets/edit.png")}
+          style={{ width: 22, height: 22, marginLeft: 15 }}
+          resizeMode="contain"
+        />
         </View>
         
       </TouchableOpacity>
