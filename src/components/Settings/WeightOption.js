@@ -30,7 +30,7 @@ export default function Option({ question, value, setValue }) {
   function generateWeightOptions(start, end, step) {
     const options = [];
     for (let i = start; i <= end; i += step) {
-      options.push(`${i} kg`);
+      options.push(`${i}`);
     }
     return options;
   }
