@@ -1,28 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
 
 const Workouts = (props) => {
-  const [circleColor, setCircleColor] = useState("blue");
-
-  const handlePress = () => {
-    if (circleColor === "green") {
-      setCircleColor("blue");
-    } else {
-      setCircleColor("green");
-    }
-    props.onPress();
-  };
-
   return (
-    <TouchableOpacity style={styles.item} onPress={handlePress}>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={props.onPress} // Use the onPress prop directly
+    >
       <View style={styles.itemLeft}>
-        <View style={styles.square}></View>
+        <View
+          style={styles.square} // Use the color prop
+        ></View>
         <View style={styles.itemContent}>
           <Text style={styles.itemTitle}>{props.title}</Text>
           <Text style={styles.itemText}>{props.text}</Text>
         </View>
       </View>
-      <View style={[styles.circular, { borderColor: circleColor }]}></View>
+      <View
+        style={[styles.circular, { borderColor: props.circleColor }]} // Use the circleColor prop
+      ></View>
     </TouchableOpacity>
   );
 };

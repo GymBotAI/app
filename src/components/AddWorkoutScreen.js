@@ -87,6 +87,15 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
     );
   };
 
+  const handleWorkoutPress = (index) => {
+    const updatedWorkouts = [...workouts];
+    updatedWorkouts[index] = {
+      ...updatedWorkouts[index],
+      isPressed: !updatedWorkouts[index].isPressed,
+    };
+    setWorkouts(updatedWorkouts);
+  };
+
   return (
     <ScrollView
       contentContainerStyle={styles.container}
@@ -164,15 +173,21 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
           </View>
         </Modal>
         {workouts.map((workout, index) => (
-          <Workouts
+          <TouchableOpacity
             key={index}
-            title={workout.title}
-            text={workout.text}
-            onPress={() => {
-              onWorkoutSelect(workout);
-              setWorkouts(workouts.filter((w, i) => i !== index));
-            }}
-          />
+            style={styles.workoutContainer}
+            onPress={() => handleWorkoutPress(index)}
+          >
+            <Workouts
+  title={workout.title}
+  text={workout.text}
+  onPress={() => {
+    onWorkoutSelect(workout);
+    setWorkouts(workouts.filter((w, i) => i !== index));
+  }}
+  circleColor={workout.isPressed ? "green" : "blue"} // Pass the circleColor prop
+/>
+          </TouchableOpacity>
         ))}
       </Animated.View>
       <Scrollbar
