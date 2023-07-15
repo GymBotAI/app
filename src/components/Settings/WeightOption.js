@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput } from "react-native";
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
@@ -7,10 +7,11 @@ import { circularColour } from "../../styles";
 export default function Option({ question, value, setValue }) {
   const [showPicker, setShowPicker] = useState(false);
   const [weightUnit, setWeightUnit] = useState("kg");
-  const [selectedWeight, setSelectedWeight] = useState("");
-  const weightOptions = generateWeightOptions(20, 300, 5); // Generate weight options from 20 to 300 in increments of 5
+  const [selectedWeight, setSelectedWeight] = useState(value);
+  const weightOptions = generateWeightOptions(0, 300, 1); // Generate weight options from 0 to 300 in increments of 1
 
   const show = () => {
+    setSelectedWeight(value); // Set selectedWeight to the current value when opening the modal
     setShowPicker(true);
   };
 
@@ -21,10 +22,6 @@ export default function Option({ question, value, setValue }) {
   const handleSelectWeight = (weight) => {
     setValue(weight);
     hide();
-  };
-
-  const handleToggleUnit = () => {
-    setWeightUnit(weightUnit === "kg" ? "lbs" : "kg");
   };
 
   console.log(showPicker);
@@ -42,15 +39,21 @@ export default function Option({ question, value, setValue }) {
     <View style={styles.container}>
       <TouchableOpacity style={styles.item} onPress={show}>
         <Text style={styles.itemText}>{question}</Text>
+
         <View style={styles.itemLeft}>
           <TextInput style={styles.current} value={`${value} ${weightUnit}`} editable={false} />
-          <TouchableOpacity onPress={handleToggleUnit}>
-            <Text style={styles.unitText}>{weightUnit === "kg" ? "kg" : "lbs"}</Text>
-          </TouchableOpacity>
+          <Image
+            source={require("../../../assets/edit.png")}
+            style={{ width: 22, height: 22, marginLeft: 15 }}
+            resizeMode="contain"
+          />
+          
         </View>
+        
       </TouchableOpacity>
       <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
         <View style={styles.modalContainer}>
+
           <Picker
             selectedValue={selectedWeight}
             onValueChange={(itemValue) => setSelectedWeight(itemValue)}
@@ -59,6 +62,7 @@ export default function Option({ question, value, setValue }) {
               <Picker.Item key={option} label={option} value={option} />
             ))}
           </Picker>
+          
           <TouchableOpacity style={styles.confirmButton} onPress={() => handleSelectWeight(selectedWeight)}>
             <Text style={styles.confirmButtonText}>Confirm</Text>
           </TouchableOpacity>
@@ -112,8 +116,9 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
-    padding: 20,
-    height: 200,
+    padding: 5,
+    paddingHorizontal: 20,
+    height: 325,
   },
   weightOption: {
     paddingVertical: 10,
@@ -127,6 +132,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: "center",
     marginTop: 20,
+    marginBottom: 20,
   },
   confirmButtonText: {
     color: "#FFF",
