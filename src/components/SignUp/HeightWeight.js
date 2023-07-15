@@ -13,6 +13,7 @@ import * as Device from "expo-device";
 export let weightVal = ""; // Initialize ageValue as an empty string
 export let wUnit = ""
 export let heightVal = ""; // Initialize ageValue as an empty string
+export let hUnit = ""
 
 export default function HeightWeight({ onChange }) {
   const [weight, setWeight] = useState("");
@@ -32,13 +33,14 @@ export default function HeightWeight({ onChange }) {
     setHeight(text);
     setShowHeight(true);
     heightVal = text;
-    wUnit = weightUnit
+    hUnit = heightUnit
   };
 
   const handleWeightChange = (text) => {
     setWeight(text);
     setShowWeight(true);
     weightVal = text;
+    wUnit = weightUnit
   };
 
   const toggleWeightUnit = () => {
