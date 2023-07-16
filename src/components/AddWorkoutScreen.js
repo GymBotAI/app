@@ -139,13 +139,11 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
           <View style={styles.newWorkoutModal}>
             <TextInput
               style={styles.newWorkoutTitleInput}
-              placeholder="Title"
               value={workoutTitle}
               onChangeText={setWorkoutTitle}
             />
             <TextInput
               style={styles.newWorkoutDescriptionInput}
-              placeholder="Description"
               value={workoutDescription}
               onChangeText={setWorkoutDescription}
               multiline={true}
