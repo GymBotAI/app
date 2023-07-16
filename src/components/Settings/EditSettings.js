@@ -32,7 +32,8 @@ function ageCalculation(date) {
 
 export default function Settings({ navigation }) {
   const [name, setName] = useState(nameValue);
-  const [age, setAge] = useState(dateValue);
+  const [bday, setBday] = useState(dateValue);
+  // const [age, setAge] = useState(ageCalculation(dateValue))
   const [gender, setGender] = useState(genderVal);
   const [weight, setWeight] = useState(weightVal);
   const [height, setHeight] = useState(heightVal);
@@ -46,7 +47,7 @@ export default function Settings({ navigation }) {
       {/* <View style={styles.container}> */}
 
       <Option question="Name" value={name} setValue={setName} />
-      <AgeOption question="Age" value={age} setValue={setAge} />
+      <AgeOption question="Age" value={bday} setValue={setBday} />
       <GenderOption question="Gender" value={gender} setValue={setGender} />
       <WeightOption question="Weight" value={weight} setValue={setWeight} unit={wUnit}
       upper={400} lower={0} met="kg" imp="lb"/>
