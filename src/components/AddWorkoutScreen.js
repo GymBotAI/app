@@ -12,7 +12,6 @@ import {
 } from "react-native";
 import Workouts from "./WorkoutTabs";
 
-const { width } = Dimensions.get("window");
 
 export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
   const slideUpAnimation = useRef(new Animated.Value(0)).current;
@@ -33,6 +32,8 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
     { title: "Test1", text: "Demo Tab 2" },
   ]);
 
+  const [currentDay, setCurrentDay] = useState(new Date().getDate());
+
   useEffect(() => {
     Animated.timing(slideUpAnimation, {
       toValue: 1,
@@ -40,6 +41,26 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
       useNativeDriver: true,
     }).start();
   }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const newDay = new Date().getDate();
+      if (newDay !== currentDay) {
+        setCurrentDay(newDay);
+        resetCircleColors();
+      }
+    }, 60000); // Check every minute for a new day
+
+    return () => clearInterval(interval);
+  }, [currentDay]);
+
+  const resetCircleColors = () => {
+    const updatedWorkouts = workouts.map((workout) => ({
+      ...workout,
+      isPressed: false,
+    }));
+    setWorkouts(updatedWorkouts);
+  };
 
   const handlePressClose = () => {
     Animated.timing(slideUpAnimation, {
@@ -122,7 +143,7 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
       >
         <TouchableOpacity style={styles.closeButton} onPress={handlePressClose}>
           <View style={styles.addWrapperCloseButton}>
-            <Text style = {styles.cancelWorkoutButtonText}>X</Text>
+            <Text style={styles.cancelWorkoutButtonText}>X</Text>
           </View>
         </TouchableOpacity>
         {!isAddingWorkout && (
@@ -138,11 +159,15 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
         <Modal visible={isAddingWorkout} animationType="slide">
           <View style={styles.newWorkoutModal}>
             <TextInput
+              placeholder="Muscle Group"
+              placeholderTextColor="#888" // Modify the placeholder text color here
               style={styles.newWorkoutTitleInput}
               value={workoutTitle}
               onChangeText={setWorkoutTitle}
             />
             <TextInput
+              placeholder="Workout"
+              placeholderTextColor="#888" // Modify the placeholder text color here
               style={styles.newWorkoutDescriptionInput}
               value={workoutDescription}
               onChangeText={setWorkoutDescription}
@@ -223,7 +248,7 @@ const styles = StyleSheet.create({
   newWorkoutButtonWrapper: {
     width: 50,
     height: 50,
-    backgroundColor: "#FF6347",
+    backgroundColor: "blue",
     borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
@@ -252,9 +277,9 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   newWorkoutDescriptionInput: {
-    width: "95%", 
+    width: "95%",
     height: "40%",
-    marginTop: 20, 
+    marginTop: 20,
     paddingHorizontal: 15,
     paddingVertical: 10,
     backgroundColor: "#FFF",
@@ -263,7 +288,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
   },
   saveWorkoutButton: {
-    marginTop: 20, 
+    marginTop: 20,
     paddingHorizontal: 20,
     width: "100%",
     paddingVertical: 10,
@@ -281,14 +306,14 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   cancelWorkoutButtonText: {
-    color: "#000",
+    color: "#FFF",
     fontSize: 24,
     fontWeight: "bold",
   },
   addWrapperCloseButton: {
-    width: 50,
-    height: 50,
-    backgroundColor: "#FFF",
+    width: 45,
+    height: 45,
+    backgroundColor: "orange",
     justifyContent: "center",
     alignItems: "center",
     borderColor: "#C0C0C0",

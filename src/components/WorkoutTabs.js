@@ -25,7 +25,7 @@ const Workouts = (props) => {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: "#FFF",
+    backgroundColor: "#F1F1F1",
     padding: 15,
     borderRadius: 10,
     flexDirection: "row",
