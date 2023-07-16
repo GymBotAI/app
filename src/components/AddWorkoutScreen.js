@@ -122,7 +122,7 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
       >
         <TouchableOpacity style={styles.closeButton} onPress={handlePressClose}>
           <View style={styles.addWrapperCloseButton}>
-            <Text>X</Text>
+            <Text style={styles.closeButtonText}>X</Text>
           </View>
         </TouchableOpacity>
         {!isAddingWorkout && (
@@ -131,25 +131,25 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
             onPress={handleNewWorkout}
           >
             <View style={styles.newWorkoutButtonWrapper}>
-              <Text>+</Text>
+              <Text style={styles.newWorkoutButtonText}>+</Text>
             </View>
           </TouchableOpacity>
         )}
         <Modal visible={isAddingWorkout} animationType="slide">
           <View style={styles.newWorkoutModal}>
             <TextInput
-              style={styles.newWorkoutInput}
+              style={styles.newWorkoutTitleInput}
               placeholder="Title"
               value={workoutTitle}
               onChangeText={setWorkoutTitle}
             />
             <TextInput
-              style={styles.newWorkoutInput}
+              style={styles.newWorkoutDescriptionInput}
               placeholder="Description"
               value={workoutDescription}
               onChangeText={setWorkoutDescription}
               multiline={true}
-              numberOfLines={4}
+              numberOfLines={6}
               returnKeyType="default"
               blurOnSubmit={false}
               onSubmitEditing={() => {
@@ -162,13 +162,13 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
               style={styles.saveWorkoutButton}
               onPress={handleSaveWorkout}
             >
-              <Text>Save</Text>
+              <Text style={styles.saveWorkoutButtonText}>Save</Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={styles.cancelWorkoutButton}
               onPress={() => setIsAddingWorkout(false)}
             >
-              <Text>Cancel</Text>
+              <Text style={styles.cancelWorkoutButtonText}>X</Text>
             </TouchableOpacity>
           </View>
         </Modal>
@@ -179,14 +179,14 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
             onPress={() => handleWorkoutPress(index)}
           >
             <Workouts
-  title={workout.title}
-  text={workout.text}
-  onPress={() => {
-    onWorkoutSelect(workout);
-    setWorkouts(workouts.filter((w, i) => i !== index));
-  }}
-  circleColor={workout.isPressed ? "green" : "blue"} // Pass the circleColor prop
-/>
+              title={workout.title}
+              text={workout.text}
+              onPress={() => {
+                onWorkoutSelect(workout);
+                setWorkouts(workouts.filter((w, i) => i !== index));
+              }}
+              circleColor={workout.isPressed ? "green" : "blue"} // Pass the circleColor prop
+            />
           </TouchableOpacity>
         ))}
       </Animated.View>
@@ -202,33 +202,38 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    backgroundColor: "#F3F3F3",
+    backgroundColor: "#FFFFFF", // Replace with your desired background color
   },
   contentContainer: {
-    paddingTop: 60,
-    paddingHorizontal: 20,
+    paddingTop: 80, // Adjust the value for appropriate spacing
+    paddingHorizontal: 30, // Adjust the value for appropriate spacing
   },
   closeButton: {
     position: "absolute",
-    top: 0,
-    left: 20,
+    top: 10,
+    left: 10,
     zIndex: 1,
   },
   newWorkoutButton: {
     position: "absolute",
-    top: 0,
-    right: 20,
+    top: 10,
+    right: 10,
     zIndex: 1,
   },
   newWorkoutButtonWrapper: {
-    width: 40,
-    height: 40,
-    backgroundColor: "#FFF",
-    borderRadius: 10,
+    width: 50,
+    height: 50,
+    backgroundColor: "#FF6347",
+    borderRadius: 25,
     justifyContent: "center",
     alignItems: "center",
-    borderColor: "#C0C0C0",
-    borderWidth: 1,
+    borderColor: "#FFF",
+    borderWidth: 2,
+  },
+  newWorkoutButtonText: {
+    color: "#FFF",
+    fontSize: 30,
+    fontWeight: "bold",
   },
   newWorkoutModal: {
     flex: 1,
@@ -236,34 +241,54 @@ const styles = StyleSheet.create({
     alignItems: "center",
     backgroundColor: "#F3F3F3",
   },
-  newWorkoutInput: {
-    marginTop: 10,
-    paddingHorizontal: 10,
-    paddingVertical: 5,
+  newWorkoutTitleInput: {
+    width: "95%",
+    marginTop: 20,
+    paddingHorizontal: 15,
+    paddingVertical: 10,
+    backgroundColor: "#FFF",
+    borderRadius: 10,
+    borderColor: "#C0C0C0",
+    borderWidth: 1,
+  },
+  newWorkoutDescriptionInput: {
+    width: "95%", 
+    height: "40%",
+    marginTop: 20, 
+    paddingHorizontal: 15,
+    paddingVertical: 10,
     backgroundColor: "#FFF",
     borderRadius: 10,
     borderColor: "#C0C0C0",
     borderWidth: 1,
   },
   saveWorkoutButton: {
-    marginTop: 10,
+    marginTop: 20, 
     paddingHorizontal: 20,
+    width: "100%",
     paddingVertical: 10,
-    backgroundColor: "#C0C0C0",
-    borderRadius: 10,
+    backgroundColor: "#FF6347",
+  },
+  saveWorkoutButtonText: {
+    color: "#FFF",
+    fontSize: 16,
+    fontWeight: "bold",
   },
   cancelWorkoutButton: {
-    marginTop: 10,
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    backgroundColor: "#FF0000",
-    borderRadius: 10,
+    position: "absolute",
+    top: 30,
+    left: 20,
+    zIndex: 1,
+  },
+  cancelWorkoutButtonText: {
+    color: "#000",
+    fontSize: 24,
+    fontWeight: "bold",
   },
   addWrapperCloseButton: {
-    width: 40,
-    height: 40,
+    width: 50,
+    height: 50,
     backgroundColor: "#FFF",
-    borderRadius: 60,
     justifyContent: "center",
     alignItems: "center",
     borderColor: "#C0C0C0",
