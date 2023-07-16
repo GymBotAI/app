@@ -47,7 +47,7 @@ export default function ViewWorkouts({ navigation }) {
                 text={workout.text}
                 onPress={handleWorkoutsPress}
                 circleColor={circleColor} // Pass the circleColor prop
-            />
+              />
             ))}
           </View>
         )}

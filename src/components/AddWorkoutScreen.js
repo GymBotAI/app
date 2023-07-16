@@ -179,14 +179,14 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
             onPress={() => handleWorkoutPress(index)}
           >
             <Workouts
-  title={workout.title}
-  text={workout.text}
-  onPress={() => {
-    onWorkoutSelect(workout);
-    setWorkouts(workouts.filter((w, i) => i !== index));
-  }}
-  circleColor={workout.isPressed ? "green" : "blue"} // Pass the circleColor prop
-/>
+              title={workout.title}
+              text={workout.text}
+              onPress={() => {
+                onWorkoutSelect(workout);
+                setWorkouts(workouts.filter((w, i) => i !== index));
+              }}
+              circleColor={workout.isPressed ? "green" : "blue"} // Pass the circleColor prop
+            />
           </TouchableOpacity>
         ))}
       </Animated.View>
