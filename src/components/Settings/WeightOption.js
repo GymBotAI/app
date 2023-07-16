@@ -1,28 +1,45 @@
 import React, { useState } from "react";
-import { View, Text, Image, TouchableOpacity, StyleSheet, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  TextInput,
+} from "react-native";
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
 import { circularColour } from "../../styles";
 
-export default function Option({ question, value, setValue, unit, upper, lower, met, imp }) {
+export default function Option({
+  question,
+  value,
+  setValue,
+  unit,
+  upper,
+  lower,
+  met,
+  imp,
+}) {
   const [showPicker, setShowPicker] = useState(false);
   const [weightUnit, setWeightUnit] = useState(unit);
-  const [selectedUnit, setSelectedUnit] = useState("")
+  const [selectedUnit, setSelectedUnit] = useState("");
   const [selectedWeight, setSelectedWeight] = useState(value);
   const weightOptions = generateWeightOptions(lower, upper, 1); // Generate weight options from 0 to 300 in increments of 1
 
   const show = () => {
     setSelectedWeight(value); // Set selectedWeight to the current value when opening the modal
-    setSelectedUnit(weightUnit)
+    setSelectedUnit(weightUnit);
     setShowPicker(true);
   };
 
   const hide = () => {
     setShowPicker(false);
-  };4
+  };
+  4;
 
   const handleClick = (weight) => {
-    setWeightUnit(selectedUnit)
+    setWeightUnit(selectedUnit);
     setValue(weight);
     hide();
   };
@@ -40,8 +57,8 @@ export default function Option({ question, value, setValue, unit, upper, lower, 
     return options;
   }
 
-  console.log(met)
-  console.log(selectedUnit)
+  console.log(met);
+  console.log(selectedUnit);
 
   return (
     <View style={styles.container}>
@@ -49,7 +66,11 @@ export default function Option({ question, value, setValue, unit, upper, lower, 
         <Text style={styles.itemText}>{question}</Text>
 
         <View style={styles.itemLeft}>
-          <TextInput style={styles.current} value={`${value} ${weightUnit}`} editable={false} />
+          <TextInput
+            style={styles.current}
+            value={`${value} ${weightUnit}`}
+            editable={false}
+          />
           <Image
             source={require("../../../assets/edit.png")}
             style={{ width: 22, height: 22, marginLeft: 15 }}
@@ -70,23 +91,42 @@ export default function Option({ question, value, setValue, unit, upper, lower, 
 
           <View style={styles.unitContainer}>
             <TouchableOpacity
-              style={[styles.unitButton, selectedUnit === met && styles.activeUnitButton]}
+              style={[
+                styles.unitButton,
+                selectedUnit === met && styles.activeUnitButton,
+              ]}
               onPress={() => setSelectedUnit(met)}
             >
-              <Text style={[styles.unitButtonText, selectedUnit === met && styles.activeUnitButtonText]}>{met}</Text>
+              <Text
+                style={[
+                  styles.unitButtonText,
+                  selectedUnit === met && styles.activeUnitButtonText,
+                ]}
+              >
+                {met}
+              </Text>
             </TouchableOpacity>
             <TouchableOpacity
-              style={[styles.unitButton, selectedUnit === imp && styles.activeUnitButton]}
+              style={[
+                styles.unitButton,
+                selectedUnit === imp && styles.activeUnitButton,
+              ]}
               onPress={() => setSelectedUnit(imp)}
             >
-              <Text style={[styles.unitButtonText, selectedUnit === imp && styles.activeUnitButtonText]}>{imp}</Text>
+              <Text
+                style={[
+                  styles.unitButtonText,
+                  selectedUnit === imp && styles.activeUnitButtonText,
+                ]}
+              >
+                {imp}
+              </Text>
             </TouchableOpacity>
           </View>
 
-
           <TouchableOpacity
             style={styles.confirmButton}
-            onPress={() => handleClick(selectedWeight,selectedUnit)}
+            onPress={() => handleClick(selectedWeight, selectedUnit)}
           >
             <Text style={styles.confirmButtonText}>Confirm</Text>
           </TouchableOpacity>

@@ -6,6 +6,8 @@ export let nameValue = ""; // Export the nameValue variable
 export default function Name({ onNameChange }) {
   const [name, setName] = useState("");
   const [charactersLeft, setCharactersLeft] = useState(15);
+  const [showCount, setShowCount] = useState(false);
+  const [red, setRed] = useState(false);
 
   const handleNameChange = (text) => {
     setName(text);
@@ -14,6 +16,16 @@ export default function Name({ onNameChange }) {
 
     const remainingCharacters = 15 - text.length; // Calculate the number of characters left
     setCharactersLeft(remainingCharacters);
+    if (charactersLeft <= 5) {
+      setShowCount(true);
+    } else {
+      setShowCount(false);
+    }
+    if (charactersLeft === 0) {
+      setRed(true);
+    } else {
+      setRed(false);
+    }
   };
 
   return (
@@ -35,7 +47,18 @@ export default function Name({ onNameChange }) {
         onChangeText={handleNameChange}
       />
       <View style={{ alignItems: "flex-end", marginRight: 20 }}>
-        <Text style={{ color: "#888" }}>{charactersLeft}</Text>
+        {showCount && (
+          <Text
+            style={{
+              color: "#888",
+              position: "absolute",
+              bottom: 7,
+              fontSize: 18,
+            }}
+          >
+            {charactersLeft}
+          </Text>
+        )}
       </View>
     </View>
   );
