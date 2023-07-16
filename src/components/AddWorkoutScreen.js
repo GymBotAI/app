@@ -122,7 +122,7 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
       >
         <TouchableOpacity style={styles.closeButton} onPress={handlePressClose}>
           <View style={styles.addWrapperCloseButton}>
-            <Text style={styles.closeButtonText}>X</Text>
+            <Text style = {styles.cancelWorkoutButtonText}>X</Text>
           </View>
         </TouchableOpacity>
         {!isAddingWorkout && (
@@ -166,7 +166,9 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
               style={styles.cancelWorkoutButton}
               onPress={() => setIsAddingWorkout(false)}
             >
-              <Text style={styles.cancelWorkoutButtonText}>X</Text>
+              <View style={styles.addWrapperCloseButton}>
+                <Text style={styles.cancelWorkoutButtonText}>X</Text>
+              </View>
             </TouchableOpacity>
           </View>
         </Modal>
@@ -275,7 +277,7 @@ const styles = StyleSheet.create({
   cancelWorkoutButton: {
     position: "absolute",
     top: 30,
-    left: 20,
+    left: 10,
     zIndex: 1,
   },
   cancelWorkoutButtonText: {
@@ -290,6 +292,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     borderColor: "#C0C0C0",
+    borderRadius: 60,
     borderWidth: 1,
   },
   scrollbarContainer: {

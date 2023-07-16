@@ -15,7 +15,6 @@ import AddWorkoutScreen from "./AddWorkoutScreen";
 export default function ViewWorkouts({ navigation }) {
   const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
   const [selectedWorkouts, setSelectedWorkouts] = useState([]);
-  const [circleColor, setCircleColor] = useState("blue");
 
   const handleAddWorkout = () => {
     setShowAddWorkoutScreen(true);
@@ -29,8 +28,11 @@ export default function ViewWorkouts({ navigation }) {
     setSelectedWorkouts([...selectedWorkouts, workout]);
   };
 
-  const handleWorkoutsPress = () => {
-    setCircleColor("green");
+  const handleWorkoutsPress = (index) => {
+    const updatedWorkouts = [...selectedWorkouts];
+    const currentColor = updatedWorkouts[index].circleColor;
+    updatedWorkouts[index].circleColor = currentColor === 'green' ? 'blue' : 'green';
+    setSelectedWorkouts(updatedWorkouts);
   };
 
   return (
@@ -42,11 +44,11 @@ export default function ViewWorkouts({ navigation }) {
             {selectedWorkouts.map((workout, index) => (
               <Workouts
                 key={index}
-                color={circleColor}
+                color={workout.circleColor || "blue"}
                 title={workout.title}
                 text={workout.text}
-                onPress={handleWorkoutsPress}
-                circleColor={circleColor} // Pass the circleColor prop
+                onPress={() => handleWorkoutsPress(index)}
+                circleColor={workout.circleColor || "blue"} // Pass the circleColor prop
               />
             ))}
           </View>
@@ -56,7 +58,6 @@ export default function ViewWorkouts({ navigation }) {
             <TouchableOpacity
               onPress={() => {
                 handleAddWorkout();
-                setCircleColor("blue");
               }}
               style={styles.addButton}
             >
