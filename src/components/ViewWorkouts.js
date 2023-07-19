@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import Workouts from "./WorkoutTabs";
 import AddWorkoutScreen from "./AddWorkoutScreen";
+import {circularColour} from "../styles"
 
 export default function ViewWorkouts({ navigation }) {
   const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
@@ -31,7 +32,7 @@ export default function ViewWorkouts({ navigation }) {
   const handleWorkoutsPress = (index) => {
     const updatedWorkouts = [...selectedWorkouts];
     const currentColor = updatedWorkouts[index].circleColor;
-    updatedWorkouts[index].circleColor = currentColor === 'green' ? 'blue' : 'green';
+    updatedWorkouts[index].circleColor = currentColor === 'green' ? circularColour : 'green';
     setSelectedWorkouts(updatedWorkouts);
   };
 
@@ -44,11 +45,11 @@ export default function ViewWorkouts({ navigation }) {
             {selectedWorkouts.map((workout, index) => (
               <Workouts
                 key={index}
-                color={workout.circleColor || "blue"}
+                color={workout.circleColor || circularColour}
                 title={workout.title}
                 text={workout.text}
                 onPress={() => handleWorkoutsPress(index)}
-                circleColor={workout.circleColor || "blue"} // Pass the circleColor prop
+                circleColor={workout.circleColor || circularColour} // Pass the circleColor prop
               />
             ))}
           </View>

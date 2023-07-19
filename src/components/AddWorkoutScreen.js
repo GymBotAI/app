@@ -11,6 +11,7 @@ import {
   Modal,
 } from "react-native";
 import Workouts from "./WorkoutTabs";
+import {circularColour} from "../styles"
 
 
 export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
@@ -210,7 +211,7 @@ export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {
                 onWorkoutSelect(workout);
                 setWorkouts(workouts.filter((w, i) => i !== index));
               }}
-              circleColor={workout.isPressed ? "green" : "blue"} // Pass the circleColor prop
+              circleColor={workout.isPressed ? "green" : circularColour} // Pass the circleColor prop
             />
           </TouchableOpacity>
         ))}

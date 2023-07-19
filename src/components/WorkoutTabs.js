@@ -1,5 +1,7 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
+import {circularColour} from "../styles"
+import { COLORS } from "@flyerhq/react-native-chat-ui";
 
 const Workouts = (props) => {
   return (
@@ -9,7 +11,7 @@ const Workouts = (props) => {
     >
       <View style={styles.itemLeft}>
         <View
-          style={styles.square} // Use the color prop
+          style={[styles.square]} // Use the color prop
         ></View>
         <View style={styles.itemContent}>
           <Text style={styles.itemTitle}>{props.title}</Text>
@@ -25,7 +27,7 @@ const Workouts = (props) => {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: "#F1F1F1",
+    backgroundColor: "#E9E9E9",
     padding: 15,
     borderRadius: 10,
     flexDirection: "row",
@@ -41,7 +43,7 @@ const styles = StyleSheet.create({
   square: {
     width: 24,
     height: 24,
-    backgroundColor: "blue",
+    backgroundColor: circularColour,
     opacity: 0.4,
     borderRadius: 5,
     marginRight: 15,
