@@ -6,6 +6,8 @@ import * as Device from "expo-device";
 import ChatMessage from "./ChatMessage";
 import Prompts from "./Prompts";
 
+import {Goals} from "../SignUp/GoalSelect"
+
 export default function ChatMessages({
   messages,
   handlePromptPress,
@@ -99,7 +101,7 @@ export default function ChatMessages({
             sendMessage(text);
             handlePromptPress();
           }}
-          prompts={["Give me a chest workout!", "How do I run faster?"]}
+          prompts={Goals}
         />
       )}
     </ScrollView>
