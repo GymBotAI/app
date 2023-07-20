@@ -60,9 +60,9 @@ export default function ChatMessages({
   }, [messages]);
 
   useLayoutEffect(() => {
-    if (maxScrollPosition + 125 <= scrollPositionRef.current) {
+    // if (maxScrollPosition + 125 <= scrollPositionRef.current) {
       scrollViewRef.current?.scrollToEnd({ animated: false });
-    }
+    // }
   }, [messages]);
 
   return (
