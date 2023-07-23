@@ -11,7 +11,7 @@ import {
   Modal,
 } from "react-native";
 import Workouts from "./WorkoutTabs";
-import {circularColour} from "../styles"
+import {circularColour} from "../../styles"
 
 
 export default function AddWorkoutScreen({ onClose, onWorkoutSelect }) {

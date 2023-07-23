@@ -11,7 +11,7 @@ import {
 } from "react-native";
 import Workouts from "./WorkoutTabs";
 import AddWorkoutScreen from "./AddWorkoutScreen";
-import {circularColour} from "../styles"
+import {circularColour} from "../../styles"
 
 export default function ViewWorkouts({ navigation }) {
   const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
