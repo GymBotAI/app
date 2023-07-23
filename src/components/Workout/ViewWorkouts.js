@@ -11,6 +11,7 @@ import {
 } from "react-native";
 import Workouts from "./WorkoutTabs";
 import AddWorkoutScreen from "./AddWorkoutScreen";
+import CreateWorkoutButton from "./CreateWorkoutButton"
 import {circularColour} from "../../styles"
 
 export default function ViewWorkouts({ navigation }) {
@@ -37,7 +38,7 @@ export default function ViewWorkouts({ navigation }) {
   };
 
   return (
-    <ScrollView contentContainerStyle={styles.scrollContainer}>
+    // <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.container}>
         {!showAddWorkoutScreen && (
           <View style={styles.tasksWrapper}>
@@ -55,16 +56,7 @@ export default function ViewWorkouts({ navigation }) {
           </View>
         )}
         {!showAddWorkoutScreen && (
-          <View style={styles.addButtonContainer}>
-            <TouchableOpacity
-              onPress={() => {
-                handleAddWorkout();
-              }}
-              style={styles.addButton}
-            >
-              <Text style={styles.addText}>+</Text>
-            </TouchableOpacity>
-          </View>
+          <CreateWorkoutButton handleAddWorkout={handleAddWorkout}/>
         )}
         {showAddWorkoutScreen && (
           <AddWorkoutScreen
@@ -73,7 +65,7 @@ export default function ViewWorkouts({ navigation }) {
           />
         )}
       </View>
-    </ScrollView>
+    // </ScrollView>
   );
 }
 
