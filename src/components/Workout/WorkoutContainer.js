@@ -12,6 +12,7 @@ import {
 import Workouts from "./WorkoutTabs";
 import AddWorkoutScreen from "./AddWorkoutScreen";
 import CreateWorkoutButton from "./CreateWorkoutButton"
+import WorkoutList from "./WorkoutList"
 import {circularColour} from "../../styles"
 
 export default function ViewWorkouts({ navigation }) {
@@ -47,8 +48,7 @@ export default function ViewWorkouts({ navigation }) {
         {!showAddWorkoutScreen && (
           <View style={styles.tasksWrapper}>
 
-            <Text style={styles.sectionTitle}>Today's workouts:</Text>
-            {selectedWorkouts.map((workout, index) => (
+            {/* {selectedWorkouts.map((workout, index) => (
               <Workouts
                 key={index}
                 color={workout.circleColor || circularColour}
@@ -57,7 +57,10 @@ export default function ViewWorkouts({ navigation }) {
                 onPress={() => handleWorkoutsPress(index)}
                 circleColor={workout.circleColor || circularColour} // Pass the circleColor prop
               />
-            ))}
+            ))} */}
+            <WorkoutList/>
+
+
           </View>
         )}
         {showAddWorkoutScreen && (
