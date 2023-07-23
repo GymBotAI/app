@@ -5,60 +5,120 @@ import { AntDesign } from "@expo/vector-icons"; // Import AntDesign icons
 
 export default function CreateWorkoutButton({ handleAddWorkout }) {
   return (
-    <TouchableOpacity
-      style={styles.addButtonContainer}
-      onPress={handleAddWorkout}
+
+    <View
+      style={styles.container}
     >
-      <LinearGradient colors={["#99a8ff", "#193bff"]} style={styles.blueRectangle}>
+      <LinearGradient colors={["#1935d4", "#8496fa"]} style={styles.blueRectangle}>
         <ImageBackground
           source={require("../../../assets/dumbellbg.webp")}
           resizeMode="cover"
           style={{
-            width: "120%",
-            height: "128%",
+            width: "110%",
+            height: "100%",
             marginLeft: -15,
-            opacity: 0.3,
+            marginBottom: 0,
+            opacity: 0.2,
+            blur: '20',
           }}
         />
+         <Text style={styles.title}>Create a Workout</Text>
+         
+         <View style={styles.buttonsContainer}>
+         <TouchableOpacity
+            style={styles.designButtonContainer}
+            onPress={handleAddWorkout}
+        >
+            <Text style={styles.addText}>Design</Text>
 
-            <Text style={styles.addText}>Click to design a workout</Text>
+            <AntDesign name="arrowright" size={24} color="blackc" style={styles.icon} />
+        </TouchableOpacity>
 
-            <AntDesign name="arrowright" size={24} color="white" style={styles.icon} />
+        <TouchableOpacity
+            style={styles.createButtonContainer}
+            onPress={handleAddWorkout}
+        >
+            <Text style={styles.addText}>Explore</Text>
 
-        {/* Icon to indicate the action */}
+            <AntDesign name="arrowright" size={24} color="blackc" style={styles.icon} />
+        </TouchableOpacity>
+        
+        </View>
+
       </LinearGradient>
-    </TouchableOpacity>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  addButtonContainer: {
+    container: {
+        alignSelf: 'center',
+        borderRadius: 15,
+        width: "95%",
+        height: 250,
+        backgroundColor: "#0f2cd6",
+    },
+    blueRectangle: {
+      borderRadius: 15,
+      width: '100%',
+      height: 250,
+      alignSelf: 'left',
+    },
+    title: {
+        marginTop: -240,
+        padding: 10,
+        paddingLeft: 20,
+        bottom: 5,
+        color: "white",
+        fontSize: 28,
+        fontWeight: "bold",
+        shadowColor: "#000",
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.3,
+        shadowRadius: 3,
+        elevation: 2,
+    },
+    buttonsContainer: {
+        marginTop: '22%',
+        marginBottom: 15,
+        width: '92%',
+        alignSelf: 'center',
+        display: 'flex',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+  designButtonContainer: {
+    backgroundColor:'white',
+    width: "45%",
+    borderRadius: 5,
+    paddingTop: 12,
+    paddingBottom: 12,
     alignItems: "center",
-    justifyContent: "center",
-    paddingBottom: 20,
-    margin: 5,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 2,
   },
-  icon: {
-    marginBottom: -5,
-  },
-  blueRectangle: {
-    borderRadius: 15,
-    padding: 15,
-    paddingBottom: 13,
-    width: '92%',
-    height: 200,
-    alignItems: "left",
-    justifyContent: "flex-end",
+  createButtonContainer: {
+    backgroundColor:'white',
+    width: "45%",
+    borderRadius: 5,
+    paddingTop: 12,
+    paddingBottom: 12,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 2,
   },
   addText: {
+    alignSelf: 'center',
+    padding: 8,
     bottom: 5,
-    color: "white",
-    fontSize: 20,
+    color: "black",
+    fontSize: 24,
     fontWeight: "bold",
   },
 });
