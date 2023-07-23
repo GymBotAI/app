@@ -40,8 +40,13 @@ export default function ViewWorkouts({ navigation }) {
   return (
     // <ScrollView contentContainerStyle={styles.scrollContainer}>
       <View style={styles.container}>
+            
+      {!showAddWorkoutScreen && (
+        <CreateWorkoutButton handleAddWorkout={handleAddWorkout}/>
+      )}
         {!showAddWorkoutScreen && (
           <View style={styles.tasksWrapper}>
+
             <Text style={styles.sectionTitle}>Today's workouts:</Text>
             {selectedWorkouts.map((workout, index) => (
               <Workouts
@@ -54,9 +59,6 @@ export default function ViewWorkouts({ navigation }) {
               />
             ))}
           </View>
-        )}
-        {!showAddWorkoutScreen && (
-          <CreateWorkoutButton handleAddWorkout={handleAddWorkout}/>
         )}
         {showAddWorkoutScreen && (
           <AddWorkoutScreen
