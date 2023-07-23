@@ -10,12 +10,22 @@ const WorkoutList = () => {
     { id: 5, text: "Square 5" },
     // Add more squares as needed
   ];
+  
+
+  const itemWidth = 130;
+  const interval = 20;
 
   return (
     <>
     <Text style={styles.sectionTitle}>Today's workouts:</Text>
 
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+    <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        decelerationRate="fast"
+        snapToInterval={itemWidth + interval}
+        snapToAlignment="start"
+    >
       <View style={styles.container}>
         {squaresData.map((square) => (
           <View key={square.id} style={styles.square}>
@@ -33,9 +43,10 @@ const styles = StyleSheet.create({
     flexDirection: "row",
   },
   square: {
-    width: 100,
-    height: 100,
+    width: 130,
+    height: 130,
     backgroundColor: "white",
+    borderRadius: 15,
     marginHorizontal: 10,
     justifyContent: "center",
     alignItems: "center",
