@@ -11,7 +11,7 @@ import {
 import Option from "./NameOption";
 import AgeOption from "./AgeOption";
 import GenderOption from "./GenderOption";
-import WeightOption from "./WeightOption";
+import WeightOption from "./HeightWeightOption";
 
 import { nameValue } from "../SignUp/Name";
 import { dateValue } from "../SignUp/Age";

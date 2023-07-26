@@ -43,7 +43,6 @@ export default function HeightWeight({ value, setValue, unit, setUnit, setShow, 
       roundedWeight = Math.round(roundedWeight / conversion).toString();
     }
     setSelectedWeight(roundedWeight);
-
   };
 
   return (
