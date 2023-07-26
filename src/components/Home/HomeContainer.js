@@ -1,114 +1,140 @@
-import React, { useState } from "react";
-import {
-  Keyboard,
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  KeyboardAvoidingView,
-  Platform,
-  ScrollView,
-} from "react-native";
-import Workouts from "./WorkoutTabs";
-import AddWorkoutScreen from "./AddWorkoutScreen";
-import CreateWorkoutButton from "./CreateWorkoutButton"
-import WorkoutList from "./WorkoutList"
-import {circularColour} from "../../styles"
+import React, { useState, useEffect } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
+import { AntDesign } from "@expo/vector-icons";
+import WorkoutList from "./WorkoutList"; // Import the WorkoutList component or replace with your actual implementation
 
-export default function HomeContainer({ navigation }) {
-  const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
-  const [selectedWorkouts, setSelectedWorkouts] = useState([]);
+import { NameVal } from "../Settings/NameOption"
 
-  const handleAddWorkout = () => {
-    setShowAddWorkoutScreen(true);
+const Dashboard = () => {
+  // State to store the user's name (replace with actual user data)
+  const [userName, setUserName] = useState(NameVal);
+
+  // Function to fetch and set the user's name (replace with your logic)
+  useEffect(() => {
+    // Simulating an API call to fetch user data
+    // Replace this with your actual API call
+    setTimeout(() => {
+      setUserName("John Doe");
+    }, 1000);
+  }, []);
+
+  // Function to handle the "Talk to GymBot" button press (replace with your logic)
+  const handleTalkToGymBot = () => {
+    console.log("Talk to GymBot");
   };
 
-  const handleAddWorkoutScreenClose = () => {
-    setShowAddWorkoutScreen(false);
+  // Function to handle the "Workout Preview" button press (replace with your logic)
+  const handleWorkoutPreview = () => {
+    console.log("Workout Preview");
   };
 
-  const handleWorkoutSelect = (workout) => {
-    setSelectedWorkouts([...selectedWorkouts, workout]);
+  // Function to handle the "Your Workouts" button press (replace with your logic)
+  const handleYourWorkouts = () => {
+    console.log("Your Workouts");
   };
 
-  const handleWorkoutsPress = (index) => {
-    const updatedWorkouts = [...selectedWorkouts];
-    const currentColor = updatedWorkouts[index].circleColor;
-    updatedWorkouts[index].circleColor = currentColor === 'green' ? circularColour : 'green';
-    setSelectedWorkouts(updatedWorkouts);
+  // Function to handle the "View All" button press (replace with your logic)
+  const handleViewAllWorkouts = () => {
+    console.log("View All Workouts");
   };
 
   return (
-    // <ScrollView contentContainerStyle={styles.scrollContainer}>
-      <View style={styles.container}>
-            
-      {!showAddWorkoutScreen && (
-        <CreateWorkoutButton handleAddWorkout={handleAddWorkout}/>
-      )}
-        {!showAddWorkoutScreen && (
-          <View style={styles.tasksWrapper}>
+    <View style={styles.container}>
+      {/* Blue Light Blue Gradient */}
+      <LinearGradient colors={["#65a6ff", "#b8d1fc"]} style={styles.gradientContainer}>
+        {/* Hello, User and GymBot */}
+        <View style={styles.topSection}>
+          <Text style={styles.greetings}>Hello, {userName}</Text>
+          <AntDesign name="robot" size={24} color="white" />
+        </View>
 
-            {/* {selectedWorkouts.map((workout, index) => (
-              <Workouts
-                key={index}
-                color={workout.circleColor || circularColour}
-                title={workout.title}
-                text={workout.text}
-                onPress={() => handleWorkoutsPress(index)}
-                circleColor={workout.circleColor || circularColour} // Pass the circleColor prop
-              />
-            ))} */}
-            <WorkoutList/>
+        {/* Buttons */}
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity style={styles.button} onPress={handleTalkToGymBot}>
+            <Text style={styles.buttonText}>Talk to GymBot</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleWorkoutPreview}>
+            <Text style={styles.buttonText}>Workout Preview</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={handleYourWorkouts}>
+            <Text style={styles.buttonText}>Your Workouts</Text>
+          </TouchableOpacity>
+        </View>
+      </LinearGradient>
 
-
-          </View>
-        )}
-        {showAddWorkoutScreen && (
-          <AddWorkoutScreen
-            onClose={handleAddWorkoutScreenClose}
-            onWorkoutSelect={handleWorkoutSelect}
-          />
-        )}
+      {/* Explore Workouts */}
+      <View style={styles.exploreSection}>
+        {/* Replace the WorkoutList component with your actual implementation */}
+        <WorkoutList />
+        <TouchableOpacity style={styles.viewAllButton} onPress={handleViewAllWorkouts}>
+          <Text style={styles.viewAllButtonText}>View All</Text>
+        </TouchableOpacity>
       </View>
-    // </ScrollView>
+    </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  scrollContainer: {
-    flexGrow: 1,
-  },
   container: {
     flex: 1,
+    backgroundColor: "white",
   },
-  tasksWrapper: {
-    paddingHorizontal: 20,
-    paddingBottom: 80,
+  gradientContainer: {
+    flex: 1,
+    paddingVertical: 20,
+    paddingHorizontal: 15,
   },
-  sectionTitle: {
+  topSection: {
+    marginTop: 40,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  greetings: {
     fontSize: 24,
     fontWeight: "bold",
+    color: "white",
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
     marginTop: 20,
   },
-  addButtonContainer: {
-    position: "absolute",
-    bottom: 0,
-    left: 0,
-    right: 0,
+  button: {
+    backgroundColor: "#fff",
+    borderRadius: 10,
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    width: "30%",
     alignItems: "center",
-    justifyContent: "center",
-    paddingBottom: 20,
   },
-  addButton: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    backgroundColor: "blue",
+  buttonText: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "#65a6ff",
+  },
+  exploreSection: {
+    marginTop: 30,
+    paddingHorizontal: 15,
+  },
+  exploreTitle: {
+    fontSize: 20,
+    fontWeight: "bold",
+    marginBottom: 10,
+  },
+  viewAllButton: {
+    marginTop: 10,
+    backgroundColor: "#65a6ff",
+    borderRadius: 10,
+    paddingVertical: 12,
     alignItems: "center",
-    justifyContent: "center",
   },
-  addText: {
+  viewAllButtonText: {
+    fontSize: 14,
+    fontWeight: "bold",
     color: "white",
-    fontSize: 30,
   },
 });
+
+export default Dashboard;

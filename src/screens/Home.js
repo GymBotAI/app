@@ -12,7 +12,6 @@ export default function Home({ navigation }) {
         width: "100%",
       }}
     >
-      <ScreenHeader title="Workouts" />
 
       <HomeContainer />
 
