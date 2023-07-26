@@ -11,7 +11,7 @@ function generateWeightOptions(start, end, step) {
   return options;
 }
 
-export default function HeightWeight({ value, setValue, unit, setUnit, setShow, lower, upper, met, imp }) {
+export default function HeightWeight({ value, setValue, unit, setUnit, setShow, lower, upper, met, imp,conversion }) {
   const weightOptions = generateWeightOptions(lower, upper, 1); // Generate weight options from 0 to 300 in increments of 1
   const [showPicker, setShowPicker] = useState(false);
   const [selectedWeight, setSelectedWeight] = useState("");
@@ -26,6 +26,24 @@ export default function HeightWeight({ value, setValue, unit, setUnit, setShow, 
     setValue(selectedWeight);
     changeVisibility();
     setShow(true);
+  };
+
+    handleMetChange = () => {
+      console.log("This is happening!")
+      let roundedWeight = selectedWeight
+      if (roundedWeight === "") {
+        roundedWeight = 30
+      }
+      console.log(roundedWeight)
+    if (selectedUnit === met) {
+      setSelectedUnit(imp)
+      roundedWeight = Math.round(roundedWeight * conversion).toString();
+    } else {
+      setSelectedUnit(met)
+      roundedWeight = Math.round(roundedWeight / conversion).toString();
+    }
+    setSelectedWeight(roundedWeight);
+
   };
 
   return (
@@ -58,7 +76,7 @@ export default function HeightWeight({ value, setValue, unit, setUnit, setShow, 
                 styles.unitButton,
                 selectedUnit === met && styles.activeUnitButton,
               ]}
-              onPress={() => setSelectedUnit(met)}
+              onPress={handleMetChange}
             >
               <Text
                 style={[
@@ -74,7 +92,7 @@ export default function HeightWeight({ value, setValue, unit, setUnit, setShow, 
                 styles.unitButton,
                 selectedUnit === imp && styles.activeUnitButton,
               ]}
-              onPress={() => setSelectedUnit(imp)}
+              onPress={handleMetChange}
             >
               <Text
                 style={[

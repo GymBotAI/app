@@ -44,10 +44,8 @@ export default function HeightWeightContainer({ onChange }) {
         value={weight} setValue={setWeight}
         unit={weightUnit} setUnit={setWeightUnit}
         setShow={setShowWeight}
-        lower={30}
-        upper={500}
-        met="kg"
-        imp="lb"
+        lower={30} upper={500}
+        met="kg" imp="lb" conversion={2.20462262185}
       />
     </View>
 
@@ -56,10 +54,9 @@ export default function HeightWeightContainer({ onChange }) {
         value={height} setValue={setHeight}
         unit={heightUnit} setUnit={setHeightUnit}
         setShow={setShowHeight}
-        lower={100}
-        upper={250}
-        met="cm"
-        imp="in"
+        lower={40} upper={250}
+        met="cm" imp="in"
+        conversion={0.393701}
         />
       </View>
 
