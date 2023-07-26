@@ -8,7 +8,7 @@ export default function LoginHeader({}) {
       <View style={styles.logoContainer}>
         <View style={styles.logoBorder}>
           <Image
-            source={require("../../../assets/icon.jpg")}
+            source={require("../../../assets/GymBotLogo.jpg")}
             style={styles.logo}
             resizeMode="contain"
           />
@@ -31,12 +31,17 @@ const styles = StyleSheet.create({
   },
   logoBorder: {
     borderColor: "white",
-    borderWidth: 2,
-    borderRadius: 30, // Half the width and height of the logo image
+    // borderWidth: 2,
+    // borderRadius: 30, // Half the width and height of the logo image
+        shadowColor: "black",
+        shadowOffset: { width: 2, height: 2 },
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
+        elevation: 5,
   },
   logo: {
-    width: 50,
-    height: 50,
+    width: 58,
+    height: 58,
     borderRadius: 50,
   },
   headerText: {

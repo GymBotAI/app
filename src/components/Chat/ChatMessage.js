@@ -6,7 +6,7 @@ import { borderDefault, fontSize } from "../../styles";
 import { useEffect, useState } from "react";
 
 const roleIcons = {
-  assistant: require("../../../assets/icon.jpg"),
+  assistant: require("../../../assets/circleicon.png"),
   user: require("../../../assets/user.png"),
 };
 

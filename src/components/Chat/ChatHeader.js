@@ -49,15 +49,20 @@ export default function MainHeader({ text, minitext }) {
         }}
       >
         <Image
-          source={require("../../../assets/icon.jpg")}
+          source={require("../../../assets/circleicon.png")}
           style={{
             width: 60, // Adjust the size as needed
             height: 60, // Adjust the size as needed
-            borderRadius: 20,
+            borderRadius: 30,
+            borderWidth: 1,
+            borderColor: 'white',
+            marginTop: 2,
             marginLeft: 30,
+            marginRight: 8,
           }}
         />
-        <View style={{ marginLeft: 10 }}>
+        <View style={{ marginLeft: 10,
+              marginBottom: -5, }}>
           <Text
             style={{
               fontSize: 52,
