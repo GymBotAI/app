@@ -24,6 +24,10 @@ export default function Age({ onAgeChange }) {
     }
   };
 
+  // Calculate the maximum date (today's date minus 12 years)
+  const maxDate = new Date();
+  maxDate.setFullYear(maxDate.getFullYear() - 12);
+
   return (
     <View style={{ flexGrow: 1, overflow: "auto" }}>
       <Pressable onPress={toggleShow}>
@@ -43,7 +47,7 @@ export default function Age({ onAgeChange }) {
         value={date}
         onChange={onChange}
         minimumDate={new Date(1900, 0, 1)} // Replace with your minimum date
-        maximumDate={new Date(2030, 0, 1)} // Replace with your maximum date (e.g., new Date() for today)
+        maximumDate={maxDate} // Set the maximum date to today's date minus 12 years
       />
     </View>
   );
