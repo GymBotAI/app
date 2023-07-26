@@ -2,6 +2,7 @@ import React from "react";
 import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
 
 const navImages = {
+  Home: require("../../assets/user.png"),
   Workouts: require("../../assets/navbar/workouts.png"),
   Chat: require("../../assets/navbar/chat.png"),
   Settings: require("../../assets/navbar/settings.png"),
