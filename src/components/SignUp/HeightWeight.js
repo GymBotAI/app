@@ -2,21 +2,36 @@ import React, { useState, useRef, useEffect } from "react";
 import {
   TextInput,
   View,
-  Keyboard,
+  StyleSheet,
   TouchableOpacity,
   Text,
 } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
+import Modal from "react-native-modal";
+import { Picker } from "@react-native-picker/picker";
 
-import * as Device from "expo-device";
 
 export let weightVal = ""; // Initialize ageValue as an empty string
 export let wUnit = "";
 export let heightVal = ""; // Initialize ageValue as an empty string
 export let hUnit = "";
 
+function generateWeightOptions(start, end, step) {
+  const options = [];
+  for (let i = start; i <= end; i += step) {
+    options.push(`${i}`);
+  }
+  return options;
+}
+
 export default function HeightWeight({ onChange }) {
-  const [weight, setWeight] = useState("");
+  const weightOptions = generateWeightOptions(0, 300, 1); // Generate weight options from 0 to 300 in increments of 1
+  const [showPicker,setShowPicker] = useState(false)
+
+  const [selectedWeight, setSelectedWeight] = useState("")
+  const [weight, setWeight] = useState("0");
+
+  const [selectedUnit, setSelectedUnit] = useState('kg');
+
   const [height, setHeight] = useState("");
   const [showWeight, setShowWeight] = useState(false);
   const [showHeight, setShowHeight] = useState(false);
@@ -24,47 +39,35 @@ export default function HeightWeight({ onChange }) {
   const [heightUnit, setHeightUnit] = useState("cm");
 
   useEffect(() => {
-    console.log(showHeight);
+    // console.log(showHeight);
     console.log(showWeight);
-    onChange(showHeight && showWeight);
-  }, [showHeight]);
+    
+    onChange(showWeight);
+    // onChange(showHeight && showWeight);
+  }, [showWeight]);
 
-  const handleHeightChange = (text) => {
-    setHeight(text);
-    setShowHeight(true);
-    heightVal = text;
-    hUnit = heightUnit;
-  };
+  const changeVisibility = () => {
+    setShowPicker(!showPicker);
+  };  
 
-  const handleWeightChange = (text) => {
-    setWeight(text);
+  const handleClick = () => {
+    setWeightUnit(selectedUnit);
+    setWeight(selectedWeight);
+    changeVisibility();
+
     setShowWeight(true);
-    weightVal = text;
-    wUnit = weightUnit;
-  };
+    console.log(showWeight)
 
-  const toggleWeightUnit = () => {
-    setWeightUnit(weightUnit === "kg" ? "lb" : "kg");
-  };
-
-  const toggleHeightUnit = () => {
-    setHeightUnit(heightUnit === "cm" ? "in" : "cm");
-  };
-
-  const handleHeightBlur = () => {
-    if (height !== "" && height.length != 4 && height.indexOf(".") === -1) {
-      setHeight(height + ".0");
-    }
-  };
-
-  const handleWeightBlur = () => {
-    if (weight !== "" && weight.length != 4 && weight.indexOf(".") === -1) {
-      setWeight(weight + ".0");
-    }
+    weightVal = selectedWeight;
+    wUnit = selectedUnit;
+    console.log(weightVal)
+    console.log(wUnit)
   };
 
   return (
     <View style={{ flexGrow: 1, overflow: "auto" }}>
+
+    
       <View
         style={{
           display: "flex",
@@ -72,60 +75,133 @@ export default function HeightWeight({ onChange }) {
           justifyContent: "space-between",
         }}
       >
-        <TextInput
+      <TouchableOpacity onPress={changeVisibility}
           style={{
             width: "25%",
             height: 40,
             borderColor: "black",
             marginTop: 40,
-            fontSize: 18,
             borderBottomWidth: 2,
             paddingHorizontal: 2,
             marginHorizontal: 30,
             paddingLeft: 5,
-          }}
+            flexDirection: 'row'
+          }}>
+        <TextInput
+        style={{fontSize: 18, paddingLeft: 5, marginTop: 8,}}
+          editable={false}
           value={weight}
-          keyboardType="decimal-pad"
-          onChangeText={handleWeightChange}
-          onBlur={handleWeightBlur}
-          maxLength={4}
         />
-        <TouchableOpacity
-          onPress={toggleWeightUnit}
-          style={{ position: "absolute", top: 29, left: 72, padding: 20 }}
-        >
-          <Text style={{ fontSize: 18, color: "#bababa" }}>
-            {weightUnit === "kg" ? "kg" : "lb"}
+        <Text style={{ fontSize: 18, color: "#bababa", marginTop: 12, left: 35, }}>
+            {weightUnit}
           </Text>
         </TouchableOpacity>
-        <TextInput
-          style={{
-            width: "25%",
-            height: 40,
-            borderColor: "black",
-            marginTop: 40,
-            fontSize: 18,
-            borderBottomWidth: 2,
-            paddingBottom: -2,
-            paddingHorizontal: 2,
-            marginHorizontal: 30,
-            paddingLeft: 5,
-          }}
-          value={height}
-          keyboardType="decimal-pad"
-          onChangeText={handleHeightChange}
-          onBlur={handleHeightBlur}
-          maxLength={4}
-        />
-        <TouchableOpacity
-          onPress={toggleHeightUnit}
-          style={{ position: "absolute", top: 30, right: 10, padding: 20 }}
-        >
-          <Text style={{ fontSize: 18, color: "#bababa" }}>
-            {heightUnit === "cm" ? "cm" : "in"}
-          </Text>
-        </TouchableOpacity>
+
+      <Modal isVisible={showPicker} onBackdropPress={changeVisibility} style={styles.modal}>
+        <View style={styles.modalContainer}>
+          <Picker
+            selectedValue={selectedWeight}
+            onValueChange={(itemValue) => setSelectedWeight(itemValue)}
+          >
+            {weightOptions.map((option) => (
+              <Picker.Item key={option} label={option} value={option} />
+            ))}
+          </Picker>
+
+          <View style={styles.unitContainer}>
+            <TouchableOpacity
+              style={[
+                styles.unitButton,
+                selectedUnit === 'kg' && styles.activeUnitButton,
+              ]}
+              onPress={() => setSelectedUnit('kg')}
+            >
+              <Text
+                style={[
+                  styles.unitButtonText,
+                  selectedUnit === 'kg' && styles.activeUnitButtonText,
+                ]}
+              >
+                {'kg'}
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+              style={[
+                styles.unitButton,
+                selectedUnit === 'lb' && styles.activeUnitButton,
+              ]}
+              onPress={() => setSelectedUnit('lb')}
+            >
+              <Text
+                style={[
+                  styles.unitButtonText,
+                  selectedUnit === 'lb' && styles.activeUnitButtonText,
+                ]}
+              >
+                {'lb'}
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity
+            style={styles.confirmButton}
+            onPress={() => handleClick(selectedWeight, selectedUnit)}
+          >
+            <Text style={styles.confirmButtonText}>Confirm</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
       </View>
     </View>
   );
-}
+};
+
+const styles = StyleSheet.create({
+  modal: {
+    justifyContent: "flex-end",
+    margin: 0,
+  },
+  modalContainer: {
+    backgroundColor: "white",
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    padding: 5,
+    paddingHorizontal: 20,
+    height: 375,
+  },
+  unitContainer: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: 20,
+  },
+  unitButton: {
+    paddingHorizontal: 20,
+    paddingVertical: 8,
+    borderRadius: 8,
+    backgroundColor: "#f0f0f0",
+    marginRight: 10,
+  },
+  unitButtonText: {
+    fontSize: 16,
+    color: "#888",
+  },
+  activeUnitButton: {
+    backgroundColor: "#1260de",
+  },
+  activeUnitButtonText: {
+    color: "#FFF",
+  },
+  confirmButton: {
+    backgroundColor: "#1260de",
+    padding: 12,
+    borderRadius: 8,
+    alignItems: "center",
+    marginTop: 20,
+    marginBottom: 20,
+  },
+  confirmButtonText: {
+    color: "#FFF",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+});
