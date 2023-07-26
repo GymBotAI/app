@@ -30,13 +30,15 @@ export default function HeightWeight({ value, setValue, unit, setUnit, setShow, 
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={changeVisibility} style={styles.inputContainer}>
+      <TouchableOpacity onPress={changeVisibility} style={{paddingTop: 5, paddingBottom: 10}}>
+      <View  style={styles.inputContainer}>
         <TextInput
           style={styles.input}
           editable={false}
           value={value}
         />
         <Text style={styles.unitText}>{unit}</Text>
+        </View>
       </TouchableOpacity>
 
       <Modal isVisible={showPicker} onBackdropPress={changeVisibility} style={styles.modal}>
@@ -107,9 +109,9 @@ const styles = StyleSheet.create({
     alignItems: 'center', // Centers the input and unit vertically within the container
     borderBottomWidth: 2,
     borderBottomColor: 'black',
-    marginHorizontal: 30,
+    marginHorizontal: 35,
     marginTop: 40,
-    paddingBottom: 10, // Adds padding to the bottom to avoid overlapping with the unit text
+    paddingBottom: 5, // Adds padding to the bottom to avoid overlapping with the unit text
   },
   input: {
     fontSize: 18,
@@ -119,8 +121,9 @@ const styles = StyleSheet.create({
   unitText: {
     fontSize: 18,
     color: "#bababa",
-    paddingLeft: 10,
-  },  modal: {
+    paddingRight: 5,
+  },
+  modal: {
     justifyContent: "flex-end",
     margin: 0,
   },

@@ -76,8 +76,10 @@ const styles = StyleSheet.create({
     },
     left: {
       flex: 1,
+      marginRight: 5
     },
     right: {
       flex: 1,
+      marginLeft: 5,
     },
   });
