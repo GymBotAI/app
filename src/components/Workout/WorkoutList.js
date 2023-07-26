@@ -42,11 +42,21 @@ const WorkoutList = () => {
   const handleWorkoutPress = (workout) => {
     // Implement the navigation to the details of the selected workout here
     console.log("Selected Workout:", workout.title);
+  }; 
+
+  const handleViewAllPress = () => {
+    // Implement the action for the "View All" button here
+    console.log("View All Workouts");
   };
 
   return (
     <>
-      <Text style={styles.sectionTitle}> Suggested Workouts </Text>
+    <View style={styles.headerContainer}>
+      <Text style={styles.sectionTitle}>Your Workouts</Text>
+      <TouchableOpacity onPress={handleViewAllPress} style={{padding: 8, paddingTop: 12}}>
+        <Text style={styles.viewAllButton}>View All</Text>
+      </TouchableOpacity>
+    </View>
 
       <ScrollView
         horizontal
@@ -84,6 +94,19 @@ const WorkoutList = () => {
 };
 
 const styles = StyleSheet.create({
+  headerContainer: {
+    marginTop: 10,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 5,
+    marginBottom: 10,
+  },
+  viewAllButton: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "#ff8282", // Red text color
+  },
   container: {
     flexDirection: "row",
     marginHorizontal: -5,
