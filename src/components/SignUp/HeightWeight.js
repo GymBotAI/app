@@ -9,12 +9,6 @@ import {
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
 
-
-export let weightVal = ""; // Initialize ageValue as an empty string
-export let wUnit = "";
-export let heightVal = ""; // Initialize ageValue as an empty string
-export let hUnit = "";
-
 function generateWeightOptions(start, end, step) {
   const options = [];
   for (let i = start; i <= end; i += step) {
@@ -23,11 +17,11 @@ function generateWeightOptions(start, end, step) {
   return options;
 }
 
-export default function HeightWeight({ onChange, value, setValue, unit, setUnit, setShow, lower, upper }) {
+export default function HeightWeight({ updateSettings, value, setValue, unit, setUnit, setShow, lower, upper, met, imp }) {
   const weightOptions = generateWeightOptions(lower, upper, 1); // Generate weight options from 0 to 300 in increments of 1
   const [showPicker,setShowPicker] = useState(false)
   const [selectedWeight, setSelectedWeight] = useState("")
-  const [selectedUnit, setSelectedUnit] = useState('kg');
+  const [selectedUnit, setSelectedUnit] = useState(met);
 
   const changeVisibility = () => {
     setShowPicker(!showPicker);
@@ -37,13 +31,9 @@ export default function HeightWeight({ onChange, value, setValue, unit, setUnit,
     setUnit(selectedUnit);
     setValue(selectedWeight);
     changeVisibility();
+    // updateSettings();
 
     setShow(true);
-
-    weightVal = selectedWeight;
-    wUnit = selectedUnit;
-    console.log(weightVal)
-    console.log(wUnit)
   };
 
   return (
@@ -93,33 +83,33 @@ export default function HeightWeight({ onChange, value, setValue, unit, setUnit,
             <TouchableOpacity
               style={[
                 styles.unitButton,
-                selectedUnit === 'kg' && styles.activeUnitButton,
+                selectedUnit === met && styles.activeUnitButton,
               ]}
-              onPress={() => setSelectedUnit('kg')}
+              onPress={() => setSelectedUnit(met)}
             >
               <Text
                 style={[
                   styles.unitButtonText,
-                  selectedUnit === 'kg' && styles.activeUnitButtonText,
+                  selectedUnit === met && styles.activeUnitButtonText,
                 ]}
               >
-                {'kg'}
+                {met}
               </Text>
             </TouchableOpacity>
             <TouchableOpacity
               style={[
                 styles.unitButton,
-                selectedUnit === 'lb' && styles.activeUnitButton,
+                selectedUnit === imp && styles.activeUnitButton,
               ]}
-              onPress={() => setSelectedUnit('lb')}
+              onPress={() => setSelectedUnit(imp)}
             >
               <Text
                 style={[
                   styles.unitButtonText,
-                  selectedUnit === 'lb' && styles.activeUnitButtonText,
+                  selectedUnit === imp && styles.activeUnitButtonText,
                 ]}
               >
-                {'lb'}
+                {imp}
               </Text>
             </TouchableOpacity>
           </View>

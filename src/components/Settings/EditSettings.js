@@ -16,8 +16,8 @@ import WeightOption from "./WeightOption";
 import { nameValue } from "../SignUp/Name";
 import { dateValue } from "../SignUp/Age";
 import { genderVal } from "../SignUp/Gender";
-import { weightVal, wUnit } from "../SignUp/HeightWeight";
-import { heightVal, hUnit } from "../SignUp/HeightWeight";
+import { weightVal, wUnit } from "../SignUp/HeightWeightContainer";
+import { heightVal, hUnit } from "../SignUp/HeightWeightContainer";
 
 function ageCalculation(date) {
   const currentDate = new Date(); // Get the current date

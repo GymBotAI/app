@@ -29,8 +29,15 @@ export default function HeightWeightContainer({ onChange }) {
   useEffect(() => {
     console.log(showHeight);
     console.log(showWeight);
-    onChange(showWeight);
+    onChange(showWeight && showHeight);
+    weightVal = weight
+    wUnit = weightUnit
+    heightVal = height
+    hUnit = heightUnit
   }, );
+
+  const updateSettings = () => {
+  }
 
   return (
     <View style={{ flexGrow: 1, overflow: "auto" }}>
@@ -48,7 +55,19 @@ export default function HeightWeightContainer({ onChange }) {
         setShow={setShowWeight}
         lower={30}
         upper={500}
+        met="kg"
+        imp="lb"
       />
+
+        <HeightWeight updateSettings={updateSettings}
+        value={height} setValue={setHeight}
+        unit={heightUnit} setUnit={setHeightUnit}
+        setShow={setShowHeight}
+        lower={100}
+        upper={250}
+        met="cm"
+        imp="in"
+        />
 
       </View>
     </View>
