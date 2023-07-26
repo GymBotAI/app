@@ -1,13 +1,15 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   View,
 } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
-
-import * as Device from "expo-device";
 
 import HeightWeight from "./HeightWeight";
+
+import { minHeight } from "../../styles";
+import { maxHeight } from "../../styles";
+import { minWeight } from "../../styles";
+import { maxWeight } from "../../styles";
 
 export let weightVal = ""; // Initialize ageValue as an empty string
 export let wUnit = "";
@@ -44,7 +46,7 @@ export default function HeightWeightContainer({ onChange }) {
         value={weight} setValue={setWeight}
         unit={weightUnit} setUnit={setWeightUnit}
         setShow={setShowWeight}
-        lower={30} upper={500}
+        lower={minWeight} upper={maxWeight}
         met="kg" imp="lb" conversion={2.20462262185}
       />
     </View>
@@ -54,7 +56,7 @@ export default function HeightWeightContainer({ onChange }) {
         value={height} setValue={setHeight}
         unit={heightUnit} setUnit={setHeightUnit}
         setShow={setShowHeight}
-        lower={40} upper={250}
+        lower={minHeight} upper={maxHeight}
         met="cm" imp="in"
         conversion={0.393701}
         />

@@ -20,6 +20,7 @@ export default function Option({
   lower,
   met,
   imp,
+  conversion
 }) {
   const [showPicker, setShowPicker] = useState(false);
   const [weightUnit, setWeightUnit] = useState(unit);
@@ -44,10 +45,6 @@ export default function Option({
     hide();
   };
 
-  const handleToggleUnit = (unit) => {
-    setWeightUnit(unit);
-  };
-
   // Helper function to generate weight options in the given range with a specified step
   function generateWeightOptions(start, end, step) {
     const options = [];
@@ -57,8 +54,22 @@ export default function Option({
     return options;
   }
 
-  console.log(met);
-  console.log(selectedUnit);
+  handleUnitChange = () => {
+    console.log("This is happening!")
+    let roundedWeight = selectedWeight
+    if (roundedWeight === "") {
+      roundedWeight = 30
+    }
+    console.log(roundedWeight)
+  if (selectedUnit === met) {
+    setSelectedUnit(imp)
+    roundedWeight = Math.round(roundedWeight * conversion).toString();
+  } else {
+    setSelectedUnit(met)
+    roundedWeight = Math.round(roundedWeight / conversion).toString();
+  }
+  setSelectedWeight(roundedWeight);
+  };
 
   return (
     <View style={styles.container}>
@@ -95,7 +106,7 @@ export default function Option({
                 styles.unitButton,
                 selectedUnit === met && styles.activeUnitButton,
               ]}
-              onPress={() => setSelectedUnit(met)}
+              onPress={handleUnitChange}
             >
               <Text
                 style={[
@@ -111,7 +122,7 @@ export default function Option({
                 styles.unitButton,
                 selectedUnit === imp && styles.activeUnitButton,
               ]}
-              onPress={() => setSelectedUnit(imp)}
+              onPress={handleUnitChange}
             >
               <Text
                 style={[

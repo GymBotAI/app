@@ -19,6 +19,11 @@ import { genderVal } from "../SignUp/Gender";
 import { weightVal, wUnit } from "../SignUp/HeightWeightContainer";
 import { heightVal, hUnit } from "../SignUp/HeightWeightContainer";
 
+import { minHeight } from "../../styles";
+import { maxHeight } from "../../styles";
+import { minWeight } from "../../styles";
+import { maxWeight } from "../../styles";
+
 function ageCalculation(date) {
   const currentDate = new Date(); // Get the current date
   const [day, month, year] = date.split("/"); // Split the given date into day, month, and year
@@ -54,20 +59,17 @@ export default function Settings({ navigation }) {
         value={weight}
         setValue={setWeight}
         unit={wUnit}
-        upper={400}
-        lower={0}
-        met="kg"
-        imp="lb"
+        upper={maxWeight} lower={minWeight}
+        met="kg" imp="lb" conversion={2.20462262185}
       />
       <WeightOption
         question="Height"
         value={height}
         setValue={setHeight}
         unit={hUnit}
-        upper={250}
-        lower={0}
-        met="cm"
-        imp="in"
+        upper={maxHeight} lower={minHeight}
+        met="cm" imp="in"
+        conversion={0.393701}
       />
     </Pressable>
   );
