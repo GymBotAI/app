@@ -1,10 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import {
-  TextInput,
+  StyleSheet,
   View,
-  Keyboard,
-  TouchableOpacity,
-  Text,
 } from "react-native";
 import { FontAwesome } from "@expo/vector-icons";
 
@@ -40,15 +37,9 @@ export default function HeightWeightContainer({ onChange }) {
   }
 
   return (
-    <View style={{ flexGrow: 1, overflow: "auto" }}>
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
+    <View style={styles.container}>
 
+    <View style={styles.left}>
       <HeightWeight onChange={onChange}
         value={weight} setValue={setWeight}
         unit={weightUnit} setUnit={setWeightUnit}
@@ -58,7 +49,9 @@ export default function HeightWeightContainer({ onChange }) {
         met="kg"
         imp="lb"
       />
+    </View>
 
+    <View style={styles.right}>
         <HeightWeight updateSettings={updateSettings}
         value={height} setValue={setHeight}
         unit={heightUnit} setUnit={setHeightUnit}
@@ -68,8 +61,23 @@ export default function HeightWeightContainer({ onChange }) {
         met="cm"
         imp="in"
         />
-
       </View>
+
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+    container: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      paddingHorizontal: 20,
+      flexGrow: 1,
+    },
+    left: {
+      flex: 1,
+    },
+    right: {
+      flex: 1,
+    },
+  });

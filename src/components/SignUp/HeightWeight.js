@@ -1,11 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import {
-  TextInput,
-  View,
-  StyleSheet,
-  TouchableOpacity,
-  Text,
-} from "react-native";
+import { TextInput, View, StyleSheet, TouchableOpacity, Text } from "react-native";
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
 
@@ -17,56 +11,33 @@ function generateWeightOptions(start, end, step) {
   return options;
 }
 
-export default function HeightWeight({ updateSettings, value, setValue, unit, setUnit, setShow, lower, upper, met, imp }) {
+export default function HeightWeight({ value, setValue, unit, setUnit, setShow, lower, upper, met, imp }) {
   const weightOptions = generateWeightOptions(lower, upper, 1); // Generate weight options from 0 to 300 in increments of 1
-  const [showPicker,setShowPicker] = useState(false)
-  const [selectedWeight, setSelectedWeight] = useState("")
+  const [showPicker, setShowPicker] = useState(false);
+  const [selectedWeight, setSelectedWeight] = useState("");
   const [selectedUnit, setSelectedUnit] = useState(met);
 
   const changeVisibility = () => {
     setShowPicker(!showPicker);
-  };  
+  };
 
   const handleClick = () => {
     setUnit(selectedUnit);
     setValue(selectedWeight);
     changeVisibility();
-    // updateSettings();
-
     setShow(true);
   };
 
   return (
-    <View style={{ flexGrow: 1, overflow: "auto" }}>
-    
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between",
-        }}
-      >
-      <TouchableOpacity onPress={changeVisibility}
-          style={{
-            width: "22%",
-            height: 40,
-            borderColor: "black",
-            marginTop: 40,
-            borderBottomWidth: 2,
-            paddingHorizontal: 2,
-            marginHorizontal: 30,
-            paddingLeft: 5,
-            flexDirection: 'row'
-          }}>
+    <View style={styles.container}>
+      <TouchableOpacity onPress={changeVisibility} style={styles.inputContainer}>
         <TextInput
-        style={{fontSize: 18, paddingLeft: 5, marginTop: 8,}}
+          style={styles.input}
           editable={false}
           value={value}
         />
-        <Text style={{ fontSize: 18, color: "#bababa",  position: "absolute", top: -7.6, left: 32, padding: 20 }}>
-            {unit}
-          </Text>
-        </TouchableOpacity>
+        <Text style={styles.unitText}>{unit}</Text>
+      </TouchableOpacity>
 
       <Modal isVisible={showPicker} onBackdropPress={changeVisibility} style={styles.modal}>
         <View style={styles.modalContainer}>
@@ -122,13 +93,34 @@ export default function HeightWeight({ updateSettings, value, setValue, unit, se
           </TouchableOpacity>
         </View>
       </Modal>
-      </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  modal: {
+  container: {
+    flex: 1,
+    justifyContent: 'top', // Vertically centers the input within the container
+  },
+  inputContainer: {
+    flexDirection: 'row', // Puts the input and unit side by side horizontally
+    alignItems: 'center', // Centers the input and unit vertically within the container
+    borderBottomWidth: 2,
+    borderBottomColor: 'black',
+    marginHorizontal: 30,
+    marginTop: 40,
+    paddingBottom: 10, // Adds padding to the bottom to avoid overlapping with the unit text
+  },
+  input: {
+    fontSize: 18,
+    flex: 1, // Takes all available space in the row
+    paddingHorizontal: 5,
+  },
+  unitText: {
+    fontSize: 18,
+    color: "#bababa",
+    paddingLeft: 10,
+  },  modal: {
     justifyContent: "flex-end",
     margin: 0,
   },
