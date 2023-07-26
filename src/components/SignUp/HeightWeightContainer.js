@@ -18,12 +18,19 @@ export let heightVal = ""; // Initialize ageValue as an empty string
 export let hUnit = "";
 
 export default function HeightWeightContainer({ onChange }) {
+    const [weight, setWeight] = useState("0")
+    const [height, setHeight] = useState("0")
+    const [weightUnit, setWeightUnit] = useState("kg")
+    const [heightUnit, setHeightUnit] = useState("cm")
 
-//   useEffect(() => {
-//     console.log(showHeight);
-//     console.log(showWeight);
-//     onChange(showHeight && showWeight);
-//   }, [showHeight]);
+    const [showWeight, setShowWeight] = useState("")
+    const [showHeight, setShowHeight] = useState("")
+
+  useEffect(() => {
+    console.log(showHeight);
+    console.log(showWeight);
+    onChange(showWeight);
+  }, );
 
   return (
     <View style={{ flexGrow: 1, overflow: "auto" }}>
@@ -35,7 +42,13 @@ export default function HeightWeightContainer({ onChange }) {
         }}
       >
 
-      <HeightWeight onChange={onChange}/>
+      <HeightWeight onChange={onChange}
+        value={weight} setValue={setWeight}
+        unit={weightUnit} setUnit={setWeightUnit}
+        setShow={setShowWeight}
+        lower={30}
+        upper={500}
+      />
 
       </View>
     </View>

@@ -23,40 +23,22 @@ function generateWeightOptions(start, end, step) {
   return options;
 }
 
-export default function HeightWeight({ onChange }) {
-  const weightOptions = generateWeightOptions(0, 300, 1); // Generate weight options from 0 to 300 in increments of 1
+export default function HeightWeight({ onChange, value, setValue, unit, setUnit, setShow, lower, upper }) {
+  const weightOptions = generateWeightOptions(lower, upper, 1); // Generate weight options from 0 to 300 in increments of 1
   const [showPicker,setShowPicker] = useState(false)
-
   const [selectedWeight, setSelectedWeight] = useState("")
-  const [weight, setWeight] = useState("0");
-
   const [selectedUnit, setSelectedUnit] = useState('kg');
-
-  const [height, setHeight] = useState("");
-  const [showWeight, setShowWeight] = useState(false);
-  const [showHeight, setShowHeight] = useState(false);
-  const [weightUnit, setWeightUnit] = useState("kg");
-  const [heightUnit, setHeightUnit] = useState("cm");
-
-  useEffect(() => {
-    // console.log(showHeight);
-    console.log(showWeight);
-    
-    onChange(showWeight);
-    // onChange(showHeight && showWeight);
-  }, [showWeight]);
 
   const changeVisibility = () => {
     setShowPicker(!showPicker);
   };  
 
   const handleClick = () => {
-    setWeightUnit(selectedUnit);
-    setWeight(selectedWeight);
+    setUnit(selectedUnit);
+    setValue(selectedWeight);
     changeVisibility();
 
-    setShowWeight(true);
-    console.log(showWeight)
+    setShow(true);
 
     weightVal = selectedWeight;
     wUnit = selectedUnit;
@@ -66,7 +48,6 @@ export default function HeightWeight({ onChange }) {
 
   return (
     <View style={{ flexGrow: 1, overflow: "auto" }}>
-
     
       <View
         style={{
@@ -77,7 +58,7 @@ export default function HeightWeight({ onChange }) {
       >
       <TouchableOpacity onPress={changeVisibility}
           style={{
-            width: "25%",
+            width: "22%",
             height: 40,
             borderColor: "black",
             marginTop: 40,
@@ -90,10 +71,10 @@ export default function HeightWeight({ onChange }) {
         <TextInput
         style={{fontSize: 18, paddingLeft: 5, marginTop: 8,}}
           editable={false}
-          value={weight}
+          value={value}
         />
-        <Text style={{ fontSize: 18, color: "#bababa", marginTop: 12, left: 35, }}>
-            {weightUnit}
+        <Text style={{ fontSize: 18, color: "#bababa",  position: "absolute", top: -7.6, left: 32, padding: 20 }}>
+            {unit}
           </Text>
         </TouchableOpacity>
 

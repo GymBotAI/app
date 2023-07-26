@@ -14,7 +14,7 @@ import * as Font from "expo-font";
 import Name from "./Name";
 import Age from "./Age";
 import Gender from "./Gender";
-import HeightWeight from "./HeightWeight";
+import HeightWeightContainer from "./HeightWeightContainer";
 import Goals from "./Goals";
 
 let inputOption = null;
@@ -38,7 +38,7 @@ export default function Question({ navigation }) {
       inputOption = <Gender onGenderChange={setInputFilled} />;
     } else if (prompt === "What is your gender?") {
       setPrompt("What are your weight and height?");
-      inputOption = <HeightWeight onChange={setInputFilled} />;
+      inputOption = <HeightWeightContainer onChange={setInputFilled} />;
     } else if (prompt === "What are your weight and height?") {
       setPrompt("What are your goals?");
       inputOption = <Goals onGoalChange={setInputFilled} />;
@@ -83,6 +83,8 @@ export default function Question({ navigation }) {
   }
 
   if (prompt === "Welcome to GymBot! To get started, tell us your name") {
+    
+    // inputOption = <HeightWeightContainer onChange={setInputFilled} />;
     inputOption = <Name onNameChange={setInputFilled} />;
   }
 
