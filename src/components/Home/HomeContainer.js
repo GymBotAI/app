@@ -4,6 +4,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import WorkoutList from "./WorkoutList"; // Import the WorkoutList component or replace with your actual implementation
 import WorkoutPreview from "./WorkoutPreview"
+import TalkToGymBotSection from "./TalkToGymBot";
 
 import { NameVal } from "../Settings/NameOption";
 
@@ -33,23 +34,24 @@ const Dashboard = ({ navigation }) => {
   return (
     <View style={styles.container}>
       {/* Blue Light Blue Gradient */}
-      <LinearGradient colors={["#65a6ff", "#b8d1fc"]} style={styles.gradientContainer}>
+      {/* <LinearGradient colors={["#65a6ff", "#b8d1fc"]} style={styles.gradientContainer}> */}
         {/* Hello, User and GymBot */}
         <View style={styles.topSection}>
-          <Text style={styles.greetings}>Hello, {userName}</Text>
+          <Text style={styles.greetings}>Hello Daniel {userName}</Text>
           {/* <AntDesign name="home" size={24} color="white" /> */}
         </View>
 
-        {/* Buttons */}
-        <View style={styles.buttonsContainer}>
+        {/* <View style={styles.buttonsContainer}>
           <TouchableOpacity style={styles.button} onPress={handleTalkToGymBot}>
             <Text style={styles.buttonText}>Talk to GymBot</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={handleYourWorkouts}>
             <Text style={styles.buttonText}>Your Workouts</Text>
           </TouchableOpacity>
-        </View>
-      </LinearGradient>
+        </View> */}
+      {/* </LinearGradient> */}
+
+      <TalkToGymBotSection/>
 
       
       <View style={styles.workoutPreview} onPress={handleWorkoutPreview}>
@@ -66,8 +68,6 @@ const Dashboard = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   workoutPreview: {
-  position: "absolute",
-  bottom: 260,
   width: '100%',
   shadowColor: "#000",
   shadowOffset: { width: 0, height: 2 },
