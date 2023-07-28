@@ -17,12 +17,9 @@ const DailyWorkout = ({ }) => {
         />
       </View>
 
-      <View style={{height: '20%'}}>
-
-      <View style={{flexDirection: 'row',}}>
-        <Text style={{fontSize: 18, fontWeight: "bold",}}>Cardio Blast</Text>
-        <Text style={{fontSize: 14,marginTop: 10}}>30-45 Minutes</Text>
-      </View>
+      <View style={{width: '100%', flexDirection: 'row', marginTop: 10, padding: 10}}>
+        <Text style={{fontSize: 18, fontWeight: "bold"}}>Cardio Blast - </Text>
+        <Text style={{fontSize: 16, marginTop: 1.7,}}>30-45 Minutes</Text>
       </View>
     </TouchableOpacity>
   );
