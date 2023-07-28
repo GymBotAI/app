@@ -13,7 +13,7 @@ export default function Home({ navigation }) {
       }}
     >
 
-      <HomeContainer />
+      <HomeContainer navigation={navigation} />
 
       <StatusBar barStyle="dark-content" />
 

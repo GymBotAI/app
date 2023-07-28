@@ -3,34 +3,25 @@ import { View, Text, StyleSheet, TouchableOpacity, ScrollView } from "react-nati
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import WorkoutList from "./WorkoutList"; // Import the WorkoutList component or replace with your actual implementation
+import WorkoutPreview from "./WorkoutPreview"
 
-import { NameVal } from "../Settings/NameOption"
+import { NameVal } from "../Settings/NameOption";
 
-const Dashboard = () => {
-  // State to store the user's name (replace with actual user data)
+const Dashboard = ({ navigation }) => {
   const [userName, setUserName] = useState(NameVal);
 
-  // Function to fetch and set the user's name (replace with your logic)
-  useEffect(() => {
-    // Simulating an API call to fetch user data
-    // Replace this with your actual API call
-    setTimeout(() => {
-      setUserName("John Doe");
-    }, 1000);
-  }, []);
-
-  // Function to handle the "Talk to GymBot" button press (replace with your logic)
   const handleTalkToGymBot = () => {
+    navigation.navigate("Chat");
     console.log("Talk to GymBot");
   };
 
-  // Function to handle the "Workout Preview" button press (replace with your logic)
   const handleWorkoutPreview = () => {
     console.log("Workout Preview");
   };
 
   // Function to handle the "Your Workouts" button press (replace with your logic)
   const handleYourWorkouts = () => {
+    navigation.navigate("Workouts");
     console.log("Your Workouts");
   };
 
@@ -46,7 +37,7 @@ const Dashboard = () => {
         {/* Hello, User and GymBot */}
         <View style={styles.topSection}>
           <Text style={styles.greetings}>Hello, {userName}</Text>
-          <AntDesign name="robot" size={24} color="white" />
+          {/* <AntDesign name="home" size={24} color="white" /> */}
         </View>
 
         {/* Buttons */}
@@ -54,35 +45,53 @@ const Dashboard = () => {
           <TouchableOpacity style={styles.button} onPress={handleTalkToGymBot}>
             <Text style={styles.buttonText}>Talk to GymBot</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.button} onPress={handleWorkoutPreview}>
-            <Text style={styles.buttonText}>Workout Preview</Text>
-          </TouchableOpacity>
           <TouchableOpacity style={styles.button} onPress={handleYourWorkouts}>
             <Text style={styles.buttonText}>Your Workouts</Text>
           </TouchableOpacity>
         </View>
       </LinearGradient>
 
+      
+      {/* <TouchableOpacity style={styles.workoutPreview} onPress={handleWorkoutPreview}>
+            <Text style={styles.buttonText}>Workout Preview</Text>
+          </TouchableOpacity> */}
+          <WorkoutPreview/>
+
       {/* Explore Workouts */}
       <View style={styles.exploreSection}>
         {/* Replace the WorkoutList component with your actual implementation */}
         <WorkoutList />
-        <TouchableOpacity style={styles.viewAllButton} onPress={handleViewAllWorkouts}>
-          <Text style={styles.viewAllButtonText}>View All</Text>
-        </TouchableOpacity>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  workoutPreview: {
+  position: "absolute",
+  backgroundColor: "#fff",
+  borderRadius: 10,
+  paddingVertical: 12,
+  paddingHorizontal: 20,
+  bottom: 300,
+  left: "10%",
+  right: 0,
+  height: "15%", // Adjust the height of the white rectangle here (half of the container height)
+  width: '80%',
+  backgroundColor: "white",
+  shadowColor: "black",
+  shadowOffset: { width: 2, height: 2 },
+  shadowOpacity: 0.2,
+  shadowRadius: 4,
+  elevation: 5,
+},
   container: {
     flex: 1,
     backgroundColor: "white",
   },
   gradientContainer: {
-    flex: 1,
-    paddingVertical: 20,
+    flex: 0.6, // Adjust the height of the gradient container here
+    paddingVertical: 10, // Decrease the padding to make the gradient smaller vertically
     paddingHorizontal: 15,
   },
   topSection: {
@@ -115,7 +124,8 @@ const styles = StyleSheet.create({
     color: "#65a6ff",
   },
   exploreSection: {
-    marginTop: 30,
+    flex: 0.5, // Adjust the height of the explore section here
+    marginTop: 50,
     paddingHorizontal: 15,
   },
   exploreTitle: {
@@ -125,7 +135,7 @@ const styles = StyleSheet.create({
   },
   viewAllButton: {
     marginTop: 10,
-    backgroundColor: "#65a6ff",
+    backgroundColor: "#ff8282",
     borderRadius: 10,
     paddingVertical: 12,
     alignItems: "center",

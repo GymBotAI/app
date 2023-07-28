@@ -52,7 +52,7 @@ const WorkoutList = () => {
   return (
     <>
     <View style={styles.headerContainer}>
-      <Text style={styles.sectionTitle}>Your Workouts</Text>
+      <Text style={styles.sectionTitle}>Explore Workouts</Text>
       <TouchableOpacity onPress={handleViewAllPress} style={{padding: 8, paddingTop: 12}}>
         <Text style={styles.viewAllButton}>View All</Text>
       </TouchableOpacity>
@@ -95,7 +95,6 @@ const WorkoutList = () => {
 
 const styles = StyleSheet.create({
   headerContainer: {
-    marginTop: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
