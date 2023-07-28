@@ -1,16 +1,29 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 const DailyWorkout = ({ }) => {
   return (
     <TouchableOpacity style={styles.container}>
+      <View style={styles.topSection}>
+        <Text style={styles.workoutOfTheDayText}>Workout of the Day</Text>
+      </View>
 
-        <View style={styles.topSection}>
-            <Text style={styles.workoutOfTheDayText}>Workout of the Day</Text>
-        </View>
-          <Text style={styles.workoutTitle}>Placeholder</Text>
-        <Text style={styles.clickToSeeMore}>Click to see more</Text>
-      
+      <View style={styles.bottomSection}>
+        <Image
+          source={require("../../../assets/accountbgdark.jpg")}
+          resizeMode="cover"
+          style={styles.backgroundImage}
+          imageStyle={styles.backgroundImageStyle}
+        />
+      </View>
+
+      <View style={{height: '20%'}}>
+
+      <View style={{flexDirection: 'row',}}>
+        <Text style={{fontSize: 18, fontWeight: "bold",}}>Cardio Blast</Text>
+        <Text style={{fontSize: 14,marginTop: 10}}>30-45 Minutes</Text>
+      </View>
+      </View>
     </TouchableOpacity>
   );
 };
@@ -19,15 +32,11 @@ const styles = StyleSheet.create({
   container: {
     left: "10%",
     width: "80%",
-    height: 120,
+    height: 200,
     backgroundColor: "white",
     borderRadius: 10,
     alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    elevation: 2,
+    overflow: "hidden", // Ensure that the background image stays within the container boundaries
   },
   topSection: {
     width: "100%",
@@ -35,7 +44,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "left",
     backgroundColor: "#349beb",
-    borderRadius: 5,
     paddingVertical: 3,
     paddingHorizontal: 15,
   },
@@ -44,14 +52,19 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
   },
-  workoutTitle: {
-    fontSize: 18,
-    fontWeight: "bold",
-    marginBottom: 5,
+  bottomSection: {
+    width: "100%",
+    height: '50%',
   },
-  clickToSeeMore: {
-    fontSize: 14,
-    color: "#555",
+  backgroundImage: {
+    top: 0,
+    position: "absolute",
+    width: "110%",
+    height: "110%",
+    opacity: 0.9,
+  },
+  backgroundImageStyle: {
+    opacity: 0.9, // Adjust the opacity as per your preference
   },
 });
 

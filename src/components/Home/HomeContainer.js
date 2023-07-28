@@ -67,17 +67,23 @@ const Dashboard = ({ navigation }) => {
 const styles = StyleSheet.create({
   workoutPreview: {
   position: "absolute",
-  bottom: 300,
+  bottom: 260,
   width: '100%',
+  shadowColor: "#000",
+  shadowOffset: { width: 0, height: 2 },
+  shadowOpacity: 0.2,
+  shadowRadius: 3,
+  elevation: 2,
 },
   container: {
     flex: 1,
     backgroundColor: "white",
   },
   gradientContainer: {
-    flex: 0.6, // Adjust the height of the gradient container here
+    flex: 0.8, // Adjust the height of the gradient container here
     paddingVertical: 10, // Decrease the padding to make the gradient smaller vertically
     paddingHorizontal: 15,
+    marginBottom: 80,
   },
   topSection: {
     marginTop: 40,
@@ -110,7 +116,6 @@ const styles = StyleSheet.create({
   },
   exploreSection: {
     flex: 0.5, // Adjust the height of the explore section here
-    marginTop: 50,
     paddingHorizontal: 15,
   },
   exploreTitle: {
