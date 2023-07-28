@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     marginBottom: 80,
   },
   topSection: {
-    marginTop: 40,
+    marginTop: 20,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
