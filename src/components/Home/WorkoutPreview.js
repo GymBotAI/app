@@ -4,13 +4,13 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 const DailyWorkout = ({ }) => {
   return (
     <TouchableOpacity style={styles.container}>
-      <View style={styles.previewContainer}>
-        <Text style={styles.previewText}>Today's Workout Preview:</Text>
-        <Text style={styles.workoutTitle}>Workout of the Day</Text>
-        {/* <Text style={styles.exerciseText}>{workout.exercises[0]}</Text>
-        <Text style={styles.exerciseText}>{workout.exercises[1]}</Text>
-        <Text style={styles.exerciseText}>{workout.exercises[2]}</Text> */}
-      </View>
+
+        <View style={styles.topSection}>
+            <Text style={styles.workoutOfTheDayText}>Workout of the Day</Text>
+        </View>
+          <Text style={styles.workoutTitle}>Placeholder</Text>
+        <Text style={styles.clickToSeeMore}>Click to see more</Text>
+      
     </TouchableOpacity>
   );
 };
@@ -19,10 +19,9 @@ const styles = StyleSheet.create({
   container: {
     left: "10%",
     width: "80%",
+    height: 120,
     backgroundColor: "white",
     borderRadius: 10,
-    padding: 20,
-    justifyContent: "center",
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
@@ -30,24 +29,29 @@ const styles = StyleSheet.create({
     shadowRadius: 3,
     elevation: 2,
   },
-  previewContainer: {
+  topSection: {
+    width: "100%",
+    height: 50,
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "left",
+    backgroundColor: "#349beb",
+    borderRadius: 5,
+    paddingVertical: 3,
+    paddingHorizontal: 15,
   },
-  previewText: {
-    fontSize: 18,
+  workoutOfTheDayText: {
+    fontSize: 24,
+    color: "white",
     fontWeight: "bold",
-    marginBottom: 10,
   },
   workoutTitle: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
-    marginBottom: 8,
+    marginBottom: 5,
   },
-  exerciseText: {
+  clickToSeeMore: {
     fontSize: 14,
     color: "#555",
-    marginBottom: 3,
   },
 });
 

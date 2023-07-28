@@ -58,7 +58,6 @@ const Dashboard = ({ navigation }) => {
 
       {/* Explore Workouts */}
       <View style={styles.exploreSection}>
-        {/* Replace the WorkoutList component with your actual implementation */}
         <WorkoutList />
       </View>
     </View>
@@ -69,7 +68,6 @@ const styles = StyleSheet.create({
   workoutPreview: {
   position: "absolute",
   bottom: 300,
-  height: "15%",
   width: '100%',
 },
   container: {
