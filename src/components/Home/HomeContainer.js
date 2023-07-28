@@ -52,10 +52,9 @@ const Dashboard = ({ navigation }) => {
       </LinearGradient>
 
       
-      {/* <TouchableOpacity style={styles.workoutPreview} onPress={handleWorkoutPreview}>
-            <Text style={styles.buttonText}>Workout Preview</Text>
-          </TouchableOpacity> */}
+      <View style={styles.workoutPreview} onPress={handleWorkoutPreview}>
           <WorkoutPreview/>
+      </View>
 
       {/* Explore Workouts */}
       <View style={styles.exploreSection}>
@@ -69,21 +68,9 @@ const Dashboard = ({ navigation }) => {
 const styles = StyleSheet.create({
   workoutPreview: {
   position: "absolute",
-  backgroundColor: "#fff",
-  borderRadius: 10,
-  paddingVertical: 12,
-  paddingHorizontal: 20,
   bottom: 300,
-  left: "10%",
-  right: 0,
-  height: "15%", // Adjust the height of the white rectangle here (half of the container height)
-  width: '80%',
-  backgroundColor: "white",
-  shadowColor: "black",
-  shadowOffset: { width: 2, height: 2 },
-  shadowOpacity: 0.2,
-  shadowRadius: 4,
-  elevation: 5,
+  height: "15%",
+  width: '100%',
 },
   container: {
     flex: 1,
