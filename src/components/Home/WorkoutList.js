@@ -50,7 +50,7 @@ const WorkoutList = () => {
   };
 
   return (
-    <>
+    <View style={{marginLeft: 15,}}>
     <View style={styles.headerContainer}>
       <Text style={styles.sectionTitle}>Explore Workouts</Text>
       <TouchableOpacity onPress={handleViewAllPress} style={{padding: 8, paddingTop: 12}}>
@@ -89,7 +89,7 @@ const WorkoutList = () => {
           ))}
         </View>
       </ScrollView>
-    </>
+    </View>
   );
 };
 

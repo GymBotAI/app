@@ -17,38 +17,48 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
     <View style={styles.container}>
       <View style={styles.topSection}>
         <Text style={styles.statsText}>{getCurrentMonth()} Activity</Text>
-        <FontAwesome5 name="calendar" size={30} color="white" />
+        <FontAwesome5 name="calendar" size={30} color="black" />
       </View>
 
       <View style={styles.progressContainer}>
         <View style={styles.circleContainer}>
           <ProgressCircle
-            percent={22}
+            percent={69}
             radius={60}
             borderWidth={8}
-            color="white" // Light blue for progress circle
-            shadowColor="#8f8f8f"
-            bgColor="#1678e0" // Light blue background
+            color="#08c9ff" // Light blue for progress circle
+            shadowColor="#cccccc"
+            bgColor="white" // Light blue background
           >
-            <Text style={styles.number}>{completedWorkouts}</Text>
-            <Text style={{fontSize: 14, color: 'white', marginTop: -5,}}>Remaining</Text>
+          <FontAwesome5 name="dumbbell" size={15} color="#08c9ff" style={styles.icon} />
+            <Text style={{
+    fontSize: 36,
+    fontWeight: "bold",
+    color: "#454545",
+    alignSelf: "center",
+    marginBottom: -2,}}>{completedWorkouts}</Text>
           </ProgressCircle>
           <Text style={styles.goalText}>Workouts</Text>
         </View>
 
         <View style={styles.circleContainer}>
           <ProgressCircle
-            percent={36} // Use a different percentage for the second circle if needed
+            percent={86} // Use a different percentage for the second circle if needed
             radius={60}
             borderWidth={8}
-            color="white" // Light blue for progress circle
-            shadowColor="#8f8f8f"
-            bgColor="#1678e0" // Light blue background
+            color="#dade8e" // Light blue for progress circle
+            shadowColor="#cccccc"
+            bgColor="white" // Light blue background
           >
-            <Text style={styles.number}>{totalWorkouts}</Text>
-            <Text style={{fontSize: 14, color: 'white', marginTop: -5,}}>Remaining</Text>
+          <FontAwesome5 name="shoe-prints" size={15} color="#dade8e" style={styles.icon} />
+            <Text style={{
+    fontSize: 36,
+    fontWeight: "bold",
+    color: "#454545",
+    alignSelf: "center",
+    marginBottom: -2,}}>{totalWorkouts}</Text>
           </ProgressCircle>
-          <Text style={styles.goalText}>Goal</Text>
+          <Text style={styles.goalText}>Runs</Text>
         </View>
       </View>
     </View>
@@ -57,7 +67,8 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#1678e0", // Light blue background
+    backgroundColor: "#a8eeff", // Light blue background
+    height: 300,
     borderRadius: 30,
     padding: 20,
     marginBottom: 20,
@@ -66,19 +77,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 5,
-  },
-  number: {
-    marginTop: -5,
-    fontSize: 36,
-    fontWeight: "bold",
-    color: "white",
-    alignSelf: "center",
-    marginBottom: 5,
+    marginBottom: 25,
   },
   statsText: {
-    fontSize: 16,
-    color: "white",
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: "black",
   },
   progressContainer: {
     flexDirection: "row",
@@ -87,13 +91,26 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   circleContainer: {
+    backgroundColor: 'white',
+    borderRadius: 10,
+    padding: 10,
+    paddingVertical: 15,
     alignItems: "center",
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 10,
+    elevation: 5, // For Android shadow
   },
   goalText: {
+    marginTop: 10,
     fontSize: 14,
-    color: "white",
+    color: "black",
     textAlign: "center",
-    marginTop: 5,
+    marginBottom: 5,
+  },
+  icon: {
+    marginBottom: 5,
   },
   percentageText: {
     fontSize: 14,

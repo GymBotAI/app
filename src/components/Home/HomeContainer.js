@@ -1,18 +1,20 @@
 // Example usage
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, ScrollView, StyleSheet } from "react-native";
 import TalkToGymBotSection from "./TalkToGymBot"; // Import your existing component
 import WorkoutStats from "./WorkoutStats"; // Import the new component
+import WorkoutList from "./WorkoutList";
 
 const HomeScreen = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <View style={{marginTop: 50, width: '90%',alignSelf: 'center'}}>
         <WorkoutStats completedWorkouts={20} totalWorkouts={30} goalPercentage={66} />
       </View>
-      {/* <TalkToGymBotSection /> */}
+      <TalkToGymBotSection />
+      <WorkoutList />
       {/* Other components and content go here */}
-    </View>
+    </ScrollView>
   );
 };
 
