@@ -12,30 +12,26 @@ export default function Option({ question, value, setValue }) {
   const [name, setName] = useState("Daniel");
   const [showPicker, setShowPicker] = useState(false);
 
-  const show = () => {
-    setShowPicker(true);
-  };
-
-  const hide = () => {
-    setShowPicker(false);
+  const changeVis = () => {
+    setShowPicker(!showPicker);
   };
 
   const handleConfirm = (selectedDate) => {
     setValue(selectedDate);
-    hide();
+    changeVis();
   };
 
   return (
     <View style={styles.container}>
-      <InputBox question={question} onPress={show} value={value.toLocaleDateString()}/>
-      <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
+      <InputBox question={question} onPress={changeVis} value={value.toLocaleDateString()}/>
+      <Modal isVisible={showPicker} onBackdropPress={changeVis} style={styles.modal}>
         <View style={styles.modalContainer}>
           <DateTimePickerModal
             isVisible={showPicker}
             mode="date"
             date={value}
             onConfirm={handleConfirm}
-            onCancel={hide}
+            onCancel={changeVis}
             minimumDate={new Date(1900, 0, 1)} // Replace with your minimum date
             maximumDate={new Date(2030, 0, 1)} // Replace with your maximum date (e.g., new Date() for today)
           />

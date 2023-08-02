@@ -17,7 +17,7 @@ export default function Option({ question, value, setValue }) {
 
   const handleSelectGender = (gender) => {
     setValue(gender);
-    hide();
+    changeVis();
   };
 
   return (
