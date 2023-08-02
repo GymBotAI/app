@@ -1,5 +1,7 @@
 import React from "react";
-import { View, TouchableOpacity, Text, Image, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { Image } from "expo-image";
+
 
 const navImages = {
   Home: require("../../assets/GymBotLogo.jpg"),
