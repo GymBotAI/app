@@ -32,7 +32,7 @@ export default function Option({ question, value, setValue }) {
 
   return (
     <View style={styles.container}>
-      <InputBox question={question} show={show} value={value.toLocaleDateString()}/>
+      <InputBox question={question} onPress={show} value={value.toLocaleDateString()}/>
       <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
         <View style={styles.modalContainer}>
           <DateTimePickerModal

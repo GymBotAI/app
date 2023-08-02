@@ -12,9 +12,9 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { circularColour } from "../../styles";
 import { MaterialIcons } from '@expo/vector-icons'; 
 
-export default function Option({ question, show, value }) {
+export default function Option({ question, onPress, value }) {
   return (
-      <TouchableOpacity style={styles.item} onPress={show}>
+      <TouchableOpacity style={styles.item} onPress={onPress}>
         <Text style={styles.itemText}>{question}</Text>
         <View style={styles.itemLeft}>
           <TextInput
