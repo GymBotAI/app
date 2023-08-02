@@ -48,7 +48,6 @@ export default function ChatMessages({
       } else {
         Goals[i] = "How do I " + Goals[i] + "?";
       }
-      console.log(Goals[i]);
     }
 
     const showListener = Keyboard.addListener(
