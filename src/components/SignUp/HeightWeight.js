@@ -1,5 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
-import { TextInput, View, StyleSheet, TouchableOpacity, Text } from "react-native";
+import {
+  TextInput,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+} from "react-native";
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
 
@@ -11,7 +17,18 @@ function generateWeightOptions(start, end, step) {
   return options;
 }
 
-export default function HeightWeight({ value, setValue, unit, setUnit, setShow, lower, upper, met, imp,conversion }) {
+export default function HeightWeight({
+  value,
+  setValue,
+  unit,
+  setUnit,
+  setShow,
+  lower,
+  upper,
+  met,
+  imp,
+  conversion,
+}) {
   const weightOptions = generateWeightOptions(lower, upper, 1); // Generate weight options from 0 to 300 in increments of 1
   const [showPicker, setShowPicker] = useState(false);
   const [selectedWeight, setSelectedWeight] = useState("");
@@ -28,18 +45,18 @@ export default function HeightWeight({ value, setValue, unit, setUnit, setShow, 
     setShow(true);
   };
 
-    handleMetChange = () => {
-      console.log("This is happening!")
-      let roundedWeight = selectedWeight
-      if (roundedWeight === "") {
-        roundedWeight = 30
-      }
-      console.log(roundedWeight)
+  handleMetChange = () => {
+    console.log("This is happening!");
+    let roundedWeight = selectedWeight;
+    if (roundedWeight === "") {
+      roundedWeight = 30;
+    }
+    console.log(roundedWeight);
     if (selectedUnit === met) {
-      setSelectedUnit(imp)
+      setSelectedUnit(imp);
       roundedWeight = Math.round(roundedWeight * conversion).toString();
     } else {
-      setSelectedUnit(met)
+      setSelectedUnit(met);
       roundedWeight = Math.round(roundedWeight / conversion).toString();
     }
     setSelectedWeight(roundedWeight);
@@ -47,18 +64,21 @@ export default function HeightWeight({ value, setValue, unit, setUnit, setShow, 
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity onPress={changeVisibility} style={{paddingTop: 5, paddingBottom: 10}}>
-      <View  style={styles.inputContainer}>
-        <TextInput
-          style={styles.input}
-          editable={false}
-          value={value}
-        />
-        <Text style={styles.unitText}>{unit}</Text>
+      <TouchableOpacity
+        onPress={changeVisibility}
+        style={{ paddingTop: 5, paddingBottom: 10 }}
+      >
+        <View style={styles.inputContainer}>
+          <TextInput style={styles.input} editable={false} value={value} />
+          <Text style={styles.unitText}>{unit}</Text>
         </View>
       </TouchableOpacity>
 
-      <Modal isVisible={showPicker} onBackdropPress={changeVisibility} style={styles.modal}>
+      <Modal
+        isVisible={showPicker}
+        onBackdropPress={changeVisibility}
+        style={styles.modal}
+      >
         <View style={styles.modalContainer}>
           <Picker
             selectedValue={selectedWeight}
@@ -114,18 +134,18 @@ export default function HeightWeight({ value, setValue, unit, setUnit, setShow, 
       </Modal>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'top', // Vertically centers the input within the container
+    justifyContent: "top", // Vertically centers the input within the container
   },
   inputContainer: {
-    flexDirection: 'row', // Puts the input and unit side by side horizontally
-    alignItems: 'center', // Centers the input and unit vertically within the container
+    flexDirection: "row", // Puts the input and unit side by side horizontally
+    alignItems: "center", // Centers the input and unit vertically within the container
     borderBottomWidth: 2,
-    borderBottomColor: 'black',
+    borderBottomColor: "black",
     marginHorizontal: 35,
     marginTop: 40,
     paddingBottom: 5, // Adds padding to the bottom to avoid overlapping with the unit text

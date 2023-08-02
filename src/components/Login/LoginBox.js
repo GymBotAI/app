@@ -7,12 +7,7 @@ import {
   StyleSheet,
 } from "react-native";
 
-export default function LoginBox({
-  onLogin,
-  onCreateAccount,
-  onContinueAsGuest,
-  navigation,
-}) {
+export default function LoginBox({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 

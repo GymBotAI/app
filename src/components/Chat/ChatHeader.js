@@ -55,14 +55,13 @@ export default function MainHeader({ text, minitext }) {
             height: 60, // Adjust the size as needed
             borderRadius: 30,
             borderWidth: 1,
-            borderColor: 'white',
+            borderColor: "white",
             marginTop: 2,
             marginLeft: 30,
             marginRight: 8,
           }}
         />
-        <View style={{ marginLeft: 10,
-              marginBottom: -5, }}>
+        <View style={{ marginLeft: 10, marginBottom: -5 }}>
           <Text
             style={{
               fontSize: 52,

@@ -83,7 +83,6 @@ export default function Question({ navigation }) {
   }
 
   if (prompt === "Welcome to GymBot! To get started, tell us your name") {
-    
     // inputOption = <HeightWeightContainer onChange={setInputFilled} />;
     inputOption = <Name onNameChange={setInputFilled} />;
   }

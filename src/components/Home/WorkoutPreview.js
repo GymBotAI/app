@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
 
-const DailyWorkout = ({ }) => {
+const DailyWorkout = ({}) => {
   return (
     <TouchableOpacity style={styles.container}>
       <View style={styles.topSection}>
@@ -17,9 +17,18 @@ const DailyWorkout = ({ }) => {
         />
       </View>
 
-      <View style={{width: '100%', flexDirection: 'row', marginTop: 10, padding: 10}}>
-        <Text style={{fontSize: 18, fontWeight: "bold"}}>Cardio Blast - </Text>
-        <Text style={{fontSize: 16, marginTop: 1.7,}}>30-45 Minutes</Text>
+      <View
+        style={{
+          width: "100%",
+          flexDirection: "row",
+          marginTop: 10,
+          padding: 10,
+        }}
+      >
+        <Text style={{ fontSize: 18, fontWeight: "bold" }}>
+          Cardio Blast -{" "}
+        </Text>
+        <Text style={{ fontSize: 16, marginTop: 1.7 }}>30-45 Minutes</Text>
       </View>
     </TouchableOpacity>
   );
@@ -51,7 +60,7 @@ const styles = StyleSheet.create({
   },
   bottomSection: {
     width: "100%",
-    height: '50%',
+    height: "50%",
   },
   backgroundImage: {
     top: 0,

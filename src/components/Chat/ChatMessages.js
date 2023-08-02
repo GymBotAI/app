@@ -6,7 +6,7 @@ import * as Device from "expo-device";
 import ChatMessage from "./ChatMessage";
 import Prompts from "./Prompts";
 
-import {Goals} from "../SignUp/GoalSelect"
+import { Goals } from "../SignUp/GoalSelect";
 
 export default function ChatMessages({
   messages,
@@ -37,19 +37,18 @@ export default function ChatMessages({
   };
 
   useEffect(() => {
-
-    for (let i=0; i < Goals.length; i++) {
-      Goals[i] = Goals[i].toLowerCase()
+    for (let i = 0; i < Goals.length; i++) {
+      Goals[i] = Goals[i].toLowerCase();
       if (Goals[i] === "better abs") {
-        Goals[i] = ("How do I get "+Goals[i]+"?")
+        Goals[i] = "How do I get " + Goals[i] + "?";
       } else if (Goals[i] === "do a pull up") {
-        Goals[i] = ("How can I "+Goals[i]+"?")
+        Goals[i] = "How can I " + Goals[i] + "?";
       } else if (Goals[i] === "other") {
-        Goals[i] = ("")
+        Goals[i] = "";
       } else {
-        Goals[i] = ("How do I "+Goals[i]+"?")
+        Goals[i] = "How do I " + Goals[i] + "?";
       }
-      console.log(Goals[i])
+      console.log(Goals[i]);
     }
 
     const showListener = Keyboard.addListener(
@@ -76,7 +75,7 @@ export default function ChatMessages({
 
   useLayoutEffect(() => {
     // if (maxScrollPosition + 125 <= scrollPositionRef.current) {
-      scrollViewRef.current?.scrollToEnd({ animated: false });
+    scrollViewRef.current?.scrollToEnd({ animated: false });
     // }
   }, [messages]);
 

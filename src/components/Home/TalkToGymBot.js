@@ -9,10 +9,16 @@ const TalkToGymBotSection = () => {
       <View style={styles.textContainer}>
         <View style={styles.titleWrapper}>
           <Text style={styles.titleText}>Use GymBot</Text>
-          <AntDesign name="message1" size={24} color="white" style={styles.icon} />
+          <AntDesign
+            name="message1"
+            size={24}
+            color="white"
+            style={styles.icon}
+          />
         </View>
         <Text style={styles.subtitleText}>
-          Our specialized AI will help you craft personalized workouts that unlock your true potential
+          Our specialized AI will help you craft personalized workouts that
+          unlock your true potential
         </Text>
       </View>
 
@@ -27,7 +33,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#1F4E79",
     width: "90%",
-    alignSelf: 'center',
+    alignSelf: "center",
     borderRadius: 20,
     padding: 20,
     margin: 10,
@@ -63,10 +69,10 @@ const styles = StyleSheet.create({
   button: {
     alignItems: "center",
     width: 120,
-    alignSelf: 'center',
+    alignSelf: "center",
     paddingVertical: 10,
     borderRadius: 20,
-    backgroundColor: '#4bb7de'
+    backgroundColor: "#4bb7de",
   },
   buttonText: {
     fontSize: 18,

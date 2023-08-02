@@ -6,8 +6,18 @@ import ProgressCircle from "react-native-progress-circle";
 const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
   const getCurrentMonth = () => {
     const months = [
-      "January", "February", "March", "April", "May", "June",
-      "July", "August", "September", "October", "November", "December"
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
     ];
     const currentDate = new Date();
     return months[currentDate.getMonth()];
@@ -30,13 +40,23 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
             shadowColor="#cccccc"
             bgColor="white" // Light blue background
           >
-          <FontAwesome5 name="dumbbell" size={15} color="#08c9ff" style={styles.icon} />
-            <Text style={{
-    fontSize: 36,
-    fontWeight: "bold",
-    color: "#454545",
-    alignSelf: "center",
-    marginBottom: -2,}}>{completedWorkouts}</Text>
+            <FontAwesome5
+              name="dumbbell"
+              size={15}
+              color="#08c9ff"
+              style={styles.icon}
+            />
+            <Text
+              style={{
+                fontSize: 36,
+                fontWeight: "bold",
+                color: "#454545",
+                alignSelf: "center",
+                marginBottom: -2,
+              }}
+            >
+              {completedWorkouts}
+            </Text>
           </ProgressCircle>
           <Text style={styles.goalText}>Workouts</Text>
         </View>
@@ -50,13 +70,23 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
             shadowColor="#cccccc"
             bgColor="white" // Light blue background
           >
-          <FontAwesome5 name="shoe-prints" size={15} color="#dade8e" style={styles.icon} />
-            <Text style={{
-    fontSize: 36,
-    fontWeight: "bold",
-    color: "#454545",
-    alignSelf: "center",
-    marginBottom: -2,}}>{totalWorkouts}</Text>
+            <FontAwesome5
+              name="shoe-prints"
+              size={15}
+              color="#dade8e"
+              style={styles.icon}
+            />
+            <Text
+              style={{
+                fontSize: 36,
+                fontWeight: "bold",
+                color: "#454545",
+                alignSelf: "center",
+                marginBottom: -2,
+              }}
+            >
+              {totalWorkouts}
+            </Text>
           </ProgressCircle>
           <Text style={styles.goalText}>Runs</Text>
         </View>
@@ -81,7 +111,7 @@ const styles = StyleSheet.create({
   },
   statsText: {
     fontSize: 24,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     color: "black",
   },
   progressContainer: {
@@ -91,7 +121,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   circleContainer: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     borderRadius: 10,
     padding: 10,
     paddingVertical: 15,

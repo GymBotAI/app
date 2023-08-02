@@ -20,7 +20,7 @@ export default function Option({
   lower,
   met,
   imp,
-  conversion
+  conversion,
 }) {
   const [showPicker, setShowPicker] = useState(false);
   const [weightUnit, setWeightUnit] = useState(unit);
@@ -55,20 +55,20 @@ export default function Option({
   }
 
   handleUnitChange = () => {
-    console.log("This is happening!")
-    let roundedWeight = selectedWeight
+    console.log("This is happening!");
+    let roundedWeight = selectedWeight;
     if (roundedWeight === "") {
-      roundedWeight = 30
+      roundedWeight = 30;
     }
-    console.log(roundedWeight)
-  if (selectedUnit === met) {
-    setSelectedUnit(imp)
-    roundedWeight = Math.round(roundedWeight * conversion).toString();
-  } else {
-    setSelectedUnit(met)
-    roundedWeight = Math.round(roundedWeight / conversion).toString();
-  }
-  setSelectedWeight(roundedWeight);
+    console.log(roundedWeight);
+    if (selectedUnit === met) {
+      setSelectedUnit(imp);
+      roundedWeight = Math.round(roundedWeight * conversion).toString();
+    } else {
+      setSelectedUnit(met);
+      roundedWeight = Math.round(roundedWeight / conversion).toString();
+    }
+    setSelectedWeight(roundedWeight);
   };
 
   return (

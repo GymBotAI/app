@@ -1,28 +1,28 @@
 // chatGptService.js
 
-import axios from 'axios';
+import axios from "axios";
 
-const apiKey = 'YOUR_API_KEY'; // Replace with your actual API key
-const chatGptEndpoint = 'https://api.openai.com/v1/chat/completions';
+const apiKey = "YOUR_API_KEY"; // Replace with your actual API key
+const chatGptEndpoint = "https://api.openai.com/v1/chat/completions";
 
 async function getChatGptResponse(userMessage, chatHistory = []) {
   try {
     const messages = [
-      { role: 'system', content: 'You are GymBot, an AI personal trainer.' },
+      { role: "system", content: "You are GymBot, an AI personal trainer." },
       ...chatHistory,
-      { role: 'user', content: userMessage },
+      { role: "user", content: userMessage },
     ];
 
     const response = await axios.post(
       chatGptEndpoint,
       {
-        model: 'gpt-3.5-turbo',
+        model: "gpt-3.5-turbo",
         messages: messages,
       },
       {
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${apiKey}`,
         },
       }
     );
@@ -30,8 +30,8 @@ async function getChatGptResponse(userMessage, chatHistory = []) {
     const chatGptReply = response.data.choices[0].message.content;
     return chatGptReply;
   } catch (error) {
-    console.error('Error calling ChatGPT API:', error);
-    return 'Sorry, an error occurred.';
+    console.error("Error calling ChatGPT API:", error);
+    return "Sorry, an error occurred.";
   }
 }
 

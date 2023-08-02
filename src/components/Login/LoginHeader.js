@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { Image } from 'expo-image';
+import { Image } from "expo-image";
 
 export default function LoginHeader({}) {
   return (
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     // borderRadius: 30, // Half the width and height of the logo image
     shadowColor: "black",
     shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: .2,
+    shadowOpacity: 0.2,
     shadowRadius: 4,
     elevation: 5,
   },

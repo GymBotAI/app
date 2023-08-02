@@ -1,5 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Text, TextInput, View, TouchableOpacity, Image, Keyboard } from "react-native";
+import {
+  Text,
+  TextInput,
+  View,
+  TouchableOpacity,
+  Image,
+  Keyboard,
+} from "react-native";
 import * as Font from "expo-font";
 import { AntDesign } from "@expo/vector-icons";
 

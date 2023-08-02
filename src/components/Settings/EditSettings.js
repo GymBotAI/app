@@ -59,16 +59,21 @@ export default function Settings({ navigation }) {
         value={weight}
         setValue={setWeight}
         unit={wUnit}
-        upper={maxWeight} lower={minWeight}
-        met="kg" imp="lb" conversion={2.20462262185}
+        upper={maxWeight}
+        lower={minWeight}
+        met="kg"
+        imp="lb"
+        conversion={2.20462262185}
       />
       <WeightOption
         question="Height"
         value={height}
         setValue={setHeight}
         unit={hUnit}
-        upper={maxHeight} lower={minHeight}
-        met="cm" imp="in"
+        upper={maxHeight}
+        lower={minHeight}
+        met="cm"
+        imp="in"
         conversion={0.393701}
       />
     </Pressable>

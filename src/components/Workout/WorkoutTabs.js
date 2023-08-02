@@ -1,6 +1,6 @@
 import React from "react";
 import { TouchableOpacity, Text, StyleSheet, View } from "react-native";
-import {circularColour} from "../../styles"
+import { circularColour } from "../../styles";
 import { COLORS } from "@flyerhq/react-native-chat-ui";
 
 const Workouts = (props) => {

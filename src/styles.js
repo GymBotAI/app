@@ -5,10 +5,10 @@ const white = "#FFFFFF";
 const fontSize = 16;
 const font = "Georgia";
 const circularColour = "#55BCF6";
-const minHeight = 40
-const maxHeight = 250
-const minWeight = 30
-const maxWeight = 500
+const minHeight = 40;
+const maxHeight = 250;
+const minWeight = 30;
+const maxWeight = 500;
 
 export {
   bgPrimary,
@@ -21,5 +21,5 @@ export {
   minHeight,
   maxHeight,
   minWeight,
-  maxWeight
+  maxWeight,
 };

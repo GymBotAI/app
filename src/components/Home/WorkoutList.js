@@ -1,5 +1,11 @@
 import React from "react";
-import { View, ScrollView, Text, StyleSheet, TouchableOpacity } from "react-native";
+import {
+  View,
+  ScrollView,
+  Text,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
 
 const WorkoutList = () => {
   const workoutsData = [
@@ -42,7 +48,7 @@ const WorkoutList = () => {
   const handleWorkoutPress = (workout) => {
     // Implement the navigation to the details of the selected workout here
     console.log("Selected Workout:", workout.title);
-  }; 
+  };
 
   const handleViewAllPress = () => {
     // Implement the action for the "View All" button here
@@ -50,13 +56,16 @@ const WorkoutList = () => {
   };
 
   return (
-    <View style={{marginLeft: 15,}}>
-    <View style={styles.headerContainer}>
-      <Text style={styles.sectionTitle}>Explore Workouts</Text>
-      <TouchableOpacity onPress={handleViewAllPress} style={{padding: 8, paddingTop: 12}}>
-        <Text style={styles.viewAllButton}>View All</Text>
-      </TouchableOpacity>
-    </View>
+    <View style={{ marginLeft: 15 }}>
+      <View style={styles.headerContainer}>
+        <Text style={styles.sectionTitle}>Explore Workouts</Text>
+        <TouchableOpacity
+          onPress={handleViewAllPress}
+          style={{ padding: 8, paddingTop: 12 }}
+        >
+          <Text style={styles.viewAllButton}>View All</Text>
+        </TouchableOpacity>
+      </View>
 
       <ScrollView
         horizontal
@@ -64,7 +73,7 @@ const WorkoutList = () => {
         decelerationRate={0.1}
         snapToInterval={itemWidth + interval}
         snapToAlignment="start"
-        style={{paddingBottom: 10}}
+        style={{ paddingBottom: 10 }}
       >
         <View style={styles.container}>
           {workoutsData.map((workout) => (
@@ -74,7 +83,11 @@ const WorkoutList = () => {
               onPress={() => handleWorkoutPress(workout)}
             >
               <View style={styles.titleSection}>
-                <Text numberOfLines={1} ellipsizeMode="tail" style={styles.workoutTitle}>
+                <Text
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                  style={styles.workoutTitle}
+                >
                   {workout.title}
                 </Text>
               </View>

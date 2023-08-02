@@ -8,8 +8,12 @@ import WorkoutList from "./WorkoutList";
 const HomeScreen = () => {
   return (
     <ScrollView style={styles.container}>
-      <View style={{marginTop: 50, width: '90%',alignSelf: 'center'}}>
-        <WorkoutStats completedWorkouts={20} totalWorkouts={30} goalPercentage={66} />
+      <View style={{ marginTop: 50, width: "90%", alignSelf: "center" }}>
+        <WorkoutStats
+          completedWorkouts={20}
+          totalWorkouts={30}
+          goalPercentage={66}
+        />
       </View>
       <TalkToGymBotSection />
       <WorkoutList />

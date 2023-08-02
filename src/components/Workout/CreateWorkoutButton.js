@@ -1,14 +1,22 @@
 import React from "react";
-import { View, TouchableOpacity, Text, ImageBackground, StyleSheet } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  ImageBackground,
+  StyleSheet,
+} from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 
 export default function CreateWorkoutButton({ handleAddWorkout }) {
   return (
     <View style={styles.container}>
-      <LinearGradient colors={["#1877f2", "#82b7ff"]} style={styles.blueRectangle}>
-      
-      <ImageBackground
+      <LinearGradient
+        colors={["#1877f2", "#82b7ff"]}
+        style={styles.blueRectangle}
+      >
+        <ImageBackground
           source={require("../../../assets/dumbellbg.webp")}
           resizeMode="cover"
           style={{
@@ -17,7 +25,7 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
             marginLeft: -15,
             marginBottom: -170,
             opacity: 0.2,
-            blur: '20',
+            blur: "20",
           }}
         />
         <View style={styles.contentContainer}>
@@ -48,7 +56,7 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
 
 const styles = StyleSheet.create({
   container: {
-    alignSelf: 'center',
+    alignSelf: "center",
     borderRadius: 15,
     width: "95%",
     height: 200,
@@ -56,9 +64,9 @@ const styles = StyleSheet.create({
   },
   blueRectangle: {
     borderRadius: 15,
-    width: '100%',
-    height: '100%',
-    justifyContent: 'flex-end', // Move content to the bottom
+    width: "100%",
+    height: "100%",
+    justifyContent: "flex-end", // Move content to the bottom
     padding: 15,
   },
   contentContainer: {
@@ -77,11 +85,11 @@ const styles = StyleSheet.create({
   },
   buttonsContainer: {
     marginBottom: -30,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
   designButtonContainer: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     width: "48%", // Adjust the button widths
     borderRadius: 5,
     paddingVertical: 10,
@@ -93,7 +101,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   createButtonContainer: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     width: "48%", // Adjust the button widths
     borderRadius: 5,
     paddingVertical: 10,

@@ -11,9 +11,9 @@ import {
 } from "react-native";
 import Workouts from "./WorkoutTabs";
 import AddWorkoutScreen from "./AddWorkoutScreen";
-import CreateWorkoutButton from "./CreateWorkoutButton"
-import WorkoutList from "./WorkoutList"
-import {circularColour} from "../../styles"
+import CreateWorkoutButton from "./CreateWorkoutButton";
+import WorkoutList from "./WorkoutList";
+import { circularColour } from "../../styles";
 
 export default function ViewWorkouts({ navigation }) {
   const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
@@ -34,21 +34,20 @@ export default function ViewWorkouts({ navigation }) {
   const handleWorkoutsPress = (index) => {
     const updatedWorkouts = [...selectedWorkouts];
     const currentColor = updatedWorkouts[index].circleColor;
-    updatedWorkouts[index].circleColor = currentColor === 'green' ? circularColour : 'green';
+    updatedWorkouts[index].circleColor =
+      currentColor === "green" ? circularColour : "green";
     setSelectedWorkouts(updatedWorkouts);
   };
 
   return (
     // <ScrollView contentContainerStyle={styles.scrollContainer}>
-      <View style={styles.container}>
-            
+    <View style={styles.container}>
       {!showAddWorkoutScreen && (
-        <CreateWorkoutButton handleAddWorkout={handleAddWorkout}/>
+        <CreateWorkoutButton handleAddWorkout={handleAddWorkout} />
       )}
-        {!showAddWorkoutScreen && (
-          <View style={styles.tasksWrapper}>
-
-            {/* {selectedWorkouts.map((workout, index) => (
+      {!showAddWorkoutScreen && (
+        <View style={styles.tasksWrapper}>
+          {/* {selectedWorkouts.map((workout, index) => (
               <Workouts
                 key={index}
                 color={workout.circleColor || circularColour}
@@ -58,18 +57,16 @@ export default function ViewWorkouts({ navigation }) {
                 circleColor={workout.circleColor || circularColour} // Pass the circleColor prop
               />
             ))} */}
-            <WorkoutList/>
-
-
-          </View>
-        )}
-        {showAddWorkoutScreen && (
-          <AddWorkoutScreen
-            onClose={handleAddWorkoutScreenClose}
-            onWorkoutSelect={handleWorkoutSelect}
-          />
-        )}
-      </View>
+          <WorkoutList />
+        </View>
+      )}
+      {showAddWorkoutScreen && (
+        <AddWorkoutScreen
+          onClose={handleAddWorkoutScreenClose}
+          onWorkoutSelect={handleWorkoutSelect}
+        />
+      )}
+    </View>
     // </ScrollView>
   );
 }
