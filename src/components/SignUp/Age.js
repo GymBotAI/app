@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { TextInput, View, StyleSheet, Pressable } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import {minDate, maxDate} from "../../styles";
 
 export let dateValue = new Date(); // Initialize ageValue as an empty string
 
@@ -24,10 +25,6 @@ export default function Age({ onAgeChange }) {
     }
   };
 
-  // Calculate the maximum date (today's date minus 12 years)
-  const maxDate = new Date();
-  maxDate.setFullYear(maxDate.getFullYear() - 12);
-
   return (
     <View style={{ flexGrow: 1, overflow: "auto" }}>
       <Pressable onPress={toggleShow}>
@@ -46,7 +43,7 @@ export default function Age({ onAgeChange }) {
         display="spinner"
         value={date}
         onChange={onChange}
-        minimumDate={new Date(1900, 0, 1)} // Replace with your minimum date
+        minimumDate={minDate} // Replace with your minimum date
         maximumDate={maxDate} // Set the maximum date to today's date minus 12 years
       />
     </View>

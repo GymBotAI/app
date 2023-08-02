@@ -6,6 +6,7 @@ import {
 import Modal from "react-native-modal";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import InputBox from "./InputBox"
+import {minDate, maxDate} from "../../styles";
 
 
 export default function Option({ question, value, setValue }) {
@@ -32,8 +33,8 @@ export default function Option({ question, value, setValue }) {
             date={value}
             onConfirm={handleConfirm}
             onCancel={changeVis}
-            minimumDate={new Date(1900, 0, 1)} // Replace with your minimum date
-            maximumDate={new Date(2030, 0, 1)} // Replace with your maximum date (e.g., new Date() for today)
+            minimumDate={minDate} // Replace with your minimum date
+            maximumDate={maxDate} // Replace with your maximum date (e.g., new Date() for today)
           />
         </View>
       </Modal>
