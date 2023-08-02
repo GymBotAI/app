@@ -1,9 +1,9 @@
 import React from "react";
 import { View, ScrollView, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import TalkToGymBotSection from "./TalkToGymBot"; // Import your existing component
 import WorkoutStats from "./WorkoutStats"; // Import the new component
 import WorkoutList from "./WorkoutList";
+import { Image } from "expo-image";
 
 import {Name} from "../SignUp/Name"
 
@@ -15,6 +15,9 @@ const HomeScreen = ( {navigation} ) => {
         <Text style={styles.greetingText}>Hello, John{Name}</Text>
         <TouchableOpacity onPress={() => console.log("Home Icon pressed!")}>
           <FontAwesome5 name="home" size={28} color="#333" />
+          {/* <Image source={require("../../../assets/GymBotLogo.jpg")} style={{
+    width: 50, height: 50, borderRadius: 22}}/> */}
+
         </TouchableOpacity>
       </View>
 
@@ -26,7 +29,7 @@ const HomeScreen = ( {navigation} ) => {
         />
 
       </View>
-      <TalkToGymBotSection navigation={navigation}/>
+      {/* <TalkToGymBotSection navigation={navigation}/> */}
       
       <WorkoutList />
     </ScrollView>

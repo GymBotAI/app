@@ -15,7 +15,7 @@ const TalkToGymBotSection = ({navigation}) => {
           <AntDesign
             name="message1"
             size={24}
-            color="white"
+            color="#F5F5F5"
             style={styles.icon}
           />
         </View>
@@ -26,7 +26,7 @@ const TalkToGymBotSection = ({navigation}) => {
       </View>
 
       <TouchableOpacity style={styles.button} onPress={onPress}>
-        <Text style={styles.buttonText}>Talk</Text>
+        <Text style={styles.buttonText}>Design With GymBot</Text>
       </TouchableOpacity>
     </View>
   );
@@ -34,12 +34,12 @@ const TalkToGymBotSection = ({navigation}) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#1F4E79",
-    width: "90%",
+    backgroundColor: "#1877f2",
+    width: "102%",
     alignSelf: "center",
     borderRadius: 20,
     padding: 20,
-    margin: 10,
+    marginTop: 20,
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -71,16 +71,21 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
-    width: 120,
+    paddingHorizontal: 20,
     alignSelf: "center",
     paddingVertical: 10,
     borderRadius: 20,
-    backgroundColor: "#4bb7de",
+    backgroundColor: "#F5F5F5",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 2,
   },
   buttonText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "white",
+    color: "black",
   },
 });
 

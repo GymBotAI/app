@@ -14,6 +14,7 @@ import AddWorkoutScreen from "./AddWorkoutScreen";
 import CreateWorkoutButton from "./CreateWorkoutButton";
 import WorkoutList from "./WorkoutList";
 import { circularColour } from "../../styles";
+import TalkToGymBotSection from "./TalkToGymBot";
 
 export default function ViewWorkouts({ navigation }) {
   const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
@@ -47,16 +48,7 @@ export default function ViewWorkouts({ navigation }) {
       )}
       {!showAddWorkoutScreen && (
         <View style={styles.tasksWrapper}>
-          {/* {selectedWorkouts.map((workout, index) => (
-              <Workouts
-                key={index}
-                color={workout.circleColor || circularColour}
-                title={workout.title}
-                text={workout.text}
-                onPress={() => handleWorkoutsPress(index)}
-                circleColor={workout.circleColor || circularColour} // Pass the circleColor prop
-              />
-            ))} */}
+        <TalkToGymBotSection/>
           <WorkoutList />
         </View>
       )}

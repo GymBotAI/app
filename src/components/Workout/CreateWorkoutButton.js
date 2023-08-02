@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
   container: {
     alignSelf: "center",
     borderRadius: 15,
-    width: "95%",
+    width: "92%",
     height: 200,
     overflow: "hidden", // Clip the inner content to avoid overflow issues
   },

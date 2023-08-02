@@ -36,21 +36,21 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
             percent={69}
             radius={60}
             borderWidth={8}
-            color="#08c9ff" // Light blue for progress circle
+            color="#8ede99" // Light blue for progress circle
             shadowColor="#cccccc"
-            bgColor="white" // Light blue background
+            bgColor="#F5F5F5" // Light blue background
           >
             <FontAwesome5
               name="dumbbell"
               size={15}
-              color="#08c9ff"
+              color="#8ede99"
               style={styles.icon}
             />
             <Text
               style={{
                 fontSize: 36,
                 fontWeight: "bold",
-                color: "#454545",
+                color: "#2e2e2e",
                 alignSelf: "center",
                 marginBottom: -2,
               }}
@@ -66,21 +66,21 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
             percent={86} // Use a different percentage for the second circle if needed
             radius={60}
             borderWidth={8}
-            color="#dade8e" // Light blue for progress circle
+            color="#8ed9de" // Light blue for progress circle
             shadowColor="#cccccc"
-            bgColor="white" // Light blue background
+            bgColor="#F5F5F5" // Light blue background
           >
             <FontAwesome5
               name="shoe-prints"
               size={15}
-              color="#dade8e"
+              color="#8ed9de"
               style={styles.icon}
             />
             <Text
               style={{
                 fontSize: 36,
                 fontWeight: "bold",
-                color: "#454545",
+                color: "#2e2e2e",
                 alignSelf: "center",
                 marginBottom: -2,
               }}
@@ -97,7 +97,7 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#a8eeff", // Light blue background
+    backgroundColor: "#b9ac9d", // Light blue background
     height: 300,
     borderRadius: 30,
     padding: 20,
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   circleContainer: {
-    backgroundColor: "white",
+    backgroundColor: "#F5F5F5",
     borderRadius: 10,
     padding: 10,
     paddingVertical: 15,
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
   goalText: {
     marginTop: 10,
     fontSize: 14,
-    color: "black",
+    color: "#2e2e2e",
     textAlign: "center",
     marginBottom: 5,
   },
