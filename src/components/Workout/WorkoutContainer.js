@@ -48,7 +48,7 @@ export default function ViewWorkouts({ navigation }) {
       )}
       {!showAddWorkoutScreen && (
         <View style={styles.tasksWrapper}>
-        <TalkToGymBotSection/>
+        <TalkToGymBotSection navigation={navigation}/>
           <WorkoutList />
         </View>
       )}

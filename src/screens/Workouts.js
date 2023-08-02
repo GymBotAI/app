@@ -14,7 +14,7 @@ export default function Workouts({ navigation }) {
     >
       <ScreenHeader title="Workouts" />
 
-      <ViewWorkouts />
+      <ViewWorkouts navigation={navigation} />
 
       <StatusBar barStyle="dark-content" />
 

@@ -31,7 +31,7 @@ const HomeScreen = ( {navigation} ) => {
       </View>
       {/* <TalkToGymBotSection navigation={navigation}/> */}
       
-      <WorkoutList />
+      <WorkoutList navigation={navigation}/>
     </ScrollView>
   );
 };
