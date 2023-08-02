@@ -43,7 +43,7 @@ export default function Question({ navigation }) {
       setPrompt("What are your goals?");
       inputOption = <Goals onGoalChange={setInputFilled} />;
     } else {
-      navigation.navigate("Chat");
+      navigation.navigate("Home");
     }
   };
 

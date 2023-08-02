@@ -12,7 +12,7 @@ export default function LoginBox({ navigation }) {
   const [password, setPassword] = useState("");
 
   const handleLogin = () => {
-    navigation.navigate("Chat");
+    navigation.navigate("Home");
   };
 
   const handleCreateAccount = () => {
