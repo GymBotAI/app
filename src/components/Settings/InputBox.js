@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import {
   View,
   Text,
+  Image,
   TouchableOpacity,
   StyleSheet,
   TextInput,
@@ -10,48 +11,24 @@ import Modal from "react-native-modal";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { circularColour } from "../../styles";
 import { MaterialIcons } from '@expo/vector-icons'; 
-import InputBox from "./InputBox"
 
-
-export default function Option({ question, value, setValue }) {
-  const [name, setName] = useState("Daniel");
-  const [showPicker, setShowPicker] = useState(false);
-
-  const show = () => {
-    setShowPicker(true);
-  };
-
-  const hide = () => {
-    setShowPicker(false);
-  };
-
-  const handleConfirm = (selectedDate) => {
-    setValue(selectedDate);
-    hide();
-  };
-
+export default function Option({ question, show, value }) {
   return (
-    <View style={styles.container}>
-      <InputBox question={question} show={show} value={value.toLocaleDateString()}/>
-      <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
-        <View style={styles.modalContainer}>
-          <DateTimePickerModal
-            isVisible={showPicker}
-            mode="date"
-            date={value}
-            onConfirm={handleConfirm}
-            onCancel={hide}
-            minimumDate={new Date(1900, 0, 1)} // Replace with your minimum date
-            maximumDate={new Date(2030, 0, 1)} // Replace with your maximum date (e.g., new Date() for today)
+      <TouchableOpacity style={styles.item} onPress={show}>
+        <Text style={styles.itemText}>{question}</Text>
+        <View style={styles.itemLeft}>
+          <TextInput
+            style={styles.current}
+            value={value}
+            editable={false}
           />
+          <MaterialIcons name="edit" size={26} color="black"/>
         </View>
-      </Modal>
-    </View>
+      </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
   item: {
     backgroundColor: "#FFF",
     padding: 15,
