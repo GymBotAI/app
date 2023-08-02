@@ -18,7 +18,7 @@ export default function Workouts({ navigation }) {
 
       <StatusBar barStyle="dark-content" />
 
-      <GymBotNavigation navigation={navigation} />
+      <GymBotNavigation navigation={navigation} currentScreen={"Workouts"} />
     </View>
   );
 }

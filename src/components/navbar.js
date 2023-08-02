@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-export default function GymBotNavigation({ navigation }) {
+export default function GymBotNavigation({ navigation, currentScreen }) {
   const navIcons = {
     Home: "home",
     Workouts: "dumbbell",
@@ -20,8 +20,15 @@ export default function GymBotNavigation({ navigation }) {
             navigation.navigate(name);
           }}
         >
-          <FontAwesome5 name={iconName} size={27} color="#333" style={styles.icon} />
-          <Text style={styles.buttonText}>{name}</Text>
+          <FontAwesome5
+            name={iconName}
+            size={27}
+            color={currentScreen === name ? "#1678e0" : "#333"}
+            style={styles.icon}
+          />
+          <Text style={[styles.buttonText, { color: currentScreen === name ? "#1678e0" : "#333" }]}>
+            {name}
+          </Text>
         </TouchableOpacity>
       ))}
     </View>
@@ -45,7 +52,6 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 10,
     fontWeight: "bold",
-    color: "#333",
   },
   icon: {
     marginBottom: 3,

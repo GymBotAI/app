@@ -16,7 +16,7 @@ export default function Home({ navigation }) {
 
       <StatusBar barStyle="dark-content" />
 
-      <GymBotNavigation navigation={navigation} />
+      <GymBotNavigation navigation={navigation} currentScreen={"Home"} />
     </View>
   );
 }

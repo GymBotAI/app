@@ -16,7 +16,7 @@ export default function HomeScreen({ navigation }) {
       <ChatContainer />
       <StatusBar barStyle="light-content" />
 
-      <GymBotNavigation navigation={navigation} />
+      <GymBotNavigation navigation={navigation} currentScreen={"Chat"} />
     </View>
   );
 }

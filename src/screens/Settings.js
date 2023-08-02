@@ -16,7 +16,7 @@ export default function Settings({ navigation }) {
       <EditSettings />
       <StatusBar barStyle="dark" />
 
-      <GymBotNavigation navigation={navigation} />
+      <GymBotNavigation navigation={navigation} currentScreen={"Settings"} />
     </View>
   );
 }
