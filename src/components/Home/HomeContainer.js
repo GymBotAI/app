@@ -7,7 +7,7 @@ import WorkoutList from "./WorkoutList";
 
 import {Name} from "../SignUp/Name"
 
-const HomeScreen = () => {
+const HomeScreen = ( {navigation} ) => {
   return (
     <ScrollView style={styles.container}>
       {/* Top Section */}
@@ -18,16 +18,17 @@ const HomeScreen = () => {
         </TouchableOpacity>
       </View>
 
-      <View style={{ marginTop: 30, width: "90%", alignSelf: "center" }}>
+      <View style={{ marginTop: 30, marginBottom: -10, width: "90%", alignSelf: "center" }}>
         <WorkoutStats
           completedWorkouts={20}
           totalWorkouts={30}
           goalPercentage={66}
         />
+
       </View>
-      <TalkToGymBotSection />
+      <TalkToGymBotSection navigation={navigation}/>
+      
       <WorkoutList />
-      {/* Other components and content go here */}
     </ScrollView>
   );
 };

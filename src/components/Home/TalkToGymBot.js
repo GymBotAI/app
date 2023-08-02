@@ -3,7 +3,10 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 
-const TalkToGymBotSection = () => {
+const TalkToGymBotSection = ({navigation}) => {
+  const onPress = () => {
+    navigation.navigate("Chat")
+  }
   return (
     <View style={styles.container}>
       <View style={styles.textContainer}>
@@ -22,7 +25,7 @@ const TalkToGymBotSection = () => {
         </Text>
       </View>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={onPress}>
         <Text style={styles.buttonText}>Talk</Text>
       </TouchableOpacity>
     </View>
