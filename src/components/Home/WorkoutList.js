@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   viewAllButton: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#ff8282", // Red text color
+    color: "#F29722", // Red text color
   },
   container: {
     flexDirection: "row",
@@ -140,7 +140,7 @@ const styles = StyleSheet.create({
   titleSection: {
     width: "100%",
     height: 40, // Set the desired height for the title section
-    backgroundColor: "#ff8282", // Red background color
+    backgroundColor: "#F29722", // Red background color
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     justifyContent: "center",

@@ -27,7 +27,7 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
     <View style={styles.container}>
       <View style={styles.topSection}>
         <Text style={styles.statsText}>{getCurrentMonth()} Activity</Text>
-        <FontAwesome5 name="calendar" size={30} color="black" />
+        <FontAwesome5 name="calendar" size={30} color="#F5F5F5" />
       </View>
 
       <View style={styles.progressContainer}>
@@ -97,7 +97,7 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#b9ac9d", // Light blue background
+    backgroundColor: "#227df2", // Light blue background
     height: 300,
     borderRadius: 30,
     padding: 20,
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
   statsText: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "black",
+    color: "#F5F5F5",
   },
   progressContainer: {
     flexDirection: "row",
