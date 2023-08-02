@@ -10,6 +10,7 @@ import {
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
 import { circularColour } from "../../styles";
+import { MaterialIcons } from '@expo/vector-icons'; 
 
 export default function Option({
   question,
@@ -82,11 +83,7 @@ export default function Option({
             value={`${value} ${weightUnit}`}
             editable={false}
           />
-          <Image
-            source={require("../../../assets/edit.png")}
-            style={{ width: 22, height: 22, marginLeft: 15 }}
-            resizeMode="contain"
-          />
+          <MaterialIcons name="edit" size={26} color="black" />
         </View>
       </TouchableOpacity>
       <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
@@ -170,6 +167,7 @@ const styles = StyleSheet.create({
   current: {
     color: "#1260de",
     fontSize: 16,
+    marginRight: 15,
   },
   circular: {
     width: 12,

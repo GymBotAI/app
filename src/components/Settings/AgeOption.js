@@ -10,6 +10,7 @@ import {
 import Modal from "react-native-modal";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { circularColour } from "../../styles";
+import { MaterialIcons } from '@expo/vector-icons'; 
 
 export default function Option({ question, value, setValue }) {
   const [name, setName] = useState("Daniel");
@@ -38,11 +39,7 @@ export default function Option({ question, value, setValue }) {
             value={value.toLocaleDateString()}
             editable={false}
           />
-          <Image
-            source={require("../../../assets/edit.png")}
-            style={{ width: 22, height: 22, marginLeft: 15 }}
-            resizeMode="contain"
-          />
+          <MaterialIcons name="edit" size={26} color="black"/>
         </View>
       </TouchableOpacity>
       <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
@@ -85,6 +82,7 @@ const styles = StyleSheet.create({
   current: {
     color: "#1260de",
     fontSize: 16,
+    marginRight: 15,
   },
   circular: {
     width: 12,
