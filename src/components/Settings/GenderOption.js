@@ -2,24 +2,17 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  Image,
   TouchableOpacity,
   StyleSheet,
-  TextInput,
 } from "react-native";
 import Modal from "react-native-modal";
-import { circularColour } from "../../styles";
-import { MaterialIcons } from '@expo/vector-icons'; 
+import InputBox from "./InputBox"
 
 export default function Option({ question, value, setValue }) {
   const [showPicker, setShowPicker] = useState(false);
 
-  const show = () => {
-    setShowPicker(true);
-  };
-
-  const hide = () => {
-    setShowPicker(false);
+  const changeVis = () => {
+    setShowPicker(!showPicker);
   };
 
   const handleSelectGender = (gender) => {
@@ -29,14 +22,9 @@ export default function Option({ question, value, setValue }) {
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.item} onPress={show}>
-        <Text style={styles.itemText}>{question}</Text>
-        <View style={styles.itemLeft}>
-          <TextInput style={styles.current} value={value} editable={false} />
-          <MaterialIcons name="edit" size={26} color="black" />
-        </View>
-      </TouchableOpacity>
-      <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
+      <InputBox question={question} onPress={changeVis} value={value}/>
+
+      <Modal isVisible={showPicker} onBackdropPress={changeVis} style={styles.modal}>
         <View style={styles.modalContainer}>
           <TouchableOpacity
             style={styles.genderOption}
@@ -69,37 +57,6 @@ export default function Option({ question, value, setValue }) {
 }
 
 const styles = StyleSheet.create({
-  container: {},
-  item: {
-    backgroundColor: "#FFF",
-    padding: 15,
-    borderRadius: 10,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 15,
-  },
-  itemText: {
-    maxWidth: "100%",
-    fontSize: 16,
-  },
-  itemLeft: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-  },
-  current: {
-    color: "#1260de",
-    fontSize: 16,
-    marginRight: 15,
-  },
-  circular: {
-    width: 12,
-    height: 12,
-    borderColor: circularColour,
-    borderWidth: 2,
-    borderRadius: 5,
-  },
   modal: {
     justifyContent: "flex-end",
     margin: 0,
