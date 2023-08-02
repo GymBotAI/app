@@ -6,8 +6,9 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons";
 
-const WorkoutList = () => {
+const WorkoutList = ({navigation}) => {
   const workoutsData = [
     {
       id: 1,
@@ -55,14 +56,15 @@ const WorkoutList = () => {
     console.log("View All Workouts");
   };
 
+  const handleNewWorkout = () => {
+    navigation.navigate("Workouts")
+  }
+
   return (
-    <>
+    <View style={{ marginLeft: -5 }}>
       <View style={styles.headerContainer}>
         <Text style={styles.sectionTitle}>Your Workouts</Text>
-        <TouchableOpacity
-          onPress={handleViewAllPress}
-          style={{ padding: 8, paddingTop: 12 }}
-        >
+        <TouchableOpacity onPress={handleViewAllPress} style={{ padding: 8, paddingTop: 12 }}>
           <Text style={styles.viewAllButton}>View All</Text>
         </TouchableOpacity>
       </View>
@@ -75,6 +77,12 @@ const WorkoutList = () => {
         snapToAlignment="start"
         style={{ paddingBottom: 10 }}
       >
+        <TouchableOpacity onPress={handleNewWorkout}style={styles.workoutBox}>
+          <View style={styles.plusIconContainer}>
+            <FontAwesome5 name="plus" size={40} color="#555" />
+          </View>
+        </TouchableOpacity>
+
         <View style={styles.container}>
           {workoutsData.map((workout) => (
             <TouchableOpacity
@@ -102,46 +110,30 @@ const WorkoutList = () => {
           ))}
         </View>
       </ScrollView>
-    </>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   headerContainer: {
-    marginTop: 10,
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 5,
-    marginBottom: 10,
   },
   viewAllButton: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#ff8282", // Red text color
+    color: "#F29722",
   },
   container: {
     flexDirection: "row",
     marginHorizontal: -5,
   },
-  workoutBox: {
-    width: 130,
-    height: 130,
-    backgroundColor: "#f5f5f5",
-    borderRadius: 10,
-    marginHorizontal: 10,
-    justifyContent: "center",
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
-    elevation: 2,
-  },
   titleSection: {
     width: "100%",
     height: 40, // Set the desired height for the title section
-    backgroundColor: "#ff8282", // Red background color
+    backgroundColor: "#F29722", // Red background color
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     justifyContent: "center",
@@ -158,10 +150,34 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   exerciseText: {
-    fontSize: 12,
+    fontSize: 14,
     color: "#555",
     textAlign: "center",
     marginBottom: 5,
+  },
+  workoutBox: {
+    width: 130,
+    height: 130,
+    backgroundColor: "#f5f5f5",
+    borderRadius: 10,
+    marginHorizontal: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+  plusIconContainer: {
+    width: '100%',
+    height: '100%',
+    borderWidth: 2,
+    borderRadius: 10,
+    borderStyle: "dashed",
+    borderColor: "#555",
+    justifyContent: "center",
+    alignItems: "center",
   },
   sectionTitle: {
     fontSize: 24,
