@@ -3,6 +3,7 @@ import { View, ScrollView, StyleSheet, Text, TouchableOpacity } from "react-nati
 import { FontAwesome5 } from "@expo/vector-icons";
 import WorkoutStats from "./WorkoutStats"; // Import the new component
 import WorkoutList from "./WorkoutList";
+import WorkoutPreview from './WorkoutPreview'
 import { Image } from "expo-image";
 
 import {Name} from "../SignUp/Name"
@@ -30,6 +31,8 @@ const HomeScreen = ( {navigation} ) => {
 
       </View>
       {/* <TalkToGymBotSection navigation={navigation}/> */}
+
+      <WorkoutPreview/>
       
       <WorkoutList navigation={navigation}/>
     </ScrollView>

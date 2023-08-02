@@ -5,8 +5,11 @@ import {
   Text,
   StyleSheet,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
+
 
 const WorkoutList = ({navigation}) => {
   const workoutsData = [
@@ -14,36 +17,42 @@ const WorkoutList = ({navigation}) => {
       id: 1,
       title: "Full Body Workout",
       exercises: ["Push-ups", "Squats", "Burpees"],
+      image: require("../../../assets/homebgdark.jpg"),  
     },
     {
       id: 2,
       title: "Cardio Blast",
       exercises: ["Jumping Jacks", "High Knees", "Mountain Climbers"],
+      image: require("../../../assets/accountbgdark.jpg"),
     },
     {
       id: 3,
       title: "Leg Day",
       exercises: ["Lunges", "Deadlifts", "Calf Raises"],
+      image: require("../../../assets/accountbgdark.jpg"),
     },
     {
       id: 4,
       title: "Full Body Workout",
       exercises: ["Push-ups", "Squats", "Burpees"],
+      image: require("../../../assets/accountbgdark.jpg"),
     },
     {
       id: 5,
       title: "Cardio Blast",
       exercises: ["Jumping Jacks", "High Knees", "Mountain Climbers"],
+      image: require("../../../assets/accountbgdark.jpg"),
     },
     {
       id: 6,
       title: "Leg Day",
       exercises: ["Lunges", "Deadlifts", "Calf Raises"],
+      image: require("../../../assets/accountbgdark.jpg"),
     },
     // Add more workouts as needed
   ];
 
-  const itemWidth = 130;
+  const itemWidth = 250;
   const interval = 20;
 
   const handleWorkoutPress = (workout) => {
@@ -61,7 +70,7 @@ const WorkoutList = ({navigation}) => {
   }
 
   return (
-    <View style={{ marginLeft: 15 }}>
+    <View style={{ marginLeft: 15, marginTop: 5, }}>
       <View style={styles.headerContainer}>
         <Text style={styles.sectionTitle}>Explore Workouts</Text>
         <TouchableOpacity onPress={handleViewAllPress} style={{ padding: 8, paddingTop: 12 }}>
@@ -77,12 +86,6 @@ const WorkoutList = ({navigation}) => {
         snapToAlignment="start"
         style={{ paddingBottom: 10 }}
       >
-        <TouchableOpacity onPress={handleNewWorkout}style={styles.workoutBox}>
-          <View style={styles.plusIconContainer}>
-            <FontAwesome5 name="plus" size={40} color="#555" />
-          </View>
-        </TouchableOpacity>
-
         <View style={styles.container}>
           {workoutsData.map((workout) => (
             <TouchableOpacity
@@ -90,22 +93,27 @@ const WorkoutList = ({navigation}) => {
               style={styles.workoutBox}
               onPress={() => handleWorkoutPress(workout)}
             >
-              <View style={styles.titleSection}>
-                <Text
-                  numberOfLines={1}
-                  ellipsizeMode="tail"
-                  style={styles.workoutTitle}
-                >
+              <LinearGradient
+                colors={["black", "transparent"]}
+                start={[0.5, 0]}
+                end={[0.5, 0.6]}
+                style={styles.linearGradient}
+              >
+                <ImageBackground
+                  source={workout.image}
+                  resizeMode="cover"
+                  style={{
+                    width: "110%",
+                    height: "110%",
+                    opacity: 0.8,
+                    marginLeft: -15,
+                    borderRadius: 10, // Add borderRadius to match the workoutBox
+                  }}
+                />
+                <Text numberOfLines={1} ellipsizeMode="tail" style={styles.workoutTitle}>
                   {workout.title}
                 </Text>
-              </View>
-              <View style={styles.exercisesContainer}>
-                {workout.exercises.map((exercise, index) => (
-                  <Text key={index} style={styles.exerciseText}>
-                    {exercise}
-                  </Text>
-                ))}
-              </View>
+              </LinearGradient>
             </TouchableOpacity>
           ))}
         </View>
@@ -139,11 +147,28 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+  linearGradient: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    justifyContent: "flex-end",
+    borderRadius: 10, // Add borderRadius to match the workoutBox
+  },
   workoutTitle: {
     fontSize: 16,
     fontWeight: "bold",
     color: "white", // White text color
-    padding: 12,
+    textAlign: "left",
+    padding: 12, // Add padding here to separate the title from the bottom of the box
+    position: "absolute", // Position the title independently
+    bottom: 0, // Place the title at the top of the workoutBox
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.5,
+    shadowRadius: 3,
+    elevation: 2,
   },
   exercisesContainer: {
     flex: 1,
@@ -156,7 +181,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   workoutBox: {
-    width: 130,
+    width: 250,
     height: 130,
     backgroundColor: "#f5f5f5",
     borderRadius: 10,
@@ -168,16 +193,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 3,
     elevation: 2,
-  },
-  plusIconContainer: {
-    width: '100%',
-    height: '100%',
-    borderWidth: 2,
-    borderRadius: 10,
-    borderStyle: "dashed",
-    borderColor: "#555",
-    justifyContent: "center",
-    alignItems: "center",
   },
   sectionTitle: {
     fontSize: 24,
