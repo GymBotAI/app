@@ -1,19 +1,18 @@
 import React from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
-import { Image } from "expo-image";
-
-
-const navImages = {
-  Home: require("../../assets/GymBotLogo.jpg"),
-  Workouts: require("../../assets/navbar/workouts.png"),
-  Chat: require("../../assets/navbar/chat.png"),
-  Settings: require("../../assets/navbar/settings.png"),
-};
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function GymBotNavigation({ navigation }) {
+  const navIcons = {
+    Home: "home",
+    Workouts: "dumbbell",
+    Chat: "comment",
+    Settings: "cog",
+  };
+
   return (
     <View style={styles.container}>
-      {Object.entries(navImages).map(([name, image]) => (
+      {Object.entries(navIcons).map(([name, iconName]) => (
         <TouchableOpacity
           key={name}
           style={styles.button}
@@ -21,7 +20,7 @@ export default function GymBotNavigation({ navigation }) {
             navigation.navigate(name);
           }}
         >
-          <Image source={image} style={styles.image} />
+          <FontAwesome5 name={iconName} size={27} color="#333" style={styles.icon} />
           <Text style={styles.buttonText}>{name}</Text>
         </TouchableOpacity>
       ))}
@@ -48,9 +47,7 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     color: "#333",
   },
-  image: {
+  icon: {
     marginBottom: 3,
-    width: 27,
-    height: 27,
   },
 });
