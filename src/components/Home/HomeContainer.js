@@ -4,16 +4,15 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import WorkoutStats from "./WorkoutStats"; // Import the new component
 import WorkoutList from "./WorkoutList";
 import WorkoutPreview from './WorkoutPreview'
-import { Image } from "expo-image";
 
-import {Name} from "../SignUp/Name"
+import {nameValue} from "../SignUp/Name"
 
 const HomeScreen = ( {navigation} ) => {
   return (
     <ScrollView style={styles.container}>
       {/* Top Section */}
       <View style={styles.topSection}>
-        <Text style={styles.greetingText}>Hello, John{Name}</Text>
+        <Text style={styles.greetingText}>Hello, {nameValue}</Text>
         <TouchableOpacity onPress={() => console.log("Home Icon pressed!")}>
           <FontAwesome5 name="home" size={28} color="#333" />
           {/* <Image source={require("../../../assets/GymBotLogo.jpg")} style={{
