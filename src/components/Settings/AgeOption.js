@@ -1,15 +1,10 @@
 import React, { useState } from "react";
 import {
   View,
-  Text,
-  TouchableOpacity,
   StyleSheet,
-  TextInput,
 } from "react-native";
 import Modal from "react-native-modal";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-import { circularColour } from "../../styles";
-import { MaterialIcons } from '@expo/vector-icons'; 
 import InputBox from "./InputBox"
 
 
@@ -51,37 +46,6 @@ export default function Option({ question, value, setValue }) {
 }
 
 const styles = StyleSheet.create({
-  container: {},
-  item: {
-    backgroundColor: "#FFF",
-    padding: 15,
-    borderRadius: 10,
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-    marginBottom: 15,
-  },
-  itemText: {
-    maxWidth: "100%",
-    fontSize: 16,
-  },
-  itemLeft: {
-    display: "flex",
-    flexDirection: "row",
-    flexWrap: "wrap",
-  },
-  current: {
-    color: "#1260de",
-    fontSize: 16,
-    marginRight: 15,
-  },
-  circular: {
-    width: 12,
-    height: 12,
-    borderColor: circularColour,
-    borderWidth: 2,
-    borderRadius: 5,
-  },
   modal: {
     justifyContent: "flex-end",
     margin: 0,
