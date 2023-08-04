@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import {
-  Keyboard,
   View,
-  Text,
-  TouchableOpacity,
   StyleSheet,
-  KeyboardAvoidingView,
-  Platform,
   ScrollView,
 } from "react-native";
 import Workouts from "./WorkoutTabs";
@@ -41,8 +36,7 @@ export default function ViewWorkouts({ navigation }) {
   };
 
   return (
-    // <ScrollView contentContainerStyle={styles.scrollContainer}>
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {!showAddWorkoutScreen && (
         <CreateWorkoutButton handleAddWorkout={handleAddWorkout} />
       )}
@@ -58,15 +52,11 @@ export default function ViewWorkouts({ navigation }) {
           onWorkoutSelect={handleWorkoutSelect}
         />
       )}
-    </View>
-    // </ScrollView>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  scrollContainer: {
-    flexGrow: 1,
-  },
   container: {
     flex: 1,
   },
