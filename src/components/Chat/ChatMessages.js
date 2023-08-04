@@ -38,15 +38,18 @@ export default function ChatMessages({
 
   useEffect(() => {
     for (let i = 0; i < Goals.length; i++) {
-      Goals[i] = Goals[i].toLowerCase();
-      if (Goals[i] === "better abs") {
-        Goals[i] = "How do I get " + Goals[i] + "?";
-      } else if (Goals[i] === "do a pull up") {
-        Goals[i] = "How can I " + Goals[i] + "?";
-      } else if (Goals[i] === "other") {
-        Goals[i] = "";
-      } else {
-        Goals[i] = "How do I " + Goals[i] + "?";
+      if (Goals[i][0] != "H") {
+
+        Goals[i] = Goals[i].toLowerCase();
+        if (Goals[i] === "better abs") {
+          Goals[i] = "How do I get " + Goals[i] + "?";
+        } else if (Goals[i] === "do a pull up") {
+          Goals[i] = "How can I " + Goals[i] + "?";
+        } else if (Goals[i] === "other") {
+          Goals[i] = "";
+        } else {
+            Goals[i] = "How do I " + Goals[i] + "?";
+        }
       }
     }
 
