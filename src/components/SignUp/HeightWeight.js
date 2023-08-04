@@ -66,10 +66,10 @@ export default function HeightWeight({
     <View style={styles.container}>
       <TouchableOpacity
         onPress={changeVisibility}
-        style={{ paddingTop: 5, paddingBottom: 10 }}
+        style={{ paddingTop: 5, paddingBottom: 30, borderWidth: 1,}}
       >
         <View style={styles.inputContainer}>
-          <TextInput style={styles.input} editable={false} value={value} />
+          <Text style={styles.input}>{value}</Text>
           <Text style={styles.unitText}>{unit}</Text>
         </View>
       </TouchableOpacity>
