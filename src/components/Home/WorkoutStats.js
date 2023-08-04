@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Dimensions } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import ProgressCircle from "react-native-progress-circle";
 
@@ -23,6 +23,16 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
     return months[currentDate.getMonth()];
   };
 
+  // Get the screen width
+  const screenWidth = Dimensions.get("window").width;
+
+  // Set the percentage of the screen width for the progress circle radius (adjust as needed)
+  const circleRadiusPercentage = 0.16; // 40% of the screen width
+
+  // Calculate the actual radius based on the screen width and percentage
+  const circleRadius = screenWidth * circleRadiusPercentage;
+  // const circleRadius = 60;
+
   return (
     <View style={styles.container}>
       <View style={styles.topSection}>
@@ -34,7 +44,7 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
         <View style={styles.circleContainer}>
           <ProgressCircle
             percent={69}
-            radius={60}
+            radius={circleRadius}
             borderWidth={8}
             color="#8ede99" // Light blue for progress circle
             shadowColor="#cccccc"
@@ -64,7 +74,7 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
         <View style={styles.circleContainer}>
           <ProgressCircle
             percent={86} // Use a different percentage for the second circle if needed
-            radius={60}
+            radius={circleRadius}
             borderWidth={8}
             color="#8ed9de" // Light blue for progress circle
             shadowColor="#cccccc"
@@ -121,6 +131,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   circleContainer: {
+    width: '47%',
     backgroundColor: "#F5F5F5",
     borderRadius: 10,
     padding: 10,
