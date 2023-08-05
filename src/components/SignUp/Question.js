@@ -25,12 +25,12 @@ export default function Question({ navigation }) {
   const slideUpAnim = useRef(new Animated.Value(300)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
   const [prompt, setPrompt] = useState(
-    "Welcome to GymBot! To get started, tell us your name"
+    "Tell us your name!"
   );
 
   const handleSignUp = () => {
     setInputFilled(false);
-    if (prompt === "Welcome to GymBot! To get started, tell us your name") {
+    if (prompt === "Tell us your name!") {
       setPrompt("When were you born?");
       inputOption = <Age onAgeChange={setInputFilled} />;
     } else if (prompt === "When were you born?") {
@@ -82,7 +82,7 @@ export default function Question({ navigation }) {
     return <Text>Loading...</Text>;
   }
 
-  if (prompt === "Welcome to GymBot! To get started, tell us your name") {
+  if (prompt === "Tell us your name!") {
     // inputOption = <HeightWeightContainer onChange={setInputFilled} />;
     inputOption = <Name onNameChange={setInputFilled} />;
   }
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   label: {
-    marginTop: 50,
+    marginTop: 20,
     textAlign: "center",
     alignSelf: "center",
     fontSize: 30,
