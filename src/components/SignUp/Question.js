@@ -138,9 +138,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#1260de",
     borderRadius: 8,
     shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.4,
-    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
     elevation: 5,
   },
   label: {
