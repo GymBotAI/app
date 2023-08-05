@@ -149,11 +149,12 @@ const styles = StyleSheet.create({
     marginHorizontal: 35,
     marginTop: 40,
     paddingBottom: 5, // Adds padding to the bottom to avoid overlapping with the unit text
+    width: 75,
   },
   input: {
     fontSize: 18,
     flex: 1, // Takes all available space in the row
-    paddingHorizontal: 5,
+    paddingLeft: 4,
   },
   unitText: {
     fontSize: 18,
