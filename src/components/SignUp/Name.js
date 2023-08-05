@@ -29,25 +29,26 @@ export default function Name({ onNameChange }) {
   };
 
   return (
-    <KeyboardAvoidingView style={{ flexGrow: 1, overflow: "auto" }}>
-      <View style={{ flex: 1 }}>
+      <View style={{ flex: 1}}>
         <TextInput
           style={{
             height: 40,
             borderColor: "black",
-            marginTop: 20,
+            marginTop: 30,
             fontSize: 18,
             borderBottomWidth: 2,
             paddingVertical: 5,
             paddingHorizontal: 2,
             marginHorizontal: 10,
+            width: "80%",
+            alignSelf: 'center',
           }}
           placeholder="Enter your name"
           value={name}
           maxLength={15}
           onChangeText={handleNameChange}
         />
-        <View style={{ alignItems: "flex-end", marginRight: 20 }}>
+        <View style={{ alignItems: "flex-end", marginRight: '12%' }}>
           {showCount && (
             <Text
               style={{
@@ -62,6 +63,5 @@ export default function Name({ onNameChange }) {
           )}
         </View>
       </View>
-    </KeyboardAvoidingView>
   );
 }
