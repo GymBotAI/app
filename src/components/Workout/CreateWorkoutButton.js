@@ -56,6 +56,7 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop: 10,
     alignSelf: "center",
     borderRadius: 15,
     width: "92%",
