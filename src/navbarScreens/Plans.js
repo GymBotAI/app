@@ -3,6 +3,8 @@ import { View, Text, StyleSheet, StatusBar } from "react-native";
 import GymBotNavigation from "../components/navbar";
 import ScreenHeader from "../components/ScreenHeader";
 
+import PlansContainer from "../components/Plans/PlansContainer"
+
 export default function Plans({ navigation }) {
   return (
     <View
@@ -12,6 +14,8 @@ export default function Plans({ navigation }) {
       }}
     >
       <ScreenHeader title="Workout Plans" />
+
+      <PlansContainer/>
 
       <StatusBar barStyle="dark-content" />
 
