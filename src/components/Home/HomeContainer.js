@@ -13,8 +13,8 @@ const HomeScreen = ( {navigation} ) => {
       {/* Top Section */}
       <View style={styles.topSection}>
         <Text style={styles.greetingText}>Hello, {nameValue}</Text>
-        <TouchableOpacity onPress={() => console.log("Home Icon pressed!")}>
-          <FontAwesome5 name="home" size={28} color="#333" />
+        <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
+          <FontAwesome5 name="cog" size={28} color="#333" />
           {/* <Image source={require("../../../assets/GymBotLogo.jpg")} style={{
     width: 50, height: 50, borderRadius: 22}}/> */}
 
