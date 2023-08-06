@@ -1,7 +1,6 @@
 import { View, StatusBar } from "react-native";
 
 import EditSettings from "../components/Settings/EditSettings";
-import GymBotNavigation from "../components/navbar";
 import ScreenHeader from "../components/ScreenHeader";
 
 export default function Settings({ navigation }) {
@@ -16,7 +15,6 @@ export default function Settings({ navigation }) {
       <EditSettings />
       <StatusBar barStyle="dark" />
 
-      <GymBotNavigation navigation={navigation} currentScreen={"Settings"} />
     </View>
   );
 }
