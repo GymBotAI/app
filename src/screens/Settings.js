@@ -12,7 +12,7 @@ export default function Settings({ navigation }) {
       }}
     >
       <ScreenHeader title="Settings" />
-      <EditSettings />
+      <EditSettings navigation={navigation}/>
       <StatusBar barStyle="dark" />
 
     </View>

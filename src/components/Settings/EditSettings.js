@@ -47,6 +47,10 @@ export default function Settings({ navigation }) {
     // Perform saving changes logic here
   };
 
+  const handleGoHome = () => {
+    navigation.navigate("Home");
+  };
+
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
@@ -76,6 +80,11 @@ export default function Settings({ navigation }) {
         imp="in"
         conversion={0.393701}
       />
+
+      <TouchableOpacity style={styles.homeButton} onPress={handleGoHome}>
+        <Text style={styles.buttonText}>Go Back</Text>
+      </TouchableOpacity>
+
     </Pressable>
   );
 }
@@ -109,5 +118,11 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",
+  },
+  homeButton: {
+    backgroundColor: "#333",
+    paddingVertical: 10,
+    borderRadius: 5,
+    marginTop: 20,
   },
 });
