@@ -1,13 +1,20 @@
 import React from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-import { Ionicons } from '@expo/vector-icons'; 
 
-
-export default function NavBarIcon({ navigation, currentScreen, name, iconName }) {
+export default function GymBotNavigation({ navigation, currentScreen }) {
+  const navIcons = {
+    Home: "home",
+    Plans: 'clipboard',
+    Workouts: "dumbbell",
+    Food: 'apple-alt',
+    Chat: "comment",
+  };
 
   return (
-    
+    <View style={styles.container}>
+      
+      {Object.entries(navIcons).map(([name, iconName]) => (
         <TouchableOpacity key={name}
           style={styles.button}
           onPress={() => {
@@ -23,10 +30,23 @@ export default function NavBarIcon({ navigation, currentScreen, name, iconName }
           </Text>
 
         </TouchableOpacity>
+      ))}
+
+    </View>
   );
 }
 
+
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingTop: 5,
+    paddingBottom: 25,
+    paddingHorizontal: 0,
+    backgroundColor: "#F5F5F5",
+  },
   button: {
     flex: 1,
     alignItems: "center",
