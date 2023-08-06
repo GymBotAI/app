@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 
-import GymBotNavigation from "../navbar";
+import GymBotNavigation from "../components/navbar";
 import ViewWorkouts from "../components/Workout/WorkoutContainer";
 import ScreenHeader from "../components/ScreenHeader";
 
