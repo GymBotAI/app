@@ -29,7 +29,7 @@ export default function ViewWorkouts({ navigation }) {
       <CreateWorkoutButton handleAddWorkout={handleAddWorkout} />
 
         <TalkToGymBotSection navigation={navigation} />
-        <WorkoutList />
+        <WorkoutList navigation={navigation}/>
 
     </ScrollView>
     
@@ -45,7 +45,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingHorizontal: 20,
-    paddingBottom: 80,
   },
   tasksWrapper: {
   },

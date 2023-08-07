@@ -57,11 +57,11 @@ const WorkoutList = ({navigation}) => {
   };
 
   const handleNewWorkout = () => {
-    navigation.navigate("Workouts")
+    navigation.navigate("DesignWorkout")
   }
 
   return (
-    <View style={{ marginLeft: -5 }}>
+    <View style={{ marginLeft: -5, marginBottom: 60,}}>
       <View style={styles.headerContainer}>
         <Text style={styles.sectionTitle}>Your Workouts</Text>
         <TouchableOpacity onPress={handleViewAllPress} style={{ padding: 8, paddingTop: 12 }}>
