@@ -9,7 +9,7 @@ export default function LoginHeader({}) {
       <View style={styles.logoContainer}>
         <View style={styles.logoBorder}>
           <Image
-            source={require("../../../assets/GymBotLogo.jpg")}
+            source={require("../../../assets/GymBotLogo.png")}
             style={styles.logo}
           />
         </View>

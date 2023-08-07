@@ -38,7 +38,7 @@ export default function MainHeader({ text, minitext }) {
           }}
         >
           <Image
-            source={require("../../assets/GymBotLogo.jpg")}
+            source={require("../../assets/GymBotLogo.png")}
             style={{
               width: 65, // Adjust the size as needed
               height: 65, // Adjust the size as needed
