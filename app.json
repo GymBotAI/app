@@ -4,10 +4,10 @@
     "slug": "GymBot",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.jpg",
+    "icon": "./assets/GymBotLogo.png",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/icon.jpg",
+      "image": "./assets/GymBotLogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#1360dd"
     },
@@ -18,7 +18,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/icon.jpg",
+        "foregroundImage": "./assets/GymBotLogo.png",
         "backgroundColor": "#1360dd"
       },
       "package": "com.gymbotai.gymbotaiapp"
