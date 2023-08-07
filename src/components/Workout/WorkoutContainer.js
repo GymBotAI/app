@@ -3,6 +3,8 @@ import {
   View,
   StyleSheet,
   ScrollView,
+  TouchableOpacity,
+  Text,
 } from "react-native";
 import CreateWorkoutButton from "./CreateWorkoutButton";
 import WorkoutList from "./WorkoutList";
@@ -13,23 +15,31 @@ export default function ViewWorkouts({ navigation }) {
   const [selectedWorkouts, setSelectedWorkouts] = useState([]);
 
   const handleAddWorkout = () => {
-    navigation.navigate("DesignWorkout")
-  }
+    navigation.navigate("DesignWorkout");
+  };
+
+  const handleLogWorkout = () => {
+    // Implement the logic to log the workout
+    console.log("Workout logged!");
+  };
 
   return (
+    <>
     <ScrollView style={styles.container}>
+      <CreateWorkoutButton handleAddWorkout={handleAddWorkout} />
 
-        <CreateWorkoutButton handleAddWorkout={handleAddWorkout}/>
-
-        <View style={styles.tasksWrapper}>
-
-        <TalkToGymBotSection navigation={navigation}/>
-
+      <View style={styles.tasksWrapper}>
+        <TalkToGymBotSection navigation={navigation} />
         <WorkoutList />
-
-        </View>
+      </View>
 
     </ScrollView>
+    
+      {/* Log Workout button */}
+      <TouchableOpacity style={styles.addButtonContainer} onPress={handleLogWorkout}>
+          <Text style={styles.addText}>Log Workout</Text>
+      </TouchableOpacity>
+    </>
   );
 }
 
@@ -48,23 +58,20 @@ const styles = StyleSheet.create({
   },
   addButtonContainer: {
     position: "absolute",
-    bottom: 0,
+    bottom: 100,
     left: 0,
     right: 0,
     alignItems: "center",
     justifyContent: "center",
     paddingBottom: 20,
-  },
-  addButton: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
     backgroundColor: "blue",
-    alignItems: "center",
-    justifyContent: "center",
+    borderRadius: 30,
+    width: '60%',
+    marginLeft: '20%',
   },
   addText: {
     color: "white",
-    fontSize: 30,
+    fontSize: 20,
+    fontWeight: "bold",
   },
 });

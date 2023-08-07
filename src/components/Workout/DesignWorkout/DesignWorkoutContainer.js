@@ -1,9 +1,7 @@
-// Import necessary modules
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 
 const WorkoutScreen = () => {
-  // State to track the selected workout goal
   const [selectedGoal, setSelectedGoal] = useState(null);
 
   // Function to handle goal selection
@@ -56,15 +54,19 @@ const WorkoutScreen = () => {
       {/* Workout Goal Selection */}
       <View style={{ marginBottom: 16 }}>
         <Text>Select your Workout Goal to continue.</Text>
+
         <TouchableOpacity onPress={() => handleGoalSelection('Build Muscle')}>
           <Text>Build Muscle</Text>
         </TouchableOpacity>
+
         <TouchableOpacity onPress={() => handleGoalSelection('Functional Strength')}>
           <Text>Functional Strength</Text>
         </TouchableOpacity>
+
         <TouchableOpacity onPress={() => handleGoalSelection('Sports-Specific Training')}>
           <Text>Sports-Specific Training</Text>
         </TouchableOpacity>
+        
         <TouchableOpacity onPress={() => handleGoalSelection('Custom')}>
           <Text>Custom</Text>
         </TouchableOpacity>
