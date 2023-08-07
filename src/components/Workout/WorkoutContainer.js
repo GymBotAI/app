@@ -4,8 +4,6 @@ import {
   StyleSheet,
   ScrollView,
 } from "react-native";
-import Workouts from "./WorkoutTabs";
-import AddWorkoutScreen from "./AddWorkoutScreen";
 import CreateWorkoutButton from "./CreateWorkoutButton";
 import WorkoutList from "./WorkoutList";
 import { circularColour } from "../../styles";
@@ -14,22 +12,14 @@ import TalkToGymBotSection from "./TalkToGymBot";
 export default function ViewWorkouts({ navigation }) {
   const [selectedWorkouts, setSelectedWorkouts] = useState([]);
 
-  const handleWorkoutSelect = (workout) => {
-    setSelectedWorkouts([...selectedWorkouts, workout]);
-  };
-
-  const handleWorkoutsPress = (index) => {
-    const updatedWorkouts = [...selectedWorkouts];
-    const currentColor = updatedWorkouts[index].circleColor;
-    updatedWorkouts[index].circleColor =
-      currentColor === "green" ? circularColour : "green";
-    setSelectedWorkouts(updatedWorkouts);
-  };
+  const handleAddWorkout = () => {
+    navigation.navigate("DesignWorkout")
+  }
 
   return (
     <ScrollView style={styles.container}>
 
-        <CreateWorkoutButton />
+        <CreateWorkoutButton handleAddWorkout={handleAddWorkout}/>
 
         <View style={styles.tasksWrapper}>
 

@@ -11,6 +11,7 @@ import Chat from "./src/navbarScreens/Chat";
 import Account from "./src/screens/Account";
 import Settings from "./src/screens/Settings";
 import SignUp from "./src/screens/SignUp";
+import DesignWorkout from "./src/screens/DesignWorkout";
 
 const Stack = createNativeStackNavigator();
 
@@ -32,6 +33,8 @@ export default function App() {
         <Stack.Screen name="Food" component={Food} />
         <Stack.Screen name="Chat" component={Chat} />
 
+        <Stack.Screen name="DesignWorkout" component={DesignWorkout} />
+        
         <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>
