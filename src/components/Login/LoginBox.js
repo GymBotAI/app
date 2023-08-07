@@ -7,11 +7,24 @@ import {
   StyleSheet,
 } from "react-native";
 
+import handleInsert from "../../db";
+
 export default function LoginBox({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const onPressInsert = async () => {
+    try {
+      // You can call the handleInsert function here
+      await handleInsert(username);
+    } catch (error) {
+      console.error('Error inserting record:', error);
+    }
+  };
+
   const handleLogin = () => {
+    // onPressInsert()
+
     navigation.navigate("Home");
   };
 
