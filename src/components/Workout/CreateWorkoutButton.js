@@ -34,7 +34,7 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
               style={styles.designButtonContainer}
-              onPress={handleAddWorkout}
+              // onPress={handleAddWorkout}
             >
               <Text style={styles.addText}>Design</Text>
               <AntDesign name="arrowright" size={24} color="black" />

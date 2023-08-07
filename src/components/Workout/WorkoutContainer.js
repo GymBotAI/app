@@ -12,16 +12,7 @@ import { circularColour } from "../../styles";
 import TalkToGymBotSection from "./TalkToGymBot";
 
 export default function ViewWorkouts({ navigation }) {
-  const [showAddWorkoutScreen, setShowAddWorkoutScreen] = useState(false);
   const [selectedWorkouts, setSelectedWorkouts] = useState([]);
-
-  const handleAddWorkout = () => {
-    setShowAddWorkoutScreen(true);
-  };
-
-  const handleAddWorkoutScreenClose = () => {
-    setShowAddWorkoutScreen(false);
-  };
 
   const handleWorkoutSelect = (workout) => {
     setSelectedWorkouts([...selectedWorkouts, workout]);
@@ -37,21 +28,17 @@ export default function ViewWorkouts({ navigation }) {
 
   return (
     <ScrollView style={styles.container}>
-      {!showAddWorkoutScreen && (
-        <CreateWorkoutButton handleAddWorkout={handleAddWorkout} />
-      )}
-      {!showAddWorkoutScreen && (
+
+        <CreateWorkoutButton />
+
         <View style={styles.tasksWrapper}>
+
         <TalkToGymBotSection navigation={navigation}/>
-          <WorkoutList />
+
+        <WorkoutList />
+
         </View>
-      )}
-      {showAddWorkoutScreen && (
-        <AddWorkoutScreen
-          onClose={handleAddWorkoutScreenClose}
-          onWorkoutSelect={handleWorkoutSelect}
-        />
-      )}
+
     </ScrollView>
   );
 }
