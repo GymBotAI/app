@@ -7,6 +7,7 @@ import {
   Dimensions,
   TouchableWithoutFeedback,
   Keyboard,
+  ScrollView,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import ProgressCircle from "react-native-progress-circle";
@@ -32,46 +33,48 @@ export default function Settings({ navigation }) {
   }, [foodEaten, exercise]);
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <View style={styles.container}>
-        <View style={styles.progressContainer}>
-          <View style={styles.circleContainer}>
-            <ProgressCircle
-              percent={(remainingCalories / carbsGoal) * 100}
-              radius={circleRadius}
-              borderWidth={8}
-              color="#8ed9de"
-              shadowColor="#cccccc"
-              bgColor="#F5F5F5"
-            >
-              <FontAwesome5
-                name="carrot"
-                size={60}
+    <ScrollView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.container}>
+          <View style={styles.progressContainer}>
+            <View style={styles.circleContainer}>
+              <ProgressCircle
+                percent={(remainingCalories / carbsGoal) * 100}
+                radius={circleRadius}
+                borderWidth={8}
                 color="#8ed9de"
-                style={styles.icon}
-              />
-            </ProgressCircle>
-            <Text style={styles.carbsGoalText}>{"Carbs goal = " + carbsGoal}</Text>
-            <Text
-              style={{
-                fontSize: 20,
-                fontWeight: "bold",
-                color: "#2e2e2e",
-                alignSelf: "center",
-                marginBottom: -2,
-              }}
-            >
-              {"Remaining " + remainingCalories + " = " +
-                `${carbsGoal} - ${foodEaten} + ${exercise}`}
-            </Text>
+                shadowColor="#cccccc"
+                bgColor="#F5F5F5"
+              >
+                <FontAwesome5
+                  name="carrot"
+                  size={60}
+                  color="#8ed9de"
+                  style={styles.icon}
+                />
+              </ProgressCircle>
+              <Text style={styles.carbsGoalText}>{"Carbs goal = " + carbsGoal}</Text>
+              <Text
+                style={{
+                  fontSize: 20,
+                  fontWeight: "bold",
+                  color: "#2e2e2e",
+                  alignSelf: "center",
+                  marginBottom: -2,
+                }}
+              >
+                {"Remaining " + remainingCalories + " = " +
+                  `${carbsGoal} - ${foodEaten} + ${exercise}`}
+              </Text>
+            </View>
           </View>
+          <Meals name="Breakfast"/>
+          <Meals name="Lunch"/>
+          <Meals name="Snack"/>
+          <Meals name="Dinner"/>
         </View>
-        <Meals name="Breakfast"/>
-        <Meals name="Lunch"/>
-        <Meals name="Snack"/>
-        <Meals name="Dinner"/>
-      </View>
-    </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
+    </ScrollView>
   );
 }
 
