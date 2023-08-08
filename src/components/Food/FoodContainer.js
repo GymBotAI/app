@@ -10,6 +10,7 @@ import {
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import ProgressCircle from "react-native-progress-circle";
+import Meals from "./MealTabs"
 
 export default function Settings({ navigation }) {
   const screenWidth = Dimensions.get("window").width;
@@ -65,6 +66,10 @@ export default function Settings({ navigation }) {
             </Text>
           </View>
         </View>
+        <Meals name="Breakfast"/>
+        <Meals name="Lunch"/>
+        <Meals name="Snack"/>
+        <Meals name="Dinner"/>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -88,7 +93,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     padding: 10,
     paddingTop: 20,
-    paddingBottom: 90,
+    paddingBottom: 50,
     alignItems: "center",
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
