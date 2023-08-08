@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Modal } from "react-native";
+import FoodDatabaseWindow from "./FoodDatabaseWindow";
 
 const Meals = ({ name }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
@@ -22,38 +23,24 @@ const Meals = ({ name }) => {
       <View style={styles.mealContainer}>
         <Text style={styles.mealName}>{name}</Text>
         <TouchableOpacity
-        style={styles.addButton}
-        onPress={() => toggleAddFoodButton()}
-        >
-        <Text style={styles.addButtonText}>+</Text>
-        </TouchableOpacity>
-      </View>
-
-      {isAddFoodButtonVisible && (
-      <View style={styles.foodContainer}>
-        <TouchableOpacity
-          style={styles.addFoodButton}
-          onPress={openModal}
+          style={styles.addButton}
+          onPress={() => toggleAddFoodButton()}
         >
           <Text style={styles.addButtonText}>+</Text>
         </TouchableOpacity>
       </View>
-      )}
 
-      <Modal
-        animationType="slide"
-        transparent={true}
-        visible={isModalVisible}
-      >
-        <View style={styles.modalContainer}>
+      {isAddFoodButtonVisible && (
+        <View style={styles.foodContainer}>
           <TouchableOpacity
-            style={styles.closeButton}
-            onPress={closeModal}
+            style={styles.addFoodButton}
+            onPress={openModal}
           >
-            <Text style={styles.closeButtonText}>X</Text>
+            <Text style={styles.addButtonText}>+</Text>
           </TouchableOpacity>
         </View>
-      </Modal>
+      )}
+      <FoodDatabaseWindow isVisible={isModalVisible} onClose={closeModal} />
     </View>
   );
 };
