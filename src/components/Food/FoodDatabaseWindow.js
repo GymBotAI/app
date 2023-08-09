@@ -1,7 +1,25 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Modal } from "react-native";
+import FoodInfoTabs from "./FoodInfoTabs";
 
 const FoodDatabaseWindow = ({ isVisible, onClose }) => {
+    const foodData = [
+        {
+          name: "Food 1",
+          description: "Description for Food 1",
+          calories: 150,
+          protein: 10,
+          salt: 1,
+        },
+        {
+          name: "Food 2",
+          description: "Description for Food 2",
+          calories: 200,
+          protein: 15,
+          salt: 0.5,
+        },
+      ];
+
   return (
     <Modal
       animationType="slide"
@@ -15,7 +33,8 @@ const FoodDatabaseWindow = ({ isVisible, onClose }) => {
         >
           <Text style={styles.closeButtonText}>X</Text>
         </TouchableOpacity>
-        
+        <FoodInfoTabs foodData={foodData} />
+
       </View>
     </Modal>
   );
