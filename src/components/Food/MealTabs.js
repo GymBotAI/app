@@ -88,14 +88,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  addFoodButton: {
-    backgroundColor: "orange",
-    borderRadius: 50,
-    width: 40,
-    height: 40,
-    alignItems: "center",
-    justifyContent: "center",
-  },
   addButtonText: {
     color: "white",
     fontSize: 20,
