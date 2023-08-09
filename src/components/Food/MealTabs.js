@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Modal } from "react-native";
-import FoodDatabaseWindow from "./FoodDatabaseWindow";
+import FoodDatabaseWindow from "./FoodDatabaseWindow"; // Import the new component
 
 const Meals = ({ name }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isAddFoodButtonVisible, setAddFoodButtonVisible] = useState(false);
+  const [selectedFood, setSelectedFood] = useState(null);
 
   const toggleAddFoodButton = () => {
-    setAddFoodButtonVisible(!isAddFoodButtonVisible);
+    setIsModalVisible(!isModalVisible);
   };
 
   const openModal = () => {
@@ -16,6 +16,11 @@ const Meals = ({ name }) => {
 
   const closeModal = () => {
     setIsModalVisible(false);
+  };
+
+  const handleTabPress = (food) => {
+    setSelectedFood(food);
+    closeModal();
   };
 
   return (
@@ -30,20 +35,25 @@ const Meals = ({ name }) => {
         </TouchableOpacity>
       </View>
 
-      {isAddFoodButtonVisible && (
+      {selectedFood && (
         <View style={styles.foodContainer}>
-          <TouchableOpacity
-            style={styles.addFoodButton}
-            onPress={openModal}
-          >
-            <Text style={styles.addButtonText}>+</Text>
-          </TouchableOpacity>
+          <Text style={styles.selectedFoodName}>{selectedFood.name}</Text>
+          <Text style={styles.selectedFoodDescription}>{selectedFood.description}</Text>
+          <Text style={styles.selectedFoodCalories}>{selectedFood.calories} cal</Text>
+          <Text style={styles.selectedFoodProtein}>{selectedFood.protein} g Protein</Text>
+          <Text style={styles.selectedFoodSalt}>{selectedFood.salt} g Salt</Text>
         </View>
       )}
-      <FoodDatabaseWindow isVisible={isModalVisible} onClose={closeModal} />
+
+      <FoodDatabaseWindow
+        isVisible={isModalVisible}
+        onClose={closeModal}
+        onTabPress={handleTabPress}
+      />
     </View>
   );
 };
+
 
 const styles = StyleSheet.create({
   mealListContainer:{
@@ -114,6 +124,26 @@ const styles = StyleSheet.create({
   },
   closeButtonText: {
     fontSize: 24,
+  },
+  selectedFoodName: {
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+  selectedFoodDescription: {
+    fontSize: 14,
+    color: "#555",
+  },
+  selectedFoodCalories: {
+    color: "green",
+    fontSize: 12,
+  },
+  selectedFoodProtein: {
+    color: "blue",
+    fontSize: 12,
+  },
+  selectedFoodSalt: {
+    color: "red",
+    fontSize: 12,
   },
 });
 

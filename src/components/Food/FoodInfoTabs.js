@@ -1,11 +1,15 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-const FoodInfoTabs = ({ foodData }) => {
-  return (
-    <View style={styles.tabsContainer}>
-      {foodData.map((food, index) => (
-        <View key={index} style={styles.tab}>
+const FoodInfoTabs = ({ foodData, onTabPress }) => {
+    return (
+      <View style={styles.tabsContainer}>
+        {foodData.map((food, index) => (
+          <TouchableOpacity
+            key={index}
+            style={styles.tab}
+            onPress={() => onTabPress(food)}
+          >
           <Text style={styles.foodName}>{food.name}</Text>
           <Text style={styles.foodDescription}>{food.description}</Text>
           <View style={styles.nutritionInfo}>
@@ -13,7 +17,7 @@ const FoodInfoTabs = ({ foodData }) => {
             <Text style={styles.protein}>{food.protein} g Protein</Text>
             <Text style={styles.salt}>{food.salt} g Salt</Text>
           </View>
-        </View>
+        </TouchableOpacity>
       ))}
     </View>
   );
