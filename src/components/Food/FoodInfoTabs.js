@@ -26,12 +26,14 @@ const FoodInfoTabs = ({ foodData, onTabPress }) => {
 const styles = StyleSheet.create({
   tabsContainer: {
     marginTop: 20,
+    alignItems: "center",
   },
   tab: {
     backgroundColor: "#F5F5F5",
     padding: 10,
     marginBottom: 10,
     borderRadius: 5,
+    alignItems: "center",
   },
   foodName: {
     fontSize: 16,

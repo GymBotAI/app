@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Modal } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Modal, ScrollView } from "react-native";
 import FoodInfoTabs from "./FoodInfoTabs";
 
 const FoodDatabaseWindow = ({ isVisible, onClose, onTabPress }) => {
@@ -26,7 +26,11 @@ const FoodDatabaseWindow = ({ isVisible, onClose, onTabPress }) => {
         <TouchableOpacity style={styles.closeButton} onPress={onClose}>
           <Text style={styles.closeButtonText}>X</Text>
         </TouchableOpacity>
-        <FoodInfoTabs foodData={foodData} onTabPress={onTabPress} />
+        <ScrollView contentContainerStyle={styles.scrollContainer}>
+          <View style={styles.spacer} />
+          <FoodInfoTabs foodData={foodData} onTabPress={onTabPress} />
+          <View style={styles.spacer} />
+        </ScrollView>
       </View>
     </Modal>
   );
@@ -35,7 +39,7 @@ const FoodDatabaseWindow = ({ isVisible, onClose, onTabPress }) => {
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
-    backgroundColor: "#FFF",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Had to use rgba cuz I could figure it out with hex
     alignItems: "center",
     justifyContent: "center",
   },
@@ -52,6 +56,13 @@ const styles = StyleSheet.create({
   },
   closeButtonText: {
     fontSize: 24,
+  },
+  scrollContainer: {
+    flexGrow: 1,
+    justifyContent: 'center',
+  },
+  spacer: {
+    flex: 1,
   },
 });
 
