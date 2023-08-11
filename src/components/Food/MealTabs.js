@@ -1,10 +1,10 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Modal } from "react-native";
-import FoodDatabaseWindow from "./FoodDatabaseWindow"; // Import the new component
+import FoodDatabaseWindow from "./FoodDatabaseWindow";
 
 const Meals = ({ name }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [selectedFood, setSelectedFood] = useState(null);
+  const [selectedFood, setSelectedFood] = useState([]); // Store an array of selected foods
 
   const toggleAddFoodButton = () => {
     setIsModalVisible(!isModalVisible);
@@ -19,7 +19,7 @@ const Meals = ({ name }) => {
   };
 
   const handleTabPress = (food) => {
-    setSelectedFood(food);
+    setSelectedFood([...selectedFood, food]); // Add the selected food to the array
     closeModal();
   };
 
@@ -35,15 +35,15 @@ const Meals = ({ name }) => {
         </TouchableOpacity>
       </View>
 
-      {selectedFood && (
-        <View style={styles.foodContainer}>
-          <Text style={styles.selectedFoodName}>{selectedFood.name}</Text>
-          <Text style={styles.selectedFoodDescription}>{selectedFood.description}</Text>
-          <Text style={styles.selectedFoodCalories}>{selectedFood.calories} cal</Text>
-          <Text style={styles.selectedFoodProtein}>{selectedFood.protein} g Protein</Text>
-          <Text style={styles.selectedFoodSalt}>{selectedFood.salt} g Salt</Text>
+      {selectedFood.map((food, index) => (
+        <View style={styles.foodContainer} key={index}>
+          <Text style={styles.selectedFoodName}>{food.name}</Text>
+          <Text style={styles.selectedFoodDescription}>{food.description}</Text>
+          <Text style={styles.selectedFoodCalories}>{food.calories} cal</Text>
+          <Text style={styles.selectedFoodProtein}>{food.protein} g Protein</Text>
+          <Text style={styles.selectedFoodSalt}>{food.salt} g Salt</Text>
         </View>
-      )}
+      ))}
 
       <FoodDatabaseWindow
         isVisible={isModalVisible}
