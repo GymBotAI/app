@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Modal } from "react-native";
 import FoodDatabaseWindow from "./FoodDatabaseWindow";
 
-const Meals = ({ name }) => {
+export let selectedFoodsInfo = [];
+
+const Meals = ({ name, onSave}) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedFood, setSelectedFood] = useState([]);
 
@@ -17,6 +19,8 @@ const Meals = ({ name }) => {
   const handleTabPress = (food) => {
     setSelectedFood([...selectedFood, food]);
     closeModal();
+    selectedFoodsInfo.push(food)
+    onSave();
   };
 
   return (

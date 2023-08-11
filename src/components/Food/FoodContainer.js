@@ -11,7 +11,8 @@ import {
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import ProgressCircle from "react-native-progress-circle";
-import Meals from "./MealTabs"
+import Meals, { selectedFoodsInfo } from "./MealTabs"
+
 
 export default function Settings({ navigation }) {
   const screenWidth = Dimensions.get("window").width;
@@ -24,6 +25,15 @@ export default function Settings({ navigation }) {
   const [foodEaten, setFoodEaten] = useState("0");
   const [exercise, setExercise] = useState("0");
   const [remainingCalories, setRemainingCalories] = useState(carbsGoal);
+
+  const calculateTotalCalories = (list) => {
+    const totalCalories = list.map(food => food.calories).reduce((sum, calories) => sum + calories, 0);
+    return totalCalories;
+  };
+
+  const calculateSelectedFoods = () => {
+    setFoodEaten(calculateTotalCalories(selectedFoodsInfo));
+  };
 
   useEffect(() => {
     const calculatedCalories =
@@ -68,10 +78,10 @@ export default function Settings({ navigation }) {
               </Text>
             </View>
           </View>
-          <Meals name="Breakfast"/>
-          <Meals name="Lunch"/>
-          <Meals name="Snack"/>
-          <Meals name="Dinner"/>
+          <Meals name="Breakfast" onSave={calculateSelectedFoods} />
+          <Meals name="Lunch" onSave={calculateSelectedFoods} />
+          <Meals name="Snack" onSave={calculateSelectedFoods} />
+          <Meals name="Dinner" onSave={calculateSelectedFoods} />
         </View>
       </TouchableWithoutFeedback>
     </ScrollView>
