@@ -18,7 +18,6 @@ const FoodDatabaseWindow = ({ isVisible, onClose, onTabPress }) => {
       protein: 15,
       salt: 0.5,
     },
-    // Add more food objects as needed
   ];
 
   return (
