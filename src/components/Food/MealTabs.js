@@ -4,14 +4,10 @@ import FoodDatabaseWindow from "./FoodDatabaseWindow";
 
 const Meals = ({ name }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [selectedFood, setSelectedFood] = useState([]); // Store an array of selected foods
+  const [selectedFood, setSelectedFood] = useState([]);
 
   const toggleAddFoodButton = () => {
     setIsModalVisible(!isModalVisible);
-  };
-
-  const openModal = () => {
-    setIsModalVisible(true);
   };
 
   const closeModal = () => {
@@ -19,31 +15,40 @@ const Meals = ({ name }) => {
   };
 
   const handleTabPress = (food) => {
-    setSelectedFood([...selectedFood, food]); // Add the selected food to the array
+    setSelectedFood([...selectedFood, food]);
     closeModal();
   };
 
   return (
     <View>
       <View style={styles.mealContainer}>
-        <Text style={styles.mealName}>{name}</Text>
-        <TouchableOpacity
-          style={styles.addButton}
-          onPress={() => toggleAddFoodButton()}
-        >
-          <Text style={styles.addButtonText}>+</Text>
-        </TouchableOpacity>
-      </View>
-
-      {selectedFood.map((food, index) => (
-        <View style={styles.foodContainer} key={index}>
-          <Text style={styles.selectedFoodName}>{food.name}</Text>
-          <Text style={styles.selectedFoodDescription}>{food.description}</Text>
-          <Text style={styles.selectedFoodCalories}>{food.calories} cal</Text>
-          <Text style={styles.selectedFoodProtein}>{food.protein} g Protein</Text>
-          <Text style={styles.selectedFoodSalt}>{food.salt} g Salt</Text>
+        <View style={styles.mealHeader}>
+          <Text style={styles.mealName}>{name}</Text>
+          <TouchableOpacity
+            style={styles.addButton}
+            onPress={() => toggleAddFoodButton()}
+          >
+            <Text style={styles.addButtonText}>+</Text>
+          </TouchableOpacity>
         </View>
-      ))}
+        <View style={styles.foodWrapper}>
+          {selectedFood.map((food, index) => (
+            <View style={styles.foodContainer} key={index}>
+              <Text style={styles.selectedFoodName}>{food.name}</Text>
+              <Text style={styles.selectedFoodDescription}>
+                {food.description}
+              </Text>
+              <Text style={styles.selectedFoodCalories}>
+                {food.calories} cal
+              </Text>
+              <Text style={styles.selectedFoodProtein}>
+                {food.protein} g Protein
+              </Text>
+              <Text style={styles.selectedFoodSalt}>{food.salt} g Salt</Text>
+            </View>
+          ))}
+        </View>
+      </View>
 
       <FoodDatabaseWindow
         isVisible={isModalVisible}
@@ -60,13 +65,20 @@ const styles = StyleSheet.create({
 
   },
   mealContainer: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    flexDirection: "column",
     backgroundColor: "#e0e0e0",
     padding: 10,
     borderRadius: 5,
-    marginBottom: -7,
+    marginBottom: 10,
+  },
+  mealHeader: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    marginLeft: 10,
+  },
+  foodWrapper: {
+    flexDirection: "column",
   },
   foodContainer: {
     alignItems: "center",
@@ -136,6 +148,9 @@ const styles = StyleSheet.create({
   selectedFoodSalt: {
     color: "red",
     fontSize: 12,
+  },
+  foodWrapper: {
+    flexDirection: "column",
   },
 });
 
