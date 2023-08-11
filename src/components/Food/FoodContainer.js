@@ -20,11 +20,11 @@ export default function Settings({ navigation }) {
   const circleRadiusPercentage = 0.20;
   const circleRadius = screenWidth * circleRadiusPercentage;
 
-  let carbsGoal = 2800;
+  let calsGoal = 2800;
 
   const [foodEaten, setFoodEaten] = useState("0");
   const [exercise, setExercise] = useState("0");
-  const [remainingCalories, setRemainingCalories] = useState(carbsGoal);
+  const [remainingCalories, setRemainingCalories] = useState(calsGoal);
 
   const calculateTotalCalories = (list) => {
     const totalCalories = list.map(food => food.calories).reduce((sum, calories) => sum + calories, 0);
@@ -37,9 +37,9 @@ export default function Settings({ navigation }) {
 
   useEffect(() => {
     const calculatedCalories =
-      carbsGoal - parseFloat(foodEaten) + parseFloat(exercise);
+      calsGoal - parseFloat(foodEaten) + parseFloat(exercise);
 
-    if(calculatedCalories){setRemainingCalories(calculatedCalories);} else{setRemainingCalories(carbsGoal)}
+    if(calculatedCalories){setRemainingCalories(calculatedCalories);} else{setRemainingCalories(calsGoal)}
   }, [foodEaten, exercise]);
 
   return (
@@ -49,7 +49,7 @@ export default function Settings({ navigation }) {
           <View style={styles.progressContainer}>
             <View style={styles.circleContainer}>
               <ProgressCircle
-                percent={(remainingCalories / carbsGoal) * 100}
+                percent={(remainingCalories / calsGoal) * 100}
                 radius={circleRadius}
                 borderWidth={8}
                 color="#8ed9de"
@@ -63,7 +63,7 @@ export default function Settings({ navigation }) {
                   style={styles.icon}
                 />
               </ProgressCircle>
-              <Text style={styles.carbsGoalText}>{"Carbs goal = " + carbsGoal}</Text>
+              <Text style={styles.calsGoalText}>{"Calories goal = " + calsGoal}</Text>
               <Text
                 style={{
                   fontSize: 20,
@@ -74,7 +74,7 @@ export default function Settings({ navigation }) {
                 }}
               >
                 {"Remaining " + remainingCalories + " = " +
-                  `${carbsGoal} - ${foodEaten} + ${exercise}`}
+                  `${calsGoal} - ${foodEaten} + ${exercise}`}
               </Text>
             </View>
           </View>
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     shadowRadius: 10,
     elevation: 5,
   },
-  carbsGoalText: {
+  calsGoalText: {
     marginTop: 20,
     fontSize: 14,
     color: "#2e2e2e",
