@@ -31,7 +31,8 @@ export default function LoginBox({ navigation }) {
         "Content-Type": "application/json",
       },
       body:JSON.stringify({
-        "USERNAME":"test"
+        "USERNAME": {username},
+        "PASSWORD": {password}
       })
     })
     .then(res=>res.json())
