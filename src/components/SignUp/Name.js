@@ -3,8 +3,7 @@ import { TextInput, View, KeyboardAvoidingView, Text } from "react-native";
 
 export let nameValue = ""; // Export the nameValue variable
 
-export default function Name({ onNameChange }) {
-  const [name, setName] = useState("");
+export default function Name({ onNameChange, name, setName }) {
   const [charactersLeft, setCharactersLeft] = useState(15);
   const [showCount, setShowCount] = useState(false);
   const [red, setRed] = useState(false);

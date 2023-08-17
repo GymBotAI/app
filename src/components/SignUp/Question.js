@@ -11,6 +11,8 @@ import {
 
 import * as Font from "expo-font";
 
+import username from "./Credentials";
+import password from "./Credentials";
 import Name from "./Name";
 import Age from "./Age";
 import Gender from "./Gender";
@@ -20,6 +22,8 @@ import Goals from "./Goals";
 let inputOption = null;
 
 export default function Question({ navigation }) {
+  const [nameVal, setNameVal] = useState("")
+
   const [isInputFilled, setInputFilled] = useState(false);
   const [fontLoaded, setFontLoaded] = useState(false);
   const slideUpAnim = useRef(new Animated.Value(300)).current;
@@ -28,9 +32,37 @@ export default function Question({ navigation }) {
     "Tell us your name!"
   );
 
+  const submitData = () => {
+    console.log(nameVal)
+    fetch("http://openhost.ddns.net:3000/send",{
+      method:"POST",
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify({
+        "USERNAME": String(nameVal),
+        "PASSWORD": String(nameVal),
+        "EMAIL": String(nameVal)
+      }) //nice
+    })
+    .then(res=>res.json())
+    .then(data=>{ 
+      console.log(data)
+    })
+  }
+
+//it didnt log anything at all
+
+//when u submit ur height and weight
+
+//the blank logs came before
+
   const handleSignUp = () => {
     setInputFilled(false);
-    if (prompt === "Tell us your name!") {
+    if (prompt === "") {
+      setPrompt("Tell us your name!");
+      inputOption = <Name onNameChange={setInputFilled} />;
+    } else if (prompt === "Tell us your name!") {
       setPrompt("When were you born?");
       inputOption = <Age onAgeChange={setInputFilled} />;
     } else if (prompt === "When were you born?") {
@@ -44,6 +76,7 @@ export default function Question({ navigation }) {
       inputOption = <Goals onGoalChange={setInputFilled} />;
     } else {
       navigation.navigate("Home");
+      submitData();
     }
   };
 
@@ -84,7 +117,7 @@ export default function Question({ navigation }) {
 
   if (prompt === "Tell us your name!") {
     // inputOption = <HeightWeightContainer onChange={setInputFilled} />;
-    inputOption = <Name onNameChange={setInputFilled} />;
+    inputOption = <Name onNameChange={setInputFilled} name={nameVal} setName={setNameVal}    />;
   }
 
   return (
