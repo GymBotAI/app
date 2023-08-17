@@ -9,6 +9,8 @@ import {
 
 import handleInsert from "../../db";
 
+var pass = "";
+
 export default function LoginBox({ navigation }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,10 +24,33 @@ export default function LoginBox({ navigation }) {
     }
   };
 
+  const checkCredentials = () => {
+    fetch("http://openhost.ddns.net:3000/select",{
+      method:"POST",
+      headers:{
+        "Content-Type": "application/json",
+      },
+      body:JSON.stringify({
+        "USERNAME":"test"
+      })
+    })
+    .then(res=>res.json())
+    .then(data=>{
+      console.log(data.USERNAME)
+      pass = data.PASSWORD
+    })
+    if(pass === password) {
+      navigation.navigate("Home");
+    } else {
+      //say wrong password
+      console.log(pass)
+    } //it doesnt work yet
+  }
+
   const handleLogin = () => {
     // onPressInsert()
-
-    navigation.navigate("Home");
+    checkCredentials()
+    //navigation.navigate("Home");
   };
 
   const handleCreateAccount = () => {
