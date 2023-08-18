@@ -52,7 +52,7 @@ export default function Account({ navigation }) {
           <View
             style={{
               width: "90%",
-              height: "32%",
+              height: "35%",
               // backgroundColor: "rgba(245, 245, 245, 1)",
               borderRadius: 15,
             }}

@@ -6,19 +6,21 @@ import {
   Text,
   StyleSheet,
 } from "react-native";
+import { Image } from "expo-image";
+
 
 import handleInsert from "../../db";
 
 var pass = "";
 
 export default function LoginBox({ navigation }) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const onPressInsert = async () => {
     try {
       // You can call the handleInsert function here
-      await handleInsert(username);
+      await handleInsert(email);
     } catch (error) {
       console.error('Error inserting record:', error);
     }
@@ -66,10 +68,11 @@ export default function LoginBox({ navigation }) {
     <View style={styles.container}>
       <TextInput
         style={styles.input}
-        placeholder="Username"
+        placeholder="Email"
         placeholderTextColor="white"
-        value={username}
-        onChangeText={setUsername}
+        value={email}
+        onChangeText={setEmail}
+        autoCapitalize = 'none'
       />
       <TextInput
         style={styles.input}
@@ -84,6 +87,9 @@ export default function LoginBox({ navigation }) {
         <Text style={styles.forgotText}>Forgot Password?</Text>
       </TouchableOpacity>
 
+
+
+      
       <View
         style={{
           marginTop: 30,
@@ -102,12 +108,20 @@ export default function LoginBox({ navigation }) {
         </TouchableOpacity>
       </View>
 
-      <View style={styles.guestContainer}>
+      
+      <TouchableOpacity style={styles.signInWithGoogleButton}>
+        <View style={styles.googleButtonContent}>
+          <Image source={require("../../../assets/google.webp")} style={styles.googleLogo} />
+          <Text style={styles.signInWithGoogleButtonText}>Continue with Google</Text>
+        </View>
+      </TouchableOpacity>
+
+      {/* <View style={styles.guestContainer}>
         <Text style={styles.guestText}>Just Visiting?</Text>
         <TouchableOpacity style={styles.button} onPress={handleContinueAsGuest}>
           <Text style={styles.forgotText}>Continue as Guest</Text>
         </TouchableOpacity>
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -185,5 +199,36 @@ const styles = StyleSheet.create({
   },
   button: {
     marginLeft: 10,
+  },
+  signInWithGoogleButton: {
+    marginTop: 60,
+    alignSelf: "center",
+    width: "90%",
+    backgroundColor: "white", // Google's color
+    borderRadius: 28,
+    marginHorizontal: 10,
+    marginBottom: 20,
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 3, // For Android shadow
+  },
+  googleButtonContent: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+  },
+  googleLogo: {
+    width: 45, // Adjust the width as needed
+    height: 45, // Adjust the height as needed
+    margin: -10,
+  },
+  signInWithGoogleButtonText: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: "black",
   },
 });
