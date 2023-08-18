@@ -76,7 +76,7 @@ export default function Question({ navigation }) {
       inputOption = <Goals onGoalChange={setInputFilled} />;
     } else {
       navigation.navigate("Home");
-      submitData();
+      // submitData();
     }
   };
 
