@@ -46,42 +46,31 @@ export default function Settings({ navigation }) {
     <ScrollView>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.container}>
-          <View style={styles.progressContainer}>
-            <View style={styles.circleContainer}>
-              <ProgressCircle
-                percent={(remainingCalories / calsGoal) * 100}
-                radius={circleRadius}
-                borderWidth={8}
-                color="#8ed9de"
-                shadowColor="#cccccc"
-                bgColor="#F5F5F5"
-              >
-                <FontAwesome5
-                  name="carrot"
-                  size={60}
-                  color="#8ed9de"
-                  style={styles.icon}
-                />
-              </ProgressCircle>
-              <Text style={styles.calsGoalText}>{"Calories goal = " + calsGoal}</Text>
-              <Text
-                style={{
-                  fontSize: 20,
-                  fontWeight: "bold",
-                  color: "#2e2e2e",
-                  alignSelf: "center",
-                  marginBottom: -2,
-                }}
-              >
-                {"Remaining " + remainingCalories + " = " +
-                  `${calsGoal} - ${foodEaten} + ${exercise}`}
-              </Text>
-            </View>
+          <View style={styles.circleContainer}>
+            <ProgressCircle
+              percent={(remainingCalories / calsGoal) * 100}
+              radius={circleRadius}
+              borderWidth={8}
+              color="#cccccc"
+              shadowColor="#8ed9de"
+              bgColor="#F5F5F5"
+            >
+              <FontAwesome5 name="carrot" size={60} color="#8ed9de" style={styles.icon} />
+            </ProgressCircle>
+            <Text style={styles.calsGoalText}>Calories Goal</Text>
+            <Text style={styles.remainingCalories}>
+              {remainingCalories} Remaining
+            </Text>
           </View>
+
           <Meals name="Breakfast" onSave={calculateSelectedFoods} />
+
           <Meals name="Lunch" onSave={calculateSelectedFoods} />
-          <Meals name="Snack" onSave={calculateSelectedFoods} />
+
           <Meals name="Dinner" onSave={calculateSelectedFoods} />
+
+          <Meals name="Other" onSave={calculateSelectedFoods} />
+
         </View>
       </TouchableWithoutFeedback>
     </ScrollView>
@@ -91,37 +80,35 @@ export default function Settings({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    overflow: "auto",
-    padding: 10,
-  },
-  progressContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginTop: 10,
+    padding: 20,
   },
   circleContainer: {
     width: "100%",
     backgroundColor: "#F5F5F5",
-    borderRadius: 10,
-    padding: 10,
-    paddingTop: 20,
-    paddingBottom: 50,
+    borderRadius: 15,
+    padding: 20,
     alignItems: "center",
-    shadowColor: "black",
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.4,
-    shadowRadius: 10,
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
     elevation: 5,
+    marginBottom: 20,
   },
   calsGoalText: {
-    marginTop: 20,
-    fontSize: 14,
+    marginTop: 15,
+    fontSize: 16,
     color: "#2e2e2e",
     textAlign: "center",
-    marginBottom: 5,
+  },
+  remainingCalories: {
+    marginTop: 10,
+    fontSize: 20,
+    fontWeight: "bold",
+    color: "#8ed9de",
+    textAlign: "center",
   },
   icon: {
-    marginBottom: 5,
+    marginBottom: 10,
   },
 });
