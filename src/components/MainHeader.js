@@ -25,8 +25,8 @@ export default function MainHeader({ text, minitext }) {
   return (
         <View
           style={{
-            backgroundColor: "#60b8d6",
-            paddingTop: 50,
+            backgroundColor: "#1877f2",
+            paddingTop: '12%',
             paddingBottom: 20,
             width: "100%",
             display: "flex",
@@ -37,7 +37,7 @@ export default function MainHeader({ text, minitext }) {
             overflow: "hidden",
           }}
         >
-          <Image
+          {/* <Image
             source={require("../../assets/GymBotLogo.png")}
             style={{
               width: 65, // Adjust the size as needed
@@ -45,10 +45,11 @@ export default function MainHeader({ text, minitext }) {
               borderRadius: 20,
               marginLeft: -40,
               marginRight: 20, // Add this line to set the desired spacing between the image and text
+              borderWidth: 1,
             }}
-          />
+          /> */}
           <View style={{}}>
-            <Text
+            {/* <Text
               style={{
                 fontSize: 19,
                 color: "#e0e0e0",
@@ -63,11 +64,11 @@ export default function MainHeader({ text, minitext }) {
               }}
             >
               {minitext}
-            </Text>
+            </Text> */}
 
             <Text
               style={{
-                fontSize: 48,
+                fontSize: 60,
                 color: "#e0e0e0",
                 fontFamily: "roboto-black",
                 fontWeight: "bold",

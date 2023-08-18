@@ -33,7 +33,7 @@ export default function LoginBox({ navigation }) {
       body:JSON.stringify({
         "USERNAME": {username},
         "PASSWORD": {password}
-      })
+      }) 
     })
     .then(res=>res.json())
     .then(data=>{
@@ -50,8 +50,8 @@ export default function LoginBox({ navigation }) {
 
   const handleLogin = () => {
     // onPressInsert()
-    checkCredentials()
-    //navigation.navigate("Home");
+    // checkCredentials()
+    navigation.navigate("Home");
   };
 
   const handleCreateAccount = () => {
