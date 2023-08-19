@@ -1,7 +1,8 @@
-import { View, StatusBar, StyleSheet, Text} from "react-native";
+import { View, StatusBar, StyleSheet, Text, TouchableOpacity} from "react-native";
 
 import EditSettings from "../components/Settings/EditSettings";
 import { FontAwesome5 } from "@expo/vector-icons";
+import Notifications from "../components/Settings/Notifications"
 
 export default function Settings({ navigation }) {
   return (
@@ -14,7 +15,9 @@ export default function Settings({ navigation }) {
       <View style={styles.container}>
         <Text style={styles.title}>{"Settings"}</Text>
         <View style={styles.bellContainer}>
-          <FontAwesome5 name = "bell" size = {30} colour = "#8ed9de" />
+          <TouchableOpacity onPress={Notifications}>
+            <FontAwesome5 name = "bell" size = {30} colour = "#8ed9de" />
+          </TouchableOpacity>
         </View>
       </View>
       <EditSettings navigation={navigation}/>
