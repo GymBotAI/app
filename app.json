@@ -14,14 +14,14 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.gymbotai.app"
+      "bundleIdentifier": "com.gymbotai.GymBot"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/GymBotLogo.png",
         "backgroundColor": "#1360dd"
       },
-      "package": "com.gymbotai.app"
+      "package": "com.gymbotai.GymBot"
     },
     "web": {
       "favicon": "./assets/icon.jpg"
