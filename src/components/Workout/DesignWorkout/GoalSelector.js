@@ -9,6 +9,8 @@ const GoalSelector = ({selectedGoal, setSelectedGoal, setGoalText}) => {
     setSelectedGoal(workoutType);
     if (workoutType === "Build Muscle") {
       setGoalText("What do you want to train?")
+    } else if (workoutType === "Lose Weight") {
+      setGoalText("What equipment do you have access to?")
     }
   };
 
@@ -44,10 +46,10 @@ const GoalSelector = ({selectedGoal, setSelectedGoal, setGoalText}) => {
         </View>
         <View style={{ flexDirection: "row" }}>
           <TouchableOpacity
-            style={getButtonStyle("Sports-Specific Training")}
-            onPress={() => handleWorkoutSelection("Sports-Specific Training")}
+            style={getButtonStyle("Sports-Specific")}
+            onPress={() => handleWorkoutSelection("Sports-Specific")}
           >
-            <Text style={getButtonTextStyle("Sports-Specific Training")}>
+            <Text style={getButtonTextStyle("Sports-Specific")}>
               Sports-Specific
             </Text>
           </TouchableOpacity>

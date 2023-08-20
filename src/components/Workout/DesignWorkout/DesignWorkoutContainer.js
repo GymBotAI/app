@@ -5,9 +5,8 @@ import { Image } from "expo-image";
 import * as Font from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 
-
-
 import BuildMuscle from "./BuildMuscle";
+import LoseWeight from "./LoseWeight"
 import GoalSelector from "./GoalSelector";
 
 const WorkoutSelectionScreen = () => {
@@ -50,6 +49,13 @@ const WorkoutSelectionScreen = () => {
         <BuildMuscle setGoalText={setGoalText} setInputFilled={setInputFilled}/>
       </>
     );
+  } else if (selectedGoal === "Lose Weight") {
+    option1 = (
+      <>
+        <View style={{ height: 1, backgroundColor: "#ccc", width: "90%", marginLeft: "5%" }} />
+        <LoseWeight setGoalText={setGoalText} setInputFilled={setInputFilled}/>
+      </>
+    )
   }
 
   return (
