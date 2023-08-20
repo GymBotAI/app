@@ -3,11 +3,15 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import BuildMuscle from "./BuildMuscle";
 
-const WorkoutSelectionScreen = ({selectedGoal, setSelectedGoal}) => {
+const GoalSelector = ({selectedGoal, setSelectedGoal, setGoalText}) => {
 
   const handleWorkoutSelection = (workoutType) => {
-    console.log("Si")
     setSelectedGoal(workoutType);
+    if (workoutType === "Build Muscle") {
+      setGoalText("What do you want to train?")
+    } else if (workoutType === "Lose Weight") {
+      setGoalText("What equipment do you have access to?")
+    }
   };
 
   const getButtonStyle = (workoutType) => {
@@ -42,10 +46,10 @@ const WorkoutSelectionScreen = ({selectedGoal, setSelectedGoal}) => {
         </View>
         <View style={{ flexDirection: "row" }}>
           <TouchableOpacity
-            style={getButtonStyle("Sports-Specific Training")}
-            onPress={() => handleWorkoutSelection("Sports-Specific Training")}
+            style={getButtonStyle("Sports-Specific")}
+            onPress={() => handleWorkoutSelection("Sports-Specific")}
           >
-            <Text style={getButtonTextStyle("Sports-Specific Training")}>
+            <Text style={getButtonTextStyle("Sports-Specific")}>
               Sports-Specific
             </Text>
           </TouchableOpacity>
@@ -92,4 +96,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WorkoutSelectionScreen;
+export default GoalSelector;
