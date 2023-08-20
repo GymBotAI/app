@@ -1,88 +1,67 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-const WorkoutScreen = () => {
+import BuildMuscle from "./BuildMuscle";
+import GoalSelector from "./GoalSelector"
+
+const WorkoutSelectionScreen = () => {
   const [selectedGoal, setSelectedGoal] = useState(null);
-
-  // Function to handle goal selection
-  const handleGoalSelection = (goal) => {
-    setSelectedGoal(goal);
-  };
-
-  // Function to render the section based on the selected goal
-  const renderGoalSection = () => {
-    if (selectedGoal === 'Build Muscle') {
-      return (
-        <View>
-          {/* Build Muscle section code */}
-          <Text>Build Muscle Section</Text>
-        </View>
-      );
-    } else if (selectedGoal === 'Functional Strength') {
-      return (
-        <View>
-          {/* Functional Strength section code */}
-          <Text>Functional Strength Section</Text>
-        </View>
-      );
-    } else if (selectedGoal === 'Sports-Specific Training') {
-      return (
-        <View>
-          {/* Sports-Specific Training section code */}
-          <Text>Sports-Specific Training Section</Text>
-        </View>
-      );
-    } else if (selectedGoal === 'Custom') {
-      return (
-        <View>
-          {/* Custom section code */}
-          <Text>Custom Section</Text>
-        </View>
-      );
-    } else {
-      // Render a default message if no goal is selected
-      return (
-        <View>
-          <Text>Select your Workout Goal to continue.</Text>
-        </View>
-      );
-    }
-  };
+  
+  let option1 = null;
+  if (selectedGoal === "Build Muscle") {
+    option1 = (
+    <>
+    <View style={{height: 1, backgroundColor: "#ccc", width: "90%", marginLeft: '5%'}}/>
+    <BuildMuscle />
+    </>
+    );
+  }
 
   return (
-    <View style={{ flex: 1, padding: 16 }}>
-      {/* Workout Goal Selection */}
-      <View style={{ marginBottom: 16 }}>
-        <Text>Select your Workout Goal to continue.</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>What is your goal?</Text>
 
-        <TouchableOpacity onPress={() => handleGoalSelection('Build Muscle')}>
-          <Text>Build Muscle</Text>
-        </TouchableOpacity>
+      <GoalSelector selectedGoal={selectedGoal} setSelectedGoal={setSelectedGoal}/>
+      
+      {option1}
 
-        <TouchableOpacity onPress={() => handleGoalSelection('Functional Strength')}>
-          <Text>Functional Strength</Text>
-        </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => handleGoalSelection('Sports-Specific Training')}>
-          <Text>Sports-Specific Training</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity onPress={() => handleGoalSelection('Custom')}>
-          <Text>Custom</Text>
-        </TouchableOpacity>
-      </View>
-
-      {/* Render the selected goal section */}
-      {renderGoalSection()}
-
-      {/* Submit Button */}
-      <TouchableOpacity onPress={() => console.log('Submit button pressed')}>
-        <Text style={{ backgroundColor: 'blue', color: 'white', padding: 10, textAlign: 'center' }}>
-          Submit
-        </Text>
-      </TouchableOpacity>
     </View>
   );
 };
 
-export default WorkoutScreen;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#f2f2f2",
+  },
+  title: {
+    alignSelf: "left",
+    margin: 15,
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  buttonContainer: {
+    flexDirection: "column",
+    paddingLeft: 17,
+    paddingRight: 7,
+  },
+  button: {
+    flex: 1,
+    backgroundColor: "white",
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+    borderRadius: 8,
+    marginBottom: 20,
+    marginRight: 10,
+  },
+  buttonText: {
+    color: "#444",
+    fontSize: 18,
+    fontWeight: "normal",
+    textAlign: "center",
+  },
+});
+
+export default WorkoutSelectionScreen;
