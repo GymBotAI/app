@@ -6,17 +6,19 @@ const BuildMuscle = ({setGoalText, setInputFilled}) => {
   const [upper, setUpper] = useState(false);
   const [lower, setLower] = useState(false);
 
-  const handleOptionSelection = (option) => {
+  const handleOptionSelection = () => {
     setGoalText("Nice!")
     setInputFilled(true)
   };
 
   const upperBody = () => {
     setUpper(!upper)
+    handleOptionSelection()
   }  
 
   const lowerBody = () => {
     setLower(!lower)
+    handleOptionSelection()
   }
 
   const getButtonStyle = (option) => {

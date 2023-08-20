@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
+
 import { Image } from "expo-image";
 import * as Font from "expo-font";
+import { LinearGradient } from "expo-linear-gradient";
+
 
 
 import BuildMuscle from "./BuildMuscle";
@@ -53,7 +55,13 @@ const WorkoutSelectionScreen = () => {
   return (
     <View style={styles.container}>
       <View style={styles.chatContainer}>
-        <View style={styles.chatBox}>
+        
+      <LinearGradient
+          colors={["#4c9afc", "#5da1fc"]} // Lighter blue gradient colors
+          start={[0, 0.5]}
+          end={[1, 0.5]}
+          style={styles.chatBox}
+        >
           <Image
             source={require("../../../../assets/circleicon.png")}
             style={{
@@ -66,7 +74,7 @@ const WorkoutSelectionScreen = () => {
             }}
           />
           <Text style={styles.chatText}>{typedText}</Text>
-        </View>
+        </LinearGradient>
       </View>
 
       <GoalSelector selectedGoal={selectedGoal} setSelectedGoal={setSelectedGoal} setGoalText={setGoalText} />
@@ -104,6 +112,7 @@ const styles = StyleSheet.create({
     flex: 1, // Allow text to wrap within the available space
     fontSize: 20,
     fontWeight: "bold",
+    color: 'white',
   },  
   button: {
     alignSelf: "center",
