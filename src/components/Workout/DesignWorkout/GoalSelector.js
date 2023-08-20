@@ -3,11 +3,14 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import BuildMuscle from "./BuildMuscle";
 
-const GoalSelector = ({selectedGoal, setSelectedGoal}) => {
+const GoalSelector = ({selectedGoal, setSelectedGoal, setGoalText}) => {
 
   const handleWorkoutSelection = (workoutType) => {
     console.log("Si")
     setSelectedGoal(workoutType);
+    if (workoutType === "Build Muscle") {
+      setGoalText("What do you want to train?")
+    }
   };
 
   const getButtonStyle = (workoutType) => {

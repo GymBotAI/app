@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
-const BuildMuscle = () => {
+const BuildMuscle = ({setGoalText}) => {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleOptionSelection = (option) => {
     setSelectedOption(option);
+    setGoalText("Nice!")
   };
 
   const getButtonStyle = (option) => {
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 20,
     marginHorizontal: 20,
-    flex: 1,
+    // flex: 1,
     backgroundColor: "#f2f2f2",
   },
   title: {
