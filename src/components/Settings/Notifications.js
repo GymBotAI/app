@@ -1,11 +1,18 @@
 import React from 'react';
-import { View, StyleSheet, Modal, Dimensions, TouchableOpacity, Text } from 'react-native';
+import { View, StyleSheet, Modal, Dimensions, TouchableOpacity, Text, ScrollView } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import NotificationsTab from './NotificationTabs';
 
 export default function Notifications({ isVisible, onClose, editSettingsDimensions }) {
   const windowHeight = Dimensions.get('window').height;
   const modalHeight = windowHeight - editSettingsDimensions.height;
+
+  const numTabs = 10;
+
+  const tabHeight = 100;
+  const totalNotificationsHeight = numTabs * tabHeight;
+
+  const containerHeight = Math.min(modalHeight, totalNotificationsHeight);
 
   return (
     <Modal
@@ -19,12 +26,21 @@ export default function Notifications({ isVisible, onClose, editSettingsDimensio
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
             <FontAwesome5 name="times" size={24} color="black" />
           </TouchableOpacity>
-          <NotificationsTab title="Tab 2" description="This is the second tab" />
+          <ScrollView style={[styles.scrollView, { height: containerHeight }]}>
+            <NotificationsTab title="Tab 2" description="This is the second tab" />
+            <NotificationsTab title="Tab 2" description="This is the second tab" />
+            <NotificationsTab title="Tab 2" description="This is the second tab" />
+            <NotificationsTab title="Tab 2" description="This is the second tab" />
+            <NotificationsTab title="Tab 2" description="This is the second tab" />
+            <NotificationsTab title="Tab 2" description="This is the second tab" />
+            <NotificationsTab title="Tab 2" description="This is the second tab" />
+          </ScrollView>
         </View>
       </View>
     </Modal>
   );
 }
+
 
 const styles = StyleSheet.create({
   centeredView: {
@@ -59,5 +75,8 @@ const styles = StyleSheet.create({
     color: "#333",
     textAlign: "center",
     paddingLeft: 20,
+  },
+  scrollView: {
+    maxHeight: 300,
   },
 });
