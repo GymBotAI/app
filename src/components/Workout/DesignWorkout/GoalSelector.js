@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import BuildMuscle from "./BuildMuscle";
 
-const WorkoutSelectionScreen = ({selectedGoal, setSelectedGoal}) => {
+const GoalSelector = ({selectedGoal, setSelectedGoal}) => {
 
   const handleWorkoutSelection = (workoutType) => {
     console.log("Si")
@@ -92,4 +92,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default WorkoutSelectionScreen;
+export default GoalSelector;
