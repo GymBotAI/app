@@ -8,19 +8,22 @@ import {
 } from "react-native";
 import CreateWorkoutButton from "./CreateWorkoutButton";
 import WorkoutList from "./WorkoutList";
-import { circularColour } from "../../styles";
 import TalkToGymBotSection from "./TalkToGymBot";
+import CustomPage from "./RunningPage";
 
 export default function ViewWorkouts({ navigation }) {
   const [selectedWorkouts, setSelectedWorkouts] = useState([]);
+  const [RunningPageVisibility, changeRunningPageVisibility] = useState(false);
+
+  const openRunningPage = () => {
+    changeRunningPageVisibility(true);
+  };
+  const closeRunningPage = () => {
+    changeRunningPageVisibility(false);
+  };
 
   const handleAddWorkout = () => {
     navigation.navigate("DesignWorkout");
-  };
-
-  const handleLogWorkout = () => {
-    // Implement the logic to log the workout
-    console.log("Workout logged!");
   };
 
   return (
@@ -28,13 +31,13 @@ export default function ViewWorkouts({ navigation }) {
     <ScrollView style={styles.container}>
       <CreateWorkoutButton handleAddWorkout={handleAddWorkout} />
 
-        <TalkToGymBotSection navigation={navigation} />
-        <WorkoutList navigation={navigation}/>
-
+      <TalkToGymBotSection navigation={navigation} />
+      <WorkoutList navigation={navigation}/>
+      <CustomPage isVisible={RunningPageVisibility} onClose={closeRunningPage}/>
     </ScrollView>
     
       {/* Log Workout button */}
-      <TouchableOpacity style={styles.addButtonContainer} onPress={handleLogWorkout}>
+      <TouchableOpacity style={styles.addButtonContainer} onPress={openRunningPage}>
           <Text style={styles.addText}>Log Workout</Text>
       </TouchableOpacity>
     </>
