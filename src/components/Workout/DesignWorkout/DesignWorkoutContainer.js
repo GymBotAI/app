@@ -1,88 +1,98 @@
-import React, { useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-const WorkoutScreen = () => {
-  const [selectedGoal, setSelectedGoal] = useState(null);
+const WorkoutSelectionScreen = () => {
+  const [selectedWorkout, setSelectedWorkout] = useState(null);
 
-  // Function to handle goal selection
-  const handleGoalSelection = (goal) => {
-    setSelectedGoal(goal);
+  const handleWorkoutSelection = (workoutType) => {
+    setSelectedWorkout(workoutType);
   };
 
-  // Function to render the section based on the selected goal
-  const renderGoalSection = () => {
-    if (selectedGoal === 'Build Muscle') {
-      return (
-        <View>
-          {/* Build Muscle section code */}
-          <Text>Build Muscle Section</Text>
-        </View>
-      );
-    } else if (selectedGoal === 'Functional Strength') {
-      return (
-        <View>
-          {/* Functional Strength section code */}
-          <Text>Functional Strength Section</Text>
-        </View>
-      );
-    } else if (selectedGoal === 'Sports-Specific Training') {
-      return (
-        <View>
-          {/* Sports-Specific Training section code */}
-          <Text>Sports-Specific Training Section</Text>
-        </View>
-      );
-    } else if (selectedGoal === 'Custom') {
-      return (
-        <View>
-          {/* Custom section code */}
-          <Text>Custom Section</Text>
-        </View>
-      );
-    } else {
-      // Render a default message if no goal is selected
-      return (
-        <View>
-          <Text>Select your Workout Goal to continue.</Text>
-        </View>
-      );
-    }
+  const getButtonStyle = (workoutType) => {
+    return {
+      ...styles.button,
+      backgroundColor: selectedWorkout === workoutType ? "orange" : "white",
+    };
+  };
+
+  const getButtonTextStyle = (workoutType) => {
+    return {
+      ...styles.buttonText,
+      fontWeight: selectedWorkout === workoutType ? "bold" : "normal",
+    };
   };
 
   return (
-    <View style={{ flex: 1, padding: 16 }}>
-      {/* Workout Goal Selection */}
-      <View style={{ marginBottom: 16 }}>
-        <Text>Select your Workout Goal to continue.</Text>
-
-        <TouchableOpacity onPress={() => handleGoalSelection('Build Muscle')}>
-          <Text>Build Muscle</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => handleGoalSelection('Functional Strength')}>
-          <Text>Functional Strength</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity onPress={() => handleGoalSelection('Sports-Specific Training')}>
-          <Text>Sports-Specific Training</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity onPress={() => handleGoalSelection('Custom')}>
-          <Text>Custom</Text>
-        </TouchableOpacity>
+    <View style={styles.container}>
+      <Text style={styles.title}>Select Your Workout Type</Text>
+      <View style={styles.buttonContainer}>
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity
+            style={getButtonStyle("Build Muscle")}
+            onPress={() => handleWorkoutSelection("Build Muscle")}
+          >
+            <Text style={getButtonTextStyle("Build Muscle")}>Build Muscle</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={getButtonStyle("Lose Weight")}
+            onPress={() => handleWorkoutSelection("Lose Weight")}
+          >
+            <Text style={getButtonTextStyle("Lose Weight")}>Lose Weight</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity
+            style={getButtonStyle("Sports-Specific Training")}
+            onPress={() => handleWorkoutSelection("Sports-Specific Training")}
+          >
+            <Text style={getButtonTextStyle("Sports-Specific Training")}>
+              Sports-Specific
+            </Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={getButtonStyle("Custom")}
+            onPress={() => handleWorkoutSelection("Custom")}
+          >
+            <Text style={getButtonTextStyle("Custom")}>Custom</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-
-      {/* Render the selected goal section */}
-      {renderGoalSection()}
-
-      {/* Submit Button */}
-      <TouchableOpacity onPress={() => console.log('Submit button pressed')}>
-        <Text style={{ backgroundColor: 'blue', color: 'white', padding: 10, textAlign: 'center' }}>
-          Submit
-        </Text>
-      </TouchableOpacity>
     </View>
   );
 };
 
-export default WorkoutScreen;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#f2f2f2",
+  },
+  title: {
+    alignSelf: "left",
+    margin: 15,
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
+  buttonContainer: {
+    flexDirection: "column",
+    paddingLeft: 17,
+    paddingRight: 7,
+  },
+  button: {
+    flex: 1,
+    backgroundColor: "white",
+    paddingVertical: 15,
+    paddingHorizontal: 10,
+    borderRadius: 8,
+    marginBottom: 20,
+    marginRight: 10,
+  },
+  buttonText: {
+    color: "#444",
+    fontSize: 18,
+    fontWeight: "normal",
+    textAlign: "center",
+  },
+});
+
+export default WorkoutSelectionScreen;
