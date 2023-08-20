@@ -45,7 +45,7 @@ const WorkoutSelectionScreen = () => {
     option1 = (
       <>
         <View style={{ height: 1, backgroundColor: "#ccc", width: "90%", marginLeft: "5%" }} />
-        <BuildMuscle setGoalText={setGoalText}/>
+        <BuildMuscle setGoalText={setGoalText} setInputFilled={setInputFilled}/>
       </>
     );
   }
