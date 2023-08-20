@@ -3,25 +3,33 @@ import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 const BuildMuscle = ({setGoalText, setInputFilled}) => {
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [upper, setUpper] = useState(false);
+  const [lower, setLower] = useState(false);
 
   const handleOptionSelection = (option) => {
-    setSelectedOption(option);
     setGoalText("Nice!")
     setInputFilled(true)
   };
 
+  const upperBody = () => {
+    setUpper(!upper)
+  }  
+
+  const lowerBody = () => {
+    setLower(!lower)
+  }
+
   const getButtonStyle = (option) => {
     return {
       ...styles.dropdownButton,
-      backgroundColor: selectedOption === option ? "orange" : "white",
+      backgroundColor: true === option ? "orange" : "white",
     };
   };
 
   const getButtonTextStyle = (option) => {
     return {
       ...styles.dropdownButtonText,
-      fontWeight: selectedOption === option ? "bold" : "normal",
+      fontWeight: true === option ? "bold" : "normal",
     };
   };
 
@@ -29,18 +37,18 @@ const BuildMuscle = ({setGoalText, setInputFilled}) => {
     <View style={styles.container}>
       {/* Upper Body Dropdown */}
       <TouchableOpacity
-        style={getButtonStyle("Upper Body")}
-        onPress={() => handleOptionSelection("Upper Body")}
+        style={getButtonStyle(upper)}
+        onPress={upperBody}
       >
-        <Text style={getButtonTextStyle("Upper Body")}>Upper Body</Text>
+        <Text style={getButtonTextStyle(upper)}>Upper Body</Text>
       </TouchableOpacity>
 
       {/* Lower Body Dropdown */}
       <TouchableOpacity
-        style={getButtonStyle("Lower Body")}
-        onPress={() => handleOptionSelection("Lower Body")}
+        style={getButtonStyle(lower)}
+        onPress={lowerBody}
       >
-        <Text style={getButtonTextStyle("Lower Body")}>Lower Body</Text>
+        <Text style={getButtonTextStyle(lower)}>Lower Body</Text>
       </TouchableOpacity>
     </View>
   );
