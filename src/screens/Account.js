@@ -8,7 +8,7 @@ import {
 // import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 
-import LoginBox from "../components/Login/LoginBox";
+import LoginBox from "../components/Login/LoginTest";
 import LoginHeader from "../components/Login/LoginHeader";
 
 export default function Account({ navigation }) {
