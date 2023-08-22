@@ -4,6 +4,8 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   StatusBar,
+  TouchableOpacity,
+  Text,
 } from "react-native";
 // import { useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
@@ -18,6 +20,10 @@ export default function Account({ navigation }) {
   const dismissKeyboard = () => {
     Keyboard.dismiss();
   };
+
+  const navigate = () => {
+    navigation.navigate("Home")
+  }
 
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
@@ -36,6 +42,9 @@ export default function Account({ navigation }) {
 
         <View style={{ position: "absolute", top: 40, left: 0, right: 0 }}>
           <LoginHeader />
+          <TouchableOpacity style={{alignSelf: 'center',backgroundColor:'white', padding: 10, borderRadius: 2}}onPress={navigate}>
+          <Text>Skip to Home Screen (for devs)</Text>
+          </TouchableOpacity>
         </View>
 
         <View
