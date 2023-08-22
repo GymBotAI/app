@@ -126,9 +126,6 @@ export default function LoginBox({ navigation }) {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity style={{alignSelf: 'center', backgroundColor: 'white', padding: 10, borderRadius: 2}} onPress={navigate}>
-          <Text>Skip to Home Screen (for devs)</Text>
-          </TouchableOpacity>
     </View>
   );
 }

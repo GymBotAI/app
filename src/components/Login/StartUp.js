@@ -9,7 +9,7 @@ import {Image} from 'expo-image'
 const Slides = [
     {
       id: 1,
-      img: require('../../../assets/caresoul1.jpeg'),
+      img: require('../../../assets/caresoul3.webp'),
       img2: require('../../../assets/phone1.jpg'),
     },
     {
@@ -19,7 +19,7 @@ const Slides = [
     },
     {
       id: 3,
-      img: require('../../../assets/caresoul3.webp'),
+      img: require('../../../assets/caresoul1.jpeg'),
       img2: require('../../../assets/phone3.jpeg'),
     },
     {
@@ -79,7 +79,15 @@ const Slider = ({navigation}) => {
         onScroll={handleOnScroll}
         onViewableItemsChanged={handleOnViewableItemsChanged}
         viewabilityConfig={viewabilityConfig}
+        bounces={false}
+
       />
+      
+      <TouchableOpacity style={{ position: 'absolute', top: 400, alignSelf: 'center', backgroundColor: 'white', padding: 10, borderRadius: 2}} onPress={() => {
+            navigation.navigate("Home")
+          }}>
+          <Text>Skip to Home Screen (for devs)</Text>
+          </TouchableOpacity>
         
         <TouchableOpacity style={styles.signup} onPress={() => {
             navigation.navigate("SignUp")
@@ -88,7 +96,7 @@ const Slider = ({navigation}) => {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.login} onPress={() => {
-            navigation.navigate("Home")
+            navigation.navigate("Login")
         }}>
         <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
