@@ -1,29 +1,35 @@
-import {Animated, FlatList, StyleSheet, StatusBar, View} from 'react-native';
-import React, {useRef, useState} from 'react';
+import {Animated, FlatList, StyleSheet, TouchableOpacity, View, Text} from 'react-native';
+import React, {useRef, useEffect, useState} from 'react';
 import SlideItem from './SlideItem';
 import Pagination from './Pagination';
+import {Image} from 'expo-image'
+
 
 
 const Slides = [
     {
       id: 1,
       img: require('../../../assets/caresoul1.jpeg'),
+      img2: require('../../../assets/phone1.jpg'),
     },
     {
       id: 2,
       img: require('../../../assets/caresoul2.webp'),
+      img2: require('../../../assets/phone2.jpg'),
     },
     {
       id: 3,
       img: require('../../../assets/caresoul3.webp'),
+      img2: require('../../../assets/phone3.jpeg'),
     },
     {
       id: 4,
       img: require('../../../assets/caresoul4.webp'),
+      img2: require('../../../assets/phone4.jpg'),
     },
   ];
 
-const Slider = () => {
+const Slider = ({navigation}) => {
   const [index, setIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
 
@@ -55,6 +61,14 @@ const Slider = () => {
 
   return (
     <View>
+        <View style={{ position: "absolute", zIndex: '1', top: 50, width: '100%', flexDirection: 'row', justifyContent: "center", alignItems: "center"}}>
+                <View style={styles.logoBorder}>
+                <Image
+                    source={require("../../../assets/GymBotText.png")}
+                    style={styles.logo}
+                />
+                </View>
+        </View>
       <FlatList
         data={Slides}
         renderItem={({item}) => <SlideItem item={item} />}
@@ -66,12 +80,92 @@ const Slider = () => {
         onViewableItemsChanged={handleOnViewableItemsChanged}
         viewabilityConfig={viewabilityConfig}
       />
+        
+        <TouchableOpacity style={styles.signup} onPress={() => {
+            navigation.navigate("SignUp")
+          }}>
+          <Text style={styles.signupText}>Sign Up for Free</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.login} onPress={() => {
+            navigation.navigate("Home")
+        }}>
+        <Text style={styles.loginText}>Login</Text>
+        </TouchableOpacity>
+
       <Pagination data={Slides} scrollX={scrollX} index={index} />
-      <StatusBar barStyle={'light-content'}/>
+      
     </View>
   );
 };
 
 export default Slider;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    headerText: {
+      fontSize: 47.0838,
+      fontWeight: "bold",
+      color: "#fff",
+      letterSpacing: 2,
+    shadowColor: "black",
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.6,
+    shadowRadius: 4,
+    fontFamily: "roboto-black",
+    },
+    logoBorder: {
+      borderColor: "white",
+      shadowColor: "black",
+      shadowOffset: { width: 2, height: 2 },
+      shadowOpacity: 1,
+      shadowRadius: 4,
+      elevation: 5,
+    },
+    logo: {
+      width: 220,
+      height: 110,
+      borderRadius: 50,
+    },
+    signup: {
+        position: 'absolute',
+        bottom: 150,
+      alignSelf: "center",
+      width: "85%",
+      backgroundColor: "#ddd",
+      paddingVertical: 10,
+      borderRadius: 8,
+      shadowColor: "black",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.4,
+      shadowRadius: 4,
+      elevation: 5, // For Android shadow
+    },
+    signupText: {
+      fontSize: 18,
+      fontWeight: "bold",
+      color: "#333",
+      textAlign: "center",
+    },
+    login: {
+        position: 'absolute',
+        bottom: 80,
+      alignSelf: "center",
+      width: "85%",
+      // backgroundColor: "#333",
+      paddingVertical: 10,
+      borderRadius: 8,
+      borderWidth: 1,
+      borderColor: "#ddd",
+      shadowColor: "black",
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.4,
+      shadowRadius: 4,
+      elevation: 5, // For Android shadow
+    },
+    loginText: {
+      fontSize: 18,
+      fontWeight: "bold",
+      color: "#ddd",
+      textAlign: "center",
+    },
+});

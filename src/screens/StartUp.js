@@ -13,7 +13,7 @@ import LoginBox from "../components/Login/LoginBox";
 import StartupScreen from "../components/Login/StartUp";
 import LoginHeader from "../components/Login/LoginHeader";
 
-export default function Account({ navigation }) {
+export default function StartUp({ navigation }) {
   // const [username, setUsername] = useState("");
   // const [password, setPassword] = useState("");
 
@@ -23,12 +23,10 @@ export default function Account({ navigation }) {
 
   return (
       <View style={{flex: 1}}>
-        {/* <View style={{ position: "absolute", top: 40, left: 0, right: 0 }}>
-          <LoginHeader navigation={navigation}/>
-        </View> */}
           <StartupScreen navigation={navigation} />
 
-        {/* <StatusBar barStyle="light-content" /> */}
+
+        <StatusBar barStyle="light-content" />
       </View>
   );
 }
