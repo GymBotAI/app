@@ -5,14 +5,24 @@ import {minDate, maxDate} from "../../styles";
 
 export let dateValue = new Date(); // Initialize ageValue as an empty string
 
-export default function Age({ onAgeChange }) {
+export default function Age({ onAgeChange, ageVal, setAgeVal }) {
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [date, setDate] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
 
   const toggleShow = () => {
     setShowPicker(!showPicker);
+    ageVal = calculateAge(dateValue);
   };
+
+  const calculateAge = (birthdate) => {
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    const ageInMilliseconds = today - birthDate;
+    const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25);
+    return Math.floor(ageInYears);
+  };
+
 
   const onChange = ({ type }, selectedDate) => {
     onAgeChange(true);
@@ -22,6 +32,11 @@ export default function Age({ onAgeChange }) {
       const formattedDate = currentDate.toLocaleDateString(); // Format the date as a string
       setDateOfBirth(formattedDate);
       dateValue = selectedDate; // Assign the formatted date to ageValue
+      console.log("Date:")
+      console.log(dateValue)
+      console.log("Age")
+      ageVal = calculateAge(dateValue)
+      console.log(ageVal)
     }
   };
 
