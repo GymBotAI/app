@@ -83,11 +83,11 @@ const Slider = ({navigation}) => {
 
       />
       
-      <TouchableOpacity style={{ position: 'absolute', top: 400, alignSelf: 'center', backgroundColor: 'white', padding: 10, borderRadius: 2}} onPress={() => {
+      {/* <TouchableOpacity style={{ position: 'absolute', top: 400, alignSelf: 'center', backgroundColor: 'white', padding: 10, borderRadius: 2}} onPress={() => {
             navigation.navigate("Home")
           }}>
           <Text>Skip to Home Screen (for devs)</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         
         <TouchableOpacity style={styles.signup} onPress={() => {
             navigation.navigate("SignUp")
