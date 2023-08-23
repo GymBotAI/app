@@ -86,7 +86,6 @@ export default function LoginBox({ navigation }) {
         value={email}
         onChangeText={setEmail}
         autoCapitalize = 'none'
-        secureTextEntry
       />
       <TextInput
         style={styles.input}
