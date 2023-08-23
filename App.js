@@ -9,7 +9,7 @@ import Chat from "./src/navbarScreens/Chat";
 
 
 import Account from "./src/screens/StartUp";
-import Login from "./src/screens/Login";
+import Login from "./src/screens/LogIn";
 import Settings from "./src/screens/Settings";
 import SignUp from "./src/screens/SignUp";
 import DesignWorkout from "./src/screens/DesignWorkout";
