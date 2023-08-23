@@ -14,6 +14,8 @@ import { username } from "../SignUp/Credentials";
 
 var pass = "";
 
+export let emailValue = "";
+
 export default function LoginBox({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -48,10 +50,11 @@ export default function LoginBox({ navigation }) {
     }
   };
   
-
+ 
   const handleLogin = async () => {
     // onPressInsert()
     console.log(email)
+    emailValue = email;
     console.log(password)
     console.log("Login result:")
     const result = await checkCredentials(email, password);
@@ -70,9 +73,9 @@ export default function LoginBox({ navigation }) {
     navigation.navigate("SignUp");
   };
 
-  const navigate = () => {
-    navigation.navigate("Home")
-  }
+  const handleContinueAsGuest = () => {
+    navigation.navigate("Signup");
+  };
 
   return (
     <View style={styles.container}>
@@ -83,6 +86,7 @@ export default function LoginBox({ navigation }) {
         value={email}
         onChangeText={setEmail}
         autoCapitalize = 'none'
+        secureTextEntry
       />
       <TextInput
         style={styles.input}
@@ -126,6 +130,12 @@ export default function LoginBox({ navigation }) {
         </View>
       </TouchableOpacity>
 
+      {/* <View style={styles.guestContainer}>
+        <Text style={styles.guestText}>Just Visiting?</Text>
+        <TouchableOpacity style={styles.button} onPress={handleContinueAsGuest}>
+          <Text style={styles.forgotText}>Continue as Guest</Text>
+        </TouchableOpacity>
+      </View> */}
     </View>
   );
 }

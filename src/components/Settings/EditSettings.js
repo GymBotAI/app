@@ -13,11 +13,18 @@ import AgeOption from "./AgeOption";
 import GenderOption from "./GenderOption";
 import WeightOption from "./HeightWeightOption";
 
+import { emailValue } from "../Login/LoginBox"
 import { nameValue } from "../SignUp/Name";
 import { dateValue } from "../SignUp/Age";
 import { genderVal } from "../SignUp/Gender";
 import { weightVal, wUnit } from "../SignUp/HeightWeightContainer";
 import { heightVal, hUnit } from "../SignUp/HeightWeightContainer";
+
+import { nameSetting } from "../Home/HomeContainer";
+import { ageSetting } from "../Home/HomeContainer";
+import { weightSetting } from "../Home/HomeContainer";
+import { heightSetting } from "../Home/HomeContainer";
+
 
 import { minHeight } from "../../styles";
 import { maxHeight } from "../../styles";
@@ -34,7 +41,7 @@ function ageCalculation(date) {
   const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25)); // Convert milliseconds to years
   return diffYears;
 }
-
+ 
 export default function Settings({ navigation }) {
   const [name, setName] = useState(nameValue);
   const [bday, setBday] = useState(dateValue);
@@ -43,24 +50,42 @@ export default function Settings({ navigation }) {
   const [weight, setWeight] = useState(weightVal);
   const [height, setHeight] = useState(heightVal);
 
+  const getDetails = async (emailVal) => {
+    try {
+      const response = await fetch("http://openhost.ddns.net:3000/search", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "USERNAME": String(emailVal),
+        }),
+      });
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error("An error occurred while fetching data:", error);
+  }
+}
   const handleSaveChanges = () => {
     // Perform saving changes logic here
   };
 
-  const handleGoHome = () => {
+  const handleGoHome = async () => {
     navigation.navigate("Home");
+    console.log(ageSetting)
   };
 
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
 
-      <Option question="Name" value={name} setValue={setName} />
-      <AgeOption question="Age" value={bday} setValue={setBday} />
+      <Option question="Name" value={nameSetting} setValue={setName} />
+      <AgeOption question="Age" value={ageSetting} setValue={setBday} />
       <GenderOption question="Gender" value={gender} setValue={setGender} />
       <WeightOption
         question="Weight"
-        value={weight}
+        value={weightSetting}
         setValue={setWeight}
         unit={wUnit}
         upper={maxWeight}
@@ -71,7 +96,7 @@ export default function Settings({ navigation }) {
       />
       <WeightOption
         question="Height"
-        value={height}
+        value={heightSetting}
         setValue={setHeight}
         unit={hUnit}
         upper={maxHeight}
