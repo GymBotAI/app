@@ -17,6 +17,7 @@ import { ageSetting } from "../Home/HomeContainer";
 import { genderSetting } from "../Home/HomeContainer";
 import { weightSetting } from "../Home/HomeContainer";
 import { heightSetting } from "../Home/HomeContainer";
+import { emailValue } from "../Login/LoginBox"
 
 import { minHeight } from "../../styles";
 import { maxHeight } from "../../styles";
@@ -34,8 +35,35 @@ export default function Settings({ navigation }) {
     // Perform saving changes logic here
   };
 
+  const updateCredentials = async () => {
+    try {
+      const response = await fetch("http://openhost.ddns.net:3000/edit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "NAME": name,
+          "USERNAME": emailValue,
+          "GENDER": gender,
+          "DOB": bday,
+          "WEIGHT": weight,
+          "HEIGHT": height
+        }),
+      });
+  
+      const data = await response.json();
+      return data; // Return the response data
+    } catch (error) {
+      console.error("Error checking credentials:", error);
+      return null; // Return null in case of an error
+    }
+  };
+
   const handleGoHome = async () => {
     navigation.navigate("Home");
+    console.log(name)
+    updateCredentials();
     console.log(ageSetting)
   };
 
