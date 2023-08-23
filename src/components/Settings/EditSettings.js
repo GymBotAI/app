@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   Text,
-  TextInput,
   TouchableOpacity,
   StyleSheet,
   Pressable,
@@ -13,35 +12,16 @@ import AgeOption from "./AgeOption";
 import GenderOption from "./GenderOption";
 import WeightOption from "./HeightWeightOption";
 
-import { emailValue } from "../Login/LoginBox"
-import { nameValue } from "../SignUp/Name";
-import { dateValue } from "../SignUp/Age";
-import { genderVal } from "../SignUp/Gender";
-import { weightVal, wUnit } from "../SignUp/HeightWeightContainer";
-import { heightVal, hUnit } from "../SignUp/HeightWeightContainer";
-
 import { nameSetting } from "../Home/HomeContainer";
 import { ageSetting } from "../Home/HomeContainer";
 import { genderSetting } from "../Home/HomeContainer";
 import { weightSetting } from "../Home/HomeContainer";
 import { heightSetting } from "../Home/HomeContainer";
 
-
 import { minHeight } from "../../styles";
 import { maxHeight } from "../../styles";
 import { minWeight } from "../../styles";
 import { maxWeight } from "../../styles";
-
-function ageCalculation(date) {
-  const currentDate = new Date(); // Get the current date
-  const [day, month, year] = date.split("/"); // Split the given date into day, month, and year
-
-  const givenDateObj = new Date(year, month - 1, day); // Create a new Date object for the given date (month - 1 because months are zero-based)
-
-  const diffTime = Math.abs(currentDate - givenDateObj); // Calculate the difference in milliseconds between the current date and the given date
-  const diffYears = Math.floor(diffTime / (1000 * 60 * 60 * 24 * 365.25)); // Convert milliseconds to years
-  return diffYears;
-}
  
 export default function Settings({ navigation }) {
   const [name, setName] = useState(nameSetting);
