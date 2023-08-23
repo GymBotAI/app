@@ -86,6 +86,7 @@ export default function Question({ navigation }) {
         "NAME": String(nameVal),
         "USERNAME": String(username),
         "PASSWORD": String(password),
+        "GENDER": String(genderVal),
         "AGE": ageVal,
         "WEIGHT": calculatedFixedWeight,
         "HEIGHT": calculatedFixedHeight

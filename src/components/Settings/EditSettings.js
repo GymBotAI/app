@@ -43,30 +43,12 @@ function ageCalculation(date) {
 }
  
 export default function Settings({ navigation }) {
-  const [name, setName] = useState(nameValue);
-  const [bday, setBday] = useState(dateValue);
-  // const [age, setAge] = useState(ageCalculation(dateValue))
+  const [name, setName] = useState(nameSetting);
+  const [bday, setBday] = useState(ageSetting);
   const [gender, setGender] = useState(genderVal);
-  const [weight, setWeight] = useState(weightVal);
-  const [height, setHeight] = useState(heightVal);
+  const [weight, setWeight] = useState(weightSetting);
+  const [height, setHeight] = useState(heightSetting);
 
-  const getDetails = async (emailVal) => {
-    try {
-      const response = await fetch("http://openhost.ddns.net:3000/search", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          "USERNAME": String(emailVal),
-        }),
-      });
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      console.error("An error occurred while fetching data:", error);
-  }
-}
   const handleSaveChanges = () => {
     // Perform saving changes logic here
   };
@@ -80,25 +62,25 @@ export default function Settings({ navigation }) {
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
 
-      <Option question="Name" value={nameSetting} setValue={setName} />
-      <AgeOption question="Age" value={ageSetting} setValue={setBday} />
+      <Option question="Name" value={name} setValue={setName} />
+      <AgeOption question="Age" value={bday} setValue={setBday} />
       <GenderOption question="Gender" value={gender} setValue={setGender} />
       <WeightOption
         question="Weight"
-        value={weightSetting}
+        value={weight}
         setValue={setWeight}
-        unit={wUnit}
+        unit={"kg"}
         upper={maxWeight}
         lower={minWeight}
-        met="kg"
+        met="kg"  
         imp="lb"
         conversion={2.20462262185}
       />
       <WeightOption
         question="Height"
-        value={heightSetting}
+        value={height}
         setValue={setHeight}
-        unit={hUnit}
+        unit={"cm"}
         upper={maxHeight}
         lower={minHeight}
         met="cm"

@@ -8,10 +8,12 @@ import WorkoutPreview from './WorkoutPreview'
 import {nameValue} from "../SignUp/Name"
 import { emailValue } from "../Login/LoginBox"
 
-export let nameSetting = "";
-export let ageSetting = "";
-export let weightSetting = "";
-export let heightSetting = "";
+let nameSetting = "";
+let ageSetting = "";
+let weightSetting = "";
+let heightSetting = "";
+let genderSetting = "";
+
 
 const HomeScreen = ( {navigation} ) => {
 
@@ -29,6 +31,7 @@ const HomeScreen = ( {navigation} ) => {
       const data = await response.json();
       nameSetting = data[0].NAME;
       ageSetting = data[0].AGE;
+      genderSetting = data[0].GENDER;
       weightSetting = data[0].WEIGHT;
       heightSetting = data[0].HEIGHT;
       navigation.navigate("Settings")
