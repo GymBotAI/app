@@ -9,12 +9,12 @@ import {Image} from 'expo-image'
 const Slides = [
     {
       id: 1,
-      img: require('../../../assets/caresoul3.webp'),
+      img: require('../../../assets/caresoul2.webp'),
       img2: require('../../../assets/phone1.jpg'),
     },
     {
       id: 2,
-      img: require('../../../assets/caresoul2.webp'),
+      img: require('../../../assets/caresoul3.webp'),
       img2: require('../../../assets/phone2.jpg'),
     },
     {

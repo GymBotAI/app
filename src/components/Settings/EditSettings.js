@@ -22,6 +22,7 @@ import { heightVal, hUnit } from "../SignUp/HeightWeightContainer";
 
 import { nameSetting } from "../Home/HomeContainer";
 import { ageSetting } from "../Home/HomeContainer";
+import { genderSetting } from "../Home/HomeContainer";
 import { weightSetting } from "../Home/HomeContainer";
 import { heightSetting } from "../Home/HomeContainer";
 
@@ -45,7 +46,7 @@ function ageCalculation(date) {
 export default function Settings({ navigation }) {
   const [name, setName] = useState(nameSetting);
   const [bday, setBday] = useState(ageSetting);
-  const [gender, setGender] = useState(genderVal);
+  const [gender, setGender] = useState(genderSetting);
   const [weight, setWeight] = useState(weightSetting);
   const [height, setHeight] = useState(heightSetting);
 

@@ -8,11 +8,11 @@ import WorkoutPreview from './WorkoutPreview'
 import {nameValue} from "../SignUp/Name"
 import { emailValue } from "../Login/LoginBox"
 
-let nameSetting = "";
-let ageSetting = "";
-let weightSetting = "";
-let heightSetting = "";
-let genderSetting = "";
+export let nameSetting = "";
+export let ageSetting = "";
+export let weightSetting = "";
+export let heightSetting = "";
+export let genderSetting = "";
 
 
 const HomeScreen = ( {navigation} ) => {
