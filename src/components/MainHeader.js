@@ -66,24 +66,11 @@ export default function MainHeader({ text, minitext }) {
               {minitext}
             </Text> */}
 
-            <Text
-              style={{
-                fontSize: 60,
-                color: "#e0e0e0",
-                fontFamily: "roboto-black",
-                fontWeight: "bold",
-                letterSpacing: 1.5,
-                textAlign: "center",
-                marginBottom: -5,
-                shadowColor: "black",
-                shadowOffset: { width: 0, height: 2 },
-                shadowOpacity: 0.3,
-                shadowRadius: 4,
-                elevation: 5, // For Android shadow
-              }}
-            >
-              {text}
-            </Text>
+            
+            <Image
+                    source={require("../../assets/GymBotText.png")}
+                    style={{width: 250, height: 125, borderRadius: 50, marginVertical: -25, marginBottom: -30}}
+                />
           </View>
 
         </View>

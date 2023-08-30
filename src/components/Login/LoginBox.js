@@ -10,8 +10,11 @@ import { Image } from "expo-image";
 
 
 import handleInsert from "../../db";
+import { username } from "../SignUp/Credentials";
 
 var pass = "";
+
+export let emailValue = "";
 
 export default function LoginBox({ navigation }) {
   const [email, setEmail] = useState("");
@@ -26,34 +29,44 @@ export default function LoginBox({ navigation }) {
     }
   };
 
-  const checkCredentials = () => {
-    fetch("http://openhost.ddns.net:3000/select",{
-      method:"POST",
-      headers:{
-        "Content-Type": "application/json",
-      },
-      body:JSON.stringify({
-        "USERNAME": {username},
-        "PASSWORD": {password}
-      }) 
-    })
-    .then(res=>res.json())
-    .then(data=>{
-      console.log(data.USERNAME)
-      pass = data.PASSWORD
-    })
-    if(pass === password) {
-      navigation.navigate("Home");
-    } else {
-      //say wrong password
-      console.log(pass)
-    } //it doesnt work yet
-  }
-
-  const handleLogin = () => {
+  const checkCredentials = async (email, password) => {
+    try {
+      const response = await fetch("http://openhost.ddns.net:3000/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          "username": String(email),
+          "password": String(password)
+        }),
+      });
+  
+      const data = await response.json();
+      return data; // Return the response data
+    } catch (error) {
+      console.error("Error checking credentials:", error);
+      return null; // Return null in case of an error
+    }
+  };
+  
+ 
+  const handleLogin = async () => {
     // onPressInsert()
-    // checkCredentials()
-    navigation.navigate("Home");
+    console.log(email)
+    emailValue = email;
+    console.log(password)
+    console.log("Login result:")
+    const result = await checkCredentials(email, password);
+    console.log(result)
+    if (result && result.message === "Login successful") { //for testing use One for email and Two for password
+      navigation.navigate("Home");
+    } else if (result && result.message === "Invalid credentials") {
+      console.log("Invalid login attempt")
+    } else {
+      console.log("Error")
+    }
+    //navigation.navigate("Home");
   };
 
   const handleCreateAccount = () => {

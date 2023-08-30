@@ -11,6 +11,13 @@ import {
 
 import * as Font from "expo-font";
 
+import { ageVal } from './Age.js';
+import { genderVal } from './Gender.js';
+import { dateValue } from './Age.js';
+import { weightVal, wUnit } from './HeightWeightContainer.js';
+import { heightVal, hUnit } from './HeightWeightContainer.js';
+//import { ageVal } from './Age.js';
+
 import username from "./Credentials";
 import password from "./Credentials";
 import Name from "./Name";
@@ -23,6 +30,10 @@ let inputOption = null;
 
 export default function Question({ navigation }) {
   const [nameVal, setNameVal] = useState("")
+  const [dateVal, setDateVal] = useState("")
+  const [fixedHeight, setFixedHeight] = useState(0);
+  const [fixedWeight, setFixedWeight] = useState(0);
+  const [ageVal, setAgeVal] = useState(0);
 
   const [isInputFilled, setInputFilled] = useState(false);
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -32,23 +43,60 @@ export default function Question({ navigation }) {
     "Tell us your name!"
   );
 
+  const calculateAge = (birthdate) => {
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    const ageInMilliseconds = today - birthDate;
+    const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25);
+    return Math.floor(ageInYears);
+  };
+
   const submitData = () => {
+    let calculatedFixedHeight = heightVal;
+    let calculatedFixedWeight = weightVal;
+    let ageVal = calculateAge(dateValue);
+
+    if (hUnit === "in") {
+      calculatedFixedHeight = heightVal * 2.54;
+    }
+
+    if (wUnit === "lb") {
+      calculatedFixedWeight = weightVal / 2.20462;
+    }
+
+    calculatedFixedHeight = Math.ceil(calculatedFixedHeight);
+    calculatedFixedWeight = Math.ceil(calculatedFixedWeight);
+
+    setFixedHeight(calculatedFixedHeight); // Update the state with the calculated value
+    setFixedWeight(calculatedFixedWeight); // Update the state with the calculated value
+
+    console.log(username)
+    console.log(password)
     console.log(nameVal)
-    fetch("http://openhost.ddns.net:3000/send",{
+    console.log(genderVal)
+    console.log(ageVal)
+    console.log(calculatedFixedWeight)
+    console.log(calculatedFixedHeight)
+    fetch("http:openhost.ddns.net:3000/send",{
       method:"POST",
       headers:{
         "Content-Type": "application/json",
       },
       body:JSON.stringify({
-        "USERNAME": String(nameVal),
-        "PASSWORD": String(nameVal),
-        "EMAIL": String(nameVal)
+        "NAME": String(nameVal),
+        "USERNAME": String(username),
+        "PASSWORD": String(password),
+        "GENDER": String(genderVal),
+        "AGE": ageVal,
+        "WEIGHT": calculatedFixedWeight,
+        "HEIGHT": calculatedFixedHeight
       }) //nice
     })
     .then(res=>res.json())
     .then(data=>{ 
       console.log(data)
     })
+    
   }
 
 //it didnt log anything at all
@@ -76,7 +124,7 @@ export default function Question({ navigation }) {
       inputOption = <Goals onGoalChange={setInputFilled} />;
     } else {
       navigation.navigate("Home");
-      // submitData();
+      submitData();
     }
   };
 
@@ -118,6 +166,14 @@ export default function Question({ navigation }) {
   if (prompt === "Tell us your name!") {
     // inputOption = <HeightWeightContainer onChange={setInputFilled} />;
     inputOption = <Name onNameChange={setInputFilled} name={nameVal} setName={setNameVal}    />;
+  } else if (prompt === "When were you born?") {
+    //inputOption = <Age onAgeChange={setInputFilled} age={ageVal} setAge={setAgeVal}    />;
+  } else if (prompt === "What is your gender?") {
+    //inputOption = <Name onNameChange={setInputFilled} name={nameVal} setName={setNameVal}    />;
+  } else if (prompt === "What are your weight and height?") {
+    //inputOption = <Name onNameChange={setInputFilled} name={nameVal} setName={setNameVal}    />;
+  } else if (prompt === "What are your goals?") {
+    //inputOption = <Name onNameChange={setInputFilled} name={nameVal} setName={setNameVal}    />;
   }
 
   return (

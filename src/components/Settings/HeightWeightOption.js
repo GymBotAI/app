@@ -54,19 +54,11 @@ export default function Option({
 
   handleUnitChange = () => {
     console.log("This is happening!");
-    let roundedWeight = selectedWeight;
-    if (roundedWeight === "") {
-      roundedWeight = 30;
-    }
-    console.log(roundedWeight);
     if (selectedUnit === met) {
       setSelectedUnit(imp);
-      roundedWeight = Math.round(roundedWeight * conversion).toString();
     } else {
       setSelectedUnit(met);
-      roundedWeight = Math.round(roundedWeight / conversion).toString();
     }
-    setSelectedWeight(roundedWeight);
   };
 
   return (

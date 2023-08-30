@@ -12,19 +12,32 @@ import {minDate, maxDate} from "../../styles";
 export default function Option({ question, value, setValue }) {
   const [name, setName] = useState("Daniel");
   const [showPicker, setShowPicker] = useState(false);
+  const [newAge, setNewAge] = useState(0);
+
+  const calculateAge = (birthdate) => {
+    const today = new Date();
+    const birthDate = new Date(birthdate);
+    const ageInMilliseconds = today - birthDate;
+    const ageInYears = ageInMilliseconds / (1000 * 60 * 60 * 24 * 365.25);
+    return Math.floor(ageInYears);
+  };
 
   const changeVis = () => {
     setShowPicker(!showPicker);
   };
 
   const handleConfirm = (selectedDate) => {
-    setValue(selectedDate);
+    setNewAge(calculateAge(selectedDate));
+    console.log(newAge)
+    setValue(newAge);
+    console.log(calculateAge(selectedDate))
+    console.log(selectedDate)
     changeVis();
   };
 
   return (
     <View style={styles.container}>
-      <InputBox question={question} onPress={changeVis} value={value.toLocaleDateString()}/>
+      <InputBox question={question} onPress={changeVis} value={newAge}/>
       <Modal isVisible={showPicker} onBackdropPress={changeVis} style={styles.modal}>
         <View style={styles.modalContainer}>
           <DateTimePickerModal

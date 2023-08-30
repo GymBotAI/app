@@ -8,7 +8,8 @@ import Food from "./src/navbarScreens/Food"
 import Chat from "./src/navbarScreens/Chat";
 
 
-import Account from "./src/screens/Account";
+import Account from "./src/screens/StartUp";
+import Login from "./src/screens/LogIn";
 import Settings from "./src/screens/Settings";
 import SignUp from "./src/screens/SignUp";
 import DesignWorkout from "./src/screens/DesignWorkout";
@@ -25,6 +26,7 @@ export default function App() {
         }}
       >
         <Stack.Screen name="Account" component={Account} />
+        <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="SignUp" component={SignUp} />
 
         <Stack.Screen name="Home" component={Home} />
