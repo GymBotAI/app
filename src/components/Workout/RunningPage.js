@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { View, StyleSheet, Modal, Dimensions, TouchableOpacity, Text, Alert } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
 import MapAndPos from './runningMap&Pos';
@@ -9,6 +9,8 @@ export default function CustomPage({ isVisible, onClose }) {
   const [isActive, setIsActive] = useState(false);
   const [calibratedBool, setcalibratedBool] = useState(false);
   const [timerStarted, setTimerStarted] = useState(false);
+  const [time, setTime] = useState({hours: 0, mins: 0, secs: 0});
+  const intervalRef = useRef(null);
 
   const updateTotalDistance = (distance) => {
     setKilometers(distance);
@@ -20,27 +22,41 @@ export default function CustomPage({ isVisible, onClose }) {
 
   const windowWidth = Dimensions.get('window').width;
 
-  let hours, mins, secs,nhours,nmins,nsecs;
-  let finalH, finalM, finalS;
-
   const StartAndEndTime = () => {
-    if(timerStarted === false){
+    if(!timerStarted){
       console.log("Timer has started");
-      hours = new Date().getHours();
-      mins = new Date().getMinutes();
-      secs = new Date().getSeconds();
+      setTime({
+        hours: 0,
+        mins: 0,
+        secs: 0
+      });
       setTimerStarted(true);
     } else {
-      nhours = new Date().getHours();
-      nmins = new Date().getMinutes();
-      nsecs = new Date().getSeconds();
-      finalH = nhours - hours;
-      finalM = nmins - mins;
-      finalS = nsecs - secs;
-      console.log("Timer has ended. Time:");
-      console.log(finalH, ":", finalM, ":", finalS);
+      setTimerStarted(false);
     }
   };
+
+  useEffect(() => {
+    if(timerStarted){
+      intervalRef.current = setInterval(() => {
+        setTime(prevTime => {
+          if(prevTime.secs < 59){
+            return {...prevTime, secs: prevTime.secs + 1};
+          } else if(prevTime.mins < 59){
+            return {...prevTime, secs: 0, mins: prevTime.mins + 1};
+          } else {
+            return {...prevTime, secs: 0, mins: 0, hours: prevTime.hours + 1};
+          }
+        });
+      }, 1000);
+    }
+    return () => {
+      if(intervalRef.current){
+        clearInterval(intervalRef.current);
+        intervalRef.current = null;
+      }
+    }
+  }, [timerStarted]);
 
   return (
     <Modal animationType="slide" transparent={true} visible={isVisible}>
@@ -72,7 +88,7 @@ export default function CustomPage({ isVisible, onClose }) {
           </View>
           <Text style={styles.redText}>Steps: {StepsTaken}</Text>
           <Text style={styles.greenText}>Km's: {kilometers}</Text>
-          <Text style={styles.blueText}>Time {finalH ? finalH : 0} : {finalM ? finalM : 0} : {finalS ? finalS : 0}</Text>
+          <Text style={styles.blueText}>Time {time.hours} : {time.mins} : {time.secs}</Text>0
         </View>
       </View>
     </Modal>
