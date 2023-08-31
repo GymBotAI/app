@@ -15,9 +15,9 @@ export default function MapAndPos({ updateTotalDistance, updateCalibrated, isAct
     let newLocation;
 
     const calibrate = async () => { //This function works because I have noticed that precision improves as iterations increase soooo... dont delete it if u want to give ur user a good experience.
-      for (let i = 5; i > 0; i--) {
+      for (let i = 4; i > 0; i--) {
         try {
-          //newLocation = await Location.getCurrentPositionAsync({}); //You can comment this line out when debugging since precision is irrelevant
+          newLocation = await Location.getCurrentPositionAsync({}); //You can comment this line out when debugging since precision is irrelevant
           console.log(`Calibrating... ${i} iterations left`);
         } catch (error) {
           console.error(error);
