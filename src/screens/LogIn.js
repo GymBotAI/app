@@ -28,8 +28,8 @@ export default function Login({ navigation }) {
         >
       <LinearGradient
     colors={[
-      'rgba(0,0,255,0.75)',
-      'rgba(0,0,0,0.75)',
+      'rgba(0,0,255,0.7)',
+      'rgba(0,0,0,0.7)',
     ]}
     style={{flex: 1}}>
 
