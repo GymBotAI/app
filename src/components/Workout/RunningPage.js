@@ -79,7 +79,7 @@ export default function CustomPage({ isVisible, onClose }) {
             }
           }}
           >
-          <FontAwesome5 name="arrow-right" size={24} color={calibratedBool && isActive ? "green" : "black"} />
+          <FontAwesome5 name="play" size={24} color={calibratedBool && isActive ? "green" : "black"} />
         </TouchableOpacity>
 
         <View style={styles.modalView}>
