@@ -5,15 +5,10 @@ import { Image } from "expo-image";
 export default function LoginHeader({}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.headerText}>GymBot</Text>
-      <View style={styles.logoContainer}>
-        <View style={styles.logoBorder}>
-          <Image
-            source={require("../../../assets/GymBotLogo.png")}
+      <Image
+            source={require("../../../assets/GymBotText.png")}
             style={styles.logo}
           />
-        </View>
-      </View>
     </View>
   );
 }
@@ -24,25 +19,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     marginBottom: 10,
-    marginTop: 50,
-  },
-  logoContainer: {
-    marginLeft: 10,
-  },
-  logoBorder: {
-    borderColor: "white",
-    // borderWidth: 2,
-    // borderRadius: 30, // Half the width and height of the logo image
-    shadowColor: "black",
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    elevation: 5,
+    marginTop: 120,
   },
   logo: {
-    width: 58,
+    width: 250,
     height: 58,
-    borderRadius: 50,
   },
   headerText: {
     fontSize: 47.0838,

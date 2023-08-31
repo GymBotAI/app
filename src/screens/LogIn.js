@@ -31,21 +31,21 @@ export default function Login({ navigation }) {
       'rgba(0,0,255,0.75)',
       'rgba(0,0,0,0.75)',
     ]}
-    style={{flex: 1, justifyContent: 'center'}}>
+    style={{flex: 1}}>
 
-        <View style={{ position: "absolute", top: 40, left: 0, right: 0 }}>
+        {/* <View style={{ position: "absolute", top: 40, left: 0, right: 0 }}> */}
           <LoginHeader navigation={navigation}/>
-        </View>
+        {/* </View> */}
 
-        <View
+        {/* <View
           style={{
-            marginTop: 220,
+            marginTop: 50,
             justifyContent: "center",
             alignItems: "center",
           }}
-        >
+        > */}
             <LoginBox navigation={navigation} />
-          </View>
+          {/* </View> */}
 
         <StatusBar barStyle="light-content" />
       </LinearGradient>
