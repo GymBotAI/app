@@ -17,18 +17,21 @@ export default function Login({ navigation }) {
       };
   return (
     <TouchableWithoutFeedback onPress={dismissKeyboard}>
-      <LinearGradient colors={["blue", "black"]} style={{ flex: 1 }}>
         <ImageBackground
           source={require("../../assets/accountbgdark.jpg")}
           resizeMode="cover"
           style={{
-            width: "100%",
-            height: "100%",
-            opacity: 0.3, // Adjust the opacity as per your preference
+    height: '100%',
+    width: '100%',
+    flex: 1,
           }}
         >
-          <View style={{ flex: 1 }} />
-        </ImageBackground>
+      <LinearGradient
+    colors={[
+      'rgba(0,0,255,0.75)',
+      'rgba(0,0,0,0.75)',
+    ]}
+    style={{flex: 1, justifyContent: 'center'}}>
 
         <View style={{ position: "absolute", top: 40, left: 0, right: 0 }}>
           <LoginHeader navigation={navigation}/>
@@ -36,24 +39,18 @@ export default function Login({ navigation }) {
 
         <View
           style={{
-            position: "absolute",
+            marginTop: 220,
             justifyContent: "center",
             alignItems: "center",
           }}
         >
-          <View
-            style={{
-              width: "90%",
-              height: "35%",
-              borderRadius: 15,
-            }}
-          >
             <LoginBox navigation={navigation} />
           </View>
-        </View>
 
         <StatusBar barStyle="light-content" />
       </LinearGradient>
+        </ImageBackground>
+        
     </TouchableWithoutFeedback>
   );
 }
