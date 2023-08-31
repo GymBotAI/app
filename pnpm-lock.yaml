@@ -26,9 +26,6 @@ dependencies:
   axios:
     specifier: ^1.4.0
     version: 1.4.0
-  deprecated-react-native-prop-types:
-    specifier: ^4.2.1
-    version: 4.2.1
   eas-cli:
     specifier: ^3.9.2
     version: 3.9.2(expo-modules-autolinking@1.5.0)
@@ -2442,10 +2439,6 @@ packages:
   /@react-native/normalize-color@2.1.0:
     resolution: {integrity: sha512-Z1jQI2NpdFJCVgpY+8Dq/Bt3d+YUi1928Q+/CZm/oh66fzM0RUl54vvuXlPJKybH4pdCZey1eDTPaLHkMPNgWA==}
 
-  /@react-native/normalize-colors@0.73.0:
-    resolution: {integrity: sha512-EmSCmJ0djeMJadeFsms6Pl/R85i9xSJMc+tyJu/GEMkKXBVyYQyqanK4RHFU0v8MO90OWj+SiFXjCkKYiJ6mkg==}
-    dev: false
-
   /@react-native/polyfills@2.0.0:
     resolution: {integrity: sha512-K0aGNn1TjalKj+65D7ycc1//H9roAQ51GJVk5ZJQFb2teECGmzd86bYDC0aYdbRf7gtovescq4Zt6FR0tgXiHQ==}
 
@@ -3757,14 +3750,6 @@ packages:
       '@react-native/normalize-color': 2.1.0
       invariant: 2.2.4
       prop-types: 15.8.1
-
-  /deprecated-react-native-prop-types@4.2.1:
-    resolution: {integrity: sha512-ef9AXisRrRhxuxd7d+noOEeGTtxIPVkfOQWf9WZUWuOqI+gs7P7hKTi49Rgb/dfvkmFULhwxO2UqAkH4nJsMfw==}
-    dependencies:
-      '@react-native/normalize-colors': 0.73.0
-      invariant: 2.2.4
-      prop-types: 15.8.1
-    dev: false
 
   /destroy@1.2.0:
     resolution: {integrity: sha512-2sJGJTaXIIaR1w4iJSNoN0hnMY7Gpc/n8D4qSCJw8QqFWXf7cuAgnEHxBpweaVcPevC2l3KpjYCx3NypQQgaJg==}
