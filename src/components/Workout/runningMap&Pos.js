@@ -18,7 +18,7 @@ export default function MapAndPos({ updateTotalDistance, updateCalibrated, isAct
       for (let i = 4; i > 0; i--) {
         try {
           newLocation = await Location.getCurrentPositionAsync({}); //You can comment this line out when debugging since precision is irrelevant
-          console.log(`Calibrating... ${i} iterations left`);
+          console.log("Calibrating... ${i} iterations left");
         } catch (error) {
           console.error(error);
         }
