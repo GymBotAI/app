@@ -88,7 +88,7 @@ export default function CustomPage({ isVisible, onClose }) {
           </View>
           <Text style={styles.redText}>Steps: {StepsTaken}</Text>
           <Text style={styles.greenText}>Km's: {kilometers}</Text>
-          <Text style={styles.blueText}>Time {time.hours} : {time.mins} : {time.secs}</Text>0
+          <Text style={styles.blueText}>Time {time.hours} : {time.mins} : {time.secs}</Text>
         </View>
       </View>
     </Modal>
