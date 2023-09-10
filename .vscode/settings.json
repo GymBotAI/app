@@ -2,5 +2,8 @@
   "files.exclude": {
     "**/.expo": true,
     "**/node_modules": true
+  },
+  "files.associations": {
+    ".env": "shellscript"
   }
 }
