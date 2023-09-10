@@ -3,12 +3,30 @@ import useWebSocket from "react-use-websocket";
 
 import Constants from "expo-constants";
 
+/**
+ * The address of the GymBot AI server.
+ * See `app.config.ts` for more information.
+ * @type {string}
+ */
 const serverAddr =
   Constants.expoConfig.extra.serverAddress ??
   Constants.expoConfig.extra.serverAddressDefault;
+
+/**
+ * The token that the server sends to indicate
+ * that the message stream has ended.
+ */
 const streamEndToken = "[DONE]";
 
-console.debug("[GymBot] Using server address:", serverAddr);
+/**
+ * Whether or not to log debug messages.
+ * @type {boolean}
+ */
+const debug = Constants.expoConfig.extra.debugLogs.api;
+
+if (debug) {
+  console.debug("[GymBot/API] Using server address:", serverAddr);
+}
 
 const secret = [53, 54, 99, 104, 97]
   .map((c) => String.fromCharCode(c))
@@ -46,21 +64,31 @@ export function useGymBotAI(initialMessages = []) {
   }, [lastMessage, setMessages]);
 
   if (!hasAuthed) {
+    if (debug) {
+      console.debug("[GymBot/API] Sending auth secret to chat WS...");
+    }
+
     sendMessage(secret);
     setHasAuthed(true);
   }
 
-  const _sendMessage = (msg) => {
-    setMessages((a) => [
-      ...a,
-      {
-        role: "user",
-        content: msg,
-      },
-    ]);
+  return [
+    messages,
+    (msg) => {
+      if (debug) {
+        console.debug("[GymBot/API] Sending message to chat WS:", msg);
+      }
 
-    sendMessage(msg);
-  };
+      setMessages((a) => [
+        ...a,
+        {
+          role: "user",
+          content: msg,
+        },
+      ]);
 
-  return [messages, _sendMessage, setMessages];
+      sendMessage(msg);
+    },
+    setMessages,
+  ];
 }

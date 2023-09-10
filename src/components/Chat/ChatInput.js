@@ -24,16 +24,13 @@ export default function ChatInput({
   const [text, setText] = useState(value);
   const [fontLoaded, setFontLoaded] = useState(false);
 
+  // Load font
   useEffect(() => {
-    async function loadFont() {
-      await Font.loadAsync({
-        "roboto-regular": require("../../../assets/fonts/Roboto-Regular.ttf"),
-      });
-
+    Font.loadAsync({
+      "roboto-regular": require("../../../assets/fonts/Roboto-Regular.ttf"),
+    }).then(() => {
       setFontLoaded(true);
-    }
-
-    loadFont();
+    });
   }, []);
 
   if (!fontLoaded) {
@@ -90,7 +87,7 @@ export default function ChatInput({
             backgroundColor: "white",
             paddingHorizontal: 12,
             paddingVertical: 8,
-            fontFamily: "roboto-regular",
+            fontFamily: fontLoaded ? "roboto-regular" : null,
             fontSize: 16,
             maxHeight: 100,
           }}
