@@ -50,17 +50,19 @@ export function useGymBotAI(initialMessages = []) {
     setHasAuthed(true);
   }
 
-  const _sendMessage = (msg) => {
-    setMessages((a) => [
-      ...a,
-      {
-        role: "user",
-        content: msg,
-      },
-    ]);
+  return [
+    messages,
+    (msg) => {
+      setMessages((a) => [
+        ...a,
+        {
+          role: "user",
+          content: msg,
+        },
+      ]);
 
-    sendMessage(msg);
-  };
-
-  return [messages, _sendMessage, setMessages];
+      sendMessage(msg);
+    },
+    setMessages,
+  ];
 }
