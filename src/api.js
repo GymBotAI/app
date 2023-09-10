@@ -25,7 +25,7 @@ const streamEndToken = "[DONE]";
 const debug = Constants.expoConfig.extra.debugLogs.api;
 
 if (debug) {
-  console.debug("[GymBot] Using server address:", serverAddr);
+  console.debug("[GymBot/API] Using server address:", serverAddr);
 }
 
 const secret = [53, 54, 99, 104, 97]
@@ -64,6 +64,10 @@ export function useGymBotAI(initialMessages = []) {
   }, [lastMessage, setMessages]);
 
   if (!hasAuthed) {
+    if (debug) {
+      console.debug("[GymBot/API] Sending auth secret to chat WS...");
+    }
+
     sendMessage(secret);
     setHasAuthed(true);
   }
@@ -71,6 +75,10 @@ export function useGymBotAI(initialMessages = []) {
   return [
     messages,
     (msg) => {
+      if (debug) {
+        console.debug("[GymBot/API] Sending message to chat WS:", msg);
+      }
+
       setMessages((a) => [
         ...a,
         {
