@@ -16,7 +16,7 @@ var pass = "";
 
 export let emailValue = "";
 
-export default function LoginBox({ navigation }) {
+export default function LoginBox({ navigation}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -73,10 +73,6 @@ export default function LoginBox({ navigation }) {
     navigation.navigate("SignUp");
   };
 
-  const handleContinueAsGuest = () => {
-    navigation.navigate("Signup");
-  };
-
   return (
     <View style={styles.container}>
       <TextInput
@@ -128,13 +124,6 @@ export default function LoginBox({ navigation }) {
           <Text style={styles.signInWithGoogleButtonText}>Continue with Google</Text>
         </View>
       </TouchableOpacity>
-
-      {/* <View style={styles.guestContainer}>
-        <Text style={styles.guestText}>Just Visiting?</Text>
-        <TouchableOpacity style={styles.button} onPress={handleContinueAsGuest}>
-          <Text style={styles.forgotText}>Continue as Guest</Text>
-        </TouchableOpacity>
-      </View> */}
     </View>
   );
 }
@@ -143,9 +132,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     marginTop: 50,
-    width: '85%',
+    width: '95%',
     justifyContent:'center',
-    marginLeft: '7.5%',
+    marginLeft: '2.5%',
   },
   input: {
     marginBottom: 22,
@@ -220,9 +209,9 @@ const styles = StyleSheet.create({
   signInWithGoogleButton: {
     marginTop: 60,
     alignSelf: "center",
-    width: "90%",
+    width: "100%",
     backgroundColor: "white", // Google's color
-    borderRadius: 28,
+    borderRadius: 3,
     marginHorizontal: 10,
     marginBottom: 20,
     shadowColor: "#000",
@@ -233,8 +222,7 @@ const styles = StyleSheet.create({
   },
   googleButtonContent: {
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
+    alignItems: "left",
     paddingVertical: 12,
     paddingHorizontal: 16,
   },
@@ -244,8 +232,20 @@ const styles = StyleSheet.create({
     margin: -10,
   },
   signInWithGoogleButtonText: {
+    marginLeft: 15,
     fontSize: 18,
     fontWeight: "bold",
     color: "black",
+  },
+  backButton: {
+    position: 'absolute',
+    top: 20, // Adjust the position as needed
+    left: 10, // Adjust the position as needed
+    zIndex: 1,
+  },
+
+  backButtonText: {
+    color: 'white',
+    fontSize: 16,
   },
 });
