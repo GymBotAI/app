@@ -12,12 +12,9 @@ const debugLogsConfigFromEnv: NodeJS.Dict<boolean> = Object.fromEntries(
  * Enable or disable debug logs for specific
  * parts of the app.
  */
-const debugLogs: Record<string, boolean | undefined> = Object.assign(
-  debugLogsConfigFromEnv,
-  {
-    api: false,
-  }
-);
+const debugLogs: NodeJS.Dict<boolean> = Object.assign(debugLogsConfigFromEnv, {
+  api: false,
+});
 
 module.exports = {
   extra: {
