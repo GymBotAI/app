@@ -16,7 +16,7 @@ var pass = "";
 
 export let emailValue = "";
 
-export default function LoginBox({ navigation}) {
+export default function LoginBox({ navigation, setShowLogin}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -52,6 +52,7 @@ export default function LoginBox({ navigation}) {
   
  
   const handleLogin = async () => {
+    
     // onPressInsert()
     console.log(email)
     emailValue = email;
@@ -60,6 +61,7 @@ export default function LoginBox({ navigation}) {
     const result = await checkCredentials(email, password);
     console.log(result)
     if (result && result.message === "Login successful") { //for testing use One for email and Two for password
+    setShowLogin(false)
       navigation.navigate("Home");
     } else if (result && result.message === "Invalid credentials") {
       console.log("Invalid login attempt")
@@ -71,6 +73,7 @@ export default function LoginBox({ navigation}) {
 
   const handleCreateAccount = () => {
     navigation.navigate("SignUp");
+    setShowLogin(false)
   };
 
   return (
@@ -131,7 +134,7 @@ export default function LoginBox({ navigation}) {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    marginTop: 50,
+    marginTop: 130,
     width: '95%',
     justifyContent:'center',
     marginLeft: '2.5%',
