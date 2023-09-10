@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
 import useWebSocket from "react-use-websocket";
 
-const serverHost = "gymbot-ai-server.luisafk.repl.co";
+const serverAddr =
+  process.env.EXPO_PUBLIC_API_SERVER ||
+  "wss://gymbot-ai-server.luisafk.repl.co";
 const streamEndToken = "[DONE]";
 
 const secret = [53, 54, 99, 104, 97]
@@ -11,7 +13,7 @@ const secret = [53, 54, 99, 104, 97]
 export function useGymBotAI(initialMessages = []) {
   const [messages, setMessages] = useState(initialMessages);
   const { sendMessage, lastMessage, readyState } = useWebSocket(
-    `wss://${serverHost}/chat`
+    `${serverAddr}/chat`
   );
   const [hasAuthed, setHasAuthed] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
