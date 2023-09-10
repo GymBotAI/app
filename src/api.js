@@ -1,38 +1,60 @@
-// chatGptService.js
+import { useState, useEffect } from "react";
+import useWebSocket from "react-use-websocket";
 
-import axios from "axios";
+const serverHost = "gymbot-ai-server.luisafk.repl.co";
+const streamEndToken = "[DONE]";
 
-const apiKey = "YOUR_API_KEY"; // Replace with your actual API key
-const chatGptEndpoint = "https://api.openai.com/v1/chat/completions";
+const secret = [53, 54, 99, 104, 97]
+  .map((c) => String.fromCharCode(c))
+  .join("");
 
-async function getChatGptResponse(userMessage, chatHistory = []) {
-  try {
-    const messages = [
-      { role: "system", content: "You are GymBot, an AI personal trainer." },
-      ...chatHistory,
-      { role: "user", content: userMessage },
-    ];
+export function useGymBotAI(initialMessages = []) {
+  const [messages, setMessages] = useState(initialMessages);
+  const { sendMessage, lastMessage, readyState } = useWebSocket(
+    `wss://${serverHost}/chat`
+  );
+  const [hasAuthed, setHasAuthed] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
 
-    const response = await axios.post(
-      chatGptEndpoint,
-      {
-        model: "gpt-3.5-turbo",
-        messages: messages,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
-        },
+  useEffect(() => {
+    if (lastMessage != null) {
+      if (lastMessage.data == streamEndToken) {
+        setIsStreaming(false);
+        return;
       }
-    );
 
-    const chatGptReply = response.data.choices[0].message.content;
-    return chatGptReply;
-  } catch (error) {
-    console.error("Error calling ChatGPT API:", error);
-    return "Sorry, an error occurred.";
+      setMessages((a) => {
+        const previousData = isStreaming ? a.pop().content : "";
+
+        setIsStreaming(true);
+
+        return [
+          ...a,
+          {
+            role: "assistant",
+            content: previousData + lastMessage.data,
+          },
+        ];
+      });
+    }
+  }, [lastMessage, setMessages]);
+
+  if (!hasAuthed) {
+    sendMessage(secret);
+    setHasAuthed(true);
   }
-}
 
-export default getChatGptResponse;
+  const _sendMessage = (msg) => {
+    setMessages((a) => [
+      ...a,
+      {
+        role: "user",
+        content: msg,
+      },
+    ]);
+
+    sendMessage(msg);
+  };
+
+  return [messages, _sendMessage, setMessages];
+}
