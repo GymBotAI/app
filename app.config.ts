@@ -3,7 +3,12 @@ module.exports = {
     serverAddress: process.env.GYMBOT_SERVER_ADDRESS,
     serverAddressDefault: "wss://gymbot-ai-server.luisafk.repl.co",
 
-    /** @type {Record<string, boolean | undefined>} */
+    /**
+     * Enable or disable debug logs for specific
+     * parts of the app.
+     *
+     * @type {Record<string, boolean | undefined>}
+     */
     debugLogs: {
       api: false,
     },
