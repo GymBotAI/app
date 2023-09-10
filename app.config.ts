@@ -1,4 +1,4 @@
-const debugLogsConfigFromEnv = Object.fromEntries(
+const debugLogsConfigFromEnv: NodeJS.Dict<boolean> = Object.fromEntries(
   Object.entries(process.env)
     .filter(([envKey]) => {
       return envKey.startsWith("GYMBOT_DEBUG_LOGS_");
