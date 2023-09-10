@@ -3,7 +3,9 @@ import useWebSocket from "react-use-websocket";
 
 import Constants from "expo-constants";
 
-const serverAddr = Constants.expoConfig.extra.serverAddress;
+const serverAddr =
+  Constants.expoConfig.extra.serverAddress ??
+  Constants.expoConfig.extra.serverAddressDefault;
 const streamEndToken = "[DONE]";
 
 console.debug("[GymBot] Using server address:", serverAddr);
