@@ -16,7 +16,7 @@ var pass = "";
 
 export let emailValue = "";
 
-export default function LoginBox({ navigation, setShowLogin}) {
+export default function LoginBox({ navigation, setShowSignUp}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -48,7 +48,12 @@ export default function LoginBox({ navigation, setShowLogin}) {
           flexDirection: "column",
         }}
       >
-        <TouchableOpacity style={styles.login} onPress>
+        <TouchableOpacity style={styles.login} onPress={() => {
+          if (email != "" && password != "") {
+            setShowSignUp(false)
+          navigation.navigate("SignUp")
+          }
+          }}>
           <Text style={styles.loginText}>Continue</Text>
         </TouchableOpacity>
 
