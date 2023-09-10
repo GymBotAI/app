@@ -9,6 +9,7 @@ import SlideItem from './SlideItem';
 import Pagination from './Pagination';
 import Modal from "react-native-modal";
 import LoginBox from './LoginBox';
+import Login from '../../screens/LogIn';
 
 
 const Slides = [
@@ -71,7 +72,7 @@ const Slider = ({navigation}) => {
 
   return (
     <View>
-            <Modal isVisible={showLogin} backdropOpacity={1} backdropColor="black">
+            <Modal isVisible={showLogin} backdropOpacity={1} backdropColor='#b8b8b8'>
     <TouchableOpacity
       style={{
         position: 'absolute',

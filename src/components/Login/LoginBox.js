@@ -131,7 +131,7 @@ export default function LoginBox({ navigation}) {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    marginTop: 50,
+    marginTop: 130,
     width: '95%',
     justifyContent:'center',
     marginLeft: '2.5%',

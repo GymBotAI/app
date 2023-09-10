@@ -1,7 +1,6 @@
 import { Text, View, Image } from "react-native";
 import * as Font from "expo-font";
 import { useState, useEffect } from "react";
-import Svg, { Path } from "react-native-svg";
 
 export default function MainHeader({ text, minitext }) {
   const [fontLoaded, setFontLoaded] = useState(false);
