@@ -6,6 +6,8 @@ const serverAddr =
   "wss://gymbot-ai-server.luisafk.repl.co";
 const streamEndToken = "[DONE]";
 
+console.debug("[GymBot] Using server address:", serverAddr);
+
 const secret = [53, 54, 99, 104, 97]
   .map((c) => String.fromCharCode(c))
   .join("");
