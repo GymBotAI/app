@@ -209,7 +209,7 @@ const styles = StyleSheet.create({
   signInWithGoogleButton: {
     marginTop: 60,
     alignSelf: "center",
-    width: "100%",
+    width: "90%",
     backgroundColor: "white", // Google's color
     borderRadius: 3,
     marginHorizontal: 10,
@@ -222,7 +222,6 @@ const styles = StyleSheet.create({
   },
   googleButtonContent: {
     flexDirection: "row",
-    alignItems: "left",
     paddingVertical: 12,
     paddingHorizontal: 16,
   },

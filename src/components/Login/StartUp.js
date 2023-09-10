@@ -71,13 +71,22 @@ const Slider = ({navigation}) => {
 
   return (
     <View>
-            <Modal isVisible={showLogin}>
-              <TouchableOpacity style={{width: 40,marginLeft: 'auto'}} onPress={handleGoBack}>
-              <Feather name="x-circle" size={40} color="white" />
-              </TouchableOpacity>
-              
-              <LoginBox/>
-            </Modal>
+            <Modal isVisible={showLogin} backdropOpacity={1} backdropColor="black">
+    <TouchableOpacity
+      style={{
+        position: 'absolute',
+        top: 35,
+        right: 5,
+        width: 40,
+        zIndex: 1,
+      }}
+      onPress={handleGoBack}
+    >
+      <Feather name="x-circle" size={40} color="white" />
+    </TouchableOpacity>
+
+    <LoginBox />
+</Modal>
 
         <View style={{ position: "absolute", zIndex: '1', top: 50, width: '100%', flexDirection: 'row', justifyContent: "center", alignItems: "center"}}>
                 <View style={styles.logoBorder}>
@@ -101,11 +110,11 @@ const Slider = ({navigation}) => {
 
       />
       
-      <TouchableOpacity style={{ position: 'absolute', top: 400, alignSelf: 'center', backgroundColor: 'white', padding: 10, borderRadius: 2}} onPress={() => {
+      {/* <TouchableOpacity style={{ position: 'absolute', top: 400, alignSelf: 'center', backgroundColor: 'white', padding: 10, borderRadius: 2}} onPress={() => {
             navigation.navigate("Home")
           }}>
           <Text>Skip to Home Screen (for devs)</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         
         <TouchableOpacity style={styles.signup} onPress={() => {
             navigation.navigate("SignUp")
