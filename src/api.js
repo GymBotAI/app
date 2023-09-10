@@ -18,7 +18,12 @@ const serverAddr =
  */
 const streamEndToken = "[DONE]";
 
-console.debug("[GymBot] Using server address:", serverAddr);
+/** @type {boolean} */
+const debug = Constants.expoConfig.extra.debugLogs.api;
+
+if (debug) {
+  console.debug("[GymBot] Using server address:", serverAddr);
+}
 
 const secret = [53, 54, 99, 104, 97]
   .map((c) => String.fromCharCode(c))
