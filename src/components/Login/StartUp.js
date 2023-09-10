@@ -72,7 +72,7 @@ const Slider = ({navigation}) => {
 
   return (
     <View>
-            <Modal isVisible={showLogin} backdropOpacity={1} backdropColor='#b8b8b8'>
+            <Modal isVisible={showLogin} backdropOpacity={.9} backdropColor='#1f1f1f'>
     <TouchableOpacity
       style={{
         position: 'absolute',
@@ -86,7 +86,7 @@ const Slider = ({navigation}) => {
       <Feather name="x-circle" size={40} color="white" />
     </TouchableOpacity>
 
-    <LoginBox />
+    <LoginBox navigation={navigation} setShowLogin={setShowLogin}/>
 </Modal>
 
         <View style={{ position: "absolute", zIndex: '1', top: 50, width: '100%', flexDirection: 'row', justifyContent: "center", alignItems: "center"}}>
