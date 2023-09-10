@@ -3,6 +3,11 @@ import useWebSocket from "react-use-websocket";
 
 import Constants from "expo-constants";
 
+/**
+ * The address of the GymBot AI server.
+ * See `app.config.ts` for more information.
+ * @type {string}
+ */
 const serverAddr =
   Constants.expoConfig.extra.serverAddress ??
   Constants.expoConfig.extra.serverAddressDefault;
