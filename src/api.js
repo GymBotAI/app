@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import useWebSocket from "react-use-websocket";
 
-const serverAddr =
-  process.env.EXPO_PUBLIC_API_SERVER ||
-  "wss://gymbot-ai-server.luisafk.repl.co";
+import Constants from "expo-constants";
+
+const serverAddr = Constants.expoConfig.extra.serverAddress;
 const streamEndToken = "[DONE]";
 
 console.debug("[GymBot] Using server address:", serverAddr);
