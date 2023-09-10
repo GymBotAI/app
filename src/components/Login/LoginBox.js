@@ -116,7 +116,7 @@ export default function LoginBox({ navigation, setShowLogin}) {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.signup} onPress={handleCreateAccount}>
-          <Text style={styles.signupText}>Sign Up</Text>
+          <Text style={styles.signupText}>Sign Up Instead</Text>
         </TouchableOpacity>
       </View>
 
