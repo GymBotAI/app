@@ -5,7 +5,7 @@ module.exports = {
 
     /** @type {Record<string, boolean | undefined>} */
     debugLogs: {
-      api: true,
+      api: false,
     },
   },
 };
