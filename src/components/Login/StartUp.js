@@ -9,7 +9,7 @@ import SlideItem from './SlideItem';
 import Pagination from './Pagination';
 import Modal from "react-native-modal";
 import LoginBox from './LoginBox';
-import Login from '../../screens/LogIn';
+import SignUpBox from "./SignUpBox";
 
 
 const Slides = [
@@ -37,6 +37,7 @@ const Slides = [
 
 const Slider = ({navigation}) => {
   const [showLogin, setShowLogin] = useState(false)
+  const [showSignUp, setShowSignUp] = useState(false)
   const [index, setIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
 
@@ -68,26 +69,44 @@ const Slider = ({navigation}) => {
   
   const handleGoBack = () => {
     setShowLogin(false)
+    setShowSignUp(false)
   };
 
   return (
     <View>
-            <Modal isVisible={showLogin} backdropOpacity={.9} backdropColor='#1f1f1f'>
-    <TouchableOpacity
-      style={{
-        position: 'absolute',
-        top: 35,
-        right: 5,
-        width: 40,
-        zIndex: 1,
-      }}
-      onPress={handleGoBack}
-    >
-      <Feather name="x-circle" size={40} color="white" />
-    </TouchableOpacity>
+      <Modal isVisible={showLogin} backdropOpacity={.9} backdropColor='#1f1f1f'>
+        <TouchableOpacity
+          style={{
+            position: 'absolute',
+            top: 35,
+            right: 5,
+            width: 40,
+            zIndex: 1,
+          }}
+          onPress={handleGoBack}
+        >
+          <Feather name="x-circle" size={40} color="white" />
+        </TouchableOpacity>
 
-    <LoginBox navigation={navigation} setShowLogin={setShowLogin}/>
-</Modal>
+        <LoginBox navigation={navigation} setShowLogin={setShowLogin}/>
+      </Modal>
+      
+      <Modal isVisible={showSignUp} backdropOpacity={.9} backdropColor='#1f1f1f'>
+        <TouchableOpacity
+          style={{
+            position: 'absolute',
+            top: 35,
+            right: 5,
+            width: 40,
+            zIndex: 1,
+          }}
+          onPress={handleGoBack}
+        >
+          <Feather name="x-circle" size={40} color="white" />
+        </TouchableOpacity>
+
+        <SignUpBox navigation={navigation} setShowSignUp={setShowSignUp}/>
+      </Modal>
 
         <View style={{ position: "absolute", zIndex: '1', top: 50, width: '100%', flexDirection: 'row', justifyContent: "center", alignItems: "center"}}>
                 <View style={styles.logoBorder}>
@@ -111,20 +130,19 @@ const Slider = ({navigation}) => {
 
       />
       
-      {/* <TouchableOpacity style={{ position: 'absolute', top: 400, alignSelf: 'center', backgroundColor: 'white', padding: 10, borderRadius: 2}} onPress={() => {
+      <TouchableOpacity style={{ position: 'absolute', top: 400, alignSelf: 'center', backgroundColor: 'white', padding: 10, borderRadius: 2}} onPress={() => {
             navigation.navigate("Home")
           }}>
           <Text>Skip to Home Screen (for devs)</Text>
-          </TouchableOpacity> */}
+          </TouchableOpacity>
         
         <TouchableOpacity style={styles.signup} onPress={() => {
-            navigation.navigate("SignUp")
+          setShowSignUp(true)
           }}>
           <Text style={styles.signupText}>Sign Up for Free</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.login} onPress={() => {
-            // navigation.navigate("Login")
             setShowLogin(true)
         }}>
         <Text style={styles.loginText}>Login</Text>
