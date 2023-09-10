@@ -1,9 +1,14 @@
 import {Animated, FlatList, StyleSheet, TouchableOpacity, View, Text} from 'react-native';
 import React, {useRef, useEffect, useState} from 'react';
-import SlideItem from './SlideItem';
-import Pagination from './Pagination';
+
+import { Feather } from '@expo/vector-icons'; 
 import {Image} from 'expo-image'
 
+
+import SlideItem from './SlideItem';
+import Pagination from './Pagination';
+import Modal from "react-native-modal";
+import LoginBox from './LoginBox';
 
 
 const Slides = [
@@ -30,6 +35,7 @@ const Slides = [
   ];
 
 const Slider = ({navigation}) => {
+  const [showLogin, setShowLogin] = useState(false)
   const [index, setIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
 
@@ -58,9 +64,30 @@ const Slider = ({navigation}) => {
   const viewabilityConfig = useRef({
     itemVisiblePercentThreshold: 50,
   }).current;
+  
+  const handleGoBack = () => {
+    setShowLogin(false)
+  };
 
   return (
     <View>
+            <Modal isVisible={showLogin} backdropOpacity={1} backdropColor="black">
+    <TouchableOpacity
+      style={{
+        position: 'absolute',
+        top: 35,
+        right: 5,
+        width: 40,
+        zIndex: 1,
+      }}
+      onPress={handleGoBack}
+    >
+      <Feather name="x-circle" size={40} color="white" />
+    </TouchableOpacity>
+
+    <LoginBox />
+</Modal>
+
         <View style={{ position: "absolute", zIndex: '1', top: 50, width: '100%', flexDirection: 'row', justifyContent: "center", alignItems: "center"}}>
                 <View style={styles.logoBorder}>
                 <Image
@@ -83,11 +110,11 @@ const Slider = ({navigation}) => {
 
       />
       
-      <TouchableOpacity style={{ position: 'absolute', top: 400, alignSelf: 'center', backgroundColor: 'white', padding: 10, borderRadius: 2}} onPress={() => {
+      {/* <TouchableOpacity style={{ position: 'absolute', top: 400, alignSelf: 'center', backgroundColor: 'white', padding: 10, borderRadius: 2}} onPress={() => {
             navigation.navigate("Home")
           }}>
           <Text>Skip to Home Screen (for devs)</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         
         <TouchableOpacity style={styles.signup} onPress={() => {
             navigation.navigate("SignUp")
@@ -96,7 +123,8 @@ const Slider = ({navigation}) => {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.login} onPress={() => {
-            navigation.navigate("Login")
+            // navigation.navigate("Login")
+            setShowLogin(true)
         }}>
         <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
