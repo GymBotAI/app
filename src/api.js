@@ -18,7 +18,10 @@ const serverAddr =
  */
 const streamEndToken = "[DONE]";
 
-/** @type {boolean} */
+/**
+ * Whether or not to log debug messages.
+ * @type {boolean}
+ */
 const debug = Constants.expoConfig.extra.debugLogs.api;
 
 if (debug) {
