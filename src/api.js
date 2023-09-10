@@ -11,6 +11,11 @@ import Constants from "expo-constants";
 const serverAddr =
   Constants.expoConfig.extra.serverAddress ??
   Constants.expoConfig.extra.serverAddressDefault;
+
+/**
+ * The token that the server sends to indicate
+ * that the message stream has ended.
+ */
 const streamEndToken = "[DONE]";
 
 console.debug("[GymBot] Using server address:", serverAddr);
