@@ -29,11 +29,13 @@ const debugLogs: Record<DebugLogsModule, boolean> = Object.assign(
 );
 
 // Log debug logs config
-for (const [module, enabled] of Object.entries(debugLogs)) {
-  if (enabled) {
-    console.debug(`Debug logs for ${module}\t are enabled`);
+setTimeout(() => {
+  for (const [module, enabled] of Object.entries(debugLogs)) {
+    if (enabled) {
+      console.debug(`Debug logs for ${module}\t are enabled`);
+    }
   }
-}
+}, 5000);
 
 module.exports = {
   extra: {
