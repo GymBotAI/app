@@ -25,29 +25,18 @@ const styles = {
     shadowOpacity: 0.2,
     shadowRadius: 4,
   },
-  text: {
-    fontSize: 16,
-    fontWeight: "bold",
-    fontFamily: "roboto-regular",
-    letterSpacing: 0.5,
-    color: "#5585f2",
-    textAlign: "center",
-  },
 };
 
 export default function Prompts({ onPromptSelection, prompts }) {
   const [fontLoaded, setFontLoaded] = useState(false);
 
+  // Load font
   useEffect(() => {
-    async function loadFont() {
-      await Font.loadAsync({
-        "roboto-regular": require("../../../assets/fonts/Roboto-Regular.ttf"),
-      });
-
+    Font.loadAsync({
+      "roboto-regular": require("../../../assets/fonts/Roboto-Regular.ttf"),
+    }).then(() => {
       setFontLoaded(true);
-    }
-
-    loadFont();
+    });
   }, []);
 
   if (!fontLoaded) {
@@ -66,7 +55,18 @@ export default function Prompts({ onPromptSelection, prompts }) {
             }
           }}
         >
-          <Text style={styles.text}>{prompt}</Text>
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: "bold",
+              fontFamily: fontLoaded ? "roboto-regular" : null,
+              letterSpacing: 0.5,
+              color: "#5585f2",
+              textAlign: "center",
+            }}
+          >
+            {prompt}
+          </Text>
         </TouchableOpacity>
       ))}
     </View>

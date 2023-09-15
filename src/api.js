@@ -1,38 +1,94 @@
-// chatGptService.js
+import { useState, useEffect } from "react";
+import useWebSocket from "react-use-websocket";
 
-import axios from "axios";
+import Constants from "expo-constants";
 
-const apiKey = "YOUR_API_KEY"; // Replace with your actual API key
-const chatGptEndpoint = "https://api.openai.com/v1/chat/completions";
+/**
+ * The address of the GymBot AI server.
+ * See `app.config.ts` for more information.
+ * @type {string}
+ */
+const serverAddr =
+  Constants.expoConfig.extra.serverAddress ??
+  Constants.expoConfig.extra.serverAddressDefault;
 
-async function getChatGptResponse(userMessage, chatHistory = []) {
-  try {
-    const messages = [
-      { role: "system", content: "You are GymBot, an AI personal trainer." },
-      ...chatHistory,
-      { role: "user", content: userMessage },
-    ];
+/**
+ * The token that the server sends to indicate
+ * that the message stream has ended.
+ */
+const streamEndToken = "[DONE]";
 
-    const response = await axios.post(
-      chatGptEndpoint,
-      {
-        model: "gpt-3.5-turbo",
-        messages: messages,
-      },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
-        },
-      }
-    );
+/**
+ * Whether or not to log debug messages.
+ * @type {boolean}
+ */
+const debug = Constants.expoConfig.extra.debugLogs.api;
 
-    const chatGptReply = response.data.choices[0].message.content;
-    return chatGptReply;
-  } catch (error) {
-    console.error("Error calling ChatGPT API:", error);
-    return "Sorry, an error occurred.";
-  }
+if (debug) {
+  console.debug("[GymBot/API] Using server address:", serverAddr);
 }
 
-export default getChatGptResponse;
+const secret = [53, 54, 99, 104, 97]
+  .map((c) => String.fromCharCode(c))
+  .join("");
+
+export function useGymBotAI(initialMessages = []) {
+  const [messages, setMessages] = useState(initialMessages);
+  const { sendMessage, lastMessage, readyState } = useWebSocket(
+    `${serverAddr}/chat`
+  );
+  const [hasAuthed, setHasAuthed] = useState(false);
+  const [isStreaming, setIsStreaming] = useState(false);
+
+  useEffect(() => {
+    if (lastMessage != null) {
+      if (lastMessage.data == streamEndToken) {
+        setIsStreaming(false);
+        return;
+      }
+
+      setMessages((a) => {
+        const previousData = isStreaming ? a.pop().content : "";
+
+        setIsStreaming(true);
+
+        return [
+          ...a,
+          {
+            role: "assistant",
+            content: previousData + lastMessage.data,
+          },
+        ];
+      });
+    }
+  }, [lastMessage, setMessages]);
+
+  if (!hasAuthed) {
+    if (debug) {
+      console.debug("[GymBot/API] Sending auth secret to chat WS...");
+    }
+
+    sendMessage(secret);
+    setHasAuthed(true);
+  }
+
+  return [
+    messages,
+    (msg) => {
+      if (debug) {
+        console.debug("[GymBot/API] Sending message to chat WS:", msg);
+      }
+
+      setMessages((a) => [
+        ...a,
+        {
+          role: "user",
+          content: msg,
+        },
+      ]);
+
+      sendMessage(msg);
+    },
+    setMessages,
+  ];
+}

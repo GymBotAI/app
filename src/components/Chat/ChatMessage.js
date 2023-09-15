@@ -19,16 +19,13 @@ export default function ChatMessage({ message }) {
   const side = roleAlign[message.role];
   const [fontLoaded, setFontLoaded] = useState(false);
 
+  // Load font
   useEffect(() => {
-    async function loadFont() {
-      await Font.loadAsync({
-        "roboto-regular": require("../../../assets/fonts/Roboto-Regular.ttf"),
-      });
-
+    Font.loadAsync({
+      "roboto-regular": require("../../../assets/fonts/Roboto-Regular.ttf"),
+    }).then(() => {
       setFontLoaded(true);
-    }
-
-    loadFont();
+    });
   }, []);
 
   if (!fontLoaded) {
@@ -79,7 +76,7 @@ export default function ChatMessage({ message }) {
             textAlign: "left",
             color: message.role === "user" ? "white" : "black",
             fontSize: fontSize,
-            fontFamily: "roboto-regular",
+            fontFamily: fontLoaded ? "roboto-regular" : null,
             padding: 3,
           }}
         >

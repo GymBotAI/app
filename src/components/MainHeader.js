@@ -1,7 +1,6 @@
 import { Text, View, Image } from "react-native";
 import * as Font from "expo-font";
 import { useState, useEffect } from "react";
-import Svg, { Path } from "react-native-svg";
 
 export default function MainHeader({ text, minitext }) {
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -23,21 +22,21 @@ export default function MainHeader({ text, minitext }) {
   }
 
   return (
-        <View
-          style={{
-            backgroundColor: "#1877f2",
-            paddingTop: '12%',
-            paddingBottom: 20,
-            width: "100%",
-            display: "flex",
-            flexDirection: "row",
-            zIndex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            overflow: "hidden",
-          }}
-        >
-          {/* <Image
+    <View
+      style={{
+        backgroundColor: "#1877f2",
+        paddingTop: "12%",
+        paddingBottom: 20,
+        width: "100%",
+        display: "flex",
+        flexDirection: "row",
+        zIndex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+        overflow: "hidden",
+      }}
+    >
+      {/* <Image
             source={require("../../assets/GymBotLogo.png")}
             style={{
               width: 65, // Adjust the size as needed
@@ -48,8 +47,8 @@ export default function MainHeader({ text, minitext }) {
               borderWidth: 1,
             }}
           /> */}
-          <View style={{}}>
-            {/* <Text
+      <View style={{}}>
+        {/* <Text
               style={{
                 fontSize: 19,
                 color: "#e0e0e0",
@@ -66,13 +65,17 @@ export default function MainHeader({ text, minitext }) {
               {minitext}
             </Text> */}
 
-            
-            <Image
-                    source={require("../../assets/GymBotText.png")}
-                    style={{width: 250, height: 125, borderRadius: 50, marginVertical: -25, marginBottom: -30}}
-                />
-          </View>
-
-        </View>
+        <Image
+          source={require("../../assets/GymBotText.png")}
+          style={{
+            width: 250,
+            height: 125,
+            borderRadius: 50,
+            marginVertical: -25,
+            marginBottom: -30,
+          }}
+        />
+      </View>
+    </View>
   );
 }

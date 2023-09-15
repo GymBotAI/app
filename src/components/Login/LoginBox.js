@@ -16,7 +16,7 @@ var pass = "";
 
 export let emailValue = "";
 
-export default function LoginBox({ navigation }) {
+export default function LoginBox({ navigation, setShowLogin}) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -52,6 +52,7 @@ export default function LoginBox({ navigation }) {
   
  
   const handleLogin = async () => {
+    
     // onPressInsert()
     console.log(email)
     emailValue = email;
@@ -60,6 +61,7 @@ export default function LoginBox({ navigation }) {
     const result = await checkCredentials(email, password);
     console.log(result)
     if (result && result.message === "Login successful") { //for testing use One for email and Two for password
+    setShowLogin(false)
       navigation.navigate("Home");
     } else if (result && result.message === "Invalid credentials") {
       console.log("Invalid login attempt")
@@ -71,10 +73,7 @@ export default function LoginBox({ navigation }) {
 
   const handleCreateAccount = () => {
     navigation.navigate("SignUp");
-  };
-
-  const handleContinueAsGuest = () => {
-    navigation.navigate("Signup");
+    setShowLogin(false)
   };
 
   return (
@@ -117,7 +116,7 @@ export default function LoginBox({ navigation }) {
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.signup} onPress={handleCreateAccount}>
-          <Text style={styles.signupText}>Sign Up</Text>
+          <Text style={styles.signupText}>Sign Up Instead</Text>
         </TouchableOpacity>
       </View>
 
@@ -128,13 +127,6 @@ export default function LoginBox({ navigation }) {
           <Text style={styles.signInWithGoogleButtonText}>Continue with Google</Text>
         </View>
       </TouchableOpacity>
-
-      {/* <View style={styles.guestContainer}>
-        <Text style={styles.guestText}>Just Visiting?</Text>
-        <TouchableOpacity style={styles.button} onPress={handleContinueAsGuest}>
-          <Text style={styles.forgotText}>Continue as Guest</Text>
-        </TouchableOpacity>
-      </View> */}
     </View>
   );
 }
@@ -142,6 +134,10 @@ export default function LoginBox({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
+    marginTop: 130,
+    width: '95%',
+    justifyContent:'center',
+    marginLeft: '2.5%',
   },
   input: {
     marginBottom: 22,
@@ -218,7 +214,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     width: "90%",
     backgroundColor: "white", // Google's color
-    borderRadius: 28,
+    borderRadius: 3,
     marginHorizontal: 10,
     marginBottom: 20,
     shadowColor: "#000",
@@ -229,8 +225,6 @@ const styles = StyleSheet.create({
   },
   googleButtonContent: {
     flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
     paddingVertical: 12,
     paddingHorizontal: 16,
   },
@@ -240,8 +234,20 @@ const styles = StyleSheet.create({
     margin: -10,
   },
   signInWithGoogleButtonText: {
+    marginLeft: 15,
     fontSize: 18,
     fontWeight: "bold",
     color: "black",
+  },
+  backButton: {
+    position: 'absolute',
+    top: 20, // Adjust the position as needed
+    left: 10, // Adjust the position as needed
+    zIndex: 1,
+  },
+
+  backButtonText: {
+    color: 'white',
+    fontSize: 16,
   },
 });
