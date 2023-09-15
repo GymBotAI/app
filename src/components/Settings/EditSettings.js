@@ -26,6 +26,7 @@ import { maxWeight } from "../../styles";
  
 export default function Settings({ navigation }) {
   const [name, setName] = useState(nameSetting);
+  const [newName, setNewName] = useState("");
   const [bday, setBday] = useState(ageSetting);
   const [gender, setGender] = useState(genderSetting);
   const [weight, setWeight] = useState(weightSetting);
@@ -43,7 +44,7 @@ export default function Settings({ navigation }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          "NAME": name,
+          "NAME": String(name),
           "USERNAME": emailValue,
           "GENDER": gender,
           "DOB": bday,
@@ -61,8 +62,10 @@ export default function Settings({ navigation }) {
   };
 
   const handleGoHome = async () => {
+    setNewName(name)
     navigation.navigate("Home");
-    console.log(name)
+    setName(name)
+    console.log(newName)
     updateCredentials();
     console.log(ageSetting)
   };
@@ -71,7 +74,7 @@ export default function Settings({ navigation }) {
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
 
-      <Option question="Name" value={name} setValue={setName} />
+      <WeightOption question="Name" value={name} setValue={setName} />
       <AgeOption question="Age" value={bday} setValue={setBday} />
       <GenderOption question="Gender" value={gender} setValue={setGender} />
       <WeightOption
