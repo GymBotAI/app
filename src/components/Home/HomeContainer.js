@@ -19,6 +19,7 @@ const HomeScreen = ( {navigation} ) => {
 
   const getDetails = async (emailVal) => {
     try {
+      navigation.navigate("Settings")
       const response = await fetch("http://openhost.ddns.net:3000/search", {
         method: "POST",
         headers: {
