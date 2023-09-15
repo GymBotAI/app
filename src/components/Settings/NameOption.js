@@ -13,6 +13,8 @@ import {
 import { circularColour } from "../../styles";
 import { MaterialIcons } from '@expo/vector-icons'; 
 
+export let newName = "";
+
 export default function Option({ question, value, setValue }) {
   const [name, setName] = useState("Daniel");
   const textInputRef = useRef(null);
@@ -20,18 +22,24 @@ export default function Option({ question, value, setValue }) {
   const handleButtonPress = () => {
     if (textInputRef.current) {
       textInputRef.current.focus();
+      console.log(name)
     }
   };
 
+  const handleSelectName = (name) => {
+    setValue(name);
+    console.log(name)
+  };
+
   return (
-    <TouchableOpacity style={styles.item} onPress={handleButtonPress}>
+    <TouchableOpacity style={styles.item} onPress={handleButtonPress} value={name}>
       <Text style={styles.itemText}>{question}</Text>
       <View style={styles.itemLeft}>
         <TextInput
           ref={textInputRef}
           style={styles.current}
           value={value}
-          onChange={setValue}
+          onChange={handleSelectName}
         />
         <MaterialIcons name="edit" size={26} color="black" />
       </View>
