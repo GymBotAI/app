@@ -9,7 +9,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 
 import { serverAddr } from "../api";
 
-export default function HomeScreen({ navigation }) {
+export default function ChatScreen({ navigation }) {
   const chatContainerRef: ChatContainerRef = useRef(null);
 
   return (
