@@ -86,7 +86,7 @@ export default function MainHeader({ text, children }) {
           <View
             style={{
               marginLeft: "auto",
-              marginRight: 10,
+              marginRight: 16,
             }}
           >
             {children}
