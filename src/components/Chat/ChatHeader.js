@@ -87,6 +87,9 @@ export default function MainHeader({ text, children }) {
             style={{
               marginLeft: "auto",
               marginRight: 16,
+              display: "flex",
+              flexDirection: "row",
+              gap: 16,
             }}
           >
             {children}
