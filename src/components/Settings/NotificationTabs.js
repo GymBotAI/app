@@ -1,5 +1,5 @@
-import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const NotificationsTab = ({ title, description }) => {
   return (
@@ -13,19 +13,19 @@ const NotificationsTab = ({ title, description }) => {
 const styles = StyleSheet.create({
   tabContainer: {
     borderWidth: 1,
-    borderColor: 'gray',
+    borderColor: "gray",
     borderRadius: 10,
     padding: 10,
     marginBottom: 10,
-    width: '100%',
+    width: "100%",
   },
   title: {
-    color: 'red',
-    fontWeight: 'bold',
+    color: "red",
+    fontWeight: "bold",
     fontSize: 18,
   },
   description: {
-    color: 'black',
+    color: "black",
     fontSize: 16,
   },
 });

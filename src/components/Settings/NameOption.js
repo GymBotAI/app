@@ -11,7 +11,7 @@ import {
   TextInput,
 } from "react-native";
 import { circularColour } from "../../styles";
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { MaterialIcons } from "@expo/vector-icons";
 
 export let newName = "";
 
@@ -22,17 +22,21 @@ export default function Option({ question, value, setValue }) {
   const handleButtonPress = () => {
     if (textInputRef.current) {
       textInputRef.current.focus();
-      console.log(name)
+      console.log(name);
     }
   };
 
   const handleSelectName = (name) => {
     setValue(name);
-    console.log(name)
+    console.log(name);
   };
 
   return (
-    <TouchableOpacity style={styles.item} onPress={handleButtonPress} value={name}>
+    <TouchableOpacity
+      style={styles.item}
+      onPress={handleButtonPress}
+      value={name}
+    >
       <Text style={styles.itemText}>{question}</Text>
       <View style={styles.itemLeft}>
         <TextInput

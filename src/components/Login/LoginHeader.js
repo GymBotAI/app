@@ -6,9 +6,9 @@ export default function LoginHeader({}) {
   return (
     <View style={styles.container}>
       <Image
-            source={require("../../../assets/GymBotText.png")}
-            style={styles.logo}
-          />
+        source={require("../../../assets/GymBotText.png")}
+        style={styles.logo}
+      />
     </View>
   );
 }

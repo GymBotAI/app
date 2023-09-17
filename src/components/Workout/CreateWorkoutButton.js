@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     borderRadius: 15,
     height: 200,
-    width: '102%',
+    width: "102%",
     overflow: "hidden", // Clip the inner content to avoid overflow issues
   },
   blueRectangle: {

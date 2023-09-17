@@ -11,13 +11,12 @@ import {
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 import ProgressCircle from "react-native-progress-circle";
-import Meals, { selectedFoodsInfo } from "./MealTabs"
-
+import Meals, { selectedFoodsInfo } from "./MealTabs";
 
 export default function Settings({ navigation }) {
   const screenWidth = Dimensions.get("window").width;
 
-  const circleRadiusPercentage = 0.20;
+  const circleRadiusPercentage = 0.2;
   const circleRadius = screenWidth * circleRadiusPercentage;
 
   let calsGoal = 2800;
@@ -27,7 +26,9 @@ export default function Settings({ navigation }) {
   const [remainingCalories, setRemainingCalories] = useState(calsGoal);
 
   const calculateTotalCalories = (list) => {
-    const totalCalories = list.map(food => food.calories).reduce((sum, calories) => sum + calories, 0);
+    const totalCalories = list
+      .map((food) => food.calories)
+      .reduce((sum, calories) => sum + calories, 0);
     return totalCalories;
   };
 
@@ -39,7 +40,11 @@ export default function Settings({ navigation }) {
     const calculatedCalories =
       calsGoal - parseFloat(foodEaten) + parseFloat(exercise);
 
-    if(calculatedCalories){setRemainingCalories(calculatedCalories);} else{setRemainingCalories(calsGoal)}
+    if (calculatedCalories) {
+      setRemainingCalories(calculatedCalories);
+    } else {
+      setRemainingCalories(calsGoal);
+    }
   }, [foodEaten, exercise]);
 
   return (
@@ -55,7 +60,12 @@ export default function Settings({ navigation }) {
               shadowColor="#8ed9de"
               bgColor="#F5F5F5"
             >
-              <FontAwesome5 name="carrot" size={60} color="#8ed9de" style={styles.icon} />
+              <FontAwesome5
+                name="carrot"
+                size={60}
+                color="#8ed9de"
+                style={styles.icon}
+              />
             </ProgressCircle>
             <Text style={styles.calsGoalText}>Calories Goal</Text>
             <Text style={styles.remainingCalories}>
@@ -70,7 +80,6 @@ export default function Settings({ navigation }) {
           <Meals name="Dinner" onSave={calculateSelectedFoods} />
 
           <Meals name="Other" onSave={calculateSelectedFoods} />
-
         </View>
       </TouchableWithoutFeedback>
     </ScrollView>

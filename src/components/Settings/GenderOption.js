@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Modal from "react-native-modal";
-import InputBox from "./InputBox"
+import InputBox from "./InputBox";
 
 export default function Option({ question, value, setValue }) {
   const [showPicker, setShowPicker] = useState(false);
@@ -22,9 +17,13 @@ export default function Option({ question, value, setValue }) {
 
   return (
     <View style={styles.container}>
-      <InputBox question={question} onPress={changeVis} value={value}/>
+      <InputBox question={question} onPress={changeVis} value={value} />
 
-      <Modal isVisible={showPicker} onBackdropPress={changeVis} style={styles.modal}>
+      <Modal
+        isVisible={showPicker}
+        onBackdropPress={changeVis}
+        style={styles.modal}
+      >
         <View style={styles.modalContainer}>
           <TouchableOpacity
             style={styles.genderOption}

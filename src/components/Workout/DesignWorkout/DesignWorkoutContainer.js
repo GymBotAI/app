@@ -16,8 +16,6 @@ const WorkoutSelectionScreen = () => {
   const [goalText, setGoalText] = useState("What is your goal?");
   const [isInputFilled, setInputFilled] = useState(false);
 
-
-
   useEffect(() => {
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
@@ -28,7 +26,7 @@ const WorkoutSelectionScreen = () => {
         clearInterval(typingInterval);
       }
     }, 15); // Adjust typing speed here (milliseconds)
-    
+
     async function loadFont() {
       await Font.loadAsync({
         "roboto-black": require("../../../../assets/fonts/Roboto-Black.ttf"),
@@ -46,31 +44,57 @@ const WorkoutSelectionScreen = () => {
   if (selectedGoal === "Build Muscle") {
     option1 = (
       <>
-        <View style={{ height: 1, backgroundColor: "#ccc", width: "90%", marginLeft: "5%" }} />
-        <BuildMuscle setGoalText={setGoalText} setInputFilled={setInputFilled}/>
+        <View
+          style={{
+            height: 1,
+            backgroundColor: "#ccc",
+            width: "90%",
+            marginLeft: "5%",
+          }}
+        />
+        <BuildMuscle
+          setGoalText={setGoalText}
+          setInputFilled={setInputFilled}
+        />
       </>
     );
   } else if (selectedGoal === "Lose Weight") {
     option1 = (
       <>
-        <View style={{ height: 1, backgroundColor: "#ccc", width: "90%", marginLeft: "5%" }} />
-        <LoseWeight setGoalText={setGoalText} setInputFilled={setInputFilled}/>
+        <View
+          style={{
+            height: 1,
+            backgroundColor: "#ccc",
+            width: "90%",
+            marginLeft: "5%",
+          }}
+        />
+        <LoseWeight setGoalText={setGoalText} setInputFilled={setInputFilled} />
       </>
-    )
+    );
   } else if (selectedGoal === "Sports-Specific") {
     option1 = (
       <>
-      <View style={{ height: 1, backgroundColor: "#ccc", width: "90%", marginLeft: "5%" }} />
-      <SportsSpecific setGoalText={setGoalText} setInputFilled={setInputFilled}/>
+        <View
+          style={{
+            height: 1,
+            backgroundColor: "#ccc",
+            width: "90%",
+            marginLeft: "5%",
+          }}
+        />
+        <SportsSpecific
+          setGoalText={setGoalText}
+          setInputFilled={setInputFilled}
+        />
       </>
-    )
+    );
   }
 
   return (
     <View style={styles.container}>
       <View style={styles.chatContainer}>
-        
-      <LinearGradient
+        <LinearGradient
           colors={["#4c9afc", "#5da1fc"]} // Lighter blue gradient colors
           start={[0, 0.5]}
           end={[1, 0.5]}
@@ -91,16 +115,20 @@ const WorkoutSelectionScreen = () => {
         </LinearGradient>
       </View>
 
-      <GoalSelector selectedGoal={selectedGoal} setSelectedGoal={setSelectedGoal} setGoalText={setGoalText} />
+      <GoalSelector
+        selectedGoal={selectedGoal}
+        setSelectedGoal={setSelectedGoal}
+        setGoalText={setGoalText}
+      />
 
       {option1}
 
       <TouchableOpacity
-          style={[styles.button, !isInputFilled && styles.disabledButton]}
-          disabled={!isInputFilled}
-        >
-          <Text style={styles.text}>Continue</Text>
-        </TouchableOpacity>
+        style={[styles.button, !isInputFilled && styles.disabledButton]}
+        disabled={!isInputFilled}
+      >
+        <Text style={styles.text}>Continue</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -126,11 +154,11 @@ const styles = StyleSheet.create({
     flex: 1, // Allow text to wrap within the available space
     fontSize: 20,
     fontWeight: "bold",
-    color: 'white',
-  },  
+    color: "white",
+  },
   button: {
     alignSelf: "center",
-    position: 'absolute',
+    position: "absolute",
     bottom: 50,
     width: "90%",
     backgroundColor: "#1260de",

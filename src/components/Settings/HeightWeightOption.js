@@ -1,13 +1,8 @@
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
-import InputBox from "./InputBox"
+import InputBox from "./InputBox";
 
 export default function Option({
   question,
@@ -63,9 +58,13 @@ export default function Option({
 
   return (
     <View style={styles.container}>
-    <InputBox question={question} onPress={show} value={`${value} ${weightUnit}`}/>
-    
-    <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
+      <InputBox
+        question={question}
+        onPress={show}
+        value={`${value} ${weightUnit}`}
+      />
+
+      <Modal isVisible={showPicker} onBackdropPress={hide} style={styles.modal}>
         <View style={styles.modalContainer}>
           <Picker
             selectedValue={selectedWeight}

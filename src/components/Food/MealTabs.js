@@ -4,7 +4,7 @@ import FoodDatabaseWindow from "./FoodDatabaseWindow";
 
 export let selectedFoodsInfo = [];
 
-const Meals = ({ name, onSave}) => {
+const Meals = ({ name, onSave }) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedFood, setSelectedFood] = useState([]);
 
@@ -19,7 +19,7 @@ const Meals = ({ name, onSave}) => {
   const handleTabPress = (food) => {
     setSelectedFood([...selectedFood, food]);
     closeModal();
-    selectedFoodsInfo.push(food)
+    selectedFoodsInfo.push(food);
     onSave();
   };
 
@@ -63,11 +63,8 @@ const Meals = ({ name, onSave}) => {
   );
 };
 
-
 const styles = StyleSheet.create({
-  mealListContainer:{
-
-  },
+  mealListContainer: {},
   mealContainer: {
     flexDirection: "column",
     backgroundColor: "#e0e0e0",

@@ -13,8 +13,10 @@ export type ChatContainerRef = MutableRefObject<null | {
   clear: () => void;
 }>;
 
-export default function Chat({ containerRef }: {
-  containerRef?: ChatContainerRef
+export default function Chat({
+  containerRef,
+}: {
+  containerRef?: ChatContainerRef;
 }) {
   const chatInputRef = useRef({});
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts

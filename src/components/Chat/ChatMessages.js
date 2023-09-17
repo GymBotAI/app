@@ -39,7 +39,6 @@ export default function ChatMessages({
   useEffect(() => {
     for (let i = 0; i < Goals.length; i++) {
       if (Goals[i][0] != "H") {
-
         Goals[i] = Goals[i].toLowerCase();
         if (Goals[i] === "better abs") {
           Goals[i] = "How do I get " + Goals[i] + "?";
@@ -48,7 +47,7 @@ export default function ChatMessages({
         } else if (Goals[i] === "other") {
           Goals[i] = "";
         } else {
-            Goals[i] = "How do I " + Goals[i] + "?";
+          Goals[i] = "How do I " + Goals[i] + "?";
         }
       }
     }

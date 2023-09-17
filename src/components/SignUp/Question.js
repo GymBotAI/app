@@ -11,11 +11,11 @@ import {
 
 import * as Font from "expo-font";
 
-import { ageVal } from './Age.js';
-import { genderVal } from './Gender.js';
-import { dateValue } from './Age.js';
-import { weightVal, wUnit } from './HeightWeightContainer.js';
-import { heightVal, hUnit } from './HeightWeightContainer.js';
+import { ageVal } from "./Age.js";
+import { genderVal } from "./Gender.js";
+import { dateValue } from "./Age.js";
+import { weightVal, wUnit } from "./HeightWeightContainer.js";
+import { heightVal, hUnit } from "./HeightWeightContainer.js";
 //import { ageVal } from './Age.js';
 
 import username from "./Credentials";
@@ -29,8 +29,8 @@ import Goals from "./Goals";
 let inputOption = null;
 
 export default function Question({ navigation }) {
-  const [nameVal, setNameVal] = useState("")
-  const [dateVal, setDateVal] = useState("")
+  const [nameVal, setNameVal] = useState("");
+  const [dateVal, setDateVal] = useState("");
   const [fixedHeight, setFixedHeight] = useState(0);
   const [fixedWeight, setFixedWeight] = useState(0);
   const [ageVal, setAgeVal] = useState(0);
@@ -39,9 +39,7 @@ export default function Question({ navigation }) {
   const [fontLoaded, setFontLoaded] = useState(false);
   const slideUpAnim = useRef(new Animated.Value(300)).current;
   const fadeAnim = useRef(new Animated.Value(0)).current;
-  const [prompt, setPrompt] = useState(
-    "Tell us your name!"
-  );
+  const [prompt, setPrompt] = useState("Tell us your name!");
 
   const calculateAge = (birthdate) => {
     const today = new Date();
@@ -70,40 +68,39 @@ export default function Question({ navigation }) {
     setFixedHeight(calculatedFixedHeight); // Update the state with the calculated value
     setFixedWeight(calculatedFixedWeight); // Update the state with the calculated value
 
-    console.log(username)
-    console.log(password)
-    console.log(nameVal)
-    console.log(genderVal)
-    console.log(ageVal)
-    console.log(calculatedFixedWeight)
-    console.log(calculatedFixedHeight)
-    fetch("http:openhost.ddns.net:3000/send",{
-      method:"POST",
-      headers:{
+    console.log(username);
+    console.log(password);
+    console.log(nameVal);
+    console.log(genderVal);
+    console.log(ageVal);
+    console.log(calculatedFixedWeight);
+    console.log(calculatedFixedHeight);
+    fetch("http:openhost.ddns.net:3000/send", {
+      method: "POST",
+      headers: {
         "Content-Type": "application/json",
       },
-      body:JSON.stringify({
-        "NAME": String(nameVal),
-        "USERNAME": String(username),
-        "PASSWORD": String(password),
-        "GENDER": String(genderVal),
-        "AGE": ageVal,
-        "WEIGHT": calculatedFixedWeight,
-        "HEIGHT": calculatedFixedHeight
-      }) //nice
+      body: JSON.stringify({
+        NAME: String(nameVal),
+        USERNAME: String(username),
+        PASSWORD: String(password),
+        GENDER: String(genderVal),
+        AGE: ageVal,
+        WEIGHT: calculatedFixedWeight,
+        HEIGHT: calculatedFixedHeight,
+      }), //nice
     })
-    .then(res=>res.json())
-    .then(data=>{ 
-      console.log(data)
-    })
-    
-  }
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
-//it didnt log anything at all
+  //it didnt log anything at all
 
-//when u submit ur height and weight
+  //when u submit ur height and weight
 
-//the blank logs came before
+  //the blank logs came before
 
   const handleSignUp = () => {
     setInputFilled(false);
@@ -165,7 +162,9 @@ export default function Question({ navigation }) {
 
   if (prompt === "Tell us your name!") {
     // inputOption = <HeightWeightContainer onChange={setInputFilled} />;
-    inputOption = <Name onNameChange={setInputFilled} name={nameVal} setName={setNameVal}    />;
+    inputOption = (
+      <Name onNameChange={setInputFilled} name={nameVal} setName={setNameVal} />
+    );
   } else if (prompt === "When were you born?") {
     //inputOption = <Age onAgeChange={setInputFilled} age={ageVal} setAge={setAgeVal}    />;
   } else if (prompt === "What is your gender?") {

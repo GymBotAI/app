@@ -2,18 +2,18 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
-let index = 0
+let index = 0;
 
-const LoseWeight = ({setGoalText, setInputFilled}) => {
-    const [dumbell, setDumbell] = useState(false);
-    const [jumpRope, setJumpRope] = useState(false);
-    const [pullUp, setPullUp] = useState(false);
-    const [rowing, setRowing] = useState(false);
-    const [other, setOther] = useState(false);
+const LoseWeight = ({ setGoalText, setInputFilled }) => {
+  const [dumbell, setDumbell] = useState(false);
+  const [jumpRope, setJumpRope] = useState(false);
+  const [pullUp, setPullUp] = useState(false);
+  const [rowing, setRowing] = useState(false);
+  const [other, setOther] = useState(false);
 
   const handleSelect = () => {
-    setGoalText("Great!")
-    setInputFilled(true)
+    setGoalText("Great!");
+    setInputFilled(true);
   };
 
   const getButtonStyle = (option) => {
@@ -32,62 +32,60 @@ const LoseWeight = ({setGoalText, setInputFilled}) => {
 
   return (
     <View style={styles.container}>
-
       {/* Upper Body Dropdown */}
       <TouchableOpacity
         style={getButtonStyle(jumpRope)}
         onPress={() => {
-            setJumpRope(!jumpRope);
-            handleSelect();
-          }}
+          setJumpRope(!jumpRope);
+          handleSelect();
+        }}
       >
         <Text style={getButtonTextStyle(jumpRope)}>Jump Rope</Text>
       </TouchableOpacity>
-    
+
       {/* Upper Body Dropdown */}
       <TouchableOpacity
         style={getButtonStyle(dumbell)}
         onPress={() => {
-            setDumbell(!dumbell);
-            handleSelect();
-          }}
+          setDumbell(!dumbell);
+          handleSelect();
+        }}
       >
         <Text style={getButtonTextStyle(dumbell)}>Dumbells</Text>
       </TouchableOpacity>
-    
-    {/* Upper Body Dropdown */}
-    <TouchableOpacity
-      style={getButtonStyle(pullUp)}
-      onPress={() => {
-          setPullUp(!pullUp);
-            handleSelect();
-        }}
-    >
-      <Text style={getButtonTextStyle(pullUp)}>Pull Up Bar</Text>
-    </TouchableOpacity>
-    
-    {/* Upper Body Dropdown */}
-    <TouchableOpacity
-      style={getButtonStyle(rowing)}
-      onPress={() => {
-          setRowing(!rowing);
-            handleSelect();
-        }}
-    >
-      <Text style={getButtonTextStyle(rowing)}>Rowing Machine</Text>
-    </TouchableOpacity>
-    
-    {/* Upper Body Dropdown */}
-    <TouchableOpacity
-      style={getButtonStyle(other)}
-      onPress={() => {
-          setOther(!other);
-            handleSelect();
-        }}
-    >
-      <Text style={getButtonTextStyle(other)}>Other</Text>
-    </TouchableOpacity>
 
+      {/* Upper Body Dropdown */}
+      <TouchableOpacity
+        style={getButtonStyle(pullUp)}
+        onPress={() => {
+          setPullUp(!pullUp);
+          handleSelect();
+        }}
+      >
+        <Text style={getButtonTextStyle(pullUp)}>Pull Up Bar</Text>
+      </TouchableOpacity>
+
+      {/* Upper Body Dropdown */}
+      <TouchableOpacity
+        style={getButtonStyle(rowing)}
+        onPress={() => {
+          setRowing(!rowing);
+          handleSelect();
+        }}
+      >
+        <Text style={getButtonTextStyle(rowing)}>Rowing Machine</Text>
+      </TouchableOpacity>
+
+      {/* Upper Body Dropdown */}
+      <TouchableOpacity
+        style={getButtonStyle(other)}
+        onPress={() => {
+          setOther(!other);
+          handleSelect();
+        }}
+      >
+        <Text style={getButtonTextStyle(other)}>Other</Text>
+      </TouchableOpacity>
     </View>
   );
 };

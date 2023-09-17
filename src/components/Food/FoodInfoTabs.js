@@ -2,14 +2,14 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 const FoodInfoTabs = ({ foodData, onTabPress }) => {
-    return (
-      <View style={styles.tabsContainer}>
-        {foodData.map((food, index) => (
-          <TouchableOpacity
-            key={index}
-            style={styles.tab}
-            onPress={() => onTabPress(food)}
-          >
+  return (
+    <View style={styles.tabsContainer}>
+      {foodData.map((food, index) => (
+        <TouchableOpacity
+          key={index}
+          style={styles.tab}
+          onPress={() => onTabPress(food)}
+        >
           <Text style={styles.foodName}>{food.name}</Text>
           <Text style={styles.foodDescription}>{food.description}</Text>
           <View style={styles.nutritionInfo}>

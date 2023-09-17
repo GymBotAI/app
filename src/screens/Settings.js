@@ -1,5 +1,12 @@
 import React, { useRef, useState, useEffect } from "react";
-import { View, StatusBar, StyleSheet, Text, TouchableOpacity, Modal } from "react-native";
+import {
+  View,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  Modal,
+} from "react-native";
 import EditSettings from "../components/Settings/EditSettings";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Notifications from "../components/Settings/Notifications";
@@ -7,7 +14,10 @@ import Notifications from "../components/Settings/Notifications";
 export default function Settings({ navigation }) {
   const [notificationsVisible, setNotificationsVisible] = useState(false);
   const editSettingsRef = useRef(null);
-  const [editSettingsDimensions, setEditSettingsDimensions] = useState({ width: 0, height: 0 });
+  const [editSettingsDimensions, setEditSettingsDimensions] = useState({
+    width: 0,
+    height: 0,
+  });
 
   useEffect(() => {
     if (editSettingsRef.current) {
@@ -37,7 +47,11 @@ export default function Settings({ navigation }) {
       </View>
       <EditSettings ref={editSettingsRef} navigation={navigation} />
       <StatusBar barStyle="dark" />
-      <Notifications isVisible={notificationsVisible} onClose={closeNotifications} editSettingsDimensions={editSettingsDimensions} />
+      <Notifications
+        isVisible={notificationsVisible}
+        onClose={closeNotifications}
+        editSettingsDimensions={editSettingsDimensions}
+      />
     </View>
   );
 }

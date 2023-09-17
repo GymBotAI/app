@@ -1,16 +1,10 @@
 import React from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-} from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 export default function Settings({ navigation }) {
-
   return (
     <View style={styles.container}>
-    <Text>hello</Text>
-
+      <Text>hello</Text>
     </View>
   );
 }

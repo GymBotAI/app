@@ -22,11 +22,10 @@ export default function StartUp({ navigation }) {
   };
 
   return (
-      <View style={{flex: 1}}>
-          <StartupScreen navigation={navigation} />
+    <View style={{ flex: 1 }}>
+      <StartupScreen navigation={navigation} />
 
-
-        <StatusBar barStyle="light-content" />
-      </View>
+      <StatusBar barStyle="light-content" />
+    </View>
   );
 }

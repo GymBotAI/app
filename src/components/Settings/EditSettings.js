@@ -17,13 +17,13 @@ import { ageSetting } from "../Home/HomeContainer";
 import { genderSetting } from "../Home/HomeContainer";
 import { weightSetting } from "../Home/HomeContainer";
 import { heightSetting } from "../Home/HomeContainer";
-import { emailValue } from "../Login/LoginBox"
+import { emailValue } from "../Login/LoginBox";
 
 import { minHeight } from "../../styles";
 import { maxHeight } from "../../styles";
 import { minWeight } from "../../styles";
 import { maxWeight } from "../../styles";
- 
+
 export default function Settings({ navigation }) {
   const [name, setName] = useState(nameSetting);
   const [newName, setNewName] = useState("");
@@ -44,15 +44,15 @@ export default function Settings({ navigation }) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          "NAME": String(name),
-          "USERNAME": emailValue,
-          "GENDER": gender,
-          "DOB": bday,
-          "WEIGHT": weight,
-          "HEIGHT": height
+          NAME: String(name),
+          USERNAME: emailValue,
+          GENDER: gender,
+          DOB: bday,
+          WEIGHT: weight,
+          HEIGHT: height,
         }),
       });
-  
+
       const data = await response.json();
       return data; // Return the response data
     } catch (error) {
@@ -62,12 +62,12 @@ export default function Settings({ navigation }) {
   };
 
   const handleGoHome = async () => {
-    setNewName(name)
+    setNewName(name);
     navigation.navigate("Home");
-    setName(name)
-    console.log(newName)
+    setName(name);
+    console.log(newName);
     updateCredentials();
-    console.log(ageSetting)
+    console.log(ageSetting);
   };
 
   return (
@@ -84,7 +84,7 @@ export default function Settings({ navigation }) {
         unit={"kg"}
         upper={maxWeight}
         lower={minWeight}
-        met="kg"  
+        met="kg"
         imp="lb"
         conversion={2.20462262185}
       />
@@ -103,7 +103,6 @@ export default function Settings({ navigation }) {
       <TouchableOpacity style={styles.homeButton} onPress={handleGoHome}>
         <Text style={styles.buttonText}>Go Back</Text>
       </TouchableOpacity>
-
     </Pressable>
   );
 }

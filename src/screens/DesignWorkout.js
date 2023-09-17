@@ -14,9 +14,8 @@ export default function DesignWorkout({ navigation }) {
       }}
     >
       <ScreenHeader title="Workouts" />
-      <DesignWorkoutContainer navigation={navigation}/>
+      <DesignWorkoutContainer navigation={navigation} />
       <StatusBar barStyle="dark" />
-
     </View>
   );
 }

@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   circleContainer: {
-    width: '47%',
+    width: "47%",
     backgroundColor: "#F5F5F5",
     borderRadius: 10,
     padding: 10,

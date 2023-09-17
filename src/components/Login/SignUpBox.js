@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import { Image } from "expo-image";
 
-
 import handleInsert from "../../db";
 import { username } from "../SignUp/Credentials";
 
@@ -16,7 +15,7 @@ var pass = "";
 
 export let emailValue = "";
 
-export default function LoginBox({ navigation, setShowSignUp}) {
+export default function LoginBox({ navigation, setShowSignUp }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -28,7 +27,7 @@ export default function LoginBox({ navigation, setShowSignUp}) {
         placeholderTextColor="white"
         value={email}
         onChangeText={setEmail}
-        autoCapitalize = 'none'
+        autoCapitalize="none"
       />
       <TextInput
         style={styles.input}
@@ -48,17 +47,18 @@ export default function LoginBox({ navigation, setShowSignUp}) {
           flexDirection: "column",
         }}
       >
-        <TouchableOpacity style={styles.login} onPress={() => {
-          if (email != "" && password != "") {
-            setShowSignUp(false)
-          navigation.navigate("SignUp")
-          }
-          }}>
+        <TouchableOpacity
+          style={styles.login}
+          onPress={() => {
+            if (email != "" && password != "") {
+              setShowSignUp(false);
+              navigation.navigate("SignUp");
+            }
+          }}
+        >
           <Text style={styles.loginText}>Continue</Text>
         </TouchableOpacity>
-
       </View>
-
     </View>
   );
 }
@@ -66,9 +66,9 @@ export default function LoginBox({ navigation, setShowSignUp}) {
 const styles = StyleSheet.create({
   container: {
     padding: 10,
-    width: '95%',
-    justifyContent:'center',
-    marginLeft: '2.5%',
+    width: "95%",
+    justifyContent: "center",
+    marginLeft: "2.5%",
   },
   input: {
     marginBottom: 22,

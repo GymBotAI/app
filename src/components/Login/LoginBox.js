@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import { Image } from "expo-image";
 
-
 import handleInsert from "../../db";
 import { username } from "../SignUp/Credentials";
 
@@ -16,7 +15,7 @@ var pass = "";
 
 export let emailValue = "";
 
-export default function LoginBox({ navigation, setShowLogin}) {
+export default function LoginBox({ navigation, setShowLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,7 +24,7 @@ export default function LoginBox({ navigation, setShowLogin}) {
       // You can call the handleInsert function here
       await handleInsert(email);
     } catch (error) {
-      console.error('Error inserting record:', error);
+      console.error("Error inserting record:", error);
     }
   };
 
@@ -37,11 +36,11 @@ export default function LoginBox({ navigation, setShowLogin}) {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          "username": String(email),
-          "password": String(password)
+          username: String(email),
+          password: String(password),
         }),
       });
-  
+
       const data = await response.json();
       return data; // Return the response data
     } catch (error) {
@@ -49,31 +48,30 @@ export default function LoginBox({ navigation, setShowLogin}) {
       return null; // Return null in case of an error
     }
   };
-  
- 
+
   const handleLogin = async () => {
-    
     // onPressInsert()
-    console.log(email)
+    console.log(email);
     emailValue = email;
-    console.log(password)
-    console.log("Login result:")
+    console.log(password);
+    console.log("Login result:");
     const result = await checkCredentials(email, password);
-    console.log(result)
-    if (result && result.message === "Login successful") { //for testing use One for email and Two for password
-    setShowLogin(false)
+    console.log(result);
+    if (result && result.message === "Login successful") {
+      //for testing use One for email and Two for password
+      setShowLogin(false);
       navigation.navigate("Home");
     } else if (result && result.message === "Invalid credentials") {
-      console.log("Invalid login attempt")
+      console.log("Invalid login attempt");
     } else {
-      console.log("Error")
+      console.log("Error");
     }
     //navigation.navigate("Home");
   };
 
   const handleCreateAccount = () => {
     navigation.navigate("SignUp");
-    setShowLogin(false)
+    setShowLogin(false);
   };
 
   return (
@@ -84,7 +82,7 @@ export default function LoginBox({ navigation, setShowLogin}) {
         placeholderTextColor="white"
         value={email}
         onChangeText={setEmail}
-        autoCapitalize = 'none'
+        autoCapitalize="none"
       />
       <TextInput
         style={styles.input}
@@ -99,9 +97,6 @@ export default function LoginBox({ navigation, setShowLogin}) {
         <Text style={styles.forgotText}>Forgot Password?</Text>
       </TouchableOpacity>
 
-
-
-      
       <View
         style={{
           marginTop: 30,
@@ -120,11 +115,15 @@ export default function LoginBox({ navigation, setShowLogin}) {
         </TouchableOpacity>
       </View>
 
-      
       <TouchableOpacity style={styles.signInWithGoogleButton}>
         <View style={styles.googleButtonContent}>
-          <Image source={require("../../../assets/google.webp")} style={styles.googleLogo} />
-          <Text style={styles.signInWithGoogleButtonText}>Continue with Google</Text>
+          <Image
+            source={require("../../../assets/google.webp")}
+            style={styles.googleLogo}
+          />
+          <Text style={styles.signInWithGoogleButtonText}>
+            Continue with Google
+          </Text>
         </View>
       </TouchableOpacity>
     </View>
@@ -135,9 +134,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 10,
     marginTop: 130,
-    width: '95%',
-    justifyContent:'center',
-    marginLeft: '2.5%',
+    width: "95%",
+    justifyContent: "center",
+    marginLeft: "2.5%",
   },
   input: {
     marginBottom: 22,
@@ -240,14 +239,14 @@ const styles = StyleSheet.create({
     color: "black",
   },
   backButton: {
-    position: 'absolute',
+    position: "absolute",
     top: 20, // Adjust the position as needed
     left: 10, // Adjust the position as needed
     zIndex: 1,
   },
 
   backButtonText: {
-    color: 'white',
+    color: "white",
     fontSize: 16,
   },
 });

@@ -10,21 +10,17 @@ import {
 import Modal from "react-native-modal";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import { circularColour } from "../../styles";
-import { MaterialIcons } from '@expo/vector-icons'; 
+import { MaterialIcons } from "@expo/vector-icons";
 
 export default function Option({ question, onPress, value }) {
   return (
-      <TouchableOpacity style={styles.item} onPress={onPress}>
-        <Text style={styles.itemText}>{question}</Text>
-        <View style={styles.itemLeft}>
-          <TextInput
-            style={styles.current}
-            value={value}
-            editable={false}
-          />
-          <MaterialIcons name="edit" size={26} color="black"/>
-        </View>
-      </TouchableOpacity>
+    <TouchableOpacity style={styles.item} onPress={onPress}>
+      <Text style={styles.itemText}>{question}</Text>
+      <View style={styles.itemLeft}>
+        <TextInput style={styles.current} value={value} editable={false} />
+        <MaterialIcons name="edit" size={26} color="black" />
+      </View>
+    </TouchableOpacity>
   );
 }
 

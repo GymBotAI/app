@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
-let index = 0
+let index = 0;
 
-const SportsSpecific = ({setGoalText, setInputFilled}) => {
-    const [selectedSport, setSelectedSport] = useState("");
+const SportsSpecific = ({ setGoalText, setInputFilled }) => {
+  const [selectedSport, setSelectedSport] = useState("");
 
-  const handleSelect = (option,option2) => {
-    setSelectedSport(option)
-    setGoalText(option2)
-    setInputFilled(true)
+  const handleSelect = (option, option2) => {
+    setSelectedSport(option);
+    setGoalText(option2);
+    setInputFilled(true);
   };
 
   const getButtonStyle = (option) => {
@@ -29,57 +29,57 @@ const SportsSpecific = ({setGoalText, setInputFilled}) => {
 
   return (
     <View style={styles.container}>
-
       {/* Football/Soccer */}
       <TouchableOpacity
         style={getButtonStyle("Football/Soccer")}
         onPress={() => {
-            handleSelect("Football/Soccer","Nice choice!");
-          }}
+          handleSelect("Football/Soccer", "Nice choice!");
+        }}
       >
-        <Text style={getButtonTextStyle("Football/Soccer")}>Football/Soccer</Text>
+        <Text style={getButtonTextStyle("Football/Soccer")}>
+          Football/Soccer
+        </Text>
       </TouchableOpacity>
-    
+
       {/* Basketball */}
       <TouchableOpacity
         style={getButtonStyle("Basketball")}
         onPress={() => {
-            handleSelect("Basketball","Awesome!");
-          }}
+          handleSelect("Basketball", "Awesome!");
+        }}
       >
         <Text style={getButtonTextStyle("Basketball")}>Basketball</Text>
       </TouchableOpacity>
-    
-    {/* Running */}
-    <TouchableOpacity
-      style={getButtonStyle("Running")}
-      onPress={() => {
-        handleSelect("Running","Great idea!");
-        }}
-    >
-      <Text style={getButtonTextStyle("Running")}>Running</Text>
-    </TouchableOpacity>
-    
-    {/* Volleyball */}
-    <TouchableOpacity
-      style={getButtonStyle("Volleyball")}
-      onPress={() => {
-        handleSelect("Volleyball","Sounds good!");
-        }}
-    >
-      <Text style={getButtonTextStyle("Volleyball")}>Volleyball</Text>
-    </TouchableOpacity>
-    
-    {/* Other */}
-    <TouchableOpacity
-      style={getButtonStyle("Other")}
-      onPress={() => {
-            handleSelect("Other","Alright!");
-        }}
-    >
-      <Text style={getButtonTextStyle("Other")}>Other</Text>
-    </TouchableOpacity>
 
+      {/* Running */}
+      <TouchableOpacity
+        style={getButtonStyle("Running")}
+        onPress={() => {
+          handleSelect("Running", "Great idea!");
+        }}
+      >
+        <Text style={getButtonTextStyle("Running")}>Running</Text>
+      </TouchableOpacity>
+
+      {/* Volleyball */}
+      <TouchableOpacity
+        style={getButtonStyle("Volleyball")}
+        onPress={() => {
+          handleSelect("Volleyball", "Sounds good!");
+        }}
+      >
+        <Text style={getButtonTextStyle("Volleyball")}>Volleyball</Text>
+      </TouchableOpacity>
+
+      {/* Other */}
+      <TouchableOpacity
+        style={getButtonStyle("Other")}
+        onPress={() => {
+          handleSelect("Other", "Alright!");
+        }}
+      >
+        <Text style={getButtonTextStyle("Other")}>Other</Text>
+      </TouchableOpacity>
     </View>
   );
 };

@@ -2,11 +2,10 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Home from "./src/navbarScreens/Home";
-import Plans from "./src/navbarScreens/Plans"
+import Plans from "./src/navbarScreens/Plans";
 import Workouts from "./src/navbarScreens/Workouts";
-import Food from "./src/navbarScreens/Food"
+import Food from "./src/navbarScreens/Food";
 import Chat from "./src/navbarScreens/Chat";
-
 
 import Account from "./src/screens/StartUp";
 import Login from "./src/screens/LogIn";
@@ -36,7 +35,7 @@ export default function App() {
         <Stack.Screen name="Chat" component={Chat} />
 
         <Stack.Screen name="DesignWorkout" component={DesignWorkout} />
-        
+
         <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
     </NavigationContainer>

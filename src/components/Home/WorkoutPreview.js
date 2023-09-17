@@ -1,13 +1,16 @@
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-import {Image} from "expo-image"
+import { Image } from "expo-image";
 
 const WorkoutBoxLarge = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.titleText}>Workout of the Day</Text>
-      <TouchableOpacity style={styles.workoutBoxLarge} onPress={() => console.log("Workout of the Day pressed!")}>
+      <TouchableOpacity
+        style={styles.workoutBoxLarge}
+        onPress={() => console.log("Workout of the Day pressed!")}
+      >
         <Image
           source={require("../../../assets/ingymbg.jpg")}
           style={{
@@ -18,7 +21,7 @@ const WorkoutBoxLarge = () => {
           }}
         />
         <View style={styles.whiteBlock}>
-            <Text style={styles.workoutTitle}>Knee Building  ||  45 Minutes</Text>
+          <Text style={styles.workoutTitle}>Knee Building || 45 Minutes</Text>
         </View>
       </TouchableOpacity>
     </View>

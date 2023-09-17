@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TextInput, View, StyleSheet, Pressable } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import {minDate, maxDate} from "../../styles";
+import { minDate, maxDate } from "../../styles";
 
 export let dateValue = new Date(); // Initialize ageValue as an empty string
 
@@ -23,7 +23,6 @@ export default function Age({ onAgeChange, ageVal, setAgeVal }) {
     return Math.floor(ageInYears);
   };
 
-
   const onChange = ({ type }, selectedDate) => {
     onAgeChange(true);
     if (type === "set") {
@@ -32,11 +31,11 @@ export default function Age({ onAgeChange, ageVal, setAgeVal }) {
       const formattedDate = currentDate.toLocaleDateString(); // Format the date as a string
       setDateOfBirth(formattedDate);
       dateValue = selectedDate; // Assign the formatted date to ageValue
-      console.log("Date:")
-      console.log(dateValue)
-      console.log("Age")
-      ageVal = calculateAge(dateValue)
-      console.log(ageVal)
+      console.log("Date:");
+      console.log(dateValue);
+      console.log("Age");
+      ageVal = calculateAge(dateValue);
+      console.log(ageVal);
     }
   };
 

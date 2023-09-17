@@ -1,10 +1,22 @@
-import React from 'react';
-import { View, StyleSheet, Modal, Dimensions, TouchableOpacity, Text, ScrollView } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
-import NotificationsTab from './NotificationTabs';
+import React from "react";
+import {
+  View,
+  StyleSheet,
+  Modal,
+  Dimensions,
+  TouchableOpacity,
+  Text,
+  ScrollView,
+} from "react-native";
+import { FontAwesome5 } from "@expo/vector-icons";
+import NotificationsTab from "./NotificationTabs";
 
-export default function Notifications({ isVisible, onClose, editSettingsDimensions }) {
-  const windowHeight = Dimensions.get('window').height;
+export default function Notifications({
+  isVisible,
+  onClose,
+  editSettingsDimensions,
+}) {
+  const windowHeight = Dimensions.get("window").height;
   const modalHeight = windowHeight - editSettingsDimensions.height;
 
   const numTabs = 10;
@@ -15,11 +27,7 @@ export default function Notifications({ isVisible, onClose, editSettingsDimensio
   const containerHeight = Math.min(modalHeight, totalNotificationsHeight);
 
   return (
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={isVisible}
-    >
+    <Modal animationType="slide" transparent={true} visible={isVisible}>
       <View style={[styles.centeredView, { height: modalHeight }]}>
         <View style={styles.modalView}>
           <Text style={styles.title}>Notifications</Text>
@@ -27,13 +35,34 @@ export default function Notifications({ isVisible, onClose, editSettingsDimensio
             <FontAwesome5 name="times" size={24} color="black" />
           </TouchableOpacity>
           <ScrollView style={[styles.scrollView, { height: containerHeight }]}>
-            <NotificationsTab title="Tab 2" description="This is the second tab" />
-            <NotificationsTab title="Tab 2" description="This is the second tab" />
-            <NotificationsTab title="Tab 2" description="This is the second tab" />
-            <NotificationsTab title="Tab 2" description="This is the second tab" />
-            <NotificationsTab title="Tab 2" description="This is the second tab" />
-            <NotificationsTab title="Tab 2" description="This is the second tab" />
-            <NotificationsTab title="Tab 2" description="This is the second tab" />
+            <NotificationsTab
+              title="Tab 2"
+              description="This is the second tab"
+            />
+            <NotificationsTab
+              title="Tab 2"
+              description="This is the second tab"
+            />
+            <NotificationsTab
+              title="Tab 2"
+              description="This is the second tab"
+            />
+            <NotificationsTab
+              title="Tab 2"
+              description="This is the second tab"
+            />
+            <NotificationsTab
+              title="Tab 2"
+              description="This is the second tab"
+            />
+            <NotificationsTab
+              title="Tab 2"
+              description="This is the second tab"
+            />
+            <NotificationsTab
+              title="Tab 2"
+              description="This is the second tab"
+            />
           </ScrollView>
         </View>
       </View>
@@ -41,13 +70,12 @@ export default function Notifications({ isVisible, onClose, editSettingsDimensio
   );
 }
 
-
 const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    marginTop: 22
+    marginTop: 22,
   },
   modalView: {
     margin: 20,
@@ -58,18 +86,18 @@ const styles = StyleSheet.create({
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
-      height: 2
+      height: 2,
     },
     shadowOpacity: 0.25,
     shadowRadius: 4,
-    elevation: 5
+    elevation: 5,
   },
   closeButton: {
-    alignSelf: 'flex-end',
+    alignSelf: "flex-end",
     paddingBottom: 20,
   },
   title: {
-    alignSelf: 'flex-start',
+    alignSelf: "flex-start",
     fontSize: 18,
     fontWeight: "bold",
     color: "#333",

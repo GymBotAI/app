@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, StatusBar } from "react-native";
 import GymBotNavigation from "../components/navbar";
 import ScreenHeader from "../components/ScreenHeader";
 
-import FoodContainer from "../components/Food/FoodContainer"
+import FoodContainer from "../components/Food/FoodContainer";
 
 export default function Workouts({ navigation }) {
   return (
@@ -15,7 +15,7 @@ export default function Workouts({ navigation }) {
     >
       <ScreenHeader title="Food" />
 
-      <FoodContainer/>
+      <FoodContainer />
 
       <StatusBar barStyle="dark-content" />
 

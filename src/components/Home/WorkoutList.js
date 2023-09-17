@@ -10,14 +10,13 @@ import {
 import { FontAwesome5 } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
-
-const WorkoutList = ({navigation}) => {
+const WorkoutList = ({ navigation }) => {
   const workoutsData = [
     {
       id: 1,
       title: "Full Body Workout",
       exercises: ["Push-ups", "Squats", "Burpees"],
-      image: require("../../../assets/homebgdark.jpg"),  
+      image: require("../../../assets/homebgdark.jpg"),
     },
     {
       id: 2,
@@ -66,14 +65,17 @@ const WorkoutList = ({navigation}) => {
   };
 
   const handleNewWorkout = () => {
-    navigation.navigate("Workouts")
-  }
+    navigation.navigate("Workouts");
+  };
 
   return (
-    <View style={{ marginLeft: 15, marginTop: 5, }}>
+    <View style={{ marginLeft: 15, marginTop: 5 }}>
       <View style={styles.headerContainer}>
         <Text style={styles.sectionTitle}>Explore Workouts</Text>
-        <TouchableOpacity onPress={handleViewAllPress} style={{ padding: 8, paddingTop: 12 }}>
+        <TouchableOpacity
+          onPress={handleViewAllPress}
+          style={{ padding: 8, paddingTop: 12 }}
+        >
           <Text style={styles.viewAllButton}>View All</Text>
         </TouchableOpacity>
       </View>
@@ -110,7 +112,11 @@ const WorkoutList = ({navigation}) => {
                     borderRadius: 10, // Add borderRadius to match the workoutBox
                   }}
                 />
-                <Text numberOfLines={1} ellipsizeMode="tail" style={styles.workoutTitle}>
+                <Text
+                  numberOfLines={1}
+                  ellipsizeMode="tail"
+                  style={styles.workoutTitle}
+                >
                   {workout.title}
                 </Text>
               </LinearGradient>
