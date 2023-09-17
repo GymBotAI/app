@@ -23,7 +23,9 @@ export default function HomeScreen({ navigation }) {
         {__DEV__ ? (
           <TouchableOpacity
             onPress={() => {
-              alert("Server address: " + serverAddr);
+              alert(
+                `Server address: ${serverAddr}\nWS ready state: ${chatContainerRef.current?.readyState}`
+              );
             }}
           >
             <FontAwesome5 name="terminal" size={24} color="#333" />
