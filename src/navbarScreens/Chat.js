@@ -24,7 +24,7 @@ export default function HomeScreen({ navigation }) {
           <TouchableOpacity
             onPress={() => {
               alert(
-                `Server address: ${serverAddr}\nWS ready state: ${chatContainerRef.current?.readyState}`
+                `Server address:\n${serverAddr}\n\nWS ready state:\n${chatContainerRef.current?.readyState}`
               );
             }}
           >
