@@ -8,7 +8,7 @@ import Constants from "expo-constants";
  * See `app.config.ts` for more information.
  * @type {string}
  */
-const serverAddr =
+export const serverAddr =
   Constants.expoConfig.extra.serverAddress ??
   Constants.expoConfig.extra.serverAddressDefault;
 
