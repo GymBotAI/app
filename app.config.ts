@@ -1,3 +1,7 @@
+if (process.env.GYMBOT != "1" && process.platform != "win32") {
+  throw new Error("Missing env vars. Did you forget to run `source .env`?");
+}
+
 const debugLogsModules = ["api"] as const;
 type DebugLogsModule = (typeof debugLogsModules)[number];
 
