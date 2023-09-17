@@ -15,3 +15,7 @@ assets
 .config
 .cache
 .upm
+
+# Secrets and env
+.env.*
+!.env
