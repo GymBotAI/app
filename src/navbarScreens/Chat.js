@@ -26,6 +26,9 @@ export default function HomeScreen({ navigation }) {
             <FontAwesome5 name="terminal" size={24} color="#333" />
           </TouchableOpacity>
         ) : null}
+        <TouchableOpacity>
+          <FontAwesome5 name="trash" size={24} color="#333" />
+        </TouchableOpacity>
       </ChatHeader>
       <ChatContainer />
       <StatusBar barStyle="light-content" />
