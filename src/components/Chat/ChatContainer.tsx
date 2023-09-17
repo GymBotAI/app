@@ -8,9 +8,11 @@ import ChatMessages from "./ChatMessages";
 import ChatInput from "./ChatInput";
 
 import { useGymBotAI } from "../../api";
+import type { ReadyState } from 'react-use-websocket'
 
 export type ChatContainerRef = MutableRefObject<null | {
   clear: () => void;
+  readyState: ReadyState;
 }>;
 
 export default function Chat({
@@ -20,7 +22,7 @@ export default function Chat({
 }) {
   const chatInputRef = useRef({});
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
-  const { messages, sendMessage, setMessages } = useGymBotAI([
+  const { messages, sendMessage, setMessages, readyState } = useGymBotAI([
     {
       role: "assistant",
       content: "How can I help you today?",
@@ -31,11 +33,12 @@ export default function Chat({
     setShowPrompts(false); //Sets show prompts to false
   };
 
-  if (containerRef && !containerRef.current) {
+  if (containerRef) {
     containerRef.current = {
       clear: () => {
         setMessages([messages[0]]);
       },
+      readyState
     };
   }
 
