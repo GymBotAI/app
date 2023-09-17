@@ -30,7 +30,15 @@ const secret = [53, 54, 99, 104, 97]
   .map((c) => String.fromCharCode(c))
   .join("");
 
-export function useGymBotAI(initialMessages = []) {
+const workoutScreenRegex = /^\s*\[__WORKOUT__\]\s*$/;
+
+export interface Message {
+  role: "user" | "assistant" | "system";
+  content?: string;
+  type?: "workoutScreen" | "chat";
+}
+
+export function useGymBotAI(initialMessages: Message[] = []) {
   const [messages, setMessages] = useState(initialMessages);
   const { sendMessage, lastMessage, readyState } = useWebSocket(
     `${serverAddr}/chat`
@@ -42,6 +50,18 @@ export function useGymBotAI(initialMessages = []) {
     if (lastMessage != null) {
       if (lastMessage.data == streamEndToken) {
         setIsStreaming(false);
+
+        if (
+          messages[messages.length - 1].role == "assistant" &&
+          workoutScreenRegex.test(messages[messages.length - 1].content)
+        ) {
+          setMessages((a) => {
+            a[a.length - 1].type = "workoutScreen";
+            delete a[a.length - 1].content;
+            return a;
+          });
+        }
+
         return;
       }
 

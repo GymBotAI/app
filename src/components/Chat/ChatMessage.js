@@ -32,57 +32,66 @@ export default function ChatMessage({ message }) {
     return <Text>Loading...</Text>;
   }
 
-  return (
-    <View
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        alignItems: "center",
-        alignSelf: side, // Align the message to the specified side
-        marginBottom: -8,
-      }}
-    >
-      {message.role === "assistant" && (
-        <Image
+  switch (message.type) {
+    case "chat":
+    default: {
+      return (
+        <View
           style={{
-            width: 30,
-            height: 30,
-            borderRadius: 15,
-            borderColor: borderDefault,
-            marginTop: "auto",
-            marginBottom: 5,
-            marginLeft: -10, // Add margin only for assistant messages
-            marginRight: 5,
-          }}
-          source={roleIcons[message.role]}
-        />
-      )}
-      <View
-        style={{
-          backgroundColor: message.role === "user" ? "#2360e8" : "#e0e0e0",
-          borderRadius: 12,
-          paddingHorizontal: 10,
-          paddingVertical: 6,
-          maxWidth: "80%", // Limit the message width
-          marginRight: -10,
-          shadowColor: "black",
-          shadowOffset: { width: 0, height: 1 },
-          shadowOpacity: 0.05,
-          shadowRadius: 1,
-        }}
-      >
-        <Text
-          style={{
-            textAlign: "left",
-            color: message.role === "user" ? "white" : "black",
-            fontSize: fontSize,
-            fontFamily: fontLoaded ? "roboto-regular" : null,
-            padding: 3,
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+            alignSelf: side, // Align the message to the specified side
+            marginBottom: -8,
           }}
         >
-          {message.content}
-        </Text>
-      </View>
-    </View>
-  );
+          {message.role === "assistant" && (
+            <Image
+              style={{
+                width: 30,
+                height: 30,
+                borderRadius: 15,
+                borderColor: borderDefault,
+                marginTop: "auto",
+                marginBottom: 5,
+                marginLeft: -10, // Add margin only for assistant messages
+                marginRight: 5,
+              }}
+              source={roleIcons[message.role]}
+            />
+          )}
+          <View
+            style={{
+              backgroundColor: message.role === "user" ? "#2360e8" : "#e0e0e0",
+              borderRadius: 12,
+              paddingHorizontal: 10,
+              paddingVertical: 6,
+              maxWidth: "80%", // Limit the message width
+              marginRight: -10,
+              shadowColor: "black",
+              shadowOffset: { width: 0, height: 1 },
+              shadowOpacity: 0.05,
+              shadowRadius: 1,
+            }}
+          >
+            <Text
+              style={{
+                textAlign: "left",
+                color: message.role === "user" ? "white" : "black",
+                fontSize: fontSize,
+                fontFamily: fontLoaded ? "roboto-regular" : null,
+                padding: 3,
+              }}
+            >
+              {message.content}
+            </Text>
+          </View>
+        </View>
+      );
+    }
+
+    case "workoutScreen": {
+      return <Text style={{ color: "red" }}>Go to workout screen</Text>;
+    }
+  }
 }
