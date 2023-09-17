@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import useWebSocket from "react-use-websocket";
 
 import Constants from "expo-constants";
@@ -92,21 +92,24 @@ export function useGymBotAI(initialMessages: Message[] = []) {
 
   return {
     messages,
-    sendMessage: (msg: string) => {
-      if (debug) {
-        console.debug("[GymBot/API] Sending message to chat WS:", msg);
-      }
+    sendMessage: useCallback(
+      (msg: string) => {
+        if (debug) {
+          console.debug("[GymBot/API] Sending message to chat WS:", msg);
+        }
 
-      setMessages((a) => [
-        ...a,
-        {
-          role: "user",
-          content: msg,
-        },
-      ]);
+        setMessages((a) => [
+          ...a,
+          {
+            role: "user",
+            content: msg,
+          },
+        ]);
 
-      sendMessage(msg);
-    },
+        sendMessage(msg);
+      },
+      [setMessages, sendMessage]
+    ),
     setMessages,
     readyState,
   };
