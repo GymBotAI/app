@@ -51,7 +51,7 @@ export default function Chat() {
             width: "100%",
             backgroundColor: "white",
           }}
-          onSubmit={(text) => {
+          onSubmit={(text: string) => {
             sendMessage(text);
           }}
           // onInput={}
