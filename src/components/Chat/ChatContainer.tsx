@@ -32,7 +32,7 @@ export default function Chat({ containerRef }: {
   if (containerRef && !containerRef.current) {
     containerRef.current = {
       clear: () => {
-        setMessages([]);
+        setMessages([messages[0]]);
       },
     };
   }
