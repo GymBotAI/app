@@ -6,9 +6,8 @@ import Constants from "expo-constants";
 /**
  * The address of the GymBot AI server.
  * See `app.config.ts` for more information.
- * @type {string}
  */
-export const serverAddr =
+export const serverAddr: string =
   Constants.expoConfig.extra.serverAddress ??
   Constants.expoConfig.extra.serverAddressDefault;
 
@@ -20,9 +19,8 @@ const streamEndToken = "[DONE]";
 
 /**
  * Whether or not to log debug messages.
- * @type {boolean}
  */
-const debug = Constants.expoConfig.extra.debugLogs.api;
+const debug: boolean = Constants.expoConfig.extra.debugLogs.api;
 
 if (debug) {
   console.debug("[GymBot/API] Using server address:", serverAddr);
@@ -74,7 +72,7 @@ export function useGymBotAI(initialMessages = []) {
 
   return [
     messages,
-    (msg) => {
+    (msg: string) => {
       if (debug) {
         console.debug("[GymBot/API] Sending message to chat WS:", msg);
       }
