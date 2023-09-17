@@ -70,9 +70,9 @@ export function useGymBotAI(initialMessages = []) {
     setHasAuthed(true);
   }
 
-  return [
+  return {
     messages,
-    (msg: string) => {
+    sendMessage: (msg: string) => {
       if (debug) {
         console.debug("[GymBot/API] Sending message to chat WS:", msg);
       }
@@ -88,5 +88,6 @@ export function useGymBotAI(initialMessages = []) {
       sendMessage(msg);
     },
     setMessages,
-  ];
+    readyState,
+  };
 }
