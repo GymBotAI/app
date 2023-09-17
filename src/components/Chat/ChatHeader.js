@@ -2,7 +2,7 @@ import { Text, View, Image } from "react-native";
 import * as Font from "expo-font";
 import React, { useState, useEffect } from "react";
 
-export default function MainHeader({ text, minitext }) {
+export default function MainHeader({ text }) {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
