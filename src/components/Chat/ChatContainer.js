@@ -10,7 +10,7 @@ import { useGymBotAI } from "../../api";
 export default function Chat() {
   const chatInputRef = useRef({});
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
-  const [messages, sendMessage, setMessages] = useGymBotAI([
+  const [messages, sendMessage] = useGymBotAI([
     {
       role: "assistant",
       content: "How can I help you today?",
