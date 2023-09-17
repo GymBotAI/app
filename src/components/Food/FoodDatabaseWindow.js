@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Modal, ScrollView } from "react-native";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Modal,
+  ScrollView,
+} from "react-native";
 import FoodInfoTabs from "./FoodInfoTabs";
 
 const FoodDatabaseWindow = ({ isVisible, onClose, onTabPress }) => {
@@ -45,7 +52,7 @@ const styles = StyleSheet.create({
   },
   closeButton: {
     position: "absolute",
-    top: 20,
+    top: 40,
     right: 20,
     backgroundColor: "#fff",
     borderRadius: 20,
@@ -59,7 +66,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     flexGrow: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
   },
   spacer: {
     flex: 1,
