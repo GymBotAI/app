@@ -79,6 +79,9 @@ export default function MainHeader({ text, children }) {
             {text}
           </Text>
         </View>
+
+        {/* You could use children to put buttons in, eg. in navbarScreens/Chat */}
+
         {children ? (
           <View
             style={{
