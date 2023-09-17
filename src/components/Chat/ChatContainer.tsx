@@ -1,16 +1,24 @@
 import { View, KeyboardAvoidingView } from "react-native";
-import { useState, useRef } from "react";
+import { useState, useRef, forwardRef } from "react";
 import * as Device from "expo-device";
+
+import type { MutableRefObject } from "react";
 
 import ChatMessages from "./ChatMessages";
 import ChatInput from "./ChatInput";
 
 import { useGymBotAI } from "../../api";
 
-export default function Chat() {
+export type ChatContainerRef = MutableRefObject<null | {
+  clear: () => void;
+}>;
+
+export default function Chat({ containerRef }: {
+  containerRef?: ChatContainerRef
+}) {
   const chatInputRef = useRef({});
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
-  const { messages, sendMessage } = useGymBotAI([
+  const { messages, sendMessage, setMessages } = useGymBotAI([
     {
       role: "assistant",
       content: "How can I help you today?",
@@ -20,6 +28,14 @@ export default function Chat() {
   const handlePromptPress = () => {
     setShowPrompts(false); //Sets show prompts to false
   };
+
+  if (containerRef && !containerRef.current) {
+    containerRef.current = {
+      clear: () => {
+        setMessages([]);
+      },
+    };
+  }
 
   return (
     <KeyboardAvoidingView
