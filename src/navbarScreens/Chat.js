@@ -1,8 +1,12 @@
-import { View, StatusBar } from "react-native";
+import { View, StatusBar, TouchableOpacity } from "react-native";
 
 import ChatContainer from "../components/Chat/ChatContainer";
 import ChatHeader from "../components/Chat/ChatHeader";
 import GymBotNavigation from "../components/navbar";
+
+import { FontAwesome5 } from "@expo/vector-icons";
+
+import { serverAddr } from "../api";
 
 export default function HomeScreen({ navigation }) {
   return (
@@ -12,7 +16,17 @@ export default function HomeScreen({ navigation }) {
         width: "100%",
       }}
     >
-      <ChatHeader text="Chat" />
+      <ChatHeader text="Chat">
+        {__DEV__ ? (
+          <TouchableOpacity
+            onPress={() => {
+              alert("Server address: " + serverAddr);
+            }}
+          >
+            <FontAwesome5 name="terminal" size={24} color="#333" />
+          </TouchableOpacity>
+        ) : null}
+      </ChatHeader>
       <ChatContainer />
       <StatusBar barStyle="light-content" />
 
