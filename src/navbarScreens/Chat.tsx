@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { View, StatusBar, TouchableOpacity } from "react-native";
 
-import ChatContainer from "../components/Chat/ChatContainer";
+import ChatContainer, { ChatContainerRef } from "../components/Chat/ChatContainer";
 import ChatHeader from "../components/Chat/ChatHeader";
 import GymBotNavigation from "../components/navbar";
 
@@ -10,7 +10,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import { serverAddr } from "../api";
 
 export default function HomeScreen({ navigation }) {
-  const chatContainerRef = useRef(null);
+  const chatContainerRef: ChatContainerRef = useRef(null);
 
   return (
     <View
