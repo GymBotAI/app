@@ -17,7 +17,6 @@
     "@react-native-picker/picker": "^2.4.10",
     "@react-navigation/native": "^6.1.6",
     "@react-navigation/native-stack": "^6.9.12",
-    "axios": "^1.4.0",
     "eas-cli": "^3.9.2",
     "expo": "~48.0.11",
     "expo-device": "~5.2.1",
