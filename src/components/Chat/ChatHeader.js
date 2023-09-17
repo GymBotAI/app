@@ -2,7 +2,7 @@ import { Text, View, Image } from "react-native";
 import * as Font from "expo-font";
 import React, { useState, useEffect } from "react";
 
-export default function MainHeader({ text }) {
+export default function MainHeader({ text, children }) {
   const [fontLoaded, setFontLoaded] = useState(false);
 
   useEffect(() => {
@@ -79,6 +79,16 @@ export default function MainHeader({ text }) {
             {text}
           </Text>
         </View>
+        {children ? (
+          <View
+            style={{
+              marginLeft: "auto",
+              marginRight: 10,
+            }}
+          >
+            {children}
+          </View>
+        ) : null}
       </View>
     </View>
   );
