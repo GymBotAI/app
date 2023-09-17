@@ -39,7 +39,9 @@ export default function ChatScreen({ navigation }) {
           <FontAwesome5 name="trash" size={24} color="#333" />
         </TouchableOpacity>
       </ChatHeader>
-      <ChatContainer containerRef={chatContainerRef} />
+      <ChatContainer containerRef={chatContainerRef} goToWorkoutScreen={() => {
+        navigation.navigate("DesignWorkout");
+      }} />
       <StatusBar barStyle="light-content" />
 
       <GymBotNavigation navigation={navigation} currentScreen={"Chat"} />

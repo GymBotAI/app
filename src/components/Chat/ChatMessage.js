@@ -1,7 +1,7 @@
-import { View, Text, Image } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
 
-import { borderDefault, fontSize } from "../../styles";
+import { borderDefault, fontSize, bgPrimary } from "../../styles";
 
 import { useEffect, useState } from "react";
 
@@ -15,7 +15,7 @@ const roleAlign = {
   user: "flex-end",
 };
 
-export default function ChatMessage({ message }) {
+export default function ChatMessage({ message, goToWorkoutScreen }) {
   const side = roleAlign[message.role];
   const [fontLoaded, setFontLoaded] = useState(false);
 
@@ -91,7 +91,25 @@ export default function ChatMessage({ message }) {
     }
 
     case "workoutScreen": {
-      return <Text style={{ color: "red" }}>Go to workout screen</Text>;
+      return (
+        <TouchableOpacity
+          style={{
+            backgroundColor: "#2360e8",
+            padding: 10,
+            borderRadius: 10,
+          }}
+          onPress={goToWorkoutScreen}
+        >
+          <Text
+            style={{
+              color: "white",
+              fontSize,
+            }}
+          >
+            Go to workout screen
+          </Text>
+        </TouchableOpacity>
+      );
     }
   }
 }

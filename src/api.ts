@@ -41,7 +41,10 @@ export interface Message {
 export function useGymBotAI(initialMessages: Message[] = []) {
   const [messages, setMessages] = useState(initialMessages);
   const { sendMessage, lastMessage, readyState } = useWebSocket(
-    `${serverAddr}/chat`
+    `${serverAddr}/chat`,
+    {
+      shouldReconnect: () => true,
+    }
   );
   const [hasAuthed, setHasAuthed] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);

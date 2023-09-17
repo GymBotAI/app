@@ -13,6 +13,7 @@ export default function ChatMessages({
   handlePromptPress,
   sendMessage,
   showPrompts,
+  goToWorkoutScreen,
 }) {
   const scrollViewRef = useRef();
   const scrollPositionRef = useRef(0);
@@ -105,7 +106,11 @@ export default function ChatMessages({
       >
         {messages?.length
           ? messages.map((message, i) => (
-              <ChatMessage key={i} message={message} />
+              <ChatMessage
+                key={i}
+                message={message}
+                goToWorkoutScreen={goToWorkoutScreen}
+              />
             ))
           : null}
       </View>

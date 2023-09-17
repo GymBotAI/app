@@ -17,8 +17,10 @@ export type ChatContainerRef = MutableRefObject<null | {
 
 export default function Chat({
   containerRef,
+  goToWorkoutScreen
 }: {
   containerRef?: ChatContainerRef;
+  goToWorkoutScreen: () => void;
 }) {
   const chatInputRef = useRef({});
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
@@ -67,6 +69,7 @@ export default function Chat({
           handlePromptPress={handlePromptPress}
           sendMessage={sendMessage}
           showPrompts={showPrompts}
+          goToWorkoutScreen={goToWorkoutScreen}
         />
 
         <ChatInput
