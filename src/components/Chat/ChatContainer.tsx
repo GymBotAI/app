@@ -1,5 +1,5 @@
 import { View, KeyboardAvoidingView } from "react-native";
-import { useState, useRef, forwardRef } from "react";
+import { useState, useRef, useCallback } from "react";
 import * as Device from "expo-device";
 
 import type { MutableRefObject } from "react";
@@ -29,9 +29,13 @@ export default function Chat({
     },
   ]);
 
-  const handlePromptPress = () => {
+  const handlePromptPress = useCallback(() => {
     setShowPrompts(false); //Sets show prompts to false
-  };
+  }, [setShowPrompts]);
+
+  const onSubmit = useCallback((text: string) => {
+    sendMessage(text);
+  }, [sendMessage]);
 
   if (containerRef) {
     containerRef.current = {
@@ -72,9 +76,7 @@ export default function Chat({
             width: "100%",
             backgroundColor: "white",
           }}
-          onSubmit={(text: string) => {
-            sendMessage(text);
-          }}
+          onSubmit={onSubmit}
           // onInput={}
           setValueRef={chatInputRef}
           onDeletePrompts={handlePromptPress} // Pass the callback function to ChatInput
