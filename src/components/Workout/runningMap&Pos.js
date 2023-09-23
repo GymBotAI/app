@@ -1,14 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet } from "react-native";
-import MapView, { Marker, Polyline } from "react-native-maps";
-import * as Location from "expo-location";
-import getDistanceFromLatLonInKm from "./getDistanceInKM";
+import React, { useState, useEffect, useRef } from 'react';
+import { StyleSheet } from 'react-native';
+import MapView, { Marker, Polyline } from 'react-native-maps';
+import * as Location from 'expo-location';
+import getDistanceFromLatLonInKm from './getDistanceInKM';
 
-export default function MapAndPos({
-  updateTotalDistance,
-  updateCalibrated,
-  isActive,
-}) {
+export default function MapAndPos({ updateTotalDistance, updateCalibrated, isActive }) {
   const [locations, setLocations] = useState([]);
   const [calibrated, setCalibrated] = useState(false);
 
@@ -18,8 +14,7 @@ export default function MapAndPos({
     let isMounted = true;
     let newLocation;
 
-    const calibrate = async () => {
-      //This function works because I have noticed that precision improves as iterations increase soooo... dont delete it if u want to give ur user a good experience.
+    const calibrate = async () => { //This function works because I have noticed that precision improves as iterations increase soooo... dont delete it if u want to give ur user a good experience.
       for (let i = 4; i > 0; i--) {
         try {
           newLocation = await Location.getCurrentPositionAsync({}); //You can comment this line out when debugging since precision is irrelevant
@@ -38,10 +33,7 @@ export default function MapAndPos({
         newLocation = await Location.getCurrentPositionAsync({});
 
         if (isMounted) {
-          setLocations((prevLocations) => [
-            ...prevLocations,
-            newLocation.coords,
-          ]);
+          setLocations(prevLocations => [...prevLocations, newLocation.coords]);
 
           if (mapRef.current) {
             mapRef.current.animateCamera({
@@ -61,9 +53,7 @@ export default function MapAndPos({
               newLocation.coords.latitude,
               newLocation.coords.longitude
             );
-            updateTotalDistance(
-              (prevTotalDistance) => prevTotalDistance + distance
-            );
+            updateTotalDistance(prevTotalDistance => prevTotalDistance + distance);
           }
         }
       } catch (error) {
@@ -73,8 +63,8 @@ export default function MapAndPos({
 
     (async () => {
       let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        alert("Permission Denied");
+      if (status !== 'granted') {
+        console.log("Permission Denied");
         return;
       }
 
@@ -95,7 +85,7 @@ export default function MapAndPos({
   useEffect(() => {
     if (locations.length > 0 && mapRef.current) {
       mapRef.current.fitToCoordinates(
-        locations.map((location) => ({
+        locations.map(location => ({
           latitude: location.latitude,
           longitude: location.longitude,
         })),
@@ -138,7 +128,7 @@ export default function MapAndPos({
 
 const styles = StyleSheet.create({
   map: {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
   },
 });

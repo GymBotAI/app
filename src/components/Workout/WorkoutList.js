@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 
-const WorkoutList = ({ navigation }) => {
+const WorkoutList = ({navigation}) => {
   const workoutsData = [
     {
       id: 1,
@@ -57,17 +57,14 @@ const WorkoutList = ({ navigation }) => {
   };
 
   const handleNewWorkout = () => {
-    navigation.navigate("DesignWorkout");
-  };
+    navigation.navigate("DesignWorkout")
+  }
 
   return (
-    <View style={{ marginLeft: -5, marginBottom: 60 }}>
+    <View style={{ marginLeft: -5, marginBottom: 60,}}>
       <View style={styles.headerContainer}>
         <Text style={styles.sectionTitle}>Your Workouts</Text>
-        <TouchableOpacity
-          onPress={handleViewAllPress}
-          style={{ padding: 8, paddingTop: 12 }}
-        >
+        <TouchableOpacity onPress={handleViewAllPress} style={{ padding: 8, paddingTop: 12 }}>
           <Text style={styles.viewAllButton}>View All</Text>
         </TouchableOpacity>
       </View>
@@ -80,7 +77,7 @@ const WorkoutList = ({ navigation }) => {
         snapToAlignment="start"
         style={{ paddingBottom: 10 }}
       >
-        <TouchableOpacity onPress={handleNewWorkout} style={styles.workoutBox}>
+        <TouchableOpacity onPress={handleNewWorkout}style={styles.workoutBox}>
           <View style={styles.plusIconContainer}>
             <FontAwesome5 name="plus" size={40} color="#555" />
           </View>
@@ -173,8 +170,8 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   plusIconContainer: {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
     borderWidth: 2,
     borderRadius: 10,
     borderStyle: "dashed",

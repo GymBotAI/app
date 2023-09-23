@@ -28,23 +28,17 @@ export default function ViewWorkouts({ navigation }) {
 
   return (
     <>
-      <ScrollView style={styles.container}>
-        <CreateWorkoutButton handleAddWorkout={handleAddWorkout} />
+    <ScrollView style={styles.container}>
+      <CreateWorkoutButton handleAddWorkout={handleAddWorkout} />
 
-        <TalkToGymBotSection navigation={navigation} />
-        <WorkoutList navigation={navigation} />
-        <CustomPage
-          isVisible={RunningPageVisibility}
-          onClose={closeRunningPage}
-        />
-      </ScrollView>
-
+      <TalkToGymBotSection navigation={navigation} />
+      <WorkoutList navigation={navigation}/>
+      <CustomPage isVisible={RunningPageVisibility} onClose={closeRunningPage}/>
+    </ScrollView>
+    
       {/* Log Workout button */}
-      <TouchableOpacity
-        style={styles.addButtonContainer}
-        onPress={openRunningPage}
-      >
-        <Text style={styles.addText}>Log Workout</Text>
+      <TouchableOpacity style={styles.addButtonContainer} onPress={openRunningPage}>
+          <Text style={styles.addText}>Log Workout</Text>
       </TouchableOpacity>
     </>
   );
@@ -55,7 +49,8 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingHorizontal: 20,
   },
-  tasksWrapper: {},
+  tasksWrapper: {
+  },
   sectionTitle: {
     fontSize: 24,
     fontWeight: "bold",
@@ -65,7 +60,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 80,
     width: "86%",
-    marginLeft: "7%",
+    marginLeft: '7%',
     backgroundColor: "#1260de",
     borderRadius: 8,
     shadowColor: "black",
@@ -77,7 +72,7 @@ const styles = StyleSheet.create({
   addText: {
     alignSelf: "center",
     fontSize: 23,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     paddingVertical: 10,
     color: "#dbdbdb",
   },
