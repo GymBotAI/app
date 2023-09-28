@@ -42,20 +42,33 @@ export default function ViewWorkouts({ navigation }) {
         <CustomPage isVisible={RunningPageVisibility} onClose={closeRunningPage} />
       </ScrollView>
 
-      <TouchableOpacity style={styles.addButtonContainer} onPress={toggleWorkoutButtons}>
-        <Text style={styles.addText}>Record Exercise</Text>
-      </TouchableOpacity>
+      {!workoutButtonsVisible && (
+        <TouchableOpacity style={styles.addButtonContainer} onPress={toggleWorkoutButtons}>
+          <Text style={styles.addText}>Record Exercise</Text>
+        </TouchableOpacity>
+      )}
 
       {workoutButtonsVisible && (
-        <View style={styles.workoutButtonsContainer}>
+        <View style={styles.addButtonContainer} onPress={toggleWorkoutButtons}>
           <TouchableOpacity onPress={openRunningPage}>
-            <Text style={styles.workoutOptionsText}>Start a Run</Text>
+            <Text style={styles.workoutOptionsText}>Start a Run 🏃‍♂️</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={styles.workoutOptionsText}>Log Workout</Text>
+            <Text style={styles.workoutOptionsText}>Log Workout💪</Text>
           </TouchableOpacity>
         </View>
       )}
+
+      {/* {workoutButtonsVisible && (
+        <View style={styles.workoutButtonsContainer}>
+          <TouchableOpacity onPress={openRunningPage}>
+            <Text style={styles.workoutOptionsText}>Start a Run 🏃‍♂️</Text>
+          </TouchableOpacity>
+          <TouchableOpacity>
+            <Text style={styles.workoutOptionsText}>Log Workout💪</Text>
+          </TouchableOpacity>
+        </View>
+      )} */}
     </>
   );
 }
@@ -81,7 +94,8 @@ const styles = StyleSheet.create({
   workoutButtonsContainer: {
     position: "absolute",
     bottom: 130,
-    marginLeft: "7%",
+    width: '90%',
+    marginLeft: "5%",
     backgroundColor: "#fff",
     borderRadius: 4,
     shadowColor: "black",
@@ -92,10 +106,10 @@ const styles = StyleSheet.create({
   },
   workoutOptionsText: {
    alignSelf: "center",
-   fontSize: 13,
+   fontSize: 18,
    fontWeight: "bold",
    paddingVertical: 10,
-   color: "#000",
+   color: "#dbdbdb",
  },
   addText: {
     alignSelf: "center",

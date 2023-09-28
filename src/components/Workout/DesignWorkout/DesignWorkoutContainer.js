@@ -17,6 +17,15 @@ const WorkoutSelectionScreen = () => {
   const [isInputFilled, setInputFilled] = useState(false);
 
   useEffect(() => {
+
+    async function loadFont() {
+      await Font.loadAsync({
+        "roboto-black": require("../../../../assets/fonts/Roboto-Black.ttf"),
+      });
+    }
+
+    loadFont();
+    
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
       if (currentIndex <= goalText.length) {
@@ -26,14 +35,6 @@ const WorkoutSelectionScreen = () => {
         clearInterval(typingInterval);
       }
     }, 15); // Adjust typing speed here (milliseconds)
-
-    async function loadFont() {
-      await Font.loadAsync({
-        "roboto-black": require("../../../../assets/fonts/Roboto-Black.ttf"),
-      });
-    }
-
-    loadFont();
 
     return () => {
       clearInterval(typingInterval);
