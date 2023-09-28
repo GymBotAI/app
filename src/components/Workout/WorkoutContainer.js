@@ -43,7 +43,7 @@ export default function ViewWorkouts({ navigation }) {
       </ScrollView>
 
       <TouchableOpacity style={styles.addButtonContainer} onPress={toggleWorkoutButtons}>
-        <Text style={styles.addText}>+</Text>
+        <Text style={styles.addText}>Record Exercise</Text>
       </TouchableOpacity>
 
       {workoutButtonsVisible && (
@@ -68,8 +68,8 @@ const styles = StyleSheet.create({
   addButtonContainer: {
     position: "absolute",
     bottom: 80,
-    width: "1%",
-    marginLeft: "7%",
+    width: "90%",
+    marginLeft: '5%',
     backgroundColor: "#1260de",
     borderRadius: 8,
     shadowColor: "black",
