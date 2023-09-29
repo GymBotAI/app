@@ -9,9 +9,12 @@ import {
   ScrollView,
 } from "react-native";
 import PlanTabs from "./PlanTabs";
+import PlanInfoPage from "./PlanInfoPage"
 
 export default function PlanFinder({ onClose }) {
-  const [searchQuery, setSearchQuery] = useState("");
+  const [ searchQuery, setSearchQuery ] = useState("");
+  const [ PlanInfoPageVisibility, setPlanInfoPageVisibility ] = useState(false);
+
   const rectangles = [
     { name: "Rectangle 1", length: 5 },
     { name: "Rectangle 2", length: 8 },
@@ -22,12 +25,16 @@ export default function PlanFinder({ onClose }) {
     rectangle.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const togglePlanInfoPageVisibility = () => {
+   setPlanInfoPageVisibility(!PlanInfoPageVisibility)
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.overlay} />
-      <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+      {!PlanInfoPageVisibility && (<TouchableOpacity style={styles.closeButton} onPress={onClose}>
         <Text style={styles.closeButtonText}>X</Text>
-      </TouchableOpacity>
+      </TouchableOpacity>)}
       <View style={styles.searchBarContainer}>
         <TextInput
           style={styles.searchBar}
@@ -38,11 +45,17 @@ export default function PlanFinder({ onClose }) {
       </View>
       <ScrollView style={styles.tabsContainer}>
         {filteredRectangles.map((rectangle, index) => (
-          <TouchableOpacity>
+          <TouchableOpacity onPress={togglePlanInfoPageVisibility}>
             <PlanTabs key={index} text={rectangle.name} length={rectangle.length} />
           </TouchableOpacity>
         ))}
       </ScrollView>
+      {PlanInfoPageVisibility && (
+        <PlanInfoPage
+         onClose={togglePlanInfoPageVisibility}
+         windowWidth={windowWidth}
+         windowHeight={windowHeight}
+       />)}
     </View>
   );
 }

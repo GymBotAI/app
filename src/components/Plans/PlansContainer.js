@@ -11,7 +11,6 @@ export default function Settings({ navigation }) {
 
   return (
     <View style={styles.container}>
-     
       <TouchableOpacity style={styles.addButtonContainer} onPress={togglePlanFinder}>
         <Text style={styles.addText}>+</Text>
       </TouchableOpacity>
