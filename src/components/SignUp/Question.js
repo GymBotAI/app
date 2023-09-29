@@ -9,7 +9,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 
-import * as Font from "expo-font";
+import { useFonts } from 'expo-font';
 
 import { ageVal } from "./Age.js";
 import { genderVal } from "./Gender.js";
@@ -29,6 +29,9 @@ import Goals from "./Goals";
 let inputOption = null;
 
 export default function Question({ navigation }) {
+  const [fontsLoaded] = useFonts({
+    "roboto-black": require("../../../assets/fonts/Roboto-Black.ttf"),
+  });
   const [nameVal, setNameVal] = useState("");
   const [dateVal, setDateVal] = useState("");
   const [fixedHeight, setFixedHeight] = useState(0);
@@ -126,15 +129,6 @@ export default function Question({ navigation }) {
   };
 
   useEffect(() => {
-    async function loadFont() {
-      await Font.loadAsync({
-        "roboto-black": require("../../../assets/fonts/Roboto-Black.ttf"),
-      });
-
-      setFontLoaded(true);
-    }
-
-    loadFont();
 
     Animated.parallel([
       Animated.timing(slideUpAnim, {
@@ -155,10 +149,7 @@ export default function Question({ navigation }) {
       fadeAnim.setValue(0);
     };
   }, [prompt]);
-
-  if (!fontLoaded) {
-    return <Text>Loading...</Text>;
-  }
+  
 
   if (prompt === "Tell us your name!") {
     // inputOption = <HeightWeightContainer onChange={setInputFilled} />;
