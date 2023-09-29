@@ -6,13 +6,13 @@ import {
   TouchableOpacity,
   Text,
   TextInput,
-  ScrollView,
+  ScrollView, // Import ScrollView
 } from "react-native";
 import PlanTabs from "./PlanTabs";
 
 export default function PlanFinder({ onClose }) {
   const [searchQuery, setSearchQuery] = useState("");
-  const rectangles = ["Rectangle 1", "Rectangle 2", "Rectangle 3", "Rectangle 4", "Rectangle 5"];
+  const rectangles = ["Rectangle 1", "Rectangle 2", "Rectangle 3"];
 
   const filteredRectangles = rectangles.filter((rectangle) =>
     rectangle.toLowerCase().includes(searchQuery.toLowerCase())
@@ -28,7 +28,7 @@ export default function PlanFinder({ onClose }) {
         <TextInput
           style={styles.searchBar}
           placeholder="Search rectangles"
-          placeholderTextColor="#888" // Set the placeholder text color
+          placeholderTextColor="#888"
           onChangeText={(text) => setSearchQuery(text)}
         />
       </View>
@@ -41,7 +41,7 @@ export default function PlanFinder({ onClose }) {
   );
 }
 
-const windowWidth = Dimensions.get("window").width - 20;
+const windowWidth = Dimensions.get("window").width - 20; //IDK why but if u want symetry, you have to offset 20 px
 const windowHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
@@ -54,6 +54,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 20,
     right: 20,
+    zIndex: 1,
     width: 40,
     height: 40,
     borderRadius: 20,
@@ -76,13 +77,13 @@ const styles = StyleSheet.create({
   },
   tabsContainer: {
     width: "100%",
-    paddingHorizontal: 20,
-    paddingVertical: 70,
+    position: "absolute",
+    top:80,
   },
   searchBarContainer: {
     position: "absolute",
     top: 20,
-    left: 70,
+    left: 80,
     flexDirection: "row",
     alignItems: "center",
   },
@@ -93,6 +94,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     paddingLeft: 10,
-    color: "#000", // Set the text color
+    color: "#000",
   },
 });
