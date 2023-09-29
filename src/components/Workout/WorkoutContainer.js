@@ -17,6 +17,7 @@ export default function ViewWorkouts({ navigation }) {
   const [workoutButtonsVisible, setWorkoutButtonsVisible] = useState(false);
 
   const openRunningPage = () => {
+    setWorkoutButtonsVisible(false)
     changeRunningPageVisibility(true);
   };
 
@@ -39,7 +40,9 @@ export default function ViewWorkouts({ navigation }) {
 
         <TalkToGymBotSection navigation={navigation} />
         <WorkoutList navigation={navigation} />
-        <CustomPage isVisible={RunningPageVisibility} onClose={closeRunningPage} />
+        {RunningPageVisibility &&
+        <CustomPage onClose={closeRunningPage} />
+        }
       </ScrollView>
 
       {!workoutButtonsVisible && (
@@ -58,17 +61,6 @@ export default function ViewWorkouts({ navigation }) {
           </TouchableOpacity>
         </View>
       )}
-
-      {/* {workoutButtonsVisible && (
-        <View style={styles.workoutButtonsContainer}>
-          <TouchableOpacity onPress={openRunningPage}>
-            <Text style={styles.workoutOptionsText}>Start a Run 🏃‍♂️</Text>
-          </TouchableOpacity>
-          <TouchableOpacity>
-            <Text style={styles.workoutOptionsText}>Log Workout💪</Text>
-          </TouchableOpacity>
-        </View>
-      )} */}
     </>
   );
 }
