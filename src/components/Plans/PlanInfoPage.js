@@ -20,7 +20,7 @@ export default function PlanInfoPage({ onClose, windowWidth, windowHeight }) {
  );
 }
 
-const windowWidth = Dimensions.get("window").width; //IDK why but if u want symetry, you have to offset 20 px
+const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
