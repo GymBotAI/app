@@ -2,22 +2,20 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import { Image } from "expo-image";
+import * as Font from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
-
-import BuildMuscle from "./BuildMuscle";
-import LoseWeight from "./LoseWeight";
-import SportsSpecific from "./SportsSpecific";
-import GoalSelector from "./GoalSelector";
 
 const WorkoutSelectionScreen = () => {
 
-  const [selectedGoal, setSelectedGoal] = useState(null);
-  const [typedText, setTypedText] = useState("");
-  const [goalText, setGoalText] = useState("What is your goal?");
-  const [isInputFilled, setInputFilled] = useState(false);
-  const [completed, setCompleted] = useState(false);
-
   useEffect(() => {
+
+    async function loadFont() {
+      await Font.loadAsync({
+        "roboto-black": require("../../../../assets/fonts/Roboto-Black.ttf"),
+      });
+    }
+
+    loadFont();
     
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
@@ -84,11 +82,6 @@ const WorkoutSelectionScreen = () => {
       </>
     );
   }
-  
-  const completeDesign = () => {
-    console.log('happening')
-    setCompleted(true)
-  };
 
   return (
     <View style={styles.container}>
@@ -114,27 +107,20 @@ const WorkoutSelectionScreen = () => {
         </LinearGradient>
       </View>
 
-      {!completed && (
-        <>
-          <GoalSelector
-            selectedGoal={selectedGoal}
-            setSelectedGoal={setSelectedGoal}
-            setGoalText={setGoalText}
-          />
+      <GoalSelector
+        selectedGoal={selectedGoal}
+        setSelectedGoal={setSelectedGoal}
+        setGoalText={setGoalText}
+      />
 
-          {option1}
+      {option1}
 
-          <TouchableOpacity
-            style={[styles.button, !isInputFilled && styles.disabledButton]}
-            disabled={!isInputFilled}
-            onPress={completeDesign}
-          >
-            <Text style={styles.text}>Continue</Text>
-          </TouchableOpacity>
-        </>
-      )}
-
-
+      <TouchableOpacity
+        style={[styles.button, !isInputFilled && styles.disabledButton]}
+        disabled={!isInputFilled}
+      >
+        <Text style={styles.text}>Continue</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -181,9 +167,9 @@ const styles = StyleSheet.create({
   text: {
     alignSelf: "center",
     fontSize: 24,
+    fontFamily: "roboto-black",
     paddingVertical: 10,
     color: "#dbdbdb",
-    fontWeight: 'bold',
   },
 });
 
