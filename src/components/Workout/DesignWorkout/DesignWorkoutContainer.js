@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import { Image } from "expo-image";
-import * as Font from "expo-font";
+import { useFonts } from 'expo-font';
 import { LinearGradient } from "expo-linear-gradient";
 
 import BuildMuscle from "./BuildMuscle";
@@ -11,6 +11,9 @@ import SportsSpecific from "./SportsSpecific";
 import GoalSelector from "./GoalSelector";
 
 const WorkoutSelectionScreen = () => {
+  const [fontsLoaded] = useFonts({
+    "roboto-black": require("../../../../assets/fonts/Roboto-Black.ttf"),
+  });
   const [selectedGoal, setSelectedGoal] = useState(null);
   const [typedText, setTypedText] = useState("");
   const [goalText, setGoalText] = useState("What is your goal?");
@@ -18,14 +21,6 @@ const WorkoutSelectionScreen = () => {
   const [completed, setCompleted] = useState(false);
 
   useEffect(() => {
-
-    async function loadFont() {
-      await Font.loadAsync({
-        "roboto-black": require("../../../../assets/fonts/Roboto-Black.ttf"),
-      });
-    }
-
-    loadFont();
     
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
