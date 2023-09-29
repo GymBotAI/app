@@ -7,7 +7,7 @@ export default function PlanTabs({ text, length }) {
       <Text>{text}</Text>
       <View style={styles.lengthContainer}>
         <View style={styles.lengthBox}>
-          <Text style={styles.lengthText}>{length}</Text>
+          <Text style={styles.lengthText}>{length} Days</Text>
         </View>
       </View>
     </View>
@@ -33,7 +33,7 @@ const styles = StyleSheet.create({
     padding: 5,
   },
   lengthBox: {
-    width: 30,
+    width: 65,
     height: 30,
     borderRadius: 15,
     backgroundColor: "darkgray",
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   lengthText: {
-    color: "white",
+    color: "lightgray",
     fontSize: 16,
   },
 });

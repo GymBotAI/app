@@ -38,7 +38,9 @@ export default function PlanFinder({ onClose }) {
       </View>
       <ScrollView style={styles.tabsContainer}>
         {filteredRectangles.map((rectangle, index) => (
-          <PlanTabs key={index} text={rectangle.name} length={rectangle.length} />
+          <TouchableOpacity>
+            <PlanTabs key={index} text={rectangle.name} length={rectangle.length} />
+          </TouchableOpacity>
         ))}
       </ScrollView>
     </View>
