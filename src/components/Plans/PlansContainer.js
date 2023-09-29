@@ -1,19 +1,22 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import PlanFinder from "./PlanFinder";
 
 export default function Settings({ navigation }) {
- const [planFinderVisibility, setPlanFinderVisibility] = useState(false)
+  const [planFinderVisibility, setPlanFinderVisibility] = useState(false);
 
- const openPlanFinder = () => {
-  setPlanFinderVisibility(!planFinderVisibility)
- }
-
+  const togglePlanFinder = () => {
+    setPlanFinderVisibility(!planFinderVisibility);
+  };
 
   return (
     <View style={styles.container}>
-     <TouchableOpacity style={styles.addButtonContainer} onPress={openPlanFinder}>
+      <TouchableOpacity style={styles.addButtonContainer} onPress={togglePlanFinder}>
         <Text style={styles.addText}>+</Text>
       </TouchableOpacity>
+      {planFinderVisibility && (
+        <PlanFinder onClose={togglePlanFinder} />
+      )}
     </View>
   );
 }
