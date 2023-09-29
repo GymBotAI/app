@@ -6,16 +6,20 @@ import {
   TouchableOpacity,
   Text,
   TextInput,
-  ScrollView, // Import ScrollView
+  ScrollView,
 } from "react-native";
 import PlanTabs from "./PlanTabs";
 
 export default function PlanFinder({ onClose }) {
   const [searchQuery, setSearchQuery] = useState("");
-  const rectangles = ["Rectangle 1", "Rectangle 2", "Rectangle 3"];
+  const rectangles = [
+    { name: "Rectangle 1", length: 5 },
+    { name: "Rectangle 2", length: 8 },
+    { name: "Rectangle 3", length: 3 },
+  ];
 
   const filteredRectangles = rectangles.filter((rectangle) =>
-    rectangle.toLowerCase().includes(searchQuery.toLowerCase())
+    rectangle.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   return (
@@ -33,8 +37,8 @@ export default function PlanFinder({ onClose }) {
         />
       </View>
       <ScrollView style={styles.tabsContainer}>
-        {filteredRectangles.map((text, index) => (
-          <PlanTabs key={index} text={text} />
+        {filteredRectangles.map((rectangle, index) => (
+          <PlanTabs key={index} text={rectangle.name} length={rectangle.length} />
         ))}
       </ScrollView>
     </View>
@@ -78,7 +82,7 @@ const styles = StyleSheet.create({
   tabsContainer: {
     width: "100%",
     position: "absolute",
-    top:80,
+    top: 80,
   },
   searchBarContainer: {
     position: "absolute",
