@@ -33,8 +33,8 @@ dependencies:
     specifier: ~5.4.0
     version: 5.4.0(expo@49.0.13)
   expo-font:
-    specifier: ~11.1.1
-    version: 11.1.1(expo@49.0.13)
+    specifier: ~11.4.0
+    version: 11.4.0(expo@49.0.13)
   expo-image:
     specifier: ~1.0.1
     version: 1.0.1(expo@49.0.13)
@@ -3985,15 +3985,6 @@ packages:
     dependencies:
       expo: 49.0.13(@babel/core@7.20.2)
       uuid: 3.4.0
-
-  /expo-font@11.1.1(expo@49.0.13):
-    resolution: {integrity: sha512-X+aICqYY69hiiDDtcNrjq8KutHrH2TrHuMqk0Rfq0P7hF6hMd+YefwLBNkvIrqrgmTAuqiLjMUwj2rHLqmgluw==}
-    peerDependencies:
-      expo: '*'
-    dependencies:
-      expo: 49.0.13(@babel/core@7.20.2)
-      fontfaceobserver: 2.3.0
-    dev: false
 
   /expo-font@11.4.0(expo@49.0.13):
     resolution: {integrity: sha512-nkmezCFD7gR/I6R+e3/ry18uEfF8uYrr6h+PdBJu+3dawoLOpo+wFb/RG9bHUekU1/cPanR58LR7G5MEMKHR2w==}
