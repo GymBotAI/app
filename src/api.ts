@@ -119,5 +119,6 @@ export function useGymBotAI(initialMessages: Message[] = []) {
     ),
     setMessages,
     readyState,
+    hasAuthed,
   };
 }
