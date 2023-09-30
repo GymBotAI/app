@@ -45,8 +45,8 @@ dependencies:
     specifier: ^16.1.0
     version: 16.1.0(expo@49.0.13)
   expo-status-bar:
-    specifier: ~1.4.4
-    version: 1.4.4
+    specifier: ~1.6.0
+    version: 1.6.0
   mathjs:
     specifier: ^11.10.0
     version: 11.10.0
@@ -4058,8 +4058,8 @@ packages:
       - supports-color
     dev: false
 
-  /expo-status-bar@1.4.4:
-    resolution: {integrity: sha512-5DV0hIEWgatSC3UgQuAZBoQeaS9CqeWRZ3vzBR9R/+IUD87Adbi4FGhU10nymRqFXOizGsureButGZIXPs7zEA==}
+  /expo-status-bar@1.6.0:
+    resolution: {integrity: sha512-e//Oi2WPdomMlMDD3skE4+1ZarKCJ/suvcB4Jo/nO427niKug5oppcPNYO+csR6y3ZglGuypS+3pp/hJ+Xp6fQ==}
     dev: false
 
   /expo@49.0.13(@babel/core@7.20.2):
