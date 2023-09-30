@@ -43,7 +43,20 @@ export function useGymBotAI(initialMessages: Message[] = []) {
   const { sendMessage, lastMessage, readyState } = useWebSocket(
     `${serverAddr}/chat`,
     {
-      shouldReconnect: () => true,
+      shouldReconnect() {
+        return true;
+      },
+      onOpen() {
+        if (debug) {
+          console.debug("[GymBot/API] Sending auth secret to chat WS...");
+        }
+
+        sendMessage(secret);
+        setHasAuthed(true);
+      },
+      onClose() {
+        setHasAuthed(false);
+      },
     }
   );
   const [hasAuthed, setHasAuthed] = useState(false);
@@ -83,15 +96,6 @@ export function useGymBotAI(initialMessages: Message[] = []) {
       });
     }
   }, [lastMessage, setMessages]);
-
-  if (!hasAuthed) {
-    if (debug) {
-      console.debug("[GymBot/API] Sending auth secret to chat WS...");
-    }
-
-    sendMessage(secret);
-    setHasAuthed(true);
-  }
 
   return {
     messages,
