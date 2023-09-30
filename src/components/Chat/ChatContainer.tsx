@@ -13,6 +13,7 @@ import type { ReadyState } from 'react-use-websocket'
 export type ChatContainerRef = MutableRefObject<null | {
   clear: () => void;
   readyState: ReadyState;
+  hasAuthed: boolean;
 }>;
 
 export default function Chat({
@@ -24,7 +25,7 @@ export default function Chat({
 }) {
   const chatInputRef = useRef({});
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
-  const { messages, sendMessage, setMessages, readyState } = useGymBotAI([
+  const { messages, sendMessage, setMessages, readyState, hasAuthed } = useGymBotAI([
     {
       role: "assistant",
       content: "How can I help you today?",
@@ -44,7 +45,8 @@ export default function Chat({
       clear: () => {
         setMessages([messages[0]]);
       },
-      readyState
+      readyState,
+      hasAuthed
     };
   }
 
