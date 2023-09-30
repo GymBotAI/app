@@ -30,8 +30,8 @@ dependencies:
     specifier: ^2.1.1
     version: 2.1.1(expo-modules-autolinking@1.5.1)(expo@49.0.13)
   expo-device:
-    specifier: ~5.2.1
-    version: 5.2.1(expo@49.0.13)
+    specifier: ~5.4.0
+    version: 5.4.0(expo@49.0.13)
   expo-font:
     specifier: ~11.1.1
     version: 11.1.1(expo@49.0.13)
@@ -3969,8 +3969,8 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /expo-device@5.2.1(expo@49.0.13):
-    resolution: {integrity: sha512-ZWGph+fGQPxo9v2e0YygPb45Hl+ZR3mh4tpLY5AOYK/sNjQy+Lu3T/sLGIdi2TOcYNL2oZwzZ6eGvwVYmdIfLg==}
+  /expo-device@5.4.0(expo@49.0.13):
+    resolution: {integrity: sha512-TQxSVPrC6njCbzZ9Cqpc1lGLIjPmO1zBIbqW7CTqBPD1dOIMrgQvt7lZZhkHh3pWzoZznH283sSYqCvy3XcURw==}
     peerDependencies:
       expo: '*'
     dependencies:
