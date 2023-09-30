@@ -20,7 +20,7 @@ const streamEndToken = "[DONE]";
 /**
  * Whether or not to log debug messages.
  */
-const debug: boolean = Constants.expoConfig.extra.debugLogs.api;
+const debug: boolean = __DEV__ && Constants.expoConfig.extra.debugLogs.api;
 
 if (debug) {
   console.debug("[GymBot/API] Using server address:", serverAddr);
