@@ -24,7 +24,7 @@ export default function ChatScreen({ navigation }) {
           <TouchableOpacity
             onPress={() => {
               alert(
-                `Server address:\n${serverAddr}\n\nWS ready state:\n${chatContainerRef.current?.readyState}`
+                `Server address:\n${serverAddr}\n\nWS ready state:\n${chatContainerRef.current?.readyState}\n\nHas authed:\n${chatContainerRef.current?.hasAuthed}`
               );
             }}
           >
