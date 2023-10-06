@@ -43,7 +43,13 @@ const BuildMuscle = ({ setGoalText, setInputFilled, setSubGoal }) => {
         <Text style={getButtonTextStyle("Beach Body")}>Beach Body</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={getButtonStyle("Abs")} onPress={() => {
+      <TouchableOpacity style={getButtonStyle("Lean")} onPress={() => {
+          handleSelect("Lean", "Nice choice!");
+        }}>
+        <Text style={getButtonTextStyle("Lean")}>Lean</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={getButtonStyle("Lea")} onPress={() => {
           handleSelect("Abs", "Nice choice!");
         }}>
         <Text style={getButtonTextStyle("Abs")}>Abs</Text>

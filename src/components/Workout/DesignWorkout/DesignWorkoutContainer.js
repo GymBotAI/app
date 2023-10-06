@@ -91,7 +91,7 @@ const WorkoutSelectionScreen = () => {
   
   const completeDesign = () => {
     setCompleted(true)
-    if (subGoal == "Upper") {
+    if (subGoal == "Upper" || subGoal == "Lower") {
       setGoalText("Select your exercises!")
     }
   };
