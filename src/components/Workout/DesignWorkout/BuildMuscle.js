@@ -3,50 +3,50 @@ import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 const BuildMuscle = ({ setGoalText, setInputFilled, setSubGoal }) => {
-  const [upper, setUpper] = useState(false);
-  const [lower, setLower] = useState(false);
+  const [selectedBody, setSelectedBody] = useState("")
 
-  const handleOptionSelection = () => {
-    setGoalText("Nice!");
+
+  const handleSelect = (option, option2) => {
+    setSelectedBody(option);
+    setSubGoal(option)
+    setGoalText(option2);
     setInputFilled(true);
-  };
-
-  const upperBody = () => {
-    setSubGoal("Upper")
-    setUpper(!upper);
-    handleOptionSelection();
-  };
-
-  const lowerBody = () => {
-    setSubGoal("Lower")
-    setLower(!lower);
-    handleOptionSelection();
   };
 
   const getButtonStyle = (option) => {
     return {
       ...styles.dropdownButton,
-      backgroundColor: true === option ? "orange" : "white",
+      backgroundColor: selectedBody === option ? "orange" : "white",
     };
   };
 
   const getButtonTextStyle = (option) => {
     return {
       ...styles.dropdownButtonText,
-      fontWeight: true === option ? "bold" : "normal",
+      fontWeight: selectedBody === option ? "bold" : "normal",
     };
   };
 
   return (
     <View style={styles.container}>
       {/* Upper Body Dropdown */}
-      <TouchableOpacity style={getButtonStyle(upper)} onPress={upperBody}>
-        <Text style={getButtonTextStyle(upper)}>Upper Body</Text>
+      <TouchableOpacity style={getButtonStyle("Upper")} onPress={() => {
+          handleSelect("Upper", "Nice choice!");
+        }}>
+        <Text style={getButtonTextStyle("Upper")}>Upper Body</Text>
       </TouchableOpacity>
 
       {/* Lower Body Dropdown */}
-      <TouchableOpacity style={getButtonStyle(lower)} onPress={lowerBody}>
-        <Text style={getButtonTextStyle(lower)}>Lower Body</Text>
+      <TouchableOpacity style={getButtonStyle("Lower")} onPress={() => {
+          handleSelect("Lower", "Nice choice!");
+        }}>
+        <Text style={getButtonTextStyle("Lower")}>Lower Body</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={getButtonStyle("Both")} onPress={() => {
+          handleSelect("Both", "Nice choice!");
+        }}>
+        <Text style={getButtonTextStyle("Both")}>Both</Text>
       </TouchableOpacity>
     </View>
   );
