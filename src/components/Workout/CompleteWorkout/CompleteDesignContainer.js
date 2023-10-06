@@ -5,15 +5,24 @@ import { Image } from "expo-image";
 import * as Font from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 
+import ExerciseSelectionScreen from "./BuildMuscle";
+
 const WorkoutSelectionScreen = ({goal, subGoal}) => {
 
   console.log(goal)
   console.log(subGoal)
 
-  if (goal == "Build Muscle")
+  let option1 = null;
+  if (goal === "Build Muscle") {
+    option1 = (
+      <ExerciseSelectionScreen/>
+    )
+  }
 
   return (
     <View style={styles.container}>
+
+      {option1}
 
 
       <TouchableOpacity
