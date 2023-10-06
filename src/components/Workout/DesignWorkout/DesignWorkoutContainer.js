@@ -9,7 +9,7 @@ import BodyDefinition from "./BodyDefinition";
 import SportsSpecific from "./SportsSpecific";
 import GoalSelector from "./GoalSelector";
 
-import CompleteDesignContainer from "./CompleteDesignContainer"
+import CompleteDesignContainer from "../CompleteWorkout/CompleteDesignContainer"
 
 const WorkoutSelectionScreen = () => {
 
@@ -91,7 +91,7 @@ const WorkoutSelectionScreen = () => {
   
   const completeDesign = () => {
     setCompleted(true)
-    if (subGoal == "Upper" || subGoal == "Lower") {
+    if (selectedGoal == "Build Muscle") {
       setGoalText("Select your exercises!")
     }
   };

@@ -10,6 +10,8 @@ const WorkoutSelectionScreen = ({goal, subGoal}) => {
   console.log(goal)
   console.log(subGoal)
 
+  if (goal == "Build Muscle")
+
   return (
     <View style={styles.container}>
 
