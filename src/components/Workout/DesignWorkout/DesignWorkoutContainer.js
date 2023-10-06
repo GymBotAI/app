@@ -9,9 +9,12 @@ import LoseWeight from "./LoseWeight";
 import SportsSpecific from "./SportsSpecific";
 import GoalSelector from "./GoalSelector";
 
+import CompleteDesignContainer from "./CompleteDesignContainer"
+
 const WorkoutSelectionScreen = () => {
 
   const [selectedGoal, setSelectedGoal] = useState(null);
+  const [subGoal, setSubGoal] = useState(null);
   const [typedText, setTypedText] = useState("");
   const [goalText, setGoalText] = useState("What is your goal?");
   const [isInputFilled, setInputFilled] = useState(false);
@@ -49,6 +52,7 @@ const WorkoutSelectionScreen = () => {
         <BuildMuscle
           setGoalText={setGoalText}
           setInputFilled={setInputFilled}
+          setSubGoal={setSubGoal}
         />
       </>
     );
@@ -86,8 +90,10 @@ const WorkoutSelectionScreen = () => {
   }
   
   const completeDesign = () => {
-    console.log('happening')
     setCompleted(true)
+    if (subGoal == "Upper") {
+      setGoalText("Select your exercises!")
+    }
   };
 
   return (
@@ -113,6 +119,10 @@ const WorkoutSelectionScreen = () => {
           <Text style={styles.chatText}>{typedText}</Text>
         </LinearGradient>
       </View>
+
+      {completed && (
+        <CompleteDesignContainer goal={selectedGoal} subGoal={subGoal} setGoalText={setGoalText}/>
+      )}
 
       {!completed && (
         <>

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
-const BuildMuscle = ({ setGoalText, setInputFilled }) => {
+const BuildMuscle = ({ setGoalText, setInputFilled, setSubGoal }) => {
   const [upper, setUpper] = useState(false);
   const [lower, setLower] = useState(false);
 
@@ -12,11 +12,13 @@ const BuildMuscle = ({ setGoalText, setInputFilled }) => {
   };
 
   const upperBody = () => {
+    setSubGoal("Upper")
     setUpper(!upper);
     handleOptionSelection();
   };
 
   const lowerBody = () => {
+    setSubGoal("Lower")
     setLower(!lower);
     handleOptionSelection();
   };
