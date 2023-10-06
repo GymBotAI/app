@@ -9,7 +9,7 @@ const GoalSelector = ({ selectedGoal, setSelectedGoal, setGoalText }) => {
     if (workoutType === "Build Muscle") {
       setGoalText("What do you want to train?");
     } else if (workoutType === "Body Definition") {
-      setGoalText("What equipment do you have access to?");
+      setGoalText("What is your specific goal?");
     } else if (workoutType === "Sports-Specific") {
       setGoalText("Which sport do you want to train for?");
     }

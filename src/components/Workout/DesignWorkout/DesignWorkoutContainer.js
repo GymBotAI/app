@@ -67,7 +67,7 @@ const WorkoutSelectionScreen = () => {
             marginLeft: "5%",
           }}
         />
-        <BodyDefinition setGoalText={setGoalText} setInputFilled={setInputFilled} />
+        <BodyDefinition setGoalText={setGoalText} setInputFilled={setInputFilled} setSubGoal={setSubGoal}/>
       </>
     );
   } else if (selectedGoal === "Sports-Specific") {

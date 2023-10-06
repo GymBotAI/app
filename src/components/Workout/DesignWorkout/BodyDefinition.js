@@ -2,89 +2,51 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
-let index = 0;
+const BuildMuscle = ({ setGoalText, setInputFilled, setSubGoal }) => {
+  const [selectedBody, setSelectedBody] = useState("")
 
-const LoseWeight = ({ setGoalText, setInputFilled }) => {
-  const [dumbell, setDumbell] = useState(false);
-  const [jumpRope, setJumpRope] = useState(false);
-  const [pullUp, setPullUp] = useState(false);
-  const [rowing, setRowing] = useState(false);
-  const [other, setOther] = useState(false);
 
-  const handleSelect = () => {
-    setGoalText("Great!");
+  const handleSelect = (option, option2) => {
+    setSelectedBody(option);
+    setSubGoal(option)
+    setGoalText(option2);
     setInputFilled(true);
   };
 
   const getButtonStyle = (option) => {
     return {
       ...styles.dropdownButton,
-      backgroundColor: true === option ? "orange" : "white",
+      backgroundColor: selectedBody === option ? "orange" : "white",
     };
   };
 
   const getButtonTextStyle = (option) => {
     return {
       ...styles.dropdownButtonText,
-      fontWeight: true === option ? "bold" : "normal",
+      fontWeight: selectedBody === option ? "bold" : "normal",
     };
   };
 
   return (
     <View style={styles.container}>
       {/* Upper Body Dropdown */}
-      <TouchableOpacity
-        style={getButtonStyle(jumpRope)}
-        onPress={() => {
-          setJumpRope(!jumpRope);
-          handleSelect();
-        }}
-      >
-        <Text style={getButtonTextStyle(jumpRope)}>Jump Rope</Text>
+      <TouchableOpacity style={getButtonStyle("Lose Weight")} onPress={() => {
+          handleSelect("Lose Weight", "Let's get it!");
+        }}>
+        <Text style={getButtonTextStyle("Lose Weight")}>Lose Weight</Text>
       </TouchableOpacity>
 
-      {/* Upper Body Dropdown */}
-      <TouchableOpacity
-        style={getButtonStyle(dumbell)}
-        onPress={() => {
-          setDumbell(!dumbell);
-          handleSelect();
-        }}
-      >
-        <Text style={getButtonTextStyle(dumbell)}>Dumbells</Text>
+      {/* Lower Body Dropdown */}
+      <TouchableOpacity style={getButtonStyle("Beach Body")} onPress={() => {
+          handleSelect("Beach Body", "Alright!");
+        }}>
+        <Text style={getButtonTextStyle("Beach Body")}>Beach Body</Text>
       </TouchableOpacity>
 
-      {/* Upper Body Dropdown */}
-      <TouchableOpacity
-        style={getButtonStyle(pullUp)}
-        onPress={() => {
-          setPullUp(!pullUp);
-          handleSelect();
-        }}
-      >
-        <Text style={getButtonTextStyle(pullUp)}>Pull Up Bar</Text>
-      </TouchableOpacity>
-
-      {/* Upper Body Dropdown */}
-      <TouchableOpacity
-        style={getButtonStyle(rowing)}
-        onPress={() => {
-          setRowing(!rowing);
-          handleSelect();
-        }}
-      >
-        <Text style={getButtonTextStyle(rowing)}>Rowing Machine</Text>
-      </TouchableOpacity>
-
-      {/* Upper Body Dropdown */}
-      <TouchableOpacity
-        style={getButtonStyle(other)}
-        onPress={() => {
-          setOther(!other);
-          handleSelect();
-        }}
-      >
-        <Text style={getButtonTextStyle(other)}>Other</Text>
+      <TouchableOpacity style={getButtonStyle("Abs")} onPress={() => {
+          handleSelect("Abs", "Nice choice!");
+        }}>
+        <Text style={getButtonTextStyle("Abs")}>Abs</Text>
       </TouchableOpacity>
     </View>
   );
@@ -92,7 +54,7 @@ const LoseWeight = ({ setGoalText, setInputFilled }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 15,
+    marginTop: 20,
     marginHorizontal: 20,
     // flex: 1,
     backgroundColor: "#f2f2f2",
@@ -107,7 +69,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     paddingHorizontal: 10,
     borderRadius: 8,
-    marginBottom: 15,
+    marginBottom: 20,
     marginRight: 10,
   },
   dropdownButtonText: {
@@ -131,4 +93,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoseWeight;
+export default BuildMuscle;
