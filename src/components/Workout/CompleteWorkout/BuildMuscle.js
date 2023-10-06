@@ -1,16 +1,33 @@
 import React, { useState } from 'react';
 import { View, Text, FlatList, TouchableOpacity } from 'react-native';
 
-const exercises = [
-    { id: '1', name: 'Push-Ups' },
-    { id: '2', name: 'Sit-Ups' },
-    { id: '3', name: 'Squats' },
-    // Add more exercises as needed
-  ];
-  
+const lowerExercises = [
+  { id: '1', name: 'Leg Press' },
+  { id: '2', name: 'Lunges' },
+  // Add more lower body exercises as needed
+];
 
-const ExerciseSelectionScreen = () => {
+const upperExercises = [
+  { id: '3', name: 'Bench Press' },
+  { id: '4', name: 'Pull-Ups' },
+  // Add more upper body exercises as needed
+];
+
+const bothExercises = [...lowerExercises, ...upperExercises];
+
+const ExerciseSelectionScreen = ({ subGoal }) => {
   const [selectedExercises, setSelectedExercises] = useState([]);
+
+  let exercisesToDisplay = [];
+
+  // Determine which exercise list to display based on subGoal
+  if (subGoal === 'Upper') {
+    exercisesToDisplay = upperExercises;
+  } else if (subGoal === 'Lower') {
+    exercisesToDisplay = lowerExercises;
+  } else if (subGoal === 'Both') {
+    exercisesToDisplay = bothExercises;
+  }
 
   const toggleExerciseSelection = (exerciseId) => {
     // Check if the exercise is already selected
@@ -48,7 +65,7 @@ const ExerciseSelectionScreen = () => {
         Select Exercises
       </Text>
       <FlatList
-        data={exercises}
+        data={exercisesToDisplay}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />

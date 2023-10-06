@@ -15,7 +15,7 @@ const WorkoutSelectionScreen = ({goal, subGoal}) => {
   let option1 = null;
   if (goal === "Build Muscle") {
     option1 = (
-      <ExerciseSelectionScreen/>
+      <ExerciseSelectionScreen subGoal={subGoal}/>
     )
   }
 
