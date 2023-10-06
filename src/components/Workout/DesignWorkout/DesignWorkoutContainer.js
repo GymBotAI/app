@@ -5,7 +5,7 @@ import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
 import BuildMuscle from "./BuildMuscle";
-import LoseWeight from "./LoseWeight";
+import BodyDefinition from "./BodyDefinition";
 import SportsSpecific from "./SportsSpecific";
 import GoalSelector from "./GoalSelector";
 
@@ -56,7 +56,7 @@ const WorkoutSelectionScreen = () => {
         />
       </>
     );
-  } else if (selectedGoal === "Lose Weight") {
+  } else if (selectedGoal === "Body Definition") {
     option1 = (
       <>
         <View
@@ -67,7 +67,7 @@ const WorkoutSelectionScreen = () => {
             marginLeft: "5%",
           }}
         />
-        <LoseWeight setGoalText={setGoalText} setInputFilled={setInputFilled} />
+        <BodyDefinition setGoalText={setGoalText} setInputFilled={setInputFilled} />
       </>
     );
   } else if (selectedGoal === "Sports-Specific") {
