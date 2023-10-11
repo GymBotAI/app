@@ -9,9 +9,6 @@ import ExerciseSelectionScreen from "./BuildMuscle";
 
 const WorkoutSelectionScreen = ({goal, subGoal}) => {
 
-  console.log(goal)
-  console.log(subGoal)
-
   let option1 = null;
   if (goal === "Build Muscle") {
     option1 = (
