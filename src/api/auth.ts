@@ -1,6 +1,18 @@
 import { httpServerAddr } from "../app-config";
 
-export async function login(username: string, password: string) {
+export async function login(
+  username: string,
+  password: string
+): Promise<
+  | {
+      success: true;
+      userId: string;
+    }
+  | {
+      success: false;
+      error: string;
+    }
+> {
   const response = await fetch(`${httpServerAddr}/login`, {
     method: "POST",
     headers: {
