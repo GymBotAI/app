@@ -5,13 +5,16 @@ import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
 import BuildMuscle from "./BuildMuscle";
-import LoseWeight from "./LoseWeight";
+import BodyDefinition from "./BodyDefinition";
 import SportsSpecific from "./SportsSpecific";
 import GoalSelector from "./GoalSelector";
+
+import CompleteDesignContainer from "../CompleteWorkout/CompleteDesignContainer"
 
 const WorkoutSelectionScreen = () => {
 
   const [selectedGoal, setSelectedGoal] = useState(null);
+  const [subGoal, setSubGoal] = useState(null);
   const [typedText, setTypedText] = useState("");
   const [goalText, setGoalText] = useState("What is your goal?");
   const [isInputFilled, setInputFilled] = useState(false);
@@ -49,10 +52,11 @@ const WorkoutSelectionScreen = () => {
         <BuildMuscle
           setGoalText={setGoalText}
           setInputFilled={setInputFilled}
+          setSubGoal={setSubGoal}
         />
       </>
     );
-  } else if (selectedGoal === "Lose Weight") {
+  } else if (selectedGoal === "Body Definition") {
     option1 = (
       <>
         <View
@@ -63,7 +67,7 @@ const WorkoutSelectionScreen = () => {
             marginLeft: "5%",
           }}
         />
-        <LoseWeight setGoalText={setGoalText} setInputFilled={setInputFilled} />
+        <BodyDefinition setGoalText={setGoalText} setInputFilled={setInputFilled} setSubGoal={setSubGoal}/>
       </>
     );
   } else if (selectedGoal === "Sports-Specific") {
@@ -86,8 +90,10 @@ const WorkoutSelectionScreen = () => {
   }
   
   const completeDesign = () => {
-    console.log('happening')
     setCompleted(true)
+    if (selectedGoal == "Build Muscle") {
+      setGoalText("Select your exercises!")
+    }
   };
 
   return (
@@ -113,6 +119,10 @@ const WorkoutSelectionScreen = () => {
           <Text style={styles.chatText}>{typedText}</Text>
         </LinearGradient>
       </View>
+
+      {completed && (
+        <CompleteDesignContainer goal={selectedGoal} subGoal={subGoal} setGoalText={setGoalText}/>
+      )}
 
       {!completed && (
         <>

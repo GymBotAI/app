@@ -1,7 +1,7 @@
 import React from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-
+// test
 export default function GymBotNavigation({ navigation, currentScreen }) {
   const navIcons = {
     Home: "home",

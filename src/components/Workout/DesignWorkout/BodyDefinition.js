@@ -30,23 +30,23 @@ const BuildMuscle = ({ setGoalText, setInputFilled, setSubGoal }) => {
   return (
     <View style={styles.container}>
       {/* Upper Body Dropdown */}
-      <TouchableOpacity style={getButtonStyle("Upper")} onPress={() => {
-          handleSelect("Upper", "Nice choice!");
+      <TouchableOpacity style={getButtonStyle("Lose Weight")} onPress={() => {
+          handleSelect("Lose Weight", "Let's get it!");
         }}>
-        <Text style={getButtonTextStyle("Upper")}>Upper Body</Text>
+        <Text style={getButtonTextStyle("Lose Weight")}>Lose Weight</Text>
       </TouchableOpacity>
 
       {/* Lower Body Dropdown */}
-      <TouchableOpacity style={getButtonStyle("Lower")} onPress={() => {
-          handleSelect("Lower", "Nice choice!");
+      <TouchableOpacity style={getButtonStyle("Beach Body")} onPress={() => {
+          handleSelect("Beach Body", "Alright!");
         }}>
-        <Text style={getButtonTextStyle("Lower")}>Lower Body</Text>
+        <Text style={getButtonTextStyle("Beach Body")}>Beach Body</Text>
       </TouchableOpacity>
-
-      <TouchableOpacity style={getButtonStyle("Both")} onPress={() => {
-          handleSelect("Both", "Nice choice!");
+      
+      <TouchableOpacity style={getButtonStyle("Lea")} onPress={() => {
+          handleSelect("Abs", "Nice choice!");
         }}>
-        <Text style={getButtonTextStyle("Both")}>Both</Text>
+        <Text style={getButtonTextStyle("Abs")}>Abs</Text>
       </TouchableOpacity>
     </View>
   );
