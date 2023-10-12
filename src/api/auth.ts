@@ -15,8 +15,14 @@ export async function login(username: string, password: string) {
   const responseText = await response.text();
 
   if (response.ok) {
-    return responseText;
+    return {
+      success: true,
+      userId: responseText,
+    };
   }
 
-  throw new Error(`[api/auth/login] Error ${response.status}: ${responseText}`);
+  return {
+    success: false,
+    error: responseText,
+  };
 }
