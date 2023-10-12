@@ -7,7 +7,7 @@ import GymBotNavigation from "../components/navbar";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
-import { serverAddr } from "../api";
+import { baseServerAddr } from "../app-config";
 
 export default function ChatScreen({ navigation }) {
   const chatContainerRef: ChatContainerRef = useRef(null);
@@ -24,7 +24,7 @@ export default function ChatScreen({ navigation }) {
           <TouchableOpacity
             onPress={() => {
               alert(
-                `Server address:\n${serverAddr}\n\nWS ready state:\n${chatContainerRef.current?.readyState}\n\nHas authed:\n${chatContainerRef.current?.hasAuthed}`
+                `Server address:\n${baseServerAddr}\n\nWS ready state:\n${chatContainerRef.current?.readyState}\n\nHas authed:\n${chatContainerRef.current?.hasAuthed}`
               );
             }}
           >
