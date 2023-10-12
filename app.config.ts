@@ -1,3 +1,5 @@
+import type { AppConfig } from "./src/types/app-config";
+
 if (process.env.GYMBOT != "1" && process.platform != "win32") {
   throw new Error("Missing env vars. Did you forget to run `source .env`?");
 }
@@ -48,4 +50,4 @@ module.exports = {
 
     debugLogs,
   },
-};
+} satisfies AppConfig;
