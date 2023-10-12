@@ -1,7 +1,7 @@
 import { httpServerAddr } from "../app-config";
 
 export async function login(username: string, password: string) {
-  return await fetch(`${httpServerAddr}/login`, {
+  const response = await fetch(`${httpServerAddr}/login`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -10,5 +10,13 @@ export async function login(username: string, password: string) {
       username,
       password,
     }),
-  }).then((r) => r.json());
+  });
+
+  const responseText = await response.text();
+
+  if (response.ok) {
+    return responseText;
+  }
+
+  throw new Error(`[api/auth/login] Error ${response.status}: ${responseText}`);
 }
