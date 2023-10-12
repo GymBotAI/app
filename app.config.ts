@@ -4,7 +4,7 @@ if (process.env.GYMBOT != "1" && process.platform != "win32") {
   throw new Error("Missing env vars. Did you forget to run `source .env`?");
 }
 
-const debugLogsModules = ["api"] as const;
+const debugLogsModules = ["api", "auth"] as const;
 type DebugLogsModule = (typeof debugLogsModules)[number];
 
 const debugLogsConfigFromEnv = Object.fromEntries(
@@ -23,6 +23,7 @@ const debugLogsConfigFromEnv = Object.fromEntries(
 
 const defaultDebugLogs: Record<DebugLogsModule, boolean> = {
   api: false,
+  auth: false,
 };
 
 /**
