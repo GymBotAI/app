@@ -1,54 +1,38 @@
-import type { AppConfig } from "./src/types/app-config";
+import type { AppConfig } from "./src/types/app-config.cjs";
 
-if (process.env.GYMBOT != "1" && process.platform != "win32") {
-  throw new Error("Missing env vars. Did you forget to run `source .env`?");
+if (process.env.GYMBOT != "1") {
+  throw new Error("Missing env vars");
 }
 
-const debugLogsModules = ["api", "auth"] as const;
-type DebugLogsModule = (typeof debugLogsModules)[number];
-
-const debugLogsConfigFromEnv = Object.fromEntries(
-  Object.entries(process.env)
-    .filter(([envKey]) => {
-      return new RegExp(
-        `GYMBOT_DEBUG_LOGS_(?:${debugLogsModules
-          .map((s) => s.toUpperCase())
-          .join("|")})`
-      ).test(envKey);
-    })
-    .map(([envKey, envVal]) => {
-      return [envKey.replace("GYMBOT_DEBUG_LOGS_", "").toLowerCase(), !!envVal];
-    })
-) as Record<DebugLogsModule, boolean>;
-
-const defaultDebugLogs: Record<DebugLogsModule, boolean> = {
-  api: false,
-  auth: false,
-};
+import { debugLogsModules } from "./src/types/app-config.cjs";
 
 /**
- * Enable or disable debug logs for specific
- * parts of the app.
+ * Object containing the debug logs config for each module.
  */
-const debugLogs: Record<DebugLogsModule, boolean> = Object.assign(
-  debugLogsConfigFromEnv,
-  defaultDebugLogs
-);
+const debugLogs = {
+  ...Object.fromEntries(debugLogsModules.map((module) => [module, false])),
+  ...Object.fromEntries(
+    (process.env.GYMBOT_DEBUG_LOGS || "")
+      .split(",")
+      .map((s) => [s.trim(), true] as const)
+      .filter((s) => s[0].length > 0 && debugLogsModules.includes(s as any))
+  ),
+} as (typeof AppConfig)["extra"]["debugLogs"];
 
 // Log debug logs config
 setTimeout(() => {
   for (const [module, enabled] of Object.entries(debugLogs)) {
-    if (enabled) {
-      console.debug(`Debug logs for ${module}\t are enabled`);
-    }
+    console.debug(
+      `Debug logs for ${module}\t are ${enabled ? "enabled" : "disabled"}`
+    );
   }
 }, 5000);
 
-module.exports = {
+export default {
   extra: {
     serverAddress: process.env.GYMBOT_SERVER_ADDRESS,
     serverAddressDefault: "s://gymbot-ai-server.luisafk.repl.co",
 
     debugLogs,
   },
-} satisfies AppConfig;
+} satisfies typeof AppConfig;
