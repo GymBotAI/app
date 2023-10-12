@@ -1,7 +1,9 @@
+import type { BaseServerAddress } from "../app-config";
+
 export interface AppConfig {
   extra: {
     serverAddress: string | undefined;
-    serverAddressDefault: `wss://${string}` | `ws://${string}`;
+    serverAddressDefault: BaseServerAddress;
 
     debugLogs: any; // TODO
   };
