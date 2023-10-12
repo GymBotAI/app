@@ -3,7 +3,7 @@ import useWebSocket from "react-use-websocket";
 
 import Constants from "expo-constants";
 
-import { wsServerAddr } from "./app-config";
+import { wsServerAddr } from "../app-config";
 
 /**
  * The token that the server sends to indicate

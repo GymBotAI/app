@@ -8,7 +8,7 @@ import {
 } from "react-native";
 import { Image } from "expo-image";
 
-import handleInsert from "../../db";
+import handleInsert from "../../api/db";
 import { username } from "../SignUp/Credentials";
 
 var pass = "";
