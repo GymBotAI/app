@@ -56,7 +56,7 @@ export default function PlanFinder({ onClose }) {
            onPress={() => togglePlanInfoPageVisibility(rectangle.length)}
            key={index}
          >
-           <PlanTabs text={rectangle.name} length={rectangle.length} data={rectangle.data} viewData={true} />
+           <PlanTabs text={rectangle.name} length={rectangle.length} data={rectangle.data} viewData={false} />
          </TouchableOpacity>
        ))}
      </ScrollView>

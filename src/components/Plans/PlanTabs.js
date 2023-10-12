@@ -6,7 +6,7 @@ export default function PlanTabs({ text, length, data, viewData }) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <View style={styles.rectangle}>
+    <View style={[styles.rectangle, {paddingBottom: viewData ? 10 : 0}]}>
       <View style={styles.contentContainer}>
         <Text>{text}</Text>
         <View style={styles.lengthContainer}>
@@ -38,7 +38,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#888",
     borderRadius: 10,
     marginVertical: 10,
-    paddingBottom: 20,
     alignItems: "center",
     alignSelf: "center",
   },
@@ -48,6 +47,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 10,
+    paddingVertical: 10,
   },
   lengthContainer: {
     backgroundColor: "darkgray",
