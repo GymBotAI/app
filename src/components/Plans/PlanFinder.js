@@ -14,9 +14,10 @@ import PlanInfoPage from "./PlanInfoPage"
 export default function PlanFinder({ onClose }) {
   const [ searchQuery, setSearchQuery ] = useState("");
   const [ PlanInfoPageVisibility, setPlanInfoPageVisibility ] = useState(false);
+  const [ circleCount, setCircleCount] = useState();
 
   const rectangles = [
-    { name: "Rectangle 1", length: 5 },
+    { name: "Rectangle 1", length: 2 },
     { name: "Rectangle 2", length: 8 },
     { name: "Rectangle 3", length: 3 },
   ];
@@ -25,39 +26,48 @@ export default function PlanFinder({ onClose }) {
     rectangle.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const togglePlanInfoPageVisibility = () => {
-   setPlanInfoPageVisibility(!PlanInfoPageVisibility)
-  }
+  const togglePlanInfoPageVisibility = (circleCount) => {
+   setPlanInfoPageVisibility(!PlanInfoPageVisibility);
+   setCircleCount(circleCount);
+ };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.overlay} />
-      {!PlanInfoPageVisibility && (<TouchableOpacity style={styles.closeButton} onPress={onClose}>
-        <Text style={styles.closeButtonText}>X</Text>
-      </TouchableOpacity>)}
-      <View style={styles.searchBarContainer}>
-        <TextInput
-          style={styles.searchBar}
-          placeholder="Search rectangles"
-          placeholderTextColor="#888"
-          onChangeText={(text) => setSearchQuery(text)}
-        />
-      </View>
-      <ScrollView style={styles.tabsContainer}>
-        {filteredRectangles.map((rectangle, index) => (
-          <TouchableOpacity onPress={togglePlanInfoPageVisibility}>
-            <PlanTabs key={index} text={rectangle.name} length={rectangle.length} />
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
-      {PlanInfoPageVisibility && (
-        <PlanInfoPage
+   <View style={styles.container}>
+     <View style={styles.overlay} />
+     {!PlanInfoPageVisibility && (
+       <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+         <Text style={styles.closeButtonText}>X</Text>
+       </TouchableOpacity>
+     )}
+     <View style={styles.searchBarContainer}>
+       <TextInput
+         style={styles.searchBar}
+         placeholder="Search rectangles"
+         placeholderTextColor="#888"
+         onChangeText={(text) => setSearchQuery(text)}
+       />
+     </View>
+     <ScrollView style={styles.tabsContainer}>
+       {filteredRectangles.map((rectangle, index) => (
+         <TouchableOpacity
+           onPress={() => togglePlanInfoPageVisibility(rectangle.length)}
+           key={index}
+         >
+           <PlanTabs text={rectangle.name} length={rectangle.length} />
+         </TouchableOpacity>
+       ))}
+     </ScrollView>
+     {PlanInfoPageVisibility && (
+       <PlanInfoPage
          onClose={togglePlanInfoPageVisibility}
          windowWidth={windowWidth}
          windowHeight={windowHeight}
-       />)}
-    </View>
-  );
+         circleCount={circleCount}
+         fillPercentage={50}
+       />
+     )}
+   </View>
+ );
 }
 
 const windowWidth = Dimensions.get("window").width - 20; //IDK why but if u want symetry, you have to offset 20 px
