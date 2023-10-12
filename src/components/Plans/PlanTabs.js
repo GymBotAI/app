@@ -1,15 +1,33 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { FontAwesome5 } from '@expo/vector-icons';
 
-export default function PlanTabs({ text, length }) {
+export default function PlanTabs({ text, length, data, viewData }) {
+  const [isChecked, setIsChecked] = useState(false);
+
   return (
     <View style={styles.rectangle}>
-      <Text>{text}</Text>
-      <View style={styles.lengthContainer}>
-        <View style={styles.lengthBox}>
-          <Text style={styles.lengthText}>{length} Days</Text>
+      <View style={styles.contentContainer}>
+        <Text>{text}</Text>
+        <View style={styles.lengthContainer}>
+          <View style={styles.lengthBox}>
+            <Text style={styles.lengthText}>{length} Days</Text>
+          </View>
         </View>
       </View>
+      {viewData && (
+        <View style={styles.dataContainer}>
+         <Text>{data}</Text>
+          <View style={styles.checkboxContainer}>
+            <FontAwesome5
+              name={isChecked ? "check-square" : "square"}
+              size={30}
+              color = {isChecked ? "green" : "gray"}
+              onPress={() => setIsChecked(!isChecked)}
+            />
+          </View>
+        </View>
+      )}
     </View>
   );
 }
@@ -17,14 +35,19 @@ export default function PlanTabs({ text, length }) {
 const styles = StyleSheet.create({
   rectangle: {
     width: "80%",
-    height: 100,
     backgroundColor: "#888",
     borderRadius: 10,
     marginVertical: 10,
+    paddingBottom: 20,
+    alignItems: "center",
+    alignSelf: "center",
+  },
+  contentContainer: {
+    width: "100%",
+    flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    alignSelf: "center",
-    flexDirection: "row",
+    paddingHorizontal: 10,
   },
   lengthContainer: {
     backgroundColor: "darkgray",
@@ -43,5 +66,19 @@ const styles = StyleSheet.create({
   lengthText: {
     color: "lightgray",
     fontSize: 16,
+  },
+  dataContainer: {
+    backgroundColor: "white",
+    borderRadius: 10,
+    padding: 10,
+    flexGrow: 1,
+    width: "90%",
+    flexDirection: "row",
+    alignItems: "flex-start",
+  },
+  checkboxContainer: {
+    alignItems: "flex-end",
+    justifyContent: "flex-start",
+    flex: 1,
   },
 });

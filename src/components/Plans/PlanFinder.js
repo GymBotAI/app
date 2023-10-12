@@ -14,11 +14,15 @@ import PlanInfoPage from "./PlanInfoPage"
 export default function PlanFinder({ onClose }) {
   const [ searchQuery, setSearchQuery ] = useState("");
   const [ PlanInfoPageVisibility, setPlanInfoPageVisibility ] = useState(false);
-  const [ circleCount, setCircleCount] = useState();
+  const [selectedPlans, setSelectedPlans] = useState([]);
+
+  const onAddPlan = (plan) => {
+   setSelectedPlans([...selectedPlans, plan]);
+ };
 
   const rectangles = [
-    { name: "Rectangle 1", length: 2 },
-    { name: "Rectangle 2", length: 8 },
+    { name: "Get Abs", length: 2, data: "Situps X 10 \nRest 30s" },
+    { name: "Beat Your Pr", length: 8, data: "Hey\n\n"},
     { name: "Rectangle 3", length: 3 },
   ];
 
@@ -28,7 +32,6 @@ export default function PlanFinder({ onClose }) {
 
   const togglePlanInfoPageVisibility = (circleCount) => {
    setPlanInfoPageVisibility(!PlanInfoPageVisibility);
-   setCircleCount(circleCount);
  };
 
   return (
@@ -53,19 +56,19 @@ export default function PlanFinder({ onClose }) {
            onPress={() => togglePlanInfoPageVisibility(rectangle.length)}
            key={index}
          >
-           <PlanTabs text={rectangle.name} length={rectangle.length} />
+           <PlanTabs text={rectangle.name} length={rectangle.length} data={rectangle.data} viewData={true} />
          </TouchableOpacity>
        ))}
      </ScrollView>
      {PlanInfoPageVisibility && (
-       <PlanInfoPage
-         onClose={togglePlanInfoPageVisibility}
-         windowWidth={windowWidth}
-         windowHeight={windowHeight}
-         circleCount={circleCount}
-         fillPercentage={50}
-       />
-     )}
+        <PlanInfoPage
+          onClose={togglePlanInfoPageVisibility}
+          onAddPlan={onAddPlan}
+          windowWidth={windowWidth}
+          windowHeight={windowHeight}
+          fillPercentage={50}
+        />
+      )}
    </View>
  );
 }
