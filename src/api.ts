@@ -3,13 +3,7 @@ import useWebSocket from "react-use-websocket";
 
 import Constants from "expo-constants";
 
-/**
- * The address of the GymBot AI server.
- * See `app.config.ts` for more information.
- */
-export const serverAddr: string =
-  Constants.expoConfig.extra.serverAddress ??
-  Constants.expoConfig.extra.serverAddressDefault;
+import { wsServerAddr } from "./app-config";
 
 /**
  * The token that the server sends to indicate
@@ -23,7 +17,7 @@ const streamEndToken = "[DONE]";
 const debug: boolean = __DEV__ && Constants.expoConfig.extra.debugLogs.api;
 
 if (debug) {
-  console.debug("[GymBot/API] Using server address:", serverAddr);
+  console.debug("[GymBot/API] Using server address:", wsServerAddr);
 }
 
 const secret = [53, 54, 99, 104, 97]
@@ -41,7 +35,7 @@ export interface Message {
 export function useGymBotAI(initialMessages: Message[] = []) {
   const [messages, setMessages] = useState(initialMessages);
   const { sendMessage, lastMessage, readyState } = useWebSocket(
-    `${serverAddr}/chat`,
+    `${wsServerAddr}/chat`,
     {
       shouldReconnect() {
         return true;

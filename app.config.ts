@@ -1,3 +1,5 @@
+import type { AppConfig } from "./src/types/app-config";
+
 if (process.env.GYMBOT != "1" && process.platform != "win32") {
   throw new Error("Missing env vars. Did you forget to run `source .env`?");
 }
@@ -44,8 +46,8 @@ setTimeout(() => {
 module.exports = {
   extra: {
     serverAddress: process.env.GYMBOT_SERVER_ADDRESS,
-    serverAddressDefault: "wss://gymbot-ai-server.luisafk.repl.co",
+    serverAddressDefault: "s://gymbot-ai-server.luisafk.repl.co",
 
     debugLogs,
   },
-};
+} satisfies AppConfig;
