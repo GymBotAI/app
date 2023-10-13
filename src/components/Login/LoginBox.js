@@ -21,33 +21,29 @@ export default function LoginBox({ navigation, setShowLogin }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const onPressInsert = async () => {
-    try {
-      // You can call the handleInsert function here
-      await handleInsert(email);
-    } catch (error) {
-      console.error("Error inserting record:", error);
-    }
-  };
+  // const onPressInsert = async () => {
+  //   try {
+  //     // You can call the handleInsert function here
+  //     await handleInsert(email);
+  //   } catch (error) {
+  //     console.error("Error inserting record:", error);
+  //   }
+  // };
 
   const handleLogin = async () => {
     // onPressInsert()
-    console.log(email);
+
     emailValue = email;
-    console.log(password);
-    console.log("Login result:");
+
     const result = await login(email, password);
-    console.log(result);
-    if (result && result.message === "Login successful") {
-      //for testing use One for email and Two for password
+
+    if (result.success) {
+      // For testing use One for email and Two for password
       setShowLogin(false);
       navigation.navigate("Home");
-    } else if (result && result.message === "Invalid credentials") {
-      console.log("Invalid login attempt");
     } else {
-      console.log("Error");
+      // TODO: Show error message
     }
-    //navigation.navigate("Home");
   };
 
   const handleCreateAccount = () => {
