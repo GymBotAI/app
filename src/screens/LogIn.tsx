@@ -10,7 +10,11 @@ import { LinearGradient } from "expo-linear-gradient";
 import LoginBox from "../components/Login/LoginBox";
 import LoginHeader from "../components/Login/LoginHeader";
 
-export default function Login({ navigation }) {
+import type { NavigationProp } from "../types/navigation";
+
+export default function Login({ navigation }: {
+  navigation: NavigationProp
+}) {
   const dismissKeyboard = () => {
     Keyboard.dismiss();
   };
@@ -39,7 +43,7 @@ export default function Login({ navigation }) {
               alert(error);
             }}
             onCreateAccount={() => {
-              navigation.navigate("Register");
+              navigation.navigate("SignUp");
             }}
           />
 
