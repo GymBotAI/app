@@ -1,4 +1,5 @@
 import {
+  Alert,
   Animated,
   FlatList,
   StyleSheet,
@@ -103,7 +104,7 @@ const Slider = ({ navigation }) => {
             setShowLogin(false);
           }}
           onError={(error) => {
-            alert(error);
+            Alert.alert("Error logging in", error);
           }}
           onCreateAccount={() => {
             navigation.navigate("Register");

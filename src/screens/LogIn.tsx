@@ -1,4 +1,5 @@
 import {
+  Alert,
   ImageBackground,
   TouchableWithoutFeedback,
   Keyboard,
@@ -38,7 +39,7 @@ export default function Login({ navigation }: { navigation: NavigationProp }) {
               navigation.navigate("Home");
             }}
             onError={(error) => {
-              alert(error);
+              Alert.alert("Error logging in", error);
             }}
             onCreateAccount={() => {
               navigation.navigate("SignUp");
