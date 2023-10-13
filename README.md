@@ -61,3 +61,28 @@ You can also run the app as a website:
 ```sh
 pnpm run web
 ```
+
+### Enabling debug logs
+
+To enable all debug logs, set the environment variable `GYMBOT_DEBUG_LOGS` to `*`.
+You can set it in the `.env.local` file:
+
+```shell
+GYMBOT_DEBUG_LOGS="*"
+```
+
+To enable debug logs for a specific module, set the environment variable
+`GYMBOT_DEBUG_LOGS` to the module name. For example, to enable debug logs for
+the chat, set `GYMBOT_DEBUG_LOGS` to `chat`.
+
+```shell
+GYMBOT_DEBUG_LOGS="chat"
+```
+
+You can also set it to a comma-separated list of modules:
+
+```shell
+GYMBOT_DEBUG_LOGS="auth,chat"
+```
+
+Note that changing the environment variable requires restarting Expo.
