@@ -1,21 +1,14 @@
-import React, { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-
-import { Image } from "expo-image";
-import * as Font from "expo-font";
-import { LinearGradient } from "expo-linear-gradient";
 
 import ExerciseSelectionScreen from "./BuildMuscle";
 
-const WorkoutSelectionScreen = ({ goal, subGoal }) => {
-  let option1 = null;
-  if (goal === "Build Muscle") {
-    option1 = <ExerciseSelectionScreen subGoal={subGoal} />;
-  }
-
+const WorkoutSelectionScreen = ({ goal, subGoal }: {
+  goal: string;
+  subGoal: string;
+}) => {
   return (
     <View style={styles.container}>
-      {option1}
+      {goal == 'Build Muscle' ? (<ExerciseSelectionScreen subGoal={subGoal} />) : null}
 
       <TouchableOpacity style={[styles.button]}>
         <Text style={styles.text}>Continue</Text>
