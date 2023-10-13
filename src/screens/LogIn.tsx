@@ -12,9 +12,7 @@ import LoginHeader from "../components/Login/LoginHeader";
 
 import type { NavigationProp } from "../types/navigation";
 
-export default function Login({ navigation }: {
-  navigation: NavigationProp
-}) {
+export default function Login({ navigation }: { navigation: NavigationProp }) {
   const dismissKeyboard = () => {
     Keyboard.dismiss();
   };

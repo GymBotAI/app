@@ -10,10 +10,14 @@ import { Image } from "expo-image";
 
 import { login } from "../../api/auth";
 
-export default function LoginBox({ onLogin, onError, onCreateAccount }: {
-  onLogin: (userId: number) => void,
-  onError: (error: string) => void,
-  onCreateAccount: () => void,
+export default function LoginBox({
+  onLogin,
+  onError,
+  onCreateAccount,
+}: {
+  onLogin: (userId: number) => void;
+  onError: (error: string) => void;
+  onCreateAccount: () => void;
 }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -25,10 +29,10 @@ export default function LoginBox({ onLogin, onError, onCreateAccount }: {
 
     if (loginResult.success) {
       onLogin(loginResult.userId);
-    } else if ('error' in loginResult) {
+    } else if ("error" in loginResult) {
       onError(loginResult.error);
     } else {
-      onError('Unreachable error');
+      onError("Unreachable error");
     }
   };
 
