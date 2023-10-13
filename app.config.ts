@@ -39,7 +39,7 @@ setTimeout(() => {
       `Debug logs for ${module}\t are ${enabled ? "enabled" : "disabled"}`
     );
   }
-}, 5000);
+}, 3000);
 
 export default {
   extra: {
