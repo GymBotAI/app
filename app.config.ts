@@ -15,7 +15,7 @@ const debugLogs = {
     (process.env.GYMBOT_DEBUG_LOGS || "")
       .split(",")
       .map((s) => [s.trim(), true] as const)
-      .filter((s) => s[0].length > 0 && debugLogsModules.includes(s as any))
+      .filter((s) => s[0].length > 0 && debugLogsModules.includes(s[0] as any))
   ),
 } as (typeof AppConfig)["extra"]["debugLogs"];
 
