@@ -13,7 +13,7 @@ export async function login(
 ): Promise<
   | {
       success: true;
-      userId: string;
+      userId: number;
     }
   | {
       success: false;
@@ -46,7 +46,7 @@ export async function login(
 
     return {
       success: true,
-      userId: responseText,
+      userId: parseInt(responseText),
     };
   }
 
