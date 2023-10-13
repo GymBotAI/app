@@ -97,7 +97,17 @@ const Slider = ({ navigation }) => {
           <Feather name="x-circle" size={40} color="white" />
         </TouchableOpacity>
 
-        <LoginBox navigation={navigation} setShowLogin={setShowLogin} />
+        <LoginBox
+          onLogin={() => {
+            navigation.navigate("Home");
+          }}
+          onError={(error) => {
+            alert(error);
+          }}
+          onCreateAccount={() => {
+            navigation.navigate("Register");
+          }}
+        />
       </Modal>
 
       <Modal

@@ -41,7 +41,17 @@ export default function Login({ navigation }) {
             alignItems: "center",
           }}
         > */}
-          <LoginBox navigation={navigation} />
+          <LoginBox
+            onLogin={() => {
+              navigation.navigate("Home");
+            }}
+            onError={(error) => {
+              alert(error);
+            }}
+            onCreateAccount={() => {
+              navigation.navigate("Register");
+            }}
+          />
           {/* </View> */}
 
           <StatusBar barStyle="light-content" />

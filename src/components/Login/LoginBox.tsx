@@ -10,13 +10,10 @@ import { Image } from "expo-image";
 
 import { login } from "../../api/auth";
 
-import type { NavigationProp } from '@react-navigation/native'
-
-import type { NavigationScreens } from "../../types/navigation";
-
-export default function LoginBox({ navigation, setShowLogin }: {
-  navigation: NavigationProp<NavigationScreens>;
-  setShowLogin: (show: boolean) => void;
+export default function LoginBox({ onLogin, onError, onCreateAccount }: {
+  onLogin: (userId: number) => void,
+  onError: (error: string) => void,
+  onCreateAccount: () => void,
 }) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -27,16 +24,12 @@ export default function LoginBox({ navigation, setShowLogin }: {
     // For testing use One for email and Two for password
 
     if (loginResult.success) {
-      setShowLogin(false);
-      navigation.navigate("Home");
+      onLogin(loginResult.userId);
+    } else if ('error' in loginResult) {
+      onError(loginResult.error);
     } else {
-      // TODO: Show error message
+      onError('Unreachable error');
     }
-  };
-
-  const handleCreateAccount = () => {
-    navigation.navigate("SignUp");
-    setShowLogin(false);
   };
 
   return (
@@ -75,7 +68,7 @@ export default function LoginBox({ navigation, setShowLogin }: {
           <Text style={styles.loginText}>Login</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.signup} onPress={handleCreateAccount}>
+        <TouchableOpacity style={styles.signup} onPress={onCreateAccount}>
           <Text style={styles.signupText}>Sign Up Instead</Text>
         </TouchableOpacity>
       </View>
