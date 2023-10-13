@@ -7,6 +7,12 @@ if (process.env.GYMBOT != "1") {
 import { debugLogsModules } from "./src/types/app-config.cjs";
 
 /**
+ * The raw value of the `GYMBOT_DEBUG_LOGS` env var, trimmed.
+ * If the env var is not set, this is an empty string.
+ */
+const rawDebugLogs = process.env.GYMBOT_DEBUG_LOGS?.trim() || "";
+
+/**
  * Object containing the debug logs config for each module.
  *
  * The default value for each module is `false`,
@@ -15,10 +21,14 @@ import { debugLogsModules } from "./src/types/app-config.cjs";
 const debugLogs = {
   ...Object.fromEntries(debugLogsModules.map((module) => [module, false])),
   ...Object.fromEntries(
-    (process.env.GYMBOT_DEBUG_LOGS || "")
-      .split(",")
-      .map((s) => [s.trim(), true] as const)
-      .filter((s) => s[0].length > 0 && debugLogsModules.includes(s[0] as any))
+    rawDebugLogs == "*"
+      ? debugLogsModules.map((module) => [module, true])
+      : rawDebugLogs
+          .split(",")
+          .map((s) => [s.trim(), true] as const)
+          .filter(
+            (s) => s[0].length > 0 && debugLogsModules.includes(s[0] as any)
+          )
   ),
 } as (typeof AppConfig)["extra"]["debugLogs"];
 
