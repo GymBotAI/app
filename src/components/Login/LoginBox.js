@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   View,
   TextInput,
@@ -8,36 +8,18 @@ import {
 } from "react-native";
 import { Image } from "expo-image";
 
-import { username } from "../SignUp/Credentials";
-
 import { login } from "../../api/auth";
 
-var pass = "";
-
-export let emailValue = "";
-
 export default function LoginBox({ navigation, setShowLogin }) {
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
-  // const onPressInsert = async () => {
-  //   try {
-  //     // You can call the handleInsert function here
-  //     await handleInsert(email);
-  //   } catch (error) {
-  //     console.error("Error inserting record:", error);
-  //   }
-  // };
-
   const handleLogin = async () => {
-    // onPressInsert()
+    const loginResult = await login(username, password);
 
-    emailValue = email;
+    // For testing use One for email and Two for password
 
-    const result = await login(email, password);
-
-    if (result.success) {
-      // For testing use One for email and Two for password
+    if (loginResult.success) {
       setShowLogin(false);
       navigation.navigate("Home");
     } else {
@@ -54,10 +36,10 @@ export default function LoginBox({ navigation, setShowLogin }) {
     <View style={styles.container}>
       <TextInput
         style={styles.input}
-        placeholder="Email"
+        placeholder="Username"
         placeholderTextColor="white"
-        value={email}
-        onChangeText={setEmail}
+        value={username}
+        onChangeText={setUsername}
         autoCapitalize="none"
       />
       <TextInput
