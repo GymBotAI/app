@@ -3,9 +3,7 @@ import { View, StatusBar } from "react-native";
 import DesignWorkoutContainer from "../components/Workout/DesignWorkout/DesignWorkoutContainer";
 import ScreenHeader from "../components/ScreenHeader";
 
-//test
-
-export default function DesignWorkout({ navigation }) {
+export default function DesignWorkout() {
   return (
     <View
       style={{
@@ -14,8 +12,8 @@ export default function DesignWorkout({ navigation }) {
       }}
     >
       <ScreenHeader title="Workouts" />
-      <DesignWorkoutContainer navigation={navigation} />
-      <StatusBar barStyle="dark" />
+      <DesignWorkoutContainer />
+      <StatusBar barStyle="dark-content" />
     </View>
   );
 }
