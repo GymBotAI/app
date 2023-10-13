@@ -42,7 +42,9 @@ const GoalSelector = ({ selectedGoal, setSelectedGoal, setGoalText }) => {
           style={getButtonStyle("Body Definition")}
           onPress={() => handleWorkoutSelection("Body Definition")}
         >
-          <Text style={getButtonTextStyle("Body Definition")}>Body Definition</Text>
+          <Text style={getButtonTextStyle("Body Definition")}>
+            Body Definition
+          </Text>
         </TouchableOpacity>
       </View>
       <View style={{ flexDirection: "row" }}>

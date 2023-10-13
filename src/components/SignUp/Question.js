@@ -9,7 +9,7 @@ import {
   TouchableWithoutFeedback,
 } from "react-native";
 
-import { useFonts } from 'expo-font';
+import { useFonts } from "expo-font";
 
 import { ageVal } from "./Age.js";
 import { genderVal } from "./Gender.js";
@@ -129,7 +129,6 @@ export default function Question({ navigation }) {
   };
 
   useEffect(() => {
-
     Animated.parallel([
       Animated.timing(slideUpAnim, {
         toValue: 0,
@@ -149,7 +148,6 @@ export default function Question({ navigation }) {
       fadeAnim.setValue(0);
     };
   }, [prompt]);
-  
 
   if (prompt === "Tell us your name!") {
     // inputOption = <HeightWeightContainer onChange={setInputFilled} />;

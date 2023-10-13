@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
-import { View, Text, FlatList, TouchableOpacity } from 'react-native';
+import React, { useState } from "react";
+import { View, Text, FlatList, TouchableOpacity } from "react-native";
 
 const lowerExercises = [
-  { id: '1', name: 'Leg Press' },
-  { id: '2', name: 'Lunges' },
+  { id: "1", name: "Leg Press" },
+  { id: "2", name: "Lunges" },
   // Add more lower body exercises as needed
 ];
 
 const upperExercises = [
-  { id: '3', name: 'Bench Press' },
-  { id: '4', name: 'Pull-Ups' },
+  { id: "3", name: "Bench Press" },
+  { id: "4", name: "Pull-Ups" },
   // Add more upper body exercises as needed
 ];
 
@@ -21,11 +21,11 @@ const ExerciseSelectionScreen = ({ subGoal }) => {
   let exercisesToDisplay = [];
 
   // Determine which exercise list to display based on subGoal
-  if (subGoal === 'Upper') {
+  if (subGoal === "Upper") {
     exercisesToDisplay = upperExercises;
-  } else if (subGoal === 'Lower') {
+  } else if (subGoal === "Lower") {
     exercisesToDisplay = lowerExercises;
-  } else if (subGoal === 'Both') {
+  } else if (subGoal === "Both") {
     exercisesToDisplay = bothExercises;
   }
 
@@ -50,8 +50,8 @@ const ExerciseSelectionScreen = ({ subGoal }) => {
         style={{
           padding: 16,
           borderBottomWidth: 1,
-          borderColor: '#ccc',
-          backgroundColor: isSelected ? '#e0e0e0' : 'white',
+          borderColor: "#ccc",
+          backgroundColor: isSelected ? "#e0e0e0" : "white",
         }}
       >
         <Text>{item.name}</Text>
@@ -61,7 +61,7 @@ const ExerciseSelectionScreen = ({ subGoal }) => {
 
   return (
     <View>
-      <Text style={{ fontSize: 24, fontWeight: 'bold', marginBottom: 16 }}>
+      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 16 }}>
         Select Exercises
       </Text>
       <FlatList

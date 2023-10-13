@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
-import { FontAwesome5 } from '@expo/vector-icons';
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function PlanTabs({ text, length, data, viewData }) {
   const [isChecked, setIsChecked] = useState(false);
 
   return (
-    <View style={[styles.rectangle, {paddingBottom: viewData ? 10 : 0}]}>
+    <View style={[styles.rectangle, { paddingBottom: viewData ? 10 : 0 }]}>
       <View style={styles.contentContainer}>
         <Text>{text}</Text>
         <View style={styles.lengthContainer}>
@@ -17,12 +17,12 @@ export default function PlanTabs({ text, length, data, viewData }) {
       </View>
       {viewData && (
         <View style={styles.dataContainer}>
-         <Text>{data}</Text>
+          <Text>{data}</Text>
           <View style={styles.checkboxContainer}>
             <FontAwesome5
               name={isChecked ? "check-square" : "square"}
               size={30}
-              color = {isChecked ? "green" : "gray"}
+              color={isChecked ? "green" : "gray"}
               onPress={() => setIsChecked(!isChecked)}
             />
           </View>

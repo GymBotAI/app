@@ -17,7 +17,7 @@ export default function ViewWorkouts({ navigation }) {
   const [workoutButtonsVisible, setWorkoutButtonsVisible] = useState(false);
 
   const openRunningPage = () => {
-    setWorkoutButtonsVisible(false)
+    setWorkoutButtonsVisible(false);
     changeRunningPageVisibility(true);
   };
 
@@ -40,13 +40,14 @@ export default function ViewWorkouts({ navigation }) {
 
         <TalkToGymBotSection navigation={navigation} />
         <WorkoutList navigation={navigation} />
-        {RunningPageVisibility &&
-        <CustomPage onClose={closeRunningPage} />
-        }
+        {RunningPageVisibility && <CustomPage onClose={closeRunningPage} />}
       </ScrollView>
 
       {!workoutButtonsVisible && (
-        <TouchableOpacity style={styles.addButtonContainer} onPress={toggleWorkoutButtons}>
+        <TouchableOpacity
+          style={styles.addButtonContainer}
+          onPress={toggleWorkoutButtons}
+        >
           <Text style={styles.addText}>Record Exercise</Text>
         </TouchableOpacity>
       )}
@@ -74,7 +75,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 80,
     width: "90%",
-    marginLeft: '5%',
+    marginLeft: "5%",
     backgroundColor: "#1260de",
     borderRadius: 8,
     shadowColor: "black",
@@ -86,7 +87,7 @@ const styles = StyleSheet.create({
   workoutButtonsContainer: {
     position: "absolute",
     bottom: 130,
-    width: '90%',
+    width: "90%",
     marginLeft: "5%",
     backgroundColor: "#fff",
     borderRadius: 4,
@@ -97,12 +98,12 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   workoutOptionsText: {
-   alignSelf: "center",
-   fontSize: 18,
-   fontWeight: "bold",
-   paddingVertical: 10,
-   color: "#dbdbdb",
- },
+    alignSelf: "center",
+    fontSize: 18,
+    fontWeight: "bold",
+    paddingVertical: 10,
+    color: "#dbdbdb",
+  },
   addText: {
     alignSelf: "center",
     fontSize: 23,
@@ -111,4 +112,3 @@ const styles = StyleSheet.create({
     color: "#dbdbdb",
   },
 });
-

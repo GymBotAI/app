@@ -1,7 +1,9 @@
 import { useRef } from "react";
 import { View, StatusBar, TouchableOpacity } from "react-native";
 
-import ChatContainer, { ChatContainerRef } from "../components/Chat/ChatContainer";
+import ChatContainer, {
+  ChatContainerRef,
+} from "../components/Chat/ChatContainer";
 import ChatHeader from "../components/Chat/ChatHeader";
 import GymBotNavigation from "../components/navbar";
 
@@ -39,9 +41,12 @@ export default function ChatScreen({ navigation }) {
           <FontAwesome5 name="trash" size={24} color="#333" />
         </TouchableOpacity>
       </ChatHeader>
-      <ChatContainer containerRef={chatContainerRef} goToWorkoutScreen={() => {
-        navigation.navigate("DesignWorkout");
-      }} />
+      <ChatContainer
+        containerRef={chatContainerRef}
+        goToWorkoutScreen={() => {
+          navigation.navigate("DesignWorkout");
+        }}
+      />
       <StatusBar barStyle="light-content" />
 
       <GymBotNavigation navigation={navigation} currentScreen={"Chat"} />

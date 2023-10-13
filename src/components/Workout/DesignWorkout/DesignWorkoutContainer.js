@@ -9,10 +9,9 @@ import BodyDefinition from "./BodyDefinition";
 import SportsSpecific from "./SportsSpecific";
 import GoalSelector from "./GoalSelector";
 
-import CompleteDesignContainer from "../CompleteWorkout/CompleteDesignContainer"
+import CompleteDesignContainer from "../CompleteWorkout/CompleteDesignContainer";
 
 const WorkoutSelectionScreen = () => {
-
   const [selectedGoal, setSelectedGoal] = useState(null);
   const [subGoal, setSubGoal] = useState(null);
   const [typedText, setTypedText] = useState("");
@@ -21,7 +20,6 @@ const WorkoutSelectionScreen = () => {
   const [completed, setCompleted] = useState(false);
 
   useEffect(() => {
-    
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
       if (currentIndex <= goalText.length) {
@@ -67,7 +65,11 @@ const WorkoutSelectionScreen = () => {
             marginLeft: "5%",
           }}
         />
-        <BodyDefinition setGoalText={setGoalText} setInputFilled={setInputFilled} setSubGoal={setSubGoal}/>
+        <BodyDefinition
+          setGoalText={setGoalText}
+          setInputFilled={setInputFilled}
+          setSubGoal={setSubGoal}
+        />
       </>
     );
   } else if (selectedGoal === "Sports-Specific") {
@@ -88,11 +90,11 @@ const WorkoutSelectionScreen = () => {
       </>
     );
   }
-  
+
   const completeDesign = () => {
-    setCompleted(true)
+    setCompleted(true);
     if (selectedGoal == "Build Muscle") {
-      setGoalText("Select your exercises!")
+      setGoalText("Select your exercises!");
     }
   };
 
@@ -121,7 +123,11 @@ const WorkoutSelectionScreen = () => {
       </View>
 
       {completed && (
-        <CompleteDesignContainer goal={selectedGoal} subGoal={subGoal} setGoalText={setGoalText}/>
+        <CompleteDesignContainer
+          goal={selectedGoal}
+          subGoal={subGoal}
+          setGoalText={setGoalText}
+        />
       )}
 
       {!completed && (
@@ -143,8 +149,6 @@ const WorkoutSelectionScreen = () => {
           </TouchableOpacity>
         </>
       )}
-
-
     </View>
   );
 };
@@ -193,7 +197,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     paddingVertical: 10,
     color: "#dbdbdb",
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
 

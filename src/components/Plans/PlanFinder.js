@@ -9,20 +9,20 @@ import {
   ScrollView,
 } from "react-native";
 import PlanTabs from "./PlanTabs";
-import PlanInfoPage from "./PlanInfoPage"
+import PlanInfoPage from "./PlanInfoPage";
 
 export default function PlanFinder({ onClose }) {
-  const [ searchQuery, setSearchQuery ] = useState("");
-  const [ PlanInfoPageVisibility, setPlanInfoPageVisibility ] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [PlanInfoPageVisibility, setPlanInfoPageVisibility] = useState(false);
   const [selectedPlans, setSelectedPlans] = useState([]);
 
   const onAddPlan = (plan) => {
-   setSelectedPlans([...selectedPlans, plan]);
- };
+    setSelectedPlans([...selectedPlans, plan]);
+  };
 
   const rectangles = [
     { name: "Get Abs", length: 2, data: "Situps X 10 \nRest 30s" },
-    { name: "Beat Your Pr", length: 8, data: "Hey\n\n"},
+    { name: "Beat Your Pr", length: 8, data: "Hey\n\n" },
     { name: "Rectangle 3", length: 3 },
   ];
 
@@ -31,36 +31,41 @@ export default function PlanFinder({ onClose }) {
   );
 
   const togglePlanInfoPageVisibility = (circleCount) => {
-   setPlanInfoPageVisibility(!PlanInfoPageVisibility);
- };
+    setPlanInfoPageVisibility(!PlanInfoPageVisibility);
+  };
 
   return (
-   <View style={styles.container}>
-     <View style={styles.overlay} />
-     {!PlanInfoPageVisibility && (
-       <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-         <Text style={styles.closeButtonText}>X</Text>
-       </TouchableOpacity>
-     )}
-     <View style={styles.searchBarContainer}>
-       <TextInput
-         style={styles.searchBar}
-         placeholder="Search rectangles"
-         placeholderTextColor="#888"
-         onChangeText={(text) => setSearchQuery(text)}
-       />
-     </View>
-     <ScrollView style={styles.tabsContainer}>
-       {filteredRectangles.map((rectangle, index) => (
-         <TouchableOpacity
-           onPress={() => togglePlanInfoPageVisibility(rectangle.length)}
-           key={index}
-         >
-           <PlanTabs text={rectangle.name} length={rectangle.length} data={rectangle.data} viewData={false} />
-         </TouchableOpacity>
-       ))}
-     </ScrollView>
-     {PlanInfoPageVisibility && (
+    <View style={styles.container}>
+      <View style={styles.overlay} />
+      {!PlanInfoPageVisibility && (
+        <TouchableOpacity style={styles.closeButton} onPress={onClose}>
+          <Text style={styles.closeButtonText}>X</Text>
+        </TouchableOpacity>
+      )}
+      <View style={styles.searchBarContainer}>
+        <TextInput
+          style={styles.searchBar}
+          placeholder="Search rectangles"
+          placeholderTextColor="#888"
+          onChangeText={(text) => setSearchQuery(text)}
+        />
+      </View>
+      <ScrollView style={styles.tabsContainer}>
+        {filteredRectangles.map((rectangle, index) => (
+          <TouchableOpacity
+            onPress={() => togglePlanInfoPageVisibility(rectangle.length)}
+            key={index}
+          >
+            <PlanTabs
+              text={rectangle.name}
+              length={rectangle.length}
+              data={rectangle.data}
+              viewData={false}
+            />
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+      {PlanInfoPageVisibility && (
         <PlanInfoPage
           onClose={togglePlanInfoPageVisibility}
           onAddPlan={onAddPlan}
@@ -69,8 +74,8 @@ export default function PlanFinder({ onClose }) {
           fillPercentage={50}
         />
       )}
-   </View>
- );
+    </View>
+  );
 }
 
 const windowWidth = Dimensions.get("window").width - 20; //IDK why but if u want symetry, you have to offset 20 px

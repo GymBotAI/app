@@ -7,24 +7,17 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import ExerciseSelectionScreen from "./BuildMuscle";
 
-const WorkoutSelectionScreen = ({goal, subGoal}) => {
-
+const WorkoutSelectionScreen = ({ goal, subGoal }) => {
   let option1 = null;
   if (goal === "Build Muscle") {
-    option1 = (
-      <ExerciseSelectionScreen subGoal={subGoal}/>
-    )
+    option1 = <ExerciseSelectionScreen subGoal={subGoal} />;
   }
 
   return (
     <View style={styles.container}>
-
       {option1}
 
-
-      <TouchableOpacity
-        style={[styles.button]}
-      >
+      <TouchableOpacity style={[styles.button]}>
         <Text style={styles.text}>Continue</Text>
       </TouchableOpacity>
     </View>
@@ -54,7 +47,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     paddingVertical: 10,
     color: "#dbdbdb",
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });
 

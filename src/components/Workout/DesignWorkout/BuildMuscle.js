@@ -3,12 +3,11 @@ import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { Feather } from "@expo/vector-icons";
 
 const BuildMuscle = ({ setGoalText, setInputFilled, setSubGoal }) => {
-  const [selectedBody, setSelectedBody] = useState("")
-
+  const [selectedBody, setSelectedBody] = useState("");
 
   const handleSelect = (option, option2) => {
     setSelectedBody(option);
-    setSubGoal(option)
+    setSubGoal(option);
     setGoalText(option2);
     setInputFilled(true);
   };
@@ -30,22 +29,31 @@ const BuildMuscle = ({ setGoalText, setInputFilled, setSubGoal }) => {
   return (
     <View style={styles.container}>
       {/* Upper Body Dropdown */}
-      <TouchableOpacity style={getButtonStyle("Upper")} onPress={() => {
+      <TouchableOpacity
+        style={getButtonStyle("Upper")}
+        onPress={() => {
           handleSelect("Upper", "Nice choice!");
-        }}>
+        }}
+      >
         <Text style={getButtonTextStyle("Upper")}>Upper Body</Text>
       </TouchableOpacity>
 
       {/* Lower Body Dropdown */}
-      <TouchableOpacity style={getButtonStyle("Lower")} onPress={() => {
+      <TouchableOpacity
+        style={getButtonStyle("Lower")}
+        onPress={() => {
           handleSelect("Lower", "Nice choice!");
-        }}>
+        }}
+      >
         <Text style={getButtonTextStyle("Lower")}>Lower Body</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={getButtonStyle("Both")} onPress={() => {
+      <TouchableOpacity
+        style={getButtonStyle("Both")}
+        onPress={() => {
           handleSelect("Both", "Nice choice!");
-        }}>
+        }}
+      >
         <Text style={getButtonTextStyle("Both")}>Both</Text>
       </TouchableOpacity>
     </View>

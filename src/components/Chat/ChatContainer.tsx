@@ -8,7 +8,7 @@ import ChatMessages from "./ChatMessages";
 import ChatInput from "./ChatInput";
 
 import { useGymBotAI } from "../../api/chat";
-import type { ReadyState } from 'react-use-websocket'
+import type { ReadyState } from "react-use-websocket";
 
 export type ChatContainerRef = MutableRefObject<null | {
   clear: () => void;
@@ -18,27 +18,31 @@ export type ChatContainerRef = MutableRefObject<null | {
 
 export default function Chat({
   containerRef,
-  goToWorkoutScreen
+  goToWorkoutScreen,
 }: {
   containerRef?: ChatContainerRef;
   goToWorkoutScreen: () => void;
 }) {
   const chatInputRef = useRef({});
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
-  const { messages, sendMessage, setMessages, readyState, hasAuthed } = useGymBotAI([
-    {
-      role: "assistant",
-      content: "How can I help you today?",
-    },
-  ]);
+  const { messages, sendMessage, setMessages, readyState, hasAuthed } =
+    useGymBotAI([
+      {
+        role: "assistant",
+        content: "How can I help you today?",
+      },
+    ]);
 
   const handlePromptPress = useCallback(() => {
     setShowPrompts(false); //Sets show prompts to false
   }, [setShowPrompts]);
 
-  const onSubmit = useCallback((text: string) => {
-    sendMessage(text);
-  }, [sendMessage]);
+  const onSubmit = useCallback(
+    (text: string) => {
+      sendMessage(text);
+    },
+    [sendMessage]
+  );
 
   if (containerRef) {
     containerRef.current = {
@@ -46,7 +50,7 @@ export default function Chat({
         setMessages([messages[0]]);
       },
       readyState,
-      hasAuthed
+      hasAuthed,
     };
   }
 
