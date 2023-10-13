@@ -10,7 +10,14 @@ import { Image } from "expo-image";
 
 import { login } from "../../api/auth";
 
-export default function LoginBox({ navigation, setShowLogin }) {
+import type { NavigationProp } from '@react-navigation/native'
+
+import type { NavigationScreens } from "../../types/navigation";
+
+export default function LoginBox({ navigation, setShowLogin }: {
+  navigation: NavigationProp<NavigationScreens>;
+  setShowLogin: (show: boolean) => void;
+}) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
