@@ -100,6 +100,7 @@ const Slider = ({ navigation }) => {
         <LoginBox
           onLogin={() => {
             navigation.navigate("Home");
+            setShowLogin(false);
           }}
           onError={(error) => {
             alert(error);
