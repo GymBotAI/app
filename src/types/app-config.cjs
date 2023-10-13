@@ -18,7 +18,7 @@ let AppConfig;
  */
 let DebugLogsModule;
 
-const debugLogsModules = /** @type {const} */ (["api", "auth"]);
+const debugLogsModules = /** @type {const} */ (["auth", "chat"]);
 
 module.exports = {
   AppConfig,
