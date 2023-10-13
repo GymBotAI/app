@@ -1,11 +1,11 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Home from "./src/navbarScreens/Home";
-import Plans from "./src/navbarScreens/Plans";
-import Workouts from "./src/navbarScreens/Workouts";
-import Food from "./src/navbarScreens/Food";
-import Chat from "./src/navbarScreens/Chat";
+import Home from "./src/screens/navbarScreens/Home";
+import Plans from "./src/screens/navbarScreens/Plans";
+import Workouts from "./src/screens/navbarScreens/Workouts";
+import Food from "./src/screens/navbarScreens/Food";
+import Chat from "./src/screens/navbarScreens/Chat";
 
 import Account from "./src/screens/StartUp";
 import Login from "./src/screens/LogIn";
