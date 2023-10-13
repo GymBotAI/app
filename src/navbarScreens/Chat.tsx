@@ -7,7 +7,7 @@ import GymBotNavigation from "../components/navbar";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
-import { baseServerAddr } from "../app-config";
+import { baseServerAddr } from "../api/address";
 
 export default function ChatScreen({ navigation }) {
   const chatContainerRef: ChatContainerRef = useRef(null);

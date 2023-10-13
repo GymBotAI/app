@@ -1,6 +1,6 @@
 import Constants from "expo-constants";
 
-import { httpServerAddr } from "../app-config";
+import { httpServerAddr } from "./address";
 
 /**
  * Whether or not to log debug messages.

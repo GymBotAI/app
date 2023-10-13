@@ -4,7 +4,7 @@
  * @typedef {{
  *  extra: {
  *    serverAddress: string | undefined,
- *    serverAddressDefault: import('../app-config').BaseServerAddress,
+ *    serverAddressDefault: import('../api/address').BaseServerAddress,
  *    debugLogs: Record<DebugLogsModule, boolean>;
  *  }
  * }} AppConfig
