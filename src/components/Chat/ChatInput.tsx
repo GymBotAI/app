@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import {
   Text,
   TextInput,
@@ -8,9 +8,9 @@ import {
   Keyboard,
 } from "react-native";
 import * as Font from "expo-font";
-import { AntDesign } from "@expo/vector-icons";
 
-import { fontSize } from "../../styles";
+import type { MutableRefObject } from "react";
+import type { ReturnKeyTypeOptions } from "react-native";
 
 export default function ChatInput({
   returnKeyType,
@@ -19,9 +19,17 @@ export default function ChatInput({
   onSubmit,
   setValueRef,
   onDeletePrompts,
-  // onInput,
+}: {
+  returnKeyType?: ReturnKeyTypeOptions;
+  value?: string;
+  multiline?: boolean;
+  onSubmit: (text: string) => void;
+  setValueRef?: MutableRefObject<{
+    setText: (text: string) => void;
+  }>;
+  onDeletePrompts: () => void;
 }) {
-  const [text, setText] = useState(value);
+  const [text, setText] = useState(value || '');
   const [fontLoaded, setFontLoaded] = useState(false);
 
   // Load font
@@ -43,16 +51,17 @@ export default function ChatInput({
 
   const handleOnSubmit = () => {
     Keyboard.dismiss();
-    if (!text) {
+
+    const trimmedText = text.trim();
+
+    if (!trimmedText) {
       return;
     }
-
-    // onInput();
 
     onDeletePrompts();
     setText("");
 
-    onSubmit(text.trim());
+    onSubmit(trimmedText);
   };
 
   return (
