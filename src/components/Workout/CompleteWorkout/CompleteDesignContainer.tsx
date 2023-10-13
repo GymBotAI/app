@@ -2,12 +2,14 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import ExerciseSelectionScreen from "./BuildMuscle";
 
+import type { WorkoutSubGoal } from "../../../types/workouts";
+
 const WorkoutSelectionScreen = ({
   goal,
   subGoal,
 }: {
   goal: string;
-  subGoal: string;
+  subGoal: WorkoutSubGoal;
 }) => {
   return (
     <View style={styles.container}>

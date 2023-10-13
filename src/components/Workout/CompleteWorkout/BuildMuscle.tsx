@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
+
+import type { WorkoutSubGoal } from "../../../types/workouts";
 
 const lowerExercises = [
   { id: "1", name: "Leg Press" },
@@ -15,7 +17,9 @@ const upperExercises = [
 
 const bothExercises = [...lowerExercises, ...upperExercises];
 
-const ExerciseSelectionScreen = ({ subGoal }) => {
+export default function ExerciseSelectionScreen({ subGoal }: {
+  subGoal: WorkoutSubGoal;
+}) {
   const [selectedExercises, setSelectedExercises] = useState([]);
 
   let exercisesToDisplay = [];
@@ -73,5 +77,3 @@ const ExerciseSelectionScreen = ({ subGoal }) => {
     </View>
   );
 };
-
-export default ExerciseSelectionScreen;
