@@ -13,7 +13,9 @@ import Settings from "./src/screens/Settings";
 import SignUp from "./src/screens/SignUp";
 import DesignWorkout from "./src/screens/DesignWorkout";
 
-const Stack = createNativeStackNavigator();
+import type { NavigationScreens } from "./src/types/navigation";
+
+const Stack = createNativeStackNavigator<NavigationScreens>();
 
 export default function App() {
   return (
