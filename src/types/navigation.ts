@@ -1,3 +1,5 @@
+import type { NavigationProp as _NavigationProp } from "@react-navigation/native";
+
 export type NavigationScreens = {
   Account: undefined;
   Login: undefined;
@@ -12,3 +14,5 @@ export type NavigationScreens = {
   DesignWorkout: undefined;
   Settings: undefined;
 };
+
+export type NavigationProp = _NavigationProp<NavigationScreens>;
