@@ -24,7 +24,7 @@ const secret = [53, 54, 99, 104, 97]
   .map((c) => String.fromCharCode(c))
   .join("");
 
-const workoutScreenRegex = /^\s*\[__WORKOUT__\]\s*$/;
+const workoutScreenRegex = /^\s*\u0007\s*$/;
 
 export interface Message {
   role: "user" | "assistant" | "system";
