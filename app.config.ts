@@ -44,7 +44,7 @@ setTimeout(() => {
 export default {
   extra: {
     serverAddress: process.env.GYMBOT_SERVER_ADDRESS,
-    serverAddressDefault: "s://gymbot-ai-server.luisafk.repl.co",
+    serverAddressDefault: "s://gymbot-ai-server--luisafk.repl.co",
 
     debugLogs,
   },
