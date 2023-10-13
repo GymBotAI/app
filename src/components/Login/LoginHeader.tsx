@@ -1,8 +1,8 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 
-export default function LoginHeader({}) {
+export default function LoginHeader() {
   return (
     <View style={styles.container}>
       <Image
