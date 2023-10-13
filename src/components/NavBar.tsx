@@ -1,9 +1,14 @@
 import React from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
-// test
-export default function GymBotNavigation({ navigation, currentScreen }) {
-  const navIcons = {
+
+import type { NavigationProp, NavigationScreen } from "../types/navigation";
+
+export default function GymBotNavigation({ navigation, currentScreen }: {
+  navigation: NavigationProp,
+  currentScreen: NavigationScreen,
+}) {
+  const navIcons: { [screenName in NavigationScreen]?: string; } = {
     Home: "home",
     Plans: "clipboard",
     Workouts: "dumbbell",
@@ -13,7 +18,7 @@ export default function GymBotNavigation({ navigation, currentScreen }) {
 
   return (
     <View style={styles.container}>
-      {Object.entries(navIcons).map(([name, iconName]) => (
+      {(Object.entries(navIcons) as [NavigationScreen, string][]).map(([name, iconName]) => (
         <TouchableOpacity
           key={name}
           style={styles.button}
