@@ -14,5 +14,6 @@ export type NavigationScreens = {
   DesignWorkout: undefined;
   Settings: undefined;
 };
+export type NavigationScreen = keyof NavigationScreens;
 
 export type NavigationProp = _NavigationProp<NavigationScreens>;
