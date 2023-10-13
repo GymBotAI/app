@@ -11,7 +11,7 @@ import GoalSelector from "./GoalSelector";
 
 import CompleteDesignContainer from "../CompleteWorkout/CompleteDesignContainer";
 
-const WorkoutSelectionScreen = () => {
+export default function WorkoutSelectionScreen() {
   const [selectedGoal, setSelectedGoal] = useState(null);
   const [subGoal, setSubGoal] = useState(null);
   const [typedText, setTypedText] = useState("");
@@ -126,7 +126,6 @@ const WorkoutSelectionScreen = () => {
         <CompleteDesignContainer
           goal={selectedGoal}
           subGoal={subGoal}
-          setGoalText={setGoalText}
         />
       )}
 
@@ -200,5 +199,3 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-
-export default WorkoutSelectionScreen;
