@@ -6,7 +6,7 @@ import {
   View,
   Text,
 } from "react-native";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";

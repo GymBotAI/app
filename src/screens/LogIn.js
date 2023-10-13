@@ -1,11 +1,10 @@
 import {
   ImageBackground,
-  View,
   TouchableWithoutFeedback,
   Keyboard,
   StatusBar,
 } from "react-native";
-// import { useState } from "react";
+
 import { LinearGradient } from "expo-linear-gradient";
 
 import LoginBox from "../components/Login/LoginBox";
@@ -30,17 +29,8 @@ export default function Login({ navigation }) {
           colors={["rgba(0,0,255,0.7)", "rgba(0,0,0,0.7)"]}
           style={{ flex: 1 }}
         >
-          {/* <View style={{ position: "absolute", top: 40, left: 0, right: 0 }}> */}
           <LoginHeader navigation={navigation} />
-          {/* </View> */}
 
-          {/* <View
-          style={{
-            marginTop: 50,
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        > */}
           <LoginBox
             onLogin={() => {
               navigation.navigate("Home");
@@ -52,7 +42,6 @@ export default function Login({ navigation }) {
               navigation.navigate("Register");
             }}
           />
-          {/* </View> */}
 
           <StatusBar barStyle="light-content" />
         </LinearGradient>
