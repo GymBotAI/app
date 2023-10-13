@@ -2,13 +2,18 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import ExerciseSelectionScreen from "./BuildMuscle";
 
-const WorkoutSelectionScreen = ({ goal, subGoal }: {
+const WorkoutSelectionScreen = ({
+  goal,
+  subGoal,
+}: {
   goal: string;
   subGoal: string;
 }) => {
   return (
     <View style={styles.container}>
-      {goal == 'Build Muscle' ? (<ExerciseSelectionScreen subGoal={subGoal} />) : null}
+      {goal == "Build Muscle" ? (
+        <ExerciseSelectionScreen subGoal={subGoal} />
+      ) : null}
 
       <TouchableOpacity style={[styles.button]}>
         <Text style={styles.text}>Continue</Text>

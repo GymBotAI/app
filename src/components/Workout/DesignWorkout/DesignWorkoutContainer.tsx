@@ -123,10 +123,7 @@ export default function WorkoutSelectionScreen() {
       </View>
 
       {completed && (
-        <CompleteDesignContainer
-          goal={selectedGoal}
-          subGoal={subGoal}
-        />
+        <CompleteDesignContainer goal={selectedGoal} subGoal={subGoal} />
       )}
 
       {!completed && (
@@ -150,7 +147,7 @@ export default function WorkoutSelectionScreen() {
       )}
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
