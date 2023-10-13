@@ -8,6 +8,9 @@ import { debugLogsModules } from "./src/types/app-config.cjs";
 
 /**
  * Object containing the debug logs config for each module.
+ *
+ * The default value for each module is `false`,
+ * unless the module name is present in the `GYMBOT_DEBUG_LOGS` env var.
  */
 const debugLogs = {
   ...Object.fromEntries(debugLogsModules.map((module) => [module, false])),
