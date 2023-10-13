@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import { Image } from "expo-image";
 
-import handleInsert from "../../api/db";
 import { username } from "../SignUp/Credentials";
 
 import { login } from "../../api/auth";
