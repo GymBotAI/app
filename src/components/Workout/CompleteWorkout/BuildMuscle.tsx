@@ -17,7 +17,9 @@ const upperExercises = [
 
 const bothExercises = [...lowerExercises, ...upperExercises];
 
-export default function ExerciseSelectionScreen({ subGoal }: {
+export default function ExerciseSelectionScreen({
+  subGoal,
+}: {
   subGoal: WorkoutSubGoal;
 }) {
   const [selectedExercises, setSelectedExercises] = useState([]);
@@ -76,4 +78,4 @@ export default function ExerciseSelectionScreen({ subGoal }: {
       {/* Display the selected exercises here */}
     </View>
   );
-};
+}
