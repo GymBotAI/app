@@ -5,7 +5,7 @@ import ChatContainer, {
   ChatContainerRef,
 } from "../../components/Chat/ChatContainer";
 import ChatHeader from "../../components/Chat/ChatHeader";
-import GymBotNavigation from "../../components/navbar";
+import GymBotNavigation from "../../components/NavBar";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 

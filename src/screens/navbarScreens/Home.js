@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 
-import GymBotNavigation from "../../components/navbar";
+import GymBotNavigation from "../../components/NavBar";
 import HomeContainer from "../../components/Home/HomeContainer";
 import ScreenHeader from "../../components/ScreenHeader";
 
