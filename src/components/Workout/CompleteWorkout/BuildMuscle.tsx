@@ -2,6 +2,8 @@ import { useState } from "react";
 import { View, Text, FlatList, TouchableOpacity } from "react-native";
 
 import type { WorkoutSubGoal } from "../../../types/workouts";
+import { FontAwesome } from '@expo/vector-icons'; // You may need to import FontAwesome or an appropriate icon library
+
 
 const lowerExercises = [
   { id: 1, name: 'Leg Press' },
@@ -83,7 +85,6 @@ export default function ExerciseSelectionScreen({
       setSelectedExercises([...selectedExercises, exerciseId]);
     }
   };
-
   const renderItem = ({ item }) => {
     const isSelected = selectedExercises.includes(item.id);
   
@@ -91,7 +92,7 @@ export default function ExerciseSelectionScreen({
       <TouchableOpacity
         onPress={() => toggleExerciseSelection(item.id)}
         style={{
-          backgroundColor: isSelected ? "#E5E5E5" : "#F5F5F5",
+          backgroundColor: isSelected ? "orange" : "#F5F5F5",
           borderRadius: 8,
           margin: 8,
           padding: 16,
@@ -99,6 +100,9 @@ export default function ExerciseSelectionScreen({
           shadowOffset: { width: 0, height: 2 },
           shadowOpacity: isSelected ? 0.8 : 0.2,
           elevation: 3,
+          flexDirection: 'row',
+          alignItems: 'center', // Vertically center the camera icon
+          justifyContent: 'space-between', // Align text and camera icon to the ends
         }}
       >
         <Text
@@ -110,10 +114,11 @@ export default function ExerciseSelectionScreen({
         >
           {item.name}
         </Text>
+        <FontAwesome name="camera" size={20} color="black" />
       </TouchableOpacity>
     );
   };
-    
+  
   return (
     <View style={{marginHorizontal: 10}}>
       {/* <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 16, }}>
