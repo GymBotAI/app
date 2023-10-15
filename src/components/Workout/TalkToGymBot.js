@@ -20,7 +20,7 @@ const TalkToGymBotSection = ({ navigation }) => {
           />
         </View>
         <Text style={styles.subtitleText}>
-          Our specialized AI will help you craft personalized workouts that
+          Our specialized AI will help you craft personalized workout plans that
           unlock your true potential
         </Text>
       </View>

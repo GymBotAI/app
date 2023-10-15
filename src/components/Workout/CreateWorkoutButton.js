@@ -8,28 +8,21 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
+import { Dimensions } from 'react-native';
+
 
 export default function CreateWorkoutButton({ handleAddWorkout }) {
+  const { width, height } = Dimensions.get('window');
+  const fontSize = Math.min(width, height) * 0.095;
+  const buttonHeight = (height * 0.25);
+
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {height: buttonHeight}]}>
       <LinearGradient
         colors={["#1877f2", "#82b7ff"]}
         style={styles.blueRectangle}
       >
-        <ImageBackground
-          source={require("../../../assets/dumbellbg.webp")}
-          resizeMode="cover"
-          style={{
-            width: "110%",
-            height: "110%",
-            marginLeft: -15,
-            marginBottom: -170,
-            opacity: 0.2,
-            blur: "20",
-          }}
-        />
-        <View style={styles.contentContainer}>
-          <Text style={styles.title}>Create a Workout</Text>
+        <Text style={[styles.title, { fontSize }]}>Create a Workout</Text>
 
           <View style={styles.buttonsContainer}>
             <TouchableOpacity
@@ -48,8 +41,7 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
               <AntDesign name="arrowright" size={24} color="black" />
             </TouchableOpacity>
           </View>
-        </View>
-      </LinearGradient>
+      </LinearGradient> 
     </View>
   );
 }
@@ -59,7 +51,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
     alignSelf: "center",
     borderRadius: 15,
-    height: 200,
     width: "102%",
     overflow: "hidden", // Clip the inner content to avoid overflow issues
   },
@@ -75,9 +66,9 @@ const styles = StyleSheet.create({
   },
   title: {
     color: "white",
-    fontSize: 34,
+    // fontSize: fontSize,
     fontWeight: "bold",
-    marginBottom: 52,
+    marginBottom: '13%',
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.3,
@@ -85,7 +76,6 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   buttonsContainer: {
-    marginBottom: -30,
     flexDirection: "row",
     justifyContent: "space-between",
   },
