@@ -114,22 +114,21 @@ export default function ExerciseSelectionScreen({
         >
           {item.name}
         </Text>
-        <FontAwesome name="camera" size={20} color="black" />
+        <TouchableOpacity style={{paddingLeft: 10,}}>
+        <FontAwesome name="camera" size={22} color="black" />
+        </TouchableOpacity>
       </TouchableOpacity>
     );
   };
   
   return (
-    <View style={{marginHorizontal: 10}}>
-      {/* <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 16, }}>
-        Select Exercises
-      </Text> */}
+    <View style={{ marginHorizontal: 10, flex: 1 }}>
       <FlatList
         data={exercisesToDisplay}
         renderItem={renderItem}
         keyExtractor={(item) => item.id}
       />
-      {/* Display the selected exercises here */}
+      <View style={{ height: 100 }}></View>
     </View>
   );
 }
