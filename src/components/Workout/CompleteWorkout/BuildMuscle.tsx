@@ -58,6 +58,8 @@ export default function ExerciseSelectionScreen({
           borderBottomWidth: 1,
           borderColor: "#ccc",
           backgroundColor: isSelected ? "#e0e0e0" : "white",
+          borderRadius: 5,
+          marginVertical: 2.5,
         }}
       >
         <Text>{item.name}</Text>
@@ -66,8 +68,8 @@ export default function ExerciseSelectionScreen({
   };
 
   return (
-    <View>
-      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 16 }}>
+    <View style={{marginHorizontal: 10}}>
+      <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 16, }}>
         Select Exercises
       </Text>
       <FlatList
