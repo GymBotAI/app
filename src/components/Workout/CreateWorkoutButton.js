@@ -14,34 +14,35 @@ import { Dimensions } from 'react-native';
 export default function CreateWorkoutButton({ handleAddWorkout }) {
   const { width, height } = Dimensions.get('window');
   const fontSize = Math.min(width, height) * 0.095;
-  const buttonHeight = (height * 0.25);
+  const buttonHeight = height * 0.24;
+  const bottomHeight = height * 0.055;
 
   return (
-    <View style={[styles.container, {height: buttonHeight}]}>
+    <View style={[styles.container, { height: buttonHeight }]}>
       <LinearGradient
         colors={["#1877f2", "#82b7ff"]}
         style={styles.blueRectangle}
       >
-        <Text style={[styles.title, { fontSize }]}>Create a Workout</Text>
+        <Text style={[styles.title, { fontSize }, {marginBottom: bottomHeight}]}>Create a Workout</Text>
 
-          <View style={styles.buttonsContainer}>
-            <TouchableOpacity
-              style={styles.designButtonContainer}
-              onPress={handleAddWorkout}
-            >
-              <Text style={styles.addText}>Design</Text>
-              <AntDesign name="arrowright" size={24} color="black" />
-            </TouchableOpacity>
+        <View style={styles.buttonsContainer}>
+          <TouchableOpacity
+            style={styles.designButtonContainer}
+            onPress={handleAddWorkout}
+          >
+            <Text style={styles.addText}>Design</Text>
+            <AntDesign name="arrowright" size={24} color="black" />
+          </TouchableOpacity>
 
-            <TouchableOpacity
-              style={styles.createButtonContainer}
-              onPress={handleAddWorkout}
-            >
-              <Text style={styles.addText}>Explore</Text>
-              <AntDesign name="arrowright" size={24} color="black" />
-            </TouchableOpacity>
-          </View>
-      </LinearGradient> 
+          <TouchableOpacity
+            style={styles.createButtonContainer}
+            onPress={handleAddWorkout}
+          >
+            <Text style={styles.addText}>Explore</Text>
+            <AntDesign name="arrowright" size={24} color="black" />
+          </TouchableOpacity>
+        </View>
+      </LinearGradient>
     </View>
   );
 }
@@ -52,7 +53,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     borderRadius: 15,
     width: "102%",
-    overflow: "hidden", // Clip the inner content to avoid overflow issues
+    // overflow: "hidden", // Clip the inner content to avoid overflow issues
   },
   blueRectangle: {
     borderRadius: 15,
@@ -61,14 +62,10 @@ const styles = StyleSheet.create({
     justifyContent: "flex-end", // Move content to the bottom
     padding: 15,
   },
-  contentContainer: {
-    paddingBottom: 30, // Add some padding at the bottom of the content
-  },
   title: {
     color: "white",
-    // fontSize: fontSize,
     fontWeight: "bold",
-    marginBottom: '13%',
+    // Remove the marginBottom to align the text to the top
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.3,
