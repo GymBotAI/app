@@ -14,32 +14,36 @@ import { Dimensions } from 'react-native';
 export default function CreateWorkoutButton({ handleAddWorkout }) {
   const { width, height } = Dimensions.get('window');
   const fontSize = Math.min(width, height) * 0.095;
-  const buttonHeight = height * 0.24;
-  const bottomHeight = height * 0.055;
+  const fontSize2 = Math.min(width, height) * 0.055;
+  const cameraSize = Math.min(width, height) * 0.065;
+  const buttonPadding = Math.min(width, height) * 0.025;
+
+  const containerHeight = Math.min(width, height) * .5;
+  const buttonHeight = (containerHeight/2.6);
 
   return (
-    <View style={[styles.container, { height: buttonHeight }]}>
+    <View style={[styles.container, { height: containerHeight }]}>
       <LinearGradient
         colors={["#1877f2", "#82b7ff"]}
         style={styles.blueRectangle}
       >
-        <Text style={[styles.title, { fontSize }, {marginBottom: bottomHeight}]}>Create a Workout</Text>
+        {/* <Text style={[styles.title, { fontSize }, {marginBottom: bottomHeight}]}>Create a Workout</Text> */}
 
-        <View style={styles.buttonsContainer}>
+        <View style={[styles.buttonsContainer, {height: buttonHeight}]}>
           <TouchableOpacity
-            style={styles.designButtonContainer}
+            style={[styles.designButtonContainer, {paddingVertical: buttonPadding}]}
             onPress={handleAddWorkout}
           >
-            <Text style={styles.addText}>Design</Text>
-            <AntDesign name="arrowright" size={24} color="black" />
+            <Text style={[styles.addText, {fontSize: fontSize2}]}>Design</Text>
+            <AntDesign name="arrowright" size={cameraSize} color="black" />
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={styles.createButtonContainer}
+            style={[styles.designButtonContainer, {paddingVertical: buttonPadding}]}
             onPress={handleAddWorkout}
           >
-            <Text style={styles.addText}>Explore</Text>
-            <AntDesign name="arrowright" size={24} color="black" />
+            <Text style={[styles.addText, {fontSize: fontSize2}]}>Explore</Text>
+            <AntDesign name="arrowright" size={cameraSize} color="black" />
           </TouchableOpacity>
         </View>
       </LinearGradient>
@@ -80,19 +84,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     width: "48%", // Adjust the button widths
     borderRadius: 5,
-    paddingVertical: 10,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.3,
-    shadowRadius: 3,
-    elevation: 2,
-  },
-  createButtonContainer: {
-    backgroundColor: "white",
-    width: "48%", // Adjust the button widths
-    borderRadius: 5,
-    paddingVertical: 10,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: { width: 0, height: 1 },
@@ -102,7 +93,6 @@ const styles = StyleSheet.create({
   },
   addText: {
     color: "black",
-    fontSize: 21,
     fontWeight: "bold",
     marginBottom: 5,
   },
