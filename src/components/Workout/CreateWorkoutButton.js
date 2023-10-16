@@ -20,14 +20,17 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
 
   const containerHeight = Math.min(width, height) * .5;
   const buttonHeight = (containerHeight/2.6);
+  const bottomHeight = (containerHeight/4.5);
+  
+  const linearPadding = (containerHeight/12)
 
   return (
     <View style={[styles.container, { height: containerHeight }]}>
       <LinearGradient
         colors={["#1877f2", "#82b7ff"]}
-        style={styles.blueRectangle}
+        style={[styles.blueRectangle, {padding: linearPadding}]}
       >
-        {/* <Text style={[styles.title, { fontSize }, {marginBottom: bottomHeight}]}>Create a Workout</Text> */}
+        <Text style={[styles.title, { fontSize }, {marginBottom: bottomHeight}]}>Create a Workout</Text>
 
         <View style={[styles.buttonsContainer, {height: buttonHeight}]}>
           <TouchableOpacity
