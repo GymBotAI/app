@@ -34,7 +34,9 @@ export default function LoginBox({
     } else if ("error" in loginResult) {
       onError(loginResult.error);
     } else {
-      onError(new Error('Unreachable in LoginBox handleLogin, no success or error'));
+      onError(
+        new Error("Unreachable in LoginBox handleLogin, no success or error")
+      );
     }
   };
 

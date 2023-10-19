@@ -29,7 +29,7 @@ export default function ChatInput({
   }>;
   onDeletePrompts: () => void;
 }) {
-  const [text, setText] = useState(value || '');
+  const [text, setText] = useState(value || "");
   const [fontLoaded, setFontLoaded] = useState(false);
 
   // Load font

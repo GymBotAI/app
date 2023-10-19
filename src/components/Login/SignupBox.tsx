@@ -29,7 +29,9 @@ export default function SignupBox({
     } else if ("error" in loginResult) {
       onError(loginResult.error);
     } else {
-      onError(new Error('Unreachable in SignupBox handleSignup, no success or error'));
+      onError(
+        new Error("Unreachable in SignupBox handleSignup, no success or error")
+      );
     }
   };
 

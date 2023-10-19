@@ -47,8 +47,6 @@ const Slider = ({ navigation }) => {
   const [index, setIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
 
-  
-
   const handleOnViewableItemsChanged = useRef(({ viewableItems }) => {
     // console.log('viewableItems', viewableItems);
     setIndex(viewableItems[0].index);

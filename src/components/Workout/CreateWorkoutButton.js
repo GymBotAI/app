@@ -8,44 +8,57 @@ import {
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
-import { Dimensions } from 'react-native';
-
+import { Dimensions } from "react-native";
 
 export default function CreateWorkoutButton({ handleAddWorkout }) {
-  const { width, height } = Dimensions.get('window');
+  const { width, height } = Dimensions.get("window");
   const fontSize = Math.min(width, height) * 0.095;
   const fontSize2 = Math.min(width, height) * 0.055;
   const cameraSize = Math.min(width, height) * 0.065;
   const buttonPadding = Math.min(width, height) * 0.025;
 
-  const containerHeight = Math.min(width, height) * .5;
-  const buttonHeight = (containerHeight/2.6);
-  const bottomHeight = (containerHeight/4.5);
-  
-  const linearPadding = (containerHeight/12)
+  const containerHeight = Math.min(width, height) * 0.5;
+  const buttonHeight = containerHeight / 2.6;
+  const bottomHeight = containerHeight / 4.5;
+
+  const linearPadding = containerHeight / 12;
 
   return (
     <View style={[styles.container, { height: containerHeight }]}>
       <LinearGradient
         colors={["#1877f2", "#82b7ff"]}
-        style={[styles.blueRectangle, {padding: linearPadding}]}
+        style={[styles.blueRectangle, { padding: linearPadding }]}
       >
-        <Text style={[styles.title, { fontSize }, {marginBottom: bottomHeight}]}>Create a Workout</Text>
+        <Text
+          style={[styles.title, { fontSize }, { marginBottom: bottomHeight }]}
+        >
+          Create a Workout
+        </Text>
 
-        <View style={[styles.buttonsContainer, {height: buttonHeight}]}>
+        <View style={[styles.buttonsContainer, { height: buttonHeight }]}>
           <TouchableOpacity
-            style={[styles.designButtonContainer, {paddingVertical: buttonPadding}]}
+            style={[
+              styles.designButtonContainer,
+              { paddingVertical: buttonPadding },
+            ]}
             onPress={handleAddWorkout}
           >
-            <Text style={[styles.addText, {fontSize: fontSize2}]}>Design</Text>
+            <Text style={[styles.addText, { fontSize: fontSize2 }]}>
+              Design
+            </Text>
             <AntDesign name="arrowright" size={cameraSize} color="black" />
           </TouchableOpacity>
 
           <TouchableOpacity
-            style={[styles.designButtonContainer, {paddingVertical: buttonPadding}]}
+            style={[
+              styles.designButtonContainer,
+              { paddingVertical: buttonPadding },
+            ]}
             onPress={handleAddWorkout}
           >
-            <Text style={[styles.addText, {fontSize: fontSize2}]}>Explore</Text>
+            <Text style={[styles.addText, { fontSize: fontSize2 }]}>
+              Explore
+            </Text>
             <AntDesign name="arrowright" size={cameraSize} color="black" />
           </TouchableOpacity>
         </View>

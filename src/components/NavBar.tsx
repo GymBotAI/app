@@ -4,11 +4,14 @@ import { FontAwesome5 } from "@expo/vector-icons";
 
 import type { NavigationProp, NavigationScreen } from "../types/navigation";
 
-export default function GymBotNavigation({ navigation, currentScreen }: {
-  navigation: NavigationProp,
-  currentScreen: NavigationScreen,
+export default function GymBotNavigation({
+  navigation,
+  currentScreen,
+}: {
+  navigation: NavigationProp;
+  currentScreen: NavigationScreen;
 }) {
-  const navIcons: { [screenName in NavigationScreen]?: string; } = {
+  const navIcons: { [screenName in NavigationScreen]?: string } = {
     Home: "home",
     Plans: "clipboard",
     Workouts: "dumbbell",
@@ -18,30 +21,32 @@ export default function GymBotNavigation({ navigation, currentScreen }: {
 
   return (
     <View style={styles.container}>
-      {(Object.entries(navIcons) as [NavigationScreen, string][]).map(([name, iconName]) => (
-        <TouchableOpacity
-          key={name}
-          style={styles.button}
-          onPress={() => {
-            navigation.navigate(name);
-          }}
-        >
-          <FontAwesome5
-            name={iconName}
-            size={27}
-            color={currentScreen === name ? "#1678e0" : "#333"}
-            style={styles.icon}
-          />
-          <Text
-            style={[
-              styles.buttonText,
-              { color: currentScreen === name ? "#1678e0" : "#333" },
-            ]}
+      {(Object.entries(navIcons) as [NavigationScreen, string][]).map(
+        ([name, iconName]) => (
+          <TouchableOpacity
+            key={name}
+            style={styles.button}
+            onPress={() => {
+              navigation.navigate(name);
+            }}
           >
-            {name}
-          </Text>
-        </TouchableOpacity>
-      ))}
+            <FontAwesome5
+              name={iconName}
+              size={27}
+              color={currentScreen === name ? "#1678e0" : "#333"}
+              style={styles.icon}
+            />
+            <Text
+              style={[
+                styles.buttonText,
+                { color: currentScreen === name ? "#1678e0" : "#333" },
+              ]}
+            >
+              {name}
+            </Text>
+          </TouchableOpacity>
+        )
+      )}
     </View>
   );
 }
