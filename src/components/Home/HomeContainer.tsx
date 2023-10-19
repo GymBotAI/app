@@ -22,12 +22,12 @@ export default function HomeContainer({ navigation }) {
     <ScrollView style={styles.container}>
       {/* Top Section */}
       <View style={styles.topSection}>
-        <Text style={styles.greetingText}>
-          Hello, {session?.user.email}
-        </Text>
-        <TouchableOpacity onPress={() => {
-          navigation.navigate("Settings");
-        }}>
+        <Text style={styles.greetingText}>Hello, {session?.user.email}</Text>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Settings");
+          }}
+        >
           <FontAwesome5 name="cog" size={28} color="#333" />
           {/* <Image source={require("../../../assets/GymBotLogo.jpg")} style={{
     width: 50, height: 50, borderRadius: 22}}/> */}
