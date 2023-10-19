@@ -1,5 +1,11 @@
+import { useEffect,useState } from "react";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+import { AppContext } from "./src/components/context/AppContext";
+
+import { supabase } from "./src/api/supabase";
 
 import Home from "./src/screens/navbarScreens/Home";
 import Plans from "./src/screens/navbarScreens/Plans";
@@ -18,7 +24,21 @@ import type { NavigationScreens } from "./src/types/navigation";
 const Stack = createNativeStackNavigator<NavigationScreens>();
 
 export default function App() {
+  const [appContext, setAppContext] = useState({
+    session:null});
+
+    useEffect(() => {
+      supabase.auth.getSession().then(({ data: { session } }) => {
+        setAppContext((prev) => ({ ...prev, session }))
+      })
+  
+      supabase.auth.onAuthStateChange((_event, session) => {
+        setAppContext((prev) => ({ ...prev, session }))
+      })
+    }, [setAppContext])
+
   return (
+    <AppContext.Provider value={appContext}>
     <NavigationContainer>
       <Stack.Navigator
         screenOptions={{
@@ -40,6 +60,6 @@ export default function App() {
 
         <Stack.Screen name="Settings" component={Settings} />
       </Stack.Navigator>
-    </NavigationContainer>
+    </NavigationContainer></AppContext.Provider>
   );
 }
