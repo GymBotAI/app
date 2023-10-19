@@ -49,8 +49,6 @@ export default function HomeScreen({ navigation }) {
     // }
   };
 
-  console.debug(appContext);
-
   return (
     <ScrollView style={styles.container}>
       {/* Top Section */}
