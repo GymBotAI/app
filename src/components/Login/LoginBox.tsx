@@ -10,13 +10,15 @@ import { Image } from "expo-image";
 
 import { login } from "../../api/auth";
 
+import type { User } from "@supabase/supabase-js";
+
 export default function LoginBox({
   onLogin,
   onError,
   onCreateAccount,
 }: {
-  onLogin: (userId: number) => void;
-  onError: (error: string) => void;
+  onLogin: (user: User) => void;
+  onError: (error: Error) => void;
   onCreateAccount: () => void;
 }) {
   const [username, setUsername] = useState("");
@@ -28,11 +30,11 @@ export default function LoginBox({
     // For testing use One for email and Two for password
 
     if (loginResult.success) {
-      onLogin(loginResult.userId);
+      onLogin(loginResult.user);
     } else if ("error" in loginResult) {
       onError(loginResult.error);
     } else {
-      onError("Unreachable error");
+      onError(new Error('Unreachable in LoginBox handleLogin, no success or error'));
     }
   };
 
