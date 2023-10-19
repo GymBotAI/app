@@ -104,7 +104,7 @@ const Slider = ({ navigation }) => {
             setShowLogin(false);
           }}
           onError={(error) => {
-            Alert.alert("Error logging in", error);
+            Alert.alert("Error logging in", error.message);
           }}
           onCreateAccount={() => {
             navigation.navigate("Register");
