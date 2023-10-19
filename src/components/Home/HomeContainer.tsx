@@ -21,7 +21,7 @@ export let weightSetting = "";
 export let heightSetting = "";
 export let genderSetting = "";
 
-export default function HomeScreen ({ navigation })  {
+export default function HomeScreen({ navigation }) {
   const appContext = useContext(AppContext);
 
   const getDetails = async (emailVal: string) => {
@@ -49,14 +49,16 @@ export default function HomeScreen ({ navigation })  {
     // }
   };
 
-  console.debug(appContext)
+  console.debug(appContext);
 
   return (
     <ScrollView style={styles.container}>
       {/* Top Section */}
       <View style={styles.topSection}>
-        <Text style={styles.greetingText}>Hello, {appContext.session?.user.email}</Text>
-        <TouchableOpacity onPress={() => getDetails(/*emailValue*/'')}>
+        <Text style={styles.greetingText}>
+          Hello, {appContext.session?.user.email}
+        </Text>
+        <TouchableOpacity onPress={() => getDetails(/*emailValue*/ "")}>
           <FontAwesome5 name="cog" size={28} color="#333" />
           {/* <Image source={require("../../../assets/GymBotLogo.jpg")} style={{
     width: 50, height: 50, borderRadius: 22}}/> */}
@@ -84,7 +86,7 @@ export default function HomeScreen ({ navigation })  {
       <WorkoutList navigation={navigation} />
     </ScrollView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -104,5 +106,3 @@ const styles = StyleSheet.create({
     color: "#333",
   },
 });
-
-

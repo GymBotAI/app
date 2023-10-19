@@ -1,4 +1,4 @@
-import { useEffect,useState } from "react";
+import { useEffect, useState } from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -25,41 +25,43 @@ const Stack = createNativeStackNavigator<NavigationScreens>();
 
 export default function App() {
   const [appContext, setAppContext] = useState({
-    session:null});
+    session: null,
+  });
 
-    useEffect(() => {
-      supabase.auth.getSession().then(({ data: { session } }) => {
-        setAppContext((prev) => ({ ...prev, session }))
-      })
-  
-      supabase.auth.onAuthStateChange((_event, session) => {
-        setAppContext((prev) => ({ ...prev, session }))
-      })
-    }, [setAppContext])
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setAppContext((prev) => ({ ...prev, session }));
+    });
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setAppContext((prev) => ({ ...prev, session }));
+    });
+  }, [setAppContext]);
 
   return (
     <AppContext.Provider value={appContext}>
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerShown: false, // Hide the default header
-          animation: "none",
-        }}
-      >
-        <Stack.Screen name="Account" component={Account} />
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="SignUp" component={SignUp} />
+      <NavigationContainer>
+        <Stack.Navigator
+          screenOptions={{
+            headerShown: false, // Hide the default header
+            animation: "none",
+          }}
+        >
+          <Stack.Screen name="Account" component={Account} />
+          <Stack.Screen name="Login" component={Login} />
+          <Stack.Screen name="SignUp" component={SignUp} />
 
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Plans" component={Plans} />
-        <Stack.Screen name="Workouts" component={Workouts} />
-        <Stack.Screen name="Food" component={Food} />
-        <Stack.Screen name="Chat" component={Chat} />
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Plans" component={Plans} />
+          <Stack.Screen name="Workouts" component={Workouts} />
+          <Stack.Screen name="Food" component={Food} />
+          <Stack.Screen name="Chat" component={Chat} />
 
-        <Stack.Screen name="DesignWorkout" component={DesignWorkout} />
+          <Stack.Screen name="DesignWorkout" component={DesignWorkout} />
 
-        <Stack.Screen name="Settings" component={Settings} />
-      </Stack.Navigator>
-    </NavigationContainer></AppContext.Provider>
+          <Stack.Screen name="Settings" component={Settings} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </AppContext.Provider>
   );
 }
