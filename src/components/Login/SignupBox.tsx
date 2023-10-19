@@ -17,7 +17,6 @@ export default function SignupBox({
 }: {
   onSignup: (user: User) => void;
   onError: (error: Error) => void;
-  onCreateAccount: () => void;
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
