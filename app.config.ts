@@ -33,13 +33,17 @@ const debugLogs = {
 } as (typeof AppConfig)["extra"]["debugLogs"];
 
 // Log debug logs config
-setTimeout(() => {
-  for (const [module, enabled] of Object.entries(debugLogs)) {
-    console.debug(
-      `Debug logs for ${module}\t are ${enabled ? "enabled" : "disabled"}`
-    );
-  }
-}, 3000);
+if (!process.env.GYMBOT_HAS_LOGGED_DEBUG_LOGS) {
+  setTimeout(() => {
+    for (const [module, enabled] of Object.entries(debugLogs)) {
+      console.debug(
+        `Debug logs for ${module}\t are ${enabled ? "enabled" : "disabled"}`
+      );
+    }
+  }, 3000);
+
+  process.env.GYMBOT_HAS_LOGGED_DEBUG_LOGS = "1";
+}
 
 export default {
   extra: {
