@@ -1,6 +1,8 @@
 import Constants from "expo-constants";
 
-import { httpServerAddr } from "./address";
+import { supabase } from "./supabase";
+
+import type { User } from "@supabase/supabase-js";
 
 /**
  * Whether or not to log debug messages.
@@ -8,56 +10,48 @@ import { httpServerAddr } from "./address";
 const debug: boolean = __DEV__ && Constants.expoConfig.extra.debugLogs.auth;
 
 export async function login(
-  username: string,
+  email: string,
   password: string
 ): Promise<
   | {
       success: true;
-      userId: number;
+      user: User;
     }
   | {
       success: false;
-      error: string;
+      error: Error;
     }
 > {
   if (debug) {
     console.debug(
-      `[GymBot/API/auth] Logging in with username "${username}" and password "${password}"`
+      `[GymBot/API/auth] Logging in with email "${email}" and password "${password}"`
     );
   }
 
-  const response = await fetch(`${httpServerAddr}/login`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      username,
-      password,
-    }),
+  const response = await supabase.auth.signInWithPassword({
+    email,
+    password,
   });
 
-  const responseText = await response.text();
-
-  if (response.ok) {
+  if (response.data.user) {
     if (debug) {
-      console.debug(`[GymBot/API/auth] Logged in as user ID "${responseText}"`);
+      console.debug(
+        `[GymBot/API/auth] Logged in as user ID "${response.data.user.id}"`
+      );
     }
 
     return {
       success: true,
-      userId: parseInt(responseText),
+      user: response.data.user, // TODO: return the user object instead
     };
   }
 
   if (debug) {
-    console.debug(
-      `[GymBot/API/auth] Failed to log in: ${response.status} "${responseText}"`
-    );
+    console.debug("[GymBot/API/auth] Failed to log in:", response.error);
   }
 
   return {
     success: false,
-    error: responseText,
+    error: response.error,
   };
 }
