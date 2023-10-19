@@ -47,22 +47,7 @@ const Slider = ({ navigation }) => {
   const [index, setIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
 
-  const handleOnScroll = (event) => {
-    Animated.event(
-      [
-        {
-          nativeEvent: {
-            contentOffset: {
-              x: scrollX,
-            },
-          },
-        },
-      ],
-      {
-        useNativeDriver: false,
-      }
-    )(event);
-  };
+  
 
   const handleOnViewableItemsChanged = useRef(({ viewableItems }) => {
     // console.log('viewableItems', viewableItems);
@@ -144,7 +129,7 @@ const Slider = ({ navigation }) => {
       <View
         style={{
           position: "absolute",
-          zIndex: "1",
+          zIndex: 1,
           top: 50,
           width: "100%",
           flexDirection: "row",
@@ -166,7 +151,22 @@ const Slider = ({ navigation }) => {
         pagingEnabled
         snapToAlignment="center"
         showsHorizontalScrollIndicator={false}
-        onScroll={handleOnScroll}
+        onScroll={(event) => {
+          Animated.event(
+            [
+              {
+                nativeEvent: {
+                  contentOffset: {
+                    x: scrollX,
+                  },
+                },
+              },
+            ],
+            {
+              useNativeDriver: false,
+            }
+          )(event);
+        }}
         onViewableItemsChanged={handleOnViewableItemsChanged}
         viewabilityConfig={viewabilityConfig}
         bounces={false}
