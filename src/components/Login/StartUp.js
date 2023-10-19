@@ -16,7 +16,7 @@ import SlideItem from "./SlideItem";
 import Pagination from "./Pagination";
 import Modal from "react-native-modal";
 import LoginBox from "./LoginBox";
-import SignUpBox from "./SignUpBox";
+import SignupBox from "./SignupBox";
 
 const Slides = [
   {
@@ -130,7 +130,15 @@ const Slider = ({ navigation }) => {
           <Feather name="x-circle" size={40} color="white" />
         </TouchableOpacity>
 
-        <SignUpBox navigation={navigation} setShowSignUp={setShowSignUp} />
+        <SignupBox
+          onSignup={() => {
+            navigation.navigate("Home");
+            setShowSignUp(false);
+          }}
+          onError={(error) => {
+            Alert.alert("Error signing up", error.message);
+          }}
+        />
       </Modal>
 
       <View

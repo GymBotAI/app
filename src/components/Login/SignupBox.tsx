@@ -6,35 +6,31 @@ import {
   Text,
   StyleSheet,
 } from "react-native";
-import { Image } from "expo-image";
 
-import { login } from "../../api/auth";
+import { signup } from "../../api/auth";
 
 import type { User } from "@supabase/supabase-js";
 
-export default function LoginBox({
-  onLogin,
+export default function SignupBox({
+  onSignup,
   onError,
-  onCreateAccount,
 }: {
-  onLogin: (user: User) => void;
+  onSignup: (user: User) => void;
   onError: (error: Error) => void;
   onCreateAccount: () => void;
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
-    const loginResult = await login(email, password);
-
-    // For testing use One for email and Two for password
+  const handleSignup = async () => {
+    const loginResult = await signup(email, password);
 
     if (loginResult.success) {
-      onLogin(loginResult.user);
+      onSignup(loginResult.user);
     } else if ("error" in loginResult) {
       onError(loginResult.error);
     } else {
-      onError(new Error('Unreachable in LoginBox handleLogin, no success or error'));
+      onError(new Error('Unreachable in SignupBox handleSignup, no success or error'));
     }
   };
 
@@ -57,10 +53,6 @@ export default function LoginBox({
         secureTextEntry
       />
 
-      <TouchableOpacity>
-        <Text style={styles.forgotText}>Forgot Password?</Text>
-      </TouchableOpacity>
-
       <View
         style={{
           marginTop: 30,
@@ -70,26 +62,10 @@ export default function LoginBox({
           flexDirection: "column",
         }}
       >
-        <TouchableOpacity style={styles.login} onPress={handleLogin}>
-          <Text style={styles.loginText}>Login</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={styles.signup} onPress={onCreateAccount}>
-          <Text style={styles.signupText}>Sign Up Instead</Text>
+        <TouchableOpacity style={styles.login} onPress={handleSignup}>
+          <Text style={styles.loginText}>Signup</Text>
         </TouchableOpacity>
       </View>
-
-      <TouchableOpacity style={styles.signInWithGoogleButton}>
-        <View style={styles.googleButtonContent}>
-          <Image
-            source={require("../../../assets/google.webp")}
-            style={styles.googleLogo}
-          />
-          <Text style={styles.signInWithGoogleButtonText}>
-            Continue with Google
-          </Text>
-        </View>
-      </TouchableOpacity>
     </View>
   );
 }
