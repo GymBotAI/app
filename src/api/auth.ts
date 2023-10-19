@@ -42,12 +42,50 @@ export async function login(
 
     return {
       success: true,
-      user: response.data.user, // TODO: return the user object instead
+      user: response.data.user,
     };
   }
 
   if (debug) {
     console.debug("[GymBot/API/auth] Failed to log in:", response.error);
+  }
+
+  return {
+    success: false,
+    error: response.error,
+  };
+}
+
+export async function signup(
+  email: string,
+  password: string
+): ReturnType<typeof login> {
+  if (debug) {
+    console.debug(
+      `[GymBot/API/auth] Signing up in with email "${email}" and password "${password}"`
+    );
+  }
+
+  const response = await supabase.auth.signUp({
+    email,
+    password,
+  });
+
+  if (response.data.user) {
+    if (debug) {
+      console.debug(
+        `[GymBot/API/auth] Signed up as user ID "${response.data.user.id}"`
+      );
+    }
+
+    return {
+      success: true,
+      user: response.data.user,
+    };
+  }
+
+  if (debug) {
+    console.debug("[GymBot/API/auth] Failed to sign uo:", response.error);
   }
 
   return {
