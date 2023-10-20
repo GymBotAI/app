@@ -18,12 +18,12 @@ import { minWeight } from "../../styles";
 import { maxWeight } from "../../styles";
 
 export default function Settings({ navigation }) {
-  const [name, setName] = useState('your name (TODO)');
+  const [name, setName] = useState("your name (TODO)");
   const [newName, setNewName] = useState("");
-  const [bday, setBday] = useState('your birthday (TODO)');
-  const [gender, setGender] = useState('your gender (TODO)');
-  const [weight, setWeight] = useState('your weight (TODO)');
-  const [height, setHeight] = useState('your height (TODO)');
+  const [bday, setBday] = useState("your birthday (TODO)");
+  const [gender, setGender] = useState("your gender (TODO)");
+  const [weight, setWeight] = useState("your weight (TODO)");
+  const [height, setHeight] = useState("your height (TODO)");
 
   const handleSaveChanges = () => {
     // Perform saving changes logic here
@@ -45,7 +45,6 @@ export default function Settings({ navigation }) {
     //       HEIGHT: height,
     //     }),
     //   });
-
     //   const data = await response.json();
     //   return data; // Return the response data
     // } catch (error) {

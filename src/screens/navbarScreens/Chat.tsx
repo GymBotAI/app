@@ -1,5 +1,5 @@
 import { useRef, useContext } from "react";
-import {Alert, View, StatusBar, TouchableOpacity } from "react-native";
+import { Alert, View, StatusBar, TouchableOpacity } from "react-native";
 
 import { AppContext } from "../../components/context/AppContext";
 
@@ -16,7 +16,7 @@ import { baseServerAddr } from "../../api/address";
 export default function ChatScreen({ navigation }) {
   const chatContainerRef: ChatContainerRef = useRef(null);
 
-  const { session }  = useContext(AppContext);
+  const { session } = useContext(AppContext);
 
   return (
     <View
@@ -30,11 +30,11 @@ export default function ChatScreen({ navigation }) {
           <TouchableOpacity
             onPress={() => {
               Alert.alert(
-                'Debug info',
+                "Debug info",
                 `Server address:\n${baseServerAddr}\n\n` +
-                `WS ready state:\n${chatContainerRef.current?.readyState}\n\n` +
-                `Has authed:\n${chatContainerRef.current?.hasAuthed}\n\n` +
-                `User ID:\n${session?.user.id}`
+                  `WS ready state:\n${chatContainerRef.current?.readyState}\n\n` +
+                  `Has authed:\n${chatContainerRef.current?.hasAuthed}\n\n` +
+                  `User ID:\n${session?.user.id}`
               );
             }}
           >
