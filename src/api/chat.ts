@@ -1,5 +1,7 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useContext } from "react";
 import useWebSocket from "react-use-websocket";
+
+import { AppContext } from "../components/context/AppContext";
 
 import Constants from "expo-constants";
 
@@ -33,6 +35,8 @@ export interface Message {
 }
 
 export function useGymBotAI(initialMessages: Message[] = []) {
+  const { session } = useContext(AppContext);
+
   const [messages, setMessages] = useState(initialMessages);
   const { sendMessage, lastMessage, readyState } = useWebSocket(
     `${wsServerAddr}/chat`,
@@ -46,6 +50,7 @@ export function useGymBotAI(initialMessages: Message[] = []) {
         }
 
         sendMessage(secret);
+        sendMessage(session.access_token);
         setHasAuthed(true);
       },
       onClose() {
