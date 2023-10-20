@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextInput, View, StyleSheet, Pressable } from "react-native";
+import { TextInput, View, StyleSheet, Pressable, Text } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
 import { minDate, maxDate } from "../../styles";
 
@@ -9,6 +9,7 @@ export default function Age({ onAgeChange, ageVal, setAgeVal }) {
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [date, setDate] = useState(new Date());
   const [showPicker, setShowPicker] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const toggleShow = () => {
     setShowPicker(!showPicker);
@@ -36,6 +37,12 @@ export default function Age({ onAgeChange, ageVal, setAgeVal }) {
       console.log("Age");
       ageVal = calculateAge(dateValue);
       console.log(ageVal);
+
+      if (ageVal < 12) {
+        setErrorMessage("You must be over 12 to sign up.");
+      } else {
+        setErrorMessage("");
+      }
     }
   };
 
@@ -51,6 +58,10 @@ export default function Age({ onAgeChange, ageVal, setAgeVal }) {
           onPressIn={toggleShow}
         />
       </Pressable>
+
+      {errorMessage ? (
+        <Text style={styles.error}>{errorMessage}</Text>
+      ) : null}
 
       <DateTimePicker
         mode="date"
@@ -74,5 +85,10 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     paddingHorizontal: 2,
     marginHorizontal: 10,
+  },
+  error: {
+    color: "red",
+    marginHorizontal: 10,
+    marginTop: 5,
   },
 });
