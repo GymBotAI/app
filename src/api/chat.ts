@@ -22,10 +22,6 @@ if (debug) {
   console.debug("[GymBot/API/chat] Using server address:", wsServerAddr);
 }
 
-const secret = [53, 54, 99, 104, 97]
-  .map((c) => String.fromCharCode(c))
-  .join("");
-
 const workoutScreenRegex = /^\s*\u0007\s*$/;
 
 export interface Message {
@@ -49,7 +45,6 @@ export function useGymBotAI(initialMessages: Message[] = []) {
           console.debug("[GymBot/API/chat] Sending auth secret to chat WS...");
         }
 
-        sendMessage(secret);
         sendMessage(session.access_token);
         setHasAuthed(true);
       },
