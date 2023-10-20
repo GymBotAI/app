@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { View, StatusBar, TouchableOpacity } from "react-native";
+import {Alert, View, StatusBar, TouchableOpacity } from "react-native";
 
 import ChatContainer, {
   ChatContainerRef,
@@ -25,7 +25,8 @@ export default function ChatScreen({ navigation }) {
         {__DEV__ ? (
           <TouchableOpacity
             onPress={() => {
-              alert(
+              Alert.alert(
+                'Debug info',
                 `Server address:\n${baseServerAddr}\n\nWS ready state:\n${chatContainerRef.current?.readyState}\n\nHas authed:\n${chatContainerRef.current?.hasAuthed}`
               );
             }}
