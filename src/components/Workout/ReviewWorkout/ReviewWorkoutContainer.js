@@ -55,10 +55,13 @@ export default function ReviewWorkoutContainer({
           style={{
             fontSize: 15,
             marginLeft: 17,
+            marginRight: 30,
           }}
           value={description}
           onChangeText={setDescription}
           placeholder="Workout description"
+  multiline={true} // Set multiline to true
+  numberOfLines={4} // Set the number of lines you want to display
         />
 
         <View
