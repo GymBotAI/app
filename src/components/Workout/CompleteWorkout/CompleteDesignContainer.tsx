@@ -66,8 +66,7 @@ export default function CompleteDesignContainer ({
       ) : null}
 
       <Modal visible={showModal} style={{}}>
-        <Text
-        style={{fontSize: 150}}>Hi</Text>
+        <ReviewWorkoutContainer/>
       </Modal>
 
       <TouchableOpacity onPress={() => setShowModal(!showModal)} style={[styles.button]}>
