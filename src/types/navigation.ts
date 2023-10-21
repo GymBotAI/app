@@ -12,6 +12,7 @@ export type NavigationScreens = {
   Chat: undefined;
 
   DesignWorkout: undefined;
+  CompleteWorkout: undefined;
   Settings: undefined;
 };
 export type NavigationScreen = keyof NavigationScreens;
