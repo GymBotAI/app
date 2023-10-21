@@ -72,9 +72,9 @@ export default function ReviewWorkoutContainer({
 
         <TouchableOpacity
           onPress={() => setShowModal(false)}
-          // style={styles.button2}
+          style={styles.saveButton}
         >
-          <Text style={styles.buttonText}>Save Workout</Text>
+          <Text style={styles.text}>Complete Workout</Text>
         </TouchableOpacity>
       </SafeAreaView>
     </>
@@ -91,6 +91,19 @@ const styles = StyleSheet.create({
     marginLeft: 2,
     flexDirection: "row",
     alignItems: "center",
+  },
+  saveButton: {
+    position: 'absolute',
+    bottom: 40,
+    alignSelf: "center",
+    width: "90%",
+    backgroundColor: "#1260de",
+    borderRadius: 8,
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 5,
   },
   button: {
     alignSelf: "center",
