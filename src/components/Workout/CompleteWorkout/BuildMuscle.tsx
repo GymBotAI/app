@@ -56,11 +56,14 @@ const upperExercises = [
 const bothExercises = [...lowerExercises, ...upperExercises];
 
 export default function ExerciseSelectionScreen({
+  setSelectedExercises,
+  selectedExercises,
   subGoal,
 }: {
   subGoal: WorkoutSubGoal;
+  setSelectedExercises: any;
+  selectedExercises: any;
 }) {
-  const [selectedExercises, setSelectedExercises] = useState([]);
 
   let exercisesToDisplay = [];
 

@@ -1,23 +1,35 @@
-import React from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet, SafeAreaView, ScrollView, TextInput } from 'react-native';
 
-export default function App() {
+// Assume that you have imported the selectedExercises array separately
+
+export default function ReviewWorkoutContainer({setExercises}) {
+  const [exerciseSets, setExerciseSets] = useState([]);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        {/* <Image source={require('./path_to_your_sound_icon.png')} style={styles.icon} /> */}
         <Text style={styles.time}>73:26</Text>
-        {/* <Image source={require('./path_to_your_menu_icon.png')} style={styles.icon} /> */}
       </View>
       <Text style={styles.title}>Exercises</Text>
-      <View style={styles.exerciseList}>
-        {/* Map over your exercises and render each exercise item here */}
-        <View style={styles.exerciseItem}>
-          <Text style={styles.exerciseName}>Euring</Text>
-          <Text style={styles.exerciseTime}>03:38</Text>
-        </View>
-        {/* ... add more exercise items */}
-      </View>
+      <ScrollView style={styles.exerciseList}>
+        {selectedExercises.map((exercise, index) => (
+          <View key={index} style={styles.exerciseItem}>
+            <Text style={styles.exerciseName}>{exercise.name}</Text>
+            <TextInput
+              style={styles.inputSets}
+              placeholder="Sets"
+              keyboardType="numeric"
+              value={exerciseSets[index]}
+              onChangeText={(value) => {
+                const updatedSets = [...exerciseSets];
+                updatedSets[index] = value;
+                setExerciseSets(updatedSets);
+              }}
+            />
+          </View>
+        ))}
+      </ScrollView>
       <TouchableOpacity style={styles.button}>
         <Text style={styles.buttonText}>Save Workout</Text>
       </TouchableOpacity>
@@ -29,12 +41,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#F7F7F7',
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    padding: 10,
+    backgroundColor: '#FFFFFF',
   },
   icon: {
     width: 24,
@@ -44,28 +58,32 @@ const styles = StyleSheet.create({
     fontSize: 20,
   },
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: 'bold',
     marginVertical: 20,
   },
   exerciseList: {
-    // Add styles for the list of exercises
+    backgroundColor: '#FFFFFF',
+    borderRadius: 10,
+    marginBottom: 20,
   },
   exerciseItem: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    marginBottom: 10,
-    // ... additional styles for each exercise item
+    padding: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: '#E0E0E0',
   },
   exerciseName: {
-    fontSize: 16,
+    fontSize: 18,
   },
-  exerciseTime: {
-    fontSize: 16,
+  inputSets: {
+    fontSize: 18,
+    width: 50,
+    textAlign: 'center',
   },
   button: {
-    marginTop: 20,
     padding: 15,
     backgroundColor: 'black',
     borderRadius: 10,
@@ -73,6 +91,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     color: 'white',
-    fontSize: 18,
+    fontSize: 20,
   },
 });

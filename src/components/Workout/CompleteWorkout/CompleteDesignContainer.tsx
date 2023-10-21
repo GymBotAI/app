@@ -18,6 +18,8 @@ export default function CompleteDesignContainer ({
   const [showModal, setShowModal] = useState(false);
   const [goalText, setGoalText] = useState("What is your goal?");
 
+  const [selectedExercises, setSelectedExercises] = useState([]);
+
   useEffect(() => {
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
@@ -62,11 +64,11 @@ export default function CompleteDesignContainer ({
 
       
       {goal == "Build Muscle" ? (
-        <ExerciseSelectionScreen subGoal={subGoal} />
+        <ExerciseSelectionScreen setSelectedExercises={setSelectedExercises} selectedExercises={selectedExercises} subGoal={subGoal} />
       ) : null}
 
       <Modal visible={showModal} style={{}}>
-        <ReviewWorkoutContainer/>
+        <ReviewWorkoutContainer setExercises={{setSelectedExercises}}/>
       </Modal>
 
       <TouchableOpacity onPress={() => setShowModal(!showModal)} style={[styles.button]}>
