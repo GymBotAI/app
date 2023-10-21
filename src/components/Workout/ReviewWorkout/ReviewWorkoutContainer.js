@@ -5,9 +5,9 @@ export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
-        <Image source={require('./path_to_your_sound_icon.png')} style={styles.icon} />
+        {/* <Image source={require('./path_to_your_sound_icon.png')} style={styles.icon} /> */}
         <Text style={styles.time}>73:26</Text>
-        <Image source={require('./path_to_your_menu_icon.png')} style={styles.icon} />
+        {/* <Image source={require('./path_to_your_menu_icon.png')} style={styles.icon} /> */}
       </View>
       <Text style={styles.title}>Exercises</Text>
       <View style={styles.exerciseList}>
