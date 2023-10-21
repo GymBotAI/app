@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect, useCallback } from "react";
 import {
+  Alert,
   Text,
   TouchableOpacity,
   StyleSheet,
@@ -75,6 +76,16 @@ export default function Settings({
         title="Save"
         onPress={() => {
           Keyboard.dismiss();
+
+          if (weight < minWeight || weight > maxWeight) {
+            Alert.alert(`Weight must be between ${minWeight} and ${maxWeight}`);
+            return;
+          }
+
+          if (height < minHeight || height > maxHeight) {
+            Alert.alert(`Height must be between ${minHeight} and ${maxHeight}`);
+            return;
+          }
 
           supabase
             .from("users")

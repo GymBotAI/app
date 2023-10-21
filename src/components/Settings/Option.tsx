@@ -31,7 +31,7 @@ export interface NumberProps {
 
 export interface DateProps {
   type: "date";
-  value: Date;
+  value: Date | null;
   onChange: (value: Date) => void;
 }
 
@@ -66,13 +66,13 @@ export default function Option({ value, label, type, onChange }: Props) {
               onCancel={() => {}}
               isVisible={isDatePickerVisible}
             />
-            <Text style={styles.current}>{value.toDateString()}</Text>
+            <Text style={styles.current}>{value?.toDateString()}</Text>
           </>
         ) : (
           <TextInput
             ref={textInputRef}
             style={styles.current}
-            value={value.toString()}
+            value={value?.toString()}
             keyboardType={type == "number" ? "numeric" : "default"}
             onChange={(e) => {
               if (type == "number") {
