@@ -11,7 +11,7 @@ import { AppContext } from "../../context/AppContext";
 
 import { supabase } from "../../api/supabase";
 
-import Option from "./NameOption";
+import NameOption from "./NameOption";
 import AgeOption from "./AgeOption";
 import GenderOption from "./GenderOption";
 import WeightOption from "./HeightWeightOption";
@@ -21,12 +21,15 @@ import { maxHeight } from "../../styles";
 import { minWeight } from "../../styles";
 import { maxWeight } from "../../styles";
 
-export default function Settings({ navigation }) {
+import type { NavigationProp } from "../../types/navigation";
+
+export default function Settings({ navigation }: {
+  navigation: NavigationProp
+}) {
   const { session } = useContext(AppContext);
 
   const [name, setName] = useState("");
-  const [newName, setNewName] = useState("");
-  const [bday, setBday] = useState("");
+  const [bday, setBday] = useState<Date | null>(null);
   const [gender, setGender] = useState("");
   const [weight, setWeight] = useState<number | null>(null);
   const [height, setHeight] = useState<number | null>(null);
@@ -42,7 +45,7 @@ export default function Settings({ navigation }) {
           console.log(error);
         } else {
           setName(data.name);
-          setBday(data.birthday);
+          setBday(new Date(data.birthday));
           setGender(data.gender);
           setWeight(data.weight);
           setHeight(data.height);
@@ -78,19 +81,11 @@ export default function Settings({ navigation }) {
     // }
   };
 
-  const handleGoHome = async () => {
-    setNewName(name);
-    navigation.navigate("Home");
-    setName(name);
-    console.log(newName);
-    updateCredentials();
-    // console.log(ageSetting);
-  };
-
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
 
+      <NameOption question="Name" value={name} setValue={setName} />
       {/* <WeightOption question="Name" value={name} setValue={setName} /> */}
       <AgeOption question="Age" value={bday} setValue={setBday} />
       <GenderOption question="Gender" value={gender} setValue={setGender} />
@@ -117,7 +112,9 @@ export default function Settings({ navigation }) {
         conversion={0.393701}
       />
 
-      <TouchableOpacity style={styles.homeButton} onPress={handleGoHome}>
+      <TouchableOpacity style={styles.homeButton} onPress={() => {
+        navigation.navigate("Home");
+      }}>
         <Text style={styles.buttonText}>Go Back</Text>
       </TouchableOpacity>
     </Pressable>
