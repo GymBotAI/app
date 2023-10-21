@@ -23,13 +23,22 @@ export interface TextProps {
   onChange: (value: string) => void;
 }
 
+export interface NumberProps {
+  type: "number";
+  value: string;
+  onChange: (value: string) => void;
+}
+
 export interface DateProps {
   type: "date";
   value: Date | null;
   onChange: (value: Date) => void;
+
+  min?: Date;
+  max?: Date;
 }
 
-export type Props = BaseProps & (TextProps | DateProps);
+export type Props = BaseProps & (TextProps | NumberProps | DateProps);
 
 export default function Option({ value, label, type, onChange }: Props) {
   const textInputRef = useRef<TextInput | null>(null);
@@ -67,6 +76,7 @@ export default function Option({ value, label, type, onChange }: Props) {
             ref={textInputRef}
             style={styles.current}
             value={value?.toString()}
+            keyboardType={type == "number" ? "numeric" : "default"}
             onChange={(e) => {
               onChange(e.nativeEvent.text);
             }}

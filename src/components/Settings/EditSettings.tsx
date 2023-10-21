@@ -63,13 +63,13 @@ export default function Settings({
         label="Weight"
         value={weight?.toString()}
         onChange={setWeight}
-        type="text"
+        type="number"
       />
       <Option
         label="Height"
         value={height?.toString()}
         onChange={setHeight}
-        type="text"
+        type="number"
       />
 
       <TouchableOpacity
