@@ -1,44 +1,78 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React from 'react';
+import { View, Text, Image, TouchableOpacity, StyleSheet, SafeAreaView } from 'react-native';
 
-import ExerciseSelectionScreen from "./BuildMuscle";
-
-
-const ReviewWorkoutContainer = () => {
+export default function App() {
   return (
-    <View style={styles.container}>
-        
-      <TouchableOpacity style={[styles.button]}>
-        <Text style={styles.text}>Save</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Image source={require('./path_to_your_sound_icon.png')} style={styles.icon} />
+        <Text style={styles.time}>73:26</Text>
+        <Image source={require('./path_to_your_menu_icon.png')} style={styles.icon} />
+      </View>
+      <Text style={styles.title}>Exercises</Text>
+      <View style={styles.exerciseList}>
+        {/* Map over your exercises and render each exercise item here */}
+        <View style={styles.exerciseItem}>
+          <Text style={styles.exerciseName}>Euring</Text>
+          <Text style={styles.exerciseTime}>03:38</Text>
+        </View>
+        {/* ... add more exercise items */}
+      </View>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Save Workout</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f2f2f2",
+    padding: 20,
+    backgroundColor: '#FFFFFF',
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  icon: {
+    width: 24,
+    height: 24,
+  },
+  time: {
+    fontSize: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginVertical: 20,
+  },
+  exerciseList: {
+    // Add styles for the list of exercises
+  },
+  exerciseItem: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginBottom: 10,
+    // ... additional styles for each exercise item
+  },
+  exerciseName: {
+    fontSize: 16,
+  },
+  exerciseTime: {
+    fontSize: 16,
   },
   button: {
-    alignSelf: "center",
-    position: "absolute",
-    bottom: 50,
-    width: "90%",
-    backgroundColor: "#1260de",
-    borderRadius: 8,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    elevation: 5,
+    marginTop: 20,
+    padding: 15,
+    backgroundColor: 'black',
+    borderRadius: 10,
+    alignItems: 'center',
   },
-  text: {
-    alignSelf: "center",
-    fontSize: 24,
-    paddingVertical: 10,
-    color: "#dbdbdb",
-    fontWeight: "bold",
+  buttonText: {
+    color: 'white',
+    fontSize: 18,
   },
 });
-
-export default WorkoutSelectionScreen;
