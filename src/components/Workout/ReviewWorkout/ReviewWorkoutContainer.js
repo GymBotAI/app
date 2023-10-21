@@ -87,7 +87,7 @@ export default function ReviewWorkoutContainer({
           onPress={() => setShowModal(false)}
           style={styles.button}
         >
-          <Text style={styles.text}>Add Exercises</Text>
+          <Text style={styles.text}>Add Exercise</Text>
         </TouchableOpacity>
       </SafeAreaView>
     </>
@@ -120,9 +120,9 @@ const styles = StyleSheet.create({
   },
   button: {
     alignSelf: "center",
-    width: "90%",
+    width: "75%",
     backgroundColor: "#1260de",
-    borderRadius: 8,
+    borderRadius: 28,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
