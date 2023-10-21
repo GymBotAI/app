@@ -54,7 +54,7 @@ export default function ReviewWorkoutContainer({
               <Text style={styles.exerciseName}>{exercise}</Text>
               <View style={styles.inputContainer}>
                 <TextInput
-                maxLength={3}
+                  maxLength={3}
                   style={styles.inputReps}
                   placeholder="Reps" // Add placeholder for reps
                   keyboardType="numeric"
@@ -67,7 +67,7 @@ export default function ReviewWorkoutContainer({
                 />
                 <Text>x</Text>
                 <TextInput
-                maxLength={1}
+                  maxLength={1}
                   style={styles.inputSets}
                   placeholder="Sets"
                   keyboardType="numeric"
@@ -83,7 +83,6 @@ export default function ReviewWorkoutContainer({
           ))}
         </ScrollView>
 
-        
         <TouchableOpacity
           onPress={() => setShowModal(false)}
           style={styles.button}
