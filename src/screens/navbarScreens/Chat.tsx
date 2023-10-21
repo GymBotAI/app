@@ -1,7 +1,7 @@
 import { useRef, useContext } from "react";
 import { Alert, View, StatusBar, TouchableOpacity } from "react-native";
 
-import { AppContext } from "../../components/context/AppContext";
+import { AppContext } from "../../context/AppContext";
 
 import ChatContainer, {
   ChatContainerRef,

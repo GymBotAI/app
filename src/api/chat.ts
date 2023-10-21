@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback, useContext } from "react";
 import useWebSocket from "react-use-websocket";
 
-import { AppContext } from "../components/context/AppContext";
+import { AppContext } from "../context/AppContext";
 
 import { debugLogs } from "./debug-logs";
 import { wsServerAddr } from "./address";

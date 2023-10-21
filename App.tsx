@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import { AppContext } from "./src/components/context/AppContext";
+import { AppContext } from "./src/context/AppContext";
 
 import { supabase } from "./src/api/supabase";
 

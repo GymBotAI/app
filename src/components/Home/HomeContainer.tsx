@@ -7,7 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 
 import { supabase } from "../../api/supabase";
 
