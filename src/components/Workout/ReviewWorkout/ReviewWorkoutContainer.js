@@ -12,7 +12,7 @@ import {
 
 // Assume that you have imported the selectedExercises array separately
 
-export default function ReviewWorkoutContainer({ selectedExercises }) {
+export default function ReviewWorkoutContainer({ selectedExercises, setShowModal }) {
   const [exerciseSets, setExerciseSets] = useState([]);
 
   return (
@@ -40,10 +40,10 @@ export default function ReviewWorkoutContainer({ selectedExercises }) {
             />
           </View>
         ))}
-        
+
       </ScrollView>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity onPress={() => setShowModal(false)}style={styles.button}>
         <Text style={styles.buttonText}>Save Workout</Text>
       </TouchableOpacity>
     </SafeAreaView>

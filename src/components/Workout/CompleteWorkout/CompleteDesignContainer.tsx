@@ -52,7 +52,7 @@ export default function CompleteDesignContainer({ route }) {
         ) : null}
 
         <Modal visible={showModal} style={{}}>
-          <ReviewWorkoutContainer selectedExercises={selectedExercises} />
+          <ReviewWorkoutContainer setShowModal={setShowModal} selectedExercises={selectedExercises} />
         </Modal>
 
         <TouchableOpacity
