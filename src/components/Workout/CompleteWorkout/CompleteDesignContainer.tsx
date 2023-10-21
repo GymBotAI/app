@@ -1,23 +1,30 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
+import { useState } from "react";
 
 import ExerciseSelectionScreen from "./BuildMuscle";
 
 import type { WorkoutSubGoal } from "../../../types/workouts";
 
-const WorkoutSelectionScreen = ({
-  goal,
-  subGoal,
-}: {
-  goal: string;
-  subGoal: WorkoutSubGoal;
-}) => {
+export default function CompleteDesignContainer ({
+  route,
+  navigation,
+}) {
+  const { goal, subGoal } = route.params;
+
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <View style={styles.container}>
       {goal == "Build Muscle" ? (
         <ExerciseSelectionScreen subGoal={subGoal} />
       ) : null}
 
-      <TouchableOpacity style={[styles.button]}>
+      <Modal visible={showModal} style={{}}>
+        <Text
+        style={{fontSize: 150}}>Hi</Text>
+      </Modal>
+
+      <TouchableOpacity onPress={() => setShowModal(!showModal)} style={[styles.button]}>
         <Text style={styles.text}>Continue</Text>
       </TouchableOpacity>
     </View>
@@ -50,5 +57,3 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
 });
-
-export default WorkoutSelectionScreen;
