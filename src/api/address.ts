@@ -1,5 +1,3 @@
-import Constants from "expo-constants";
-
 export type BaseServerAddress = `s://${string}` | `://${string}`;
 export type WsServerAddress = `ws://${string}` | `wss://${string}`;
 export type HttpServerAddress = `http://${string}` | `https://${string}`;
@@ -12,9 +10,9 @@ export type HttpServerAddress = `http://${string}` | `https://${string}`;
  * @example "s://example.com"
  * @example "://example.com"
  */
-export const baseServerAddr: BaseServerAddress =
-  Constants.expoConfig.extra.serverAddress ??
-  Constants.expoConfig.extra.serverAddressDefault;
+export const baseServerAddr =
+  (process.env.EXPO_PUBLIC_GYMBOT_SERVER_ADDRESS as BaseServerAddress) ??
+  "://openhost.ddns.net:3001";
 
 /**
  * The WebSocket address of the GymBot AI server.

@@ -3,8 +3,7 @@ import useWebSocket from "react-use-websocket";
 
 import { AppContext } from "../components/context/AppContext";
 
-import Constants from "expo-constants";
-
+import { debugLogs } from "./debug-logs";
 import { wsServerAddr } from "./address";
 
 /**
@@ -16,7 +15,7 @@ const streamEndToken = "[DONE]";
 /**
  * Whether or not to log debug messages.
  */
-const debug: boolean = __DEV__ && Constants.expoConfig.extra.debugLogs.chat;
+const debug: boolean = __DEV__ && debugLogs.chat;
 
 if (debug) {
   console.debug("[GymBot/API/chat] Using server address:", wsServerAddr);

@@ -1,5 +1,4 @@
-import Constants from "expo-constants";
-
+import { debugLogs } from "./debug-logs";
 import { supabase } from "./supabase";
 
 import type { User } from "@supabase/supabase-js";
@@ -7,7 +6,7 @@ import type { User } from "@supabase/supabase-js";
 /**
  * Whether or not to log debug messages.
  */
-const debug: boolean = __DEV__ && Constants.expoConfig.extra.debugLogs.auth;
+const debug: boolean = __DEV__ && debugLogs.auth;
 
 export async function login(
   email: string,
