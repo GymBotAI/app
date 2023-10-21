@@ -56,15 +56,18 @@ export default function Option({ value, label, type, onChange }: Props) {
       <Text style={styles.itemText}>{label}</Text>
       <View style={styles.itemLeft}>
         {type == "date" ? (
-          <DateTimePickerModal
-            date={value}
-            onConfirm={(date) => {
-              setDatePickerVisibility(false);
-              onChange(date);
-            }}
-            onCancel={() => {}}
-            isVisible={isDatePickerVisible}
-          />
+          <>
+            <DateTimePickerModal
+              date={value}
+              onConfirm={(date) => {
+                setDatePickerVisibility(false);
+                onChange(date);
+              }}
+              onCancel={() => {}}
+              isVisible={isDatePickerVisible}
+            />
+            <Text style={styles.current}>{value.toDateString()}</Text>
+          </>
         ) : (
           <TextInput
             ref={textInputRef}
