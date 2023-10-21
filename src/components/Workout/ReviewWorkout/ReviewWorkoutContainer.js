@@ -20,6 +20,7 @@ export default function ReviewWorkoutContainer({
 }) {
   const [workoutName, setWorkoutName] = useState("Untitled Workout");
   const [exerciseSets, setExerciseSets] = useState([]);
+  const [exerciseReps, setExerciseReps] = useState([]); // New state for reps
   const [inputFilled, setInputFilled] = useState(false);
 
   const handleWorkoutNameChange = (value) => {
@@ -58,17 +59,31 @@ export default function ReviewWorkoutContainer({
           {selectedExercises.map((exercise, index) => (
             <View key={index} style={styles.exerciseItem}>
               <Text style={styles.exerciseName}>{exercise}</Text>
-              <TextInput
-                style={styles.inputSets}
-                placeholder="Sets"
-                keyboardType="numeric"
-                value={exerciseSets[index]}
-                onChangeText={(value) => {
-                  const updatedSets = [...exerciseSets];
-                  updatedSets[index] = value;
-                  setExerciseSets(updatedSets);
-                }}
-              />
+              <View style={styles.inputContainer}>
+                <TextInput
+                  style={styles.inputReps}
+                  placeholder="Reps" // Add placeholder for reps
+                  keyboardType="numeric"
+                  value={exerciseReps[index]} // Use reps value from state
+                  onChangeText={(value) => {
+                    const updatedReps = [...exerciseReps];
+                    updatedReps[index] = value;
+                    setExerciseReps(updatedReps);
+                  }}
+                />
+                <Text>x</Text>
+                <TextInput
+                  style={styles.inputSets}
+                  placeholder="Sets"
+                  keyboardType="numeric"
+                  value={exerciseSets[index]}
+                  onChangeText={(value) => {
+                    const updatedSets = [...exerciseSets];
+                    updatedSets[index] = value;
+                    setExerciseSets(updatedSets);
+                  }}
+                />
+              </View>
             </View>
           ))}
         </ScrollView>
@@ -161,7 +176,16 @@ const styles = StyleSheet.create({
   exerciseName: {
     fontSize: 18,
   },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
   inputSets: {
+    fontSize: 18,
+    width: 50,
+    textAlign: "center",
+  },
+  inputReps: {
     fontSize: 18,
     width: 50,
     textAlign: "center",
