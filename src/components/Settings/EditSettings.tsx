@@ -5,6 +5,7 @@ import {
   StyleSheet,
   Pressable,
   Keyboard,
+  Button,
 } from "react-native";
 
 import { AppContext } from "../../context/AppContext";
@@ -57,34 +58,16 @@ export default function Settings({
       });
   }, [setName, setBday, setGender, setWeight, setHeight]);
 
-  const handleNameChange = useCallback(
-    (newName: string) => {
-      supabase
-        .from("users")
-        .update({ name: newName })
-        .eq("id", session.user.id)
-        .single()
-        .then(({ data, error }) => {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log(data);
-          }
-        });
-
-      setName(newName);
-    },
-    [setName]
-  );
 
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
 
-      <Option label="Name" value={name} onChange={handleNameChange} />
+      <Option label="Name" value={name} onChange={setName} />
       {/* <WeightOption question="Name" value={name} setValue={setName} /> */}
       <AgeOption question="Age" value={bday} setValue={setBday} />
-      <GenderOption question="Gender" value={gender} setValue={setGender} />
+      <Option label="Gender" value={gender} onChange={setGender} />
+      {/* <GenderOption question="Gender" value={gender} setValue={setGender} /> */}
       <WeightOption
         question="Weight"
         value={weight}
@@ -107,6 +90,23 @@ export default function Settings({
         imp="in"
         conversion={0.393701}
       />
+
+      <Button title="Save" onPress={() => {
+        Keyboard.dismiss();
+        
+        supabase
+        .from("users")
+        .update({ name, gender })
+        .eq("id", session.user.id)
+        .single()
+        .then(({ data, error }) => {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log(data);
+          }
+        });
+      }} />
 
       <TouchableOpacity
         style={styles.homeButton}

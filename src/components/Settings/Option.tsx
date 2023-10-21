@@ -19,7 +19,7 @@ export default function Option({
   return (
     <TouchableOpacity
       style={styles.item}
-      onPress={(e) => {
+      onPress={() => {
         textInputRef.current?.focus();
       }}
     >
