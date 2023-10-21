@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect, useCallback } from "react";
 import {
   Text,
   TouchableOpacity,
@@ -23,8 +23,10 @@ import { maxWeight } from "../../styles";
 
 import type { NavigationProp } from "../../types/navigation";
 
-export default function Settings({ navigation }: {
-  navigation: NavigationProp
+export default function Settings({
+  navigation,
+}: {
+  navigation: NavigationProp;
 }) {
   const { session } = useContext(AppContext);
 
@@ -53,11 +55,31 @@ export default function Settings({ navigation }: {
       });
   }, [setName, setBday, setGender, setWeight, setHeight]);
 
+  const handleNameChange = useCallback(
+    (newName: string) => {
+      supabase
+        .from("users")
+        .update({ name: newName })
+        .eq("id", session.user.id)
+        .single()
+        .then(({ data, error }) => {
+          if (error) {
+            console.log(error);
+          } else {
+            console.log(data);
+          }
+        });
+
+      setName(newName);
+    },
+    [setName]
+  );
+
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
 
-      <NameOption question="Name" value={name} setValue={setName} />
+      <NameOption question="Name" value={name} setValue={handleNameChange} />
       {/* <WeightOption question="Name" value={name} setValue={setName} /> */}
       <AgeOption question="Age" value={bday} setValue={setBday} />
       <GenderOption question="Gender" value={gender} setValue={setGender} />
@@ -84,9 +106,12 @@ export default function Settings({ navigation }: {
         conversion={0.393701}
       />
 
-      <TouchableOpacity style={styles.homeButton} onPress={() => {
-        navigation.navigate("Home");
-      }}>
+      <TouchableOpacity
+        style={styles.homeButton}
+        onPress={() => {
+          navigation.navigate("Home");
+        }}
+      >
         <Text style={styles.buttonText}>Go Back</Text>
       </TouchableOpacity>
     </Pressable>
