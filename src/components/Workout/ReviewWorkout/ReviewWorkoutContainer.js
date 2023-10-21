@@ -44,10 +44,12 @@ export default function ReviewWorkoutContainer({
 
         <TouchableOpacity
           onPress={() => setShowModal(false)}
-          style={styles.addButton}
+          style={styles.button}
         >
-          <Text style={styles.buttonText}>+ Add Exercises</Text>
+          <Text style={styles.text}>Add Exercises</Text>
         </TouchableOpacity>
+
+        <View style={{backgroundColor: '#e3e3e3', height: 1, marginVertical: 10,}}/>
 
         <ScrollView style={styles.exerciseList}>
           {selectedExercises.map((exercise, index) => (
@@ -70,7 +72,7 @@ export default function ReviewWorkoutContainer({
 
         <TouchableOpacity
           onPress={() => setShowModal(false)}
-          style={styles.button}
+          // style={styles.button2}
         >
           <Text style={styles.buttonText}>Save Workout</Text>
         </TouchableOpacity>
@@ -90,6 +92,24 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
+  button: {
+    alignSelf: "center",
+    width: "90%",
+    backgroundColor: "#1260de",
+    borderRadius: 8,
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 5,
+  },
+  text: {
+    alignSelf: "center",
+    fontSize: 24,
+    paddingVertical: 10,
+    color: "#dbdbdb",
+    fontWeight: "bold",
+  },
   workoutNameInput: {
     marginTop: 18,
     fontSize: 28,
@@ -102,19 +122,11 @@ const styles = StyleSheet.create({
   editIcon: {
     marginLeft: 5,
   },
-  addButton: {
-    backgroundColor: "black",
-    borderRadius: 8,
-    alignItems: "center",
-    padding: 15,
-    marginBottom: 20,
-  },
   buttonText: {
     color: "white",
     fontSize: 20,
   },
   exerciseList: {
-    backgroundColor: "#FFFFFF",
     borderRadius: 10,
     marginBottom: 20,
   },
