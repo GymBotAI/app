@@ -107,6 +107,7 @@ const styles = StyleSheet.create({
     display: "flex",
     flexDirection: "row",
     flexWrap: "wrap",
+    alignItems: "center",
   },
   current: {
     color: "#1260de",
