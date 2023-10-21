@@ -14,11 +14,14 @@ import {
 import ScreenHeader from "../../ScreenHeader";
 import { Entypo } from "@expo/vector-icons";
 
+import { buttonStyles } from "../../../styles";
+
 export default function ReviewWorkoutContainer({
   selectedExercises,
   setShowModal,
 }) {
-  const [workoutName, setWorkoutName] = useState("Untitled Workout");
+  const [workoutName, setWorkoutName] = useState("");
+  const [description, setDescription] = useState("");
   const [exerciseSets, setExerciseSets] = useState([]);
   const [exerciseReps, setExerciseReps] = useState([]); // New state for reps
   const [inputFilled, setInputFilled] = useState(false);
@@ -41,11 +44,21 @@ export default function ReviewWorkoutContainer({
             onChangeText={handleWorkoutNameChange}
             placeholder="Untitled Workout"
           />
-          <Entypo name="edit" size={24} color="black" style={styles.editIcon} />
+          <Entypo name="edit" size={24} color="grey" style={styles.editIcon} />
         </View>
+        
+        <TextInput
+            style={{
+              fontSize: 15,
+              marginLeft: 17,
+            }}
+            value={description}
+            onChangeText={setDescription}
+            placeholder="Workout description"
+          />
 
         <View
-          style={{ backgroundColor: "#e3e3e3", height: 1, marginVertical: 10 }}
+          style={{ backgroundColor: "#e3e3e3", height: 1, marginTop: 10 }}
         />
 
         <ScrollView style={styles.exerciseList}>
@@ -85,9 +98,9 @@ export default function ReviewWorkoutContainer({
 
         <TouchableOpacity
           onPress={() => setShowModal(false)}
-          style={styles.button}
+          style={buttonStyles.button}
         >
-          <Text style={styles.text}>Add Exercise</Text>
+          <Text style={buttonStyles.text}>Add Exercise</Text>
         </TouchableOpacity>
       </SafeAreaView>
     </>
@@ -105,50 +118,17 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
   },
-  saveButton: {
-    position: "absolute",
-    bottom: 40,
-    alignSelf: "center",
-    width: "90%",
-    backgroundColor: "#1260de",
-    borderRadius: 8,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    elevation: 5,
-  },
-  button: {
-    alignSelf: "center",
-    width: "75%",
-    backgroundColor: "#1260de",
-    borderRadius: 28,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    elevation: 5,
-  },
-  disabledButton: {
-    backgroundColor: "#fff", // Change the background color of the disabled button
-  },
-  text: {
-    alignSelf: "center",
-    fontSize: 24,
-    paddingVertical: 10,
-    color: "#dbdbdb",
-    fontWeight: "bold",
-  },
   workoutNameInput: {
-    marginTop: 18,
+    marginLeft: 15,
+    marginTop: 17,
     fontSize: 28,
     fontWeight: "bold",
     height: 40,
     borderRadius: 8,
-    marginBottom: 20,
-    paddingLeft: 10,
+    marginBottom: 8,
   },
   editIcon: {
+    marginTop: 9,
     marginLeft: 5,
   },
   buttonText: {
