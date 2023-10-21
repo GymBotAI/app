@@ -13,6 +13,9 @@ import {
 
 import ScreenHeader from "../../ScreenHeader";
 
+import { Entypo } from '@expo/vector-icons'; 
+
+
 export default function ReviewWorkoutContainer({
   selectedExercises,
   setShowModal,
@@ -20,45 +23,58 @@ export default function ReviewWorkoutContainer({
   const [workoutName, setWorkoutName] = useState("Untitled Workout");
   const [exerciseSets, setExerciseSets] = useState([]);
 
+  const handleWorkoutNameChange = (value) => {
+    // Limit workout name to 15 characters
+    if (value.length <= 15) {
+      setWorkoutName(value);
+    }
+  };
+
   return (
     <>
-    <ScreenHeader title="Review Workout"/>
-    <SafeAreaView style={styles.container}>
+      <ScreenHeader title="Review Workout" />
+      <SafeAreaView style={styles.container}>
 
-      <TextInput
-        style={styles.workoutNameInput}
-        value={workoutName}
-        onChangeText={(value) => setWorkoutName(value)}
-        placeholder="Enter workout name"
-      />
+        <View style={styles.workoutNameContainer}>
+          <TextInput
+            style={styles.workoutNameInput}
+            value={workoutName}
+            onChangeText={handleWorkoutNameChange}
+            placeholder="Untitled Workout"
+          />
+          <Entypo name="edit" size={24} color="black" />
+        </View>
+
+        <TouchableOpacity
+          onPress={() => setShowModal(false)}
+          style={styles.addButton}
+        >
+          <Text style={styles.buttonText}>+ Add Exercises</Text>
+        </TouchableOpacity>
+
+        <ScrollView style={styles.exerciseList}>
+          {selectedExercises.map((exercise, index) => (
+            <View key={index} style={styles.exerciseItem}>
+              <Text style={styles.exerciseName}>{exercise}</Text>
+              <TextInput
+                style={styles.inputSets}
+                placeholder="Sets"
+                keyboardType="numeric"
+                value={exerciseSets[index]}
+                onChangeText={(value) => {
+                  const updatedSets = [...exerciseSets];
+                  updatedSets[index] = value;
+                  setExerciseSets(updatedSets);
+                }}
+              />
+            </View>
+          ))}
+        </ScrollView>
+
         <TouchableOpacity onPress={() => setShowModal(false)} style={styles.button}>
-        <Text style={styles.buttonText}>Save Workout</Text>
-      </TouchableOpacity>
-
-      <ScrollView style={styles.exerciseList}>
-        {selectedExercises.map((exercise, index) => (
-          <View key={index} style={styles.exerciseItem}>
-            <Text style={styles.exerciseName}>{exercise}</Text>
-            <TextInput
-              style={styles.inputSets}
-              placeholder="Sets"
-              keyboardType="numeric"
-              value={exerciseSets[index]}
-              onChangeText={(value) => {
-                const updatedSets = [...exerciseSets];
-                updatedSets[index] = value;
-                setExerciseSets(updatedSets);
-              }}
-            />
-          </View>
-        ))}
-      </ScrollView>
-
-
-      <TouchableOpacity onPress={() => setShowModal(false)} style={styles.button}>
-        <Text style={styles.buttonText}>Save Workout</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
+          <Text style={styles.buttonText}>Save Workout</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
     </>
   );
 }
@@ -69,16 +85,36 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "#F7F7F7",
   },
+  workoutNameContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  editIcon: {
+    width: 24,
+    height: 24,
+    marginRight: 10,
+  },
   workoutNameInput: {
     marginTop: 10,
-    marginLeft: 10,
-    fontWeight: 'bold',
-    fontSize: 28,
-    alignSelf: 'left',
+    marginLeft: 5,
+    flex: 1,
+    fontSize: 32,
+    fontWeight: "bold",
     height: 40,
     borderRadius: 8,
     marginBottom: 20,
     paddingLeft: 10,
+  },
+  addButton: {
+    backgroundColor: "black",
+    borderRadius: 8,
+    alignItems: "center",
+    padding: 15,
+    marginBottom: 20,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 20,
   },
   exerciseList: {
     backgroundColor: "#FFFFFF",
@@ -100,15 +136,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     width: 50,
     textAlign: "center",
-  },
-  button: {
-    padding: 15,
-    backgroundColor: "black",
-    borderRadius: 10,
-    alignItems: "center",
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 20,
   },
 });
