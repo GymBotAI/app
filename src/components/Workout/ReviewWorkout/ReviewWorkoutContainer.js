@@ -23,14 +23,12 @@ export default function ReviewWorkoutContainer({
   const [workoutName, setWorkoutName] = useState("");
   const [description, setDescription] = useState("");
   const [exerciseSets, setExerciseSets] = useState([]);
-  const [exerciseReps, setExerciseReps] = useState([]); // New state for reps
+  const [exerciseReps, setExerciseReps] = useState([]);
   const [inputFilled, setInputFilled] = useState(false);
 
   const handleWorkoutNameChange = (value) => {
-    // Limit workout name to 15 characters
-    if (value.length <= 15) {
-      setWorkoutName(value);
-    }
+    setWorkoutName(value);
+    setInputFilled(!!value); // Set inputFilled based on whether value is not empty
   };
 
   return (
@@ -39,23 +37,29 @@ export default function ReviewWorkoutContainer({
       <SafeAreaView style={styles.container}>
         <View style={styles.topSection}>
           <TextInput
+            maxLength={20}
             style={styles.workoutNameInput}
             value={workoutName}
             onChangeText={handleWorkoutNameChange}
             placeholder="Untitled Workout"
           />
-          <Entypo name="edit" size={24} color="grey" style={styles.editIcon} />
-        </View>
-        
-        <TextInput
-            style={{
-              fontSize: 15,
-              marginLeft: 17,
-            }}
-            value={description}
-            onChangeText={setDescription}
-            placeholder="Workout description"
+          <Entypo
+            name="edit"
+            size={24}
+            color={inputFilled ? "black" : "grey"} // Set color based on inputFilled
+            style={styles.editIcon}
           />
+        </View>
+
+        <TextInput
+          style={{
+            fontSize: 15,
+            marginLeft: 17,
+          }}
+          value={description}
+          onChangeText={setDescription}
+          placeholder="Workout description"
+        />
 
         <View
           style={{ backgroundColor: "#e3e3e3", height: 1, marginTop: 10 }}
