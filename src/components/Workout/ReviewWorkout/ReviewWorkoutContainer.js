@@ -36,34 +36,34 @@ export default function ReviewWorkoutContainer({
       <ScreenHeader title="Review Workout" />
       <SafeAreaView style={styles.container}>
         <View>
-        <View style={styles.topSection}>
-          <TextInput
-            maxLength={20}
-            style={styles.workoutNameInput}
-            value={workoutName}
-            onChangeText={handleWorkoutNameChange}
-            placeholder="Untitled Workout"
-          />
-          <Entypo
-            name="edit"
-            size={24}
-            color={inputFilled ? "black" : "grey"} // Set color based on inputFilled
-            style={styles.editIcon}
-          />
+          <View style={styles.topSection}>
+            <TextInput
+              maxLength={20}
+              style={styles.workoutNameInput}
+              value={workoutName}
+              onChangeText={handleWorkoutNameChange}
+              placeholder="Untitled Workout"
+            />
+            <Entypo
+              name="edit"
+              size={24}
+              color={inputFilled ? "black" : "grey"} // Set color based on inputFilled
+              style={styles.editIcon}
+            />
           </View>
 
-        <TextInput
-          style={{
-            fontSize: 15,
-            marginLeft: 17,
-            marginRight: 30,
-          }}
-          value={description}
-          onChangeText={setDescription}
-          placeholder="Workout description"
-          multiline={true} // Set multiline to true
-          numberOfLines={4} // Set the number of lines you want to display
-        />
+          <TextInput
+            style={{
+              fontSize: 15,
+              marginLeft: 17,
+              marginRight: 30,
+            }}
+            value={description}
+            onChangeText={setDescription}
+            placeholder="Workout description"
+            multiline={true} // Set multiline to true
+            numberOfLines={4} // Set the number of lines you want to display
+          />
         </View>
 
         <View
