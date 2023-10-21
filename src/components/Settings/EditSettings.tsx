@@ -62,10 +62,10 @@ export default function Settings({
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
 
-      <Option label="Name" value={name} onChange={setName} />
+      <Option label="Name" value={name} onChange={setName} type='text' />
       {/* <WeightOption question="Name" value={name} setValue={setName} /> */}
-      <AgeOption question="Age" value={bday} setValue={setBday} />
-      <Option label="Gender" value={gender} onChange={setGender} />
+      <Option label="Age" value={bday} onChange={setBday} type='date' />
+      <Option label="Gender" value={gender} onChange={setGender} type="text" />
       {/* <GenderOption question="Gender" value={gender} setValue={setGender} /> */}
       <WeightOption
         question="Weight"
@@ -97,7 +97,7 @@ export default function Settings({
 
           supabase
             .from("users")
-            .update({ name, gender })
+            .update({ name, gender, birthday: bday.toString() })
             .eq("id", session.user.id)
             .single()
             .then(({ data, error }) => {
