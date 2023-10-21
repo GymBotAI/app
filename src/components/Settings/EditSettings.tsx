@@ -96,7 +96,7 @@ export default function Settings({
               if (error) {
                 console.log(error);
               } else {
-                console.log(data);
+                navigation.navigate("Home");
               }
             });
         }}
