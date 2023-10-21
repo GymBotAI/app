@@ -18,6 +18,7 @@ export default function ReviewWorkoutContainer({
 }) {
   const [exerciseSets, setExerciseSets] = useState([]);
 
+  console.log(selectedExercises)
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
@@ -28,7 +29,7 @@ export default function ReviewWorkoutContainer({
       <ScrollView style={styles.exerciseList}>
         {selectedExercises.map((exercise, index) => (
           <View key={index} style={styles.exerciseItem}>
-            <Text style={styles.exerciseName}>{exercise.name}</Text>
+            <Text style={styles.exerciseName}>{exercise}</Text>
             <TextInput
               style={styles.inputSets}
               placeholder="Sets"

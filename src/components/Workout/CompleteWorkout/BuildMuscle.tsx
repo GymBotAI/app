@@ -88,6 +88,7 @@ export default function ExerciseSelectionScreen({
     } else {
       setSelectedExercises([...selectedExercises, exerciseName]);
     }
+    console.log(selectedExercises)
   };
 
   const renderItem = ({ item }) => {
