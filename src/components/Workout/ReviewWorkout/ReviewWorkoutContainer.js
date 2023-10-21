@@ -12,7 +12,10 @@ import {
 
 // Assume that you have imported the selectedExercises array separately
 
-export default function ReviewWorkoutContainer({ selectedExercises }) {
+export default function ReviewWorkoutContainer({
+  selectedExercises,
+  setShowModal,
+}) {
   const [exerciseSets, setExerciseSets] = useState([]);
 
   return (
@@ -23,7 +26,6 @@ export default function ReviewWorkoutContainer({ selectedExercises }) {
       <Text style={styles.title}>Exercises</Text>
 
       <ScrollView style={styles.exerciseList}>
-
         {selectedExercises.map((exercise, index) => (
           <View key={index} style={styles.exerciseItem}>
             <Text style={styles.exerciseName}>{exercise.name}</Text>
@@ -40,10 +42,12 @@ export default function ReviewWorkoutContainer({ selectedExercises }) {
             />
           </View>
         ))}
-        
       </ScrollView>
 
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        onPress={() => setShowModal(false)}
+        style={styles.button}
+      >
         <Text style={styles.buttonText}>Save Workout</Text>
       </TouchableOpacity>
     </SafeAreaView>
