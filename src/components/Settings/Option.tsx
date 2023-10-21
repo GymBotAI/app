@@ -25,14 +25,17 @@ export interface TextProps {
 
 export interface NumberProps {
   type: "number";
-  value: number;
-  onChange: (value: number) => void;
+  value: string;
+  onChange: (value: string) => void;
 }
 
 export interface DateProps {
   type: "date";
   value: Date | null;
   onChange: (value: Date) => void;
+
+  min?: Date;
+  max?: Date;
 }
 
 export type Props = BaseProps & (TextProps | NumberProps | DateProps);
@@ -75,11 +78,7 @@ export default function Option({ value, label, type, onChange }: Props) {
             value={value?.toString()}
             keyboardType={type == "number" ? "numeric" : "default"}
             onChange={(e) => {
-              if (type == "number") {
-                onChange(parseInt(e.nativeEvent.text));
-              } else {
-                onChange(e.nativeEvent.text);
-              }
+              onChange(e.nativeEvent.text);
             }}
           />
         )}

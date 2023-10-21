@@ -32,8 +32,8 @@ export default function Settings({
   const [name, setName] = useState("");
   const [bday, setBday] = useState<Date | null>(null);
   const [gender, setGender] = useState("");
-  const [weight, setWeight] = useState<number | null>(null);
-  const [height, setHeight] = useState<number | null>(null);
+  const [weight, setWeight] = useState("");
+  const [height, setHeight] = useState("");
 
   useEffect(() => {
     supabase
@@ -48,8 +48,8 @@ export default function Settings({
           setName(data.name);
           setBday(new Date(data.birthday));
           setGender(data.gender);
-          setWeight(data.weight);
-          setHeight(data.height);
+          setWeight(data.weight.toString());
+          setHeight(data.height.toString());
         }
       });
   }, [setName, setBday, setGender, setWeight, setHeight]);
@@ -61,13 +61,13 @@ export default function Settings({
       <Option label="Gender" value={gender} onChange={setGender} type="text" />
       <Option
         label="Weight"
-        value={weight}
+        value={weight?.toString()}
         onChange={setWeight}
         type="number"
       />
       <Option
         label="Height"
-        value={height}
+        value={height?.toString()}
         onChange={setHeight}
         type="number"
       />
@@ -77,19 +77,34 @@ export default function Settings({
         onPress={() => {
           Keyboard.dismiss();
 
-          if (weight < minWeight || weight > maxWeight) {
-            Alert.alert(`Weight must be between ${minWeight} and ${maxWeight}`);
+          const weightNum = parseInt(weight);
+          const heightNum = parseInt(height);
+
+          if (weightNum < minWeight || weightNum > maxWeight) {
+            Alert.alert(
+              "Invalid weight",
+              `Weight must be between ${minWeight} and ${maxWeight}`
+            );
             return;
           }
 
-          if (height < minHeight || height > maxHeight) {
-            Alert.alert(`Height must be between ${minHeight} and ${maxHeight}`);
+          if (heightNum < minHeight || heightNum > maxHeight) {
+            Alert.alert(
+              "Invalid height",
+              `Height must be between ${minHeight} and ${maxHeight}`
+            );
             return;
           }
 
           supabase
             .from("users")
-            .update({ name, gender, birthday: bday.toString(), weight, height })
+            .update({
+              name,
+              gender,
+              birthday: bday.toString(),
+              weight: weightNum,
+              height: heightNum,
+            })
             .eq("id", session.user.id)
             .single()
             .then(({ data, error }) => {
