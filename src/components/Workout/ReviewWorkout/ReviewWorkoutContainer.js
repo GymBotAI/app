@@ -12,7 +12,7 @@ import {
 } from "react-native";
 
 import ScreenHeader from "../../ScreenHeader";
-import { Entypo } from '@expo/vector-icons'; 
+import { Entypo } from "@expo/vector-icons";
 
 export default function ReviewWorkoutContainer({
   selectedExercises,
@@ -32,7 +32,6 @@ export default function ReviewWorkoutContainer({
     <>
       <ScreenHeader title="Review Workout" />
       <SafeAreaView style={styles.container}>
-
         <View style={styles.topSection}>
           <TextInput
             style={styles.workoutNameInput}
@@ -69,7 +68,10 @@ export default function ReviewWorkoutContainer({
           ))}
         </ScrollView>
 
-        <TouchableOpacity onPress={() => setShowModal(false)} style={styles.button}>
+        <TouchableOpacity
+          onPress={() => setShowModal(false)}
+          style={styles.button}
+        >
           <Text style={styles.buttonText}>Save Workout</Text>
         </TouchableOpacity>
       </SafeAreaView>
