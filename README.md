@@ -86,3 +86,5 @@ GYMBOT_DEBUG_LOGS="auth,chat"
 ```
 
 Note that changing the environment variable requires restarting Expo.
+
+git shortlog -sn --all
