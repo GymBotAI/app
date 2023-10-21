@@ -1,44 +1,105 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+  TextInput,
+} from "react-native";
 
-import ExerciseSelectionScreen from "./BuildMuscle";
+// Assume that you have imported the selectedExercises array separately
 
+export default function ReviewWorkoutContainer({ setExercises }) {
+  const [exerciseSets, setExerciseSets] = useState([]);
 
-const ReviewWorkoutContainer = () => {
   return (
-    <View style={styles.container}>
-        
-      <TouchableOpacity style={[styles.button]}>
-        <Text style={styles.text}>Save</Text>
+    <SafeAreaView style={styles.container}>
+      <View style={styles.header}>
+        <Text style={styles.time}>73:26</Text>
+      </View>
+      <Text style={styles.title}>Exercises</Text>
+      <ScrollView style={styles.exerciseList}>
+        {selectedExercises.map((exercise, index) => (
+          <View key={index} style={styles.exerciseItem}>
+            <Text style={styles.exerciseName}>{exercise.name}</Text>
+            <TextInput
+              style={styles.inputSets}
+              placeholder="Sets"
+              keyboardType="numeric"
+              value={exerciseSets[index]}
+              onChangeText={(value) => {
+                const updatedSets = [...exerciseSets];
+                updatedSets[index] = value;
+                setExerciseSets(updatedSets);
+              }}
+            />
+          </View>
+        ))}
+      </ScrollView>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Save Workout</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f2f2f2",
+    padding: 20,
+    backgroundColor: "#F7F7F7",
+  },
+  header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 10,
+    backgroundColor: "#FFFFFF",
+  },
+  icon: {
+    width: 24,
+    height: 24,
+  },
+  time: {
+    fontSize: 20,
+  },
+  title: {
+    fontSize: 28,
+    fontWeight: "bold",
+    marginVertical: 20,
+  },
+  exerciseList: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 10,
+    marginBottom: 20,
+  },
+  exerciseItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#E0E0E0",
+  },
+  exerciseName: {
+    fontSize: 18,
+  },
+  inputSets: {
+    fontSize: 18,
+    width: 50,
+    textAlign: "center",
   },
   button: {
-    alignSelf: "center",
-    position: "absolute",
-    bottom: 50,
-    width: "90%",
-    backgroundColor: "#1260de",
-    borderRadius: 8,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    elevation: 5,
+    padding: 15,
+    backgroundColor: "black",
+    borderRadius: 10,
+    alignItems: "center",
   },
-  text: {
-    alignSelf: "center",
-    fontSize: 24,
-    paddingVertical: 10,
-    color: "#dbdbdb",
-    fontWeight: "bold",
+  buttonText: {
+    color: "white",
+    fontSize: 20,
   },
 });
-
-export default WorkoutSelectionScreen;
