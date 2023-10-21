@@ -76,6 +76,7 @@ export default function ExerciseSelectionScreen({
   }
 
   const toggleExerciseSelection = (exerciseName) => {
+    console.log(exerciseName)
     // Check if the exercise is already selected
     const isSelected = selectedExercises.includes(exerciseName);
 
