@@ -88,7 +88,6 @@ export default function ReviewWorkoutContainer({
                 <TextInput
                   maxLength={1}
                   style={styles.inputSets}
-                  placeholder="0/"
                   keyboardType="numeric"
                   value={exerciseSets[index]}
                   onChangeText={(value) => {
@@ -102,7 +101,6 @@ export default function ReviewWorkoutContainer({
                 <TextInput
                   maxLength={3}
                   style={styles.inputReps}
-                  placeholder="0" // Add placeholder for reps
                   keyboardType="numeric"
                   value={exerciseReps[index]} // Use reps value from state
                   onChangeText={(value) => {
@@ -176,22 +174,22 @@ const styles = StyleSheet.create({
   },
   inputSets: {
     borderRadius: 15,
-    borderColor: '#9e9e9e',
-    borderWidth: 1,
-    fontSize: 18,
+    fontSize: 16,
     height: 35,
     width: 50,
     textAlign: "center",
     marginRight: 10,
+    backgroundColor: '#e6e6e6',
+    color: '#292929'
   },
   inputReps: {
     borderRadius: 15,
-    borderColor: '#9e9e9e',
-    borderWidth: 1,
-    fontSize: 18,
+    fontSize: 16,
     height: 35,
     width: 50,
     textAlign: "center",
     marginLeft: 10,
+    backgroundColor: '#e6e6e6',
+    color: '#292929'
   },
 });
