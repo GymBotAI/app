@@ -1,4 +1,4 @@
-import { useContext, useEffect ,useState} from "react";
+import { useContext, useEffect, useState } from "react";
 import {
   View,
   ScrollView,
@@ -23,15 +23,20 @@ export default function HomeContainer({ navigation }) {
 
   useEffect(() => {
     if (!username && session) {
-      supabase.from('users').select('name').eq('id',session.user.id).single().then(({data,error})=>{
-        if(error){
-          console.log(error)
-        }else{
-          setUsername(data.name)
-        }
-      })
+      supabase
+        .from("users")
+        .select("name")
+        .eq("id", session.user.id)
+        .single()
+        .then(({ data, error }) => {
+          if (error) {
+            console.log(error);
+          } else {
+            setUsername(data.name);
+          }
+        });
     }
-  }, [username,setUsername])
+  }, [username, setUsername]);
 
   return (
     <ScrollView style={styles.container}>
