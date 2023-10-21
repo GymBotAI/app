@@ -1,4 +1,4 @@
-import  { useState, useContext, useEffect } from "react";
+import { useState, useContext, useEffect } from "react";
 import {
   Text,
   TouchableOpacity,
@@ -24,8 +24,7 @@ import { maxWeight } from "../../styles";
 export default function Settings({ navigation }) {
   const { session } = useContext(AppContext);
 
-  
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
   const [newName, setNewName] = useState("");
   const [bday, setBday] = useState("");
   const [gender, setGender] = useState("");
@@ -33,17 +32,22 @@ export default function Settings({ navigation }) {
   const [height, setHeight] = useState<number | null>(null);
 
   useEffect(() => {
-    supabase.from("users").select("*").eq("id", session.user.id).single().then(({data,error}) => {
-      if (error) {
-        console.log(error);
-      } else {
-        setName(data.name);
-        setBday(data.birthday);
-        setGender(data.gender);
-        setWeight(data.weight);
-        setHeight(data.height);
-      }
-    })
+    supabase
+      .from("users")
+      .select("*")
+      .eq("id", session.user.id)
+      .single()
+      .then(({ data, error }) => {
+        if (error) {
+          console.log(error);
+        } else {
+          setName(data.name);
+          setBday(data.birthday);
+          setGender(data.gender);
+          setWeight(data.weight);
+          setHeight(data.height);
+        }
+      });
   }, [setName, setBday, setGender, setWeight, setHeight]);
 
   const handleSaveChanges = () => {
