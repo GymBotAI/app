@@ -49,7 +49,9 @@ export default function ReviewWorkoutContainer({
           <Text style={styles.text}>Add Exercises</Text>
         </TouchableOpacity>
 
-        <View style={{backgroundColor: '#e3e3e3', height: 1, marginVertical: 10,}}/>
+        <View
+          style={{ backgroundColor: "#e3e3e3", height: 1, marginVertical: 10 }}
+        />
 
         <ScrollView style={styles.exerciseList}>
           {selectedExercises.map((exercise, index) => (
@@ -93,7 +95,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   saveButton: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 40,
     alignSelf: "center",
     width: "90%",
