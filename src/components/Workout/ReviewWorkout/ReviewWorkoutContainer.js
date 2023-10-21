@@ -27,7 +27,7 @@ export default function ReviewWorkoutContainer({
   const [inputFilled, setInputFilled] = useState(false);
 
   const handleWorkoutNameChange = (value) => {
-    setWorkoutName(value)
+    setWorkoutName(value);
     setInputFilled(!!value); // Set inputFilled based on whether value is not empty
   };
 
@@ -43,19 +43,23 @@ export default function ReviewWorkoutContainer({
             onChangeText={handleWorkoutNameChange}
             placeholder="Untitled Workout"
           />
-          <Entypo name="edit" size={24} color={inputFilled ? "black" : "grey"} // Set color based on inputFilled
- style={styles.editIcon} />
-        </View>
-        
-        <TextInput
-            style={{
-              fontSize: 15,
-              marginLeft: 17,
-            }}
-            value={description}
-            onChangeText={setDescription}
-            placeholder="Workout description"
+          <Entypo
+            name="edit"
+            size={24}
+            color={inputFilled ? "black" : "grey"} // Set color based on inputFilled
+            style={styles.editIcon}
           />
+        </View>
+
+        <TextInput
+          style={{
+            fontSize: 15,
+            marginLeft: 17,
+          }}
+          value={description}
+          onChangeText={setDescription}
+          placeholder="Workout description"
+        />
 
         <View
           style={{ backgroundColor: "#e3e3e3", height: 1, marginTop: 10 }}
