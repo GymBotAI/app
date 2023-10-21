@@ -75,28 +75,6 @@ export default function Settings({
         onChange={setHeight}
         type="number"
       />
-      {/* <WeightOption
-        question="Weight"
-        value={weight}
-        setValue={setWeight}
-        unit={"kg"}
-        upper={maxWeight}
-        lower={minWeight}
-        met="kg"
-        imp="lb"
-        conversion={2.20462262185}
-      />
-      <WeightOption
-        question="Height"
-        value={height}
-        setValue={setHeight}
-        unit={"cm"}
-        upper={maxHeight}
-        lower={minHeight}
-        met="cm"
-        imp="in"
-        conversion={0.393701}
-      /> */}
 
       <Button
         title="Save"
