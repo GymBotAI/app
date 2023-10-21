@@ -12,6 +12,7 @@ import {
 } from "react-native";
 
 import ScreenHeader from "../../ScreenHeader";
+import { Entypo } from '@expo/vector-icons'; 
 
 export default function ReviewWorkoutContainer({
   selectedExercises,
@@ -31,14 +32,15 @@ export default function ReviewWorkoutContainer({
     <>
       <ScreenHeader title="Review Workout" />
       <SafeAreaView style={styles.container}>
-        <View style={styles.workoutNameContainer}>
-        
+
+        <View style={styles.topSection}>
           <TextInput
             style={styles.workoutNameInput}
             value={workoutName}
             onChangeText={handleWorkoutNameChange}
             placeholder="Untitled Workout"
           />
+          <Entypo name="edit" size={24} color="black" style={styles.editIcon} />
         </View>
 
         <TouchableOpacity
@@ -78,26 +80,25 @@ export default function ReviewWorkoutContainer({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     backgroundColor: "#F7F7F7",
   },
-  workoutNameContainer: {
+  topSection: {
+    marginTop: -8,
+    marginLeft: 2,
     flexDirection: "row",
     alignItems: "center",
   },
-  editIcon: {
-    width: 24,
-    height: 24,
-    marginRight: 10,
-  },
   workoutNameInput: {
-    flex: 1,
-    fontSize: 24,
+    marginTop: 18,
+    fontSize: 28,
     fontWeight: "bold",
     height: 40,
     borderRadius: 8,
     marginBottom: 20,
     paddingLeft: 10,
+  },
+  editIcon: {
+    marginLeft: 5,
   },
   addButton: {
     backgroundColor: "black",
