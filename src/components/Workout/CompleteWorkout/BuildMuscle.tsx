@@ -83,6 +83,7 @@ export default function ExerciseSelectionScreen({
     } else {
       setSelectedExercises([...selectedExercises, exerciseId]);
     }
+    console.log(selectedExercises);
   };
   const renderItem = ({ item }) => {
     const isSelected = selectedExercises.includes(item.id);

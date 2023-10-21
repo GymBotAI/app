@@ -11,7 +11,7 @@ import GoalSelector from "./GoalSelector";
 
 import CompleteDesignContainer from "../CompleteWorkout/CompleteDesignContainer";
 
-export default function WorkoutSelectionScreen() {
+export default function WorkoutSelectionScreen ({navigation}) {
   const [selectedGoal, setSelectedGoal] = useState(null);
   const [subGoal, setSubGoal] = useState(null);
   const [typedText, setTypedText] = useState("");
@@ -92,7 +92,10 @@ export default function WorkoutSelectionScreen() {
   }
 
   const completeDesign = () => {
-    setCompleted(true);
+    navigation.navigate("CompleteWorkout", {
+      goal: selectedGoal,
+      subGoal: subGoal
+    })
     if (selectedGoal == "Build Muscle") {
       setGoalText("Select your exercises!");
     }
