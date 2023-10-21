@@ -12,27 +12,10 @@ import type { WorkoutSubGoal } from "../../../types/workouts";
 
 export default function CompleteDesignContainer({ route }) {
   const { goal, subGoal } = route.params;
-  const [typedText, setTypedText] = useState("");
+  const [typedText, setTypedText] = useState("What is your goal?");
   const [showModal, setShowModal] = useState(false);
-  const [goalText, setGoalText] = useState("What is your goal?");
 
   const [selectedExercises, setSelectedExercises] = useState([]);
-
-  useEffect(() => {
-    let currentIndex = 0;
-    const typingInterval = setInterval(() => {
-      if (currentIndex <= goalText.length) {
-        setTypedText(goalText.substring(0, currentIndex));
-        currentIndex++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 5); // Adjust typing speed here (milliseconds)
-
-    return () => {
-      clearInterval(typingInterval);
-    };
-  }, [goalText]); // Listen for changes to goalText
 
   return (
     <>
@@ -69,7 +52,7 @@ export default function CompleteDesignContainer({ route }) {
         ) : null}
 
         <Modal visible={showModal} style={{}}>
-          <ReviewWorkoutContainer setExercises={{ setSelectedExercises }} />
+          <ReviewWorkoutContainer selectedExercises={selectedExercises} />
         </Modal>
 
         <TouchableOpacity
