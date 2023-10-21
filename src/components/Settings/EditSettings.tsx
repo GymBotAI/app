@@ -63,7 +63,19 @@ export default function Settings({
       <Option label="Name" value={name} onChange={setName} type="text" />
       <Option label="Age" value={bday} onChange={setBday} type="date" />
       <Option label="Gender" value={gender} onChange={setGender} type="text" />
-      <WeightOption
+      <Option
+        label="Weight"
+        value={weight}
+        onChange={setWeight}
+        type="number"
+      />
+      <Option
+        label="Height"
+        value={height}
+        onChange={setHeight}
+        type="number"
+      />
+      {/* <WeightOption
         question="Weight"
         value={weight}
         setValue={setWeight}
@@ -84,7 +96,7 @@ export default function Settings({
         met="cm"
         imp="in"
         conversion={0.393701}
-      />
+      /> */}
 
       <Button
         title="Save"
@@ -93,7 +105,7 @@ export default function Settings({
 
           supabase
             .from("users")
-            .update({ name, gender, birthday: bday.toString() })
+            .update({ name, gender, birthday: bday.toString(), weight, height })
             .eq("id", session.user.id)
             .single()
             .then(({ data, error }) => {
