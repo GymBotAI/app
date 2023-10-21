@@ -44,13 +44,6 @@ export default function ReviewWorkoutContainer({
           <Entypo name="edit" size={24} color="black" style={styles.editIcon} />
         </View>
 
-        <TouchableOpacity
-          onPress={() => setShowModal(false)}
-          style={styles.button}
-        >
-          <Text style={styles.text}>Add Exercises</Text>
-        </TouchableOpacity>
-
         <View
           style={{ backgroundColor: "#e3e3e3", height: 1, marginVertical: 10 }}
         />
@@ -61,6 +54,7 @@ export default function ReviewWorkoutContainer({
               <Text style={styles.exerciseName}>{exercise}</Text>
               <View style={styles.inputContainer}>
                 <TextInput
+                maxLength={3}
                   style={styles.inputReps}
                   placeholder="Reps" // Add placeholder for reps
                   keyboardType="numeric"
@@ -73,6 +67,7 @@ export default function ReviewWorkoutContainer({
                 />
                 <Text>x</Text>
                 <TextInput
+                maxLength={1}
                   style={styles.inputSets}
                   placeholder="Sets"
                   keyboardType="numeric"
@@ -88,12 +83,12 @@ export default function ReviewWorkoutContainer({
           ))}
         </ScrollView>
 
+        
         <TouchableOpacity
           onPress={() => setShowModal(false)}
-          style={[styles.saveButton, !inputFilled && styles.disabledButton]}
-          disabled={inputFilled}
+          style={styles.button}
         >
-          <Text style={styles.text}>Complete Workout</Text>
+          <Text style={styles.text}>Add Exercises</Text>
         </TouchableOpacity>
       </SafeAreaView>
     </>
