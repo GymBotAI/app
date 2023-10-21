@@ -11,6 +11,8 @@ import { AppContext } from "../../context/AppContext";
 
 import { supabase } from "../../api/supabase";
 
+import Option from "./Option";
+
 import NameOption from "./NameOption";
 import AgeOption from "./AgeOption";
 import GenderOption from "./GenderOption";
@@ -79,7 +81,7 @@ export default function Settings({
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
 
-      <NameOption question="Name" value={name} setValue={handleNameChange} />
+      <Option label="Name" value={name} onChange={handleNameChange} />
       {/* <WeightOption question="Name" value={name} setValue={setName} /> */}
       <AgeOption question="Age" value={bday} setValue={setBday} />
       <GenderOption question="Gender" value={gender} setValue={setGender} />
