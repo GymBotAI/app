@@ -14,11 +14,6 @@ import { supabase } from "../../api/supabase";
 
 import Option from "./Option";
 
-import NameOption from "./NameOption";
-import AgeOption from "./AgeOption";
-import GenderOption from "./GenderOption";
-import WeightOption from "./HeightWeightOption";
-
 import { minHeight } from "../../styles";
 import { maxHeight } from "../../styles";
 import { minWeight } from "../../styles";
