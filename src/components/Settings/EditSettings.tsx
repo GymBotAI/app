@@ -58,7 +58,6 @@ export default function Settings({
       });
   }, [setName, setBday, setGender, setWeight, setHeight]);
 
-
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
@@ -91,22 +90,25 @@ export default function Settings({
         conversion={0.393701}
       />
 
-      <Button title="Save" onPress={() => {
-        Keyboard.dismiss();
-        
-        supabase
-        .from("users")
-        .update({ name, gender })
-        .eq("id", session.user.id)
-        .single()
-        .then(({ data, error }) => {
-          if (error) {
-            console.log(error);
-          } else {
-            console.log(data);
-          }
-        });
-      }} />
+      <Button
+        title="Save"
+        onPress={() => {
+          Keyboard.dismiss();
+
+          supabase
+            .from("users")
+            .update({ name, gender })
+            .eq("id", session.user.id)
+            .single()
+            .then(({ data, error }) => {
+              if (error) {
+                console.log(error);
+              } else {
+                console.log(data);
+              }
+            });
+        }}
+      />
 
       <TouchableOpacity
         style={styles.homeButton}

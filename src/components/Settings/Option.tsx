@@ -1,4 +1,10 @@
-import { TouchableOpacity, Text, TextInput, View, StyleSheet } from "react-native";
+import {
+  TouchableOpacity,
+  Text,
+  TextInput,
+  View,
+  StyleSheet,
+} from "react-native";
 import { useRef } from "react";
 
 import { MaterialIcons } from "@expo/vector-icons";
@@ -8,7 +14,7 @@ import { circularColour } from "../../styles";
 export default function Option({
   value,
   label,
-  onChange
+  onChange,
 }: {
   value: string;
   label: string;
