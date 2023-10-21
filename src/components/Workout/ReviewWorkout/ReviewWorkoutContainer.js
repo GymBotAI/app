@@ -69,9 +69,15 @@ export default function ReviewWorkoutContainer({
         </View>
 
         <View
-          style={{ backgroundColor: "#F7F7F7", height: 50, borderColor: '#F7F7F7',
-           borderWidth: 1, borderBottomColor: '#e3e3e3', borderTopColor: '#e3e3e3'}}
+          style={{ backgroundColor: "#F7F7F7", height: 45, borderColor: '#F7F7F7', flexDirection: 'row',
+           borderWidth: 1, borderBottomColor: '#e3e3e3', borderTopColor: '#e3e3e3', justifyContent: 'flex-end'}}
         >
+          <Text style={{marginRight: 145, marginTop: 11.5,
+            fontSize: 18, fontWeight: 'bold'}}>Exercise</Text>
+          <Text style={{marginRight: 40, marginTop: 11.5,
+            fontSize: 18, fontWeight: 'bold'}}>Sets</Text>
+          <Text style={{marginRight: 20, marginTop: 11.5,
+            fontSize: 18, fontWeight: 'bold'}}>Reps</Text>
          </View>
 
         <ScrollView style={styles.exerciseList}>
