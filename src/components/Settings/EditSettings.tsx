@@ -15,10 +15,7 @@ import { supabase } from "../../api/supabase";
 
 import Option from "./Option";
 
-import { minHeight } from "../../styles";
-import { maxHeight } from "../../styles";
-import { minWeight } from "../../styles";
-import { maxWeight } from "../../styles";
+import { minHeight, maxHeight, minWeight, maxWeight } from "../../styles";
 
 import type { NavigationProp } from "../../types/navigation";
 
@@ -107,7 +104,7 @@ export default function Settings({
             })
             .eq("id", session.user.id)
             .single()
-            .then(({ data, error }) => {
+            .then(({ error }) => {
               if (error) {
                 console.log(error);
               } else {
