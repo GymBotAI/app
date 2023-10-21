@@ -34,7 +34,7 @@ export default function ReviewWorkoutContainer({
   return (
     <>
       <ScreenHeader title="Review Workout" />
-      <SafeAreaView style={styles.container}>
+      <View style={styles.container}>
         <View>
           <View style={styles.topSection}>
             <TextInput
@@ -43,11 +43,12 @@ export default function ReviewWorkoutContainer({
               value={workoutName}
               onChangeText={handleWorkoutNameChange}
               placeholder="Untitled Workout"
+              placeholderTextColor={'#bababa'}
             />
             <Entypo
               name="edit"
               size={24}
-              color={inputFilled ? "#F7F7F7" : "grey"} // Set color based on inputFilled
+              color={inputFilled ? "#F7F7F7" : "#bababa"} // Set color based on inputFilled
               style={styles.editIcon}
             />
           </View>
@@ -57,6 +58,7 @@ export default function ReviewWorkoutContainer({
               fontSize: 15,
               marginLeft: 17,
               marginRight: 30,
+              marginBottom: 10,
             }}
             value={description}
             onChangeText={setDescription}
@@ -67,8 +69,10 @@ export default function ReviewWorkoutContainer({
         </View>
 
         <View
-          style={{ backgroundColor: "#e3e3e3", height: 1, marginTop: 10 }}
-        />
+          style={{ backgroundColor: "#F7F7F7", height: 50,
+           borderWidth: 1, borderBottomColor: '#e3e3e3', borderTopColor: '#e3e3e3'}}
+        >
+         </View>
 
         <ScrollView style={styles.exerciseList}>
           {selectedExercises.map((exercise, index) => (
@@ -76,28 +80,29 @@ export default function ReviewWorkoutContainer({
               <Text style={styles.exerciseName}>{exercise}</Text>
               <View style={styles.inputContainer}>
                 <TextInput
-                  maxLength={3}
-                  style={styles.inputReps}
-                  placeholder="Reps" // Add placeholder for reps
-                  keyboardType="numeric"
-                  value={exerciseReps[index]} // Use reps value from state
-                  onChangeText={(value) => {
-                    const updatedReps = [...exerciseReps];
-                    updatedReps[index] = value;
-                    setExerciseReps(updatedReps);
-                  }}
-                />
-                <Text>x</Text>
-                <TextInput
                   maxLength={1}
                   style={styles.inputSets}
-                  placeholder="Sets"
+                  placeholder="0"
                   keyboardType="numeric"
                   value={exerciseSets[index]}
                   onChangeText={(value) => {
                     const updatedSets = [...exerciseSets];
                     updatedSets[index] = value;
                     setExerciseSets(updatedSets);
+                  }}
+                />
+                <Text>x</Text>
+                
+                <TextInput
+                  maxLength={3}
+                  style={styles.inputReps}
+                  placeholder="0" // Add placeholder for reps
+                  keyboardType="numeric"
+                  value={exerciseReps[index]} // Use reps value from state
+                  onChangeText={(value) => {
+                    const updatedReps = [...exerciseReps];
+                    updatedReps[index] = value;
+                    setExerciseReps(updatedReps);
                   }}
                 />
               </View>
@@ -111,7 +116,7 @@ export default function ReviewWorkoutContainer({
         >
           <Text style={buttonStyles.text}>Add Exercise</Text>
         </TouchableOpacity>
-      </SafeAreaView>
+      </View>
     </>
   );
 }
@@ -146,6 +151,7 @@ const styles = StyleSheet.create({
   exerciseList: {
     borderRadius: 10,
     marginBottom: 20,
+    paddingRight: 3,
   },
   exerciseItem: {
     flexDirection: "row",
@@ -163,13 +169,23 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   inputSets: {
+    borderRadius: 15,
+    borderColor: '#9e9e9e',
+    borderWidth: 1,
     fontSize: 18,
+    height: 35,
     width: 50,
     textAlign: "center",
+    marginRight: 10,
   },
   inputReps: {
+    borderRadius: 15,
+    borderColor: '#9e9e9e',
+    borderWidth: 1,
     fontSize: 18,
+    height: 35,
     width: 50,
     textAlign: "center",
+    marginLeft: 10,
   },
 });
