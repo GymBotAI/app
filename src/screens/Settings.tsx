@@ -5,13 +5,21 @@ import {
   StyleSheet,
   Text,
   TouchableOpacity,
-  Modal,
 } from "react-native";
 import EditSettings from "../components/Settings/EditSettings";
 import { FontAwesome5 } from "@expo/vector-icons";
 import Notifications from "../components/Settings/Notifications";
 
-export default function Settings({ navigation }) {
+import type { NavigationProp, NavigationScreens } from "../types/navigation";
+import type { RouteProp } from "@react-navigation/native";
+
+export default function Settings({
+  navigation,
+  route,
+}: {
+  navigation: NavigationProp;
+  route: RouteProp<NavigationScreens, "Settings">;
+}) {
   const [notificationsVisible, setNotificationsVisible] = useState(false);
   const editSettingsRef = useRef(null);
   const [editSettingsDimensions, setEditSettingsDimensions] = useState({
@@ -45,7 +53,11 @@ export default function Settings({ navigation }) {
           </TouchableOpacity>
         </View>
       </View>
-      <EditSettings ref={editSettingsRef} navigation={navigation} />
+      <EditSettings
+        ref={editSettingsRef}
+        navigation={navigation}
+        initialData={route.params}
+      />
       <StatusBar barStyle="dark" />
       <Notifications
         isVisible={notificationsVisible}

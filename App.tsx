@@ -20,21 +20,42 @@ import DesignWorkout from "./src/screens/DesignWorkout";
 import CompleteDesignContainer from "./src/components/Workout/CompleteWorkout/CompleteDesignContainer";
 
 import type { NavigationScreens } from "./src/types/navigation";
+import type { Session } from "@supabase/supabase-js";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
 
 export default function App() {
   const [appContext, setAppContext] = useState({
     session: null,
+    userData: {},
   });
+
+  const updateSession = (session: Session | null) => {
+    setAppContext((prev) => ({ ...prev, session }));
+
+    if (session) {
+      supabase
+        .from("users")
+        .select("*")
+        .eq("id", session.user.id)
+        .single()
+        .then(({ data, error }) => {
+          if (error) {
+            console.log(error);
+          } else {
+            setAppContext((prev) => ({ ...prev, userData: data }));
+          }
+        });
+    }
+  };
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
-      setAppContext((prev) => ({ ...prev, session }));
+      updateSession(session);
     });
 
     supabase.auth.onAuthStateChange((_event, session) => {
-      setAppContext((prev) => ({ ...prev, session }));
+      updateSession(session);
     });
   }, [setAppContext]);
 

@@ -13,7 +13,13 @@ export type NavigationScreens = {
 
   DesignWorkout: undefined;
   CompleteWorkout: undefined;
-  Settings: undefined;
+  Settings: {
+    name?: string;
+    birthday?: string;
+    gender?: string;
+    weight?: number;
+    height?: number;
+  };
 };
 export type NavigationScreen = keyof NavigationScreens;
 
