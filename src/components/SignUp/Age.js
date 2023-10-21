@@ -59,9 +59,7 @@ export default function Age({ onAgeChange, ageVal, setAgeVal }) {
         />
       </Pressable>
 
-      {errorMessage ? (
-        <Text style={styles.error}>{errorMessage}</Text>
-      ) : null}
+      {errorMessage ? <Text style={styles.error}>{errorMessage}</Text> : null}
 
       <DateTimePicker
         mode="date"
