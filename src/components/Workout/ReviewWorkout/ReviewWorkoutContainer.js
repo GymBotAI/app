@@ -43,7 +43,7 @@ export default function ReviewWorkoutContainer({
               value={workoutName}
               onChangeText={handleWorkoutNameChange}
               placeholder="Untitled Workout"
-              placeholderTextColor={'#bababa'}
+              placeholderTextColor={"#bababa"}
             />
             <Entypo
               name="edit"
@@ -69,16 +69,48 @@ export default function ReviewWorkoutContainer({
         </View>
 
         <View
-          style={{ backgroundColor: "#F7F7F7", height: 45, borderColor: '#F7F7F7', flexDirection: 'row',
-           borderWidth: 1, borderBottomColor: '#e3e3e3', borderTopColor: '#e3e3e3', justifyContent: 'flex-end'}}
+          style={{
+            backgroundColor: "#F7F7F7",
+            height: 45,
+            borderColor: "#F7F7F7",
+            flexDirection: "row",
+            borderWidth: 1,
+            borderBottomColor: "#e3e3e3",
+            borderTopColor: "#e3e3e3",
+            justifyContent: "flex-end",
+          }}
         >
-          <Text style={{marginRight: 145, marginTop: 11.5,
-            fontSize: 18, fontWeight: 'bold'}}>Exercise</Text>
-          <Text style={{marginRight: 40, marginTop: 11.5,
-            fontSize: 18, fontWeight: 'bold'}}>Sets</Text>
-          <Text style={{marginRight: 20, marginTop: 11.5,
-            fontSize: 18, fontWeight: 'bold'}}>Reps</Text>
-         </View>
+          <Text
+            style={{
+              marginRight: 145,
+              marginTop: 11.5,
+              fontSize: 18,
+              fontWeight: "bold",
+            }}
+          >
+            Exercise
+          </Text>
+          <Text
+            style={{
+              marginRight: 40,
+              marginTop: 11.5,
+              fontSize: 18,
+              fontWeight: "bold",
+            }}
+          >
+            Sets
+          </Text>
+          <Text
+            style={{
+              marginRight: 20,
+              marginTop: 11.5,
+              fontSize: 18,
+              fontWeight: "bold",
+            }}
+          >
+            Reps
+          </Text>
+        </View>
 
         <ScrollView style={styles.exerciseList}>
           {selectedExercises.map((exercise, index) => (
@@ -97,7 +129,7 @@ export default function ReviewWorkoutContainer({
                   }}
                 />
                 <Text>x</Text>
-                
+
                 <TextInput
                   maxLength={3}
                   style={styles.inputReps}
@@ -179,8 +211,8 @@ const styles = StyleSheet.create({
     width: 50,
     textAlign: "center",
     marginRight: 10,
-    backgroundColor: '#e6e6e6',
-    color: '#292929'
+    backgroundColor: "#e6e6e6",
+    color: "#292929",
   },
   inputReps: {
     borderRadius: 15,
@@ -189,7 +221,7 @@ const styles = StyleSheet.create({
     width: 50,
     textAlign: "center",
     marginLeft: 10,
-    backgroundColor: '#e6e6e6',
-    color: '#292929'
+    backgroundColor: "#e6e6e6",
+    color: "#292929",
   },
 });

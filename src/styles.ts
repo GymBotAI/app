@@ -19,7 +19,7 @@ export const minDate = new Date(1900, 0, 1);
 
 export const buttonStyles = StyleSheet.create({
   button: {
-    position: 'absolute',
+    position: "absolute",
     bottom: 40,
     alignSelf: "center",
     width: "75%",
