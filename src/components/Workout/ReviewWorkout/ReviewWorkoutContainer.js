@@ -22,43 +22,47 @@ export default function ReviewWorkoutContainer({
 
   return (
     <>
-    <ScreenHeader title="Review Workout"/>
-    <SafeAreaView style={styles.container}>
+      <ScreenHeader title="Review Workout" />
+      <SafeAreaView style={styles.container}>
+        <TextInput
+          style={styles.workoutNameInput}
+          value={workoutName}
+          onChangeText={(value) => setWorkoutName(value)}
+          placeholder="Enter workout name"
+        />
+        <TouchableOpacity
+          onPress={() => setShowModal(false)}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Save Workout</Text>
+        </TouchableOpacity>
 
-      <TextInput
-        style={styles.workoutNameInput}
-        value={workoutName}
-        onChangeText={(value) => setWorkoutName(value)}
-        placeholder="Enter workout name"
-      />
-        <TouchableOpacity onPress={() => setShowModal(false)} style={styles.button}>
-        <Text style={styles.buttonText}>Save Workout</Text>
-      </TouchableOpacity>
+        <ScrollView style={styles.exerciseList}>
+          {selectedExercises.map((exercise, index) => (
+            <View key={index} style={styles.exerciseItem}>
+              <Text style={styles.exerciseName}>{exercise}</Text>
+              <TextInput
+                style={styles.inputSets}
+                placeholder="Sets"
+                keyboardType="numeric"
+                value={exerciseSets[index]}
+                onChangeText={(value) => {
+                  const updatedSets = [...exerciseSets];
+                  updatedSets[index] = value;
+                  setExerciseSets(updatedSets);
+                }}
+              />
+            </View>
+          ))}
+        </ScrollView>
 
-      <ScrollView style={styles.exerciseList}>
-        {selectedExercises.map((exercise, index) => (
-          <View key={index} style={styles.exerciseItem}>
-            <Text style={styles.exerciseName}>{exercise}</Text>
-            <TextInput
-              style={styles.inputSets}
-              placeholder="Sets"
-              keyboardType="numeric"
-              value={exerciseSets[index]}
-              onChangeText={(value) => {
-                const updatedSets = [...exerciseSets];
-                updatedSets[index] = value;
-                setExerciseSets(updatedSets);
-              }}
-            />
-          </View>
-        ))}
-      </ScrollView>
-
-
-      <TouchableOpacity onPress={() => setShowModal(false)} style={styles.button}>
-        <Text style={styles.buttonText}>Save Workout</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
+        <TouchableOpacity
+          onPress={() => setShowModal(false)}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Save Workout</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
     </>
   );
 }
@@ -72,9 +76,9 @@ const styles = StyleSheet.create({
   workoutNameInput: {
     marginTop: 10,
     marginLeft: 10,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     fontSize: 28,
-    alignSelf: 'left',
+    alignSelf: "left",
     height: 40,
     borderRadius: 8,
     marginBottom: 20,
