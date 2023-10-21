@@ -76,13 +76,15 @@ export default function ExerciseSelectionScreen({
   }
 
   const toggleExerciseSelection = (exerciseName) => {
-    console.log(exerciseName)
+    console.log(exerciseName);
     // Check if the exercise is already selected
     const isSelected = selectedExercises.includes(exerciseName);
 
     // If it's selected, remove it from the selectedExercises array; otherwise, add it.
     if (isSelected) {
-      setSelectedExercises(selectedExercises.filter((name) => name !== exerciseName));
+      setSelectedExercises(
+        selectedExercises.filter((name) => name !== exerciseName)
+      );
     } else {
       setSelectedExercises([...selectedExercises, exerciseName]);
     }
@@ -99,9 +101,7 @@ export default function ExerciseSelectionScreen({
           borderRadius: 8,
           margin: 8,
           padding: 16,
-          shadowColor: isSelected
-            ? "rgba(0, 0, 0, 0.1)"
-            : "rgba(0, 0, 0, 0.05",
+          shadowColor: isSelected ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0.05",
           shadowOffset: { width: 0, height: 2 },
           shadowOpacity: isSelected ? 0.8 : 0.2,
           elevation: 3,
