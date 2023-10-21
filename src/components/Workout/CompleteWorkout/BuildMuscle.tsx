@@ -64,7 +64,6 @@ export default function ExerciseSelectionScreen({
   setSelectedExercises: any;
   selectedExercises: any;
 }) {
-
   let exercisesToDisplay = [];
 
   // Determine which exercise list to display based on subGoal

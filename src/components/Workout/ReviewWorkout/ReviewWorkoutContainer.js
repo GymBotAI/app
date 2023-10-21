@@ -1,9 +1,18 @@
-import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity, StyleSheet, SafeAreaView, ScrollView, TextInput } from 'react-native';
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  StyleSheet,
+  SafeAreaView,
+  ScrollView,
+  TextInput,
+} from "react-native";
 
 // Assume that you have imported the selectedExercises array separately
 
-export default function ReviewWorkoutContainer({setExercises}) {
+export default function ReviewWorkoutContainer({ setExercises }) {
   const [exerciseSets, setExerciseSets] = useState([]);
 
   return (
@@ -41,14 +50,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#F7F7F7',
+    backgroundColor: "#F7F7F7",
   },
   header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     padding: 10,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
   },
   icon: {
     width: 24,
@@ -59,21 +68,21 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 28,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginVertical: 20,
   },
   exerciseList: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: "#FFFFFF",
     borderRadius: 10,
     marginBottom: 20,
   },
   exerciseItem: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     padding: 15,
     borderBottomWidth: 1,
-    borderBottomColor: '#E0E0E0',
+    borderBottomColor: "#E0E0E0",
   },
   exerciseName: {
     fontSize: 18,
@@ -81,16 +90,16 @@ const styles = StyleSheet.create({
   inputSets: {
     fontSize: 18,
     width: 50,
-    textAlign: 'center',
+    textAlign: "center",
   },
   button: {
     padding: 15,
-    backgroundColor: 'black',
+    backgroundColor: "black",
     borderRadius: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   buttonText: {
-    color: 'white',
+    color: "white",
     fontSize: 20,
   },
 });
