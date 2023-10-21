@@ -8,23 +8,32 @@ import {
   SafeAreaView,
   ScrollView,
   TextInput,
+  Button,
 } from "react-native";
 
-// Assume that you have imported the selectedExercises array separately
+import ScreenHeader from "../../ScreenHeader";
 
 export default function ReviewWorkoutContainer({
   selectedExercises,
   setShowModal,
 }) {
+  const [workoutName, setWorkoutName] = useState("Untitled Workout");
   const [exerciseSets, setExerciseSets] = useState([]);
 
-  console.log(selectedExercises)
   return (
+    <>
+    <ScreenHeader title="Review Workout"/>
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <Text style={styles.time}>73:26</Text>
-      </View>
-      <Text style={styles.title}>Exercises</Text>
+
+      <TextInput
+        style={styles.workoutNameInput}
+        value={workoutName}
+        onChangeText={(value) => setWorkoutName(value)}
+        placeholder="Enter workout name"
+      />
+        <TouchableOpacity onPress={() => setShowModal(false)} style={styles.button}>
+        <Text style={styles.buttonText}>Save Workout</Text>
+      </TouchableOpacity>
 
       <ScrollView style={styles.exerciseList}>
         {selectedExercises.map((exercise, index) => (
@@ -45,13 +54,12 @@ export default function ReviewWorkoutContainer({
         ))}
       </ScrollView>
 
-      <TouchableOpacity
-        onPress={() => setShowModal(false)}
-        style={styles.button}
-      >
+
+      <TouchableOpacity onPress={() => setShowModal(false)} style={styles.button}>
         <Text style={styles.buttonText}>Save Workout</Text>
       </TouchableOpacity>
     </SafeAreaView>
+    </>
   );
 }
 
@@ -61,24 +69,16 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: "#F7F7F7",
   },
-  header: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: 10,
-    backgroundColor: "#FFFFFF",
-  },
-  icon: {
-    width: 24,
-    height: 24,
-  },
-  time: {
-    fontSize: 20,
-  },
-  title: {
+  workoutNameInput: {
+    marginTop: 10,
+    marginLeft: 10,
+    fontWeight: 'bold',
     fontSize: 28,
-    fontWeight: "bold",
-    marginVertical: 20,
+    alignSelf: 'left',
+    height: 40,
+    borderRadius: 8,
+    marginBottom: 20,
+    paddingLeft: 10,
   },
   exerciseList: {
     backgroundColor: "#FFFFFF",
