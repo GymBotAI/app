@@ -49,7 +49,8 @@ export default function Option({ value, label, type, onChange }: Props) {
         if (type == "date") {
           setDatePickerVisibility(true);
         } else {
-        textInputRef.current?.focus();}
+          textInputRef.current?.focus();
+        }
       }}
     >
       <Text style={styles.itemText}>{label}</Text>
@@ -57,7 +58,10 @@ export default function Option({ value, label, type, onChange }: Props) {
         {type == "date" ? (
           <DateTimePickerModal
             date={value}
-            onConfirm={(date) => {setDatePickerVisibility(false);onChange(date)}}
+            onConfirm={(date) => {
+              setDatePickerVisibility(false);
+              onChange(date);
+            }}
             onCancel={() => {}}
             isVisible={isDatePickerVisible}
           />
