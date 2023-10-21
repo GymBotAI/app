@@ -47,7 +47,7 @@ export default function ReviewWorkoutContainer({
             <Entypo
               name="edit"
               size={24}
-              color={inputFilled ? "black" : "grey"} // Set color based on inputFilled
+              color={inputFilled ? "#F7F7F7" : "grey"} // Set color based on inputFilled
               style={styles.editIcon}
             />
           </View>
@@ -134,10 +134,9 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     height: 40,
     borderRadius: 8,
-    marginBottom: 8,
   },
   editIcon: {
-    marginTop: 9,
+    marginTop: 17,
     marginLeft: 5,
   },
   buttonText: {
