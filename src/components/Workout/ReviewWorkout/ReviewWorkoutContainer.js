@@ -69,7 +69,7 @@ export default function ReviewWorkoutContainer({
         </View>
 
         <View
-          style={{ backgroundColor: "#F7F7F7", height: 50,
+          style={{ backgroundColor: "#F7F7F7", height: 50, borderColor: '#F7F7F7',
            borderWidth: 1, borderBottomColor: '#e3e3e3', borderTopColor: '#e3e3e3'}}
         >
          </View>
@@ -82,7 +82,7 @@ export default function ReviewWorkoutContainer({
                 <TextInput
                   maxLength={1}
                   style={styles.inputSets}
-                  placeholder="0"
+                  placeholder="0/"
                   keyboardType="numeric"
                   value={exerciseSets[index]}
                   onChangeText={(value) => {
