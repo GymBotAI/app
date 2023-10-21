@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 import ExerciseSelectionScreen from "./BuildMuscle";
 
 
-const WorkoutSelectionScreen = () => {
+const ReviewWorkoutContainer = () => {
   return (
     <View style={styles.container}>
         
