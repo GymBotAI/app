@@ -5,40 +5,77 @@ import {
   View,
   StyleSheet,
 } from "react-native";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import { MaterialIcons } from "@expo/vector-icons";
 
+import DateTimePickerModal from "react-native-modal-datetime-picker";
+
 import { circularColour } from "../../styles";
 
-export default function Option({
-  value,
-  label,
-  onChange,
-}: {
-  value: string;
+export interface BaseProps {
   label: string;
+}
+
+export interface TextProps {
+  type: "text";
+  value: string;
   onChange: (value: string) => void;
-}) {
+}
+
+export interface NumberProps {
+  type: "number";
+  value: number;
+  onChange: (value: number) => void;
+}
+
+export interface DateProps {
+  type: "date";
+  value: Date;
+  onChange: (value: Date) => void;
+}
+
+export type Props = BaseProps & (TextProps | NumberProps | DateProps);
+
+export default function Option({ value, label, type, onChange }: Props) {
   const textInputRef = useRef<TextInput | null>(null);
+
+  const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
   return (
     <TouchableOpacity
       style={styles.item}
       onPress={() => {
-        textInputRef.current?.focus();
+        if (type == "date") {
+          setDatePickerVisibility(true);
+        } else {
+        textInputRef.current?.focus();}
       }}
     >
       <Text style={styles.itemText}>{label}</Text>
       <View style={styles.itemLeft}>
-        <TextInput
-          ref={textInputRef}
-          style={styles.current}
-          value={value}
-          onChange={(e) => {
-            onChange(e.nativeEvent.text);
-          }}
-        />
+        {type == "date" ? (
+          <DateTimePickerModal
+            date={value}
+            onConfirm={(date) => {setDatePickerVisibility(false);onChange(date)}}
+            onCancel={() => {}}
+            isVisible={isDatePickerVisible}
+          />
+        ) : (
+          <TextInput
+            ref={textInputRef}
+            style={styles.current}
+            value={value.toString()}
+            keyboardType={type == "number" ? "numeric" : "default"}
+            onChange={(e) => {
+              if (type == "number") {
+                onChange(parseInt(e.nativeEvent.text));
+              } else {
+                onChange(e.nativeEvent.text);
+              }
+            }}
+          />
+        )}
         <MaterialIcons name="edit" size={26} color="black" />
       </View>
     </TouchableOpacity>
