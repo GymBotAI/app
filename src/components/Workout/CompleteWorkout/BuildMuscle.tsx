@@ -75,24 +75,24 @@ export default function ExerciseSelectionScreen({
     exercisesToDisplay = bothExercises;
   }
 
-  const toggleExerciseSelection = (exerciseId) => {
+  const toggleExerciseSelection = (exerciseName) => {
     // Check if the exercise is already selected
-    const isSelected = selectedExercises.includes(exerciseId);
+    const isSelected = selectedExercises.includes(exerciseName);
 
     // If it's selected, remove it from the selectedExercises array; otherwise, add it.
     if (isSelected) {
-      setSelectedExercises(selectedExercises.filter((id) => id !== exerciseId));
+      setSelectedExercises(selectedExercises.filter((name) => name !== exerciseName));
     } else {
-      setSelectedExercises([...selectedExercises, exerciseId]);
+      setSelectedExercises([...selectedExercises, exerciseName]);
     }
-    console.log(selectedExercises);
   };
+
   const renderItem = ({ item }) => {
-    const isSelected = selectedExercises.includes(item.id);
+    const isSelected = selectedExercises.includes(item.name);
 
     return (
       <TouchableOpacity
-        onPress={() => toggleExerciseSelection(item.id)}
+        onPress={() => toggleExerciseSelection(item.name)}
         style={{
           backgroundColor: isSelected ? "orange" : "#F5F5F5",
           borderRadius: 8,
@@ -100,7 +100,7 @@ export default function ExerciseSelectionScreen({
           padding: 16,
           shadowColor: isSelected
             ? "rgba(0, 0, 0, 0.1)"
-            : "rgba(0, 0, 0, 0.05)",
+            : "rgba(0, 0, 0, 0.05",
           shadowOffset: { width: 0, height: 2 },
           shadowOpacity: isSelected ? 0.8 : 0.2,
           elevation: 3,
