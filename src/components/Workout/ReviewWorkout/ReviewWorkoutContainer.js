@@ -18,6 +18,7 @@ export default function ReviewWorkoutContainer({
 }) {
   const [exerciseSets, setExerciseSets] = useState([]);
 
+  console.log(selectedExercises)
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
