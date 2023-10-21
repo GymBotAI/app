@@ -35,6 +35,7 @@ export default function ReviewWorkoutContainer({
     <>
       <ScreenHeader title="Review Workout" />
       <SafeAreaView style={styles.container}>
+        <View>
         <View style={styles.topSection}>
           <TextInput
             maxLength={20}
@@ -49,7 +50,7 @@ export default function ReviewWorkoutContainer({
             color={inputFilled ? "black" : "grey"} // Set color based on inputFilled
             style={styles.editIcon}
           />
-        </View>
+          </View>
 
         <TextInput
           style={{
@@ -60,9 +61,10 @@ export default function ReviewWorkoutContainer({
           value={description}
           onChangeText={setDescription}
           placeholder="Workout description"
-  multiline={true} // Set multiline to true
-  numberOfLines={4} // Set the number of lines you want to display
+          multiline={true} // Set multiline to true
+          numberOfLines={4} // Set the number of lines you want to display
         />
+        </View>
 
         <View
           style={{ backgroundColor: "#e3e3e3", height: 1, marginTop: 10 }}
