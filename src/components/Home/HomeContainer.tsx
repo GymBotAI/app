@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect ,useState} from "react";
 import {
   View,
   ScrollView,
@@ -9,6 +9,8 @@ import {
 
 import { AppContext } from "../context/AppContext";
 
+import { supabase } from "../../api/supabase";
+
 import { FontAwesome5 } from "@expo/vector-icons";
 
 import WorkoutStats from "./WorkoutStats";
@@ -17,12 +19,25 @@ import WorkoutPreview from "./WorkoutPreview";
 
 export default function HomeContainer({ navigation }) {
   const { session } = useContext(AppContext);
+  const [username, setUsername] = useState("");
+
+  useEffect(() => {
+    if (!username && session) {
+      supabase.from('users').select('name').eq('id',session.user.id).single().then(({data,error})=>{
+        if(error){
+          console.log(error)
+        }else{
+          setUsername(data.name)
+        }
+      })
+    }
+  }, [username,setUsername])
 
   return (
     <ScrollView style={styles.container}>
       {/* Top Section */}
       <View style={styles.topSection}>
-        <Text style={styles.greetingText}>Hello, {session?.user.email}</Text>
+        <Text style={styles.greetingText}>Hello, {username}</Text>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate("Settings");
