@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import {
   Alert,
   Animated,
@@ -7,7 +8,6 @@ import {
   View,
   Text,
 } from "react-native";
-import React, { useRef, useState } from "react";
 
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
@@ -18,24 +18,20 @@ import Modal from "react-native-modal";
 import LoginBox from "./LoginBox";
 import SignupBox from "./SignupBox";
 
-const Slides = [
+const backgroundImages = [
   {
-    id: 1,
     img: require("../../../assets/caresoul2.webp"),
     img2: require("../../../assets/phone1.jpg"),
   },
   {
-    id: 2,
     img: require("../../../assets/caresoul3.webp"),
     img2: require("../../../assets/phone2.jpg"),
   },
   {
-    id: 3,
     img: require("../../../assets/caresoul1.jpeg"),
     img2: require("../../../assets/phone3.jpeg"),
   },
   {
-    id: 4,
     img: require("../../../assets/caresoul4.webp"),
     img2: require("../../../assets/phone4.jpg"),
   },
@@ -44,13 +40,7 @@ const Slides = [
 const Slider = ({ navigation }) => {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
-  const [index, setIndex] = useState(0);
   const scrollX = useRef(new Animated.Value(0)).current;
-
-  const handleOnViewableItemsChanged = useRef(({ viewableItems }) => {
-    // console.log('viewableItems', viewableItems);
-    setIndex(viewableItems[0].index);
-  }).current;
 
   const viewabilityConfig = useRef({
     itemVisiblePercentThreshold: 50,
@@ -143,7 +133,7 @@ const Slider = ({ navigation }) => {
         </View>
       </View>
       <FlatList
-        data={Slides}
+        data={backgroundImages}
         renderItem={({ item }) => <SlideItem item={item} />}
         horizontal
         pagingEnabled
@@ -165,7 +155,6 @@ const Slider = ({ navigation }) => {
             }
           )(event);
         }}
-        onViewableItemsChanged={handleOnViewableItemsChanged}
         viewabilityConfig={viewabilityConfig}
         bounces={false}
       />
@@ -204,7 +193,7 @@ const Slider = ({ navigation }) => {
         <Text style={styles.loginText}>Login</Text>
       </TouchableOpacity>
 
-      <Pagination data={Slides} scrollX={scrollX} index={index} />
+      <Pagination items={backgroundImages} scrollX={scrollX} />
     </View>
   );
 };
