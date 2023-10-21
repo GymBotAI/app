@@ -20,6 +20,7 @@ export default function ReviewWorkoutContainer({
 }) {
   const [workoutName, setWorkoutName] = useState("Untitled Workout");
   const [exerciseSets, setExerciseSets] = useState([]);
+  const [inputFilled, setInputFilled] = useState(false);
 
   const handleWorkoutNameChange = (value) => {
     // Limit workout name to 15 characters
@@ -74,7 +75,8 @@ export default function ReviewWorkoutContainer({
 
         <TouchableOpacity
           onPress={() => setShowModal(false)}
-          style={styles.saveButton}
+          style={[styles.saveButton, !inputFilled && styles.disabledButton]}
+          disabled={inputFilled}
         >
           <Text style={styles.text}>Complete Workout</Text>
         </TouchableOpacity>
@@ -117,6 +119,9 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 2,
     elevation: 5,
+  },
+  disabledButton: {
+    backgroundColor: "#fff", // Change the background color of the disabled button
   },
   text: {
     alignSelf: "center",
