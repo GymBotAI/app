@@ -53,34 +53,6 @@ export default function Settings({ navigation }: {
       });
   }, [setName, setBday, setGender, setWeight, setHeight]);
 
-  const handleSaveChanges = () => {
-    // Perform saving changes logic here
-  };
-
-  const updateCredentials = async () => {
-    // try {
-    //   const response = await fetch("http://openhost.ddns.net:3000/edit", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       NAME: String(name),
-    //       USERNAME: emailValue,
-    //       GENDER: gender,
-    //       DOB: bday,
-    //       WEIGHT: weight,
-    //       HEIGHT: height,
-    //     }),
-    //   });
-    //   const data = await response.json();
-    //   return data; // Return the response data
-    // } catch (error) {
-    //   console.error("Error checking credentials:", error);
-    //   return null; // Return null in case of an error
-    // }
-  };
-
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
       {/* <View style={styles.container}> */}
