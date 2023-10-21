@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState, useContext, useEffect } from "react";
 import {
   Text,
   TouchableOpacity,
@@ -6,6 +6,10 @@ import {
   Pressable,
   Keyboard,
 } from "react-native";
+
+import { AppContext } from "../context/AppContext";
+
+import { supabase } from "../../api/supabase";
 
 import Option from "./NameOption";
 import AgeOption from "./AgeOption";
@@ -18,12 +22,29 @@ import { minWeight } from "../../styles";
 import { maxWeight } from "../../styles";
 
 export default function Settings({ navigation }) {
-  const [name, setName] = useState("your name (TODO)");
+  const { session } = useContext(AppContext);
+
+  
+  const [name, setName] = useState('');
   const [newName, setNewName] = useState("");
-  const [bday, setBday] = useState("your birthday (TODO)");
-  const [gender, setGender] = useState("your gender (TODO)");
-  const [weight, setWeight] = useState("your weight (TODO)");
-  const [height, setHeight] = useState("your height (TODO)");
+  const [bday, setBday] = useState("");
+  const [gender, setGender] = useState("");
+  const [weight, setWeight] = useState<number | null>(null);
+  const [height, setHeight] = useState<number | null>(null);
+
+  useEffect(() => {
+    supabase.from("users").select("*").eq("id", session.user.id).single().then(({data,error}) => {
+      if (error) {
+        console.log(error);
+      } else {
+        setName(data.name);
+        setBday(data.birthday);
+        setGender(data.gender);
+        setWeight(data.weight);
+        setHeight(data.height);
+      }
+    })
+  }, [setName, setBday, setGender, setWeight, setHeight]);
 
   const handleSaveChanges = () => {
     // Perform saving changes logic here
