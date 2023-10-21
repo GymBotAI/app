@@ -60,13 +60,9 @@ export default function Settings({
 
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
-      {/* <View style={styles.container}> */}
-
       <Option label="Name" value={name} onChange={setName} type="text" />
-      {/* <WeightOption question="Name" value={name} setValue={setName} /> */}
       <Option label="Age" value={bday} onChange={setBday} type="date" />
       <Option label="Gender" value={gender} onChange={setGender} type="text" />
-      {/* <GenderOption question="Gender" value={gender} setValue={setGender} /> */}
       <WeightOption
         question="Weight"
         value={weight}
