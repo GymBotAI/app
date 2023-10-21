@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import {
   View,
   ScrollView,
@@ -9,43 +9,29 @@ import {
 
 import { AppContext } from "../../context/AppContext";
 
-import { supabase } from "../../api/supabase";
-
 import { FontAwesome5 } from "@expo/vector-icons";
 
 import WorkoutStats from "./WorkoutStats";
 import WorkoutList from "./WorkoutList";
 import WorkoutPreview from "./WorkoutPreview";
 
-export default function HomeContainer({ navigation }) {
-  const { session } = useContext(AppContext);
-  const [username, setUsername] = useState("");
+import type { NavigationProp } from "../../types/navigation";
 
-  useEffect(() => {
-    if (!username && session) {
-      supabase
-        .from("users")
-        .select("name")
-        .eq("id", session.user.id)
-        .single()
-        .then(({ data, error }) => {
-          if (error) {
-            console.log(error);
-          } else {
-            setUsername(data.name);
-          }
-        });
-    }
-  }, [username, setUsername]);
+export default function HomeContainer({
+  navigation,
+}: {
+  navigation: NavigationProp;
+}) {
+  const { userData } = useContext(AppContext);
 
   return (
     <ScrollView style={styles.container}>
       {/* Top Section */}
       <View style={styles.topSection}>
-        <Text style={styles.greetingText}>Hello, {username}</Text>
+        <Text style={styles.greetingText}>Hello, {userData.name}</Text>
         <TouchableOpacity
           onPress={() => {
-            navigation.navigate("Settings");
+            navigation.navigate("Settings", userData);
           }}
         >
           <FontAwesome5 name="cog" size={28} color="#333" />

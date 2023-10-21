@@ -17,39 +17,24 @@ import Option from "./Option";
 
 import { minHeight, maxHeight, minWeight, maxWeight } from "../../styles";
 
-import type { NavigationProp } from "../../types/navigation";
+import type { NavigationProp, NavigationScreens } from "../../types/navigation";
 
 export default function Settings({
   navigation,
+  initialData,
 }: {
   navigation: NavigationProp;
+  initialData: NavigationScreens["Settings"];
 }) {
   const { session } = useContext(AppContext);
 
-  const [name, setName] = useState("");
-  const [bday, setBday] = useState<Date | null>(null);
-  const [gender, setGender] = useState("");
-  const [weight, setWeight] = useState("");
-  const [height, setHeight] = useState("");
-
-  useEffect(() => {
-    supabase
-      .from("users")
-      .select("*")
-      .eq("id", session.user.id)
-      .single()
-      .then(({ data, error }) => {
-        if (error) {
-          console.log(error);
-        } else {
-          setName(data.name);
-          setBday(new Date(data.birthday));
-          setGender(data.gender);
-          setWeight(data.weight.toString());
-          setHeight(data.height.toString());
-        }
-      });
-  }, [setName, setBday, setGender, setWeight, setHeight]);
+  const [name, setName] = useState(initialData.name || "");
+  const [bday, setBday] = useState<Date | null>(
+    new Date(initialData.birthday) || null
+  );
+  const [gender, setGender] = useState(initialData.gender || "");
+  const [weight, setWeight] = useState(initialData.weight?.toString() || "");
+  const [height, setHeight] = useState(initialData.height?.toString() || "");
 
   return (
     <Pressable style={styles.container} onPress={Keyboard.dismiss}>
