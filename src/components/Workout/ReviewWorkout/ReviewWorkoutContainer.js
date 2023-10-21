@@ -34,6 +34,7 @@ export default function ReviewWorkoutContainer({
     <>
       <ScreenHeader title="Review Workout" />
       <SafeAreaView style={styles.container}>
+<<<<<<< HEAD
 
         <View style={styles.workoutNameContainer}>
           <TextInput
@@ -72,6 +73,44 @@ export default function ReviewWorkoutContainer({
         </ScrollView>
 
         <TouchableOpacity onPress={() => setShowModal(false)} style={styles.button}>
+=======
+        <TextInput
+          style={styles.workoutNameInput}
+          value={workoutName}
+          onChangeText={(value) => setWorkoutName(value)}
+          placeholder="Enter workout name"
+        />
+        <TouchableOpacity
+          onPress={() => setShowModal(false)}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Save Workout</Text>
+        </TouchableOpacity>
+
+        <ScrollView style={styles.exerciseList}>
+          {selectedExercises.map((exercise, index) => (
+            <View key={index} style={styles.exerciseItem}>
+              <Text style={styles.exerciseName}>{exercise}</Text>
+              <TextInput
+                style={styles.inputSets}
+                placeholder="Sets"
+                keyboardType="numeric"
+                value={exerciseSets[index]}
+                onChangeText={(value) => {
+                  const updatedSets = [...exerciseSets];
+                  updatedSets[index] = value;
+                  setExerciseSets(updatedSets);
+                }}
+              />
+            </View>
+          ))}
+        </ScrollView>
+
+        <TouchableOpacity
+          onPress={() => setShowModal(false)}
+          style={styles.button}
+        >
+>>>>>>> bcdc16353a47fa11d62647780203fb9d4c77b63f
           <Text style={styles.buttonText}>Save Workout</Text>
         </TouchableOpacity>
       </SafeAreaView>
@@ -96,10 +135,17 @@ const styles = StyleSheet.create({
   },
   workoutNameInput: {
     marginTop: 10,
+<<<<<<< HEAD
     marginLeft: 5,
     flex: 1,
     fontSize: 32,
     fontWeight: "bold",
+=======
+    marginLeft: 10,
+    fontWeight: "bold",
+    fontSize: 28,
+    alignSelf: "left",
+>>>>>>> bcdc16353a47fa11d62647780203fb9d4c77b63f
     height: 40,
     borderRadius: 8,
     marginBottom: 20,

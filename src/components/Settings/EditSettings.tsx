@@ -72,8 +72,8 @@ export default function Settings({
         type="number"
       />
 
-      <Button
-        title="Save"
+      <TouchableOpacity
+        style={styles.saveButton}
         onPress={() => {
           Keyboard.dismiss();
 
@@ -100,16 +100,16 @@ export default function Settings({
               }
             });
         }}
-      />
+      >
+        <Text style={styles.buttonText}>Save</Text>
+      </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.homeButton}
+      <Button
+        title="Go back"
         onPress={() => {
           navigation.navigate("Home");
         }}
-      >
-        <Text style={styles.buttonText}>Go Back</Text>
-      </TouchableOpacity>
+      />
     </Pressable>
   );
 }
@@ -144,10 +144,11 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
-  homeButton: {
+  saveButton: {
     backgroundColor: "#333",
     paddingVertical: 10,
     borderRadius: 5,
-    marginTop: 20,
+    marginBottom: 8,
+    marginTop: 12,
   },
 });
