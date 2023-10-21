@@ -13,9 +13,6 @@ import {
 
 import ScreenHeader from "../../ScreenHeader";
 
-import { Entypo } from '@expo/vector-icons'; 
-
-
 export default function ReviewWorkoutContainer({
   selectedExercises,
   setShowModal,
@@ -34,16 +31,14 @@ export default function ReviewWorkoutContainer({
     <>
       <ScreenHeader title="Review Workout" />
       <SafeAreaView style={styles.container}>
-
-
         <View style={styles.workoutNameContainer}>
+        
           <TextInput
             style={styles.workoutNameInput}
             value={workoutName}
             onChangeText={handleWorkoutNameChange}
             placeholder="Untitled Workout"
           />
-          <Entypo name="edit" size={24} color="black" />
         </View>
 
         <TouchableOpacity
@@ -73,34 +68,6 @@ export default function ReviewWorkoutContainer({
         </ScrollView>
 
         <TouchableOpacity onPress={() => setShowModal(false)} style={styles.button}>
-
-        <TextInput
-          style={styles.workoutNameInput}
-          value={workoutName}
-          onChangeText={(value) => setWorkoutName(value)}
-          placeholder="Enter workout name"
-        />
-        <TouchableOpacity
-          onPress={() => setShowModal(false)}
-          style={styles.button}
-        >
-          <Text style={styles.buttonText}>Save Workout</Text>
-        </TouchableOpacity>
-
-      <TextInput
-        style={styles.workoutNameInput}
-        value={workoutName}
-        onChangeText={(value) => setWorkoutName(value)}
-        placeholder="Enter workout name"
-      />
-        <TouchableOpacity onPress={() => setShowModal(false)} style={styles.button}>
-        <Text style={styles.buttonText}>Save Workout</Text>
-      </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => setShowModal(false)}
-          style={styles.button}
-        >
           <Text style={styles.buttonText}>Save Workout</Text>
         </TouchableOpacity>
       </SafeAreaView>
@@ -124,8 +91,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   workoutNameInput: {
-    marginTop: 10,
-    alignSelf: "left",
+    flex: 1,
+    fontSize: 24,
+    fontWeight: "bold",
     height: 40,
     borderRadius: 8,
     marginBottom: 20,
