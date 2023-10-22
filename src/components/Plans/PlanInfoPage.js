@@ -24,6 +24,7 @@ export default function PlanInfoPage({
         <Text style={styles.closeButtonText}>X</Text>
       </TouchableOpacity>
       <Text style={styles.planName}>{plan.name}</Text>
+      <Text style={styles.planLength}>{plan.length} days</Text>
       <View style={styles.centeredBox}>
         <Text>{plan.data}</Text>
       </View>
@@ -95,9 +96,17 @@ const styles = StyleSheet.create({
     justifyContent: "top",
     padding: 20,
   },
-  planName: {
+  planLength: {
     position: "absolute",
     top: "6%",
+    fontWeight: "bold",
+    fontSize: 15,
+    color: "#646464",
+    left: 40,
+  },
+  planName: {
+    position: "absolute",
+    top: "5%",
     fontWeight: "bold",
     fontSize: 20,
     textAlign: "center",
