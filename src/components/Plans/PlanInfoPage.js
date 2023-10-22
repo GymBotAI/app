@@ -11,10 +11,9 @@ export default function PlanInfoPage({
   onClose,
   windowWidth,
   windowHeight,
-  fillPercentage,
+  plan,
 }) {
   const lineLength = Dimensions.get("window").height - 265;
-  const filledLength = (lineLength * fillPercentage) / 100;
 
   return (
     <View
@@ -24,10 +23,9 @@ export default function PlanInfoPage({
       <TouchableOpacity style={styles.closeButton} onPress={onClose}>
         <Text style={styles.closeButtonText}>X</Text>
       </TouchableOpacity>
-      <View style={styles.verticalLine}>
-        <View style={[styles.line, { height: lineLength }]}>
-          <View style={[styles.fill, { height: filledLength }]} />
-        </View>
+      <Text style={styles.planName}>{plan.name}</Text>
+      <View style={styles.centeredBox}>
+        <Text>{plan.data}</Text>
       </View>
       <TouchableOpacity style={styles.addPlanButton}>
         <Text style={styles.addPlanButtonText}>Add Plan</Text>
@@ -70,23 +68,6 @@ const styles = StyleSheet.create({
     height: windowHeight,
     backgroundColor: "white",
   },
-  verticalLine: {
-    position: "absolute",
-    left: 15,
-    top: 15,
-    width: 15,
-    borderRadius: 7,
-    backgroundColor: "gray",
-  },
-  line: {
-    width: 15,
-    backgroundColor: "lightgray",
-    borderRadius: 7,
-  },
-  fill: {
-    backgroundColor: "blue",
-    borderRadius: 7,
-  },
   addPlanButton: {
     position: "absolute",
     bottom: 0,
@@ -101,5 +82,24 @@ const styles = StyleSheet.create({
   addPlanButtonText: {
     color: "white",
     fontSize: 16,
+  },
+  centeredBox: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: [{ translateX: -150 }, { translateY: -170 }],
+    width: 300,
+    height: 350,
+    borderRadius: 20,
+    backgroundColor: "gray",
+    justifyContent: "top",
+    padding: 20,
+  },
+  planName: {
+    position: "absolute",
+    top: "6%",
+    fontWeight: "bold",
+    fontSize: 20,
+    textAlign: "center",
   },
 });

@@ -15,6 +15,7 @@ export default function PlanFinder({ onClose }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [PlanInfoPageVisibility, setPlanInfoPageVisibility] = useState(false);
   const [selectedPlans, setSelectedPlans] = useState([]);
+  const [planInfo, setPlanInfo] = useState({});
 
   const onAddPlan = (plan) => {
     setSelectedPlans([...selectedPlans, plan]);
@@ -30,8 +31,9 @@ export default function PlanFinder({ onClose }) {
     rectangle.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const togglePlanInfoPageVisibility = (circleCount) => {
+  const togglePlanInfoPageVisibility = (circleCount, plan) => {
     setPlanInfoPageVisibility(!PlanInfoPageVisibility);
+    setPlanInfo(plan);
   };
 
   return (
@@ -53,7 +55,9 @@ export default function PlanFinder({ onClose }) {
       <ScrollView style={styles.tabsContainer}>
         {filteredRectangles.map((rectangle, index) => (
           <TouchableOpacity
-            onPress={() => togglePlanInfoPageVisibility(rectangle.length)}
+            onPress={() =>
+              togglePlanInfoPageVisibility(rectangle.length, rectangle)
+            }
             key={index}
           >
             <PlanTabs
@@ -72,6 +76,7 @@ export default function PlanFinder({ onClose }) {
           windowWidth={windowWidth}
           windowHeight={windowHeight}
           fillPercentage={50}
+          plan={planInfo}
         />
       )}
     </View>
