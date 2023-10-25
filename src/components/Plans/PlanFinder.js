@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
   },
   tabsContainer: {
     width: "100%",
-    position: "absolute",
     top: 80,
   },
   searchBarContainer: {
