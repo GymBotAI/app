@@ -10,8 +10,9 @@ import {
 } from "react-native";
 import PlanTabs from "./PlanTabs";
 import PlanInfoPage from "./PlanInfoPage";
+import plans from "./plans";
 
-export default function PlanFinder({ onClose }) {
+export default function PlanFinder() {
   const [searchQuery, setSearchQuery] = useState("");
   const [PlanInfoPageVisibility, setPlanInfoPageVisibility] = useState(false);
   const [selectedPlans, setSelectedPlans] = useState([]);
@@ -21,14 +22,8 @@ export default function PlanFinder({ onClose }) {
     setSelectedPlans([...selectedPlans, plan]);
   };
 
-  const rectangles = [
-    { name: "Get Abs", length: 2, data: "Situps X 10 \nRest 30s" },
-    { name: "Beat Your Pr", length: 8, data: "Hey\n\n" },
-    { name: "Rectangle 3", length: 3 },
-  ];
-
-  const filteredRectangles = rectangles.filter((rectangle) =>
-    rectangle.name.toLowerCase().includes(searchQuery.toLowerCase())
+  const filteredPlans = plans.filter((plan) =>
+    plan.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const togglePlanInfoPageVisibility = (circleCount, plan) => {
@@ -39,31 +34,26 @@ export default function PlanFinder({ onClose }) {
   return (
     <View style={styles.container}>
       <View style={styles.overlay} />
-      {!PlanInfoPageVisibility && (
-        <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-          <Text style={styles.closeButtonText}>X</Text>
-        </TouchableOpacity>
-      )}
       <View style={styles.searchBarContainer}>
         <TextInput
           style={styles.searchBar}
-          placeholder="Search rectangles"
+          placeholder="Search plans"
           placeholderTextColor="#888"
           onChangeText={(text) => setSearchQuery(text)}
         />
       </View>
       <ScrollView style={styles.tabsContainer}>
-        {filteredRectangles.map((rectangle, index) => (
+        {filteredPlans.map((plan, index) => (
           <TouchableOpacity
             onPress={() =>
-              togglePlanInfoPageVisibility(rectangle.length, rectangle)
+              togglePlanInfoPageVisibility(plan.length, plan)
             }
             key={index}
           >
             <PlanTabs
-              text={rectangle.name}
-              length={rectangle.length}
-              data={rectangle.data}
+              text={plan.name}
+              length={plan.length}
+              data={plan.data}
               viewData={false}
             />
           </TouchableOpacity>
@@ -83,7 +73,7 @@ export default function PlanFinder({ onClose }) {
   );
 }
 
-const windowWidth = Dimensions.get("window").width - 20; //IDK why but if u want symetry, you have to offset 20 px
+const windowWidth = Dimensions.get("window").width; //IDK why but if u want symetry, you have to offset 20 px
 const windowHeight = Dimensions.get("window").height;
 
 const styles = StyleSheet.create({
