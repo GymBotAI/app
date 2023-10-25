@@ -42,7 +42,7 @@ export default function PlanFinder() {
          onChangeText={(text) => setSearchQuery(text)}
        />
      </View>
-     <ScrollView style={styles.tabsContainer}>
+     <ScrollView style={[styles.tabsContainer, PlanInfoPageVisibility ? { position: "absolute" } : {}]}>
        {filteredPlans.map((plan, index) => (
          <TouchableOpacity
            onPress={() => togglePlanInfoPageVisibility(plan.length, plan)}
