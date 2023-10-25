@@ -1,13 +1,11 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { View, Text, StyleSheet, Image } from "react-native";
 
-export default function PlanTabs({ text, length, data, viewData }) {
-  const [isChecked, setIsChecked] = useState(false);
-
+export default function PlanTabs({ text, length, imageSource }) {
   return (
-    <View style={[styles.rectangle, { paddingBottom: viewData ? 10 : 0 }]}>
+    <View style={styles.rectangle}>
       <View style={styles.contentContainer}>
+        <Image source={imageSource} style={styles.image} />
         <Text>{text}</Text>
         <View style={styles.lengthContainer}>
           <View style={styles.lengthBox}>
@@ -15,19 +13,6 @@ export default function PlanTabs({ text, length, data, viewData }) {
           </View>
         </View>
       </View>
-      {viewData && (
-        <View style={styles.dataContainer}>
-          <Text>{data}</Text>
-          <View style={styles.checkboxContainer}>
-            <FontAwesome5
-              name={isChecked ? "check-square" : "square"}
-              size={30}
-              color={isChecked ? "green" : "gray"}
-              onPress={() => setIsChecked(!isChecked)}
-            />
-          </View>
-        </View>
-      )}
     </View>
   );
 }
@@ -43,11 +28,17 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     width: "100%",
-    flexDirection: "row",
+    flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     paddingHorizontal: 10,
-    paddingVertical: 10,
+    paddingBottom: 10,
+  },
+  image: {
+    width: 300,
+    height: 200,
+    borderRadius: 15,
+    marginBottom: 10, 
   },
   lengthContainer: {
     backgroundColor: "darkgray",
@@ -66,19 +57,5 @@ const styles = StyleSheet.create({
   lengthText: {
     color: "lightgray",
     fontSize: 16,
-  },
-  dataContainer: {
-    backgroundColor: "white",
-    borderRadius: 10,
-    padding: 10,
-    flexGrow: 1,
-    width: "90%",
-    flexDirection: "row",
-    alignItems: "flex-start",
-  },
-  checkboxContainer: {
-    alignItems: "flex-end",
-    justifyContent: "flex-start",
-    flex: 1,
   },
 });

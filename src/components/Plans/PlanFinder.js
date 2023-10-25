@@ -32,45 +32,43 @@ export default function PlanFinder() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.overlay} />
-      <View style={styles.searchBarContainer}>
-        <TextInput
-          style={styles.searchBar}
-          placeholder="Search plans"
-          placeholderTextColor="#888"
-          onChangeText={(text) => setSearchQuery(text)}
-        />
-      </View>
-      <ScrollView style={styles.tabsContainer}>
-        {filteredPlans.map((plan, index) => (
-          <TouchableOpacity
-            onPress={() =>
-              togglePlanInfoPageVisibility(plan.length, plan)
-            }
-            key={index}
-          >
-            <PlanTabs
-              text={plan.name}
-              length={plan.length}
-              data={plan.data}
-              viewData={false}
-            />
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
-      {PlanInfoPageVisibility && (
-        <PlanInfoPage
-          onClose={togglePlanInfoPageVisibility}
-          onAddPlan={onAddPlan}
-          windowWidth={windowWidth}
-          windowHeight={windowHeight}
-          fillPercentage={50}
-          plan={planInfo}
-        />
-      )}
-    </View>
-  );
+   <View style={styles.container}>
+     <View style={styles.overlay} />
+     <View style={styles.searchBarContainer}>
+       <TextInput
+         style={styles.searchBar}
+         placeholder="Search plans"
+         placeholderTextColor="#888"
+         onChangeText={(text) => setSearchQuery(text)}
+       />
+     </View>
+     <ScrollView style={styles.tabsContainer}>
+       {filteredPlans.map((plan, index) => (
+         <TouchableOpacity
+           onPress={() => togglePlanInfoPageVisibility(plan.length, plan)}
+           key={index}
+         >
+           <PlanTabs
+             text={plan.name}
+             length={plan.length}
+             data={plan.data}
+             imageSource={require("../../../assets/accountbgdark.jpg")}
+           />
+         </TouchableOpacity>
+       ))}
+     </ScrollView>
+     {PlanInfoPageVisibility && (
+       <PlanInfoPage
+         onClose={togglePlanInfoPageVisibility}
+         onAddPlan={onAddPlan}
+         windowWidth={windowWidth}
+         windowHeight={windowHeight}
+         fillPercentage={50}
+         plan={planInfo}
+       />
+     )}
+   </View>
+ );
 }
 
 const windowWidth = Dimensions.get("window").width; //IDK why but if u want symetry, you have to offset 20 px
