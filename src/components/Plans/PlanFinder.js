@@ -74,8 +74,6 @@ export default function PlanFinder() {
         <PlanInfoPage
           onClose={() => setPlanInfoPageVisibility(false)}
           plan={planInfo}
-          windowWidth={windowWidth}
-          windowHeight={windowHeight}
           image={require("../../../assets/accountbgdark.jpg")}
         />
       )}

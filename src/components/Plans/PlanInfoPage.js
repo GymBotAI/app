@@ -5,20 +5,19 @@ import {
   Dimensions,
   TouchableOpacity,
   Text,
-  Image,
   ImageBackground,
+  ScrollView,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function PlanInfoPage({
   onClose,
-  windowWidth,
-  windowHeight,
   plan,
   image,
 }) {
   return (
     <View style={styles.container}>
+      <ScrollView alwaysBounceVertical={false}>
       <ImageBackground
         source={image} // Replace with the actual path to your background image
         style={styles.overlay}
@@ -36,6 +35,7 @@ export default function PlanInfoPage({
           <Text>{plan.data}</Text>
         </View>
       </ImageBackground>
+      </ScrollView>
     </View>
   );
 }
