@@ -38,7 +38,7 @@ const styles = StyleSheet.create({
     width: 300,
     height: 200,
     borderRadius: 15,
-    marginBottom: 10, 
+    marginBottom: 10,
   },
   lengthContainer: {
     backgroundColor: "darkgray",
