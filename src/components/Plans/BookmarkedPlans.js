@@ -1,25 +1,56 @@
-import React from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import BookmarkedTabs from "./BookmarkedTabs";
+import plans from "./plans";
+import PlanInfoPage from "./PlanInfoPage";
 
-const BookmarkedPlans = () => {
+const BookmarkedPage = () => {
+  const [PlanInfoPageVisibility, setPlanInfoPageVisibility] = useState(false);
+  const bookmarkedPlans = plans.filter((plan) => plan.bookmarked);
+
+  const togglePlanInfoPageVisibility = (plan) => {
+    setPlanInfoPageVisibility(!PlanInfoPageVisibility);
+    setPlanInfo(plan);
+  };
+
   return (
-    <View style={styles.container}>
+    <View contentContainerStyle={styles.container}>
+      <ScrollView>
+        {bookmarkedPlans.map((plan, index) => (
+          <TouchableOpacity onPress={() => togglePlanInfoPageVisibility(plan)}>
+            <BookmarkedTabs
+              key={index}
+              text={plan.name}
+              length={plan.length}
+              imageSource={plan.image}
+              data={plan.description}
+            />
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+      {PlanInfoPageVisibility && (
+        <PlanInfoPage
+          onClose={() => setPlanInfoPageVisibility(false)}
+          plan={plan}
+          image={require("../../../assets/accountbgdark.jpg")}
+        />
+      )}
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
+    flexGrow: 1,
     alignItems: "center",
     backgroundColor: "white",
-    position: "absolute",
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
   },
 });
 
-export default BookmarkedPlans;
+export default BookmarkedPage;

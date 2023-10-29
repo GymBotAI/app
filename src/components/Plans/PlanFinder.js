@@ -65,7 +65,7 @@ export default function PlanFinder() {
               text={plan.name}
               length={plan.length}
               data={plan.data}
-              imageSource={require("../../../assets/accountbgdark.jpg")}
+              imageSource={plan.image}
             />
           </TouchableOpacity>
         ))}
