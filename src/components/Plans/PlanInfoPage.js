@@ -9,6 +9,7 @@ import {
   ScrollView,
 } from "react-native";
 import { FontAwesome5 } from "@expo/vector-icons";
+import plans from "./plans";
 
 export default function PlanInfoPage({ onClose, plan, image }) {
   return (
@@ -28,6 +29,9 @@ export default function PlanInfoPage({ onClose, plan, image }) {
           </View>
         </ImageBackground>
       </ScrollView>
+      <TouchableOpacity style={styles.blueButton}>
+            <Text style={styles.blueButtonText}>Save Workout</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -54,11 +58,6 @@ const styles = StyleSheet.create({
   },
   closeButtonText: {
     color: "white",
-    fontSize: 18,
-    fontWeight: "bold",
-  },
-  bookmarkButtonText: {
-    color: "orange",
     fontSize: 18,
     fontWeight: "bold",
   },
@@ -110,5 +109,21 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontSize: 20,
     textAlign: "center",
+  },
+  blueButton: {
+    position: "absolute",
+    bottom: 60,
+    left: windowWidth*0.05,
+    width: "90%",
+    height: 50,
+    backgroundColor: "blue",
+    borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  blueButtonText: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
   },
 });

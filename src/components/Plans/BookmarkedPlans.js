@@ -1,13 +1,9 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-const BookmarkedPlans = ({ onClose }) => {
+const BookmarkedPlans = () => {
   return (
     <View style={styles.container}>
-      <Text>This is the Bookmarked Plans Page</Text>
-      <TouchableOpacity onPress={onClose} style={styles.closeButton}>
-        <Text>Close</Text>
-      </TouchableOpacity>
     </View>
   );
 };
@@ -23,11 +19,6 @@ const styles = StyleSheet.create({
     left: 0,
     width: "100%",
     height: "100%",
-  },
-  closeButton: {
-    position: "absolute",
-    top: 20,
-    right: 20,
   },
 });
 
