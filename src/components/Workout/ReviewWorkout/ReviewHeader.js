@@ -1,11 +1,17 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 // import { AntDesign } from "@expo/vector-icons";
 
-export default function ScreenHeader({ title }) {
+export default function ScreenHeader({ title, onBackPress, onSavePress }) {
   return (
     <View style={styles.container}>
+      <TouchableOpacity style={styles.backButton} onPress={onBackPress}>
+        <Text style={styles.buttonText}>Back</Text>
+      </TouchableOpacity>
       <Text style={styles.title}>{title}</Text>
+      <TouchableOpacity style={styles.saveButton} onPress={onSavePress}>
+        <Text style={styles.buttonText}>Save</Text>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -23,9 +29,16 @@ const styles = StyleSheet.create({
   backButton: {
     paddingRight: 10,
   },
+  saveButton: {
+    position: "absolute",
+    right: 10,
+  },
   title: {
     fontSize: 18,
     fontWeight: "bold",
     color: "#333",
   },
+  buttonText: {
+    fontSize: 16,
+    color: "#007AFF", 
 });
