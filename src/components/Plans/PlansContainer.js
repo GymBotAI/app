@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -15,27 +15,36 @@ const { width } = Dimensions.get("window");
 
 export default function Settings({ navigation }) {
   const [scrollX] = useState(new Animated.Value(0));
-  const scrollEventThrottle = 16; // Adjust as needed
+  const scrollEventThrottle = 16;
+  const scrollViewRef = React.createRef();
+  const [planInfoPageVisible, setPlanInfoPageVisible] = useState(false);
 
   const animatedScrollX = Animated.event(
-    [
-      {
-        nativeEvent: {
-          contentOffset: {
-            x: scrollX,
-          },
-        },
-      },
-    ],
-    {
-      useNativeDriver: false,
-    }
-  );
+   [
+     {
+       nativeEvent: {
+         contentOffset: {
+           x: scrollX,
+         },
+       },
+     },
+   ],
+   {
+     useNativeDriver: false,
+   }
+ );
 
-  const interpolateX = scrollX.interpolate({
-    inputRange: [0, width],
-    outputRange: [0, 1],
-  });
+ const interpolateX = scrollX.interpolate({
+   inputRange: [0, width],
+   outputRange: [0, 1],
+ });
+
+  useEffect(() => {
+    const scrollEnabled = !planInfoPageVisible;
+    if (scrollViewRef.current) {
+      scrollViewRef.current.setNativeProps({ scrollEnabled });
+    }
+  }, [planInfoPageVisible]);
 
   return (
     <View style={{ flex: 1 }}>
@@ -43,10 +52,12 @@ export default function Settings({ navigation }) {
         horizontal
         pagingEnabled
         onScroll={animatedScrollX}
-        scrollEventThrottle={scrollEventThrottle} // Specify the scrollEventThrottle
+        scrollEventThrottle={scrollEventThrottle}
+        showsHorizontalScrollIndicator={false}
+        ref={scrollViewRef}
       >
         <View style={{ width, flex: 1 }}>
-          <PlanFinder />
+          <PlanFinder onPlanInfoPageVisibilityChange={setPlanInfoPageVisible} />
         </View>
         <View style={{ width, flex: 1 }}>
           <BookmarkedPlans />

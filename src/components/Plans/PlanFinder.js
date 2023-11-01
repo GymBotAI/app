@@ -16,7 +16,7 @@ import PlanInfoPage from "./PlanInfoPage";
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-export default function PlanFinder() {
+export default function PlanFinder({ onPlanInfoPageVisibilityChange }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [PlanInfoPageVisibility, setPlanInfoPageVisibility] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -33,6 +33,7 @@ export default function PlanFinder() {
   const togglePlanInfoPageVisibility = (plan) => {
     setPlanInfoPageVisibility(!PlanInfoPageVisibility);
     setPlanInfo(plan);
+    onPlanInfoPageVisibilityChange(!PlanInfoPageVisibility);
   };
 
   return (
@@ -105,12 +106,6 @@ const styles = StyleSheet.create({
     left: 80,
     flexDirection: "row",
     alignItems: "center",
-  },
-  top20: {
-    top: 10,
-  },
-  top80: {
-    top: 80,
   },
   searchBar: {
     width: 200,
