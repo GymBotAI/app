@@ -26,11 +26,6 @@ export default function ReviewWorkoutContainer({
   const [exerciseReps, setExerciseReps] = useState([]);
   const [inputFilled, setInputFilled] = useState(false);
 
-  const handleWorkoutNameChange = (value) => {
-    setWorkoutName(value);
-    setInputFilled(!!value); // Set inputFilled based on whether value is not empty
-  };
-
   return (
     <>
       <ScreenHeader title="Review Workout" />
@@ -41,7 +36,11 @@ export default function ReviewWorkoutContainer({
               maxLength={20}
               style={styles.workoutNameInput}
               value={workoutName}
-              onChangeText={handleWorkoutNameChange}
+              onChangeText={(e) => {
+                setWorkoutName(e)
+                setInputFilled(!!e)
+              }
+              }
               placeholder="Untitled Workout"
               placeholderTextColor={"#bababa"}
             />
@@ -64,6 +63,7 @@ export default function ReviewWorkoutContainer({
             onChangeText={setDescription}
             placeholder="Workout description"
             multiline={true} // Set multiline to true
+            maxLength={150}
             numberOfLines={4} // Set the number of lines you want to display
           />
         </View>
