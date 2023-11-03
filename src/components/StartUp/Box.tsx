@@ -3,7 +3,6 @@ import {
   Alert,
   Animated,
   FlatList,
-  StyleSheet,
   TouchableOpacity,
   View,
   Text,
@@ -146,7 +145,7 @@ export default function StartUpBox ({ navigation }) {
           setShowSignUp(true);
         }}
       >
-        <Text style={styles.signupText}>Sign Up for Free</Text>
+        <Text style={Box.signupText}>Sign Up for Free</Text>
       </TouchableOpacity>
 
       <TouchableOpacity style={Box.login}
@@ -154,40 +153,10 @@ export default function StartUpBox ({ navigation }) {
           setShowLogin(true);
         }}
       >
-        <Text style={styles.loginText}>Login</Text>
+        <Text style={Box.loginText}>Login</Text>
       </TouchableOpacity>
 
       <Pagination items={backgroundImages} scrollX={scrollX} />
     </>
   );
 };
-
-
-const styles = StyleSheet.create({
-  headerText: {
-    fontSize: 47.0838,
-    fontWeight: "bold",
-    color: "#fff",
-    letterSpacing: 2,
-    shadowColor: "black",
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 0.6,
-    shadowRadius: 4,
-    fontFamily: "roboto-black",
-  },
-  signupText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#333",
-    textAlign: "center",
-  },
-  login: {
-    elevation: 5, // For Android shadow
-  },
-  loginText: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "#ddd",
-    textAlign: "center",
-  },
-});

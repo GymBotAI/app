@@ -25,6 +25,12 @@ export const bVal = {
     shadowRadius: 4,
   };
 
+  const commonTextStyle = {
+    fontSize: 18,
+    fontWeight: "bold",
+    textAlign: "center",
+  }
+
 export const Box = StyleSheet.create({
     touchable: {
         position: "absolute",
@@ -53,13 +59,21 @@ export const Box = StyleSheet.create({
         ...commonButtonStyle,
         bottom: 150,
         alignSelf: "center",
-        backgroundColor: "#ddd",
+        backgroundColor: "#ddd"
     },
+    signupText: {
+        ...commonTextStyle,
+        color: "#333",
+      },
     login: {
         ...commonButtonStyle,
         bottom: 80,
         alignSelf: "center",
         borderWidth: 1,
         borderColor: "#ddd",
+    },
+    loginText: {
+        ...commonTextStyle,
+        color: "#ddd",
     }
 });
