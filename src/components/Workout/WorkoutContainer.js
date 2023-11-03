@@ -9,7 +9,7 @@ import {
 import CreateWorkoutButton from "./CreateWorkoutButton";
 import WorkoutList from "./WorkoutList";
 import TalkToGymBotSection from "./TalkToGymBot";
-import CustomPage from "./RunningPage";
+import CustomPage from "./Running/RunningPage";
 
 export default function ViewWorkouts({ navigation }) {
   const [selectedWorkouts, setSelectedWorkouts] = useState([]);
