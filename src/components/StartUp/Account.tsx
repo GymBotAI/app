@@ -21,11 +21,13 @@ export default function LoginBox({
   onError,
   onCreateAccount,
   button1,
+  button2,
 }: {
   onLogin: (user: User) => void;
   onError: (error: Error) => void;
   onCreateAccount: () => void;
   button1: string;
+  button2: string;
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -80,7 +82,7 @@ export default function LoginBox({
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.signup}>
-          <Text style={styles.signupText}>Sign Up Instead</Text>
+          <Text style={styles.signupText}>{button2}</Text>
         </TouchableOpacity>
       </View>
 

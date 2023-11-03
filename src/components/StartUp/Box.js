@@ -81,6 +81,7 @@ export default function StartUpBox ({ navigation }) {
             navigation.navigate("Register");
           }}
           button1="Login"
+          button2="Sign Up Instead"
         />
       </Modal>
 
