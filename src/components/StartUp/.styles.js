@@ -39,6 +39,9 @@ export const Box = StyleSheet.create({
         width: 40,
         zIndex: 1,
     },
+    modalContainer: {
+      paddingTop: 50,
+    },
     logo: {
         width: 220,
         height: 110,

@@ -64,7 +64,7 @@ export default function StartUpBox ({ navigation }) {
 
   return (
     <>
-      <Modal style={{height: '100%'}}
+      <Modal style={Box.modalContainer}
       isVisible={showLogin} backdropOpacity={bVal.backOpacity} backdropColor={bVal.backColor}>
         {xButton}
         <LoginBox
