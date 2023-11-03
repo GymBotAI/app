@@ -7,11 +7,11 @@ import { AppContext } from "./src/context/AppContext";
 
 import { supabase } from "./src/api/supabase";
 
-import Home from "./src/screens/navbarScreens/Home";
-import Plans from "./src/screens/navbarScreens/Plans";
-import Workouts from "./src/screens/navbarScreens/Workouts";
-import Food from "./src/screens/navbarScreens/Food";
-import Chat from "./src/screens/navbarScreens/Chat";
+import Home from "./src/screens/.Home";
+import Plans from "./src/screens/.Plans";
+import Workouts from "./src/screens/.Workouts";
+import Food from "./src/screens/.Food";
+import Chat from "./src/screens/.Chat";
 
 import Account from "./src/screens/StartUp";
 import Settings from "./src/screens/Settings";

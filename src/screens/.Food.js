@@ -1,9 +1,9 @@
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 
-import GymBotNavigation from "../../components/NavBar";
-import ScreenHeader from "../../components/ScreenHeader";
+import GymBotNavigation from "../components/NavBar";
+import ScreenHeader from "../components/ScreenHeader";
 
-import FoodContainer from "../../components/Food/FoodContainer";
+import FoodContainer from "../components/Food/FoodContainer";
 
 export default function Workouts({ navigation }) {
   return (

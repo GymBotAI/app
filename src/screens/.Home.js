@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 
-import GymBotNavigation from "../../components/NavBar";
-import HomeContainer from "../../components/Home/HomeContainer";
-import ScreenHeader from "../../components/ScreenHeader";
+import GymBotNavigation from "../components/NavBar";
+import HomeContainer from "../components/Home/HomeContainer";
+import ScreenHeader from "../components/ScreenHeader";
 
 export default function Home({ navigation }) {
   return (
