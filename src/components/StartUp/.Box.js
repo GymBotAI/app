@@ -136,7 +136,7 @@ export default function StartUpBox ({ navigation }) {
           borderRadius: 2,
         }}
         onPress={() => {
-          navigation.navigate("Home");
+          navigation.navigate("SignUp");
         }}
       >
         <Text>Skip to Home Screen (for devs)</Text>
