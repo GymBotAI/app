@@ -8,7 +8,7 @@ import {
 
 import { LinearGradient } from "expo-linear-gradient";
 
-import LoginBox from "../components/StartUp/LoginBox";
+import LoginBox from "../components/StartUp/Login";
 import LoginHeader from "../components/StartUp/test";
 
 import type { NavigationProp } from "../types/navigation";

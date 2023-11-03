@@ -15,7 +15,7 @@ import { Image } from "expo-image";
 import SlideItem from "./SlideItem";
 import Pagination from "./Pagination";
 import Modal from "react-native-modal";
-import LoginBox from "./LoginBox";
+import LoginBox from "./Login";
 import SignupBox from "./SignupBox";
 
 //------------ Styles ------------//
@@ -64,7 +64,8 @@ export default function StartUpBox ({ navigation }) {
 
   return (
     <>
-      <Modal isVisible={showLogin} backdropOpacity={bVal.backOpacity} backdropColor={bVal.backColor}>
+      <Modal style={{height: '100%'}}
+      isVisible={showLogin} backdropOpacity={bVal.backOpacity} backdropColor={bVal.backColor}>
         {xButton}
         <LoginBox
           onLogin={() => {

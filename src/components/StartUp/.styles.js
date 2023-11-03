@@ -77,3 +77,12 @@ export const Box = StyleSheet.create({
         color: "#ddd",
     }
 });
+
+
+
+
+//------------------ LOGIN STYLES ------------------//
+
+export const Login = StyleSheet.create({
+
+});

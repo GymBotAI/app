@@ -79,6 +79,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginLeft: "2.5%",
   },
+  modalContainer: {
+    height: 50,
+    backgroundColor: 'red'
+  },
   input: {
     marginBottom: 22,
     padding: 10,

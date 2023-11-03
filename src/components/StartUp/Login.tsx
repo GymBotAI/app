@@ -5,9 +5,13 @@ import {
   TouchableOpacity,
   Text,
   StyleSheet,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard, // Import Keyboard
 } from "react-native";
 import { Image } from "expo-image";
 
+import { Login } from "./.styles";
 import { login } from "../../api/auth";
 
 import type { User } from "@supabase/supabase-js";
@@ -27,21 +31,18 @@ export default function LoginBox({
   const handleLogin = async () => {
     const loginResult = await login(email, password);
 
-    // For testing use One for email and Two for password
-
     if (loginResult.success) {
       onLogin(loginResult.user);
     } else if ("error" in loginResult) {
       onError(loginResult.error);
     } else {
-      onError(
-        new Error("Unreachable in LoginBox handleLogin, no success or error")
-      );
+      onError(new Error("Unreachable in LoginBox handleLogin, no success or error"));
     }
   };
 
   return (
-    <View style={styles.container}>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -92,15 +93,15 @@ export default function LoginBox({
           </Text>
         </View>
       </TouchableOpacity>
-    </View>
-  );
+      </View>
+    </TouchableWithoutFeedback>
+    );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    marginTop: 130,
-    width: "95%",
+    height: '100%',
+    padding: 5,
     justifyContent: "center",
     marginLeft: "2.5%",
   },
@@ -138,7 +139,6 @@ const styles = StyleSheet.create({
   signup: {
     alignSelf: "center",
     width: "95%",
-    // backgroundColor: "#333",
     paddingVertical: 10,
     borderRadius: 8,
     marginHorizontal: 10,
