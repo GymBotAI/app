@@ -9,7 +9,6 @@ import RunningPage from "./Running/RunningPage";
 
 //---------- Styles ----------//
 import { Box } from "./.styles";
-import { buttonStyles } from "../styles";
 
 export default function ViewWorkouts({ navigation }) {
   const [showRun, setShowRun] = useState(false);
