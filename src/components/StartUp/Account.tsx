@@ -65,18 +65,14 @@ export default function LoginBox({
       <View style={Login.container}>
       <TextInput
         style={Login.input}
-        placeholder="Email"
-        placeholderTextColor={aVal.placeholder}
-        value={email}
-        onChangeText={setEmail}
+        placeholder="Email" placeholderTextColor={aVal.placeholder}
+        value={email} onChangeText={setEmail}
         autoCapitalize="none"
       />
       <TextInput
         style={Login.input}
-        placeholder="Password"
-        placeholderTextColor={aVal.placeholder}
-        value={password}
-        onChangeText={setPassword}
+        placeholder="Password" placeholderTextColor={aVal.placeholder}
+        value={password} onChangeText={setPassword}
         secureTextEntry
       />
 
