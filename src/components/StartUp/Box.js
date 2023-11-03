@@ -17,9 +17,6 @@ import Pagination from "./Pagination";
 import Modal from "react-native-modal";
 import Account from "./Account"
 
-import LoginBox from "./Login";
-import SignupBox from "./SignUp";
-
 //------------ Styles ------------//
 import { Box, bVal } from "./.styles"
 
@@ -85,14 +82,17 @@ export default function StartUpBox ({ navigation }) {
 
       <Modal isVisible={showSignUp} backdropOpacity={bVal.backOpacity} backdropColor={bVal.backColor}>
         {xButton}
-        <SignupBox
-          onSignup={() => {
+        <Account
+          onAccount={() => {
             navigation.navigate("Home");
             setShowSignUp(false);
           }}
           onError={(error) => {
             Alert.alert("Error signing up", error.message);
           }}
+          button1="Sign Up"
+          button2="Login Instead"
+          type={false} //Identifies it as a SignUp
         />
       </Modal>
 
