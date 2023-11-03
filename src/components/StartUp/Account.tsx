@@ -13,21 +13,22 @@ import { Image } from "expo-image";
 
 import { Login } from "./.styles";
 import { login } from "../../api/auth";
+import { signup } from "../../api/auth";
 
 import type { User } from "@supabase/supabase-js";
 
 export default function LoginBox({
-  onLogin,
+  onAccount,
   onError,
-  onCreateAccount,
   button1,
   button2,
+  type,
 }: {
-  onLogin: (user: User) => void;
+  onAccount: (user: User) => void;
   onError: (error: Error) => void;
-  onCreateAccount: () => void;
   button1: string;
   button2: string;
+  type: boolean;
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -36,13 +37,29 @@ export default function LoginBox({
     const loginResult = await login(email, password);
 
     if (loginResult.success) {
-      onLogin(loginResult.user);
+      onAccount(loginResult.user);
     } else if ("error" in loginResult) {
       onError(loginResult.error);
     } else {
       onError(new Error("Unreachable in LoginBox handleLogin, no success or error"));
     }
   };
+
+  const handleSignup = async () => {
+    const loginResult = await signup(email, password);
+
+    if (loginResult.success) {
+      onAccount(loginResult.user);
+    } else if ("error" in loginResult) {
+      onError(loginResult.error);
+    } else {
+      onError(
+        new Error("Unreachable in SignupBox handleSignup, no success or error")
+      );
+    }
+  };
+
+  const handleAction = type ? handleLogin : handleSignup; //handleLogin if true, handleSignUp if false
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
@@ -77,7 +94,7 @@ export default function LoginBox({
           flexDirection: "column",
         }}
       >
-        <TouchableOpacity style={styles.login} onPress={handleLogin}>
+        <TouchableOpacity style={styles.login} onPress={handleAction}>
           <Text style={styles.loginText}>{button1}</Text>
         </TouchableOpacity>
 

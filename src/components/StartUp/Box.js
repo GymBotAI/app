@@ -77,11 +77,9 @@ export default function StartUpBox ({ navigation }) {
           onError={(error) => {
             Alert.alert("Error logging in", error.message);
           }}
-          onCreateAccount={() => {
-            navigation.navigate("Register");
-          }}
           button1="Login"
           button2="Sign Up Instead"
+          type={true} //Identifies it as a Login
         />
       </Modal>
 
