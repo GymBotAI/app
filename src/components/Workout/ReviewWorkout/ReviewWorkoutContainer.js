@@ -35,9 +35,13 @@ export default function ReviewWorkoutContainer({
     navigation.navigate("Workouts")
   }
 
+  const goBack = () => {
+    navigation.navigate("DesignWorkout")
+  }
+
   return (
     <>
-      <ReviewHeader title="Review Workout" onSavePress={saveWorkout}/>
+      <ReviewHeader title="Review Workout" onSavePress={saveWorkout} onBackPress={goBack}/>
       <View style={styles.container}>
         <View>
           <View style={styles.topSection}>
