@@ -141,8 +141,7 @@ export default function StartUpBox ({ navigation }) {
         <Text>Skip to Home Screen (for devs)</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.signup}
+      <TouchableOpacity style={Box.signUp}
         onPress={() => {
           setShowSignUp(true);
         }}
@@ -150,8 +149,7 @@ export default function StartUpBox ({ navigation }) {
         <Text style={styles.signupText}>Sign Up for Free</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        style={styles.login}
+      <TouchableOpacity style={Box.login}
         onPress={() => {
           setShowLogin(true);
         }}
@@ -177,20 +175,6 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     fontFamily: "roboto-black",
   },
-  signup: {
-    position: "absolute",
-    bottom: 150,
-    alignSelf: "center",
-    width: "85%",
-    backgroundColor: "#ddd",
-    paddingVertical: 10,
-    borderRadius: 8,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.4,
-    shadowRadius: 4,
-    elevation: 5, // For Android shadow
-  },
   signupText: {
     fontSize: 18,
     fontWeight: "bold",
@@ -198,19 +182,6 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   login: {
-    position: "absolute",
-    bottom: 80,
-    alignSelf: "center",
-    width: "85%",
-    // backgroundColor: "#333",
-    paddingVertical: 10,
-    borderRadius: 8,
-    borderWidth: 1,
-    borderColor: "#ddd",
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.4,
-    shadowRadius: 4,
     elevation: 5, // For Android shadow
   },
   loginText: {
