@@ -60,7 +60,7 @@ export default function CompleteDesignContainer({ route, navigation }) {
         </Modal>
 
         <TouchableOpacity
-          onPress={() => setShowModal(!showModal)}
+          onPress={() => navigation.navigate("ReviewWorkout")}
           style={[styles.button]}
         >
           <Text style={styles.text}>Continue</Text>

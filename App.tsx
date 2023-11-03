@@ -18,6 +18,7 @@ import Settings from "./src/screens/Settings";
 import SignUp from "./src/screens/SignUp";
 import DesignWorkout from "./src/screens/DesignWorkout";
 import CompleteDesignContainer from "./src/components/Workout/CompleteWorkout/CompleteDesignContainer";
+import ReviewWorkoutContainer from "./src/components/Workout/ReviewWorkout/ReviewWorkoutContainer";
 
 import type { NavigationScreens } from "./src/types/navigation";
 import type { Session } from "@supabase/supabase-js";
@@ -78,10 +79,8 @@ export default function App() {
           <Stack.Screen name="Chat" component={Chat} />
 
           <Stack.Screen name="DesignWorkout" component={DesignWorkout} />
-          <Stack.Screen
-            name="CompleteWorkout"
-            component={CompleteDesignContainer}
-          />
+          <Stack.Screen name="CompleteWorkout" component={CompleteDesignContainer} />
+          <Stack.Screen name="ReviewWorkout" component={ReviewWorkoutContainer} />
 
           <Stack.Screen name="Settings" component={Settings} />
         </Stack.Navigator>
