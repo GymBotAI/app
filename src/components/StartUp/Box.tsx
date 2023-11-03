@@ -20,7 +20,7 @@ import LoginBox from "./LoginBox";
 import SignupBox from "./SignupBox";
 
 //------------ Styles ------------//
-import { Box, boxValues } from "./.styles"
+import { Box, bVal } from "./.styles"
 
 const backgroundImages = [
   {
@@ -59,13 +59,13 @@ export default function StartUpBox ({ navigation }) {
 
   xButton = (
     <TouchableOpacity style={Box.touchable} onPress={handleGoBack}>
-    <Feather name="x-circle" size={boxValues.buttonSize} color={boxValues.buttonColor} />
+    <Feather name="x-circle" size={bVal.buttonSize} color={bVal.buttonColor} />
     </TouchableOpacity>
   )
 
   return (
     <>
-      <Modal isVisible={showLogin} backdropOpacity={boxValues.backOpacity} backdropColor={boxValues.backColor}>
+      <Modal isVisible={showLogin} backdropOpacity={bVal.backOpacity} backdropColor={bVal.backColor}>
         {xButton}
         <LoginBox
           onLogin={() => {
@@ -81,7 +81,7 @@ export default function StartUpBox ({ navigation }) {
         />
       </Modal>
 
-      <Modal isVisible={showSignUp} backdropOpacity={boxValues.backOpacity} backdropColor={boxValues.backColor}>
+      <Modal isVisible={showSignUp} backdropOpacity={bVal.backOpacity} backdropColor={bVal.backColor}>
         {xButton}
         <SignupBox
           onSignup={() => {
@@ -94,24 +94,10 @@ export default function StartUpBox ({ navigation }) {
         />
       </Modal>
 
-      <View
-        style={{
-          position: "absolute",
-          zIndex: 1,
-          top: 50,
-          width: "100%",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        <View style={styles.logoBorder}>
-          <Image
-            source={require("../../../assets/GymBotText.png")}
-            style={styles.logo}
-          />
-        </View>
+      <View style={Box.logoView}>
+        <Image source={bVal.gymBotLogo} style={Box.logo}/>
       </View>
+
       <FlatList
         data={backgroundImages}
         renderItem={({ item }) => <SlideItem item={item} />}
@@ -190,19 +176,6 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.6,
     shadowRadius: 4,
     fontFamily: "roboto-black",
-  },
-  logoBorder: {
-    borderColor: "white",
-    shadowColor: "black",
-    shadowOffset: { width: 2, height: 2 },
-    shadowOpacity: 1,
-    shadowRadius: 4,
-    elevation: 5,
-  },
-  logo: {
-    width: 220,
-    height: 110,
-    borderRadius: 50,
   },
   signup: {
     position: "absolute",
