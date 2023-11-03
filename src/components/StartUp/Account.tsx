@@ -40,7 +40,9 @@ export default function LoginBox({
     } else if ("error" in loginResult) {
       onError(loginResult.error);
     } else {
-      onError(new Error("Unreachable in LoginBox handleLogin, no success or error"));
+      onError(
+        new Error("Unreachable in LoginBox handleLogin, no success or error")
+      );
     }
   };
 
@@ -63,62 +65,64 @@ export default function LoginBox({
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={Login.container}>
-      <TextInput
-        style={Login.input}
-        placeholder="Email" placeholderTextColor={aVal.placeholder}
-        value={email} onChangeText={setEmail}
-        autoCapitalize="none"
-      />
-      <TextInput
-        style={Login.input}
-        placeholder="Password" placeholderTextColor={aVal.placeholder}
-        value={password} onChangeText={setPassword}
-        secureTextEntry
-      />
+        <TextInput
+          style={Login.input}
+          placeholder="Email"
+          placeholderTextColor={aVal.placeholder}
+          value={email}
+          onChangeText={setEmail}
+          autoCapitalize="none"
+        />
+        <TextInput
+          style={Login.input}
+          placeholder="Password"
+          placeholderTextColor={aVal.placeholder}
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+        />
 
-      <TouchableOpacity>
-        <Text style={styles.forgotText}>Forgot Password?</Text>
-      </TouchableOpacity>
-
-      <View
-        style={{
-          marginTop: 30,
-          alignContent: "center",
-          marginLeft: -10,
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
-        <TouchableOpacity style={styles.login} onPress={handleAction}>
-          <Text style={styles.loginText}>{button1}</Text>
+        <TouchableOpacity>
+          <Text style={styles.forgotText}>Forgot Password?</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={styles.signup}>
-          <Text style={styles.signupText}>{button2}</Text>
-        </TouchableOpacity>
-      </View>
+        <View
+          style={{
+            marginTop: 30,
+            alignContent: "center",
+            marginLeft: -10,
+            display: "flex",
+            flexDirection: "column",
+          }}
+        >
+          <TouchableOpacity style={styles.login} onPress={handleAction}>
+            <Text style={styles.loginText}>{button1}</Text>
+          </TouchableOpacity>
 
-      <TouchableOpacity style={styles.signInWithGoogleButton}>
-        <View style={styles.googleButtonContent}>
-          <Image
-            source={require("../../../assets/google.webp")}
-            style={styles.googleLogo}
-          />
-          <Text style={styles.signInWithGoogleButtonText}>
-            Continue with Google
-          </Text>
+          <TouchableOpacity style={styles.signup}>
+            <Text style={styles.signupText}>{button2}</Text>
+          </TouchableOpacity>
         </View>
-      </TouchableOpacity>
+
+        <TouchableOpacity style={styles.signInWithGoogleButton}>
+          <View style={styles.googleButtonContent}>
+            <Image
+              source={require("../../../assets/google.webp")}
+              style={styles.googleLogo}
+            />
+            <Text style={styles.signInWithGoogleButtonText}>
+              Continue with Google
+            </Text>
+          </View>
+        </TouchableOpacity>
       </View>
     </TouchableWithoutFeedback>
-    );
+  );
 }
 
 const styles = StyleSheet.create({
-  container: {
-  },
-  input: {
-  },
+  container: {},
+  input: {},
   login: {
     alignSelf: "center",
     width: "95%",

@@ -12,7 +12,7 @@ import {
 } from "react-native";
 
 // import ScreenHeader from "../../ScreenHeader";
-import ReviewHeader from "./ReviewHeader"
+import ReviewHeader from "./ReviewHeader";
 import { Entypo } from "@expo/vector-icons";
 
 import { buttonStyles } from "../../styles";
@@ -20,7 +20,7 @@ import { buttonStyles } from "../../styles";
 export default function ReviewWorkoutContainer({
   selectedExercises,
   setShowModal,
-  navigation
+  navigation,
 }) {
   const [workoutName, setWorkoutName] = useState("");
   const [description, setDescription] = useState("");
@@ -29,19 +29,23 @@ export default function ReviewWorkoutContainer({
   const [inputFilled, setInputFilled] = useState(false);
 
   const saveWorkout = () => {
-    console.log(selectedExercises)
-    console.log(exerciseSets)
-    console.log(exerciseReps)
-    navigation.navigate("Workouts")
-  }
+    console.log(selectedExercises);
+    console.log(exerciseSets);
+    console.log(exerciseReps);
+    navigation.navigate("Workouts");
+  };
 
   const goBack = () => {
-    navigation.navigate("DesignWorkout")
-  }
+    navigation.navigate("DesignWorkout");
+  };
 
   return (
     <>
-      <ReviewHeader title="Review Workout" onSavePress={saveWorkout} onBackPress={goBack}/>
+      <ReviewHeader
+        title="Review Workout"
+        onSavePress={saveWorkout}
+        onBackPress={goBack}
+      />
       <View style={styles.container}>
         <View>
           <View style={styles.topSection}>
@@ -50,10 +54,9 @@ export default function ReviewWorkoutContainer({
               style={styles.workoutNameInput}
               value={workoutName}
               onChangeText={(e) => {
-                setWorkoutName(e)
-                setInputFilled(!!e)
-              }
-              }
+                setWorkoutName(e);
+                setInputFilled(!!e);
+              }}
               placeholder="Untitled Workout"
               placeholderTextColor={"#bababa"}
             />
