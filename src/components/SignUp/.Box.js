@@ -12,7 +12,6 @@ import {
 } from "react-native";
 
 import * as Device from "expo-device";
-import Question from "./Question";
 
 import { Box } from "./.styles"
 
