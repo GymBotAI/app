@@ -61,7 +61,7 @@ const WorkoutList = ({ navigation }) => {
   };
 
   return (
-    <View style={{ marginLeft: -5, marginBottom: 60 }}>
+    <View style={{ marginLeft: "3%", marginBottom: 60 }}>
       <View style={styles.headerContainer}>
         <Text style={styles.sectionTitle}>Your Workouts</Text>
         <TouchableOpacity

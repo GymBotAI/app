@@ -1,28 +1,22 @@
 import React, { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-  Text,
-} from "react-native";
+import { View, StyleSheet, ScrollView, TouchableOpacity, Text } from "react-native";
+
+//---------- Components ----------//
 import CreateWorkoutButton from "./CreateWorkoutButton";
 import WorkoutList from "./WorkoutList";
 import TalkToGymBotSection from "./TalkToGymBot";
 import RunningPage from "./Running/RunningPage";
 
+//---------- Styles ----------//
+import { Box } from "./.styles";
+
 export default function ViewWorkouts({ navigation }) {
-  const [selectedWorkouts, setSelectedWorkouts] = useState([]);
-  const [RunningPageVisibility, changeRunningPageVisibility] = useState(false);
-  const [workoutButtonsVisible, setWorkoutButtonsVisible] = useState(false);
+  const [showRun, setShowRun] = useState(false);
+  const [showButtons, setShowButtons] = useState(false);
 
-  const openRunningPage = () => {
-    setWorkoutButtonsVisible(false);
-    changeRunningPageVisibility(true);
-  };
-
-  const closeRunningPage = () => {
-    changeRunningPageVisibility(false);
+  const toggleRunningPage = () => {
+    setShowButtons(false);
+    setShowRun(!showRun);
   };
 
   const handleAddWorkout = () => {
@@ -30,20 +24,20 @@ export default function ViewWorkouts({ navigation }) {
   };
 
   const toggleWorkoutButtons = () => {
-    setWorkoutButtonsVisible(!workoutButtonsVisible);
+    setShowButtons(!showButtons);
   };
 
   return (
     <>
-      <ScrollView style={styles.container}>
+      <ScrollView style={Box.container}>
         <CreateWorkoutButton handleAddWorkout={handleAddWorkout} />
 
         <TalkToGymBotSection navigation={navigation} />
         <WorkoutList navigation={navigation} />
-        {RunningPageVisibility && <RunningPage onClose={closeRunningPage} />}
+        {showRun && <RunningPage onClose={toggleRunningPage} />}
       </ScrollView>
 
-      {!workoutButtonsVisible && (
+      {!showButtons && (
         <TouchableOpacity
           style={styles.addButtonContainer}
           onPress={toggleWorkoutButtons}
@@ -52,9 +46,9 @@ export default function ViewWorkouts({ navigation }) {
         </TouchableOpacity>
       )}
 
-      {workoutButtonsVisible && (
+      {showButtons && (
         <View style={styles.addButtonContainer} onPress={toggleWorkoutButtons}>
-          <TouchableOpacity onPress={openRunningPage}>
+          <TouchableOpacity onPress={toggleRunningPage}>
             <Text style={styles.workoutOptionsText}>Start a Run 🏃‍♂️</Text>
           </TouchableOpacity>
           <TouchableOpacity>
@@ -67,10 +61,6 @@ export default function ViewWorkouts({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingHorizontal: 20,
-  },
   addButtonContainer: {
     position: "absolute",
     bottom: 80,
