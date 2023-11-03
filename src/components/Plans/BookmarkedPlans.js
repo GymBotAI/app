@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -10,18 +10,27 @@ import BookmarkedTabs from "./BookmarkedTabs";
 import plans from "./plans";
 import PlanInfoPage from "./PlanInfoPage";
 
-const BookmarkedPage = () => {
+const BookmarkedPage = ({ onPlanInfoPageVisibilityChange }) => {
   const [PlanInfoPageVisibility, setPlanInfoPageVisibility] = useState(false);
+  const [PlanInfo, setPlanInfo] = useState();
   const bookmarkedPlans = plans.filter((plan) => plan.bookmarked);
 
   const togglePlanInfoPageVisibility = (plan) => {
-    setPlanInfoPageVisibility(!PlanInfoPageVisibility);
     setPlanInfo(plan);
+    setPlanInfoPageVisibility(!PlanInfoPageVisibility);
+    onPlanInfoPageVisibilityChange(!PlanInfoPageVisibility);
   };
 
   return (
     <View contentContainerStyle={styles.container}>
-      <ScrollView>
+      {PlanInfoPageVisibility && (
+        <PlanInfoPage
+          onClose={() => setPlanInfoPageVisibility(false)}
+          plan={PlanInfo}
+          image={require("../../../assets/accountbgdark.jpg")}
+        />
+      )}
+      <ScrollView indicatorStyle={"black"}>
         {bookmarkedPlans.map((plan, index) => (
           <TouchableOpacity onPress={() => togglePlanInfoPageVisibility(plan)}>
             <BookmarkedTabs
@@ -34,13 +43,6 @@ const BookmarkedPage = () => {
           </TouchableOpacity>
         ))}
       </ScrollView>
-      {PlanInfoPageVisibility && (
-        <PlanInfoPage
-          onClose={() => setPlanInfoPageVisibility(false)}
-          plan={plan}
-          image={require("../../../assets/accountbgdark.jpg")}
-        />
-      )}
     </View>
   );
 };

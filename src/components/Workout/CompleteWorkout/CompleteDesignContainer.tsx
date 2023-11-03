@@ -19,57 +19,56 @@ export default function CompleteDesignContainer({ route, navigation }) {
 
   return (
     <>
-    {!showModal && (
-      <>
-    <ScreenHeader title="Workouts" />
-    <View style={styles.container}>
-      <View style={styles.chatContainer}>
-        <LinearGradient
-          colors={["#4c9afc", "#5da1fc"]} // Lighter blue gradient colors
-          start={[0, 0.5]}
-          end={[1, 0.5]}
-          style={styles.chatBox}
-        >
-          <Image
-            source={require("../../../../assets/circleicon.png")}
-            style={{
-              width: 60,
-              height: 60,
-              borderRadius: 30,
-              borderWidth: 1,
-              borderColor: "white",
-              marginRight: 10,
-            }}
-          />
-          <Text style={styles.chatText}>{typedText}</Text>
-        </LinearGradient>
-      </View>
+      {!showModal && (
+        <>
+          <ScreenHeader title="Workouts" />
+          <View style={styles.container}>
+            <View style={styles.chatContainer}>
+              <LinearGradient
+                colors={["#4c9afc", "#5da1fc"]} // Lighter blue gradient colors
+                start={[0, 0.5]}
+                end={[1, 0.5]}
+                style={styles.chatBox}
+              >
+                <Image
+                  source={require("../../../../assets/circleicon.png")}
+                  style={{
+                    width: 60,
+                    height: 60,
+                    borderRadius: 30,
+                    borderWidth: 1,
+                    borderColor: "white",
+                    marginRight: 10,
+                  }}
+                />
+                <Text style={styles.chatText}>{typedText}</Text>
+              </LinearGradient>
+            </View>
 
-      {goal == "Build Muscle" ? (
-        <ExerciseSelectionScreen
-          setSelectedExercises={setSelectedExercises}
+            {goal == "Build Muscle" ? (
+              <ExerciseSelectionScreen
+                setSelectedExercises={setSelectedExercises}
+                selectedExercises={selectedExercises}
+                subGoal={subGoal}
+              />
+            ) : null}
+            <TouchableOpacity
+              onPress={() => setShowModal(!showModal)}
+              style={[styles.button]}
+            >
+              <Text style={styles.text}>Continue</Text>
+            </TouchableOpacity>
+          </View>
+        </>
+      )}
+
+      {showModal && (
+        <ReviewWorkoutContainer
+          setShowModal={setShowModal}
           selectedExercises={selectedExercises}
-          subGoal={subGoal}
+          navigation={navigation}
         />
-      ) : null}
-      <TouchableOpacity
-        onPress={() => setShowModal(!showModal)}
-        style={[styles.button]}
-      >
-        <Text style={styles.text}>Continue</Text>
-      </TouchableOpacity>
-    </View>
-    </>
-    )}
-
-    {showModal && (
-      <ReviewWorkoutContainer
-      setShowModal={setShowModal}
-      selectedExercises={selectedExercises}
-      navigation={navigation}
-    />
-    )}
-
+      )}
     </>
   );
 }

@@ -15,10 +15,10 @@ import { Image } from "expo-image";
 import SlideItem from "./SlideItem";
 import Pagination from "./Pagination";
 import Modal from "react-native-modal";
-import Account from "./Account"
+import Account from "./Account";
 
 //------------ Styles ------------//
-import { Box, bVal } from "./.styles"
+import { Box, bVal } from "./.styles";
 
 const backgroundImages = [
   {
@@ -41,7 +41,7 @@ const backgroundImages = [
 
 let xButton = null;
 
-export default function StartUpBox ({ navigation }) {
+export default function StartUpBox({ navigation }) {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -57,13 +57,21 @@ export default function StartUpBox ({ navigation }) {
 
   xButton = (
     <TouchableOpacity style={Box.touchable} onPress={handleGoBack}>
-    <Feather name="x-circle" size={bVal.buttonSize} color={bVal.buttonColor} />
+      <Feather
+        name="x-circle"
+        size={bVal.buttonSize}
+        color={bVal.buttonColor}
+      />
     </TouchableOpacity>
-  )
+  );
 
   return (
     <>
-      <Modal isVisible={showLogin} backdropOpacity={bVal.backOpacity} backdropColor={bVal.backColor}>
+      <Modal
+        isVisible={showLogin}
+        backdropOpacity={bVal.backOpacity}
+        backdropColor={bVal.backColor}
+      >
         {xButton}
         <Account
           onLogin={() => {
@@ -79,7 +87,11 @@ export default function StartUpBox ({ navigation }) {
         />
       </Modal>
 
-      <Modal isVisible={showSignUp} backdropOpacity={bVal.backOpacity} backdropColor={bVal.backColor}>
+      <Modal
+        isVisible={showSignUp}
+        backdropOpacity={bVal.backOpacity}
+        backdropColor={bVal.backColor}
+      >
         {xButton}
         <Account
           onAccount={() => {
@@ -96,7 +108,7 @@ export default function StartUpBox ({ navigation }) {
       </Modal>
 
       <View style={Box.logoView}>
-        <Image source={bVal.gymBotLogo} style={Box.logo}/>
+        <Image source={bVal.gymBotLogo} style={Box.logo} />
       </View>
 
       <FlatList
@@ -142,7 +154,8 @@ export default function StartUpBox ({ navigation }) {
         <Text>Skip to Home Screen (for devs)</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={Box.signUp}
+      <TouchableOpacity
+        style={Box.signUp}
         onPress={() => {
           setShowSignUp(true);
         }}
@@ -150,7 +163,8 @@ export default function StartUpBox ({ navigation }) {
         <Text style={Box.signupText}>Sign Up for Free</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={Box.login}
+      <TouchableOpacity
+        style={Box.login}
         onPress={() => {
           setShowLogin(true);
         }}
@@ -161,4 +175,4 @@ export default function StartUpBox ({ navigation }) {
       <Pagination items={backgroundImages} scrollX={scrollX} />
     </>
   );
-};
+}

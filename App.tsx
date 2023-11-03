@@ -78,7 +78,10 @@ export default function App() {
           <Stack.Screen name="Chat" component={Chat} />
 
           <Stack.Screen name="DesignWorkout" component={DesignWorkout} />
-          <Stack.Screen name="CompleteWorkout" component={CompleteDesignContainer} />
+          <Stack.Screen
+            name="CompleteWorkout"
+            component={CompleteDesignContainer}
+          />
 
           <Stack.Screen name="Settings" component={Settings} />
         </Stack.Navigator>

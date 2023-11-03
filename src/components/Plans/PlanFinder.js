@@ -56,6 +56,7 @@ export default function PlanFinder({ onPlanInfoPageVisibilityChange }) {
         style={styles.tabsContainer}
         onScroll={onScroll}
         scrollEventThrottle={16}
+        indicatorStyle={"black"}
       >
         {filteredPlans.map((plan, index) => (
           <TouchableOpacity

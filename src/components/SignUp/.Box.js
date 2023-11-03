@@ -13,7 +13,7 @@ import {
 
 import * as Device from "expo-device";
 
-import { Box } from "./.styles"
+import { Box } from "./.styles";
 
 import { useFonts } from "expo-font";
 
@@ -158,40 +158,40 @@ export default function SignUpContainer({ navigation }) {
     inputOption = (
       <Name onNameChange={setInputFilled} name={nameVal} setName={setNameVal} />
     );
-  };
+  }
   return (
-    <KeyboardAvoidingView style={Box.container} behavior={Device.osName == "Android" ? "height" : "padding"}>
-
-
-<TouchableWithoutFeedback
-      onPress={Keyboard.dismiss}
-      style={{
-        flexGrow: 1,
-        overflow: "auto",
-        height: "95%",
-      }}
+    <KeyboardAvoidingView
+      style={Box.container}
+      behavior={Device.osName == "Android" ? "height" : "padding"}
     >
-      <Animated.View
-        style={[
-          styles.container,
-          { transform: [{ translateX: slideUpAnim }], opacity: fadeAnim },
-        ]}
+      <TouchableWithoutFeedback
+        onPress={Keyboard.dismiss}
+        style={{
+          flexGrow: 1,
+          overflow: "auto",
+          height: "95%",
+        }}
       >
-        <Text style={styles.label}>{prompt}</Text>
-        {inputOption}
-
-        <TouchableOpacity
-          style={[styles.button, !isInputFilled && styles.disabledButton]}
-          onPress={handleSignUp}
-          disabled={!isInputFilled}
+        <Animated.View
+          style={[
+            styles.container,
+            { transform: [{ translateX: slideUpAnim }], opacity: fadeAnim },
+          ]}
         >
-          <Text style={styles.text}>Continue</Text>
-        </TouchableOpacity>
+          <Text style={styles.label}>{prompt}</Text>
+          {inputOption}
 
-        <StatusBar barStyle="dark-content" />
-      </Animated.View>
-    </TouchableWithoutFeedback>
+          <TouchableOpacity
+            style={[styles.button, !isInputFilled && styles.disabledButton]}
+            onPress={handleSignUp}
+            disabled={!isInputFilled}
+          >
+            <Text style={styles.text}>Continue</Text>
+          </TouchableOpacity>
 
+          <StatusBar barStyle="dark-content" />
+        </Animated.View>
+      </TouchableWithoutFeedback>
     </KeyboardAvoidingView>
   );
 }

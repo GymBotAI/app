@@ -20,24 +20,24 @@ export default function Settings({ navigation }) {
   const [planInfoPageVisible, setPlanInfoPageVisible] = useState(false);
 
   const animatedScrollX = Animated.event(
-   [
-     {
-       nativeEvent: {
-         contentOffset: {
-           x: scrollX,
-         },
-       },
-     },
-   ],
-   {
-     useNativeDriver: false,
-   }
- );
+    [
+      {
+        nativeEvent: {
+          contentOffset: {
+            x: scrollX,
+          },
+        },
+      },
+    ],
+    {
+      useNativeDriver: false,
+    }
+  );
 
- const interpolateX = scrollX.interpolate({
-   inputRange: [0, width],
-   outputRange: [0, 1],
- });
+  const interpolateX = scrollX.interpolate({
+    inputRange: [0, width],
+    outputRange: [0, 1],
+  });
 
   useEffect(() => {
     const scrollEnabled = !planInfoPageVisible;
@@ -60,7 +60,9 @@ export default function Settings({ navigation }) {
           <PlanFinder onPlanInfoPageVisibilityChange={setPlanInfoPageVisible} />
         </View>
         <View style={{ width, flex: 1 }}>
-          <BookmarkedPlans />
+          <BookmarkedPlans
+            onPlanInfoPageVisibilityChange={setPlanInfoPageVisible}
+          />
         </View>
       </ScrollView>
     </View>
