@@ -10,17 +10,12 @@ export default function SignUpContainer({ navigation }) {
       style={{
         flex: 1,
         width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
       }}
     >
-      <View
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          height: "100%",
-        }}
-      >
         <Question navigation={navigation} />
-      </View>
     </KeyboardAvoidingView>
   );
 }

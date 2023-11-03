@@ -1,9 +1,5 @@
 import { StyleSheet } from "react-native";
 
-export const bgPrimary = "#4DBCC1";
-
-
-
 //------------------ BOX STYLES ------------------//
 
 export const bVal = {
