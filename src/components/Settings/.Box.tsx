@@ -54,11 +54,10 @@ export default function Settings({
         </View>
       </View>
       <EditSettings
-        ref={editSettingsRef}
+        // ref={editSettingsRef}
         navigation={navigation}
         initialData={route.params}
       />
-      <StatusBar barStyle="dark" />
       <Notifications
         isVisible={notificationsVisible}
         onClose={closeNotifications}
