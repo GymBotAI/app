@@ -19,18 +19,17 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "space-between", // Use 'space-between' to push buttons to the edges
     paddingTop: 40,
     height: 90,
     borderWidth: 0.5,
     borderColor: "#c9c9c9",
   },
   backButton: {
-    paddingRight: 10,
+    paddingLeft: 15, // Adjust the padding to separate the "Back" button from the edge
   },
   saveButton: {
-    position: "absolute",
-    right: 10,
+    paddingRight: 15, // Adjust the padding to separate the "Save" button from the edge
   },
   title: {
     fontSize: 18,
@@ -40,5 +39,5 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 16,
     color: "#007AFF",
-},
+  },
 });

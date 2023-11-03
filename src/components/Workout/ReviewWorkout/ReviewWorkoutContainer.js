@@ -11,7 +11,8 @@ import {
   Button,
 } from "react-native";
 
-import ScreenHeader from "../../ScreenHeader";
+// import ScreenHeader from "../../ScreenHeader";
+import ReviewHeader from "./ReviewHeader"
 import { Entypo } from "@expo/vector-icons";
 
 import { buttonStyles } from "../../../styles";
@@ -26,9 +27,15 @@ export default function ReviewWorkoutContainer({
   const [exerciseReps, setExerciseReps] = useState([]);
   const [inputFilled, setInputFilled] = useState(false);
 
+  const saveWorkout = () => {
+    console.log(selectedExercises)
+    console.log(exerciseSets)
+    console.log(exerciseReps)
+  }
+
   return (
     <>
-      <ScreenHeader title="Review Workout" />
+      <ReviewHeader title="Review Workout" onSavePress={saveWorkout}/>
       <View style={styles.container}>
         <View>
           <View style={styles.topSection}>
