@@ -9,6 +9,7 @@ import RunningPage from "./Running/RunningPage";
 
 //---------- Styles ----------//
 import { Box } from "./.styles";
+import { buttonStyles } from "../styles";
 
 export default function ViewWorkouts({ navigation }) {
   const [showRun, setShowRun] = useState(false);
@@ -35,19 +36,20 @@ export default function ViewWorkouts({ navigation }) {
         <TalkToGymBotSection navigation={navigation} />
         <WorkoutList navigation={navigation} />
         {showRun && <RunningPage onClose={toggleRunningPage} />}
+        
       </ScrollView>
 
       {!showButtons && (
         <TouchableOpacity
-          style={styles.addButtonContainer}
-          onPress={toggleWorkoutButtons}
+        style={{ ...buttonStyles.button, bottom: 85 }}
+        onPress={toggleWorkoutButtons}
         >
-          <Text style={styles.addText}>Record Exercise</Text>
+          <Text style={buttonStyles.text}>Record Exercise</Text>
         </TouchableOpacity>
       )}
 
       {showButtons && (
-        <View style={styles.addButtonContainer} onPress={toggleWorkoutButtons}>
+        <View style={Box.addButtonContainer} onPress={toggleWorkoutButtons}>
           <TouchableOpacity onPress={toggleRunningPage}>
             <Text style={styles.workoutOptionsText}>Start a Run 🏃‍♂️</Text>
           </TouchableOpacity>
@@ -61,19 +63,6 @@ export default function ViewWorkouts({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  addButtonContainer: {
-    position: "absolute",
-    bottom: 80,
-    width: "90%",
-    marginLeft: "5%",
-    backgroundColor: "#1260de",
-    borderRadius: 8,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.6,
-    shadowRadius: 10,
-    elevation: 5,
-  },
   workoutButtonsContainer: {
     position: "absolute",
     bottom: 130,

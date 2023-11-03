@@ -29,7 +29,6 @@ export const buttonStyles = StyleSheet.create({
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
-    elevation: 5,
   },
   disabledButton: {
     backgroundColor: "#fff", // Change the background color of the disabled button

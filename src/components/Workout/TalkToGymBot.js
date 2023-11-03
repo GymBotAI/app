@@ -34,7 +34,7 @@ const TalkToGymBotSection = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#1877f2",
+    backgroundColor: "#1260de",
     width: "93%",
     alignSelf: "center",
     borderRadius: 20,
