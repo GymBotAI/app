@@ -114,7 +114,6 @@ export default function Settings({
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    overflow: "auto",
     padding: 10,
   },
   heading: {
