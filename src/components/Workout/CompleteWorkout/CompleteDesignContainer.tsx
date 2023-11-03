@@ -10,7 +10,7 @@ import ScreenHeader from "../../ScreenHeader";
 
 import type { WorkoutSubGoal } from "../../../types/workouts";
 
-export default function CompleteDesignContainer({ route }) {
+export default function CompleteDesignContainer({ route, navigation }) {
   const { goal, subGoal } = route.params;
   const [typedText, setTypedText] = useState("What is your goal?");
   const [showModal, setShowModal] = useState(false);
@@ -55,6 +55,7 @@ export default function CompleteDesignContainer({ route }) {
           <ReviewWorkoutContainer
             setShowModal={setShowModal}
             selectedExercises={selectedExercises}
+            navigation={navigation}
           />
         </Modal>
 

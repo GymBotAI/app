@@ -20,6 +20,7 @@ import { buttonStyles } from "../../../styles";
 export default function ReviewWorkoutContainer({
   selectedExercises,
   setShowModal,
+  navigation
 }) {
   const [workoutName, setWorkoutName] = useState("");
   const [description, setDescription] = useState("");
@@ -31,6 +32,7 @@ export default function ReviewWorkoutContainer({
     console.log(selectedExercises)
     console.log(exerciseSets)
     console.log(exerciseReps)
+    navigation.navigate("Workouts")
   }
 
   return (
