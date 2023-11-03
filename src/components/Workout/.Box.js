@@ -41,53 +41,23 @@ export default function ViewWorkouts({ navigation }) {
 
       {!showButtons && (
         <TouchableOpacity
-        style={{ ...buttonStyles.button, bottom: 85 }}
+        style={Box.recordButton}
         onPress={toggleWorkoutButtons}
         >
-          <Text style={buttonStyles.text}>Record Exercise</Text>
+          <Text style={Box.recordText}>Record Exercise</Text>
         </TouchableOpacity>
       )}
 
       {showButtons && (
-        <View style={Box.addButtonContainer} onPress={toggleWorkoutButtons}>
+        <View style={Box.addButton} onPress={toggleWorkoutButtons}>
           <TouchableOpacity onPress={toggleRunningPage}>
-            <Text style={styles.workoutOptionsText}>Start a Run 🏃‍♂️</Text>
+            <Text style={Box.addText}>Start a Run 🏃‍♂️</Text>
           </TouchableOpacity>
           <TouchableOpacity>
-            <Text style={styles.workoutOptionsText}>Log Workout💪</Text>
+            <Text style={Box.addText}>Log Workout💪</Text>
           </TouchableOpacity>
         </View>
       )}
     </>
   );
 }
-
-const styles = StyleSheet.create({
-  workoutButtonsContainer: {
-    position: "absolute",
-    bottom: 130,
-    width: "90%",
-    marginLeft: "5%",
-    backgroundColor: "#fff",
-    borderRadius: 4,
-    shadowColor: "black",
-    shadowOffset: { width: 0, height: 10 },
-    shadowOpacity: 0.6,
-    shadowRadius: 10,
-    elevation: 5,
-  },
-  workoutOptionsText: {
-    alignSelf: "center",
-    fontSize: 18,
-    fontWeight: "bold",
-    paddingVertical: 10,
-    color: "#dbdbdb",
-  },
-  addText: {
-    alignSelf: "center",
-    fontSize: 23,
-    fontWeight: "bold",
-    paddingVertical: 10,
-    color: "#dbdbdb",
-  },
-});
