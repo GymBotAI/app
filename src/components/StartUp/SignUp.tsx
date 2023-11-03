@@ -5,7 +5,9 @@ import {
   TouchableOpacity,
   Text,
   StyleSheet,
+  TouchableWithoutFeedback
 } from "react-native";
+import { Image } from "expo-image";
 
 import { signup } from "../../api/auth";
 
@@ -36,7 +38,8 @@ export default function SignupBox({
   };
 
   return (
-    <View style={styles.container}>
+    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+      <View style={styles.container}>
       <TextInput
         style={styles.input}
         placeholder="Email"
@@ -54,6 +57,10 @@ export default function SignupBox({
         secureTextEntry
       />
 
+      <TouchableOpacity>
+        <Text style={styles.forgotText}>Forgot Password?</Text>
+      </TouchableOpacity>
+
       <View
         style={{
           marginTop: 30,
@@ -64,18 +71,35 @@ export default function SignupBox({
         }}
       >
         <TouchableOpacity style={styles.login} onPress={handleSignup}>
-          <Text style={styles.loginText}>Signup</Text>
+          <Text style={styles.loginText}>Sign Up</Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity style={styles.signup}>
+          <Text style={styles.signupText}>Log In Instead</Text>
         </TouchableOpacity>
       </View>
-    </View>
-  );
+
+      <TouchableOpacity style={styles.signInWithGoogleButton}>
+        <View style={styles.googleButtonContent}>
+          <Image
+            source={require("../../../assets/google.webp")}
+            style={styles.googleLogo}
+          />
+          <Text style={styles.signInWithGoogleButtonText}>
+            Sign Up with Google
+          </Text>
+        </View>
+      </TouchableOpacity>
+      
+      </View>
+    </TouchableWithoutFeedback>
+    );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    marginTop: 130,
-    width: "95%",
+    height: '100%',
+    padding: 5,
     justifyContent: "center",
     marginLeft: "2.5%",
   },
@@ -113,7 +137,6 @@ const styles = StyleSheet.create({
   signup: {
     alignSelf: "center",
     width: "95%",
-    // backgroundColor: "#333",
     paddingVertical: 10,
     borderRadius: 8,
     marginHorizontal: 10,

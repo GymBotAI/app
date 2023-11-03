@@ -84,7 +84,7 @@ export const Box = StyleSheet.create({
 
 
 
-//------------------ LOGIN STYLES ------------------//
+//------------------ LOGIN AND SIGNUP STYLES ------------------//
 
 export const Login = StyleSheet.create({
 
