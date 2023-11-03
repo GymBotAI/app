@@ -6,11 +6,11 @@ import {
   Text,
   TouchableOpacity,
 } from "react-native";
-import EditSettings from "../components/Settings/EditSettings";
+import EditSettings from "./EditSettings";
 import { FontAwesome5 } from "@expo/vector-icons";
-import Notifications from "../components/Settings/Notifications";
+import Notifications from "./Notifications";
 
-import type { NavigationProp, NavigationScreens } from "../types/navigation";
+import type { NavigationProp, NavigationScreens } from "../../types/navigation";
 import type { RouteProp } from "@react-navigation/native";
 
 export default function Settings({

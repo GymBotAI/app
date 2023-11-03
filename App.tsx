@@ -14,7 +14,7 @@ import Food from "./src/screens/.Food";
 import Chat from "./src/screens/.Chat";
 
 import Account from "./src/screens/StartUp";
-import Settings from "./src/screens/Settings";
+import Settings from "./src/components/Settings/.Box";
 import SignUp from "./src/screens/SignUp";
 import DesignWorkout from "./src/screens/DesignWorkout";
 import CompleteDesignContainer from "./src/components/Workout/CompleteWorkout/CompleteDesignContainer";
