@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
-// import { AntDesign } from "@expo/vector-icons";
 
 export default function ScreenHeader({ title, onBackPress, onSavePress }) {
   return (
@@ -40,5 +39,6 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    color: "#007AFF", 
+    color: "#007AFF",
+},
 });
