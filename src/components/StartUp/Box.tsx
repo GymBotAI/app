@@ -12,11 +12,15 @@ import {
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
 
+//------------ Components ------------//
 import SlideItem from "./SlideItem";
 import Pagination from "./Pagination";
 import Modal from "react-native-modal";
 import LoginBox from "./LoginBox";
 import SignupBox from "./SignupBox";
+
+//------------ Styles ------------//
+import { Box } from "./.styles"
 
 const backgroundImages = [
   {
@@ -37,7 +41,9 @@ const backgroundImages = [
   },
 ];
 
-const Slider = ({ navigation }) => {
+let xButton = null;
+
+export default function StartUpBox ({ navigation }) {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -51,25 +57,17 @@ const Slider = ({ navigation }) => {
     setShowSignUp(false);
   };
 
+  xButton = (
+    <TouchableOpacity style={Box.touchable} onPress={handleGoBack}>
+    <Feather name="x-circle" size={40} color="white" />
+    </TouchableOpacity>
+  )
+
   return (
     <View>
-      <Modal
-        isVisible={showLogin}
-        backdropOpacity={0.9}
-        backdropColor="#1f1f1f"
-      >
-        <TouchableOpacity
-          style={{
-            position: "absolute",
-            top: 35,
-            right: 5,
-            width: 40,
-            zIndex: 1,
-          }}
-          onPress={handleGoBack}
-        >
-          <Feather name="x-circle" size={40} color="white" />
-        </TouchableOpacity>
+      <Modal isVisible={showLogin} backdropOpacity={0.9} backdropColor="#1f1f1f">
+        
+        {xButton}
 
         <LoginBox
           onLogin={() => {
@@ -85,23 +83,9 @@ const Slider = ({ navigation }) => {
         />
       </Modal>
 
-      <Modal
-        isVisible={showSignUp}
-        backdropOpacity={0.9}
-        backdropColor="#1f1f1f"
+      <Modal isVisible={showSignUp} backdropOpacity={0.9} backdropColor="#1f1f1f"
       >
-        <TouchableOpacity
-          style={{
-            position: "absolute",
-            top: 35,
-            right: 5,
-            width: 40,
-            zIndex: 1,
-          }}
-          onPress={handleGoBack}
-        >
-          <Feather name="x-circle" size={40} color="white" />
-        </TouchableOpacity>
+        {xButton}
 
         <SignupBox
           onSignup={() => {
@@ -198,7 +182,6 @@ const Slider = ({ navigation }) => {
   );
 };
 
-export default Slider;
 
 const styles = StyleSheet.create({
   headerText: {
