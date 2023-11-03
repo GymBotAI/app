@@ -14,6 +14,17 @@ export const bVal = {
     gymBotLogo: require("../../../assets/GymBotText.png"),
   };
 
+  const commonButtonStyle = {
+    position: "absolute",
+    width: "85%",
+    paddingVertical: 10,
+    borderRadius: 8,
+    shadowColor: "black",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.4,
+    shadowRadius: 4,
+  };
+
 export const Box = StyleSheet.create({
     touchable: {
         position: "absolute",
@@ -39,30 +50,16 @@ export const Box = StyleSheet.create({
         shadowRadius: 5,
     },
     signUp: {
-        position: "absolute",
+        ...commonButtonStyle,
         bottom: 150,
         alignSelf: "center",
-        width: "85%",
         backgroundColor: "#ddd",
-        paddingVertical: 10,
-        borderRadius: 8,
-        shadowColor: "black",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.4,
-        shadowRadius: 4,
     },
     login: {
-        position: "absolute",
+        ...commonButtonStyle,
         bottom: 80,
         alignSelf: "center",
-        width: "85%",
-        paddingVertical: 10,
-        borderRadius: 8,
         borderWidth: 1,
         borderColor: "#ddd",
-        shadowColor: "black",
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.4,
-        shadowRadius: 4,
     }
 });
