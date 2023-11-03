@@ -9,7 +9,7 @@ import {
 import CreateWorkoutButton from "./CreateWorkoutButton";
 import WorkoutList from "./WorkoutList";
 import TalkToGymBotSection from "./TalkToGymBot";
-import CustomPage from "./Running/RunningPage";
+import RunningPage from "./Running/RunningPage";
 
 export default function ViewWorkouts({ navigation }) {
   const [selectedWorkouts, setSelectedWorkouts] = useState([]);
@@ -40,7 +40,7 @@ export default function ViewWorkouts({ navigation }) {
 
         <TalkToGymBotSection navigation={navigation} />
         <WorkoutList navigation={navigation} />
-        {RunningPageVisibility && <CustomPage onClose={closeRunningPage} />}
+        {RunningPageVisibility && <RunningPage onClose={closeRunningPage} />}
       </ScrollView>
 
       {!workoutButtonsVisible && (
