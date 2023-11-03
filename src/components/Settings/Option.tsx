@@ -11,7 +11,7 @@ import { MaterialIcons } from "@expo/vector-icons";
 
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
-import { circularColour } from "../../styles";
+import { circularColour } from "../styles";
 
 export interface BaseProps {
   label: string;

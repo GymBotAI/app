@@ -16,7 +16,6 @@ import { genderVal } from "./Gender.js";
 import { dateValue } from "./Age.js";
 import { weightVal, wUnit } from "./HeightWeightContainer.js";
 import { heightVal, hUnit } from "./HeightWeightContainer.js";
-//import { ageVal } from './Age.js';
 
 import username from "./Credentials";
 import password from "./Credentials";

@@ -15,7 +15,7 @@ import { supabase } from "../../api/supabase";
 
 import Option from "./Option";
 
-import { minHeight, maxHeight, minWeight, maxWeight } from "../../styles";
+import { minHeight, maxHeight, minWeight, maxWeight } from "../styles";
 
 import type { NavigationProp, NavigationScreens } from "../../types/navigation";
 
