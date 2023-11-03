@@ -13,8 +13,8 @@ import { FontAwesome5 } from "@expo/vector-icons";
 export default function PlanInfoPage({ onClose, plan, image }) {
   return (
     <View style={styles.container}>
+     <ImageBackground source={image} style={styles.overlay} blurRadius={5}>
       <ScrollView alwaysBounceVertical={false}>
-        <ImageBackground source={image} style={styles.overlay} blurRadius={5}>
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
             <Text style={styles.closeButtonText}>X</Text>
           </TouchableOpacity>
@@ -23,11 +23,20 @@ export default function PlanInfoPage({ onClose, plan, image }) {
           </TouchableOpacity>
           <Text style={styles.planName}>{plan.name}</Text>
           <Text style={styles.planLength}>{plan.length} days</Text>
-          <View style={styles.centeredBox}>
-            <Text>{plan.data}</Text>
-          </View>
-        </ImageBackground>
+          {plan.data && Array.isArray(plan.data) ? (
+            <View style={styles.tagContainer}>
+              {plan.data.map((item, index) => (
+                <View key={index} style={styles.rectangle}>
+                  <Text style={styles.centeredBoxTitle}>{item[0]}</Text>
+                  <Text style={styles.centeredBoxDescription}>{item[1]}</Text>
+                </View>
+              ))}
+            </View>
+          ) : (
+            <Text style={styles.centeredBox}>No data available</Text>
+          )}
       </ScrollView>
+      </ImageBackground>
       <TouchableOpacity style={styles.blueButton}>
         <Text style={styles.blueButtonText}>Save Workout</Text>
       </TouchableOpacity>
@@ -35,7 +44,7 @@ export default function PlanInfoPage({ onClose, plan, image }) {
   );
 }
 
-const windowWidth = Dimensions.get("window").width; // Offset 20 px for symmetry
+const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height - 60;
 
 const styles = StyleSheet.create({
@@ -80,18 +89,6 @@ const styles = StyleSheet.create({
     height: windowHeight,
     backgroundColor: "white",
   },
-  centeredBox: {
-    position: "absolute",
-    top: "50%",
-    left: "50%",
-    transform: [{ translateX: -150 }, { translateY: -170 }],
-    width: 300,
-    height: 350,
-    borderRadius: 20,
-    backgroundColor: "gray",
-    justifyContent: "top",
-    padding: 20,
-  },
   planLength: {
     position: "absolute",
     top: "6%",
@@ -124,5 +121,23 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 18,
     fontWeight: "bold",
+  },
+  tagContainer: {
+    marginTop: 60,
+    paddingHorizontal: 10,
+  },
+  rectangle: {
+    backgroundColor: "gray",
+    padding: 10,
+    margin: 10,
+    borderRadius: 5,
+  },
+  centeredBoxTitle: {
+    fontWeight: "bold",
+    fontSize: 18,
+    marginBottom: 5,
+  },
+  centeredBoxDescription: {
+    fontSize: 14,
   },
 });
