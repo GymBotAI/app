@@ -64,11 +64,9 @@ export default function StartUpBox ({ navigation }) {
   )
 
   return (
-    <View>
-      <Modal isVisible={showLogin} backdropOpacity={0.9} backdropColor="#1f1f1f">
-        
+    <>
+      <Modal isVisible={showLogin} backdropOpacity={boxValues.backOpacity} backdropColor={boxValues.backColor}>
         {xButton}
-
         <LoginBox
           onLogin={() => {
             navigation.navigate("Home");
@@ -83,10 +81,8 @@ export default function StartUpBox ({ navigation }) {
         />
       </Modal>
 
-      <Modal isVisible={showSignUp} backdropOpacity={0.9} backdropColor="#1f1f1f"
-      >
+      <Modal isVisible={showSignUp} backdropOpacity={boxValues.backOpacity} backdropColor={boxValues.backColor}>
         {xButton}
-
         <SignupBox
           onSignup={() => {
             navigation.navigate("Home");
@@ -178,7 +174,7 @@ export default function StartUpBox ({ navigation }) {
       </TouchableOpacity>
 
       <Pagination items={backgroundImages} scrollX={scrollX} />
-    </View>
+    </>
   );
 };
 
