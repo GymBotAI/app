@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { Image } from "expo-image";
 
-import { Login } from "./.styles";
+import { Login, aVal } from "./.styles";
 import { login } from "../../api/auth";
 import { signup } from "../../api/auth";
 
@@ -64,17 +64,17 @@ export default function LoginBox({
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={Login.container}>
       <TextInput
-        style={styles.input}
+        style={Login.input}
         placeholder="Email"
-        placeholderTextColor="white"
+        placeholderTextColor={aVal.placeholder}
         value={email}
         onChangeText={setEmail}
         autoCapitalize="none"
       />
       <TextInput
-        style={styles.input}
+        style={Login.input}
         placeholder="Password"
-        placeholderTextColor="white"
+        placeholderTextColor={aVal.placeholder}
         value={password}
         onChangeText={setPassword}
         secureTextEntry
@@ -122,14 +122,6 @@ const styles = StyleSheet.create({
   container: {
   },
   input: {
-    marginBottom: 22,
-    padding: 10,
-    paddingRight: 0,
-    paddingLeft: 3,
-    borderBottomWidth: 2,
-    borderBottomColor: "white",
-    color: "white",
-    fontSize: 16,
   },
   login: {
     alignSelf: "center",

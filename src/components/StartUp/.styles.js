@@ -39,9 +39,6 @@ export const Box = StyleSheet.create({
         width: 40,
         zIndex: 1,
     },
-    modalContainer: {
-      paddingTop: 50,
-    },
     logo: {
         width: 220,
         height: 110,
@@ -86,10 +83,25 @@ export const Box = StyleSheet.create({
 
 //------------------ LOGIN AND SIGNUP STYLES ------------------//
 
+export const aVal = {
+  placeholder: 'white', 
+};
+
 export const Login = StyleSheet.create({
   container: {
+    paddingTop: 50,
     height: '100%',
     padding: 8,
     justifyContent: "center",
+  },
+  input: {
+    marginBottom: 22,
+    padding: 10,
+    paddingRight: 0,
+    paddingLeft: 3,
+    borderBottomWidth: 2,
+    borderBottomColor: "white",
+    color: "white",
+    fontSize: 16,
   }
 });
