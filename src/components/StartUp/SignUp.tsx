@@ -1,6 +1,7 @@
 import { useState } from "react";
 import {
   View,
+  Keyboard,
   TextInput,
   TouchableOpacity,
   Text,
@@ -90,7 +91,7 @@ export default function SignupBox({
           </Text>
         </View>
       </TouchableOpacity>
-      
+
       </View>
     </TouchableWithoutFeedback>
     );

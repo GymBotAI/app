@@ -15,6 +15,8 @@ import { Image } from "expo-image";
 import SlideItem from "./SlideItem";
 import Pagination from "./Pagination";
 import Modal from "react-native-modal";
+import Account from "./Account"
+
 import LoginBox from "./Login";
 import SignupBox from "./SignUp";
 
@@ -67,7 +69,7 @@ export default function StartUpBox ({ navigation }) {
       <Modal style={Box.modalContainer}
       isVisible={showLogin} backdropOpacity={bVal.backOpacity} backdropColor={bVal.backColor}>
         {xButton}
-        <LoginBox
+        <Account
           onLogin={() => {
             navigation.navigate("Home");
             setShowLogin(false);
@@ -78,6 +80,7 @@ export default function StartUpBox ({ navigation }) {
           onCreateAccount={() => {
             navigation.navigate("Register");
           }}
+          button1="Login"
         />
       </Modal>
 

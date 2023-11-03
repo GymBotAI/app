@@ -87,5 +87,9 @@ export const Box = StyleSheet.create({
 //------------------ LOGIN AND SIGNUP STYLES ------------------//
 
 export const Login = StyleSheet.create({
-
+  container: {
+    height: '100%',
+    padding: 8,
+    justifyContent: "center",
+  }
 });

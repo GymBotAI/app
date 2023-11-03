@@ -19,10 +19,13 @@ import type { User } from "@supabase/supabase-js";
 export default function LoginBox({
   onLogin,
   onError,
+  onCreateAccount,
+  button1,
 }: {
   onLogin: (user: User) => void;
   onError: (error: Error) => void;
   onCreateAccount: () => void;
+  button1: string;
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -73,7 +76,7 @@ export default function LoginBox({
         }}
       >
         <TouchableOpacity style={styles.login} onPress={handleLogin}>
-          <Text style={styles.loginText}>Login</Text>
+          <Text style={styles.loginText}>{button1}</Text>
         </TouchableOpacity>
 
         <TouchableOpacity style={styles.signup}>
