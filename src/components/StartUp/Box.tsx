@@ -20,7 +20,7 @@ import LoginBox from "./LoginBox";
 import SignupBox from "./SignupBox";
 
 //------------ Styles ------------//
-import { Box } from "./.styles"
+import { Box, boxValues } from "./.styles"
 
 const backgroundImages = [
   {
@@ -59,7 +59,7 @@ export default function StartUpBox ({ navigation }) {
 
   xButton = (
     <TouchableOpacity style={Box.touchable} onPress={handleGoBack}>
-    <Feather name="x-circle" size={40} color="white" />
+    <Feather name="x-circle" size={boxValues.buttonSize} color={boxValues.buttonColor} />
     </TouchableOpacity>
   )
 

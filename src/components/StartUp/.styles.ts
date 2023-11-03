@@ -6,6 +6,13 @@ export const bgPrimary = "#4DBCC1";
 
 //------------------ BOX STYLES ------------------//
 
+export const boxValues = {
+    buttonSize: 40,
+    buttonColor: 'white',
+    backOpacity: 0.9,
+    backColor: '#1f1f1f',
+  };
+
 export const Box = StyleSheet.create({
     touchable: {
         position: "absolute",
