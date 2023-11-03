@@ -16,7 +16,7 @@ import SlideItem from "./SlideItem";
 import Pagination from "./Pagination";
 import Modal from "react-native-modal";
 import LoginBox from "./Login";
-import SignupBox from "./SignupBox";
+import SignupBox from "./SignUp";
 
 //------------ Styles ------------//
 import { Box, bVal } from "./.styles"
