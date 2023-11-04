@@ -111,7 +111,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
           style={styles.chatBox}
         >
           <Image
-            source={require("../../../../assets/circleicon.png")}
+            source={require("../../../assets/circleicon.png")}
             style={{
               width: 60,
               height: 60,
