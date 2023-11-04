@@ -11,7 +11,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import ScreenHeader from "../../../components/ScreenHeader";
 
-let exercisesToDisplay = [];
+let exercisesToDisplay = []; 
 
 export default function CompleteDesignContainer({ route, navigation }) {
   const { subGoal } = route.params;
@@ -22,13 +22,6 @@ export default function CompleteDesignContainer({ route, navigation }) {
   const [selectedExercises, setSelectedExercises] = useState([]);
 
   useEffect(() => {
-    if (subGoal === "Upper") {
-      exercisesToDisplay = upperExercises;
-    } else if (subGoal === "Lower") {
-      exercisesToDisplay = lowerExercises;
-    } else if (subGoal === "Both") {
-      exercisesToDisplay = bothExercises;
-    }
     
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
@@ -46,6 +39,13 @@ export default function CompleteDesignContainer({ route, navigation }) {
   }, [goalText]); // Listen for changes to goalText  let exercisesToDisplay = [];
 
 
+  if (subGoal === "Upper") {
+    exercisesToDisplay = upperExercises;
+  } else if (subGoal === "Lower") {
+    exercisesToDisplay = lowerExercises;
+  } else if (subGoal === "Both") {
+    exercisesToDisplay = bothExercises;
+  }
 
   return (
     <>
