@@ -8,7 +8,7 @@ export default function MainHeader({ text, children }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "clash-grotesk-semibold": require("../../../assets/fonts/ClashGrotesk-Semibold.ttf"),
+        "clash-grotesk-semibold": require("../../../../assets/fonts/ClashGrotesk-Semibold.ttf"),
       });
 
       setFontLoaded(true);
@@ -49,7 +49,7 @@ export default function MainHeader({ text, children }) {
         }}
       >
         <Image
-          source={require("../../../assets/circleicon.png")}
+          source={require("../../../../assets/circleicon.png")}
           style={{
             width: 60, // Adjust the size as needed
             height: 60, // Adjust the size as needed

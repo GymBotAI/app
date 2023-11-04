@@ -7,7 +7,7 @@ import type { MutableRefObject } from "react";
 import ChatMessages from "./ChatMessages";
 import ChatInput from "./ChatInput";
 
-import { useGymBotAI } from "../../api/chat";
+import { useGymBotAI } from "../../../api/chat";
 import type { ReadyState } from "react-use-websocket";
 
 export type ChatContainerRef = MutableRefObject<null | {

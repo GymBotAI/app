@@ -1,14 +1,14 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
 
-import { borderDefault, fontSize, bgPrimary } from "../../components/styles";
+import { borderDefault, fontSize, bgPrimary } from "../../../components/styles";
 
 import { useEffect, useState } from "react";
 import type { JSX } from "react";
 
 const roleIcons = {
-  assistant: require("../../../assets/circleicon.png"),
-  user: require("../../../assets/user.png"),
+  assistant: require("../../../../assets/circleicon.png"),
+  user: require("../../../../assets/user.png"),
 };
 
 const roleAlign = {
@@ -23,7 +23,7 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
   // Load font
   useEffect(() => {
     Font.loadAsync({
-      "roboto-regular": require("../../../assets/fonts/Roboto-Regular.ttf"),
+      "roboto-regular": require("../../../../assets/fonts/Roboto-Regular.ttf"),
     }).then(() => {
       setFontLoaded(true);
     });
