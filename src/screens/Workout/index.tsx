@@ -2,7 +2,7 @@ import { View, StatusBar } from "react-native";
 
 import WorkoutScreen from "./Main Screen/.Box";
 import ScreenHeader from "../../components/ScreenHeader";
-import DesignWorkout from "./DesignWorkout/.Box";
+import DesignWorkout from "./DesignWorkout";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import type { NavigationScreens } from "../../types/navigation";
