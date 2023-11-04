@@ -4,20 +4,18 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import type { NavigationScreens } from "./src/types/navigation";
 
-
-//Luis Things
+// Luis Things
 import { AppContext } from "./src/context/AppContext";
 import { supabase } from "./src/api/supabase";
 import type { Session } from "@supabase/supabase-js";
 
-//StartUp
+// StartUp
 import StartUp from "./src/screens/StartUp/FirstScreen";
 import SignUp from "./src/screens/StartUp/SignUp";
 
 import Main from "./src/MainApp";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
-
 
 export default function App() {
   const [appContext, setAppContext] = useState({
@@ -56,23 +54,18 @@ export default function App() {
 
   return (
     <AppContext.Provider value={appContext}>
-
       <NavigationContainer>
-
         <Stack.Navigator
-        screenOptions={{
-          animation: 'none',
-          headerShown: false, // Hide the default header
-        }}
+          screenOptions={{
+            animation: "none",
+            headerShown: false, // Hide the default header
+          }}
         >
-
-          <Stack.Screen name="StartUp" component={StartUp}/>
+          <Stack.Screen name="StartUp" component={StartUp} />
           <Stack.Screen name="SignUp" component={SignUp} />
-          <Stack.Screen name="Main" component={Main}/>
-
+          <Stack.Screen name="Main" component={Main} />
         </Stack.Navigator>
       </NavigationContainer>
-
     </AppContext.Provider>
   );
 }
