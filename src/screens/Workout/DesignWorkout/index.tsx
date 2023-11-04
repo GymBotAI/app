@@ -9,7 +9,7 @@ import BodyDefinition from "./BodyDefinition";
 import SportsSpecific from "./SportsSpecific";
 import GoalSelector from "./GoalSelector";
 
-import CompleteDesignContainer from "../CompleteWorkout/CompleteDesignContainer";
+import ScreenHeader from "../../../components/ScreenHeader";
 
 export default function WorkoutSelectionScreen({ navigation }) {
   const [selectedGoal, setSelectedGoal] = useState(null);
@@ -103,6 +103,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
+    <ScreenHeader title="Workouts" />
       <View style={styles.chatContainer}>
         <LinearGradient
           colors={["#4c9afc", "#5da1fc"]} // Lighter blue gradient colors

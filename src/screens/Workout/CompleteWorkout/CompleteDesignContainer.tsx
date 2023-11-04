@@ -7,7 +7,7 @@ import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
-import type { WorkoutSubGoal } from "../../../types/workouts";
+import ScreenHeader from "../../../components/ScreenHeader";
 
 export default function CompleteDesignContainer({ route, navigation }) {
   const { goal, subGoal } = route.params;
@@ -37,6 +37,7 @@ export default function CompleteDesignContainer({ route, navigation }) {
     <>
       {!showModal && (
         <>
+        <ScreenHeader title="Workouts" />
           <View style={styles.container}>
             <View style={styles.chatContainer}>
               <LinearGradient

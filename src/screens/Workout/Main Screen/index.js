@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import { View, StyleSheet, ScrollView, TouchableOpacity, Text } from "react-native";
+import { View, ScrollView, TouchableOpacity, Text } from "react-native";
 
 //---------- Components ----------//
 import CreateWorkoutButton from "./CreateWorkoutButton";
 import WorkoutList from "./WorkoutList";
 import TalkToGymBotSection from "./TalkToGymBot";
 import RunningPage from "../../../components/Workout/Running/RunningPage";
+import ScreenHeader from "../../../components/ScreenHeader";
 
 //---------- Styles ----------//
 import { Box } from "./.styles";
@@ -29,6 +30,7 @@ export default function ViewWorkouts({ navigation }) {
 
   return (
     <>
+      <ScreenHeader title="Workouts" />
       <ScrollView style={Box.container}>
         <CreateWorkoutButton handleAddWorkout={handleAddWorkout} />
 
