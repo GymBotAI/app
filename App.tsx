@@ -13,7 +13,7 @@ import Workouts from "./src/screens/.Workouts";
 import Food from "./src/screens/.Food";
 import Chat from "./src/screens/.Chat";
 
-import Account from "./src/screens/StartUp";
+import StartUp from "./src/screens/StartUp";
 import Settings from "./src/components/Settings/.Box";
 import SignUp from "./src/screens/SignUp";
 import DesignWorkout from "./src/screens/DesignWorkout";
@@ -68,7 +68,7 @@ export default function App() {
             animation: "none",
           }}
         >
-          <Stack.Screen name="Account" component={Account} />
+          <Stack.Screen name="Account" component={StartUp} />
           <Stack.Screen name="SignUp" component={SignUp} />
 
           <Stack.Screen name="Home" component={Home} />
