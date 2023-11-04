@@ -36,7 +36,7 @@ export default function App() {
       console.debug("[GymBot/App] Supabase auth change:", e, !!newSession);
       setSession(newSession);
     }).data.subscription.unsubscribe;
-  }, [setSession]);
+  }, []);
 
   useEffect(() => {
     if (session?.user) {
@@ -53,7 +53,7 @@ export default function App() {
           }
         });
     }
-  }, [session, setUserData]);
+  }, []);
 
   if (loading) {
     return null;
