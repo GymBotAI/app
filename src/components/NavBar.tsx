@@ -27,7 +27,7 @@ export default function GymBotNavigation({
             key={name}
             style={styles.button}
             onPress={() => {
-              navigation.navigate(name);
+              navigation.replace(name);
             }}
           >
             <FontAwesome5

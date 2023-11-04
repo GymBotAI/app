@@ -36,7 +36,7 @@ export default function ReviewWorkoutContainer({
   };
 
   const goBack = () => {
-    navigation.navigate("DesignWorkout");
+    navigation.goBack();
   };
 
   return (
