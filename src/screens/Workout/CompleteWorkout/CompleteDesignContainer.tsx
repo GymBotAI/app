@@ -2,7 +2,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { useState, useEffect } from "react";
 
 import ExerciseSelectionScreen from "./BuildMuscle";
-import ReviewWorkoutContainer from "../../../components/Workout/ReviewWorkout/ReviewWorkoutContainer";
+import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
 
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
