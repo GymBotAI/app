@@ -96,7 +96,6 @@ export default function Chat({
           // onInput={}
           setValueRef={chatInputRef}
           onDeletePrompts={handlePromptPress} // Pass the callback function to ChatInput
-          multiline
         />
       </View>
     </KeyboardAvoidingView>
