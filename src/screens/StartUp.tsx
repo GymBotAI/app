@@ -15,7 +15,8 @@ export default function StartUp({
   const { session } = useContext(AppContext);
 
   if (session?.user) {
-    return navigation.navigate("Home");
+    navigation.navigate("Home");
+    return <></>;
 
     // TODO: there should be a better way to do this,
     // like <NavigationContainer> initialState.
