@@ -1,11 +1,11 @@
 import { View, StatusBar } from "react-native";
 
-import WorkoutScreen from "./.Box";
-import ScreenHeader from "../../../components/ScreenHeader";
-import DesignWorkout from "../DesignWorkout/.Box";
+import WorkoutScreen from "./Main Screen/.Box";
+import ScreenHeader from "../../components/ScreenHeader";
+import DesignWorkout from "./DesignWorkout/.Box";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import type { NavigationScreens } from "../../../types/navigation";
+import type { NavigationScreens } from "../../types/navigation";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
 
