@@ -3,6 +3,7 @@ import type { NavigationProp as _NavigationProp } from "@react-navigation/native
 export type NavigationScreens = {
   StartUp: undefined;
   SignUp: undefined;
+  Main: undefined;
 
   Home: undefined;
   Plans: undefined;
