@@ -1,8 +1,10 @@
+import { useState, useRef, useCallback, useContext } from "react";
 import { View, KeyboardAvoidingView } from "react-native";
-import { useState, useRef, useCallback } from "react";
-import * as Device from "expo-device";
-
 import type { MutableRefObject } from "react";
+
+import { AppContext } from "../../../context";
+
+import * as Device from "expo-device";
 
 import ChatMessages from "./ChatMessages";
 import ChatInput from "./ChatInput";
@@ -25,6 +27,8 @@ export default function Chat({
   containerRef?: ChatContainerRef;
   goToWorkoutScreen: () => void;
 }) {
+  const { session } = useContext(AppContext);
+
   const chatInputRef: SetValueRef = useRef();
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
   const { messages, sendMessage, setMessages, readyState, hasAuthed } =
@@ -81,6 +85,7 @@ export default function Chat({
         />
 
         <ChatInput
+          disabled={!hasAuthed || !session.user}
           style={{
             justifyContent: "center",
             alignItems: "center",
