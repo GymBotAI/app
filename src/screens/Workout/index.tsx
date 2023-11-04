@@ -1,6 +1,6 @@
 import { View, StatusBar } from "react-native";
 
-import Workout from "./Main Screen";
+import Workout from "./MainScreen";
 import DesignWorkout from "./DesignWorkout";
 import CompleteWorkout from "./CompleteWorkout";
 
