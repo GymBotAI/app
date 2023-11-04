@@ -16,12 +16,14 @@ export type SetValueRef = MutableRefObject<{
 }>;
 
 export default function ChatInput({
+  disabled,
   value,
   multiline,
   onSubmit,
   setValueRef,
   onDeletePrompts,
 }: {
+  disabled?: boolean;
   value?: string;
   multiline?: boolean;
   onSubmit: (text: string) => void;
@@ -82,6 +84,7 @@ export default function ChatInput({
     >
       <TextInput
         blurOnSubmit={false}
+        editable={!disabled}
         multiline={typeof multiline === "boolean" ? multiline : false}
         inputMode="text"
         returnKeyType="send"
