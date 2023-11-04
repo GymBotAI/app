@@ -35,7 +35,7 @@ let inputOption = null;
 
 export default function SignUpContainer({ navigation }) {
   const [fontsLoaded] = useFonts({
-    "roboto-black": require("../../../assets/fonts/Roboto-Black.ttf"),
+    "roboto-black": require("../../../../assets/fonts/Roboto-Black.ttf"),
   });
   const [nameVal, setNameVal] = useState("");
   const [dateVal, setDateVal] = useState("");
