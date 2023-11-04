@@ -9,9 +9,11 @@ import {
   StatusBar,
 } from "react-native";
 
+import { AppContext } from "../../../context/AppContext";
+
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import { AppContext } from "../../../context/AppContext";
+
 import type { NavigationProp } from "../../../types/navigation";
 
 //------------ Components ------------//
@@ -21,7 +23,7 @@ import Modal from "react-native-modal";
 import Account from "./Account";
 
 //------------ Styles ------------//
-import { Box, bVal } from "./.styles";
+import { Box, bVal } from "./styles";
 
 const backgroundImages = [
   {

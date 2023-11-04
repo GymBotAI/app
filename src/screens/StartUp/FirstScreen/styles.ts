@@ -8,7 +8,7 @@ export const bVal = {
   backOpacity: 0.9,
   backColor: "#1f1f1f",
   gymBotLogo: require("../../../../assets/GymBotText.png"),
-};
+} as const;
 
 const commonButtonStyle = {
   position: "absolute",
@@ -19,13 +19,13 @@ const commonButtonStyle = {
   shadowOffset: { width: 0, height: 2 },
   shadowOpacity: 0.4,
   shadowRadius: 4,
-};
+} as const;
 
 const commonTextStyle = {
   fontSize: 18,
   fontWeight: "bold",
   textAlign: "center",
-};
+} as const;
 
 export const Box = StyleSheet.create({
   touchable: {

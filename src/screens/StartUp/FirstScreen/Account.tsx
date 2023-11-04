@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { Image } from "expo-image";
 
-import { Login, aVal } from "./.styles";
+import { Login, aVal } from "./styles";
 import { login } from "../../../api/auth";
 import { signup } from "../../../api/auth";
 
