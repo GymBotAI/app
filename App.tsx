@@ -12,11 +12,11 @@ import SignUp from "./src/screens/SignUp";
 
 import Home from "./src/screens/.Home";
 import Plans from "./src/screens/.Plans";
-import Workouts from "./src/screens/Workout/.Workouts";
+import Workouts from "./src/screens/Workout/Workouts";
 import Food from "./src/screens/.Food";
 import Chat from "./src/screens/.Chat";
 
-import DesignWorkout from "./src/screens/DesignWorkout";
+import DesignWorkout from "./src/screens/Workout/DesignWorkout";
 import CompleteDesignContainer from "./src/components/Workout/CompleteWorkout/CompleteDesignContainer";
 
 import Settings from "./src/screens/Settings";

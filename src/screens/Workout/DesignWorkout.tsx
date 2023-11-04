@@ -1,10 +1,9 @@
 import { View, StatusBar } from "react-native";
 
-import GymBotNavigation from "../../components/NavBar";
-import ViewWorkouts from "../../components/Workout/.Box";
+import DesignWorkoutContainer from "../../components/DesignWorkout/DesignWorkoutContainer";
 import ScreenHeader from "../../components/ScreenHeader";
 
-export default function Workouts({ navigation }) {
+export default function DesignWorkout({ navigation }) {
   return (
     <View
       style={{
@@ -13,12 +12,8 @@ export default function Workouts({ navigation }) {
       }}
     >
       <ScreenHeader title="Workouts" />
-
-      <ViewWorkouts navigation={navigation} />
-
+      <DesignWorkoutContainer navigation={navigation} />
       <StatusBar barStyle="dark-content" />
-
-      <GymBotNavigation navigation={navigation} currentScreen={"Workouts"} />
     </View>
   );
 }
