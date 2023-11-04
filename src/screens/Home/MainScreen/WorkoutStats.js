@@ -1,5 +1,7 @@
-import React from "react";
 import { View, Text, StyleSheet, Dimensions } from "react-native";
+
+import { colors } from "../../../components/styles";
+
 import { FontAwesome5 } from "@expo/vector-icons";
 import ProgressCircle from "react-native-progress-circle";
 
@@ -37,7 +39,7 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
     <View style={styles.container}>
       <View style={styles.topSection}>
         <Text style={styles.statsText}>{getCurrentMonth()} Activity</Text>
-        <FontAwesome5 name="calendar" size={30} color="#F5F5F5" />
+        <FontAwesome5 name="calendar" size={30} color={colors.black.lighter} />
       </View>
 
       <View style={styles.progressContainer}>
@@ -46,21 +48,21 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
             percent={69}
             radius={circleRadius}
             borderWidth={8}
-            color="#8ede99" // Light blue for progress circle
-            shadowColor="#cccccc"
-            bgColor="#F5F5F5" // Light blue background
+            color={colors.blue.lightest} // Light blue for progress circle
+            shadowColor={colors.grey.lighter}
+            bgColor={colors.grey.lightest} // Light blue background
           >
             <FontAwesome5
               name="dumbbell"
               size={15}
-              color="#8ede99"
+              color={colors.blue.lightest}
               style={styles.icon}
             />
             <Text
               style={{
                 fontSize: 36,
                 fontWeight: "bold",
-                color: "#2e2e2e",
+                color: colors.black.lighter,
                 alignSelf: "center",
                 marginBottom: -2,
               }}
@@ -76,21 +78,21 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
             percent={86} // Use a different percentage for the second circle if needed
             radius={circleRadius}
             borderWidth={8}
-            color="#8ed9de" // Light blue for progress circle
-            shadowColor="#cccccc"
-            bgColor="#F5F5F5" // Light blue background
+            color={colors.green.lightest} // Light blue for progress circle
+            shadowColor={colors.grey.lighter}
+            bgColor={colors.grey.lightest} // Light blue background
           >
             <FontAwesome5
               name="shoe-prints"
               size={15}
-              color="#8ed9de"
+              color={colors.green.lightest}
               style={styles.icon}
             />
             <Text
               style={{
                 fontSize: 36,
                 fontWeight: "bold",
-                color: "#2e2e2e",
+                color: colors.black.lighter,
                 alignSelf: "center",
                 marginBottom: -2,
               }}
@@ -107,7 +109,7 @@ const WorkoutStats = ({ completedWorkouts, totalWorkouts, goalPercentage }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#227df2", // Light blue background
+    backgroundColor: colors.blue.default, // Light blue background
     height: 300,
     borderRadius: 30,
     padding: 20,
@@ -122,7 +124,7 @@ const styles = StyleSheet.create({
   statsText: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#F5F5F5",
+    color: colors.grey.lightest,
   },
   progressContainer: {
     flexDirection: "row",
@@ -132,12 +134,12 @@ const styles = StyleSheet.create({
   },
   circleContainer: {
     width: "47%",
-    backgroundColor: "#F5F5F5",
+    backgroundColor: colors.grey.lightest,
     borderRadius: 10,
     padding: 10,
     paddingVertical: 15,
     alignItems: "center",
-    shadowColor: "black",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
     shadowRadius: 10,
@@ -146,7 +148,7 @@ const styles = StyleSheet.create({
   goalText: {
     marginTop: 10,
     fontSize: 14,
-    color: "#2e2e2e",
+    color: colors.black.lighter,
     textAlign: "center",
     marginBottom: 5,
   },
@@ -155,7 +157,7 @@ const styles = StyleSheet.create({
   },
   percentageText: {
     fontSize: 14,
-    color: "white",
+    color: colors.white.default,
     textAlign: "center",
     marginBottom: 5,
   },

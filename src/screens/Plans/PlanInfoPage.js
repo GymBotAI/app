@@ -13,8 +13,8 @@ import { FontAwesome5 } from "@expo/vector-icons";
 export default function PlanInfoPage({ onClose, plan, image }) {
   return (
     <View style={styles.container}>
-     <ImageBackground source={image} style={styles.overlay} blurRadius={5}>
-      <ScrollView alwaysBounceVertical={false}>
+      <ImageBackground source={image} style={styles.overlay} blurRadius={5}>
+        <ScrollView alwaysBounceVertical={false}>
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
             <Text style={styles.closeButtonText}>X</Text>
           </TouchableOpacity>
@@ -35,7 +35,7 @@ export default function PlanInfoPage({ onClose, plan, image }) {
           ) : (
             <Text style={styles.centeredBox}>No data available</Text>
           )}
-      </ScrollView>
+        </ScrollView>
       </ImageBackground>
       <TouchableOpacity style={styles.blueButton}>
         <Text style={styles.blueButtonText}>Save Workout</Text>
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     top: "6%",
     fontWeight: "bold",
     fontSize: 15,
-    color: "#646464",
+    color: "magenta",
     left: 40,
   },
   planName: {

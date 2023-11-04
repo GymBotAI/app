@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import {
   View,
   Text,
@@ -7,26 +6,28 @@ import {
   Modal,
   ScrollView,
 } from "react-native";
+
+import { colors } from "../../components/styles";
+import { transparent } from "../../utils/colors";
+
+// Food data
+import { foodCategories } from "./data";
+
 import FoodInfoTabs from "./FoodInfoTabs";
 
-const FoodDatabaseWindow = ({ isVisible, onClose, onTabPress }) => {
-  const foodData = [
-    {
-      name: "Food 1",
-      description: "Description for Food 1",
-      calories: 150,
-      protein: 10,
-      salt: 1,
-    },
-    {
-      name: "Food 2",
-      description: "Description for Food 2",
-      calories: 200,
-      protein: 15,
-      salt: 0.5,
-    },
-  ];
+import type { Food, FoodCategory } from "./types";
 
+export default function FoodDatabaseWindow({
+  category,
+  isVisible,
+  onClose,
+  onFoodPress,
+}: {
+  category: FoodCategory;
+  isVisible: boolean;
+  onClose: () => void;
+  onFoodPress: (food: number) => void;
+}) {
   return (
     <Modal animationType="slide" transparent={true} visible={isVisible}>
       <View style={styles.modalContainer}>
@@ -35,18 +36,21 @@ const FoodDatabaseWindow = ({ isVisible, onClose, onTabPress }) => {
         </TouchableOpacity>
         <ScrollView contentContainerStyle={styles.scrollContainer}>
           <View style={styles.spacer} />
-          <FoodInfoTabs foodData={foodData} onTabPress={onTabPress} />
+          <FoodInfoTabs
+            foods={foodCategories[category].foods}
+            onFoodPress={onFoodPress}
+          />
           <View style={styles.spacer} />
         </ScrollView>
       </View>
     </Modal>
   );
-};
+}
 
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
-    backgroundColor: "rgba(0, 0, 0, 0.5)", // Had to use rgba cuz I could figure it out with hex
+    backgroundColor: transparent(colors.black.default, 0.5),
     alignItems: "center",
     justifyContent: "center",
   },
@@ -54,7 +58,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     top: 40,
     right: 20,
-    backgroundColor: "#fff",
+    backgroundColor: colors.white.default,
     borderRadius: 20,
     width: 40,
     height: 40,
@@ -72,5 +76,3 @@ const styles = StyleSheet.create({
     flex: 1,
   },
 });
-
-export default FoodDatabaseWindow;

@@ -4,14 +4,21 @@ import { Alert, View, StatusBar, TouchableOpacity } from "react-native";
 import { AppContext } from "../../context";
 import { baseServerAddr } from "../../api/address";
 
+import { colors } from "../../components/styles";
+
 import ChatContainer from "./components/ChatContainer";
 import ChatHeader from "./components/ChatHeader";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
 import type { ChatContainerRef } from "./components/ChatContainer";
+import type { NavigationProp } from "../../types/navigation";
 
-export default function ChatScreen({ navigation }) {
+export default function ChatScreen({
+  navigation,
+}: {
+  navigation: NavigationProp;
+}) {
   const chatContainerRef: ChatContainerRef = useRef(null);
 
   const { session } = useContext(AppContext);
@@ -36,7 +43,11 @@ export default function ChatScreen({ navigation }) {
               );
             }}
           >
-            <FontAwesome5 name="terminal" size={24} color="#333" />
+            <FontAwesome5
+              name="terminal"
+              size={24}
+              color={colors.black.lighter}
+            />
           </TouchableOpacity>
         ) : null}
         <TouchableOpacity
@@ -44,7 +55,7 @@ export default function ChatScreen({ navigation }) {
             chatContainerRef.current?.clear();
           }}
         >
-          <FontAwesome5 name="trash" size={24} color="#333" />
+          <FontAwesome5 name="trash" size={24} color={colors.black.lighter} />
         </TouchableOpacity>
       </ChatHeader>
       <ChatContainer

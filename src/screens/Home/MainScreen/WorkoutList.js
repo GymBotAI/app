@@ -1,4 +1,3 @@
-import React from "react";
 import {
   View,
   ScrollView,
@@ -7,6 +6,9 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from "react-native";
+
+import { colors } from "../../../components/styles";
+
 import { FontAwesome5 } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -96,7 +98,7 @@ const WorkoutList = ({ navigation }) => {
               onPress={() => handleWorkoutPress(workout)}
             >
               <LinearGradient
-                colors={["black", "transparent"]}
+                colors={[colors.black.default, "transparent"]}
                 start={[0.5, 0]}
                 end={[0.5, 0.6]}
                 style={styles.linearGradient}
@@ -138,7 +140,7 @@ const styles = StyleSheet.create({
   viewAllButton: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#F29722",
+    color: colors.orange.default,
   },
   container: {
     flexDirection: "row",
@@ -147,7 +149,7 @@ const styles = StyleSheet.create({
   titleSection: {
     width: "100%",
     height: 40, // Set the desired height for the title section
-    backgroundColor: "#F29722", // Red background color
+    backgroundColor: colors.orange.default, // Red background color
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     justifyContent: "center",
@@ -165,12 +167,12 @@ const styles = StyleSheet.create({
   workoutTitle: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "white", // White text color
+    color: colors.white.default, // White text color
     textAlign: "left",
     padding: 12, // Add padding here to separate the title from the bottom of the box
     position: "absolute", // Position the title independently
     bottom: 0, // Place the title at the top of the workoutBox
-    shadowColor: "#000",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.5,
     shadowRadius: 3,
@@ -182,19 +184,19 @@ const styles = StyleSheet.create({
   },
   exerciseText: {
     fontSize: 14,
-    color: "#555",
+    color: colors.black.lightest,
     textAlign: "center",
     marginBottom: 5,
   },
   workoutBox: {
     width: 250,
     height: 130,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: colors.grey.lightest,
     borderRadius: 10,
     marginHorizontal: 10,
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#000",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 3,

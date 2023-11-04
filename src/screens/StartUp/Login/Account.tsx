@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
   login: {
     alignSelf: "center",
     width: "95%",
-    backgroundColor: "#ddd",
+    backgroundColor: "magenta",
     paddingVertical: 10,
     borderRadius: 8,
     marginHorizontal: 10,
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
   loginText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: "magenta",
     textAlign: "center",
   },
   signup: {
@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginHorizontal: 10,
     borderWidth: 1,
-    borderColor: "#ddd",
+    borderColor: "magenta",
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
@@ -161,13 +161,13 @@ const styles = StyleSheet.create({
   signupText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#ddd",
+    color: "magenta",
     textAlign: "center",
   },
   forgotText: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "#ddd",
+    color: "magenta",
     marginLeft: "auto",
   },
   guestContainer: {
@@ -190,7 +190,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     marginHorizontal: 10,
     marginBottom: 20,
-    shadowColor: "#000",
+    shadowColor: "magenta",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 4,

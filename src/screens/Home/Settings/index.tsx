@@ -10,12 +10,17 @@ import {
 
 import { supabase } from "../../../api/supabase";
 
+import { colors } from "../../../components/styles";
+
 import { FontAwesome5 } from "@expo/vector-icons";
 
 import EditSettings from "./EditSettings";
 import Notifications from "./Notifications";
 
-import type { NavigationProp, NavigationScreens } from "../../../types/navigation";
+import type {
+  NavigationProp,
+  NavigationScreens,
+} from "../../../types/navigation";
 import type { RouteProp } from "@react-navigation/native";
 
 export default function Settings({
@@ -51,10 +56,10 @@ export default function Settings({
   return (
     <View style={{ height: "100%", width: "100%" }}>
       <View style={styles.container}>
-        <Text style={styles.title}>{"Settings"}</Text>
+        <Text style={styles.title}>Settings</Text>
         <View style={styles.bellContainer}>
           <TouchableOpacity onPress={openNotifications}>
-            <FontAwesome5 name="bell" size={30} color="#000" />
+            <FontAwesome5 name="bell" size={30} color={colors.black.lightest} />
           </TouchableOpacity>
         </View>
       </View>
@@ -94,13 +99,13 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     height: 90,
     borderWidth: 0.5,
-    borderColor: "#c9c9c9",
+    borderColor: colors.grey.lighter,
   },
   title: {
     flex: 1,
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: colors.black.lightest,
     textAlign: "center",
     paddingLeft: 30,
   },

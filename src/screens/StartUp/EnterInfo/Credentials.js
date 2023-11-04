@@ -53,7 +53,7 @@ export default function Name({ onNameChange }) {
         {showCount && (
           <Text
             style={{
-              color: "#888",
+              color: "magenta",
               position: "absolute",
               bottom: 7,
               fontSize: 18,

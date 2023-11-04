@@ -207,12 +207,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: "roboto-black",
     paddingVertical: 10,
-    color: "#dbdbdb",
+    color: "magenta",
   },
   button: {
     alignSelf: "center",
     width: "100%",
-    backgroundColor: "#1260de",
+    backgroundColor: "magenta",
     borderRadius: 8,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 1 },
@@ -230,6 +230,6 @@ const styles = StyleSheet.create({
     marginHorizontal: -5,
   },
   disabledButton: {
-    backgroundColor: "#fff", // Change the background color of the disabled button
+    backgroundColor: "magenta", // Change the background color of the disabled button
   },
 });

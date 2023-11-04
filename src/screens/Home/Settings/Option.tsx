@@ -7,10 +7,10 @@ import {
   StyleSheet,
 } from "react-native";
 
+import { colors } from "../../../components/styles";
+
 import { MaterialIcons } from "@expo/vector-icons";
 import DateTimePickerModal from "react-native-modal-datetime-picker";
-
-import { circularColour } from "../../../components/styles";
 
 export interface BaseProps {
   label: string;
@@ -81,7 +81,7 @@ export default function Option({ value, label, type, onChange }: Props) {
             }}
           />
         )}
-        <MaterialIcons name="edit" size={26} color="black" />
+        <MaterialIcons name="edit" size={26} color={colors.black.lighter} />
       </View>
     </TouchableOpacity>
   );
@@ -89,7 +89,7 @@ export default function Option({ value, label, type, onChange }: Props) {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: "#FFF",
+    backgroundColor: colors.white.default,
     padding: 15,
     borderRadius: 10,
     flexDirection: "row",
@@ -108,15 +108,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   current: {
-    color: "#1260de",
+    color: colors.blue.default,
     fontSize: 16,
     marginRight: 15,
-  },
-  circular: {
-    width: 12,
-    height: 12,
-    borderColor: circularColour,
-    borderWidth: 2,
-    borderRadius: 5,
   },
 });

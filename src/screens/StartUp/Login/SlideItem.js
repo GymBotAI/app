@@ -14,7 +14,7 @@ const SlideItem = ({ item }) => {
   return (
     <View style={styles.container}>
       <LinearGradient // Use LinearGradient as a wrapper
-        colors={["#adadad", "#000000"]} // Adjust opacity values
+        colors={["magenta", "magenta"]} // Adjust opacity values
         style={styles.gradient}
       >
         <ImageBackground

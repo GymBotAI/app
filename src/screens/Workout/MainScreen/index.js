@@ -37,13 +37,12 @@ export default function ViewWorkouts({ navigation }) {
         <TalkToGymBotSection navigation={navigation} />
         <WorkoutList navigation={navigation} />
         {showRun && <RunningPage onClose={toggleRunningPage} />}
-        
       </ScrollView>
 
       {!showButtons && (
         <TouchableOpacity
-        style={Box.recordButton}
-        onPress={toggleWorkoutButtons}
+          style={Box.recordButton}
+          onPress={toggleWorkoutButtons}
         >
           <Text style={Box.recordText}>Record Exercise</Text>
         </TouchableOpacity>

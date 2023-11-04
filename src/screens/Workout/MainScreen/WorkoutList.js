@@ -82,7 +82,7 @@ const WorkoutList = ({ navigation }) => {
       >
         <TouchableOpacity onPress={handleNewWorkout} style={styles.workoutBox}>
           <View style={styles.plusIconContainer}>
-            <FontAwesome5 name="plus" size={40} color="#555" />
+            <FontAwesome5 name="plus" size={40} color="magenta" />
           </View>
         </TouchableOpacity>
 
@@ -127,7 +127,7 @@ const styles = StyleSheet.create({
   viewAllButton: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#F29722",
+    color: "magenta",
   },
   container: {
     flexDirection: "row",
@@ -136,7 +136,7 @@ const styles = StyleSheet.create({
   titleSection: {
     width: "100%",
     height: 40, // Set the desired height for the title section
-    backgroundColor: "#F29722", // Red background color
+    backgroundColor: "magenta", // Red background color
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     justifyContent: "center",
@@ -154,19 +154,19 @@ const styles = StyleSheet.create({
   },
   exerciseText: {
     fontSize: 14,
-    color: "#555",
+    color: "magenta",
     textAlign: "center",
     marginBottom: 5,
   },
   workoutBox: {
     width: 130,
     height: 130,
-    backgroundColor: "#f5f5f5",
+    backgroundColor: "magenta",
     borderRadius: 10,
     marginHorizontal: 10,
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "#000",
+    shadowColor: "magenta",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     borderStyle: "dashed",
-    borderColor: "#555",
+    borderColor: "magenta",
     justifyContent: "center",
     alignItems: "center",
   },

@@ -26,7 +26,7 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
   return (
     <View style={[styles.container, { height: containerHeight }]}>
       <LinearGradient
-        colors={["#1877f2", "#82b7ff"]}
+        colors={["magenta", "magenta"]}
         style={[styles.blueRectangle, { padding: linearPadding }]}
       >
         <Text
@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     // Remove the marginBottom to align the text to the top
-    shadowColor: "#000",
+    shadowColor: "magenta",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
@@ -101,7 +101,7 @@ const styles = StyleSheet.create({
     width: "48%", // Adjust the button widths
     borderRadius: 5,
     alignItems: "center",
-    shadowColor: "#000",
+    shadowColor: "magenta",
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.3,
     shadowRadius: 3,

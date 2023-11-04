@@ -1,5 +1,6 @@
-import React, { useState } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
+
+import { colors } from "../../components/styles";
 
 export default function PlanTabs({ text, length, imageSource }) {
   return (
@@ -20,7 +21,7 @@ export default function PlanTabs({ text, length, imageSource }) {
 const styles = StyleSheet.create({
   rectangle: {
     width: "80%",
-    backgroundColor: "#888",
+    backgroundColor: colors.grey.lighter,
     borderRadius: 10,
     marginVertical: 10,
     alignItems: "center",

@@ -29,12 +29,12 @@ const styles = StyleSheet.create({
     margin: 5,
     width: "48%",
     borderWidth: 1,
-    borderColor: "#444",
+    borderColor: "magenta",
     borderRadius: 10,
     padding: 10,
   },
   selectedButton: {
-    backgroundColor: "#ff9800", // Change to your desired background color when selected
+    backgroundColor: "magenta", // Change to your desired background color when selected
   },
   boxImage: {
     alignSelf: "center",
@@ -46,10 +46,10 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     borderColor: "black",
     fontSize: 15.5,
-    color: "#444",
+    color: "magenta",
     fontWeight: "bold",
   },
   selectedText: {
-    color: "#fff", // Change to your desired text color when selected
+    color: "magenta", // Change to your desired text color when selected
   },
 });

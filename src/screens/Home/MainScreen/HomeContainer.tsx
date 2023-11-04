@@ -10,6 +10,8 @@ import {
 
 import { AppContext } from "../../../context";
 
+import { colors } from "../../../components/styles";
+
 import { FontAwesome5 } from "@expo/vector-icons";
 
 import WorkoutStats from "./WorkoutStats";
@@ -37,7 +39,7 @@ export default function Home({ navigation }: { navigation: NavigationProp }) {
               navigation.navigate("Settings", userData);
             }}
           >
-            <FontAwesome5 name="cog" size={28} color="#333" />
+            <FontAwesome5 name="cog" size={28} color={colors.black.lighter} />
           </TouchableOpacity>
         </View>
 
@@ -82,6 +84,6 @@ const styles = StyleSheet.create({
   greetingText: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "#333",
+    color: colors.black.lighter,
   },
 });

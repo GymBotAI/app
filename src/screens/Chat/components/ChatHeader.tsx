@@ -1,6 +1,9 @@
+import { useState, useEffect } from "react";
 import { Text, View, Image } from "react-native";
+
 import * as Font from "expo-font";
-import React, { useState, useEffect } from "react";
+
+import { colors } from "../../../components/styles";
 
 export default function MainHeader({ text, children }) {
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -33,7 +36,7 @@ export default function MainHeader({ text, children }) {
         shadowOpacity: 0.2,
         shadowRadius: 4,
         elevation: 5,
-        backgroundColor: "#1877F2",
+        backgroundColor: colors.blue.default,
       }}
     >
       <View
@@ -65,7 +68,7 @@ export default function MainHeader({ text, children }) {
           <Text
             style={{
               fontSize: 52,
-              color: "#e0e0e0",
+              color: colors.white.default,
               fontFamily: "clash-grotesk-semibold",
               fontWeight: "bold",
               letterSpacing: 1.5,

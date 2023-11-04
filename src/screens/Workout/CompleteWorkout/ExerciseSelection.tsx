@@ -1,4 +1,10 @@
-import { View, Text, FlatList, ScrollView, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  FlatList,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 
 import { FontAwesome } from "@expo/vector-icons"; // You may need to import FontAwesome or an appropriate icon library
 
@@ -6,13 +12,11 @@ export default function ExerciseSelectionScreen({
   setSelectedExercises,
   selectedExercises,
   exercisesToDisplay,
-}: { 
+}: {
   exercisesToDisplay: any;
   setSelectedExercises: any;
   selectedExercises: any;
 }) {
-  
-
   const toggleExerciseSelection = (exerciseName) => {
     console.log(exerciseName);
     // Check if the exercise is already selected
@@ -36,7 +40,7 @@ export default function ExerciseSelectionScreen({
       <TouchableOpacity
         onPress={() => toggleExerciseSelection(item.name)}
         style={{
-          backgroundColor: isSelected ? "orange" : "#F5F5F5",
+          backgroundColor: isSelected ? "orange" : "magenta",
           borderRadius: 8,
           margin: 8,
           padding: 16,
@@ -53,7 +57,7 @@ export default function ExerciseSelectionScreen({
           style={{
             fontSize: 18,
             fontWeight: "bold",
-            color: isSelected ? "#333" : "#555",
+            color: isSelected ? "magenta" : "magenta",
           }}
         >
           {item.name}
@@ -66,10 +70,9 @@ export default function ExerciseSelectionScreen({
   };
 
   return (
-    <View style={{ marginHorizontal: 10, flex: 1}}>
-
+    <View style={{ marginHorizontal: 10, flex: 1 }}>
       <ScrollView>
-        <View style={{ height: 65 }}/>
+        <View style={{ height: 65 }} />
         <FlatList
           data={exercisesToDisplay}
           renderItem={renderItem}

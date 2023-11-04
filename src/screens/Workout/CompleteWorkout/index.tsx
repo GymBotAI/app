@@ -11,7 +11,7 @@ import { LinearGradient } from "expo-linear-gradient";
 
 import ScreenHeader from "../../../components/ScreenHeader";
 
-let exercisesToDisplay = []; 
+let exercisesToDisplay = [];
 
 export default function CompleteDesignContainer({ route, navigation }) {
   const { subGoal } = route.params;
@@ -22,12 +22,12 @@ export default function CompleteDesignContainer({ route, navigation }) {
   const [selectedExercises, setSelectedExercises] = useState([]);
 
   useEffect(() => {
-    
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
       if (currentIndex <= goalText.length) {
         setTypedText(goalText.substring(0, currentIndex));
-        currentIndex++;0.
+        currentIndex++;
+        0;
       } else {
         clearInterval(typingInterval);
       }
@@ -37,7 +37,6 @@ export default function CompleteDesignContainer({ route, navigation }) {
       clearInterval(typingInterval);
     };
   }, [goalText]); // Listen for changes to goalText  let exercisesToDisplay = [];
-
 
   if (subGoal === "Upper") {
     exercisesToDisplay = upperExercises;
@@ -51,11 +50,11 @@ export default function CompleteDesignContainer({ route, navigation }) {
     <>
       {!showModal && (
         <>
-        <ScreenHeader title="Workouts" />
+          <ScreenHeader title="Workouts" />
           <View style={styles.container}>
             <View style={styles.chatContainer}>
               <LinearGradient
-                colors={["#4c9afc", "#5da1fc"]} // Lighter blue gradient colors
+                colors={["magenta", "magenta"]} // Lighter blue gradient colors
                 start={[0, 0.5]}
                 end={[1, 0.5]}
                 style={styles.chatBox}
@@ -75,18 +74,17 @@ export default function CompleteDesignContainer({ route, navigation }) {
               </LinearGradient>
             </View>
 
-            
             <View style={styles.container2}>
               <TouchableOpacity style={styles.button2}>
                 <Text style={styles.buttonText}>Design With AI</Text>
               </TouchableOpacity>
             </View>
 
-              <ExerciseSelectionScreen
-                setSelectedExercises={setSelectedExercises}
-                selectedExercises={selectedExercises}
-                exercisesToDisplay={exercisesToDisplay}
-              />
+            <ExerciseSelectionScreen
+              setSelectedExercises={setSelectedExercises}
+              selectedExercises={selectedExercises}
+              exercisesToDisplay={exercisesToDisplay}
+            />
             <TouchableOpacity
               onPress={() => setShowModal(!showModal)}
               style={[styles.button]}
@@ -111,14 +109,14 @@ export default function CompleteDesignContainer({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "magenta",
   },
   button: {
     alignSelf: "center",
     position: "absolute",
     bottom: 5,
     width: "90%",
-    backgroundColor: "#1260de",
+    backgroundColor: "magenta",
     borderRadius: 8,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 1 },
@@ -130,7 +128,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontSize: 24,
     paddingVertical: 10,
-    color: "#dbdbdb",
+    color: "magenta",
     fontWeight: "bold",
   },
   chatContainer: {
@@ -152,26 +150,26 @@ const styles = StyleSheet.create({
     color: "white",
   },
   container2: {
-    position: 'absolute',
-    width: '100%',
-    left: '5%',
-    top: '17%',
+    position: "absolute",
+    width: "100%",
+    left: "5%",
+    top: "17%",
     zIndex: 1,
   },
   button2: {
-    backgroundColor: '#3498db', // Change the background color to your preferred color
+    backgroundColor: "magenta", // Change the background color to your preferred color
     padding: 15,
     borderRadius: 28,
-    width: '90%',
-    shadowColor: '#000',
+    width: "90%",
+    shadowColor: "magenta",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
-    alignItems: 'center',
+    alignItems: "center",
   },
   buttonText: {
-    color: 'white', // Change the text color to your preferred color
+    color: "white", // Change the text color to your preferred color
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
   },
 });

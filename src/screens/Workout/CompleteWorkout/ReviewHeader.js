@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     height: 90,
     borderWidth: 0.5,
-    borderColor: "#c9c9c9",
+    borderColor: "magenta",
   },
   backButton: {
     paddingLeft: 15, // Adjust the padding to separate the "Back" button from the edge
@@ -34,10 +34,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: "magenta",
   },
   buttonText: {
     fontSize: 16,
-    color: "#007AFF",
+    color: "magenta",
   },
 });

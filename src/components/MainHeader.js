@@ -24,7 +24,7 @@ export default function MainHeader({ text, minitext }) {
   return (
     <View
       style={{
-        backgroundColor: "#1877f2",
+        backgroundColor: "magenta",
         paddingTop: "12%",
         paddingBottom: 20,
         width: "100%",
@@ -51,7 +51,7 @@ export default function MainHeader({ text, minitext }) {
         {/* <Text
               style={{
                 fontSize: 19,
-                color: "#e0e0e0",
+                color: "magenta",
                 fontFamily: "roboto-black",
                 letterSpacing: 1.5,
                 marginBottom: -5,

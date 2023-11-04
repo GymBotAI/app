@@ -6,7 +6,7 @@ export const bVal = {
   buttonSize: 40,
   buttonColor: "white",
   backOpacity: 0.9,
-  backColor: "#1f1f1f",
+  backColor: "magenta",
   gymBotLogo: require("../../../../assets/GymBotText.png"),
 } as const;
 
@@ -55,22 +55,22 @@ export const Box = StyleSheet.create({
     ...commonButtonStyle,
     bottom: 150,
     alignSelf: "center",
-    backgroundColor: "#ddd",
+    backgroundColor: "magenta",
   },
   signupText: {
     ...commonTextStyle,
-    color: "#333",
+    color: "magenta",
   },
   login: {
     ...commonButtonStyle,
     bottom: 80,
     alignSelf: "center",
     borderWidth: 1,
-    borderColor: "#ddd",
+    borderColor: "magenta",
   },
   loginText: {
     ...commonTextStyle,
-    color: "#ddd",
+    color: "magenta",
   },
 });
 

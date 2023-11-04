@@ -70,7 +70,7 @@ export default function CustomPage({ isVisible, onClose }) {
     <Modal animationType="slide" transparent={true} visible={isVisible}>
       <View style={[styles.centeredView, { width: windowWidth }]}>
         <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-          <FontAwesome5 name="long-arrow-alt-left" size={24} color="#adadad" />
+          <FontAwesome5 name="long-arrow-alt-left" size={24} color="magenta" />
         </TouchableOpacity>
         <TouchableOpacity
           style={styles.toggleButton}
@@ -126,7 +126,7 @@ const styles = StyleSheet.create({
     padding: 28,
     paddingTop: 60,
     alignItems: "center",
-    shadowColor: "#000",
+    shadowColor: "magenta",
     shadowOffset: {
       width: 0,
       height: 2,
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
     paddingTop: 150,
     fontSize: 40,
-    color: "#adadad",
+    color: "magenta",
   },
   toggleButton: {
     position: "absolute",

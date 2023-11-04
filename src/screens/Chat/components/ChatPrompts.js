@@ -18,7 +18,7 @@ const styles = {
     paddingVertical: 8,
     paddingHorizontal: 18,
     borderWidth: 1.5,
-    borderColor: "#5585f2",
+    borderColor: "magenta",
     backgroundColor: "transparent",
     shadowColor: "black",
     shadowOffset: { width: 0, height: 2 },
@@ -61,7 +61,7 @@ export default function Prompts({ onPromptSelection, prompts }) {
               fontWeight: "bold",
               fontFamily: "roboto-regular",
               letterSpacing: 0.5,
-              color: "#5585f2",
+              color: "magenta",
               textAlign: "center",
             }}
           >

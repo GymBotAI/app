@@ -15,7 +15,7 @@ const TalkToGymBotSection = ({ navigation }) => {
           <AntDesign
             name="message1"
             size={24}
-            color="#F5F5F5"
+            color="magenta"
             style={styles.icon}
           />
         </View>
@@ -34,13 +34,13 @@ const TalkToGymBotSection = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#1260de",
+    backgroundColor: "magenta",
     width: "93%",
     alignSelf: "center",
     borderRadius: 20,
     padding: 20,
     marginTop: 20,
-    shadowColor: "#000",
+    shadowColor: "magenta",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     paddingVertical: 10,
     borderRadius: 20,
-    backgroundColor: "#F5F5F5",
-    shadowColor: "#000",
+    backgroundColor: "magenta",
+    shadowColor: "magenta",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 3,

@@ -9,6 +9,8 @@ import * as Device from "expo-device";
 import ChatMessages from "./ChatMessages";
 import ChatInput from "./ChatInput";
 
+import { colors } from "../../../components/styles";
+
 import { useGymBotAI } from "../../../api/chat";
 import type { ReadyState } from "react-use-websocket";
 
@@ -66,7 +68,7 @@ export default function Chat({
       style={{
         flex: 1,
         width: "100%",
-        backgroundColor: "#F5F5F5",
+        backgroundColor: colors.white.default,
       }}
     >
       <View
@@ -86,12 +88,6 @@ export default function Chat({
 
         <ChatInput
           disabled={!hasAuthed || !session.user}
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            width: "100%",
-            backgroundColor: "white",
-          }}
           onSubmit={onSubmit}
           // onInput={}
           setValueRef={chatInputRef}

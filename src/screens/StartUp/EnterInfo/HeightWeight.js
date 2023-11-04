@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
   },
   unitText: {
     fontSize: 18,
-    color: "#bababa",
+    color: "magenta",
     paddingRight: 5,
   },
   modal: {
@@ -174,21 +174,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 8,
     borderRadius: 8,
-    backgroundColor: "#f0f0f0",
+    backgroundColor: "magenta",
     marginRight: 10,
   },
   unitButtonText: {
     fontSize: 16,
-    color: "#888",
+    color: "magenta",
   },
   activeUnitButton: {
-    backgroundColor: "#1260de",
+    backgroundColor: "magenta",
   },
   activeUnitButtonText: {
-    color: "#FFF",
+    color: "magenta",
   },
   confirmButton: {
-    backgroundColor: "#1260de",
+    backgroundColor: "magenta",
     padding: 12,
     borderRadius: 8,
     alignItems: "center",
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   confirmButtonText: {
-    color: "#FFF",
+    color: "magenta",
     fontSize: 18,
     fontWeight: "bold",
   },

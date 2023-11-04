@@ -12,7 +12,7 @@ export const Box = StyleSheet.create({
     bottom: 10,
     width: "90%",
     marginLeft: "5%",
-    backgroundColor: "#1260de",
+    backgroundColor: "magenta",
     borderRadius: 8,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 10 },
@@ -25,27 +25,27 @@ export const Box = StyleSheet.create({
     fontSize: 23,
     fontWeight: "bold",
     paddingVertical: 10,
-    color: "#dbdbdb",
-  }, 
+    color: "magenta",
+  },
   addText: {
     alignSelf: "center",
     fontSize: 18,
     fontWeight: "bold",
     paddingVertical: 10,
-    color: "#dbdbdb",
+    color: "magenta",
   },
   addButton: {
     position: "absolute",
     bottom: 10,
     width: "90%",
     marginLeft: "5%",
-    backgroundColor: "#1260de",
+    backgroundColor: "magenta",
     borderRadius: 4,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.6,
     shadowRadius: 10,
-  }
+  },
 });
 
 //------------------ CREATE WORKOUT BUTTON ------------------//

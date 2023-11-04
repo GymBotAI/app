@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginHorizontal: 20,
     // flex: 1,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "magenta",
   },
   title: {
     fontSize: 24,
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   dropdownButtonText: {
-    color: "#444",
+    color: "magenta",
     fontSize: 18,
     fontWeight: "normal",
     textAlign: "center",
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
   dropdownOptions: {
     marginTop: 5,
     width: "100%",
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "magenta",
     borderRadius: 8,
     paddingHorizontal: 10,
   },

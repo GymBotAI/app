@@ -11,6 +11,8 @@ import {
 
 import { AppContext } from "../../../context";
 
+import { colors } from "../../../components/styles";
+
 import { supabase } from "../../../api/supabase";
 
 import Option from "./Option";
@@ -128,13 +130,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 20,
   },
-  input: {
-    marginBottom: 10,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: "#ddd",
-    borderRadius: 5,
-  },
   buttonText: {
     color: "white",
     fontSize: 16,
@@ -142,7 +137,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   saveButton: {
-    backgroundColor: "#333",
+    backgroundColor: colors.blue.default,
     paddingVertical: 10,
     borderRadius: 5,
     marginBottom: 8,

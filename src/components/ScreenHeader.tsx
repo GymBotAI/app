@@ -1,7 +1,8 @@
-import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-export default function ScreenHeader({ title }) {
+import { colors } from "./styles";
+
+export default function ScreenHeader({ title }: { title: string }) {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{title}</Text>
@@ -17,7 +18,7 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     height: 90,
     borderWidth: 0.5,
-    borderColor: "#c9c9c9",
+    borderColor: colors.grey.lighter,
   },
   backButton: {
     paddingRight: 10,
@@ -25,6 +26,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: colors.black.lightest,
   },
 });

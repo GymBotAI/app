@@ -1,14 +1,13 @@
-import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const NotificationsTab = ({ title, description }) => {
+export default function NotificationsTab({ title, description }) {
   return (
     <View style={styles.tabContainer}>
       <Text style={styles.title}>{title}</Text>
       <Text style={styles.description}>{description}</Text>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   tabContainer: {
@@ -29,5 +28,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-
-export default NotificationsTab;

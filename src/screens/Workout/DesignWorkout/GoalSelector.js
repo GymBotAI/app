@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   buttonText: {
-    color: "#444",
+    color: "magenta",
     fontSize: 18,
     fontWeight: "normal",
     textAlign: "center",

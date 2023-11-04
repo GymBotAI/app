@@ -122,7 +122,11 @@ export default function MapAndPos({
         longitudeDelta: 0.0421,
       }}
     >
-      <Polyline coordinates={locations} strokeColor="#00F" strokeWidth={15} />
+      <Polyline
+        coordinates={locations}
+        strokeColor="magenta"
+        strokeWidth={15}
+      />
       {locations.length > 0 && (
         <Marker
           coordinate={{

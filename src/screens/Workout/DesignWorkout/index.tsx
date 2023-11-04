@@ -42,7 +42,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
         <View
           style={{
             height: 1,
-            backgroundColor: "#ccc",
+            backgroundColor: "magenta",
             width: "90%",
             marginLeft: "5%",
           }}
@@ -60,7 +60,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
         <View
           style={{
             height: 1,
-            backgroundColor: "#ccc",
+            backgroundColor: "magenta",
             width: "90%",
             marginLeft: "5%",
           }}
@@ -78,7 +78,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
         <View
           style={{
             height: 1,
-            backgroundColor: "#ccc",
+            backgroundColor: "magenta",
             width: "90%",
             marginLeft: "5%",
           }}
@@ -102,10 +102,10 @@ export default function WorkoutSelectionScreen({ navigation }) {
 
   return (
     <View style={styles.container}>
-    <ScreenHeader title="Workouts" />
+      <ScreenHeader title="Workouts" />
       <View style={styles.chatContainer}>
         <LinearGradient
-          colors={["#4c9afc", "#5da1fc"]} // Lighter blue gradient colors
+          colors={["magenta", "magenta"]} // Lighter blue gradient colors
           start={[0, 0.5]}
           end={[1, 0.5]}
           style={styles.chatBox}
@@ -151,7 +151,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#f2f2f2",
+    backgroundColor: "magenta",
   },
   chatContainer: {
     alignItems: "center",
@@ -176,7 +176,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     bottom: 10,
     width: "90%",
-    backgroundColor: "#1260de",
+    backgroundColor: "magenta",
     borderRadius: 8,
     shadowColor: "black",
     shadowOffset: { width: 0, height: 1 },
@@ -185,13 +185,13 @@ const styles = StyleSheet.create({
     elevation: 5,
   },
   disabledButton: {
-    backgroundColor: "#fff", // Change the background color of the disabled button
+    backgroundColor: "magenta", // Change the background color of the disabled button
   },
   text: {
     alignSelf: "center",
     fontSize: 24,
     paddingVertical: 10,
-    color: "#dbdbdb",
+    color: "magenta",
     fontWeight: "bold",
   },
 });

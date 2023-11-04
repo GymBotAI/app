@@ -10,6 +10,7 @@ import {
 import * as Font from "expo-font";
 
 import type { MutableRefObject } from "react";
+import { colors } from "../../../components/styles";
 
 export type SetValueRef = MutableRefObject<{
   setText: (text: string) => void;
@@ -69,13 +70,13 @@ export default function ChatInput({
     <View
       style={{
         borderTopWidth: 1,
-        borderColor: "#E2E2E2",
+        borderColor: colors.grey.lighter,
         flexDirection: "row",
         alignItems: "center",
         paddingVertical: 8,
         paddingHorizontal: 15,
-        backgroundColor: "#F5F5F5",
-        shadowColor: "#000",
+        backgroundColor: colors.grey.lightest,
+        shadowColor: colors.black.default,
         shadowOffset: { width: 0, height: -2 },
         shadowOpacity: 0.1,
         shadowRadius: 1,
@@ -91,9 +92,9 @@ export default function ChatInput({
         style={{
           flex: 1,
           borderWidth: 1,
-          borderColor: "#D8D8D8",
+          borderColor: colors.grey.lighter,
           borderRadius: 20,
-          backgroundColor: "white",
+          backgroundColor: colors.white.default,
           paddingHorizontal: 12,
           paddingVertical: 8,
           fontFamily: "roboto-regular",
@@ -109,7 +110,7 @@ export default function ChatInput({
         style={{
           marginLeft: 16,
           borderRadius: 12,
-          backgroundColor: "#1877F2",
+          backgroundColor: colors.blue.default,
           padding: 6.2,
           paddingHorizontal: 8,
           paddingRight: 6,

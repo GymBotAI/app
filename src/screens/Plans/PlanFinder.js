@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
-  View,
-  StyleSheet,
   Dimensions,
-  TouchableOpacity,
-  Text,
-  TextInput,
   ScrollView,
-  Animated,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
+
+import { colors } from "../../components/styles";
+
 import PlanTabs from "./PlanTabs";
 import plans from "./plans";
 import PlanInfoPage from "./PlanInfoPage";
@@ -48,7 +49,7 @@ export default function PlanFinder({ onPlanInfoPageVisibilityChange }) {
         <TextInput
           style={styles.searchBar}
           placeholder="Search plans"
-          placeholderTextColor="#888"
+          placeholderTextColor={colors.grey.lighter}
           onChangeText={(text) => setSearchQuery(text)}
         />
       </View>
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 5,
     paddingLeft: 10,
-    color: "#000",
+    color: colors.black.default,
   },
   searchBarHidden: {
     opacity: 0,

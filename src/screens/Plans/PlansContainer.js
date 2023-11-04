@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
+import { createRef, useState, useEffect } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
   Animated,
   Dimensions,
   ScrollView,
+  StyleSheet,
+  View,
 } from "react-native";
+
 import PlanFinder from "./PlanFinder";
 import BookmarkedPlans from "./BookmarkedPlans";
 
@@ -16,7 +15,7 @@ const { width } = Dimensions.get("window");
 export default function Settings({ navigation }) {
   const [scrollX] = useState(new Animated.Value(0));
   const scrollEventThrottle = 16;
-  const scrollViewRef = React.createRef();
+  const scrollViewRef = createRef();
   const [planInfoPageVisible, setPlanInfoPageVisible] = useState(false);
 
   const animatedScrollX = Animated.event(

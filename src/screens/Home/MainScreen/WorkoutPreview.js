@@ -1,5 +1,6 @@
-import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+
+import { colors } from "../../../components/styles";
 
 import { Image } from "expo-image";
 
@@ -33,7 +34,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     width: "95%",
     alignSelf: "center",
-    shadowColor: "#000",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
@@ -42,14 +43,14 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "#333",
+    color: colors.black.lighter,
     paddingLeft: 15,
     paddingBottom: 10,
   },
   workoutBoxLarge: {
     width: "92%",
     height: 175, // Adjust the height for the larger version
-    backgroundColor: "#f5f5f5",
+    backgroundColor: colors.grey.lightest,
     borderRadius: 10,
     marginHorizontal: 10,
     alignSelf: "center",
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
   workoutTitle: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "black", // Change the text color to match the titleText
+    color: colors.black.default, // Change the text color to match the titleText
     textAlign: "left",
     padding: 10,
   },
@@ -71,7 +72,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     width: "100%",
     height: 40, // Height of the white section
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
     borderBottomLeftRadius: 10,
     borderBottomRightRadius: 10,
   },

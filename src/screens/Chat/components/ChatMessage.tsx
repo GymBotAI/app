@@ -1,7 +1,12 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
 
-import { borderDefault, fontSize, bgPrimary } from "../../../components/styles";
+import {
+  colors,
+  borderDefault,
+  fontSize,
+  bgPrimary,
+} from "../../../components/styles";
 
 import { useEffect, useState } from "react";
 import type { JSX } from "react";
@@ -41,7 +46,10 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
       messageJsxContent = (
         <View
           style={{
-            backgroundColor: message.role === "user" ? "#2360e8" : "#e0e0e0",
+            backgroundColor:
+              message.role === "user"
+                ? colors.blue.default
+                : colors.grey.lighter,
             borderRadius: 12,
             paddingHorizontal: 10,
             paddingVertical: 6,
@@ -56,7 +64,10 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
           <Text
             style={{
               textAlign: "left",
-              color: message.role === "user" ? "white" : "black",
+              color:
+                message.role === "user"
+                  ? colors.white.default
+                  : colors.black.default,
               fontSize: fontSize,
               fontFamily: "roboto-regular",
               padding: 3,
@@ -73,7 +84,7 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
       messageJsxContent = (
         <TouchableOpacity
           style={{
-            backgroundColor: "orange", // TODO: @ShiGame45 use styles
+            backgroundColor: colors.orange.default, // TODO: @ShiGame45 use styles
             padding: 10,
             borderRadius: 10,
           }}
@@ -81,7 +92,7 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
         >
           <Text
             style={{
-              color: "white",
+              color: colors.white.default,
               fontSize,
             }}
           >

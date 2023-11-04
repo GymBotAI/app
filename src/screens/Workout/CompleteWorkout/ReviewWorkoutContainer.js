@@ -58,12 +58,12 @@ export default function ReviewWorkoutContainer({
                 setInputFilled(!!e);
               }}
               placeholder="Untitled Workout"
-              placeholderTextColor={"#bababa"}
+              placeholderTextColor={"magenta"}
             />
             <Entypo
               name="edit"
               size={24}
-              color={inputFilled ? "#F7F7F7" : "#bababa"} // Set color based on inputFilled
+              color={inputFilled ? "magenta" : "magenta"} // Set color based on inputFilled
               style={styles.editIcon}
             />
           </View>
@@ -86,13 +86,13 @@ export default function ReviewWorkoutContainer({
 
         <View
           style={{
-            backgroundColor: "#F7F7F7",
+            backgroundColor: "magenta",
             height: 45,
-            borderColor: "#F7F7F7",
+            borderColor: "magenta",
             flexDirection: "row",
             borderWidth: 1,
-            borderBottomColor: "#e3e3e3",
-            borderTopColor: "#e3e3e3",
+            borderBottomColor: "magenta",
+            borderTopColor: "magenta",
             justifyContent: "flex-end",
           }}
         >
@@ -176,7 +176,7 @@ export default function ReviewWorkoutContainer({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#F7F7F7",
+    backgroundColor: "magenta",
   },
   topSection: {
     marginTop: -8,
@@ -211,7 +211,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     padding: 15,
     borderBottomWidth: 1,
-    borderBottomColor: "#E0E0E0",
+    borderBottomColor: "magenta",
   },
   exerciseName: {
     fontSize: 18,
@@ -227,8 +227,8 @@ const styles = StyleSheet.create({
     width: 50,
     textAlign: "center",
     marginRight: 10,
-    backgroundColor: "#e6e6e6",
-    color: "#292929",
+    backgroundColor: "magenta",
+    color: "magenta",
   },
   inputReps: {
     borderRadius: 15,
@@ -237,7 +237,7 @@ const styles = StyleSheet.create({
     width: 50,
     textAlign: "center",
     marginLeft: 10,
-    backgroundColor: "#e6e6e6",
-    color: "#292929",
+    backgroundColor: "magenta",
+    color: "magenta",
   },
 });

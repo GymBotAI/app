@@ -17,7 +17,6 @@ export default function Plans({ navigation }) {
       <PlansContainer />
 
       <StatusBar barStyle="dark-content" />
-
     </View>
   );
 }

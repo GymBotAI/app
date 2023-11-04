@@ -1,4 +1,3 @@
-import React from "react";
 import {
   View,
   StyleSheet,
@@ -8,7 +7,11 @@ import {
   Text,
   ScrollView,
 } from "react-native";
+
+import { colors } from "../../../components/styles";
+
 import { FontAwesome5 } from "@expo/vector-icons";
+
 import NotificationsTab from "./NotificationTabs";
 
 export default function Notifications({
@@ -32,7 +35,7 @@ export default function Notifications({
         <View style={styles.modalView}>
           <Text style={styles.title}>Notifications</Text>
           <TouchableOpacity style={styles.closeButton} onPress={onClose}>
-            <FontAwesome5 name="times" size={24} color="black" />
+            <FontAwesome5 name="times" size={24} color={colors.black.lighter} />
           </TouchableOpacity>
           <ScrollView style={[styles.scrollView, { height: containerHeight }]}>
             <NotificationsTab
@@ -83,7 +86,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 20,
     alignItems: "center",
-    shadowColor: "#000",
+    shadowColor: colors.black.default,
     shadowOffset: {
       width: 0,
       height: 2,
@@ -100,7 +103,7 @@ const styles = StyleSheet.create({
     alignSelf: "flex-start",
     fontSize: 18,
     fontWeight: "bold",
-    color: "#333",
+    color: colors.black.lighter,
     textAlign: "center",
     paddingLeft: 20,
   },
