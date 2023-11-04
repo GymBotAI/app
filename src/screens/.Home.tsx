@@ -12,9 +12,9 @@ import { AppContext } from "../context/AppContext";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
-import WorkoutStats from "../components/Home/WorkoutStats";
-import WorkoutList from "../components/Home/WorkoutList";
-import WorkoutPreview from "../components/Home/WorkoutPreview";
+import WorkoutStats from "./Home/WorkoutStats";
+import WorkoutList from "./Home/WorkoutList";
+import WorkoutPreview from "./Home/WorkoutPreview";
 
 import type { NavigationProp } from "../types/navigation";
 
