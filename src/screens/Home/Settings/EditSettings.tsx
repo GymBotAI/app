@@ -1,4 +1,4 @@
-import { useState, useContext, useEffect, useCallback } from "react";
+import { useState, useContext } from "react";
 import {
   Alert,
   Text,
@@ -22,7 +22,10 @@ import {
   maxWeight,
 } from "../../../components/styles";
 
-import type { NavigationProp, NavigationScreens } from "../../../types/navigation";
+import type {
+  NavigationProp,
+  NavigationScreens,
+} from "../../../types/navigation";
 
 export default function Settings({
   navigation,
