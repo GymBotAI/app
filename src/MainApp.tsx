@@ -1,5 +1,3 @@
-import { StatusBar } from 'react-native';
-
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //Screen Icons
@@ -15,7 +13,7 @@ import Chat from "./screens/.Chat";
 const Tab = createBottomTabNavigator();
 
 
-export default function Index() {
+export default function MainApp() {
 
 
   return (

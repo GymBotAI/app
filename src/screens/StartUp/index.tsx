@@ -56,7 +56,7 @@ export default function StartUp({
   const { session } = useContext(AppContext);
 
   if (session?.user) {
-    navigation.navigate("Home");
+    navigation.navigate("Main");
     return <></>;
 
     // TODO: there should be a better way to do this,
@@ -93,7 +93,7 @@ export default function StartUp({
         {xButton}
         <Account
           onLogin={() => {
-            navigation.navigate("Index");
+            navigation.navigate("Main");
             setShowLogin(false);
           }}
           onError={(error) => {
@@ -113,7 +113,7 @@ export default function StartUp({
         {xButton}
         <Account
           onAccount={() => {
-            navigation.navigate("Index");
+            navigation.replace("Main");
             setShowSignUp(false);
           }}
           onError={(error) => {
@@ -166,10 +166,10 @@ export default function StartUp({
           borderRadius: 2,
         }}
         onPress={() => {
-          navigation.replace("Index");
+          navigation.navigate("Main");
         }}
       >
-        <Text>Skip to Home Screen (for devs)</Text>
+        <Text>Skip to Main Screen (for devs)</Text>
       </TouchableOpacity>
 
       <TouchableOpacity

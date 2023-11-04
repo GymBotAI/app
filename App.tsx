@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { StatusBar } from 'react-native';
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -15,7 +14,7 @@ import type { Session } from "@supabase/supabase-js";
 import StartUp from "./src/screens/StartUp/index";
 import SignUp from "./src/screens/SignUp";
 
-import Index from "./src";
+import Main from "./src/MainApp";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
 
@@ -62,13 +61,14 @@ export default function App() {
 
         <Stack.Navigator
         screenOptions={{
+          animation: 'none',
           headerShown: false, // Hide the default header
         }}
         >
 
           <Stack.Screen name="StartUp" component={StartUp}/>
           <Stack.Screen name="SignUp" component={SignUp} />
-          <Stack.Screen name="Index" component={Index}/>
+          <Stack.Screen name="Main" component={Main}/>
 
         </Stack.Navigator>
       </NavigationContainer>
