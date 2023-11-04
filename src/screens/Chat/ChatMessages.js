@@ -6,7 +6,7 @@ import * as Device from "expo-device";
 import ChatMessage from "./ChatMessage";
 import Prompts from "./Prompts";
 
-import { Goals } from "../../components/SignUp/GoalSelect";
+import { Goals } from "../SignUp/GoalSelect";
 
 export default function ChatMessages({
   messages,
