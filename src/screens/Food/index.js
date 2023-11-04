@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 
-import ScreenHeader from "../components/ScreenHeader";
+import ScreenHeader from "../../components/ScreenHeader";
 
-import FoodContainer from "../components/Food/FoodContainer";
+import FoodContainer from "./FoodContainer";
 
 export default function Workouts({ navigation }) {
   return (

@@ -7,7 +7,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 import Home from "./screens/Home";
 import Plans from "./screens/.Plans";
 import Workouts from "./screens/Workout";
-import Food from "./screens/.Food";
+import Food from "./screens/Food";
 import Chat from "./screens/Chat";
 
 const Tab = createBottomTabNavigator();
