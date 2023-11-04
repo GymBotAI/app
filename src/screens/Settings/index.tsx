@@ -1,13 +1,18 @@
-import React, { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
+  Alert,
   View,
-  StatusBar,
   StyleSheet,
   Text,
   TouchableOpacity,
+  Button,
 } from "react-native";
-import EditSettings from "./EditSettings";
+
+import { supabase } from "../../api/supabase";
+
 import { FontAwesome5 } from "@expo/vector-icons";
+
+import EditSettings from "./EditSettings";
 import Notifications from "./Notifications";
 
 import type { NavigationProp, NavigationScreens } from "../../types/navigation";
@@ -53,11 +58,25 @@ export default function Settings({
           </TouchableOpacity>
         </View>
       </View>
-      <EditSettings
-        // ref={editSettingsRef}
-        navigation={navigation}
-        initialData={route.params}
+
+      <EditSettings navigation={navigation} initialData={route.params} />
+
+      <Button
+        title="Logout"
+        color="red"
+        onPress={() => {
+          supabase.auth.signOut().then(({ error }) => {
+            if (error) {
+              Alert.alert("Error signing out", error.toString());
+              return;
+            }
+
+            navigation.navigate("StartUp");
+          });
+        }}
       />
+      {/* TODO: use colors from global styles file thing @ShiGame45 */}
+
       <Notifications
         isVisible={notificationsVisible}
         onClose={closeNotifications}

@@ -19,7 +19,7 @@ import Chat from "./src/screens/.Chat";
 import DesignWorkout from "./src/screens/DesignWorkout";
 import CompleteDesignContainer from "./src/components/Workout/CompleteWorkout/CompleteDesignContainer";
 
-import Settings from "./src/components/Settings/.Box";
+import Settings from "./src/screens/Settings";
 
 import type { NavigationScreens } from "./src/types/navigation";
 import type { Session } from "@supabase/supabase-js";
