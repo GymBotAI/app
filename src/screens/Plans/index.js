@@ -1,8 +1,8 @@
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 
-import ScreenHeader from "../components/ScreenHeader";
+import ScreenHeader from "../../components/ScreenHeader";
 
-import PlansContainer from "../components/Plans/PlansContainer";
+import PlansContainer from "./PlansContainer";
 
 export default function Plans({ navigation }) {
   return (
