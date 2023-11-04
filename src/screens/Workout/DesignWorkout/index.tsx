@@ -93,7 +93,6 @@ export default function WorkoutSelectionScreen({ navigation }) {
 
   const completeDesign = () => {
     navigation.replace("CompleteWorkout", {
-      goal: selectedGoal,
       subGoal: subGoal,
     });
     if (selectedGoal == "Build Muscle") {

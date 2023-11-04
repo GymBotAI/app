@@ -14,7 +14,7 @@ import ScreenHeader from "../../../components/ScreenHeader";
 let exercisesToDisplay = [];
 
 export default function CompleteDesignContainer({ route, navigation }) {
-  const { goal, subGoal } = route.params;
+  const { subGoal } = route.params;
   const [typedText, setTypedText] = useState("");
   const [goalText, setGoalText] = useState("Select your exercises!");
   const [showModal, setShowModal] = useState(false);
@@ -22,6 +22,14 @@ export default function CompleteDesignContainer({ route, navigation }) {
   const [selectedExercises, setSelectedExercises] = useState([]);
 
   useEffect(() => {
+    if (subGoal === "Upper") {
+      exercisesToDisplay = upperExercises;
+    } else if (subGoal === "Lower") {
+      exercisesToDisplay = lowerExercises;
+    } else if (subGoal === "Both") {
+      exercisesToDisplay = bothExercises;
+    }
+    
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
       if (currentIndex <= goalText.length) {
@@ -37,14 +45,6 @@ export default function CompleteDesignContainer({ route, navigation }) {
     };
   }, [goalText]); // Listen for changes to goalText  let exercisesToDisplay = [];
 
-
-  if (subGoal === "Upper") {
-    exercisesToDisplay = upperExercises;
-  } else if (subGoal === "Lower") {
-    exercisesToDisplay = lowerExercises;
-  } else if (subGoal === "Both") {
-    exercisesToDisplay = bothExercises;
-  }
 
 
   return (
@@ -82,13 +82,11 @@ export default function CompleteDesignContainer({ route, navigation }) {
               </TouchableOpacity>
             </View>
 
-            {goal == "Build Muscle" ? (
               <ExerciseSelectionScreen
                 setSelectedExercises={setSelectedExercises}
                 selectedExercises={selectedExercises}
                 exercisesToDisplay={exercisesToDisplay}
               />
-            ) : null}
             <TouchableOpacity
               onPress={() => setShowModal(!showModal)}
               style={[styles.button]}
