@@ -104,7 +104,7 @@ export default function StartUp({
         {xButton}
         <Account
           onAccount={() => {
-            navigation.replace("Main");
+            navigation.navigate("Main");
             setShowSignUp(false);
           }}
           onError={(error) => {
