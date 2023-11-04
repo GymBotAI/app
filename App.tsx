@@ -80,8 +80,6 @@ export default function App() {
           headerShown: false, // Hide the default header
         }}
         >
-          {/* <Stack.Screen name="StartUp" component={StartUp} />
-          <Stack.Screen name="SignUp" component={SignUp} /> */}
 
           <Tab.Screen name="Home" component={Home}
           options={{
@@ -118,13 +116,6 @@ export default function App() {
             ),
           }}
         />
-
-          {/* <Stack.Screen name="DesignWorkout" component={DesignWorkout} />
-          <Stack.Screen
-            name="CompleteWorkout"
-            component={CompleteDesignContainer}
-          />
-          <Stack.Screen name="Settings" component={Settings} /> */}
 
         </Tab.Navigator>
       </NavigationContainer>

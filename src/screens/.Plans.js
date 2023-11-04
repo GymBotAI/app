@@ -1,6 +1,5 @@
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 
-import GymBotNavigation from "../components/NavBar";
 import ScreenHeader from "../components/ScreenHeader";
 
 import PlansContainer from "../components/Plans/PlansContainer";
@@ -19,7 +18,6 @@ export default function Plans({ navigation }) {
 
       <StatusBar barStyle="dark-content" />
 
-      {/* <GymBotNavigation navigation={navigation} currentScreen={"Plans"} /> */}
     </View>
   );
 }
