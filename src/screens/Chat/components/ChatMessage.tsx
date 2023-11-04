@@ -58,7 +58,7 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
               textAlign: "left",
               color: message.role === "user" ? "white" : "black",
               fontSize: fontSize,
-              fontFamily: fontLoaded ? "roboto-regular" : null,
+              fontFamily: "roboto-regular",
               padding: 3,
             }}
           >

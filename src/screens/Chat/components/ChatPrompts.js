@@ -59,7 +59,7 @@ export default function Prompts({ onPromptSelection, prompts }) {
             style={{
               fontSize: 16,
               fontWeight: "bold",
-              fontFamily: fontLoaded ? "roboto-regular" : null,
+              fontFamily: "roboto-regular",
               letterSpacing: 0.5,
               color: "#5585f2",
               textAlign: "center",

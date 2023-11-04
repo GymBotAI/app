@@ -96,7 +96,7 @@ export default function ChatInput({
           backgroundColor: "white",
           paddingHorizontal: 12,
           paddingVertical: 8,
-          fontFamily: fontLoaded ? "roboto-regular" : null,
+          fontFamily: "roboto-regular",
           fontSize: 16,
           maxHeight: 100,
         }}
