@@ -5,7 +5,13 @@ import { AppContext } from "../context/AppContext";
 
 import StartupScreen from "../components/StartUp/.Box";
 
-export default function StartUp({ navigation }) {
+import type { NavigationProp } from "../types/navigation";
+
+export default function StartUp({
+  navigation,
+}: {
+  navigation: NavigationProp;
+}) {
   const { session } = useContext(AppContext);
 
   if (session?.user) {
