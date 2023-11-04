@@ -10,8 +10,8 @@ import { AppContext } from "./src/context";
 import { supabase } from "./src/api/supabase";
 
 // StartUp
-import StartUp from "./src/screens/StartUp/FirstScreen";
-import SignUp from "./src/screens/StartUp/SignUp";
+import StartUp from "./src/screens/StartUp/Login";
+import SignUp from "./src/screens/StartUp/EnterInfo";
 
 import Main from "./src/MainApp";
 
