@@ -20,7 +20,6 @@ export default function MainApp() {
 
         <Tab.Navigator
         initialRouteName="Home"
-        barStyle={{ backgroundColor: 'white'}}
         screenOptions={{
           headerShown: false, // Hide the default header
         }}
