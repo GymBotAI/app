@@ -1,7 +1,7 @@
 import { View, StatusBar } from "react-native";
 
 import ScreenHeader from "../../components/ScreenHeader";
-import WorkoutScreen from "./Main Screen/.Box";
+import Workout from "./Main Screen";
 import DesignWorkout from "./DesignWorkout";
 import CompleteWorkout from "./CompleteWorkout/CompleteDesignContainer";
 
@@ -22,7 +22,7 @@ export default function Workouts({ navigation }) {
         }}
         >
 
-          <Stack.Screen name="Workout" component={WorkoutScreen}/>
+          <Stack.Screen name="Workout" component={Workout}/>
           <Stack.Screen name="DesignWorkout" component={DesignWorkout}/>
           <Stack.Screen name="CompleteWorkout" component={CompleteWorkout}/>
 

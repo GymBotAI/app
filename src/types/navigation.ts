@@ -11,6 +11,7 @@ export type NavigationScreens = {
   Food: undefined;
   Chat: undefined;
 
+  Workout: undefined;
   DesignWorkout: undefined;
   CompleteWorkout: undefined;
 
