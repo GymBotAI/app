@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import { colors } from "../../../components/styles";
+
 //------------------ BOX STYLES ------------------//
 
 export const bVal = {};
@@ -12,9 +14,9 @@ export const Box = StyleSheet.create({
     bottom: 10,
     width: "90%",
     marginLeft: "5%",
-    backgroundColor: "magenta",
+    backgroundColor: colors.blue.default,
     borderRadius: 8,
-    shadowColor: "black",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.6,
     shadowRadius: 10,
@@ -25,23 +27,23 @@ export const Box = StyleSheet.create({
     fontSize: 23,
     fontWeight: "bold",
     paddingVertical: 10,
-    color: "magenta",
+    color: colors.grey.lightest,
   },
   addText: {
     alignSelf: "center",
     fontSize: 18,
     fontWeight: "bold",
     paddingVertical: 10,
-    color: "magenta",
+    color: colors.grey.lightest,
   },
   addButton: {
     position: "absolute",
     bottom: 10,
     width: "90%",
     marginLeft: "5%",
-    backgroundColor: "magenta",
+    backgroundColor: colors.blue.default,
     borderRadius: 4,
-    shadowColor: "black",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.6,
     shadowRadius: 10,

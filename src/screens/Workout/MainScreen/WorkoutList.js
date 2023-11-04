@@ -1,4 +1,3 @@
-import React from "react";
 import {
   View,
   ScrollView,
@@ -6,9 +5,12 @@ import {
   StyleSheet,
   TouchableOpacity,
 } from "react-native";
+
+import { colors } from "../../../components/styles";
+
 import { FontAwesome5 } from "@expo/vector-icons";
 
-const WorkoutList = ({ navigation }) => {
+export default function WorkoutList({ navigation }) {
   const workoutsData = [
     {
       id: 1,
@@ -82,7 +84,7 @@ const WorkoutList = ({ navigation }) => {
       >
         <TouchableOpacity onPress={handleNewWorkout} style={styles.workoutBox}>
           <View style={styles.plusIconContainer}>
-            <FontAwesome5 name="plus" size={40} color="magenta" />
+            <FontAwesome5 name="plus" size={40} color={colors.black.lightest} />
           </View>
         </TouchableOpacity>
 
@@ -115,7 +117,7 @@ const WorkoutList = ({ navigation }) => {
       </ScrollView>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   headerContainer: {
@@ -127,7 +129,7 @@ const styles = StyleSheet.create({
   viewAllButton: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "magenta",
+    color: colors.orange.default,
   },
   container: {
     flexDirection: "row",
@@ -136,7 +138,7 @@ const styles = StyleSheet.create({
   titleSection: {
     width: "100%",
     height: 40, // Set the desired height for the title section
-    backgroundColor: "magenta", // Red background color
+    backgroundColor: colors.orange.default, // Red background color
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     justifyContent: "center",
@@ -145,7 +147,7 @@ const styles = StyleSheet.create({
   workoutTitle: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "white", // White text color
+    color: colors.white.default, // White text color
     padding: 12,
   },
   exercisesContainer: {
@@ -154,19 +156,19 @@ const styles = StyleSheet.create({
   },
   exerciseText: {
     fontSize: 14,
-    color: "magenta",
+    color: colors.black.lightest,
     textAlign: "center",
     marginBottom: 5,
   },
   workoutBox: {
     width: 130,
     height: 130,
-    backgroundColor: "magenta",
+    backgroundColor: colors.grey.lightest,
     borderRadius: 10,
     marginHorizontal: 10,
     justifyContent: "center",
     alignItems: "center",
-    shadowColor: "magenta",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
@@ -178,7 +180,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderRadius: 10,
     borderStyle: "dashed",
-    borderColor: "magenta",
+    borderColor: colors.black.lightest,
     justifyContent: "center",
     alignItems: "center",
   },
@@ -189,5 +191,3 @@ const styles = StyleSheet.create({
     marginBottom: 15,
   },
 });
-
-export default WorkoutList;

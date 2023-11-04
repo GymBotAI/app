@@ -1,5 +1,7 @@
-import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+
+import { colors } from "../../../components/styles";
+
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 
@@ -15,7 +17,7 @@ const TalkToGymBotSection = ({ navigation }) => {
           <AntDesign
             name="message1"
             size={24}
-            color="magenta"
+            color={colors.grey.lightest}
             style={styles.icon}
           />
         </View>
@@ -34,13 +36,13 @@ const TalkToGymBotSection = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "magenta",
+    backgroundColor: colors.blue.default,
     width: "93%",
     alignSelf: "center",
     borderRadius: 20,
     padding: 20,
     marginTop: 20,
-    shadowColor: "magenta",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
@@ -57,7 +59,7 @@ const styles = StyleSheet.create({
   titleText: {
     fontSize: 28,
     fontWeight: "bold",
-    color: "white",
+    color: colors.white.default,
     marginRight: 5,
   },
   icon: {
@@ -67,7 +69,7 @@ const styles = StyleSheet.create({
     marginTop: 10,
     marginBottom: 10,
     fontSize: 16,
-    color: "white",
+    color: colors.white.default,
   },
   button: {
     alignItems: "center",
@@ -75,8 +77,8 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     paddingVertical: 10,
     borderRadius: 20,
-    backgroundColor: "magenta",
-    shadowColor: "magenta",
+    backgroundColor: colors.grey.lightest,
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 3,
@@ -85,7 +87,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "black",
+    color: colors.black.default,
   },
 });
 

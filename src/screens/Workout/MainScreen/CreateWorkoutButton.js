@@ -1,11 +1,7 @@
-import React from "react";
-import {
-  View,
-  TouchableOpacity,
-  Text,
-  ImageBackground,
-  StyleSheet,
-} from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+
+import { colors } from "../../../components/styles";
+
 import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
 import { Dimensions } from "react-native";
@@ -26,7 +22,7 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
   return (
     <View style={[styles.container, { height: containerHeight }]}>
       <LinearGradient
-        colors={["magenta", "magenta"]}
+        colors={[colors.blue.default, colors.blue.lightest]}
         style={[styles.blueRectangle, { padding: linearPadding }]}
       >
         <Text
@@ -46,7 +42,11 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
             <Text style={[styles.addText, { fontSize: fontSize2 }]}>
               Design
             </Text>
-            <AntDesign name="arrowright" size={cameraSize} color="black" />
+            <AntDesign
+              name="arrowright"
+              size={cameraSize}
+              color={colors.black.default}
+            />
           </TouchableOpacity>
 
           <TouchableOpacity
@@ -59,7 +59,11 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
             <Text style={[styles.addText, { fontSize: fontSize2 }]}>
               Explore
             </Text>
-            <AntDesign name="arrowright" size={cameraSize} color="black" />
+            <AntDesign
+              name="arrowright"
+              size={cameraSize}
+              color={colors.black.default}
+            />
           </TouchableOpacity>
         </View>
       </LinearGradient>
@@ -83,10 +87,10 @@ const styles = StyleSheet.create({
     padding: 15,
   },
   title: {
-    color: "white",
+    color: colors.white.default,
     fontWeight: "bold",
     // Remove the marginBottom to align the text to the top
-    shadowColor: "magenta",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
@@ -97,18 +101,18 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   designButtonContainer: {
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
     width: "48%", // Adjust the button widths
     borderRadius: 5,
     alignItems: "center",
-    shadowColor: "magenta",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 2,
   },
   addText: {
-    color: "black",
+    color: colors.black.default,
     fontWeight: "bold",
     marginBottom: 5,
   },
