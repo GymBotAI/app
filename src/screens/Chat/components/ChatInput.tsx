@@ -10,17 +10,14 @@ import {
 import * as Font from "expo-font";
 
 import type { MutableRefObject } from "react";
-import type { ReturnKeyTypeOptions } from "react-native";
 
 export default function ChatInput({
-  returnKeyType,
   value,
   multiline,
   onSubmit,
   setValueRef,
   onDeletePrompts,
 }: {
-  returnKeyType?: ReturnKeyTypeOptions;
   value?: string;
   multiline?: boolean;
   onSubmit: (text: string) => void;
@@ -85,7 +82,7 @@ export default function ChatInput({
         blurOnSubmit={false}
         multiline={typeof multiline === "boolean" ? multiline : false}
         inputMode="text"
-        returnKeyType={returnKeyType || "send"}
+        returnKeyType="send"
         numberOfLines={4}
         style={{
           flex: 1,
