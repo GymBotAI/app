@@ -11,8 +11,8 @@ import {
 import { Image } from "expo-image";
 
 import { Login, aVal } from "./.styles";
-import { login } from "../../api/auth";
-import { signup } from "../../api/auth";
+import { login } from "../../../api/auth";
+import { signup } from "../../../api/auth";
 
 import type { User } from "@supabase/supabase-js";
 
@@ -107,7 +107,7 @@ export default function LoginBox({
         <TouchableOpacity style={styles.signInWithGoogleButton}>
           <View style={styles.googleButtonContent}>
             <Image
-              source={require("../../../assets/google.webp")}
+              source={require("../../../../assets/google.webp")}
               style={styles.googleLogo}
             />
             <Text style={styles.signInWithGoogleButtonText}>

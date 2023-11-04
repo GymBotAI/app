@@ -11,7 +11,7 @@ import { supabase } from "./src/api/supabase";
 import type { Session } from "@supabase/supabase-js";
 
 //StartUp
-import StartUp from "./src/screens/StartUp/index";
+import StartUp from "./src/screens/StartUp/FirstScreen";
 import SignUp from "./src/screens/StartUp/SignUp";
 
 import Main from "./src/MainApp";

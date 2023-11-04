@@ -7,7 +7,7 @@ export const bVal = {
   buttonColor: "white",
   backOpacity: 0.9,
   backColor: "#1f1f1f",
-  gymBotLogo: require("../../../assets/GymBotText.png"),
+  gymBotLogo: require("../../../../assets/GymBotText.png"),
 };
 
 const commonButtonStyle = {
