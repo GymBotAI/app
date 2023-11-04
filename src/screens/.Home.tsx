@@ -18,7 +18,9 @@ import WorkoutStats from "../components/Home/WorkoutStats";
 import WorkoutList from "../components/Home/WorkoutList";
 import WorkoutPreview from "../components/Home/WorkoutPreview";
 
-export default function Home({ navigation }) {
+import type { NavigationProp } from "../types/navigation";
+
+export default function Home({ navigation }: { navigation: NavigationProp }) {
   const { userData } = useContext(AppContext);
 
   return (
