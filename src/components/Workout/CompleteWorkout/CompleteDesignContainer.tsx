@@ -12,10 +12,27 @@ import type { WorkoutSubGoal } from "../../../types/workouts";
 
 export default function CompleteDesignContainer({ route, navigation }) {
   const { goal, subGoal } = route.params;
-  const [typedText, setTypedText] = useState("Select your exercises!");
+  const [typedText, setTypedText] = useState("");
+  const [goalText, setGoalText] = useState("Select your exercises or design with AI!");
   const [showModal, setShowModal] = useState(false);
 
   const [selectedExercises, setSelectedExercises] = useState([]);
+
+  useEffect(() => {
+    let currentIndex = 0;
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= goalText.length) {
+        setTypedText(goalText.substring(0, currentIndex));
+        currentIndex++;0.
+      } else {
+        clearInterval(typingInterval);
+      }
+    }, 1); // Adjust typing speed here (milliseconds)
+
+    return () => {
+      clearInterval(typingInterval);
+    };
+  }, [goalText]); // Listen for changes to goalText
 
   return (
     <>
@@ -43,6 +60,13 @@ export default function CompleteDesignContainer({ route, navigation }) {
                 />
                 <Text style={styles.chatText}>{typedText}</Text>
               </LinearGradient>
+            </View>
+
+            
+            <View style={styles.container2}>
+              <TouchableOpacity style={styles.button2}>
+                <Text style={styles.buttonText}>Design With AI</Text>
+              </TouchableOpacity>
             </View>
 
             {goal == "Build Muscle" ? (
@@ -101,7 +125,7 @@ const styles = StyleSheet.create({
   chatContainer: {
     alignItems: "center",
     margin: 15,
-    marginBottom: 20,
+    marginBottom: 10,
   },
   chatBox: {
     backgroundColor: "white",
@@ -115,5 +139,24 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "bold",
     color: "white",
+  },
+  container2: {
+    alignItems: 'left',
+    marginLeft: 15,
+    marginBottom: 2,
+  },
+  button2: {
+    backgroundColor: '#3498db', // Change the background color to your preferred color
+    padding: 15,
+    borderRadius: 10,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+  },
+  buttonText: {
+    color: 'white', // Change the text color to your preferred color
+    fontSize: 18,
+    fontWeight: 'bold',
   },
 });
