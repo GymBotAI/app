@@ -93,7 +93,7 @@ export default function StartUp({
         {xButton}
         <Account
           onLogin={() => {
-            navigation.navigate("Home");
+            navigation.navigate("Index");
             setShowLogin(false);
           }}
           onError={(error) => {
@@ -113,7 +113,7 @@ export default function StartUp({
         {xButton}
         <Account
           onAccount={() => {
-            navigation.navigate("Home");
+            navigation.navigate("Index");
             setShowSignUp(false);
           }}
           onError={(error) => {
@@ -166,7 +166,7 @@ export default function StartUp({
           borderRadius: 2,
         }}
         onPress={() => {
-          navigation.navigate("Home");
+          navigation.replace("Index");
         }}
       >
         <Text>Skip to Home Screen (for devs)</Text>

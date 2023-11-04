@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react";
 import { StatusBar } from 'react-native';
 
-import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //Screen Icons
@@ -17,11 +15,10 @@ import Chat from "./screens/.Chat";
 const Tab = createBottomTabNavigator();
 
 
-export default function App() {
+export default function Index() {
 
 
   return (
-      <NavigationContainer>
 
         <Tab.Navigator
         initialRouteName="Home"
@@ -66,9 +63,6 @@ export default function App() {
             ),
           }}
         />
-
         </Tab.Navigator>
-      <StatusBar barStyle="dark-content" />
-      </NavigationContainer>
   );
 }
