@@ -1,3 +1,4 @@
+import { useRef, useState } from "react";
 import {
   TouchableOpacity,
   Text,
@@ -5,10 +6,8 @@ import {
   View,
   StyleSheet,
 } from "react-native";
-import { useRef, useState } from "react";
 
 import { MaterialIcons } from "@expo/vector-icons";
-
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
 import { circularColour } from "../../components/styles";
