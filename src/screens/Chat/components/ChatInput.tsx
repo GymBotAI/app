@@ -87,7 +87,6 @@ export default function ChatInput({
         editable={!disabled}
         multiline={typeof multiline === "boolean" ? multiline : false}
         inputMode="text"
-        returnKeyType="send"
         numberOfLines={4}
         style={{
           flex: 1,
