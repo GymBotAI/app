@@ -9,7 +9,7 @@ import BodyDefinition from "./BodyDefinition";
 import SportsSpecific from "./SportsSpecific";
 import GoalSelector from "./GoalSelector";
 
-import CompleteDesignContainer from "../CompleteWorkout/CompleteDesignContainer";
+import CompleteDesignContainer from "../Workout/CompleteWorkout/CompleteDesignContainer";
 
 export default function WorkoutSelectionScreen({ navigation }) {
   const [selectedGoal, setSelectedGoal] = useState(null);
