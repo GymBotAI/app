@@ -1,6 +1,6 @@
 import { View, StatusBar } from "react-native";
 
-import DesignWorkoutContainer from "../components/Workout/DesignWorkout/DesignWorkoutContainer";
+import DesignWorkoutContainer from "../components/DesignWorkout/DesignWorkoutContainer";
 import ScreenHeader from "../components/ScreenHeader";
 
 export default function DesignWorkout({ navigation }) {

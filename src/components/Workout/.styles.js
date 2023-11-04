@@ -48,4 +48,4 @@ export const Box = StyleSheet.create({
   }
 });
 
-//------------------ LOGIN AND SIGNUP STYLES ------------------//
+//------------------ CREATE WORKOUT BUTTON ------------------//
