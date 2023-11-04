@@ -1,7 +1,6 @@
 import { View, StatusBar } from "react-native";
 
 import DesignWorkoutContainer from "../../components/Workout/DesignWorkout/.Box";
-import GymBotNavigation from "../../components/NavBar";
 import ScreenHeader from "../../components/ScreenHeader";
 
 export default function DesignWorkout({ navigation }) {
@@ -18,7 +17,6 @@ export default function DesignWorkout({ navigation }) {
 
       <StatusBar barStyle="dark-content" />
 
-      <GymBotNavigation navigation={navigation} currentScreen={"Workouts"} />
     </View>
   );
 }
