@@ -2,13 +2,14 @@ import { useRef, useContext } from "react";
 import { Alert, View, StatusBar, TouchableOpacity } from "react-native";
 
 import { AppContext } from "../../context";
+import { baseServerAddr } from "../../api/address";
 
-import ChatContainer, { ChatContainerRef } from "./ChatContainer";
+import ChatContainer from "./ChatContainer";
 import ChatHeader from "./ChatHeader";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
-import { baseServerAddr } from "../../api/address";
+import type { ChatContainerRef } from "./ChatContainer";
 
 export default function ChatScreen({ navigation }) {
   const chatContainerRef: ChatContainerRef = useRef(null);
