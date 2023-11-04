@@ -83,7 +83,7 @@ export default function StartUp({
       >
         {xButton}
         <Account
-          onLogin={() => {
+          onAccount={() => {
             navigation.navigate("Main");
             setShowLogin(false);
           }}
