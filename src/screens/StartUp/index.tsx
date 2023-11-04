@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import { View, StatusBar } from "react-native";
 
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 
-import StartupScreen from "../components/StartUp/.Box";
+import StartupScreen from "./.Box";
 
-import type { NavigationProp } from "../types/navigation";
+import type { NavigationProp } from "../../types/navigation";
 
 export default function StartUp({
   navigation,

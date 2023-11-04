@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useContext } from "react";
 import {
   Alert,
   Animated,
@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   View,
   Text,
+  StatusBar,
 } from "react-native";
 
 import { Feather } from "@expo/vector-icons";
@@ -41,7 +42,7 @@ const backgroundImages = [
 
 let xButton = null;
 
-export default function StartUpBox({ navigation }) {
+export default function StartUp({ navigation }) {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const scrollX = useRef(new Animated.Value(0)).current;
