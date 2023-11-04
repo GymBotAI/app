@@ -10,6 +10,8 @@ import ChatInput from "./ChatInput";
 import { useGymBotAI } from "../../../api/chat";
 import type { ReadyState } from "react-use-websocket";
 
+import type { SetValueRef } from "./ChatInput";
+
 export type ChatContainerRef = MutableRefObject<null | {
   clear: () => void;
   readyState: ReadyState;
@@ -23,7 +25,7 @@ export default function Chat({
   containerRef?: ChatContainerRef;
   goToWorkoutScreen: () => void;
 }) {
-  const chatInputRef = useRef({});
+  const chatInputRef: SetValueRef = useRef();
   const [showPrompts, setShowPrompts] = useState(true); // New state for showing/hiding Prompts
   const { messages, sendMessage, setMessages, readyState, hasAuthed } =
     useGymBotAI([

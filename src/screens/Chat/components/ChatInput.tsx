@@ -11,6 +11,10 @@ import * as Font from "expo-font";
 
 import type { MutableRefObject } from "react";
 
+export type SetValueRef = MutableRefObject<{
+  setText: (text: string) => void;
+}>;
+
 export default function ChatInput({
   value,
   multiline,
@@ -21,9 +25,7 @@ export default function ChatInput({
   value?: string;
   multiline?: boolean;
   onSubmit: (text: string) => void;
-  setValueRef?: MutableRefObject<{
-    setText: (text: string) => void;
-  }>;
+  setValueRef?: SetValueRef;
   onDeletePrompts: () => void;
 }) {
   const [text, setText] = useState(value || "");
