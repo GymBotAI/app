@@ -42,7 +42,6 @@ export const upperExercises = [
     { id: 38, name: "Hammer Strength Chest Press" },
     { id: 39, name: "Romanian Deadlifts" },
     { id: 40, name: "Machine Shrugs" },
-    { id: 41, name: "Seated Calf Raises" },
     // Add more upper body exercises as needed
 ];
 

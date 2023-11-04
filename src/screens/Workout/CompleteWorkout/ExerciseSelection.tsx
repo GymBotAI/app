@@ -1,14 +1,12 @@
-import { useState } from "react";
 import { View, Text, FlatList, ScrollView, TouchableOpacity } from "react-native";
 
-import type { WorkoutSubGoal } from "../../../types/workouts";
 import { FontAwesome } from "@expo/vector-icons"; // You may need to import FontAwesome or an appropriate icon library
 
 export default function ExerciseSelectionScreen({
   setSelectedExercises,
   selectedExercises,
   exercisesToDisplay,
-}: {
+}: { 
   exercisesToDisplay: any;
   setSelectedExercises: any;
   selectedExercises: any;

@@ -1,20 +1,20 @@
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { useState, useEffect } from "react";
 
-import ExerciseSelectionScreen from "./ExerciseList";
+import ExerciseSelectionScreen from "./ExerciseSelection";
 import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
 
-import { upperExercises, lowerExercises, bothExercises } from "./Exercises";
+import { upperExercises, lowerExercises, bothExercises } from "./ExerciseList";
 
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
 import ScreenHeader from "../../../components/ScreenHeader";
 
-let exercisesToDisplay = [];
+let exercisesToDisplay = []; 
 
 export default function CompleteDesignContainer({ route, navigation }) {
-  const { goal, subGoal } = route.params;
+  const { subGoal } = route.params;
   const [typedText, setTypedText] = useState("");
   const [goalText, setGoalText] = useState("Select your exercises!");
   const [showModal, setShowModal] = useState(false);
@@ -22,6 +22,7 @@ export default function CompleteDesignContainer({ route, navigation }) {
   const [selectedExercises, setSelectedExercises] = useState([]);
 
   useEffect(() => {
+    
     let currentIndex = 0;
     const typingInterval = setInterval(() => {
       if (currentIndex <= goalText.length) {
@@ -45,7 +46,6 @@ export default function CompleteDesignContainer({ route, navigation }) {
   } else if (subGoal === "Both") {
     exercisesToDisplay = bothExercises;
   }
-
 
   return (
     <>
@@ -82,13 +82,11 @@ export default function CompleteDesignContainer({ route, navigation }) {
               </TouchableOpacity>
             </View>
 
-            {goal == "Build Muscle" ? (
               <ExerciseSelectionScreen
                 setSelectedExercises={setSelectedExercises}
                 selectedExercises={selectedExercises}
                 exercisesToDisplay={exercisesToDisplay}
               />
-            ) : null}
             <TouchableOpacity
               onPress={() => setShowModal(!showModal)}
               style={[styles.button]}
