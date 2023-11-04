@@ -57,7 +57,7 @@ export default function ChatScreen({ navigation }) {
       />
       <StatusBar barStyle="light-content" />
 
-      <GymBotNavigation navigation={navigation} currentScreen={"Chat"} />
+      {/* <GymBotNavigation navigation={navigation} currentScreen={"Chat"} /> */}
     </View>
   );
 }

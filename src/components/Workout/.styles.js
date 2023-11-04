@@ -9,7 +9,7 @@ export const Box = StyleSheet.create({
   },
   recordButton: {
     position: "absolute",
-    bottom: 80,
+    bottom: 10,
     width: "90%",
     marginLeft: "5%",
     backgroundColor: "#1260de",

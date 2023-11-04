@@ -19,7 +19,7 @@ export default function Workouts({ navigation }) {
 
       <StatusBar barStyle="dark-content" />
 
-      <GymBotNavigation navigation={navigation} currentScreen={"Food"} />
+      {/* <GymBotNavigation navigation={navigation} currentScreen={"Food"} /> */}
     </View>
   );
 }

@@ -1,30 +1,38 @@
 import { useEffect, useState } from "react";
+import { StatusBar } from 'react-native';
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+//Screen Icons
+import { FontAwesome5 } from "@expo/vector-icons";
+
+//Luis Things
 import { AppContext } from "./src/context/AppContext";
-
 import { supabase } from "./src/api/supabase";
+import type { NavigationScreens } from "./src/types/navigation";
+import type { Session } from "@supabase/supabase-js";
 
-import StartUp from "./src/screens/StartUp";
+//StartUp
+import StartUp from "./src/screens/StartUp/index";
 import SignUp from "./src/screens/SignUp";
 
+//Tab Screens
 import Home from "./src/screens/.Home";
 import Plans from "./src/screens/.Plans";
 import Workouts from "./src/screens/Workout/Workouts";
 import Food from "./src/screens/.Food";
 import Chat from "./src/screens/.Chat";
 
+//Sub Screens
 import DesignWorkout from "./src/screens/Workout/DesignWorkout";
 import CompleteDesignContainer from "./src/components/Workout/CompleteWorkout/CompleteDesignContainer";
-
 import Settings from "./src/screens/Settings";
 
-import type { NavigationScreens } from "./src/types/navigation";
-import type { Session } from "@supabase/supabase-js";
-
 const Stack = createNativeStackNavigator<NavigationScreens>();
+const Tab = createBottomTabNavigator();
+
 
 export default function App() {
   const [appContext, setAppContext] = useState({
@@ -64,30 +72,63 @@ export default function App() {
   return (
     <AppContext.Provider value={appContext}>
       <NavigationContainer>
-        <Stack.Navigator
-          screenOptions={{
-            headerShown: false, // Hide the default header
-            animation: "none",
-          }}
+
+        <Tab.Navigator
+        initialRouteName="Home"
+        barStyle={{ backgroundColor: 'white'}}
+        screenOptions={{
+          headerShown: false, // Hide the default header
+        }}
         >
-          <Stack.Screen name="StartUp" component={StartUp} />
-          <Stack.Screen name="SignUp" component={SignUp} />
+          {/* <Stack.Screen name="StartUp" component={StartUp} />
+          <Stack.Screen name="SignUp" component={SignUp} /> */}
 
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Plans" component={Plans} />
-          <Stack.Screen name="Workouts" component={Workouts} />
-          <Stack.Screen name="Food" component={Food} />
-          <Stack.Screen name="Chat" component={Chat} />
+          <Tab.Screen name="Home" component={Home}
+          options={{
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name={"home"} size={25} color={color}/>
+            ),
+          }}
+        />
+          <Tab.Screen name="Plans" component={Plans}
+          options={{
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name={"clipboard"} size={25} color={color}/>
+            ),
+          }}
+        />
+          <Tab.Screen name="Workouts" component={Workouts}
+          options={{
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name={"dumbbell"} size={25} color={color}/>
+            ),
+          }}
+        />
+          <Tab.Screen name="Food" component={Food}
+          options={{
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name={"apple-alt"} size={25} color={color}/>
+            ),
+          }}
+        />
+          <Tab.Screen name="Chat" component={Chat}
+          options={{
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name={"comment"} size={25} color={color}/>
+            ),
+          }}
+        />
 
-          <Stack.Screen name="DesignWorkout" component={DesignWorkout} />
+          {/* <Stack.Screen name="DesignWorkout" component={DesignWorkout} />
           <Stack.Screen
             name="CompleteWorkout"
             component={CompleteDesignContainer}
           />
+          <Stack.Screen name="Settings" component={Settings} /> */}
 
-          <Stack.Screen name="Settings" component={Settings} />
-        </Stack.Navigator>
+        </Tab.Navigator>
       </NavigationContainer>
+      <StatusBar barStyle="dark-content" />
     </AppContext.Provider>
   );
 }

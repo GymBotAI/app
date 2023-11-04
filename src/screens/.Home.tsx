@@ -40,8 +40,6 @@ export default function Home({ navigation }: { navigation: NavigationProp }) {
             }}
           >
             <FontAwesome5 name="cog" size={28} color="#333" />
-            {/* <Image source={require("../../../assets/GymBotLogo.jpg")} style={{
-    width: 50, height: 50, borderRadius: 22}}/> */}
           </TouchableOpacity>
         </View>
 
@@ -68,7 +66,6 @@ export default function Home({ navigation }: { navigation: NavigationProp }) {
 
       <StatusBar barStyle="dark-content" />
 
-      <GymBotNavigation navigation={navigation} currentScreen={"Home"} />
     </View>
   );
 }
