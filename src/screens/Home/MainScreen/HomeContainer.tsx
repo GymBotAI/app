@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import { AppContext } from "../../../context/AppContext";
+import { AppContext } from "../../../context";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
@@ -63,7 +63,6 @@ export default function Home({ navigation }: { navigation: NavigationProp }) {
       </ScrollView>
 
       <StatusBar barStyle="dark-content" />
-
     </View>
   );
 }

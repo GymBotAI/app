@@ -6,7 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import type { NavigationScreens } from "./src/types/navigation";
 
 // Luis Things
-import { AppContext } from "./src/context/AppContext";
+import { AppContext } from "./src/context";
 import { supabase } from "./src/api/supabase";
 
 // StartUp

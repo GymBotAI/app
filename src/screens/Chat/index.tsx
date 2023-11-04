@@ -1,11 +1,9 @@
 import { useRef, useContext } from "react";
 import { Alert, View, StatusBar, TouchableOpacity } from "react-native";
 
-import { AppContext } from "../../context/AppContext";
+import { AppContext } from "../../context";
 
-import ChatContainer, {
-  ChatContainerRef,
-} from "./ChatContainer";
+import ChatContainer, { ChatContainerRef } from "./ChatContainer";
 import ChatHeader from "./ChatHeader";
 
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -55,7 +53,6 @@ export default function ChatScreen({ navigation }) {
         }}
       />
       <StatusBar barStyle="light-content" />
-
     </View>
   );
 }

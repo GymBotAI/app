@@ -9,7 +9,7 @@ import {
   StatusBar,
 } from "react-native";
 
-import { AppContext } from "../../../context/AppContext";
+import { AppContext } from "../../../context";
 
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";

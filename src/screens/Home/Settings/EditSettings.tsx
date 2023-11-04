@@ -9,7 +9,7 @@ import {
   Button,
 } from "react-native";
 
-import { AppContext } from "../../../context/AppContext";
+import { AppContext } from "../../../context";
 
 import { supabase } from "../../../api/supabase";
 
