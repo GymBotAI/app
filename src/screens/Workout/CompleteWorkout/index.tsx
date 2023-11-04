@@ -1,13 +1,17 @@
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { useState, useEffect } from "react";
 
-import ExerciseSelectionScreen from "./BuildMuscle";
+import ExerciseSelectionScreen from "./ExerciseList";
 import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
+
+import { upperExercises, lowerExercises, bothExercises } from "./Exercises";
 
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
 import ScreenHeader from "../../../components/ScreenHeader";
+
+let exercisesToDisplay = [];
 
 export default function CompleteDesignContainer({ route, navigation }) {
   const { goal, subGoal } = route.params;
@@ -31,7 +35,17 @@ export default function CompleteDesignContainer({ route, navigation }) {
     return () => {
       clearInterval(typingInterval);
     };
-  }, [goalText]); // Listen for changes to goalText
+  }, [goalText]); // Listen for changes to goalText  let exercisesToDisplay = [];
+
+
+  if (subGoal === "Upper") {
+    exercisesToDisplay = upperExercises;
+  } else if (subGoal === "Lower") {
+    exercisesToDisplay = lowerExercises;
+  } else if (subGoal === "Both") {
+    exercisesToDisplay = bothExercises;
+  }
+
 
   return (
     <>
@@ -72,7 +86,7 @@ export default function CompleteDesignContainer({ route, navigation }) {
               <ExerciseSelectionScreen
                 setSelectedExercises={setSelectedExercises}
                 selectedExercises={selectedExercises}
-                subGoal={subGoal}
+                exercisesToDisplay={exercisesToDisplay}
               />
             ) : null}
             <TouchableOpacity
