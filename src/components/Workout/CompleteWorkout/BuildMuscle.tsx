@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, FlatList, TouchableOpacity } from "react-native";
+import { View, Text, FlatList, ScrollView, TouchableOpacity } from "react-native";
 
 import type { WorkoutSubGoal } from "../../../types/workouts";
 import { FontAwesome } from "@expo/vector-icons"; // You may need to import FontAwesome or an appropriate icon library
@@ -128,13 +128,18 @@ export default function ExerciseSelectionScreen({
   };
 
   return (
-    <View style={{ marginHorizontal: 10, flex: 1 }}>
-      <FlatList
-        data={exercisesToDisplay}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-      />
-      <View style={{ height: 100 }}></View>
+    <View style={{ marginHorizontal: 10, flex: 1}}>
+
+      <ScrollView>
+        <View style={{ height: 65 }}/>
+        <FlatList
+          data={exercisesToDisplay}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          scrollEnabled={false}
+        />
+        <View style={{ height: 100 }}></View>
+      </ScrollView>
     </View>
   );
 }

@@ -12,7 +12,7 @@ import SignUp from "./src/screens/SignUp";
 
 import Home from "./src/screens/.Home";
 import Plans from "./src/screens/.Plans";
-import Workouts from "./src/screens/.Workouts";
+import Workouts from "./src/screens/Workout/.Workouts";
 import Food from "./src/screens/.Food";
 import Chat from "./src/screens/.Chat";
 

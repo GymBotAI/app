@@ -92,7 +92,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
   }
 
   const completeDesign = () => {
-    navigation.navigate("CompleteWorkout", {
+    navigation.replace("CompleteWorkout", {
       goal: selectedGoal,
       subGoal: subGoal,
     });

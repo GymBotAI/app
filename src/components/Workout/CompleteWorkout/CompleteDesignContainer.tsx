@@ -13,7 +13,7 @@ import type { WorkoutSubGoal } from "../../../types/workouts";
 export default function CompleteDesignContainer({ route, navigation }) {
   const { goal, subGoal } = route.params;
   const [typedText, setTypedText] = useState("");
-  const [goalText, setGoalText] = useState("Select your exercises or design with AI!");
+  const [goalText, setGoalText] = useState("Select your exercises!");
   const [showModal, setShowModal] = useState(false);
 
   const [selectedExercises, setSelectedExercises] = useState([]);
@@ -141,22 +141,26 @@ const styles = StyleSheet.create({
     color: "white",
   },
   container2: {
-    alignItems: 'left',
-    marginLeft: 15,
-    marginBottom: 2,
+    position: 'absolute',
+    width: '100%',
+    left: '5%',
+    top: '15%',
+    zIndex: 1,
   },
   button2: {
     backgroundColor: '#3498db', // Change the background color to your preferred color
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 28,
+    width: '90%',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
+    alignItems: 'center',
   },
   buttonText: {
     color: 'white', // Change the text color to your preferred color
-    fontSize: 18,
+    fontSize: 20,
     fontWeight: 'bold',
   },
 });
