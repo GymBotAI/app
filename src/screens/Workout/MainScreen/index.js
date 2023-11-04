@@ -5,7 +5,7 @@ import { View, ScrollView, TouchableOpacity, Text } from "react-native";
 import CreateWorkoutButton from "./CreateWorkoutButton";
 import WorkoutList from "./WorkoutList";
 import TalkToGymBotSection from "./TalkToGymBot";
-import RunningPage from "../../../components/Workout/Running/RunningPage";
+import RunningPage from "../Running/RunningPage";
 import ScreenHeader from "../../../components/ScreenHeader";
 
 //---------- Styles ----------//

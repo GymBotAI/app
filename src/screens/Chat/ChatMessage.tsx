@@ -1,7 +1,7 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import * as Font from "expo-font";
 
-import { borderDefault, fontSize, bgPrimary } from "../styles";
+import { borderDefault, fontSize, bgPrimary } from "../../components/styles";
 
 import { useEffect, useState } from "react";
 import type { JSX } from "react";
