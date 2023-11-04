@@ -7,17 +7,19 @@ import { AppContext } from "./src/context/AppContext";
 
 import { supabase } from "./src/api/supabase";
 
+import StartUp from "./src/screens/StartUp";
+import SignUp from "./src/screens/SignUp";
+
 import Home from "./src/screens/.Home";
 import Plans from "./src/screens/.Plans";
 import Workouts from "./src/screens/.Workouts";
 import Food from "./src/screens/.Food";
 import Chat from "./src/screens/.Chat";
 
-import Account from "./src/screens/StartUp";
-import Settings from "./src/components/Settings/.Box";
-import SignUp from "./src/screens/SignUp";
 import DesignWorkout from "./src/screens/DesignWorkout";
 import CompleteDesignContainer from "./src/components/Workout/CompleteWorkout/CompleteDesignContainer";
+
+import Settings from "./src/components/Settings/.Box";
 
 import type { NavigationScreens } from "./src/types/navigation";
 import type { Session } from "@supabase/supabase-js";
@@ -68,7 +70,7 @@ export default function App() {
             animation: "none",
           }}
         >
-          <Stack.Screen name="Account" component={Account} />
+          <Stack.Screen name="StartUp" component={StartUp} />
           <Stack.Screen name="SignUp" component={SignUp} />
 
           <Stack.Screen name="Home" component={Home} />

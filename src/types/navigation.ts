@@ -1,8 +1,7 @@
 import type { NavigationProp as _NavigationProp } from "@react-navigation/native";
 
 export type NavigationScreens = {
-  Account: undefined;
-  Login: undefined;
+  StartUp: undefined;
   SignUp: undefined;
 
   Home: undefined;
@@ -13,6 +12,7 @@ export type NavigationScreens = {
 
   DesignWorkout: undefined;
   CompleteWorkout: undefined;
+
   Settings: {
     name?: string;
     birthday?: string;
