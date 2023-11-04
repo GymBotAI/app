@@ -2,11 +2,10 @@ import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { useState, useEffect } from "react";
 
 import ExerciseSelectionScreen from "./BuildMuscle";
-import ReviewWorkoutContainer from "../ReviewWorkout/ReviewWorkoutContainer";
+import ReviewWorkoutContainer from "../../../components/Workout/ReviewWorkout/ReviewWorkoutContainer";
 
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-import ScreenHeader from "../../ScreenHeader";
 
 import type { WorkoutSubGoal } from "../../../types/workouts";
 
@@ -38,7 +37,6 @@ export default function CompleteDesignContainer({ route, navigation }) {
     <>
       {!showModal && (
         <>
-          <ScreenHeader title="Workouts" />
           <View style={styles.container}>
             <View style={styles.chatContainer}>
               <LinearGradient
@@ -105,7 +103,7 @@ const styles = StyleSheet.create({
   button: {
     alignSelf: "center",
     position: "absolute",
-    bottom: 50,
+    bottom: 5,
     width: "90%",
     backgroundColor: "#1260de",
     borderRadius: 8,
@@ -144,7 +142,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '100%',
     left: '5%',
-    top: '15%',
+    top: '17%',
     zIndex: 1,
   },
   button2: {
