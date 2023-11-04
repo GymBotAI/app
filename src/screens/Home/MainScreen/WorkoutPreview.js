@@ -12,7 +12,7 @@ const WorkoutBoxLarge = () => {
         onPress={() => console.log("Workout of the Day pressed!")}
       >
         <Image
-          source={require("../../../assets/ingymbg.jpg")}
+          source={require("../../../../assets/ingymbg.jpg")}
           style={{
             width: "100%",
             height: "100%",

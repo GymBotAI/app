@@ -15,6 +15,7 @@ export type NavigationScreens = {
   DesignWorkout: undefined;
   CompleteWorkout: undefined;
 
+  HomeScreen: undefined;
   Settings: {
     name?: string;
     birthday?: string;
