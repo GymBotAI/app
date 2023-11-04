@@ -6,7 +6,7 @@ import { FontAwesome5 } from "@expo/vector-icons";
 //Tab Screens
 import Home from "./screens/.Home";
 import Plans from "./screens/.Plans";
-import Workouts from "./screens/Workout/";
+import Workouts from "./screens/Workout/Main Screen";
 import Food from "./screens/.Food";
 import Chat from "./screens/.Chat";
 

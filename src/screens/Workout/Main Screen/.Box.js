@@ -5,7 +5,7 @@ import { View, StyleSheet, ScrollView, TouchableOpacity, Text } from "react-nati
 import CreateWorkoutButton from "./CreateWorkoutButton";
 import WorkoutList from "./WorkoutList";
 import TalkToGymBotSection from "./TalkToGymBot";
-import RunningPage from "./Running/RunningPage";
+import RunningPage from "../../../components/Workout/Running/RunningPage";
 
 //---------- Styles ----------//
 import { Box } from "./.styles";
