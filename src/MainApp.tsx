@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { FontAwesome5 } from "@expo/vector-icons";
 
 //Tab Screens
-import Home from "./screens/.Home";
+import Home from "./screens/Home";
 import Plans from "./screens/.Plans";
 import Workouts from "./screens/Workout";
 import Food from "./screens/.Food";

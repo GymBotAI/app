@@ -8,15 +8,15 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import { AppContext } from "../context/AppContext";
+import { AppContext } from "../../context/AppContext";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
-import WorkoutStats from "./Home/WorkoutStats";
-import WorkoutList from "./Home/WorkoutList";
-import WorkoutPreview from "./Home/WorkoutPreview";
+import WorkoutStats from "./WorkoutStats";
+import WorkoutList from "./WorkoutList";
+import WorkoutPreview from "./WorkoutPreview";
 
-import type { NavigationProp } from "../types/navigation";
+import type { NavigationProp } from "../../types/navigation";
 
 export default function Home({ navigation }: { navigation: NavigationProp }) {
   const { userData } = useContext(AppContext);

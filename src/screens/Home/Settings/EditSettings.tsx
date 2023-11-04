@@ -9,9 +9,9 @@ import {
   Button,
 } from "react-native";
 
-import { AppContext } from "../../context/AppContext";
+import { AppContext } from "../../../context/AppContext";
 
-import { supabase } from "../../api/supabase";
+import { supabase } from "../../../api/supabase";
 
 import Option from "./Option";
 
@@ -20,9 +20,9 @@ import {
   maxHeight,
   minWeight,
   maxWeight,
-} from "../../components/styles";
+} from "../../../components/styles";
 
-import type { NavigationProp, NavigationScreens } from "../../types/navigation";
+import type { NavigationProp, NavigationScreens } from "../../../types/navigation";
 
 export default function Settings({
   navigation,
