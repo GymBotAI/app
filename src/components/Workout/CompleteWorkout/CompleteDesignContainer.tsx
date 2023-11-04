@@ -12,7 +12,7 @@ import type { WorkoutSubGoal } from "../../../types/workouts";
 
 export default function CompleteDesignContainer({ route, navigation }) {
   const { goal, subGoal } = route.params;
-  const [typedText, setTypedText] = useState("What is your goal?");
+  const [typedText, setTypedText] = useState("Select your exercises!");
   const [showModal, setShowModal] = useState(false);
 
   const [selectedExercises, setSelectedExercises] = useState([]);
