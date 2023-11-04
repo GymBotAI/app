@@ -125,10 +125,6 @@ export default function WorkoutSelectionScreen({ navigation }) {
         </LinearGradient>
       </View>
 
-      {completed && (
-        <CompleteDesignContainer goal={selectedGoal} subGoal={subGoal} />
-      )}
-
       {!completed && (
         <>
           <GoalSelector
