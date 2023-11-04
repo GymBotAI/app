@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
 import type { NavigationScreens } from "./src/types/navigation";
 
 // Luis Things
 import { AppContext } from "./src/context/AppContext";
 import { supabase } from "./src/api/supabase";
-import type { Session } from "@supabase/supabase-js";
 
 // StartUp
 import StartUp from "./src/screens/StartUp/FirstScreen";
@@ -18,15 +18,28 @@ import Main from "./src/MainApp";
 const Stack = createNativeStackNavigator<NavigationScreens>();
 
 export default function App() {
-  const [appContext, setAppContext] = useState({
-    session: null,
-    userData: {},
-  });
+  const [loading, setLoading] = useState(true);
+  const [session, setSession] = useState(null);
+  const [userData, setUserData] = useState({});
 
-  const updateSession = (session: Session | null) => {
-    setAppContext((prev) => ({ ...prev, session }));
+  useEffect(() => {
+    console.debug("[GymBot/App] Getting Supabase session");
+    supabase.auth.getSession().then(({ data }) => {
+      console.debug("[GymBot/App] Got Supabase session:", !!data.session);
+      setSession(data.session);
+      setLoading(false);
+    });
 
-    if (session) {
+    // Subscribe to auth changes and return the unsubscribe function
+    console.debug("[GymBot/App] Subscribing to Supabase auth changes");
+    return supabase.auth.onAuthStateChange((e, newSession) => {
+      console.debug("[GymBot/App] Supabase auth change:", e, !!newSession);
+      setSession(newSession);
+    }).data.subscription.unsubscribe;
+  }, [setSession]);
+
+  useEffect(() => {
+    if (session?.user) {
       supabase
         .from("users")
         .select("*")
@@ -36,30 +49,30 @@ export default function App() {
           if (error) {
             console.log(error);
           } else {
-            setAppContext((prev) => ({ ...prev, userData: data }));
+            setUserData(data);
           }
         });
     }
-  };
+  }, [session, setUserData]);
 
-  useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      updateSession(session);
-    });
-
-    supabase.auth.onAuthStateChange((_event, session) => {
-      updateSession(session);
-    });
-  }, [setAppContext]);
+  if (loading) {
+    return null;
+  }
 
   return (
-    <AppContext.Provider value={appContext}>
+    <AppContext.Provider
+      value={{
+        session,
+        userData,
+      }}
+    >
       <NavigationContainer>
         <Stack.Navigator
           screenOptions={{
             animation: "none",
             headerShown: false, // Hide the default header
           }}
+          initialRouteName={session?.user ? "Main" : "StartUp"}
         >
           <Stack.Screen name="StartUp" component={StartUp} />
           <Stack.Screen name="SignUp" component={SignUp} />

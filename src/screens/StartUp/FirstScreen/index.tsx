@@ -55,15 +55,6 @@ export default function StartUp({
 
   const { session } = useContext(AppContext);
 
-  if (session?.user) {
-    navigation.navigate("Main");
-    return <></>;
-
-    // TODO: there should be a better way to do this,
-    // like <NavigationContainer> initialState.
-    // This is a temporary workaround.
-  }
-
   const viewabilityConfig = useRef({
     itemVisiblePercentThreshold: 50,
   }).current;
