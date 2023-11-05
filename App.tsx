@@ -19,6 +19,9 @@ const Stack = createNativeStackNavigator<NavigationScreens>();
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+
+  const [isGettingUserData, setIsGettingUserData] = useState(false);
+
   const [session, setSession] = useState(null);
   const [userData, setUserData] = useState({});
 
@@ -40,18 +43,26 @@ export default function App() {
 
   useEffect(() => {
     if (session?.user) {
-      supabase
-        .from("users")
-        .select("*")
-        .eq("id", session.user.id)
-        .single()
-        .then(({ data, error }) => {
-          if (error) {
-            console.log(error);
-          } else {
-            setUserData(data);
-          }
-        });
+      console.debug("[GymBot/App] User logged in:", session.user.id);
+
+      if (!isGettingUserData) {
+        console.debug("[GymBot/App] Getting user data");
+        setIsGettingUserData(true);
+        supabase
+          .from("users")
+          .select("*")
+          .eq("id", session.user.id)
+          .single()
+          .then(({ data, error }) => {
+            setIsGettingUserData(false);
+            if (error) {
+              console.error("[GymBot/App] Error getting user data:", error);
+            } else {
+              console.debug("[GymBot/App] Got user data");
+              setUserData(data);
+            }
+          });
+      }
     }
   }, [session]);
 
