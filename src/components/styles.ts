@@ -24,10 +24,6 @@ export const colors = {
 
 export const fontSize = 16;
 export const font = "Georgia";
-export const minHeight = 40;
-export const maxHeight = 250;
-export const minWeight = 30;
-export const maxWeight = 500;
 
 export const buttonStyles = StyleSheet.create({
   button: {
