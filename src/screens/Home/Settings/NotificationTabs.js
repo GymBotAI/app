@@ -1,5 +1,7 @@
 import { View, Text, StyleSheet } from "react-native";
 
+import { colors } from "../../../components/styles";
+
 export default function NotificationsTab({ title, description }) {
   return (
     <View style={styles.tabContainer}>
