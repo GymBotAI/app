@@ -9,6 +9,8 @@ import {
   StatusBar,
 } from "react-native";
 
+import { colors } from "../../../components/styles";
+
 import { AppContext } from "../../../context";
 
 import { Feather } from "@expo/vector-icons";
