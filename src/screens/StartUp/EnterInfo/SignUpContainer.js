@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-
 import {
   Text,
   TouchableOpacity,
@@ -11,9 +10,10 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 
-import * as Device from "expo-device";
-
+import { colors } from "../../../components/styles";
 import { Box } from "./.styles";
+
+import * as Device from "expo-device";
 
 import { useFonts } from "expo-font";
 
