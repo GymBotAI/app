@@ -1,5 +1,7 @@
 import { StyleSheet, Animated, View, Dimensions } from "react-native";
 
+import { colors } from "../../../components/styles";
+
 const { width } = Dimensions.get("screen");
 
 export default function Pagination({ items, scrollX }) {
