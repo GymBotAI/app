@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   forgotText: {
     fontSize: 16,
     fontWeight: "bold",
-    color: "magenta",
+    color: "white",
     marginLeft: "auto",
   },
   guestContainer: {
