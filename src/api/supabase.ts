@@ -18,10 +18,25 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   },
 });
 
+function userIdOrSession(userId: string | Session) {
+  return typeof userId == "string" ? userId : userId.user.id;
+}
+
 export function getUserData(userId: string | Session) {
   return supabase
     .from("users")
     .select("*")
-    .eq("id", typeof userId == "string" ? userId : userId.user.id)
+    .eq("id", userIdOrSession(userId))
+    .single();
+}
+
+export function updateUserData(
+  userId: string | Session,
+  data: Partial<Database["public"]["Tables"]["users"]["Update"]>
+) {
+  return supabase
+    .from("users")
+    .update(data)
+    .eq("id", userIdOrSession(userId))
     .single();
 }

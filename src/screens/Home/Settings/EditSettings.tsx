@@ -12,8 +12,7 @@ import {
 import { AppContext } from "../../../context";
 
 import { colors } from "../../../components/styles";
-
-import { supabase } from "../../../api/supabase";
+import { updateUserData } from "../../../api/supabase";
 
 import Option from "./Option";
 
@@ -88,24 +87,19 @@ export default function Settings({
             return;
           }
 
-          supabase
-            .from("users")
-            .update({
-              name,
-              gender,
-              birthday: bday.toString(),
-              weight: weightNum,
-              height: heightNum,
-            })
-            .eq("id", session.user.id)
-            .single()
-            .then(({ error }) => {
-              if (error) {
-                console.log(error);
-              } else {
-                navigation.navigate("Home");
-              }
-            });
+          updateUserData(session, {
+            name,
+            gender,
+            birthday: bday.toString(),
+            weight: weightNum,
+            height: heightNum,
+          }).then(({ error }) => {
+            if (error) {
+              console.log(error);
+            } else {
+              navigation.navigate("Home");
+            }
+          });
         }}
       >
         <Text style={styles.buttonText}>Save</Text>
