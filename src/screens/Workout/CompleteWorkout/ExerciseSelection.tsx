@@ -42,13 +42,13 @@ export default function ExerciseSelectionScreen({
       <TouchableOpacity
         onPress={() => toggleExerciseSelection(item.name)}
         style={{
-          backgroundColor: isSelected ? "orange" : "magenta",
+          backgroundColor: isSelected ? "orange" : "#F5F5F5",
           borderRadius: 8,
           margin: 8,
           padding: 16,
-          shadowColor: isSelected ? "rgba(0, 0, 0, 0.1)" : "rgba(0, 0, 0, 0.05",
+          shadowColor: "rgba(0, 0, 0, 0.5)",
           shadowOffset: { width: 0, height: 2 },
-          shadowOpacity: isSelected ? 0.8 : 0.2,
+          shadowOpacity: 0.2,
           elevation: 3,
           flexDirection: "row",
           alignItems: "center", // Vertically center the camera icon
@@ -59,7 +59,7 @@ export default function ExerciseSelectionScreen({
           style={{
             fontSize: 18,
             fontWeight: "bold",
-            color: isSelected ? "magenta" : "magenta",
+            color: isSelected ? "#333" : "#555",
           }}
         >
           {item.name}
@@ -81,7 +81,7 @@ export default function ExerciseSelectionScreen({
           keyExtractor={(item) => item.id}
           scrollEnabled={false}
         />
-        <View style={{ height: 100 }}></View>
+        <View style={{ height: 70 }}></View>
       </ScrollView>
     </View>
   );
