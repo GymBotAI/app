@@ -72,6 +72,7 @@ export default function App() {
       value={{
         session,
         userData,
+        setUserData,
       }}
     >
       <NavigationContainer>
