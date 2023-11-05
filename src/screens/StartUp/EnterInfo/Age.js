@@ -2,7 +2,7 @@ import { useState } from "react";
 import { TextInput, View, StyleSheet, Pressable, Text } from "react-native";
 
 import { colors } from "../../../components/styles";
-import { minDate, maxDate } from "../../../consts";
+import { minDate, maxDate } from "../../../consts/dates";
 
 import DateTimePicker from "@react-native-community/datetimepicker";
 
