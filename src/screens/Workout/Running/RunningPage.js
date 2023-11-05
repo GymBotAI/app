@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   View,
   StyleSheet,
@@ -8,7 +8,11 @@ import {
   Text,
   Alert,
 } from "react-native";
+
+import { colors } from "../../../components/styles";
+
 import { FontAwesome5 } from "@expo/vector-icons";
+
 import MapAndPos from "./runningMap&Pos";
 
 export default function CustomPage({ isVisible, onClose }) {
