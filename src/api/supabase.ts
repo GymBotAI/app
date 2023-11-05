@@ -32,7 +32,7 @@ export function getUserData(userId: string | Session) {
 
 export function updateUserData(
   userId: string | Session,
-  data: Partial<Database["public"]["Tables"]["users"]["Update"]>
+  data: Database["public"]["Tables"]["users"]["Update"]
 ) {
   return supabase
     .from("users")
