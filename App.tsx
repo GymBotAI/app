@@ -31,6 +31,10 @@ export default function App() {
     supabase.auth.getSession().then(({ data }) => {
       console.debug("[GymBot/App] Got Supabase session:", !!data.session);
       setSession(data.session);
+
+      if (!data.session) {
+        setLoading(false);
+      }
     });
 
     // Subscribe to auth changes and return the unsubscribe function
