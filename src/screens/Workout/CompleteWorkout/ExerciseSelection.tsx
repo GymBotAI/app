@@ -7,6 +7,7 @@ import {
 } from "react-native";
 
 import { colors } from "../../../components/styles";
+import { transparent } from "../../../utils/colors";
 
 import { FontAwesome } from "@expo/vector-icons"; // You may need to import FontAwesome or an appropriate icon library
 
@@ -42,11 +43,13 @@ export default function ExerciseSelectionScreen({
       <TouchableOpacity
         onPress={() => toggleExerciseSelection(item.name)}
         style={{
-          backgroundColor: isSelected ? "orange" : "#F5F5F5",
+          backgroundColor: isSelected
+            ? colors.orange.default
+            : colors.grey.lightest,
           borderRadius: 8,
           margin: 8,
           padding: 16,
-          shadowColor: "rgba(0, 0, 0, 0.5)",
+          shadowColor: transparent(colors.black.default, 0.5), // Transparent black shadow
           shadowOffset: { width: 0, height: 2 },
           shadowOpacity: 0.2,
           elevation: 3,
@@ -59,13 +62,13 @@ export default function ExerciseSelectionScreen({
           style={{
             fontSize: 18,
             fontWeight: "bold",
-            color: isSelected ? "#333" : "#555",
+            color: isSelected ? colors.black.lighter : colors.black.lightest,
           }}
         >
           {item.name}
         </Text>
         <TouchableOpacity style={{ paddingLeft: 10 }}>
-          <FontAwesome name="camera" size={22} color={colors.black.default} />
+          <FontAwesome name="camera" size={22} color={colors.black.lighter} />
         </TouchableOpacity>
       </TouchableOpacity>
     );
