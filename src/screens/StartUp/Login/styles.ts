@@ -61,7 +61,7 @@ export const Box = StyleSheet.create({
   },
   signupText: {
     ...commonTextStyle,
-    color: colors.grey.lighter,
+    color: colors.black.lighter,
   },
   login: {
     ...commonButtonStyle,
