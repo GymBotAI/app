@@ -22,10 +22,6 @@ export const colors = {
   white: { default: "#FFFFFF" },
 } as const satisfies Colors;
 
-export const bgPrimary = "#4DBCC1";
-export const bgMenu = "#408589";
-export const borderDefault = "#FFFFFF";
-
 export const fontSize = 16;
 export const font = "Georgia";
 export const circularColour = "#55BCF6";

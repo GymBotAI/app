@@ -1,14 +1,10 @@
+import { useEffect, useState } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
+
+import { colors, fontSize } from "../../../components/styles";
+
 import * as Font from "expo-font";
 
-import {
-  colors,
-  borderDefault,
-  fontSize,
-  bgPrimary,
-} from "../../../components/styles";
-
-import { useEffect, useState } from "react";
 import type { JSX } from "react";
 
 const roleIcons = {
@@ -68,7 +64,7 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
                 message.role === "user"
                   ? colors.white.default
                   : colors.black.default,
-              fontSize: fontSize,
+              fontSize,
               fontFamily: "roboto-regular",
               padding: 3,
             }}
@@ -120,7 +116,7 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
             width: 30,
             height: 30,
             borderRadius: 15,
-            borderColor: borderDefault,
+            borderColor: colors.white.default,
             marginTop: "auto",
             marginBottom: 5,
             marginLeft: -10, // Add margin only for assistant messages
