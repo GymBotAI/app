@@ -24,7 +24,6 @@ export const colors = {
 
 export const fontSize = 16;
 export const font = "Georgia";
-export const circularColour = "#55BCF6";
 export const minHeight = 40;
 export const maxHeight = 250;
 export const minWeight = 30;
