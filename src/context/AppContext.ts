@@ -1,16 +1,11 @@
 import { createContext } from "react";
 
+import type { Database } from "../types/database";
 import type { Session } from "@supabase/supabase-js";
 
 export const AppContext = createContext<{
   session: Session | null;
-  userData: {
-    name?: string;
-    birthday?: string;
-    gender?: string;
-    weight?: number;
-    height?: number;
-  };
+  userData: Partial<Database["public"]["Tables"]["users"]["Row"]>;
 }>({
   session: null,
   userData: {},
