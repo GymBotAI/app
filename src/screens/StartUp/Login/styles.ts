@@ -8,7 +8,7 @@ export const bVal = {
   buttonSize: 40,
   buttonColor: colors.white.default,
   backOpacity: 0.9,
-  backColor: "magenta",
+  backColor: colors.black.lighter,
   gymBotLogo: require("../../../../assets/GymBotText.png"),
 } as const;
 

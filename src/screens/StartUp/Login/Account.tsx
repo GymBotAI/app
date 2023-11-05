@@ -129,7 +129,7 @@ const styles = StyleSheet.create({
   login: {
     alignSelf: "center",
     width: "95%",
-    backgroundColor: "magenta",
+    backgroundColor: colors.grey.lightest,
     paddingVertical: 10,
     borderRadius: 8,
     marginHorizontal: 10,
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginHorizontal: 10,
     borderWidth: 1,
-    borderColor: "magenta",
+    borderColor: colors.grey.lighter,
     shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
@@ -164,7 +164,7 @@ const styles = StyleSheet.create({
   signupText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "magenta",
+    color: colors.grey.lighter,
     textAlign: "center",
   },
   forgotText: {
@@ -193,7 +193,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     marginHorizontal: 10,
     marginBottom: 20,
-    shadowColor: "magenta",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 4,
