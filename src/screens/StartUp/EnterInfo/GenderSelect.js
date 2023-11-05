@@ -1,4 +1,7 @@
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
+
+import { colors } from "../../../components/styles";
+
 import { Image } from "expo-image";
 
 export default function GenderSelect({
