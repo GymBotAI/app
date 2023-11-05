@@ -23,20 +23,24 @@ function userIdOrSession(userId: string | Session): string | null {
 }
 
 export function getUserData(userId: string | Session) {
-  return supabase
-    .from("users")
-    .select("*")
-    .eq("id", userIdOrSession(userId))
-    .single();
+  userId = userIdOrSession(userId);
+
+  if (!userId) {
+    return Promise.resolve(null);
+  }
+
+  return supabase.from("users").select("*").eq("id", userId).single();
 }
 
 export function updateUserData(
   userId: string | Session,
   data: Database["public"]["Tables"]["users"]["Update"]
 ) {
-  return supabase
-    .from("users")
-    .update(data)
-    .eq("id", userIdOrSession(userId))
-    .single();
+  userId = userIdOrSession(userId);
+
+  if (!userId) {
+    return Promise.resolve(null);
+  }
+
+  return supabase.from("users").update(data).eq("id", userId).single();
 }
