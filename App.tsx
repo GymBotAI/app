@@ -14,6 +14,7 @@ import StartUp from "./src/screens/StartUp/Login";
 import SignUp from "./src/screens/StartUp/EnterInfo";
 
 import Main from "./src/MainApp";
+import LoadingScreen from "./src/screens/Loading";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
 
@@ -63,7 +64,7 @@ export default function App() {
   }, [session]);
 
   if (loading) {
-    return null;
+    return <LoadingScreen />;
   }
 
   return (
