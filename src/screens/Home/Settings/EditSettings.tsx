@@ -22,7 +22,7 @@ import {
   maxHeight,
   minWeight,
   maxWeight,
-} from "../../../components/styles";
+} from "../../../consts/userData";
 
 import type {
   NavigationProp,
