@@ -57,22 +57,22 @@ export const Box = StyleSheet.create({
     ...commonButtonStyle,
     bottom: 150,
     alignSelf: "center",
-    backgroundColor: "magenta",
+    backgroundColor: colors.grey.lightest,
   },
   signupText: {
     ...commonTextStyle,
-    color: "magenta",
+    color: colors.black.lighter,
   },
   login: {
     ...commonButtonStyle,
     bottom: 80,
     alignSelf: "center",
     borderWidth: 1,
-    borderColor: "magenta",
+    borderColor: colors.grey.lighter,
   },
   loginText: {
     ...commonTextStyle,
-    color: "magenta",
+    color: colors.grey.lighter,
   },
 });
 

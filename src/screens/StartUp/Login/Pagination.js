@@ -18,7 +18,11 @@ export default function Pagination({ items, scrollX }) {
 
         const backgroundColor = scrollX.interpolate({
           inputRange,
-          outputRange: ["magenta", colors.white.default, "magenta"],
+          outputRange: [
+            colors.grey.lighter,
+            colors.white.default,
+            colors.grey.lighter,
+          ],
           extrapolate: "clamp",
         });
 

@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
   loginText: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "magenta",
+    color: colors.black.lighter,
     textAlign: "center",
   },
   signup: {

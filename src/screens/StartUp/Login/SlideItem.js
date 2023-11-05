@@ -5,7 +5,9 @@ import {
   Dimensions,
   ImageBackground,
 } from "react-native";
-import React from "react";
+
+import { colors } from "../../../components/styles";
+
 import { LinearGradient } from "expo-linear-gradient"; // Import the LinearGradient component from Expo
 
 const { width, height } = Dimensions.get("window");
@@ -14,7 +16,7 @@ const SlideItem = ({ item }) => {
   return (
     <View style={styles.container}>
       <LinearGradient // Use LinearGradient as a wrapper
-        colors={["magenta", "magenta"]} // Adjust opacity values
+        colors={[colors.black.lightest, colors.black.lighter]} // Adjust opacity values
         style={styles.gradient}
       >
         <ImageBackground
@@ -34,9 +36,7 @@ const styles = StyleSheet.create({
     height,
     width,
   },
-  gradient: {
-    ...StyleSheet.absoluteFillObject, // Make the gradient cover the entire container
-  },
+  gradient: StyleSheet.absoluteFillObject, // Make the gradient cover the entire container
   image: {
     width,
     height,
