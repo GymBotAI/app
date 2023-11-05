@@ -8,6 +8,9 @@ import {
   ImageBackground,
   ScrollView,
 } from "react-native";
+
+import { colors } from "../../components/styles";
+
 import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function PlanInfoPage({ onClose, plan, image }) {
