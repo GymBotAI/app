@@ -65,7 +65,9 @@ export default function Option({ value, label, type, onChange }: Props) {
                 setDatePickerVisibility(false);
                 onChange(date);
               }}
-              onCancel={() => {}}
+              onCancel={() => {
+                setDatePickerVisibility(false);
+              }}
               isVisible={isDatePickerVisible}
             />
             <Text style={styles.current}>{value?.toLocaleDateString()}</Text>
