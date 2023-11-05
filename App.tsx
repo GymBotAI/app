@@ -7,7 +7,7 @@ import type { NavigationScreens } from "./src/types/navigation";
 
 // Luis Things
 import { AppContext } from "./src/context";
-import { supabase } from "./src/api/supabase";
+import { supabase, getUserData } from "./src/api/supabase";
 
 // StartUp
 import StartUp from "./src/screens/StartUp/Login";
@@ -48,20 +48,16 @@ export default function App() {
       if (!isGettingUserData) {
         console.debug("[GymBot/App] Getting user data");
         setIsGettingUserData(true);
-        supabase
-          .from("users")
-          .select("*")
-          .eq("id", session.user.id)
-          .single()
-          .then(({ data, error }) => {
-            setIsGettingUserData(false);
-            if (error) {
-              console.error("[GymBot/App] Error getting user data:", error);
-            } else {
-              console.debug("[GymBot/App] Got user data");
-              setUserData(data);
-            }
-          });
+
+        getUserData(session).then(({ data, error }) => {
+          setIsGettingUserData(false);
+          if (error) {
+            console.error("[GymBot/App] Error getting user data:", error);
+          } else {
+            console.debug("[GymBot/App] Got user data");
+            setUserData(data);
+          }
+        });
       }
     }
   }, [session]);
