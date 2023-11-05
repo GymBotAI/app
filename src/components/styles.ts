@@ -35,7 +35,7 @@ export const buttonStyles = StyleSheet.create({
     bottom: 40,
     alignSelf: "center",
     width: "75%",
-    backgroundColor: "#1260de",
+    backgroundColor: colors.blue.default,
     borderRadius: 28,
     shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 1 },
@@ -43,13 +43,13 @@ export const buttonStyles = StyleSheet.create({
     shadowRadius: 2,
   },
   disabledButton: {
-    backgroundColor: "#fff", // Change the background color of the disabled button
+    backgroundColor: colors.white.default, // Change the background color of the disabled button
   },
   text: {
     alignSelf: "center",
     fontSize: 24,
     paddingVertical: 10,
-    color: "#dbdbdb",
+    color: colors.grey.lighter,
     fontWeight: "bold",
   },
 });
