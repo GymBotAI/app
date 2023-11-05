@@ -18,8 +18,8 @@ export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   },
 });
 
-function userIdOrSession(userId: string | Session) {
-  return typeof userId == "string" ? userId : userId.user.id;
+function userIdOrSession(userId: string | Session): string | null {
+  return typeof userId == "string" ? userId : userId?.user?.id;
 }
 
 export function getUserData(userId: string | Session) {
