@@ -1,16 +1,13 @@
-import React, { useState, useEffect } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
+import { useState } from "react";
+import { View, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
+
+import { colors } from "../../components/styles";
+
 import BookmarkedTabs from "./BookmarkedTabs";
 import plans from "./plans";
 import PlanInfoPage from "./PlanInfoPage";
 
-const BookmarkedPage = ({ onPlanInfoPageVisibilityChange }) => {
+export default function BookmarkedPage({ onPlanInfoPageVisibilityChange }) {
   const [PlanInfoPageVisibility, setPlanInfoPageVisibility] = useState(false);
   const [PlanInfo, setPlanInfo] = useState();
   const bookmarkedPlans = plans.filter((plan) => plan.bookmarked);
@@ -45,7 +42,7 @@ const BookmarkedPage = ({ onPlanInfoPageVisibilityChange }) => {
       </ScrollView>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -54,5 +51,3 @@ const styles = StyleSheet.create({
     backgroundColor: colors.white.default,
   },
 });
-
-export default BookmarkedPage;
