@@ -35,7 +35,7 @@ export default function Settings({
   navigation: NavigationProp;
   initialData: NavigationScreens["Settings"];
 }) {
-  const { session } = useContext(AppContext);
+  const { session, setUserData: setContextUserData } = useContext(AppContext);
 
   const [name, setName] = useState(initialData.name || "");
   const [bday, setBday] = useState<Date | null>(
@@ -87,16 +87,23 @@ export default function Settings({
             return;
           }
 
-          updateUserData(session, {
+          const newUserData = {
             name,
             gender,
             birthday: bday.toString(),
             weight: weightNum,
             height: heightNum,
-          }).then(({ error }) => {
+          };
+
+          // Update the user data in the database
+          updateUserData(session, newUserData).then(({ error }) => {
             if (error) {
               console.log(error);
             } else {
+              // Update AppContext so that the changes are reflected immediately
+              // in all screens and components
+              setContextUserData(newUserData);
+
               navigation.goBack();
             }
           });
