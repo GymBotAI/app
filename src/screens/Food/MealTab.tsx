@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   addButtonText: {
-    color: "white",
+    color: colors.white.default,
     fontSize: 20,
   },
   selectedFoodsContainer: {

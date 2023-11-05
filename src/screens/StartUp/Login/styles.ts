@@ -4,7 +4,7 @@ import { StyleSheet } from "react-native";
 
 export const bVal = {
   buttonSize: 40,
-  buttonColor: "white",
+  buttonColor: colors.white.default,
   backOpacity: 0.9,
   backColor: "magenta",
   gymBotLogo: require("../../../../assets/GymBotText.png"),
@@ -15,7 +15,7 @@ const commonButtonStyle = {
   width: "85%",
   paddingVertical: 10,
   borderRadius: 8,
-  shadowColor: "black",
+  shadowColor: colors.black.default,
   shadowOffset: { width: 0, height: 2 },
   shadowOpacity: 0.4,
   shadowRadius: 4,
@@ -46,7 +46,7 @@ export const Box = StyleSheet.create({
     top: 60,
     width: "100%",
     alignItems: "center",
-    shadowColor: "black",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 2, height: 2 },
     shadowOpacity: 1,
     shadowRadius: 5,
@@ -77,7 +77,7 @@ export const Box = StyleSheet.create({
 //------------------ LOGIN AND SIGNUP STYLES ------------------//
 
 export const aVal = {
-  placeholder: "white",
+  placeholder: colors.white.default,
 };
 
 export const Login = StyleSheet.create({
@@ -93,8 +93,8 @@ export const Login = StyleSheet.create({
     paddingRight: 0,
     paddingLeft: 3,
     borderBottomWidth: 2,
-    borderBottomColor: "white",
-    color: "white",
+    borderBottomColor: colors.white.default,
+    color: colors.white.default,
     fontSize: 16,
   },
 });

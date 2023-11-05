@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
-import { Feather } from "@expo/vector-icons";
 
-const BuildMuscle = ({ setGoalText, setInputFilled, setSubGoal }) => {
+import { colors } from "../../../components/styles";
+
+export default function BuildMuscle({
+  setGoalText,
+  setInputFilled,
+  setSubGoal,
+}) {
   const [selectedBody, setSelectedBody] = useState("");
 
   const handleSelect = (option, option2) => {
@@ -15,7 +20,8 @@ const BuildMuscle = ({ setGoalText, setInputFilled, setSubGoal }) => {
   const getButtonStyle = (option) => {
     return {
       ...styles.dropdownButton,
-      backgroundColor: selectedBody === option ? "orange" : "white",
+      backgroundColor:
+        selectedBody === option ? colors.orange.default : colors.white.default,
     };
   };
 
@@ -58,14 +64,13 @@ const BuildMuscle = ({ setGoalText, setInputFilled, setSubGoal }) => {
       </TouchableOpacity>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
     marginTop: 20,
     marginHorizontal: 20,
     // flex: 1,
-    backgroundColor: "magenta",
   },
   title: {
     fontSize: 24,
@@ -73,7 +78,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   dropdownButton: {
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
     paddingVertical: 15,
     paddingHorizontal: 10,
     borderRadius: 8,
@@ -81,7 +86,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   dropdownButtonText: {
-    color: "magenta",
+    color: colors.black.lightest,
     fontSize: 18,
     fontWeight: "normal",
     textAlign: "center",
@@ -89,7 +94,7 @@ const styles = StyleSheet.create({
   dropdownOptions: {
     marginTop: 5,
     width: "100%",
-    backgroundColor: "magenta",
+    backgroundColor: colors.grey.lightest,
     borderRadius: 8,
     paddingHorizontal: 10,
   },
@@ -100,5 +105,3 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
 });
-
-export default BuildMuscle;

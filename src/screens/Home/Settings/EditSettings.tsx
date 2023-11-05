@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonText: {
-    color: "white",
+    color: colors.white.default,
     fontSize: 16,
     fontWeight: "bold",
     textAlign: "center",

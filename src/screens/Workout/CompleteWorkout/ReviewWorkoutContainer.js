@@ -1,21 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   View,
   Text,
-  Image,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
   TextInput,
-  Button,
 } from "react-native";
 
-// import ScreenHeader from "../../ScreenHeader";
+import { colors, buttonStyles } from "../../../components/styles";
+
 import ReviewHeader from "./ReviewHeader";
 import { Entypo } from "@expo/vector-icons";
 
-import { buttonStyles } from "../../../components/styles";
+// import ScreenHeader from "../../ScreenHeader";
 
 export default function ReviewWorkoutContainer({
   selectedExercises,
@@ -58,12 +56,12 @@ export default function ReviewWorkoutContainer({
                 setInputFilled(!!e);
               }}
               placeholder="Untitled Workout"
-              placeholderTextColor={"magenta"}
+              placeholderTextColor={colors.grey.lighter}
             />
             <Entypo
               name="edit"
               size={24}
-              color={inputFilled ? "magenta" : "magenta"} // Set color based on inputFilled
+              color={inputFilled ? colors.grey.lightest : colors.grey.lighter} // Set color based on inputFilled
               style={styles.editIcon}
             />
           </View>
@@ -86,13 +84,11 @@ export default function ReviewWorkoutContainer({
 
         <View
           style={{
-            backgroundColor: "magenta",
             height: 45,
-            borderColor: "magenta",
+            borderColor: colors.grey.lighter,
             flexDirection: "row",
-            borderWidth: 1,
-            borderBottomColor: "magenta",
-            borderTopColor: "magenta",
+            borderTopWidth: 1,
+            borderBottomWidth: 1,
             justifyContent: "flex-end",
           }}
         >
@@ -176,7 +172,7 @@ export default function ReviewWorkoutContainer({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "magenta",
+    backgroundColor: colors.grey.lightest,
   },
   topSection: {
     marginTop: -8,
@@ -197,7 +193,7 @@ const styles = StyleSheet.create({
     marginLeft: 5,
   },
   buttonText: {
-    color: "white",
+    color: colors.white.default,
     fontSize: 20,
   },
   exerciseList: {

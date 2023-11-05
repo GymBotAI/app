@@ -154,7 +154,7 @@ export default function StartUp({
           position: "absolute",
           top: 400,
           alignSelf: "center",
-          backgroundColor: "white",
+          backgroundColor: colors.white.default,
           padding: 10,
           borderRadius: 2,
         }}

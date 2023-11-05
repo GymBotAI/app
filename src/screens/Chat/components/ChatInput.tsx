@@ -7,10 +7,12 @@ import {
   Image,
   Keyboard,
 } from "react-native";
+
+import { colors } from "../../../components/styles";
+
 import * as Font from "expo-font";
 
 import type { MutableRefObject } from "react";
-import { colors } from "../../../components/styles";
 
 export type SetValueRef = MutableRefObject<{
   setText: (text: string) => void;
@@ -121,7 +123,6 @@ export default function ChatInput({
           source={require("../../../../assets/send.png")}
           style={{ height: 22, width: 22 }}
         />
-        {/* <AntDesign name="arrowright" size={24} color="white" /> */}
       </TouchableOpacity>
     </View>
   );

@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   closeButtonText: {
-    color: "white",
+    color: colors.white.default,
     fontSize: 18,
     fontWeight: "bold",
   },
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     left: 0,
     width: windowWidth,
     height: windowHeight,
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
   },
   planLength: {
     position: "absolute",
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   blueButtonText: {
-    color: "white",
+    color: colors.white.default,
     fontSize: 18,
     fontWeight: "bold",
   },

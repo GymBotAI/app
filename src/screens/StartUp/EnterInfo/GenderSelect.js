@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
   },
   boxText: {
     alignSelf: "center",
-    borderColor: "black",
+    borderColor: colors.black.default,
     fontSize: 15.5,
     color: "magenta",
     fontWeight: "bold",

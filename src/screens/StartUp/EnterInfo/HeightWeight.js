@@ -137,7 +137,7 @@ const styles = StyleSheet.create({
     flexDirection: "row", // Puts the input and unit side by side horizontally
     alignItems: "center", // Centers the input and unit vertically within the container
     borderBottomWidth: 2,
-    borderBottomColor: "black",
+    borderBottomColor: colors.black.default,
     marginHorizontal: 35,
     marginTop: 40,
     paddingBottom: 5, // Adds padding to the bottom to avoid overlapping with the unit text
@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
     margin: 0,
   },
   modalContainer: {
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
     padding: 5,

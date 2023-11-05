@@ -20,7 +20,7 @@ const styles = {
     borderWidth: 1.5,
     borderColor: "magenta",
     backgroundColor: "transparent",
-    shadowColor: "black",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 4,

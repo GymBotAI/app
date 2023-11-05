@@ -1,5 +1,7 @@
-import { Keyboard, View, ScrollView } from "react-native";
 import { useRef, useState, useEffect, useLayoutEffect } from "react";
+import { Keyboard, View, ScrollView } from "react-native";
+
+import { colors } from "../../../components/styles";
 
 import * as Device from "expo-device";
 
@@ -86,7 +88,7 @@ export default function ChatMessages({
       ref={scrollViewRef}
       style={{
         flexGrow: 1,
-        backgroundColor: "white",
+        backgroundColor: colors.white.default,
       }}
       onScroll={handleScroll}
       onContentSizeChange={handleContentSizeChange}

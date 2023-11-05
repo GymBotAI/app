@@ -132,7 +132,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginBottom: 40,
     marginTop: 25,
-    shadowColor: "black",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
     shadowRadius: 4,
@@ -152,7 +152,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     borderWidth: 1,
     borderColor: "magenta",
-    shadowColor: "black",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.4,
     shadowRadius: 4,
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
   guestText: {
     fontSize: 16,
-    color: "white",
+    color: colors.white.default,
   },
   button: {
     marginLeft: 10,
@@ -186,7 +186,7 @@ const styles = StyleSheet.create({
     marginTop: 60,
     alignSelf: "center",
     width: "90%",
-    backgroundColor: "white", // Google's color
+    backgroundColor: colors.white.default, // Google's color
     borderRadius: 3,
     marginHorizontal: 10,
     marginBottom: 20,
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
     marginLeft: 15,
     fontSize: 18,
     fontWeight: "bold",
-    color: "black",
+    color: colors.black.default,
   },
   backButton: {
     position: "absolute",
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
   },
 
   backButtonText: {
-    color: "white",
+    color: colors.white.default,
     fontSize: 16,
   },
 });

@@ -19,7 +19,7 @@ const LoseWeight = ({ setGoalText, setInputFilled }) => {
   const getButtonStyle = (option) => {
     return {
       ...styles.dropdownButton,
-      backgroundColor: true === option ? "orange" : "white",
+      backgroundColor: true === option ? "orange" : colors.white.default,
     };
   };
 
@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   dropdownButton: {
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
     paddingVertical: 15,
     paddingHorizontal: 10,
     borderRadius: 8,

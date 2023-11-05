@@ -47,7 +47,7 @@ export const buttonStyles = StyleSheet.create({
     width: "75%",
     backgroundColor: "#1260de",
     borderRadius: 28,
-    shadowColor: "black",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: 2,

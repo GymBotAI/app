@@ -61,6 +61,6 @@ const styles = StyleSheet.create({
   },
   dataText: {
     marginTop: 10,
-    color: "white",
+    color: colors.white.default,
   },
 });

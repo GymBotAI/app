@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+
+import { colors } from "../../../components/styles";
 
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
@@ -42,7 +44,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
         <View
           style={{
             height: 1,
-            backgroundColor: "magenta",
+            backgroundColor: colors.grey.lighter,
             width: "90%",
             marginLeft: "5%",
           }}
@@ -60,7 +62,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
         <View
           style={{
             height: 1,
-            backgroundColor: "magenta",
+            backgroundColor: colors.grey.lighter,
             width: "90%",
             marginLeft: "5%",
           }}
@@ -78,7 +80,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
         <View
           style={{
             height: 1,
-            backgroundColor: "magenta",
+            backgroundColor: colors.grey.lighter,
             width: "90%",
             marginLeft: "5%",
           }}
@@ -105,7 +107,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
       <ScreenHeader title="Workouts" />
       <View style={styles.chatContainer}>
         <LinearGradient
-          colors={["magenta", "magenta"]} // Lighter blue gradient colors
+          colors={[colors.blue.default, colors.blue.lighter]} // Lighter blue gradient colors
           start={[0, 0.5]}
           end={[1, 0.5]}
           style={styles.chatBox}
@@ -117,7 +119,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
               height: 60,
               borderRadius: 30,
               borderWidth: 1,
-              borderColor: "white",
+              borderColor: colors.white.default,
               marginRight: 10,
             }}
           />
@@ -151,7 +153,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "magenta",
+    backgroundColor: colors.grey.lightest,
   },
   chatContainer: {
     alignItems: "center",
@@ -159,7 +161,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   chatBox: {
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
     padding: 10,
     borderRadius: 10,
     flexDirection: "row",
@@ -169,29 +171,29 @@ const styles = StyleSheet.create({
     flex: 1, // Allow text to wrap within the available space
     fontSize: 20,
     fontWeight: "bold",
-    color: "white",
+    color: colors.white.default,
   },
   button: {
     alignSelf: "center",
     position: "absolute",
     bottom: 10,
     width: "90%",
-    backgroundColor: "magenta",
+    backgroundColor: colors.blue.default,
     borderRadius: 8,
-    shadowColor: "black",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
     elevation: 5,
   },
   disabledButton: {
-    backgroundColor: "magenta", // Change the background color of the disabled button
+    backgroundColor: colors.white.default, // Change the background color of the disabled button
   },
   text: {
     alignSelf: "center",
     fontSize: 24,
     paddingVertical: 10,
-    color: "magenta",
+    color: colors.grey.lighter,
     fontWeight: "bold",
   },
 });

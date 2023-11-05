@@ -72,7 +72,7 @@ export default function Home({ navigation }: { navigation: NavigationProp }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
   },
   topSection: {
     flexDirection: "row",

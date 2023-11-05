@@ -90,7 +90,7 @@ export default function CustomPage({ isVisible, onClose }) {
           <FontAwesome5
             name="play"
             size={24}
-            color={calibratedBool && isActive ? "green" : "black"}
+            color={calibratedBool && isActive ? "green" : colors.black.default}
           />
         </TouchableOpacity>
 
@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
     marginTop: 22,
   },
   modalView: {
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
     borderRadius: 20,
     padding: 28,
     paddingTop: 60,

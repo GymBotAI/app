@@ -1,5 +1,6 @@
-import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+
+import { colors } from "../../../components/styles";
 
 export default function ScreenHeader({ title, onBackPress, onSavePress }) {
   return (
@@ -22,8 +23,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between", // Use 'space-between' to push buttons to the edges
     paddingTop: 40,
     height: 90,
-    borderWidth: 0.5,
-    borderColor: "magenta",
+    borderBottomWidth: 0.5,
+    borderColor: colors.grey.lighter,
   },
   backButton: {
     paddingLeft: 15, // Adjust the padding to separate the "Back" button from the edge
@@ -34,10 +35,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     fontWeight: "bold",
-    color: "magenta",
+    color: colors.black.lighter,
   },
   buttonText: {
     fontSize: 16,
-    color: "magenta",
+    color: colors.blue.lighter,
   },
 });

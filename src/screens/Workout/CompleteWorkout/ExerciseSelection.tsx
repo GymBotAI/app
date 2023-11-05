@@ -6,6 +6,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 
+import { colors } from "../../../components/styles";
+
 import { FontAwesome } from "@expo/vector-icons"; // You may need to import FontAwesome or an appropriate icon library
 
 export default function ExerciseSelectionScreen({
@@ -63,7 +65,7 @@ export default function ExerciseSelectionScreen({
           {item.name}
         </Text>
         <TouchableOpacity style={{ paddingLeft: 10 }}>
-          <FontAwesome name="camera" size={22} color="black" />
+          <FontAwesome name="camera" size={22} color={colors.black.default} />
         </TouchableOpacity>
       </TouchableOpacity>
     );

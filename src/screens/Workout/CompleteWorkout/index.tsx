@@ -1,10 +1,12 @@
-import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { useState, useEffect } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+
+import { colors } from "../../../components/styles";
 
 import ExerciseSelectionScreen from "./ExerciseSelection";
 import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
 
-import { upperExercises, lowerExercises, bothExercises } from "./ExerciseList";
+import { upperExercises, lowerExercises, bothExercises } from "./data";
 
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
@@ -54,7 +56,7 @@ export default function CompleteDesignContainer({ route, navigation }) {
           <View style={styles.container}>
             <View style={styles.chatContainer}>
               <LinearGradient
-                colors={["magenta", "magenta"]} // Lighter blue gradient colors
+                colors={[colors.blue.default, colors.blue.lighter]} // Lighter blue gradient colors
                 start={[0, 0.5]}
                 end={[1, 0.5]}
                 style={styles.chatBox}
@@ -66,7 +68,7 @@ export default function CompleteDesignContainer({ route, navigation }) {
                     height: 60,
                     borderRadius: 30,
                     borderWidth: 1,
-                    borderColor: "white",
+                    borderColor: colors.white.default,
                     marginRight: 10,
                   }}
                 />
@@ -109,16 +111,16 @@ export default function CompleteDesignContainer({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "magenta",
+    backgroundColor: colors.grey.lightest,
   },
   button: {
     alignSelf: "center",
     position: "absolute",
     bottom: 5,
     width: "90%",
-    backgroundColor: "magenta",
+    backgroundColor: colors.blue.default,
     borderRadius: 8,
-    shadowColor: "black",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
@@ -128,7 +130,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     fontSize: 24,
     paddingVertical: 10,
-    color: "magenta",
+    color: colors.grey.lighter,
     fontWeight: "bold",
   },
   chatContainer: {
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   chatBox: {
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
     padding: 10,
     borderRadius: 10,
     flexDirection: "row",
@@ -147,7 +149,7 @@ const styles = StyleSheet.create({
     flex: 1, // Allow text to wrap within the available space
     fontSize: 20,
     fontWeight: "bold",
-    color: "white",
+    color: colors.white.default,
   },
   container2: {
     position: "absolute",
@@ -157,18 +159,18 @@ const styles = StyleSheet.create({
     zIndex: 1,
   },
   button2: {
-    backgroundColor: "magenta", // Change the background color to your preferred color
+    backgroundColor: colors.blue.lighter, // Change the background color to your preferred color
     padding: 15,
     borderRadius: 28,
     width: "90%",
-    shadowColor: "magenta",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
     shadowRadius: 2,
     alignItems: "center",
   },
   buttonText: {
-    color: "white", // Change the text color to your preferred color
+    color: colors.white.default, // Change the text color to your preferred color
     fontSize: 20,
     fontWeight: "bold",
   },

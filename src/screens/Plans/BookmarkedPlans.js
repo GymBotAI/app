@@ -30,7 +30,7 @@ const BookmarkedPage = ({ onPlanInfoPageVisibilityChange }) => {
           image={require("../../../assets/accountbgdark.jpg")}
         />
       )}
-      <ScrollView indicatorStyle={"black"}>
+      <ScrollView indicatorStyle={colors.black.default}>
         {bookmarkedPlans.map((plan, index) => (
           <TouchableOpacity onPress={() => togglePlanInfoPageVisibility(plan)}>
             <BookmarkedTabs
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
     alignItems: "center",
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
   },
 });
 

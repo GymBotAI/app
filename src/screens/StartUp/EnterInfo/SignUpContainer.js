@@ -214,7 +214,7 @@ const styles = StyleSheet.create({
     width: "100%",
     backgroundColor: "magenta",
     borderRadius: 8,
-    shadowColor: "black",
+    shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.2,
     shadowRadius: 2,

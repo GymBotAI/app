@@ -1,9 +1,12 @@
-import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-import BuildMuscle from "./BuildMuscle";
+import { colors } from "../../../components/styles";
 
-const GoalSelector = ({ selectedGoal, setSelectedGoal, setGoalText }) => {
+export default function GoalSelector({
+  selectedGoal,
+  setSelectedGoal,
+  setGoalText,
+}) {
   const handleWorkoutSelection = (workoutType) => {
     setSelectedGoal(workoutType);
     if (workoutType === "Build Muscle") {
@@ -18,7 +21,10 @@ const GoalSelector = ({ selectedGoal, setSelectedGoal, setGoalText }) => {
   const getButtonStyle = (workoutType) => {
     return {
       ...styles.button,
-      backgroundColor: selectedGoal === workoutType ? "orange" : "white",
+      backgroundColor:
+        selectedGoal === workoutType
+          ? colors.orange.default
+          : colors.white.default,
     };
   };
 
@@ -65,7 +71,7 @@ const GoalSelector = ({ selectedGoal, setSelectedGoal, setGoalText }) => {
       </View>
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
   title: {
@@ -82,7 +88,7 @@ const styles = StyleSheet.create({
   },
   button: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
     paddingVertical: 15,
     paddingHorizontal: 10,
     borderRadius: 8,
@@ -90,11 +96,9 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   buttonText: {
-    color: "magenta",
+    color: colors.black.lightest,
     fontSize: 18,
     fontWeight: "normal",
     textAlign: "center",
   },
 });
-
-export default GoalSelector;

@@ -55,7 +55,7 @@ export default function MainHeader({ text, minitext }) {
                 fontFamily: "roboto-black",
                 letterSpacing: 1.5,
                 marginBottom: -5,
-                shadowColor: "black",
+                shadowColor: colors.black.default,
                 shadowOffset: { width: 0, height: 2 },
                 shadowOpacity: 0.3,
                 shadowRadius: 4,

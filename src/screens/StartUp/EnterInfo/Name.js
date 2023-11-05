@@ -32,7 +32,7 @@ export default function Name({ onNameChange, name, setName }) {
       <TextInput
         style={{
           height: 40,
-          borderColor: "black",
+          borderColor: colors.black.default,
           marginTop: 30,
           fontSize: 18,
           borderBottomWidth: 2,

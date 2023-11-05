@@ -55,7 +55,7 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
             paddingVertical: 6,
             maxWidth: "80%", // Limit the message width
             marginRight: -10,
-            shadowColor: "black",
+            shadowColor: colors.black.default,
             shadowOffset: { width: 0, height: 1 },
             shadowOpacity: 0.05,
             shadowRadius: 1,

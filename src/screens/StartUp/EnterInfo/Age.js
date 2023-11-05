@@ -76,7 +76,7 @@ export default function Age({ onAgeChange, ageVal, setAgeVal }) {
 const styles = StyleSheet.create({
   input: {
     height: 40,
-    borderColor: "black",
+    borderColor: colors.black.default,
     marginTop: 20,
     fontSize: 18,
     borderBottomWidth: 2,

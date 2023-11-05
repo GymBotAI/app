@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
-import { Feather } from "@expo/vector-icons";
+import { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-let index = 0;
+import { colors } from "../../../components/styles";
 
 const SportsSpecific = ({ setGoalText, setInputFilled }) => {
   const [selectedSport, setSelectedSport] = useState("");
@@ -16,7 +15,8 @@ const SportsSpecific = ({ setGoalText, setInputFilled }) => {
   const getButtonStyle = (option) => {
     return {
       ...styles.dropdownButton,
-      backgroundColor: selectedSport === option ? "orange" : "white",
+      backgroundColor:
+        selectedSport === option ? "orange" : colors.white.default,
     };
   };
 
@@ -89,7 +89,6 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginHorizontal: 20,
     // flex: 1,
-    backgroundColor: "magenta",
   },
   title: {
     fontSize: 24,
@@ -97,7 +96,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   dropdownButton: {
-    backgroundColor: "white",
+    backgroundColor: colors.white.default,
     paddingVertical: 15,
     paddingHorizontal: 10,
     borderRadius: 8,
@@ -105,7 +104,7 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   dropdownButtonText: {
-    color: "magenta",
+    color: colors.black.lightest,
     fontSize: 18,
     fontWeight: "normal",
     textAlign: "center",
@@ -113,7 +112,7 @@ const styles = StyleSheet.create({
   dropdownOptions: {
     marginTop: 5,
     width: "100%",
-    backgroundColor: "magenta",
+    backgroundColor: colors.grey.lightest,
     borderRadius: 8,
     paddingHorizontal: 10,
   },

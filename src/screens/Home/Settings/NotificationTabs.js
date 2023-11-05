@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
   },
   description: {
-    color: "black",
+    color: colors.black.default,
     fontSize: 16,
   },
 });
