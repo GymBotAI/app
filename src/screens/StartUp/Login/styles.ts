@@ -1,5 +1,7 @@
 import { StyleSheet } from "react-native";
 
+import { colors } from "../../../components/styles";
+
 //------------------ BOX STYLES ------------------//
 
 export const bVal = {
