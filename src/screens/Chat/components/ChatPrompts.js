@@ -1,6 +1,9 @@
-import { Text, View, TouchableOpacity } from "react-native";
-import * as Font from "expo-font";
 import { useEffect, useState } from "react";
+import { Text, View, TouchableOpacity } from "react-native";
+
+import { colors } from "../../../components/styles";
+
+import * as Font from "expo-font";
 
 const styles = {
   buttonContainer: {
