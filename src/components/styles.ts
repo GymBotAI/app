@@ -29,11 +29,6 @@ export const maxHeight = 250;
 export const minWeight = 30;
 export const maxWeight = 500;
 
-export const maxDate = new Date();
-maxDate.setFullYear(maxDate.getFullYear() - 12);
-
-export const minDate = new Date(1900, 0, 1);
-
 export const buttonStyles = StyleSheet.create({
   button: {
     position: "absolute",

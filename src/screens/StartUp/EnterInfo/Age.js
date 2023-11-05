@@ -1,7 +1,10 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { TextInput, View, StyleSheet, Pressable, Text } from "react-native";
+
+import { colors } from "../../../components/styles";
+import { minDate, maxDate } from "../../../consts";
+
 import DateTimePicker from "@react-native-community/datetimepicker";
-import { minDate, maxDate } from "../../../components/styles";
 
 export let dateValue = new Date(); // Initialize ageValue as an empty string
 
@@ -66,8 +69,8 @@ export default function Age({ onAgeChange, ageVal, setAgeVal }) {
         display="spinner"
         value={date}
         onChange={onChange}
-        minimumDate={minDate} // Replace with your minimum date
-        maximumDate={maxDate} // Set the maximum date to today's date minus 12 years
+        minimumDate={minDate}
+        maximumDate={maxDate}
       />
     </View>
   );
@@ -85,7 +88,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
   },
   error: {
-    color: "red",
+    color: colors.red.default,
     marginHorizontal: 10,
     marginTop: 5,
   },
