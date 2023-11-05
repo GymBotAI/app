@@ -53,7 +53,7 @@ export default function App() {
           }
         });
     }
-  }, []);
+  }, [session]);
 
   if (loading) {
     return null;
