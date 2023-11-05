@@ -114,7 +114,7 @@ export default function Settings({
       <Button
         title="Go back"
         onPress={() => {
-          navigation.navigate("Home");
+          navigation.goBack();
         }}
       />
     </Pressable>
