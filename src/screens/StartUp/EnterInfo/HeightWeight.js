@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState } from "react";
 import {
   TextInput,
   View,
@@ -6,6 +6,9 @@ import {
   TouchableOpacity,
   Text,
 } from "react-native";
+
+import { colors } from "../../../components/styles";
+
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
 
