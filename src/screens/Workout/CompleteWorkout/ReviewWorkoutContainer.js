@@ -1,21 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   View,
   Text,
-  Image,
   TouchableOpacity,
   StyleSheet,
-  SafeAreaView,
   ScrollView,
   TextInput,
-  Button,
 } from "react-native";
 
 // import ScreenHeader from "../../ScreenHeader";
 import ReviewHeader from "./ReviewHeader";
 import { Entypo } from "@expo/vector-icons";
 
-import { buttonStyles } from "../../../components/styles";
+import { buttonStyles } from "$components/styles";
 
 export default function ReviewWorkoutContainer({
   selectedExercises,
