@@ -9,6 +9,9 @@ export default plans = [
       ["Day 1", "Situps X 10 \nRest time 30s"],
       ["Day 1", "Situps X 10 \nRest time 30s"],
       ["Day 1", "Situps X 10 \nRest time 30s"],
+      ["Day 1", "Situps X 10 \nRest time 30s"],
+      ["Day 1", "Situps X 10 \nRest time 30s"],
+      ["Day 1", "Situps X 10 \nRest time 30s"],
     ],
     added: false,
     bookmarked: true,
@@ -17,7 +20,7 @@ export default plans = [
   {
     name: "Beat Your Pr",
     length: 8,
-    data: ["Hey"],
+    data: [["Hey"]],
     added: false,
     bookmarked: true,
     image: require("$assets/accountbgdark.jpg"),

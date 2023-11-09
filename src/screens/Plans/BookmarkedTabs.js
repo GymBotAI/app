@@ -22,8 +22,8 @@ export default function BookmarkedTabs({ text, length, imageSource, data }) {
 const styles = StyleSheet.create({
   rectangle: {
     width: "80%",
-    backgroundColor: "magenta",
-    borderRadius: 10,
+    backgroundColor: colors.grey.default,
+    borderRadius: 15,
     marginVertical: 10,
     alignItems: "center",
     alignSelf: "center",

@@ -32,8 +32,8 @@ export default function PlanFinder({ onPlanInfoPageVisibilityChange }) {
   );
 
   const togglePlanInfoPageVisibility = (plan) => {
-    setPlanInfoPageVisibility(!PlanInfoPageVisibility);
     setPlanInfo(plan);
+    setPlanInfoPageVisibility(!PlanInfoPageVisibility);
     onPlanInfoPageVisibilityChange(!PlanInfoPageVisibility);
   };
 
