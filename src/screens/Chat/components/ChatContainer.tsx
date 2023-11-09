@@ -1,23 +1,19 @@
-import {
-  useState,
-  useRef,
-  useCallback,
-  useContext,
-  type MutableRefObject,
-} from "react";
-import { View, KeyboardAvoidingView } from "react-native";
+import type { MutableRefObject } from "react";
+import type { ReadyState } from "react-use-websocket";
+import type { SetValueRef } from "./ChatInput";
 
+import { useCallback, useContext, useRef, useState } from "react";
+import { KeyboardAvoidingView, View } from "react-native";
+
+import { useGymBotAI } from "$api/chat";
 import { AppContext } from "$context";
-
-import * as Device from "expo-device";
-
-import ChatMessages from "./ChatMessages";
-import ChatInput, { type SetValueRef } from "./ChatInput";
 
 import { colors } from "$styles";
 
-import { useGymBotAI } from "$api/chat";
-import type { ReadyState } from "react-use-websocket";
+import ChatInput from "./ChatInput";
+import ChatMessages from "./ChatMessages";
+
+import * as Device from "expo-device";
 
 export type ChatContainerRef = MutableRefObject<null | {
   clear: () => void;
