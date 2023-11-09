@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, View } from "react-native";
 
+import { maxHeight, maxWeight, minHeight, minWeight } from "$components/styles";
 import HeightWeight from "./HeightWeight";
-
-import { minHeight } from "$components/styles";
-import { maxHeight } from "$components/styles";
-import { minWeight } from "$components/styles";
-import { maxWeight } from "$components/styles";
 
 export let weightVal = ""; // Initialize ageValue as an empty string
 export let wUnit = "";
