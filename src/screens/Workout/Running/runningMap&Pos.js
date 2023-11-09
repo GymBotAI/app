@@ -1,8 +1,10 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { StyleSheet } from "react-native";
-import MapView, { Marker, Polyline } from "react-native-maps";
-import * as Location from "expo-location";
+
 import getDistanceFromLatLonInKm from "./getDistanceInKM";
+
+import * as Location from "expo-location";
+import MapView, { Marker, Polyline } from "react-native-maps";
 
 export default function MapAndPos({
   updateTotalDistance,
