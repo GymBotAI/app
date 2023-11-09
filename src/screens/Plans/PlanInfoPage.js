@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  View,
-  StyleSheet,
   Dimensions,
-  TouchableOpacity,
-  Text,
   ImageBackground,
   ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 import { colors } from "$styles";
