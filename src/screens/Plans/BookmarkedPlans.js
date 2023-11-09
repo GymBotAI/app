@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { View, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
+import { ScrollView, StyleSheet, TouchableOpacity, View } from "react-native";
 
 import { colors } from "$styles";
 
 import BookmarkedTabs from "./BookmarkedTabs";
-import plans from "./plans";
 import PlanInfoPage from "./PlanInfoPage";
+import plans from "./plans";
 
 export default function BookmarkedPage({ onPlanInfoPageVisibilityChange }) {
   const [PlanInfoPageVisibility, setPlanInfoPageVisibility] = useState(false);
