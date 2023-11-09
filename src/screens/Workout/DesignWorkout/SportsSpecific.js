@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 const SportsSpecific = ({ setGoalText, setInputFilled }) => {
   const [selectedSport, setSelectedSport] = useState("");
