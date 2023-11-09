@@ -1,17 +1,15 @@
-import { useState, useEffect } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useEffect, useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { colors } from "$styles";
 
+import ScreenHeader from "$components/ScreenHeader";
+import { bothExercises, lowerExercises, upperExercises } from "./data";
 import ExerciseSelectionScreen from "./ExerciseSelection";
 import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
 
-import { upperExercises, lowerExercises, bothExercises } from "./data";
-
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-
-import ScreenHeader from "$components/ScreenHeader";
 
 let exercisesToDisplay = [];
 
