@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 import ExerciseSelectionScreen from "./ExerciseSelection";
 import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
@@ -11,7 +11,7 @@ import { upperExercises, lowerExercises, bothExercises } from "./data";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
-import ScreenHeader from "../../../components/ScreenHeader";
+import ScreenHeader from "$components/ScreenHeader";
 
 let exercisesToDisplay = [];
 
@@ -62,7 +62,7 @@ export default function CompleteDesignContainer({ route, navigation }) {
                 style={styles.chatBox}
               >
                 <Image
-                  source={require("../../../../assets/circleicon.png")}
+                  source={require("$assets/circleicon.png")}
                   style={{
                     width: 60,
                     height: 60,
