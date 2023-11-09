@@ -9,14 +9,14 @@ import {
   StatusBar,
 } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
-import { AppContext } from "../../../context";
+import { AppContext } from "$context";
 
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
 
-import type { NavigationProp } from "../../../types/navigation";
+import type { NavigationProp } from "$types/navigation";
 
 //------------ Components ------------//
 import SlideItem from "./SlideItem";
@@ -29,20 +29,20 @@ import { Box, bVal } from "./styles";
 
 const backgroundImages = [
   {
-    img: require("../../../../assets/caresoul2.webp"),
-    img2: require("../../../../assets/phone1.jpg"),
+    img: require("$assets/caresoul2.webp"),
+    img2: require("$assets/phone1.jpg"),
   },
   {
-    img: require("../../../../assets/caresoul3.webp"),
-    img2: require("../../../../assets/phone2.jpg"),
+    img: require("$assets/caresoul3.webp"),
+    img2: require("$assets/phone2.jpg"),
   },
   {
-    img: require("../../../../assets/caresoul1.jpeg"),
-    img2: require("../../../../assets/phone3.jpeg"),
+    img: require("$assets/caresoul1.jpeg"),
+    img2: require("$assets/phone3.jpeg"),
   },
   {
-    img: require("../../../../assets/caresoul4.webp"),
-    img2: require("../../../../assets/phone4.jpg"),
+    img: require("$assets/caresoul4.webp"),
+    img2: require("$assets/phone4.jpg"),
   },
 ];
 
