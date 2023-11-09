@@ -1,4 +1,4 @@
-import { StyleSheet, Animated, View, Dimensions } from "react-native";
+import { Animated, Dimensions, StyleSheet, View } from "react-native";
 
 import { colors } from "$styles";
 
