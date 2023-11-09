@@ -1,14 +1,14 @@
 import { useRef, useState, useEffect, useLayoutEffect } from "react";
 import { Keyboard, View, ScrollView } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 import * as Device from "expo-device";
 
 import ChatMessage from "./ChatMessage";
 import Prompts from "./ChatPrompts";
 
-import { Goals } from "../../StartUp/EnterInfo/GoalSelect";
+import { Goals } from "$screens/StartUp/EnterInfo/GoalSelect";
 
 export default function ChatMessages({
   messages,
