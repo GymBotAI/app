@@ -1,24 +1,24 @@
-import { useRef, useState, useEffect } from "react";
+import type { RouteProp } from "@react-navigation/native";
+import type { NavigationProp, NavigationScreens } from "$types/navigation";
+
+import { useEffect, useRef, useState } from "react";
 import {
   Alert,
-  View,
+  Button,
   StyleSheet,
   Text,
   TouchableOpacity,
-  Button,
+  View,
 } from "react-native";
 
 import { supabase } from "$api/supabase";
 
 import { colors } from "$styles";
 
-import { FontAwesome5 } from "@expo/vector-icons";
-
 import EditSettings from "./EditSettings";
 import Notifications from "./Notifications";
 
-import type { NavigationProp, NavigationScreens } from "$types/navigation";
-import type { RouteProp } from "@react-navigation/native";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function Settings({
   navigation,
