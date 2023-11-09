@@ -21,9 +21,9 @@ export default function PlanInfoPage({ onClose, plan, image }) {
          <Text style={styles.closeButtonText}>X</Text>
        </TouchableOpacity>
        <TouchableOpacity style={styles.bookmarkButton}>
-         <FontAwesome5 name="bookmark" color={colors.orange} />
+         <FontAwesome5 name="bookmark" color="orange" />
        </TouchableOpacity>
-       <ScrollView style={styles.scrollView}>
+       <ScrollView style={styles.scrollView} contentContainerStyle={{ paddingBottom: 130 }}>
          <Text style={styles.planName}>{plan.name}</Text>
          <Text style={styles.planLength}>{plan.length} days</Text>
          {plan.data && Array.isArray(plan.data) ? (
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   },
   planLength: {
     position: "absolute",
-    top: "6%",
+    top: "4%",
     fontWeight: "bold",
     fontSize: 15,
     color: colors.grey.lighter,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   },
   planName: {
     position: "absolute",
-    top: "5%",
+    top: "3%",
     left: 0,
     right: 0,
     fontWeight: "bold",
@@ -117,7 +117,7 @@ const styles = StyleSheet.create({
   },
   blueButton: {
     position: "absolute",
-    bottom: 60,
+    bottom: 75,
     left: windowWidth * 0.05,
     width: "90%",
     height: 50,
