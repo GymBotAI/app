@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 import { Image } from "expo-image";
 
@@ -13,7 +13,7 @@ const WorkoutBoxLarge = () => {
         onPress={() => console.log("Workout of the Day pressed!")}
       >
         <Image
-          source={require("../../../../assets/ingymbg.jpg")}
+          source={require("$assets/ingymbg.jpg")}
           style={{
             width: "100%",
             height: "100%",
