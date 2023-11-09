@@ -9,24 +9,16 @@ import {
   Button,
 } from "react-native";
 
-import { AppContext } from "../../../context";
+import { AppContext } from "$context";
 
-import { colors } from "../../../components/styles";
-import { updateUserData } from "../../../api/supabase";
+import { colors } from "$styles";
+import { updateUserData } from "$api/supabase";
 
 import Option from "./Option";
 
-import {
-  minHeight,
-  maxHeight,
-  minWeight,
-  maxWeight,
-} from "../../../consts/userData";
+import { minHeight, maxHeight, minWeight, maxWeight } from "$consts/userData";
 
-import type {
-  NavigationProp,
-  NavigationScreens,
-} from "../../../types/navigation";
+import type { NavigationProp, NavigationScreens } from "$types/navigation";
 
 export default function Settings({
   navigation,
