@@ -1,35 +1,31 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
-  Text,
-  TouchableOpacity,
-  StyleSheet,
-  StatusBar,
   Animated,
   Keyboard,
-  TouchableWithoutFeedback,
   KeyboardAvoidingView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
 } from "react-native";
 
 import { colors } from "$styles";
+
 import { Box } from "./.styles";
-
-import * as Device from "expo-device";
-
-import { useFonts } from "expo-font";
-
-import { ageVal } from "./Age.js";
-import { genderVal } from "./Gender.js";
-import { dateValue } from "./Age.js";
-import { weightVal, wUnit } from "./HeightWeightContainer.js";
-import { heightVal, hUnit } from "./HeightWeightContainer.js";
-
+import Age from "./Age";
+import { ageVal, dateValue } from "./Age.js";
 import username from "./Credentials";
 import password from "./Credentials";
-import Name from "./Name";
-import Age from "./Age";
 import Gender from "./Gender";
-import HeightWeightContainer from "./HeightWeightContainer";
+import { genderVal } from "./Gender.js";
 import Goals from "./Goals";
+import HeightWeightContainer from "./HeightWeightContainer";
+import { heightVal, hUnit, weightVal, wUnit } from "./HeightWeightContainer.js";
+import Name from "./Name";
+
+import * as Device from "expo-device";
+import { useFonts } from "expo-font";
 
 let inputOption = null;
 
