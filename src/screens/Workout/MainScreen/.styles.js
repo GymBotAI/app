@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 //------------------ BOX STYLES ------------------//
 
