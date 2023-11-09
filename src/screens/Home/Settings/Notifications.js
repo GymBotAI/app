@@ -1,18 +1,18 @@
 import {
-  View,
-  StyleSheet,
-  Modal,
   Dimensions,
-  TouchableOpacity,
-  Text,
+  Modal,
   ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 import { colors } from "$styles";
 
-import { FontAwesome5 } from "@expo/vector-icons";
-
 import NotificationsTab from "./NotificationTabs";
+
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function Notifications({
   isVisible,
