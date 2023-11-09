@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, Image } from "react-native";
 
-import { colors } from "../../components/styles";
+import { colors } from "$styles";
 
 export default function BookmarkedTabs({ text, length, imageSource, data }) {
   return (
