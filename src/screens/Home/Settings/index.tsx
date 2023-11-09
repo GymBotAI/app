@@ -8,19 +8,16 @@ import {
   Button,
 } from "react-native";
 
-import { supabase } from "../../../api/supabase";
+import { supabase } from "$api/supabase";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
 import EditSettings from "./EditSettings";
 import Notifications from "./Notifications";
 
-import type {
-  NavigationProp,
-  NavigationScreens,
-} from "../../../types/navigation";
+import type { NavigationProp, NavigationScreens } from "$types/navigation";
 import type { RouteProp } from "@react-navigation/native";
 
 export default function Settings({
