@@ -8,7 +8,7 @@ import {
   Keyboard,
 } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 import * as Font from "expo-font";
 
@@ -39,7 +39,7 @@ export default function ChatInput({
   // Load font
   useEffect(() => {
     Font.loadAsync({
-      "roboto-regular": require("../../../../assets/fonts/Roboto-Regular.ttf"),
+      "roboto-regular": require("$assets/fonts/Roboto-Regular.ttf"),
     }).then(() => {
       setFontLoaded(true);
     });
@@ -120,7 +120,7 @@ export default function ChatInput({
         onPress={handleOnSubmit}
       >
         <Image
-          source={require("../../../../assets/send.png")}
+          source={require("$assets/send.png")}
           style={{ height: 22, width: 22 }}
         />
       </TouchableOpacity>
