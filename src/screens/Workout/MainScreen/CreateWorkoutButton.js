@@ -1,10 +1,15 @@
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 import { colors } from "$styles";
 
-import { LinearGradient } from "expo-linear-gradient";
 import { AntDesign } from "@expo/vector-icons";
-import { Dimensions } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 
 export default function CreateWorkoutButton({ handleAddWorkout }) {
   const { width, height } = Dimensions.get("window");
