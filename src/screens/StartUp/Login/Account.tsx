@@ -1,23 +1,23 @@
+import type { User } from "@supabase/supabase-js";
+
 import { useState } from "react";
 import {
-  View,
+  Keyboard, // Import Keyboard
+  StyleSheet,
+  Text,
   TextInput,
   TouchableOpacity,
-  Text,
-  StyleSheet,
   TouchableWithoutFeedback,
-  Keyboard, // Import Keyboard
+  View,
 } from "react-native";
+
+import { login, signup } from "$api/auth";
 
 import { colors } from "$styles";
 
+import { aVal, Login } from "./styles";
+
 import { Image } from "expo-image";
-
-import { Login, aVal } from "./styles";
-import { login } from "$api/auth";
-import { signup } from "$api/auth";
-
-import type { User } from "@supabase/supabase-js";
 
 export default function LoginBox({
   onAccount,
