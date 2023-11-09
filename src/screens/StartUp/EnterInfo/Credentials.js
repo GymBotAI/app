@@ -1,5 +1,5 @@
-import React, { useState, useRef, useEffect } from "react";
-import { TextInput, View, KeyboardAvoidingView, Text } from "react-native";
+import React, { useEffect, useRef, useState } from "react";
+import { KeyboardAvoidingView, Text, TextInput, View } from "react-native";
 
 export let username = "";
 export let password = "";
