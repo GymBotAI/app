@@ -1,21 +1,21 @@
+// Food data
+import type { FoodCategory } from "./types";
+
 import {
-  View,
-  Text,
-  TouchableOpacity,
-  StyleSheet,
   Modal,
   ScrollView,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
-import { colors } from "$styles";
 import { transparent } from "$utils/colors";
 
-// Food data
+import { colors } from "$styles";
+
 import { foodCategories } from "./data";
-
 import FoodInfoTabs from "./FoodInfoTabs";
-
-import type { FoodCategory } from "./types";
 
 export default function FoodDatabaseWindow({
   category,
