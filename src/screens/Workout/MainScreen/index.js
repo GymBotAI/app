@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { View, ScrollView, TouchableOpacity, Text } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
-//---------- Components ----------//
-import CreateWorkoutButton from "./CreateWorkoutButton";
-import WorkoutList from "./WorkoutList";
-import TalkToGymBotSection from "./TalkToGymBot";
-import RunningPage from "../Running/RunningPage";
 import ScreenHeader from "$components/ScreenHeader";
-
+import RunningPage from "../Running/RunningPage";
 //---------- Styles ----------//
 import { Box } from "./.styles";
+//---------- Components ----------//
+import CreateWorkoutButton from "./CreateWorkoutButton";
+import TalkToGymBotSection from "./TalkToGymBot";
+import WorkoutList from "./WorkoutList";
 
 export default function ViewWorkouts({ navigation }) {
   const [showRun, setShowRun] = useState(false);
