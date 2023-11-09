@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet } from "react-native";
 
-import { colors } from "./styles";
+import { colors } from "$styles";
 
 export default function ScreenHeader({ title }: { title: string }) {
   return (
