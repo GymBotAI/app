@@ -1,31 +1,30 @@
-import { useRef, useState, useContext } from "react";
+import type { NavigationProp } from "$types/navigation";
+
+import { useContext, useRef, useState } from "react";
 import {
   Alert,
   Animated,
   FlatList,
+  StatusBar,
+  Text,
   TouchableOpacity,
   View,
-  Text,
-  StatusBar,
 } from "react-native";
-
-import { colors } from "$styles";
 
 import { AppContext } from "$context";
 
-import { Feather } from "@expo/vector-icons";
-import { Image } from "expo-image";
+import { colors } from "$styles";
 
-import type { NavigationProp } from "$types/navigation";
-
+import Account from "./Account";
+import Pagination from "./Pagination";
 //------------ Components ------------//
 import SlideItem from "./SlideItem";
-import Pagination from "./Pagination";
-import Modal from "react-native-modal";
-import Account from "./Account";
-
 //------------ Styles ------------//
 import { Box, bVal } from "./styles";
+
+import { Feather } from "@expo/vector-icons";
+import { Image } from "expo-image";
+import Modal from "react-native-modal";
 
 const backgroundImages = [
   {
