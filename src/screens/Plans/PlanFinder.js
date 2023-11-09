@@ -8,7 +8,7 @@ import {
   View,
 } from "react-native";
 
-import { colors } from "../../components/styles";
+import { colors } from "$styles";
 
 import PlanTabs from "./PlanTabs";
 import plans from "./plans";
@@ -77,7 +77,7 @@ export default function PlanFinder({ onPlanInfoPageVisibilityChange }) {
         <PlanInfoPage
           onClose={() => setPlanInfoPageVisibility(false)}
           plan={planInfo}
-          image={require("../../../assets/accountbgdark.jpg")}
+          image={require("$assets/accountbgdark.jpg")}
         />
       )}
     </View>
