@@ -1,19 +1,19 @@
-import { useState, useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
-  View,
-  StyleSheet,
-  Modal,
-  Dimensions,
-  TouchableOpacity,
-  Text,
   Alert,
+  Dimensions,
+  Modal,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 import { colors } from "$styles";
 
-import { FontAwesome5 } from "@expo/vector-icons";
-
 import MapAndPos from "./runningMap&Pos";
+
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function CustomPage({ isVisible, onClose }) {
   const [kilometers, setKilometers] = useState(0);
