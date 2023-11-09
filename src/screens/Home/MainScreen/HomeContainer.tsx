@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import { AppContext } from "../../../context";
+import { AppContext } from "$context";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
@@ -18,7 +18,7 @@ import WorkoutStats from "./WorkoutStats";
 import WorkoutList from "./WorkoutList";
 import WorkoutPreview from "./WorkoutPreview";
 
-import type { NavigationProp } from "../../../types/navigation";
+import type { NavigationProp } from "$types/navigation";
 
 export default function Home({ navigation }: { navigation: NavigationProp }) {
   const { userData } = useContext(AppContext);
