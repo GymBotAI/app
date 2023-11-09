@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 export default function BuildMuscle({
   setGoalText,
