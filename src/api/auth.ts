@@ -1,7 +1,7 @@
+import type { User } from "@supabase/supabase-js";
+
 import { debugLogs } from "./debug-logs";
 import { supabase } from "./supabase";
-
-import type { User } from "@supabase/supabase-js";
 
 /**
  * Whether or not to log debug messages.
