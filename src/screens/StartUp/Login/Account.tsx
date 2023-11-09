@@ -73,6 +73,7 @@ export default function LoginBox({
           placeholder="Email"
           placeholderTextColor={aVal.placeholder}
           value={email}
+          keyboardType='email-address'
           onChangeText={setEmail}
           autoCapitalize="none"
         />
