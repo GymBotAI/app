@@ -6,7 +6,7 @@ import CreateWorkoutButton from "./CreateWorkoutButton";
 import WorkoutList from "./WorkoutList";
 import TalkToGymBotSection from "./TalkToGymBot";
 import RunningPage from "../Running/RunningPage";
-import ScreenHeader from "../../../components/ScreenHeader";
+import ScreenHeader from "$components/ScreenHeader";
 
 //---------- Styles ----------//
 import { Box } from "./.styles";
