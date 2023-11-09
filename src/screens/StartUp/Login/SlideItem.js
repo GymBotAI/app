@@ -6,7 +6,7 @@ import {
   ImageBackground,
 } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 import { LinearGradient } from "expo-linear-gradient"; // Import the LinearGradient component from Expo
 
