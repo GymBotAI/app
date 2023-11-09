@@ -1,18 +1,18 @@
-import { useState, useEffect } from "react";
+import type { MutableRefObject } from "react";
+
+import { useEffect, useState } from "react";
 import {
-  Text,
-  TextInput,
-  View,
-  TouchableOpacity,
   Image,
   Keyboard,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 import { colors } from "$styles";
 
 import * as Font from "expo-font";
-
-import type { MutableRefObject } from "react";
 
 export type SetValueRef = MutableRefObject<{
   setText: (text: string) => void;
