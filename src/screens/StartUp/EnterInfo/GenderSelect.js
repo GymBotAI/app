@@ -1,6 +1,6 @@
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 import { Image } from "expo-image";
 
