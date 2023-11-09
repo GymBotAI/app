@@ -7,15 +7,15 @@ import {
   ScrollView,
 } from "react-native";
 
-import { colors } from "../../components/styles";
-import { transparent } from "../../utils/colors";
+import { colors } from "$styles";
+import { transparent } from "$utils/colors";
 
 // Food data
 import { foodCategories } from "./data";
 
 import FoodInfoTabs from "./FoodInfoTabs";
 
-import type { Food, FoodCategory } from "./types";
+import type { FoodCategory } from "./types";
 
 export default function FoodDatabaseWindow({
   category,
