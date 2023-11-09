@@ -1,10 +1,10 @@
 import { useState, useEffect, useCallback, useContext } from "react";
 import useWebSocket from "react-use-websocket";
 
-import { AppContext } from "../context";
+import { AppContext } from "$context";
 
-import { debugLogs } from "./debug-logs";
-import { wsServerAddr } from "./address";
+import { debugLogs } from "$api/debug-logs";
+import { wsServerAddr } from "$api/address";
 
 /**
  * The token that the server sends to indicate
