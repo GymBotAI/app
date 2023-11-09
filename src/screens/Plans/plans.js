@@ -12,7 +12,7 @@ export default plans = [
     ],
     added: false,
     bookmarked: true,
-    image: require("../../../assets/accountbgdark.jpg"),
+    image: require("$assets/accountbgdark.jpg"),
   },
   {
     name: "Beat Your Pr",
@@ -20,13 +20,13 @@ export default plans = [
     data: ["Hey"],
     added: false,
     bookmarked: true,
-    image: require("../../../assets/accountbgdark.jpg"),
+    image: require("$assets/accountbgdark.jpg"),
   },
   {
     name: "Rectangle 3",
     length: 3,
     added: false,
     bookmarked: false,
-    image: require("../../../assets/accountbgdark.jpg"),
+    image: require("$assets/accountbgdark.jpg"),
   },
 ];
