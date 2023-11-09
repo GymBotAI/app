@@ -10,6 +10,9 @@ npm-debug.*
 *.orig.*
 web-build/
 
+# 😉
+/commitOneByOne.sh
+
 # macOS
 .DS_Store
 
