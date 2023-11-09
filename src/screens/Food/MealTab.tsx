@@ -1,14 +1,13 @@
+// Food data
+import type { Food, FoodCategory } from "./types";
+
 import { useEffect, useState } from "react";
-import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { colors } from "$styles";
 
-// Food data
 import { foodCategories, foods } from "./data";
-
 import FoodDatabaseWindow from "./FoodDatabaseWindow";
-
-import type { Food, FoodCategory } from "./types";
 
 function calculateTotalCalories(foodIds: number[]) {
   return foodIds.reduce((total, foodId) => {
