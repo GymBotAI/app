@@ -11,7 +11,7 @@ import {
   StatusBar,
 } from "react-native";
 
-import { colors } from "../../components/styles";
+import { colors } from "$styles";
 
 // Food data
 import { foodCategories } from "./data";
@@ -19,7 +19,7 @@ import { foodCategories } from "./data";
 import { FontAwesome5 } from "@expo/vector-icons";
 import ProgressCircle from "react-native-progress-circle";
 
-import ScreenHeader from "../../components/ScreenHeader";
+import ScreenHeader from "$components/ScreenHeader";
 import MealTab from "./MealTab";
 
 import type { Food, FoodCategory } from "./types";
