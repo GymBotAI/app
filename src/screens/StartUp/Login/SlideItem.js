@@ -1,9 +1,9 @@
 import {
+  Dimensions,
   Image,
+  ImageBackground,
   StyleSheet,
   View,
-  Dimensions,
-  ImageBackground,
 } from "react-native";
 
 import { colors } from "$styles";
