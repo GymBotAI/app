@@ -1,16 +1,17 @@
 import { useState } from "react";
 import {
-  TextInput,
-  View,
   StyleSheet,
-  TouchableOpacity,
   Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
+
+import { Picker } from "@react-native-picker/picker";
 
 import { colors } from "$styles";
 
 import Modal from "react-native-modal";
-import { Picker } from "@react-native-picker/picker";
 
 function generateWeightOptions(start, end, step) {
   const options = [];
