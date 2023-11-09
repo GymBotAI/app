@@ -1,28 +1,26 @@
-import { useState } from "react";
+// Food data
+import type { Food, FoodCategory } from "./types";
 
+import { useState } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
   Dimensions,
-  TouchableWithoutFeedback,
   Keyboard,
   ScrollView,
   StatusBar,
+  StyleSheet,
+  Text,
+  TouchableWithoutFeedback,
+  View,
 } from "react-native";
 
 import { colors } from "$styles";
 
-// Food data
+import ScreenHeader from "$components/ScreenHeader";
 import { foodCategories } from "./data";
+import MealTab from "./MealTab";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 import ProgressCircle from "react-native-progress-circle";
-
-import ScreenHeader from "$components/ScreenHeader";
-import MealTab from "./MealTab";
-
-import type { Food, FoodCategory } from "./types";
 
 export default function Workouts() {
   const screenWidth = Dimensions.get("window").width;
