@@ -1,11 +1,12 @@
-import { View, StatusBar } from "react-native";
+import type { NavigationScreens } from "$types/navigation";
 
-import Workout from "./MainScreen";
-import DesignWorkout from "./DesignWorkout";
-import CompleteWorkout from "./CompleteWorkout";
+import { StatusBar, View } from "react-native";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import type { NavigationScreens } from "$types/navigation";
+
+import CompleteWorkout from "./CompleteWorkout";
+import DesignWorkout from "./DesignWorkout";
+import Workout from "./MainScreen";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
 
