@@ -7,7 +7,7 @@ import {
   ImageBackground,
 } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
@@ -18,37 +18,37 @@ const WorkoutList = ({ navigation }) => {
       id: 1,
       title: "Full Body Workout",
       exercises: ["Push-ups", "Squats", "Burpees"],
-      image: require("../../../../assets/homebgdark.jpg"),
+      image: require("$assets/homebgdark.jpg"),
     },
     {
       id: 2,
       title: "Cardio Blast",
       exercises: ["Jumping Jacks", "High Knees", "Mountain Climbers"],
-      image: require("../../../../assets/accountbgdark.jpg"),
+      image: require("$assets/accountbgdark.jpg"),
     },
     {
       id: 3,
       title: "Leg Day",
       exercises: ["Lunges", "Deadlifts", "Calf Raises"],
-      image: require("../../../../assets/accountbgdark.jpg"),
+      image: require("$assets/accountbgdark.jpg"),
     },
     {
       id: 4,
       title: "Full Body Workout",
       exercises: ["Push-ups", "Squats", "Burpees"],
-      image: require("../../../../assets/accountbgdark.jpg"),
+      image: require("$assets/accountbgdark.jpg"),
     },
     {
       id: 5,
       title: "Cardio Blast",
       exercises: ["Jumping Jacks", "High Knees", "Mountain Climbers"],
-      image: require("../../../../assets/accountbgdark.jpg"),
+      image: require("$assets/accountbgdark.jpg"),
     },
     {
       id: 6,
       title: "Leg Day",
       exercises: ["Lunges", "Deadlifts", "Calf Raises"],
-      image: require("../../../../assets/accountbgdark.jpg"),
+      image: require("$assets/accountbgdark.jpg"),
     },
     // Add more workouts as needed
   ];
