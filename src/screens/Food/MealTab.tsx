@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
-import { colors } from "../../components/styles";
+import { colors } from "$styles";
 
 // Food data
 import { foodCategories, foods } from "./data";
