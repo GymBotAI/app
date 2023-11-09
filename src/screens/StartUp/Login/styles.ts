@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 //------------------ BOX STYLES ------------------//
 
@@ -9,7 +9,7 @@ export const bVal = {
   buttonColor: colors.white.default,
   backOpacity: 0.9,
   backColor: colors.black.lighter,
-  gymBotLogo: require("../../../../assets/GymBotText.png"),
+  gymBotLogo: require("$assets/GymBotText.png"),
 } as const;
 
 const commonButtonStyle = {
