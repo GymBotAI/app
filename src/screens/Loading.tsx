@@ -1,10 +1,10 @@
 import { View, ActivityIndicator } from "react-native";
 
-import { colors } from "../components/styles";
+import { colors } from "$styles";
 
 import { Image } from "expo-image";
 
-const logo = require("../../assets/GymBotLogo.png");
+const logo = require("$assets/GymBotLogo.png");
 
 export default function LoadingScreen() {
   return (
