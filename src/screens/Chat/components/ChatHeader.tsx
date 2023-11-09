@@ -1,9 +1,9 @@
-import { useState, useEffect } from "react";
-import { Text, View, Image } from "react-native";
-
-import * as Font from "expo-font";
+import { useEffect, useState } from "react";
+import { Image, Text, View } from "react-native";
 
 import { colors } from "$styles";
+
+import * as Font from "expo-font";
 
 export default function MainHeader({ text, children }) {
   const [fontLoaded, setFontLoaded] = useState(false);
