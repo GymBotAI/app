@@ -6,10 +6,10 @@
       "$api/*": ["src/api/*"],
       "$components/*": ["src/components/*"],
       "$consts/*": ["src/consts/*"],
-      "$context": ["src/context/index.ts"],
+      "$context": ["src/context"],
       "$context/*": ["src/context/*"],
       "$screens/*": ["src/screens/*"],
-      "$styles": ["src/components/styles.ts"],
+      "$styles": ["src/components/styles"],
       "$types/*": ["src/types/*"],
       "$utils/*": ["src/utils/*"]
     },
