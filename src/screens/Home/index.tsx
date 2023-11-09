@@ -1,10 +1,11 @@
-import { View, StatusBar } from "react-native";
+import type { NavigationScreens } from "$types/navigation";
+
+import { StatusBar, View } from "react-native";
+
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import HomeScreen from "./MainScreen/HomeContainer";
 import Settings from "./Settings";
-
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import type { NavigationScreens } from "$types/navigation";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
 
