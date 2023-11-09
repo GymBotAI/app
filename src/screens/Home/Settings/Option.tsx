@@ -1,10 +1,10 @@
 import { useRef, useState } from "react";
 import {
-  TouchableOpacity,
+  StyleSheet,
   Text,
   TextInput,
+  TouchableOpacity,
   View,
-  StyleSheet,
 } from "react-native";
 
 import { colors } from "$styles";
