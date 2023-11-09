@@ -10,9 +10,9 @@ import {
 
 import { colors } from "$styles";
 
-import PlanTabs from "./PlanTabs";
-import plans from "./plans";
 import PlanInfoPage from "./PlanInfoPage";
+import plans from "./plans";
+import PlanTabs from "./PlanTabs";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
