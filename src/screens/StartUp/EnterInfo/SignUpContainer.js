@@ -10,7 +10,7 @@ import {
   KeyboardAvoidingView,
 } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 import { Box } from "./.styles";
 
 import * as Device from "expo-device";
@@ -35,7 +35,7 @@ let inputOption = null;
 
 export default function SignUpContainer({ navigation }) {
   const [fontsLoaded] = useFonts({
-    "roboto-black": require("../../../../assets/fonts/Roboto-Black.ttf"),
+    "roboto-black": require("$assets/fonts/Roboto-Black.ttf"),
   });
   const [nameVal, setNameVal] = useState("");
   const [dateVal, setDateVal] = useState("");
