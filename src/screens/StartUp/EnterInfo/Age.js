@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { TextInput, View, StyleSheet, Pressable, Text } from "react-native";
 
-import { colors } from "../../../components/styles";
-import { minDate, maxDate } from "../../../consts/userData";
+import { colors } from "$styles";
+import { minDate, maxDate } from "$consts/userData";
 
 import DateTimePicker from "@react-native-community/datetimepicker";
 
