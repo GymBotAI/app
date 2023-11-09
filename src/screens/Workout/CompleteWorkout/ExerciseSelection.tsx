@@ -6,8 +6,8 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-import { colors } from "../../../components/styles";
-import { transparent } from "../../../utils/colors";
+import { colors } from "$styles";
+import { transparent } from "$utils/colors";
 
 import { FontAwesome } from "@expo/vector-icons"; // You may need to import FontAwesome or an appropriate icon library
 
