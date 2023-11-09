@@ -1,20 +1,17 @@
+import type { NavigationScreens } from "$types/navigation";
+
 import { useEffect, useState } from "react";
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import type { NavigationScreens } from "$types/navigation";
-
-// Luis Things
+import { getUserData, supabase } from "$api/supabase";
 import { AppContext } from "$context";
-import { supabase, getUserData } from "$api/supabase";
 
-// StartUp
-import StartUp from "$screens/StartUp/Login";
-import SignUp from "$screens/StartUp/EnterInfo";
-
-import Main from "./src/MainApp";
 import LoadingScreen from "$screens/Loading";
+import SignUp from "$screens/StartUp/EnterInfo";
+import StartUp from "$screens/StartUp/Login";
+import Main from "./src/MainApp";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
 
