@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, StatusBar } from "react-native";
 
-import ScreenHeader from "../../components/ScreenHeader";
+import ScreenHeader from "$components/ScreenHeader";
 
 import PlansContainer from "./PlansContainer";
 
