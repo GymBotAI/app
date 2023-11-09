@@ -5,7 +5,7 @@ import DesignWorkout from "./DesignWorkout";
 import CompleteWorkout from "./CompleteWorkout";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import type { NavigationScreens } from "../../types/navigation";
+import type { NavigationScreens } from "$types/navigation";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
 
