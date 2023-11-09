@@ -1,17 +1,16 @@
-import { useState, useEffect } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useEffect, useState } from "react";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 import { colors } from "$styles";
 
+import ScreenHeader from "$components/ScreenHeader";
+import BodyDefinition from "./BodyDefinition";
+import BuildMuscle from "./BuildMuscle";
+import GoalSelector from "./GoalSelector";
+import SportsSpecific from "./SportsSpecific";
+
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
-
-import BuildMuscle from "./BuildMuscle";
-import BodyDefinition from "./BodyDefinition";
-import SportsSpecific from "./SportsSpecific";
-import GoalSelector from "./GoalSelector";
-
-import ScreenHeader from "$components/ScreenHeader";
 
 export default function WorkoutSelectionScreen({ navigation }) {
   const [selectedGoal, setSelectedGoal] = useState(null);
