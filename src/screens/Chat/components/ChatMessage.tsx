@@ -1,11 +1,11 @@
+import type { JSX } from "react";
+
 import { useEffect, useState } from "react";
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { colors, fontSize } from "$styles";
 
 import * as Font from "expo-font";
-
-import type { JSX } from "react";
 
 const roleIcons = {
   assistant: require("$assets/circleicon.png"),
