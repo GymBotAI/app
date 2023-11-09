@@ -1,4 +1,4 @@
-import { createRef, useState, useEffect } from "react";
+import { createRef, useEffect, useState } from "react";
 import {
   Animated,
   Dimensions,
@@ -7,8 +7,8 @@ import {
   View,
 } from "react-native";
 
-import PlanFinder from "./PlanFinder";
 import BookmarkedPlans from "./BookmarkedPlans";
+import PlanFinder from "./PlanFinder";
 
 const { width } = Dimensions.get("window");
 
