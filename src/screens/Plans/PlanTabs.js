@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   rectangle: {
     width: "80%",
     backgroundColor: colors.grey.lighter,
-    borderRadius: 10,
+    borderRadius: 15,
     marginVertical: 10,
     alignItems: "center",
     alignSelf: "center",

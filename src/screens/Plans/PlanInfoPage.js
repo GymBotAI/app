@@ -22,7 +22,7 @@ export default function PlanInfoPage({ onClose, plan, image }) {
             <Text style={styles.closeButtonText}>X</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.bookmarkButton}>
-            <FontAwesome5 name="bookmark" color="orange" />
+            <FontAwesome5 name="bookmark" color={colors.orange} />
           </TouchableOpacity>
           <Text style={styles.planName}>{plan.name}</Text>
           <Text style={styles.planLength}>{plan.length} days</Text>
@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
     top: "6%",
     fontWeight: "bold",
     fontSize: 15,
-    color: "magenta",
+    color: colors.grey,
     left: 40,
   },
   planName: {
