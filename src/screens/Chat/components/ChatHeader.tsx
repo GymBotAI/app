@@ -3,7 +3,7 @@ import { Text, View, Image } from "react-native";
 
 import * as Font from "expo-font";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 export default function MainHeader({ text, children }) {
   const [fontLoaded, setFontLoaded] = useState(false);
@@ -11,7 +11,7 @@ export default function MainHeader({ text, children }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "clash-grotesk-semibold": require("../../../../assets/fonts/ClashGrotesk-Semibold.ttf"),
+        "clash-grotesk-semibold": require("$assets/fonts/ClashGrotesk-Semibold.ttf"),
       });
 
       setFontLoaded(true);
@@ -52,7 +52,7 @@ export default function MainHeader({ text, children }) {
         }}
       >
         <Image
-          source={require("../../../../assets/circleicon.png")}
+          source={require("$assets/circleicon.png")}
           style={{
             width: 60, // Adjust the size as needed
             height: 60, // Adjust the size as needed
