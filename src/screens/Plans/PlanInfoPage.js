@@ -36,7 +36,7 @@ export default function PlanInfoPage({ onClose, plan, image }) {
              ))}
            </View>
          ) : (
-           <Text style={styles.centeredBox}>No data available</Text>
+           <Text style={styles.error}>No data available</Text>
          )}
        </ScrollView>
      </ImageBackground>
@@ -57,9 +57,13 @@ const styles = StyleSheet.create({
    width: windowWidth,
    height: windowHeight,
  },
+ error: {
+  position: "absolute",
+  top: windowHeight/2-40,
+  left: windowWidth/2-47,
+ },
  scrollView: {
-
-   paddingTop: 0, // Adjust this value based on your design
+   paddingTop: 0,
  },
   closeButton: {
     position: "absolute",
@@ -100,7 +104,7 @@ const styles = StyleSheet.create({
   },
   planLength: {
     position: "absolute",
-    top: "4%",
+    top: 30,
     fontWeight: "bold",
     fontSize: 15,
     color: colors.grey.lighter,
@@ -108,7 +112,7 @@ const styles = StyleSheet.create({
   },
   planName: {
     position: "absolute",
-    top: "3%",
+    top: 27,
     left: 0,
     right: 0,
     fontWeight: "bold",
