@@ -8,7 +8,7 @@ export default function MainHeader({ text, minitext }) {
   useEffect(() => {
     async function loadFont() {
       await Font.loadAsync({
-        "roboto-black": require("../../assets/fonts/Roboto-Black.ttf"),
+        "roboto-black": require("$assets/fonts/Roboto-Black.ttf"),
       });
 
       setFontLoaded(true);
@@ -37,7 +37,7 @@ export default function MainHeader({ text, minitext }) {
       }}
     >
       {/* <Image
-            source={require("../../assets/GymBotLogo.png")}
+            source={require("$assets/GymBotLogo.png")}
             style={{
               width: 65, // Adjust the size as needed
               height: 65, // Adjust the size as needed
@@ -66,7 +66,7 @@ export default function MainHeader({ text, minitext }) {
             </Text> */}
 
         <Image
-          source={require("../../assets/GymBotText.png")}
+          source={require("$assets/GymBotText.png")}
           style={{
             width: 250,
             height: 125,
