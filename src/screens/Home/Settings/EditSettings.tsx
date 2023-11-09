@@ -1,24 +1,23 @@
-import { useState, useContext } from "react";
+import type { NavigationProp, NavigationScreens } from "$types/navigation";
+
+import { useContext, useState } from "react";
 import {
   Alert,
+  Button,
+  Keyboard,
+  Pressable,
+  StyleSheet,
   Text,
   TouchableOpacity,
-  StyleSheet,
-  Pressable,
-  Keyboard,
-  Button,
 } from "react-native";
 
+import { updateUserData } from "$api/supabase";
+import { maxHeight, maxWeight, minHeight, minWeight } from "$consts/userData";
 import { AppContext } from "$context";
 
 import { colors } from "$styles";
-import { updateUserData } from "$api/supabase";
 
 import Option from "./Option";
-
-import { minHeight, maxHeight, minWeight, maxWeight } from "$consts/userData";
-
-import type { NavigationProp, NavigationScreens } from "$types/navigation";
 
 export default function Settings({
   navigation,
