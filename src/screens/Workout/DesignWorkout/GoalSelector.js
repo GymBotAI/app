@@ -1,6 +1,6 @@
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 export default function GoalSelector({
   selectedGoal,
