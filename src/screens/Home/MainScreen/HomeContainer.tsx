@@ -1,24 +1,24 @@
+import type { NavigationProp } from "$types/navigation";
+
 import { useContext } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
-  StatusBar,
   ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
   TouchableOpacity,
+  View,
 } from "react-native";
 
 import { AppContext } from "$context";
 
 import { colors } from "$styles";
 
-import { FontAwesome5 } from "@expo/vector-icons";
-
-import WorkoutStats from "./WorkoutStats";
 import WorkoutList from "./WorkoutList";
 import WorkoutPreview from "./WorkoutPreview";
+import WorkoutStats from "./WorkoutStats";
 
-import type { NavigationProp } from "$types/navigation";
+import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function Home({ navigation }: { navigation: NavigationProp }) {
   const { userData } = useContext(AppContext);
