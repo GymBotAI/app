@@ -11,7 +11,7 @@ npm-debug.*
 web-build/
 
 # 😉
-/commitOneByOne.sh
+/*.ignore.*
 
 # macOS
 .DS_Store
