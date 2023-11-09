@@ -7,7 +7,7 @@ import {
   Text,
 } from "react-native";
 
-import { colors } from "../../../components/styles";
+import { colors } from "$styles";
 
 import Modal from "react-native-modal";
 import { Picker } from "@react-native-picker/picker";
