@@ -3,10 +3,10 @@ import { StyleSheet, View } from "react-native";
 
 import HeightWeight from "./HeightWeight";
 
-import { minHeight } from "../../../components/styles";
-import { maxHeight } from "../../../components/styles";
-import { minWeight } from "../../../components/styles";
-import { maxWeight } from "../../../components/styles";
+import { minHeight } from "$components/styles";
+import { maxHeight } from "$components/styles";
+import { minWeight } from "$components/styles";
+import { maxWeight } from "$components/styles";
 
 export let weightVal = ""; // Initialize ageValue as an empty string
 export let wUnit = "";
