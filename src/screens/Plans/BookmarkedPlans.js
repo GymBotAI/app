@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { View, StyleSheet, ScrollView, TouchableOpacity } from "react-native";
 
-import { colors } from "../../components/styles";
+import { colors } from "$styles";
 
 import BookmarkedTabs from "./BookmarkedTabs";
 import plans from "./plans";
@@ -24,7 +24,7 @@ export default function BookmarkedPage({ onPlanInfoPageVisibilityChange }) {
         <PlanInfoPage
           onClose={() => setPlanInfoPageVisibility(false)}
           plan={PlanInfo}
-          image={require("../../../assets/accountbgdark.jpg")}
+          image={require("$assets/accountbgdark.jpg")}
         />
       )}
       <ScrollView indicatorStyle={colors.black.default}>
