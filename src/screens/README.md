@@ -16,7 +16,9 @@ This folder contains all the screens for the app.
   └ 📄 index.tsx
   ```
   Where `MyNavigator` is a folder containing a `index.tsx` file which exports a navigator component.
-- A navigator shouldn't contain any non-navigation logic or state (maybe there can be exceptions to this rule).
+- A navigator shouldn't contain any non-navigation logic or state[^1]
+
+[^1]: Maybe there can be exceptions to this rule, but please discuss it with the team first.
 
 ## Folder structure
 
