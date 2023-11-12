@@ -13,14 +13,14 @@ The `src/screens/bottom-tabs` folder contains all the screens that are part of t
   - `Home/` (navigator)
     - `Home.tsx` (screen)
     - `Settings/` (screen)
-  - `Plans/`
+  - `Plans/` (screen)
   - `StartUp/`
-    - `EnterInfo`:
+    - `EnterInfo` (screen):
       - Screen where user enters their info (weight, height birthday, etc) after creating an account
-    - `Login`:
+    - `Login` (screen):
       - Screen where users can login or create an account
-  - `Workouts/`
-    - `CompleteWorkout`
-    - `DesignWorkout`
-    - `MainScreen`
-    - `Running`
+  - `Workouts/` (navigator)
+    - `CompleteWorkout` (screen)
+    - `DesignWorkout` (screen)
+    - `MainScreen` (screen)
+    - `Running` (screen?)
