@@ -5,7 +5,7 @@ This folder contains all the screens for the app.
 ## Rules
 
 - Screens may be grouped and nested in folders if they are related to each other.
-- A navigator should be created for each group of screens. A navigator should look like this:
+- A [navigator][1] should be created for each group of screens. A navigator should look like this:
   ```
   🧭 MyNavigator
   ├ 📲 Screen1
@@ -46,3 +46,7 @@ This folder contains all the screens for the app.
 |  🧭   | Navigator   | Folder         |
 |  📂   | Folder      |                |
 |  📄   | File        |                |
+
+<!-- Links -->
+
+[1]: https://reactnavigation.org/docs/nesting-navigators
