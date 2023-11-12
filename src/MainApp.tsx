@@ -1,4 +1,3 @@
-// Icons
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Tab screens
@@ -8,6 +7,7 @@ import Home from "$screens/bottom-tabs/Home";
 import Plans from "$screens/bottom-tabs/Plans";
 import Workouts from "$screens/bottom-tabs/Workouts";
 
+// Icons
 import { FontAwesome5 } from "@expo/vector-icons";
 
 const Tabs = createBottomTabNavigator();
