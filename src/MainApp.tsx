@@ -1,12 +1,12 @@
 // Icons
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import Chat from "./screens/Chat";
-import Food from "./screens/Food";
 // Tab screens
-import Home from "./screens/Home";
-import Plans from "./screens/Plans";
-import Workouts from "./screens/Workout";
+import Chat from "$screens/Chat";
+import Food from "$screens/Food";
+import Home from "$screens/Home";
+import Plans from "$screens/Plans";
+import Workouts from "$screens/Workout";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
