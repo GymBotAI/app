@@ -3,6 +3,8 @@
 This folder contains all the screens for the app.
 Screens may be nested in folders if they are related to each other.
 
+The `src/screens/bottom-tabs` folder contains all the screens that are part of the bottom tab navigator.
+
 ## Screens
 
 - Chat
