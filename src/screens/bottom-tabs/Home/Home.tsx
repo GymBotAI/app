@@ -20,6 +20,8 @@ import WorkoutStats from "./WorkoutStats";
 
 import { FontAwesome5 } from "@expo/vector-icons";
 
+// This is the main screen in the Home tab
+
 export default function Home({ navigation }: { navigation: NavigationProp }) {
   const { userData } = useContext(AppContext);
 
