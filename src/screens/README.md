@@ -37,3 +37,12 @@ This folder contains all the screens for the app.
     ├ 📲 MainScreen          screen
     └ 📲 Running             screen?
 ```
+
+## Emoji key
+
+| Emoji | Description | Type           |
+| :---: | :---------- | :------------- |
+|  📲   | Screen      | File or folder |
+|  🧭   | Navigator   | Folder         |
+|  📂   | Folder      |                |
+|  📄   | File        |                |
