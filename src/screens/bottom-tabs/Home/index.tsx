@@ -4,10 +4,14 @@ import { StatusBar, View } from "react-native";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import HomeScreen from "./MainScreen/HomeContainer";
+import HomeScreen from "./Home";
 import Settings from "./Settings";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
+
+// This is the navigation stack for the Home tab
+// It's a stack navigator because we want to be
+// able to navigate to the Settings screen
 
 export default function Workouts({ navigation }) {
   return (
