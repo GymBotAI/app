@@ -1,28 +1,89 @@
-import type { NavigationScreens } from "$types/navigation";
+import type { NavigationProp } from "$types/navigation";
 
-import { StatusBar, View } from "react-native";
+import { useContext } from "react";
+import {
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { AppContext } from "$context";
 
-import HomeScreen from "./MainScreen/HomeContainer";
-import Settings from "./Settings";
+import { colors } from "$styles";
 
-const Stack = createNativeStackNavigator<NavigationScreens>();
+import WorkoutList from "./WorkoutList";
+import WorkoutPreview from "./WorkoutPreview";
+import WorkoutStats from "./WorkoutStats";
 
-export default function Workouts({ navigation }) {
+import { FontAwesome5 } from "@expo/vector-icons";
+
+export default function Home({ navigation }: { navigation: NavigationProp }) {
+  const { userData } = useContext(AppContext);
+
   return (
-    <View style={{ height: "100%", width: "100%" }}>
-      <Stack.Navigator
-        screenOptions={{
-          animation: "none",
-          headerShown: false, // Hide the default header
-        }}
-      >
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
-        <Stack.Screen name="Settings" component={Settings} />
-      </Stack.Navigator>
+    <View
+      style={{
+        height: "100%",
+        width: "100%",
+      }}
+    >
+      <ScrollView style={styles.container}>
+        {/* Top Section */}
+        <View style={styles.topSection}>
+          <Text style={styles.greetingText}>Hello, {userData.name}</Text>
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate("Settings", userData);
+            }}
+          >
+            <FontAwesome5 name="cog" size={28} color={colors.black.lighter} />
+          </TouchableOpacity>
+        </View>
+
+        <View
+          style={{
+            marginTop: 30,
+            marginBottom: -10,
+            width: "90%",
+            alignSelf: "center",
+          }}
+        >
+          <WorkoutStats
+            completedWorkouts={20}
+            totalWorkouts={30}
+            goalPercentage={66}
+          />
+        </View>
+        {/* <TalkToGymBotSection navigation={navigation}/> */}
+
+        <WorkoutPreview />
+
+        <WorkoutList navigation={navigation} />
+      </ScrollView>
 
       <StatusBar barStyle="dark-content" />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: colors.white.default,
+  },
+  topSection: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 20,
+    marginTop: 60,
+  },
+  greetingText: {
+    fontSize: 28,
+    fontWeight: "bold",
+    color: colors.black.lighter,
+  },
+});
