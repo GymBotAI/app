@@ -1,26 +1,39 @@
-# `src/screens`
+# Screens folder
 
 This folder contains all the screens for the app.
-Screens may be nested in folders if they are related to each other.
 
-The `src/screens/bottom-tabs` folder contains all the screens that are part of the bottom tab navigator.
+## Rules
+
+- Screens may be grouped and nested in folders if they are related to each other.
+- A navigator should be created for each group of screens. A navigator should look like this:
+  ```
+  🧭 MyNavigator
+  ├ 📲 Screen1
+  │ ├ 📂 components
+  │ │ └ 📄 Component1
+  │ └ 📄 index.tsx
+  ├ 📲 Screen2.tsx
+  └ 📄 index.tsx
+  ```
+  Where `MyNavigator` is a folder containing a `index.tsx` file which exports a navigator component.
 
 ## Folder structure
 
-- `src/screens/`
-  - `Chat/` (screen)
-  - `Food/` (screen)
-  - `Home/` (navigator)
-    - `Home.tsx` (screen)
-    - `Settings/` (screen)
-  - `Plans/` (screen)
-  - `StartUp/`
-    - `EnterInfo` (screen):
-      - Screen where user enters their info (weight, height birthday, etc) after creating an account
-    - `Login` (screen):
-      - Screen where users can login or create an account
-  - `Workouts/` (navigator)
-    - `CompleteWorkout` (screen)
-    - `DesignWorkout` (screen)
-    - `MainScreen` (screen)
-    - `Running` (screen?)
+```
+📂 screens/
+├ 📂 StartUp/
+│ ├ 📲 EnterInfo             screen     Screen where user enters their info (weight, height birthday, etc) after creating an account
+│ └ 📲 Login                 screen     Screen where users can login or create an account
+└ 📂 bottom-tabs/                       Folder containing all the screens that are part of the bottom tab navigator
+  ├ 📲 Chat/                 screen
+  ├ 📲 Food/                 screen
+  ├ 🧭 Home/                 navigator
+  │ ├ 📲 Home.tsx            screen
+  │ └ 📲 Settings/           screen
+  ├ 📲 Plans/                screen
+  └ 🧭 Workouts/             navigator
+    ├ 📲 CompleteWorkout     screen
+    ├ 📲 DesignWorkout       screen
+    ├ 📲 MainScreen          screen
+    └ 📲 Running             screen?
+```
