@@ -8,6 +8,8 @@ server's APIs, Supabase APIs, etc.
 Below is a list of the different API modules and a brief overview of what they do.
 For more information, see the comments in the respective module's file.
 
+**⚠️ Note:** this list may be unfinished.
+
 ### Address API
 
 Exports constants containing different URLs for our server's APIs.
