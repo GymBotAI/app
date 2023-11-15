@@ -19,13 +19,17 @@ export default function ViewWorkouts({ navigation }) {
     setShowRun(!showRun);
   };
 
-  const goDesign = () => {
-    navigation.navigate("DesignStart")
-    // navigation.navigate("DesignStart", {
-    //   subGoal: subGoal,
-    // });
+  const goDesignAI = () => {
+    navigation.navigate("DesignStart", {
+      type: "AI"
+    });
   };
 
+  const goDesignManual = () => {
+    navigation.navigate("DesignStart", {
+      type: "Manual"
+    });
+  };
   const toggleWorkoutButtons = () => {
     setShowButtons(!showButtons);
   };
@@ -34,7 +38,7 @@ export default function ViewWorkouts({ navigation }) {
     <>
       <ScreenHeader title="Workouts" />
       <ScrollView style={Box.container}>
-        <CreateWorkoutButton goDesign={goDesign}/>
+        <CreateWorkoutButton goDesignAI={goDesignAI} goDesignManual={goDesignManual}/>
 
         <TalkToGymBotSection navigation={navigation} />
         <WorkoutList navigation={navigation} />
