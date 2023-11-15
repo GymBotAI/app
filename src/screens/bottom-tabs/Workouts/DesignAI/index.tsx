@@ -4,36 +4,31 @@ import { StyleSheet, Text, TextInput, TouchableOpacity, View, Keyboard, Touchabl
 import { colors } from "$styles";
 
 import ScreenHeader from "$components/ScreenHeader";
-import BodyDefinition from "../DesignStart/BodyDefinition";
-import BuildMuscle from "../DesignStart/BuildMuscle";
-import GoalSelector from "../DesignStart/GoalSelector";
-import SportsSpecific from "../DesignStart/SportsSpecific";
+
+import { generateWorkout } from "$api/workouts";
 
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function WorkoutSelectionScreen({ route, navigation }) {
   const { goal, subGoal, custom } = route.params;
-  const [goalText, setGoalText] = useState("How long do you want the workout to be?");
-  const [typedText, setTypedText] = useState("")
+  const [typedText, setTypedText] = useState("Enter relevant information")
+  const [isInputFilled, setInputFilled] = useState(false)
+  const [counter, setCounter] = useState(0)
 
   const [duration, setDuration] = useState("")
+  const [equipment, setEquipment] = useState("")
+  const [notes, setNotes] = useState("")
 
-  useEffect(() => {
-    let currentIndex = 0;
-    const typingInterval = setInterval(() => {
-      if (currentIndex <= goalText.length) {
-        setTypedText(goalText.substring(0, currentIndex));
-        currentIndex++;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 5); // Adjust typing speed here (milliseconds)
-
-    return () => {
-      clearInterval(typingInterval);
-    };
-  }, [goalText]); // Listen for changes to goalText
+  const aiGenerate = () => {
+    generateWorkout({
+      duration: duration,
+      equipment: equipment,
+      goal: goal,
+      subgoal: subGoal,
+      notes: notes,
+    }).then(console.log);
+  }
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -61,8 +56,67 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
         </LinearGradient>
       </View>
 
-        <TextInput value={duration} onChange={(e) => {setDuration(e.nativeEvent.text)}}/>
+      <TextInput
+      value={duration}
+      placeholder="Enter Duration"
+        onChangeText={text => setDuration(text)}
+        style={{
+          marginLeft: 20,
+          backgroundColor: colors.white.default,
+          padding: 20,
+          width: '40%',
+          borderRadius: 10,
+        }}/>
+
+      <TextInput
+      value={equipment}
+      placeholder="Enter Equipment"
+        onChangeText={text => setEquipment(text)}
+        style={{
+          marginTop: 20,
+          marginLeft: 20,
+          backgroundColor: colors.white.default,
+          padding: 20,
+          width: '60%',
+          borderRadius: 10,
+        }}/>
+
+    <TextInput
+      value={notes}
+      placeholder="Enter Additional Information"
+        onChangeText={text => setNotes(text)}
+        style={{
+          marginTop: 20,
+          marginLeft: 20,
+          backgroundColor: colors.white.default,
+          padding: 20,
+          width: '60%',
+          borderRadius: 10,
+        }}/>
+
+
+
+      {/* {counter > 0 ? (
+        <Text>This component is displayed because the variable is greater than 10.</Text>
+      ) : (
+        <></>
+      )} */}
+
       
+          <TouchableOpacity
+            style={[styles.button]}
+            onPress={aiGenerate}
+          >
+            <Text style={styles.text}>Continue</Text>
+          </TouchableOpacity>
+
+        {/* <TouchableOpacity
+            style={[styles.button, !isInputFilled && styles.disabledButton]}
+            disabled={!isInputFilled}
+          >
+            <Text style={styles.text}>Continue</Text>
+          </TouchableOpacity> */}
+
     </View>
     </TouchableWithoutFeedback>
   );
