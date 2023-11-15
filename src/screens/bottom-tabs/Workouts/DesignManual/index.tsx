@@ -29,7 +29,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
       } else {
         clearInterval(typingInterval);
       }
-    }, 15); // Adjust typing speed here (milliseconds)
+    }, 5); // Adjust typing speed here (milliseconds)
 
     return () => {
       clearInterval(typingInterval);

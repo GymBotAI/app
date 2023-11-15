@@ -1,12 +1,18 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  View,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import { colors } from "$styles";
 
-export default function GoalSelector({
-  selectedGoal,
-  setSelectedGoal,
-  setGoalText,
-}) {
+export default function GoalSelector({ selectedGoal, setSelectedGoal, setGoalText }) {
+  const [notes, setNotes] = useState("");
+
   const handleWorkoutSelection = (workoutType) => {
     setSelectedGoal(workoutType);
     if (workoutType === "Build Muscle") {
@@ -22,9 +28,7 @@ export default function GoalSelector({
     return {
       ...styles.button,
       backgroundColor:
-        selectedGoal === workoutType
-          ? colors.orange.default
-          : colors.white.default,
+        selectedGoal === workoutType ? colors.orange.default : colors.white.default,
     };
   };
 
@@ -36,40 +40,50 @@ export default function GoalSelector({
   };
 
   return (
-    <View style={styles.buttonContainer}>
-      <View style={{ flexDirection: "row" }}>
-        <TouchableOpacity
-          style={getButtonStyle("Build Muscle")}
-          onPress={() => handleWorkoutSelection("Build Muscle")}
-        >
-          <Text style={getButtonTextStyle("Build Muscle")}>Build Muscle</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={getButtonStyle("Body Definition")}
-          onPress={() => handleWorkoutSelection("Body Definition")}
-        >
-          <Text style={getButtonTextStyle("Body Definition")}>
-            Body Definition
-          </Text>
-        </TouchableOpacity>
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+      <View style={styles.buttonContainer}>
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity
+            style={getButtonStyle("Build Muscle")}
+            onPress={() => handleWorkoutSelection("Build Muscle")}
+          >
+            <Text style={getButtonTextStyle("Build Muscle")}>Build Muscle</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={getButtonStyle("Body Definition")}
+            onPress={() => handleWorkoutSelection("Body Definition")}
+          >
+            <Text style={getButtonTextStyle("Body Definition")}>Body Definition</Text>
+          </TouchableOpacity>
+        </View>
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity
+            style={getButtonStyle("Sports-Specific")}
+            onPress={() => handleWorkoutSelection("Sports-Specific")}
+          >
+            <Text style={getButtonTextStyle("Sports-Specific")}>Sports-Specific</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            style={{
+              flex: 1,
+              backgroundColor: colors.white.default,
+              paddingVertical: 15,
+              paddingHorizontal: 10,
+              borderRadius: 8,
+              marginBottom: 20,
+              marginRight: 10,
+            }}
+            onPress={() => handleWorkoutSelection("Custom")}
+          >
+            <TextInput
+              value={notes}
+              placeholder="Other"
+              style={styles.buttonText}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
-      <View style={{ flexDirection: "row" }}>
-        <TouchableOpacity
-          style={getButtonStyle("Sports-Specific")}
-          onPress={() => handleWorkoutSelection("Sports-Specific")}
-        >
-          <Text style={getButtonTextStyle("Sports-Specific")}>
-            Sports-Specific
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={getButtonStyle("Custom")}
-          onPress={() => handleWorkoutSelection("Custom")}
-        >
-          <Text style={getButtonTextStyle("Custom")}>Custom</Text>
-        </TouchableOpacity>
-      </View>
-    </View>
+    </TouchableWithoutFeedback>
   );
 }
 
