@@ -22,14 +22,15 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
 
   const [gymBot, setGymBot] = useState("")
 
-  const aiGenerate = () => {
-    generateWorkout({
-      duration: duration,
-      equipment: equipment,
+  const aiGenerate = async () => {
+    setGymBot(await generateWorkout({
+      duration: 45,
+      equipment: ['dumbbell', 'bench', 'bands'],
       goal: goal,
       subgoal: subGoal,
       notes: notes,
-    }).then(console.log);
+    }))
+    console.log(gymBot)
   }
 
   return (
@@ -96,8 +97,15 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
           borderRadius: 10,
         }}/>
 
+        <TouchableOpacity style={{ flex: 1}}
+        onPress={() => {
+          console.log(gymBot)
+        }}>
 
-        <Text>{gymBot}</Text>
+        </TouchableOpacity>
+
+
+        {/* <Text>{gymBot}</Text> */}
 
 
 

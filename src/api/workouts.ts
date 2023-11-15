@@ -7,10 +7,10 @@ import { debugLogs } from "$api/debug-logs";
 const debug: boolean = __DEV__ && debugLogs.auth;
 
 export async function generateWorkout(data: {
-  equipment: string;
+  equipment: string[];
   goal: string;
   subgoal: string;
-  duration: string;
+  duration: number;
   notes: string | null;
 }) {
   if (debug) {
@@ -21,9 +21,9 @@ export async function generateWorkout(data: {
     throw new Error("Equipment must contain at least 1 item");
   }
 
-  // if (data.duration < 5) {
-  //   throw new Error("Duration must be at least 5 minutes");
-  // }
+  if (data.duration < 5) {
+    throw new Error("Duration must be at least 5 minutes");
+  }
 
   if (data.goal.length < 2) {
     throw new Error("Goal must be at least 2 characters");
