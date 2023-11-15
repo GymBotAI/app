@@ -3,7 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View, TouchableWithoutFeedback, Key
 
 import { colors } from "$styles";
 
-import { lowerExercises, upperExercises, bothExercises } from "../CompleteWorkout/workoutData";
+import { lowerExercises, upperExercises, bothExercises } from "../DesignManual/workoutData";
 
 import ScreenHeader from "$components/ScreenHeader";
 import BodyDefinition from "./BodyDefinition";
