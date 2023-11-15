@@ -13,6 +13,7 @@ export type NavigationScreens = {
 
   Workout: undefined;
   DesignWorkout: undefined;
+  DesignAI: undefined;
   CompleteWorkout: undefined;
 
   HomeScreen: undefined;

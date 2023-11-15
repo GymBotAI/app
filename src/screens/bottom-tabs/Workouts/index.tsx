@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import CompleteWorkout from "./CompleteWorkout";
 import DesignManual from "./DesignManual";
+import DesignAI from "./DesignAI"
 import Workout from "./MainScreen";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
@@ -21,6 +22,7 @@ export default function Workouts({ navigation }) {
       >
         <Stack.Screen name="Workout" component={Workout} />
         <Stack.Screen name="DesignWorkout" component={DesignManual} />
+        <Stack.Screen name="DesignAI" component={DesignAI} />
         <Stack.Screen name="CompleteWorkout" component={CompleteWorkout} />
       </Stack.Navigator>
 
