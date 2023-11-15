@@ -13,6 +13,7 @@ import { colors } from "$styles";
 export default function GoalSelector({ selectedGoal, setSelectedGoal, setGoalText, setInputFilled, notes, setNotes }) {
 
   const handleWorkoutSelection = (workoutType) => {
+    Keyboard.dismiss()
     setSelectedGoal(workoutType);
     if (workoutType === "Build Muscle") {
       setGoalText("What do you want to train?");

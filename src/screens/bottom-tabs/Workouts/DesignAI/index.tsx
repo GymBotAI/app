@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, Keyboard, TouchableWithoutFeedback} from "react-native";
+import { StyleSheet, Text, TextInput, TouchableOpacity, View, Keyboard, TouchableWithoutFeedback} from "react-native";
 
 import { colors } from "$styles";
 
@@ -17,7 +17,7 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
   const [goalText, setGoalText] = useState("How long do you want the workout to be?");
   const [typedText, setTypedText] = useState("")
 
-  // const [duration, setDuration]
+  const [duration, setDuration] = useState("")
 
   useEffect(() => {
     let currentIndex = 0;
@@ -61,9 +61,7 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
         </LinearGradient>
       </View>
 
-            <TouchableOpacity onPress={() => {console.log(custom)}} style={{backgroundColor: 'red', flex: 1}}>
-
-            </TouchableOpacity>
+        <TextInput value={duration} onChange={(e) => {setDuration(e.nativeEvent.text)}}/>
       
     </View>
     </TouchableWithoutFeedback>
