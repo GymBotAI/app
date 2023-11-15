@@ -105,48 +105,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <View style={styles.container}>
       <ScreenHeader title="Workouts" />
-      <View style={styles.chatContainer}>
-        <LinearGradient
-          colors={[colors.blue.default, colors.blue.lighter]} // Lighter blue gradient colors
-          start={[0, 0.5]}
-          end={[1, 0.5]}
-          style={styles.chatBox}
-        >
-          <Image
-            source={require("$assets/circleicon.png")}
-            style={{
-              width: 60,
-              height: 60,
-              borderRadius: 30,
-              borderWidth: 1,
-              borderColor: colors.white.default,
-              marginRight: 10,
-            }}
-          />
-          <Text style={styles.chatText}>{typedText}</Text>
-        </LinearGradient>
-      </View>
-
-      {!completed && (
-        <>
-          <GoalSelector
-            selectedGoal={selectedGoal}
-            setSelectedGoal={setSelectedGoal}
-            setGoalText={setGoalText}
-            setInputFilled={setInputFilled}
-          />
-
-          {option1}
-
-          <TouchableOpacity
-            style={[styles.button, !isInputFilled && styles.disabledButton]}
-            disabled={!isInputFilled}
-            onPress={completeDesign}
-          >
-            <Text style={styles.text}>Continue</Text>
-          </TouchableOpacity>
-        </>
-      )}
+      
     </View>
     </TouchableWithoutFeedback>
   );
