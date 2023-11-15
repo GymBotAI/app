@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { colors } from "$styles";
 
 import ScreenHeader from "$components/ScreenHeader";
-import { bothExercises, lowerExercises, upperExercises } from "./data";
+import { bothExercises, lowerExercises, upperExercises } from "./workoutData";
 import ExerciseSelectionScreen from "./ExerciseSelection";
 import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
 
