@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   StyleSheet,
   Text,
@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { colors } from "$styles";
 
-export default function GoalSelector({ selectedGoal, setSelectedGoal, setGoalText }) {
+export default function GoalSelector({ selectedGoal, setSelectedGoal, setGoalText, setInputFilled }) {
   const [notes, setNotes] = useState("");
 
   const handleWorkoutSelection = (workoutType) => {
@@ -65,24 +65,33 @@ export default function GoalSelector({ selectedGoal, setSelectedGoal, setGoalTex
           >
             <Text style={getButtonTextStyle("Sports-Specific")}>Sports-Specific</Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={{
-              flex: 1,
-              backgroundColor: colors.white.default,
-              paddingVertical: 15,
-              paddingHorizontal: 10,
-              borderRadius: 8,
-              marginBottom: 20,
-              marginRight: 10,
-            }}
-            onPress={() => handleWorkoutSelection("Custom")}
-          >
             <TextInput
               value={notes}
               placeholder="Other"
-              style={styles.buttonText}
+              style={{
+                flex: 1,
+                backgroundColor:
+                selectedGoal === "Custom" ? colors.orange.default : colors.white.default,              paddingVertical: 15,
+              paddingHorizontal: 10,
+              marginRight: 10,
+              marginBottom: 20,
+              borderRadius: 8,
+              color: colors.black.lightest,
+              fontSize: 18,
+              fontWeight: "normal",
+              textAlign: "center",
+              }}
+              maxLength={20}
+              onChange={ (text) => {
+                setNotes(text)
+                setSelectedGoal("Custom")
+                if (text != "") {
+                  setInputFilled(true)
+                } else {
+                  setInputFilled(false)
+                }
+              }}
             />
-          </TouchableOpacity>
         </View>
       </View>
     </TouchableWithoutFeedback>

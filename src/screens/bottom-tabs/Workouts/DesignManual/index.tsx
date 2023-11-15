@@ -133,6 +133,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
             selectedGoal={selectedGoal}
             setSelectedGoal={setSelectedGoal}
             setGoalText={setGoalText}
+            setInputFilled={setInputFilled}
           />
 
           {option1}
