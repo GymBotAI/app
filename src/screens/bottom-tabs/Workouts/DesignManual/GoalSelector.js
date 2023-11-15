@@ -42,6 +42,7 @@ export default function GoalSelector({ selectedGoal, setSelectedGoal, setGoalTex
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.buttonContainer}>
+        
         <View style={{ flexDirection: "row" }}>
           <TouchableOpacity
             style={getButtonStyle("Build Muscle")}
@@ -56,6 +57,7 @@ export default function GoalSelector({ selectedGoal, setSelectedGoal, setGoalTex
             <Text style={getButtonTextStyle("Body Definition")}>Body Definition</Text>
           </TouchableOpacity>
         </View>
+
         <View style={{ flexDirection: "row" }}>
           <TouchableOpacity
             style={getButtonStyle("Sports-Specific")}

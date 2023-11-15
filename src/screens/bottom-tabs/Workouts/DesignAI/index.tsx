@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View, Keyboard, TouchableWithoutFeedback} from "react-native";
 
 import { colors } from "$styles";
 
@@ -102,6 +102,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
   };
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <View style={styles.container}>
       <ScreenHeader title="Workouts" />
       <View style={styles.chatContainer}>
@@ -146,6 +147,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
         </>
       )}
     </View>
+    </TouchableWithoutFeedback>
   );
 }
 
