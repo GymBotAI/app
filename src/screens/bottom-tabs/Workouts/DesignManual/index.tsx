@@ -3,6 +3,8 @@ import { StyleSheet, Text, TouchableOpacity, View, TouchableWithoutFeedback, Key
 
 import { colors } from "$styles";
 
+import { lowerExercises, upperExercises, bothExercises } from "../CompleteWorkout/workoutData";
+
 import ScreenHeader from "$components/ScreenHeader";
 import BodyDefinition from "./BodyDefinition";
 import BuildMuscle from "./BuildMuscle";
@@ -19,6 +21,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
   const [goalText, setGoalText] = useState("What is your goal?");
   const [isInputFilled, setInputFilled] = useState(false);
   const [completed, setCompleted] = useState(false);
+  const [notes, setNotes] = useState("")
 
   useEffect(() => {
     let currentIndex = 0;
@@ -97,11 +100,22 @@ export default function WorkoutSelectionScreen({ navigation }) {
   }
 
   const completeDesign = () => {
+    let exercisesToDisplay = []
+    if (selectedGoal != "Custom") {
+
+      if (subGoal == "Upper") {
+        exercisesToDisplay= upperExercises
+      } else if (subGoal == "Lower") {
+        exercisesToDisplay= lowerExercises
+      } else if (subGoal == "Both") {
+        exercisesToDisplay= bothExercises
+      }
+
     navigation.replace("CompleteWorkout", {
-      subGoal: subGoal,
+      exercisesToDisplay: exercisesToDisplay,
     });
-    if (selectedGoal == "Build Muscle") {
-      setGoalText("Select your exercises!");
+    } else {
+      navigation.replace("DesignAI",)
     }
   };
 
@@ -138,6 +152,8 @@ export default function WorkoutSelectionScreen({ navigation }) {
             setSelectedGoal={setSelectedGoal}
             setGoalText={setGoalText}
             setInputFilled={setInputFilled}
+            notes={notes}
+            setNotes={setNotes}
           />
 
           {option1}

@@ -10,8 +10,7 @@ import {
 } from "react-native";
 import { colors } from "$styles";
 
-export default function GoalSelector({ selectedGoal, setSelectedGoal, setGoalText, setInputFilled }) {
-  const [notes, setNotes] = useState("");
+export default function GoalSelector({ selectedGoal, setSelectedGoal, setGoalText, setInputFilled, notes, setNotes }) {
 
   const handleWorkoutSelection = (workoutType) => {
     setSelectedGoal(workoutType);
