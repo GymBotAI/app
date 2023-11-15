@@ -9,12 +9,8 @@ import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function WorkoutSelectionScreen({ navigation }) {
-  const [selectedGoal, setSelectedGoal] = useState(null);
-  const [subGoal, setSubGoal] = useState(null);
   const [typedText, setTypedText] = useState("");
-  const [goalText, setGoalText] = useState("What is your goal?");
-  const [isInputFilled, setInputFilled] = useState(false);
-  const [completed, setCompleted] = useState(false);
+  const [goalText, setGoalText] = useState("How long is your workout?");
 
   useEffect(() => {
     let currentIndex = 0;
@@ -31,17 +27,6 @@ export default function WorkoutSelectionScreen({ navigation }) {
       clearInterval(typingInterval);
     };
   }, [goalText]); // Listen for changes to goalText
-
-  let option1 = null;
-  
-  const completeDesign = () => {
-    navigation.replace("CompleteWorkout", {
-      subGoal: subGoal,
-    });
-    if (selectedGoal == "Build Muscle") {
-      setGoalText("Select your exercises!");
-    }
-  };
 
   return (
     <View style={styles.container}>
@@ -67,6 +52,8 @@ export default function WorkoutSelectionScreen({ navigation }) {
           <Text style={styles.chatText}>{typedText}</Text>
         </LinearGradient>
       </View>
+
+      
 
      
     </View>
