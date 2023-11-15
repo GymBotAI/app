@@ -20,6 +20,8 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
   const [equipment, setEquipment] = useState("")
   const [notes, setNotes] = useState("")
 
+  const [gymBot, setGymBot] = useState("")
+
   const aiGenerate = () => {
     generateWorkout({
       duration: duration,
@@ -93,6 +95,9 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
           width: '60%',
           borderRadius: 10,
         }}/>
+
+
+        <Text>{gymBot}</Text>
 
 
 
