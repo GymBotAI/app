@@ -20,7 +20,7 @@ export default function Workouts({ navigation }) {
         }}
       >
         <Stack.Screen name="Workout" component={Workout} />
-        <Stack.Screen name="DesignManual" component={DesignWorkout} />
+        <Stack.Screen name="DesignManual" component={DesignManual} />
         <Stack.Screen name="CompleteWorkout" component={CompleteWorkout} />
       </Stack.Navigator>
 
