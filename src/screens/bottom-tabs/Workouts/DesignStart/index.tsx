@@ -14,7 +14,9 @@ import SportsSpecific from "./SportsSpecific";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
-export default function WorkoutSelectionScreen({ navigation }) {
+export default function WorkoutSelectionScreen({ route, navigation }) {
+  const { type } = route.params;
+
   const [selectedGoal, setSelectedGoal] = useState(null);
   const [subGoal, setSubGoal] = useState(null);
   const [typedText, setTypedText] = useState("");
@@ -38,10 +40,6 @@ export default function WorkoutSelectionScreen({ navigation }) {
       clearInterval(typingInterval);
     };
   }, [goalText]); // Listen for changes to goalText
-
-  const goAI = () => {
-    navigation.replace("DesignAI")
-  }
 
   let option1 = null;
   if (selectedGoal === "Build Muscle") {
@@ -99,10 +97,15 @@ export default function WorkoutSelectionScreen({ navigation }) {
     );
   }
 
-  const goDesignManual = () => {
+  const goDesign = () => {
     let exercisesToDisplay = []
-    if (selectedGoal != "Custom") {
 
+    if (type == "AI" || selectedGoal == "Custom") {
+      navigation.replace("DesignAI", {
+        goal: selectedGoal,
+        subGoal: subGoal
+      });
+    } else {
       if (subGoal == "Upper") {
         exercisesToDisplay= upperExercises
       } else if (subGoal == "Lower") {
@@ -114,9 +117,8 @@ export default function WorkoutSelectionScreen({ navigation }) {
     navigation.navigate("DesignManual", {
       exercisesToDisplay: exercisesToDisplay,
     });
-    } else {
-      navigation.replace("DesignAI",)
     }
+
   };
 
   return (
@@ -161,7 +163,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
           <TouchableOpacity
             style={[styles.button, !isInputFilled && styles.disabledButton]}
             disabled={!isInputFilled}
-            onPress={goDesignManual}
+            onPress={goDesign}
           >
             <Text style={styles.text}>Continue</Text>
           </TouchableOpacity>
