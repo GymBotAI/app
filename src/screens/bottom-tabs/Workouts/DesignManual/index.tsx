@@ -36,6 +36,10 @@ export default function WorkoutSelectionScreen({ navigation }) {
     };
   }, [goalText]); // Listen for changes to goalText
 
+  const goAI = () => {
+    navigation.replace("DesignAI")
+  }
+
   let option1 = null;
   if (selectedGoal === "Build Muscle") {
     option1 = (
@@ -133,6 +137,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
             selectedGoal={selectedGoal}
             setSelectedGoal={setSelectedGoal}
             setGoalText={setGoalText}
+            setInputFilled={setInputFilled}
           />
 
           {option1}
