@@ -20,7 +20,10 @@ export default function ViewWorkouts({ navigation }) {
   };
 
   const goDesign = () => {
-    navigation.navigate("DesignManual");
+    navigation.navigate("DesignStart")
+    // navigation.navigate("DesignStart", {
+    //   subGoal: subGoal,
+    // });
   };
 
   const toggleWorkoutButtons = () => {

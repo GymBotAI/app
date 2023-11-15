@@ -12,9 +12,9 @@ export type NavigationScreens = {
   Chat: undefined;
 
   Workout: undefined;
-  DesignManual: undefined;
+  DesignStart: undefined;
   DesignAI: undefined;
-  CompleteWorkout: undefined;
+  DesignManual: undefined;
 
   HomeScreen: undefined;
   Settings: {

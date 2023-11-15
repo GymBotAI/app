@@ -4,10 +4,10 @@ import { StyleSheet, Text, TouchableOpacity, View, Keyboard, TouchableWithoutFee
 import { colors } from "$styles";
 
 import ScreenHeader from "$components/ScreenHeader";
-import BodyDefinition from "../DesignManual/BodyDefinition";
-import BuildMuscle from "../DesignManual/BuildMuscle";
-import GoalSelector from "../DesignManual/GoalSelector";
-import SportsSpecific from "../DesignManual/SportsSpecific";
+import BodyDefinition from "../DesignStart/BodyDefinition";
+import BuildMuscle from "../DesignStart/BuildMuscle";
+import GoalSelector from "../DesignStart/GoalSelector";
+import SportsSpecific from "../DesignStart/SportsSpecific";
 
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
