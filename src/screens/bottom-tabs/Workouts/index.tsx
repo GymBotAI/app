@@ -21,7 +21,7 @@ export default function Workouts({ navigation }) {
         }}
       >
         <Stack.Screen name="Workout" component={Workout} />
-        <Stack.Screen name="DesignWorkout" component={DesignManual} />
+        <Stack.Screen name="DesignManual" component={DesignManual} />
         <Stack.Screen name="DesignAI" component={DesignAI} />
         <Stack.Screen name="CompleteWorkout" component={CompleteWorkout} />
       </Stack.Navigator>
