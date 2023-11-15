@@ -12,13 +12,12 @@ import SportsSpecific from "../DesignStart/SportsSpecific";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
-export default function WorkoutSelectionScreen({ navigation }) {
-  const [selectedGoal, setSelectedGoal] = useState(null);
-  const [subGoal, setSubGoal] = useState(null);
-  const [typedText, setTypedText] = useState("");
-  const [goalText, setGoalText] = useState("What is your goal?");
-  const [isInputFilled, setInputFilled] = useState(false);
-  const [completed, setCompleted] = useState(false);
+export default function WorkoutSelectionScreen({ route, navigation }) {
+  const { goal, subGoal, custom } = route.params;
+  const [goalText, setGoalText] = useState("How long do you want the workout to be?");
+  const [typedText, setTypedText] = useState("")
+
+  // const [duration, setDuration]
 
   useEffect(() => {
     let currentIndex = 0;
@@ -36,75 +35,35 @@ export default function WorkoutSelectionScreen({ navigation }) {
     };
   }, [goalText]); // Listen for changes to goalText
 
-  let option1 = null;
-  if (selectedGoal === "Build Muscle") {
-    option1 = (
-      <>
-        <View
-          style={{
-            height: 1,
-            backgroundColor: colors.grey.lighter,
-            width: "90%",
-            marginLeft: "5%",
-          }}
-        />
-        <BuildMuscle
-          setGoalText={setGoalText}
-          setInputFilled={setInputFilled}
-          setSubGoal={setSubGoal}
-        />
-      </>
-    );
-  } else if (selectedGoal === "Body Definition") {
-    option1 = (
-      <>
-        <View
-          style={{
-            height: 1,
-            backgroundColor: colors.grey.lighter,
-            width: "90%",
-            marginLeft: "5%",
-          }}
-        />
-        <BodyDefinition
-          setGoalText={setGoalText}
-          setInputFilled={setInputFilled}
-          setSubGoal={setSubGoal}
-        />
-      </>
-    );
-  } else if (selectedGoal === "Sports-Specific") {
-    option1 = (
-      <>
-        <View
-          style={{
-            height: 1,
-            backgroundColor: colors.grey.lighter,
-            width: "90%",
-            marginLeft: "5%",
-          }}
-        />
-        <SportsSpecific
-          setGoalText={setGoalText}
-          setInputFilled={setInputFilled}
-        />
-      </>
-    );
-  }
-
-  const completeDesign = () => {
-    navigation.replace("CompleteWorkout", {
-      subGoal: subGoal,
-    });
-    if (selectedGoal == "Build Muscle") {
-      setGoalText("Select your exercises!");
-    }
-  };
-
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
     <View style={styles.container}>
       <ScreenHeader title="Workouts" />
+      <View style={styles.chatContainer}>
+        <LinearGradient
+          colors={[colors.blue.default, colors.blue.lighter]} // Lighter blue gradient colors
+          start={[0, 0.5]}
+          end={[1, 0.5]}
+          style={styles.chatBox}
+        >
+          <Image
+            source={require("$assets/circleicon.png")}
+            style={{
+              width: 60,
+              height: 60,
+              borderRadius: 30,
+              borderWidth: 1,
+              borderColor: colors.white.default,
+              marginRight: 10,
+            }}
+          />
+          <Text style={styles.chatText}>{typedText}</Text>
+        </LinearGradient>
+      </View>
+
+            <TouchableOpacity onPress={() => {console.log(custom)}} style={{backgroundColor: 'red', flex: 1}}>
+
+            </TouchableOpacity>
       
     </View>
     </TouchableWithoutFeedback>

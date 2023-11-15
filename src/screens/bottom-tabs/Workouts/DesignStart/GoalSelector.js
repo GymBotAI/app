@@ -81,10 +81,11 @@ export default function GoalSelector({ selectedGoal, setSelectedGoal, setGoalTex
               textAlign: "center",
               }}
               maxLength={20}
-              onChange={ (text) => {
-                setNotes(text)
+              onChange={ (e) => {
+                setNotes(e.nativeEvent.text)
+                console.log(notes)
                 setSelectedGoal("Custom")
-                if (text != "") {
+                if (e != "") {
                   setInputFilled(true)
                 } else {
                   setInputFilled(false)

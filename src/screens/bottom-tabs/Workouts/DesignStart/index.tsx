@@ -103,7 +103,8 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
     if (type == "AI" || selectedGoal == "Custom") {
       navigation.replace("DesignAI", {
         goal: selectedGoal,
-        subGoal: subGoal
+        subGoal: subGoal,
+        custom: notes
       });
     } else {
       if (subGoal == "Upper") {
