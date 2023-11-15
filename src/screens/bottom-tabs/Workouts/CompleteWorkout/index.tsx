@@ -74,11 +74,11 @@ export default function CompleteDesignContainer({ route, navigation }) {
               </LinearGradient>
             </View>
 
-            <View style={styles.container2}>
+            {/* <View style={styles.container2}>
               <TouchableOpacity style={styles.button2}>
                 <Text style={styles.buttonText}>Design With AI</Text>
               </TouchableOpacity>
-            </View>
+            </View> */}
 
             <ExerciseSelectionScreen
               setSelectedExercises={setSelectedExercises}
