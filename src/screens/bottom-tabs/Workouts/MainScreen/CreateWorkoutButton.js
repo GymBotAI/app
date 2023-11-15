@@ -37,7 +37,7 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
         </Text>
 
         <View style={[styles.buttonsContainer, { height: buttonHeight }]}>
-          <TouchableOpacity
+          <TouchableOpacity 
             style={[
               styles.designButtonContainer,
               { paddingVertical: buttonPadding },
@@ -45,7 +45,7 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
             onPress={handleAddWorkout}
           >
             <Text style={[styles.addText, { fontSize: fontSize2 }]}>
-              Design
+              Manually
             </Text>
             <AntDesign
               name="arrowright"
@@ -62,7 +62,7 @@ export default function CreateWorkoutButton({ handleAddWorkout }) {
             onPress={handleAddWorkout}
           >
             <Text style={[styles.addText, { fontSize: fontSize2 }]}>
-              Explore
+              With AI
             </Text>
             <AntDesign
               name="arrowright"

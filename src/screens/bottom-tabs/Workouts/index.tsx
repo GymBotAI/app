@@ -5,7 +5,7 @@ import { StatusBar, View } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import CompleteWorkout from "./CompleteWorkout";
-import DesignWorkout from "./DesignWorkout";
+import DesignManual from "./DesignManual";
 import Workout from "./MainScreen";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
@@ -20,7 +20,7 @@ export default function Workouts({ navigation }) {
         }}
       >
         <Stack.Screen name="Workout" component={Workout} />
-        <Stack.Screen name="DesignWorkout" component={DesignWorkout} />
+        <Stack.Screen name="DesignManual" component={DesignWorkout} />
         <Stack.Screen name="CompleteWorkout" component={CompleteWorkout} />
       </Stack.Navigator>
 
