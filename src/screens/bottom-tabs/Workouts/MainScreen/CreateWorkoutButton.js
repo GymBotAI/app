@@ -11,7 +11,7 @@ import { colors } from "$styles";
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 
-export default function CreateWorkoutButton({ goDesign }) {
+export default function CreateWorkoutButton({ goDesignAI, goDesignManual }) {
   const { width, height } = Dimensions.get("window");
   const fontSize = Math.min(width, height) * 0.095;
   const fontSize2 = Math.min(width, height) * 0.055;
@@ -42,7 +42,7 @@ export default function CreateWorkoutButton({ goDesign }) {
               styles.designButtonContainer,
               { paddingVertical: buttonPadding },
             ]}
-            onPress={goDesign}
+            onPress={goDesignManual}
           >
             <Text style={[styles.addText, { fontSize: fontSize2 }]}>
               Manually
@@ -59,7 +59,7 @@ export default function CreateWorkoutButton({ goDesign }) {
               styles.designButtonContainer,
               { paddingVertical: buttonPadding },
             ]}
-            onPress={goDesign}
+            onPress={goDesignAI}
           >
             <Text style={[styles.addText, { fontSize: fontSize2 }]}>
               With AI
