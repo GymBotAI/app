@@ -78,7 +78,7 @@ export default function ExerciseSelectionScreen({
   return (
     <View style={{ marginHorizontal: 10, flex: 1 }}>
       <ScrollView>
-        <View style={{ height: 65 }} />
+        {/* <View style={{ height: 65 }} /> */}
         <FlatList
           data={exercisesToDisplay}
           renderItem={renderItem}

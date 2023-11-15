@@ -4,7 +4,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { colors } from "$styles";
 
 import ScreenHeader from "$components/ScreenHeader";
-import { bothExercises, lowerExercises, upperExercises } from "./data";
+import { bothExercises, lowerExercises, upperExercises } from "./workoutData";
 import ExerciseSelectionScreen from "./ExerciseSelection";
 import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
 
@@ -74,11 +74,11 @@ export default function CompleteDesignContainer({ route, navigation }) {
               </LinearGradient>
             </View>
 
-            <View style={styles.container2}>
+            {/* <View style={styles.container2}>
               <TouchableOpacity style={styles.button2}>
                 <Text style={styles.buttonText}>Design With AI</Text>
               </TouchableOpacity>
-            </View>
+            </View> */}
 
             <ExerciseSelectionScreen
               setSelectedExercises={setSelectedExercises}
