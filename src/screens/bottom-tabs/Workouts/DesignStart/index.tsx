@@ -99,7 +99,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
     );
   }
 
-  const completeDesign = () => {
+  const goDesignManual = () => {
     let exercisesToDisplay = []
     if (selectedGoal != "Custom") {
 
@@ -111,7 +111,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
         exercisesToDisplay= bothExercises
       }
 
-    navigation.replace("CompleteWorkout", {
+    navigation.navigate("DesignManual", {
       exercisesToDisplay: exercisesToDisplay,
     });
     } else {
@@ -161,7 +161,7 @@ export default function WorkoutSelectionScreen({ navigation }) {
           <TouchableOpacity
             style={[styles.button, !isInputFilled && styles.disabledButton]}
             disabled={!isInputFilled}
-            onPress={completeDesign}
+            onPress={goDesignManual}
           >
             <Text style={styles.text}>Continue</Text>
           </TouchableOpacity>
