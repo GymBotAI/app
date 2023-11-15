@@ -11,40 +11,16 @@ import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
-let exercisesToDisplay = [];
 
 export default function CompleteDesignContainer({ route, navigation }) {
-  const { subGoal } = route.params;
+  const { exercisesToDisplay } = route.params;
   const [typedText, setTypedText] = useState("");
-  const [goalText, setGoalText] = useState("Select your exercises!");
+  const [goalText ] = useState("Select your exercises!");
   const [showModal, setShowModal] = useState(false);
 
   const [selectedExercises, setSelectedExercises] = useState([]);
 
-  useEffect(() => {
-    let currentIndex = 0;
-    const typingInterval = setInterval(() => {
-      if (currentIndex <= goalText.length) {
-        setTypedText(goalText.substring(0, currentIndex));
-        currentIndex++;
-        0;
-      } else {
-        clearInterval(typingInterval);
-      }
-    }, 1); // Adjust typing speed here (milliseconds)
 
-    return () => {
-      clearInterval(typingInterval);
-    };
-  }, [goalText]); // Listen for changes to goalText  let exercisesToDisplay = [];
-
-  if (subGoal === "Upper") {
-    exercisesToDisplay = upperExercises;
-  } else if (subGoal === "Lower") {
-    exercisesToDisplay = lowerExercises;
-  } else if (subGoal === "Both") {
-    exercisesToDisplay = bothExercises;
-  }
 
   return (
     <>
@@ -70,7 +46,7 @@ export default function CompleteDesignContainer({ route, navigation }) {
                     marginRight: 10,
                   }}
                 />
-                <Text style={styles.chatText}>{typedText}</Text>
+                <Text style={styles.chatText}>{goalText}</Text>
               </LinearGradient>
             </View>
 
