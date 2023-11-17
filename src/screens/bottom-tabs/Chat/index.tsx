@@ -61,7 +61,7 @@ export default function ChatScreen({
       <ChatContainer
         containerRef={chatContainerRef}
         goToWorkoutScreen={() => {
-          navigation.navigate("DesignStart");
+          navigation.navigate("Workouts");
         }}
       />
       <StatusBar barStyle="light-content" />
