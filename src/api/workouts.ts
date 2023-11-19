@@ -41,7 +41,13 @@ export async function generateWorkout(data: {
   });
 
   if (resp.ok) {
-    return await resp.json();
+    const workout = await resp.json();
+
+    if (debug) {
+      console.debug("Generated workout:", workout);
+    }
+
+    return workout;
   }
 
   throw new Error(
