@@ -32,15 +32,23 @@ export async function generateWorkout(data: {
     throw new Error("Subgoal must be at least 2 characters");
   }
 
-  return await (
-    await fetch(`${httpServerAddr}/workout`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-  ).json();
+  const resp = await fetch(`${httpServerAddr}/workout`, {
+    method: "POST",
+    headers: {
+      "content-type": "application/json",
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (resp.ok) {
+    return await resp.json();
+  }
+
+  throw new Error(
+    `Workout generation failed with status ${
+      resp.status
+    }: "${await resp.text()}"`
+  );
 
   // TODO: use Zod to validate response
 }
