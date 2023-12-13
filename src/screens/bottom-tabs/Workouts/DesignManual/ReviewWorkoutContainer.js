@@ -5,12 +5,10 @@ import {
   StyleSheet,
   Text,
   TextInput,
-  TouchableOpacity,
   View,
 } from "react-native";
 
 import Button from "$components/Button";
-import { buttonStyles } from "$components/styles";
 import ReviewHeader from "./ReviewHeader";
 
 import { Entypo } from "@expo/vector-icons";
@@ -160,7 +158,7 @@ export default function ReviewWorkoutContainer({
           ))}
         </ScrollView>
 
-        <Button text="Add Exercise" onPress={() => setShowModal(false)} />
+        <Button text="Add Exercise" size="medium" onPress={() => setShowModal(false)} style={{width: '80%', position: 'absolute', bottom: 10,}}/>
       </View>
     </>
   );
