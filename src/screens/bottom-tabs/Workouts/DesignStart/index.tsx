@@ -21,6 +21,9 @@ import BuildMuscle from "./BuildMuscle";
 import GoalSelector from "./GoalSelector";
 import SportsSpecific from "./SportsSpecific";
 
+import Button from "$components/Button";
+// import Text from "$components/Text";
+
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
@@ -170,13 +173,14 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
 
             {option1}
 
-            <TouchableOpacity
+            <Button text="Continue" size="medium" onPress={goDesign} style={{width: 20, position: 'absolute', bottom: 20}}/>
+            {/* <TouchableOpacity
               style={[styles.button, !isInputFilled && styles.disabledButton]}
               disabled={!isInputFilled}
               onPress={goDesign}
             >
               <Text style={styles.text}>Continue</Text>
-            </TouchableOpacity>
+            </TouchableOpacity> */}
           </>
         )}
       </View>
