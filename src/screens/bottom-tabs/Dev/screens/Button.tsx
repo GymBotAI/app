@@ -48,6 +48,13 @@ export default function ButtonDevScreen() {
         onPress={onPress}
         style={styles.exampleButtons}
       />
+
+      <Button
+        text="Disabled button"
+        disabled
+        onPress={onPress}
+        style={styles.exampleButtons}
+      />
     </View>
   );
 }

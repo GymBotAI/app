@@ -14,7 +14,7 @@ function buttonStyles(props: ButtonProps) {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: colors.blue.default,
+    backgroundColor: props.disabled ? colors.grey.lighter : colors.blue.default,
     borderRadius: 22,
     shadowColor: colors.black.default,
     shadowOffset: { width: 1, height: 1 },
