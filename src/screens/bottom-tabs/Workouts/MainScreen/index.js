@@ -64,7 +64,7 @@ export default function MainWorkout({ navigation }) {
       />
     )}
     {showButtons && (
-        <View style={Box.addButton} onPress={toggleWorkoutButtons}>
+        <View style={Box.addButton}>
           <TouchableOpacity onPress={toggleRunningPage}>
             <Text style={Box.addText}>Start a Run 🏃‍♂️</Text>
           </TouchableOpacity>
