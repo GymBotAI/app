@@ -1,6 +1,5 @@
 import {
   Dimensions,
-  StyleSheet,
   Text,
   TouchableOpacity,
   View,
@@ -16,20 +15,16 @@ import { LinearGradient } from "expo-linear-gradient";
 export default function CreateWorkoutButton({ goDesignAI, goDesignManual }) {
   const { width, height } = Dimensions.get("window");
   const cameraSize = Math.min(width, height) * 0.065;
-  const buttonPadding = Math.min(width, height) * 0.025;
 
-  const containerHeight = Math.min(width, height) * 0.5;
-  const bottomHeight = containerHeight / 4.5;
 
-  const linearPadding = containerHeight / 12;
 
   return (
-    <View style={[createWorkout.container, { height: containerHeight }]}>
+    <View style={createWorkout.container}>
       <LinearGradient
         colors={[colors.blue.default, colors.blue.lightest]}
-        style={[createWorkout.blueRectangle, { padding: linearPadding }]}
+        style={createWorkout.blueRectangle}
       >
-        <Text style={[createWorkout.title, { marginBottom: bottomHeight }]}>
+        <Text style={createWorkout.title}>
           Create a Workout
         </Text>
 
@@ -58,6 +53,7 @@ export default function CreateWorkoutButton({ goDesignAI, goDesignManual }) {
               color={colors.black.default}
             />
           </TouchableOpacity>
+
         </View>
       </LinearGradient>
     </View>

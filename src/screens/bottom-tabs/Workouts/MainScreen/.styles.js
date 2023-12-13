@@ -38,6 +38,9 @@ buttonHeight = containerHeight / 2.6;
 buttonPadding = Math.min(width, height) * 0.025;
 titleFont = containerHeight * 0.19;
 buttonFont = containerHeight * 0.11;
+horizontalPadding = containerHeight / 12;
+bottomHeight = containerHeight / 4.5;
+
 
 export const createWorkout = StyleSheet.create({
   container: {
@@ -53,6 +56,7 @@ export const createWorkout = StyleSheet.create({
     height: "100%",
     justifyContent: "flex-end", // Move content to the bottom
     padding: 15,
+    horizontalPadding: horizontalPadding,
   },
   title: {
     color: colors.white.default,
@@ -63,6 +67,7 @@ export const createWorkout = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 2,
+    marginBottom: bottomHeight,
   },
   buttonsContainer: {
     flexDirection: "row",
