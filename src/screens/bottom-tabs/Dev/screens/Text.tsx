@@ -1,6 +1,8 @@
-import { Alert, View } from "react-native";
+import { View } from "react-native";
 
 import Text from "$components/Text";
+
+import SyntaxHighlighter from "react-native-syntax-highlighter";
 
 export default function TextDevScreen() {
   return (
@@ -12,11 +14,11 @@ export default function TextDevScreen() {
 
       <Text text="Examples" variant="header-default" />
       <Text text="First, import it from `$components/Text`." />
-      <Text
-        text={`<Text text="This is a normal text" />
+      <SyntaxHighlighter>
+        {`<Text text="This is a normal text" />
 <Text text="This is a bold text" bold />
 <Text text="This is a big header" variant="header-big" />`}
-      />
+      </SyntaxHighlighter>
 
       <Text text="Variants" variant="header-default" />
       <Text text="All the existing text variants are listed below:" />
