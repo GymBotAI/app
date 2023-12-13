@@ -4,7 +4,8 @@
  * @type {import('@babel/core').ConfigFunction}
  */
 module.exports = (api) => {
-  api.cache(true);
+  api.cache.forever();
+
   return {
     presets: ["babel-preset-expo"],
   };
