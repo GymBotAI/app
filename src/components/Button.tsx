@@ -65,6 +65,11 @@ function textStyles(props: ButtonProps) {
 }
 
 export default function Button(props: ButtonProps) {
+  props = {
+    size: "small",
+    ...props,
+  };
+
   return (
     <TouchableOpacity
       {...props}
