@@ -15,7 +15,7 @@ function buttonStyles(props: ButtonProps) {
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.blue.default,
-    borderRadius: 28,
+    borderRadius: 22,
     shadowColor: colors.black.default,
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.3,
