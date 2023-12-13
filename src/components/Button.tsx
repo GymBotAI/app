@@ -17,9 +17,9 @@ function buttonStyles(props: ButtonProps) {
     backgroundColor: colors.blue.default,
     borderRadius: 28,
     shadowColor: colors.black.default,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
+    shadowOffset: { width: 1, height: 1 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
   } as const;
 
   const sizeStyles = StyleSheet.create({
