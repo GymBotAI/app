@@ -1,69 +1,83 @@
 import React, { useState } from "react";
 import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 
+//---------- Components ----------//
+import Button from "$components/Button";
 import ScreenHeader from "$components/ScreenHeader";
 import RunningPage from "../Running/RunningPage";
 //---------- Styles ----------//
 import { Box } from "./.styles";
-//---------- Components ----------//
 import CreateWorkoutButton from "./CreateWorkoutButton";
 import TalkToGymBotSection from "./TalkToGymBot";
 import WorkoutList from "./WorkoutList";
 
 export default function ViewWorkouts({ navigation }) {
-  const [showRun, setShowRun] = useState(false);
+  // const [showRun, setShowRun] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
 
-  const toggleRunningPage = () => {
-    setShowButtons(false);
-    setShowRun(!showRun);
-  };
+  // const toggleRunningPage = () => {
+  //   setShowButtons(false);
+  //   setShowRun(!showRun);
+  // };
 
-  const goDesignAI = () => {
-    navigation.navigate("DesignStart", {
-      type: "AI"
-    });
-  };
+  // const goDesignAI = () => {
+  //   navigation.navigate("DesignStart", {
+  //     type: "AI",
+  //   });
+  // };
 
-  const goDesignManual = () => {
-    navigation.navigate("DesignStart", {
-      type: "Manual"
-    });
-  };
-  const toggleWorkoutButtons = () => {
-    setShowButtons(!showButtons);
-  };
+  // const goDesignManual = () => {
+  //   navigation.navigate("DesignStart", {
+  //     type: "Manual",
+  //   });
+  // };
+  // const toggleWorkoutButtons = () => {
+  //   setShowButtons(!showButtons);
+  // };
 
   return (
     <>
-      <ScreenHeader title="Workouts" />
+      {/* <ScreenHeader title="Workouts" />
       <ScrollView style={Box.container}>
-        <CreateWorkoutButton goDesignAI={goDesignAI} goDesignManual={goDesignManual}/>
+        <CreateWorkoutButton
+          goDesignAI={goDesignAI}
+          goDesignManual={goDesignManual}
+        />
 
         <TalkToGymBotSection navigation={navigation} />
         <WorkoutList navigation={navigation} />
         {showRun && <RunningPage onClose={toggleRunningPage} />}
-      </ScrollView>
+      </ScrollView> */}
 
-      {!showButtons && (
-        <TouchableOpacity
-          style={Box.recordButton}
-          onPress={toggleWorkoutButtons}
-        >
-          <Text style={Box.recordText}>Record Exercise</Text>
-        </TouchableOpacity>
-      )}
+      {/* {!showButtons && ( */}
+      <Button
+        onPress={setShowButtons(!showButtons)}
+        text="Record Exercise"
+        size="medium"
+        style={{
+          position: "absolute",
+          bottom: 15,
+          width: "80%",
+          alignSelf: "center",
+        }}
+      />
+      {/* )} */}
 
-      {showButtons && (
+      {/* {showButtons && (
         <View style={Box.addButton} onPress={toggleWorkoutButtons}>
           <TouchableOpacity onPress={toggleRunningPage}>
             <Text style={Box.addText}>Start a Run 🏃‍♂️</Text>
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              setShowButtons(false);
+              console.log(showButtons);
+            }}
+          >
             <Text style={Box.addText}>Log Workout💪</Text>
           </TouchableOpacity>
         </View>
-      )}
+      )} */}
     </>
   );
 }

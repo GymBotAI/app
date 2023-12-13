@@ -160,9 +160,7 @@ export default function ReviewWorkoutContainer({
           ))}
         </ScrollView>
 
-        <Button onPress={() => setShowModal(false)}>
-          <Text style={buttonStyles.text}>Add Exercise</Text>
-        </Button>
+        <Button text="Add Exercise" onPress={() => setShowModal(false)} />
       </View>
     </>
   );
