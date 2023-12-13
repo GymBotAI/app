@@ -9,6 +9,7 @@ import {
   View,
 } from "react-native";
 
+import Button from "$components/Button";
 import { buttonStyles } from "$components/styles";
 import ReviewHeader from "./ReviewHeader";
 
@@ -159,12 +160,9 @@ export default function ReviewWorkoutContainer({
           ))}
         </ScrollView>
 
-        <TouchableOpacity
-          onPress={() => setShowModal(false)}
-          style={buttonStyles.button}
-        >
+        <Button onPress={() => setShowModal(false)}>
           <Text style={buttonStyles.text}>Add Exercise</Text>
-        </TouchableOpacity>
+        </Button>
       </View>
     </>
   );

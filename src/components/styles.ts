@@ -31,18 +31,6 @@ export const fontSize = 16;
 export const font = "Georgia";
 
 export const buttonStyles = StyleSheet.create({
-  button: {
-    position: "absolute",
-    bottom: 40,
-    alignSelf: "center",
-    width: "75%",
-    backgroundColor: colors.blue.default,
-    borderRadius: 28,
-    shadowColor: colors.black.default,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-  },
   disabledButton: {
     backgroundColor: colors.white.default, // Change the background color of the disabled button
   },
