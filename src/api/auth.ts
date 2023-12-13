@@ -84,7 +84,7 @@ export async function signup(
   }
 
   if (debug) {
-    console.debug("[GymBot/API/auth] Failed to sign uo:", response.error);
+    console.debug("[GymBot/API/auth] Failed to sign up:", response.error);
   }
 
   return {
