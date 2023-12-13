@@ -1,9 +1,11 @@
 import type { JSX } from "react";
 
 import { useEffect, useState } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, TouchableOpacity, View } from "react-native";
 
 import { colors, fontSize } from "$styles";
+
+import Text from "$components/Text";
 
 import * as Font from "expo-font";
 
@@ -31,7 +33,7 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
   }, []);
 
   if (!fontLoaded) {
-    return <Text>Loading...</Text>;
+    return <Text text="Loading..." />;
   }
 
   let messageJsxContent: JSX.Element;
@@ -58,6 +60,7 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
           }}
         >
           <Text
+            text={message.content}
             style={{
               textAlign: "left",
               color:
@@ -68,9 +71,7 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
               fontFamily: "roboto-regular",
               padding: 3,
             }}
-          >
-            {message.content}
-          </Text>
+          />
         </View>
       );
       break;
@@ -87,13 +88,12 @@ export default function ChatMessage({ message, goToWorkoutScreen }) {
           onPress={goToWorkoutScreen}
         >
           <Text
+            text="Go to workout screen"
             style={{
               color: colors.white.default,
               fontSize,
             }}
-          >
-            Go to workout screen
-          </Text>
+          />
         </TouchableOpacity>
       );
       break;
