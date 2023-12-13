@@ -12,7 +12,7 @@ export type HttpServerAddress = `http://${string}` | `https://${string}`;
  */
 export const baseServerAddr =
   (process.env.EXPO_PUBLIC_GYMBOT_SERVER_ADDRESS as BaseServerAddress) ||
-  "://openhoster.ddns.net:3001";
+  "s://gymbot.luisafk.workers.dev";
 
 /**
  * The WebSocket address of the GymBot AI server.
