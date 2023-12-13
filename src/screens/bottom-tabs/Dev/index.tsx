@@ -23,7 +23,7 @@ function Home() {
     <View
       style={{ display: "flex", flexDirection: "column", gap: 12, padding: 12 }}
     >
-      <Text text="Dev docs" size="large" />
+      <Text text="Dev docs" variant="header-big" />
       <Text text="This screen is only shown in the bottom navbar in dev mode." />
     </View>
   );
