@@ -1,11 +1,21 @@
 import { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View, TouchableWithoutFeedback, Keyboard } from "react-native";
+import {
+  Keyboard,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View,
+} from "react-native";
 
 import { colors } from "$styles";
 
-import { lowerExercises, upperExercises, bothExercises } from "../DesignManual/workoutData";
-
 import ScreenHeader from "$components/ScreenHeader";
+import {
+  bothExercises,
+  lowerExercises,
+  upperExercises,
+} from "../DesignManual/workoutData";
 import BodyDefinition from "./BodyDefinition";
 import BuildMuscle from "./BuildMuscle";
 import GoalSelector from "./GoalSelector";
@@ -23,7 +33,7 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
   const [goalText, setGoalText] = useState("What is your goal?");
   const [isInputFilled, setInputFilled] = useState(false);
   const [completed, setCompleted] = useState(false);
-  const [notes, setNotes] = useState("")
+  const [notes, setNotes] = useState("");
 
   useEffect(() => {
     let currentIndex = 0;
@@ -98,79 +108,78 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
   }
 
   const goDesign = () => {
-    let exercisesToDisplay = []
+    let exercisesToDisplay = [];
 
     if (type == "AI" || selectedGoal == "Custom") {
       navigation.replace("DesignAI", {
         goal: selectedGoal,
         subGoal: subGoal,
-        custom: notes
+        custom: notes,
       });
     } else {
       if (subGoal == "Upper") {
-        exercisesToDisplay= upperExercises
+        exercisesToDisplay = upperExercises;
       } else if (subGoal == "Lower") {
-        exercisesToDisplay= lowerExercises
+        exercisesToDisplay = lowerExercises;
       } else if (subGoal == "Both") {
-        exercisesToDisplay= bothExercises
+        exercisesToDisplay = bothExercises;
       }
 
-    navigation.navigate("DesignManual", {
-      exercisesToDisplay: exercisesToDisplay,
-    });
+      navigation.navigate("DesignManual", {
+        exercisesToDisplay: exercisesToDisplay,
+      });
     }
-
   };
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-    <View style={styles.container}>
-      <ScreenHeader title="Workouts" />
-      <View style={styles.chatContainer}>
-        <LinearGradient
-          colors={[colors.blue.default, colors.blue.lighter]} // Lighter blue gradient colors
-          start={[0, 0.5]}
-          end={[1, 0.5]}
-          style={styles.chatBox}
-        >
-          <Image
-            source={require("$assets/circleicon.png")}
-            style={{
-              width: 60,
-              height: 60,
-              borderRadius: 30,
-              borderWidth: 1,
-              borderColor: colors.white.default,
-              marginRight: 10,
-            }}
-          />
-          <Text style={styles.chatText}>{typedText}</Text>
-        </LinearGradient>
-      </View>
-
-      {!completed && (
-        <>
-          <GoalSelector
-            selectedGoal={selectedGoal}
-            setSelectedGoal={setSelectedGoal}
-            setGoalText={setGoalText}
-            setInputFilled={setInputFilled}
-            notes={notes}
-            setNotes={setNotes}
-          />
-
-          {option1}
-
-          <TouchableOpacity
-            style={[styles.button, !isInputFilled && styles.disabledButton]}
-            disabled={!isInputFilled}
-            onPress={goDesign}
+      <View style={styles.container}>
+        <ScreenHeader title="Workouts" />
+        <View style={styles.chatContainer}>
+          <LinearGradient
+            colors={[colors.blue.default, colors.blue.lighter]} // Lighter blue gradient colors
+            start={[0, 0.5]}
+            end={[1, 0.5]}
+            style={styles.chatBox}
           >
-            <Text style={styles.text}>Continue</Text>
-          </TouchableOpacity>
-        </>
-      )}
-    </View>
+            <Image
+              source={require("$assets/circleicon.png")}
+              style={{
+                width: 60,
+                height: 60,
+                borderRadius: 30,
+                borderWidth: 1,
+                borderColor: colors.white.default,
+                marginRight: 10,
+              }}
+            />
+            <Text style={styles.chatText}>{typedText}</Text>
+          </LinearGradient>
+        </View>
+
+        {!completed && (
+          <>
+            <GoalSelector
+              selectedGoal={selectedGoal}
+              setSelectedGoal={setSelectedGoal}
+              setGoalText={setGoalText}
+              setInputFilled={setInputFilled}
+              notes={notes}
+              setNotes={setNotes}
+            />
+
+            {option1}
+
+            <TouchableOpacity
+              style={[styles.button, !isInputFilled && styles.disabledButton]}
+              disabled={!isInputFilled}
+              onPress={goDesign}
+            >
+              <Text style={styles.text}>Continue</Text>
+            </TouchableOpacity>
+          </>
+        )}
+      </View>
     </TouchableWithoutFeedback>
   );
 }

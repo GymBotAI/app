@@ -1,7 +1,8 @@
-import { StyleSheet, Dimensions } from "react-native";
-const { width, height } = Dimensions.get("window");
+import { Dimensions, StyleSheet } from "react-native";
+
 import { colors } from "$styles";
 
+const { width, height } = Dimensions.get("window");
 
 //------------------ BOX STYLES ------------------//
 
@@ -38,52 +39,52 @@ buttonPadding = Math.min(width, height) * 0.025;
 titleFont = containerHeight * 0.19;
 buttonFont = containerHeight * 0.11;
 
- export const createWorkout = StyleSheet.create({
-    container: {
-      marginTop: 10,
-      alignSelf: "center",
-      borderRadius: 15,
-      width: "93%",
-      height: containerHeight,
-    },
-    blueRectangle: {
-      borderRadius: 15,
-      width: "100%",
-      height: "100%",
-      justifyContent: "flex-end", // Move content to the bottom
-      padding: 15,
-    },
-    title: {
-      color: colors.white.default,
-      fontWeight: "bold",
-      fontSize: titleFont,
-      shadowColor: colors.black.default,
-      shadowOffset: { width: 0, height: 1 },
-      shadowOpacity: 0.3,
-      shadowRadius: 3,
-      elevation: 2,
-    },
-    buttonsContainer: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      height: buttonHeight,
-    },
-    designButtonContainer: {
-      backgroundColor: colors.white.default,
-      width: "48%", // Adjust the button widths
-      borderRadius: 5,
-      alignItems: "center",
-      shadowColor: colors.black.default,
-      shadowOffset: { width: 0, height: 1 },
-      shadowOpacity: 0.3,
-      shadowRadius: 3,
-      elevation: 2,
-      paddingVertical: buttonPadding,
-    },
-    buttonText: {
-      color: colors.black.default,
-      fontWeight: "bold",
-      marginBottom: 5,
-      fontSize: buttonFont,
-    },
-  });
+export const createWorkout = StyleSheet.create({
+  container: {
+    marginTop: 10,
+    alignSelf: "center",
+    borderRadius: 15,
+    width: "93%",
+    height: containerHeight,
+  },
+  blueRectangle: {
+    borderRadius: 15,
+    width: "100%",
+    height: "100%",
+    justifyContent: "flex-end", // Move content to the bottom
+    padding: 15,
+  },
+  title: {
+    color: colors.white.default,
+    fontWeight: "bold",
+    fontSize: titleFont,
+    shadowColor: colors.black.default,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+  buttonsContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    height: buttonHeight,
+  },
+  designButtonContainer: {
+    backgroundColor: colors.white.default,
+    width: "48%", // Adjust the button widths
+    borderRadius: 5,
+    alignItems: "center",
+    shadowColor: colors.black.default,
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 2,
+    paddingVertical: buttonPadding,
+  },
+  buttonText: {
+    color: colors.black.default,
+    fontWeight: "bold",
+    marginBottom: 5,
+    fontSize: buttonFont,
+  },
+});
