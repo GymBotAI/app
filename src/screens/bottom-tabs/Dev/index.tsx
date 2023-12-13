@@ -1,7 +1,8 @@
-import { Text, View } from "react-native";
+import { View } from "react-native";
 
 import { createDrawerNavigator } from "@react-navigation/drawer";
 
+import Text from "$components/Text";
 import Button from "./screens/Button";
 
 const Drawer = createDrawerNavigator();
@@ -22,8 +23,8 @@ function Home() {
     <View
       style={{ display: "flex", flexDirection: "column", gap: 12, padding: 12 }}
     >
-      <Text>Dev docs</Text>
-      <Text>This screen is only shown in the bottom navbar in dev mode.</Text>
+      <Text text="Dev docs" size="large" />
+      <Text text="This screen is only shown in the bottom navbar in dev mode." />
     </View>
   );
 }
