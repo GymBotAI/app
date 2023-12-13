@@ -175,7 +175,7 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
 
             {option1}
 
-            <Button text="Continue" size="medium" onPress={goDesign}
+            <Button text="Continue" size="medium" onPress={goDesign} disabled={!isInputFilled} 
             style={{width: '80%', position: 'absolute', bottom: bottomPadding}}/>
             {/* <TouchableOpacity
               style={[styles.button, !isInputFilled && styles.disabledButton]}

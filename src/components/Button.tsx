@@ -23,13 +23,21 @@ function buttonStyles(props: ButtonProps) {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: props.disabled ? colors.grey.lighter : colors.blue.default,
+    backgroundColor: props.disabled ? colors.white.default : colors.blue.default,
     borderRadius: 22,
     shadowColor: colors.black.default,
+<<<<<<< HEAD
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
     alignSelf: "center",
+=======
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.15,
+    shadowRadius: 2,
+    elevation: 5,
+    alignSelf: 'center'
+>>>>>>> 87c8d52 (updates)
   } as const;
 
   const sizeStyles = StyleSheet.create({
