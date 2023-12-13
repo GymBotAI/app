@@ -1,7 +1,15 @@
 import type { StylesObject } from "$types/styles";
+import { size } from "mathjs";
 import type { TextProps as RNTextProps } from "react-native";
+import { Dimensions } from "react-native";
 
 import { Text as RNText, StyleSheet } from "react-native";
+const { width, height } = Dimensions.get("window");
+const holder = Math.min(width, height);
+const mediumFont = holder * 0.055;
+const largeFont = holder * 0.095;
+console.log(largeFont);
+
 
 /**
  * The variant prop is used to apply a predefined set of styles to the text.
@@ -58,10 +66,10 @@ function textStyles(props: TextProps) {
 
   const sizeStyles = StyleSheet.create({
     large: {
-      fontSize: 26,
+      fontSize: largeFont,
     },
     medium: {
-      fontSize: 26,
+      fontSize: mediumFont,
     },
     small: {
       fontSize: 16,
