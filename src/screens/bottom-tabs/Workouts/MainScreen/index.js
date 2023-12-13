@@ -16,7 +16,6 @@ export default function MainWorkout({ navigation }) {
   const [showButtons, setShowButtons] = useState(false);
   const { width, height } = Dimensions.get("window");
   const bottomPadding = Math.min(width, height) / 35;
-  console.log(bottomPadding)
 
   const toggleRunningPage = () => {
     setShowButtons(false);

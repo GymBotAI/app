@@ -29,6 +29,7 @@ function buttonStyles(props: ButtonProps) {
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
+    alignSelf: 'center'
   } as const;
 
   const sizeStyles = StyleSheet.create({
