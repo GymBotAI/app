@@ -25,7 +25,7 @@ export default function TextDevScreen() {
 
       {(["header-big", "header-default", "subheader", "normal"] as const).map(
         (variant) => (
-          <Text text={variant} variant={variant} />
+          <Text text={variant} variant={variant} key={variant} />
         )
       )}
     </View>
