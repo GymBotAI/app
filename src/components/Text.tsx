@@ -10,7 +10,6 @@ const holder = Math.min(width, height);
 const smallFont = holder * 0.042;
 const mediumFont = holder * 0.055;
 const largeFont = holder * 0.075;
-console.log(largeFont);
 const largerFont = holder * 0.095;
 
 /**

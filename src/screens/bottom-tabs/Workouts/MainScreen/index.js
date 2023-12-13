@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, Text, TouchableOpacity, View, StatusBar } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View, StatusBar, Dimensions } from "react-native";
 
 //---------- Components ----------//
 import Button from "$components/Button";
@@ -14,6 +14,9 @@ import WorkoutList from "./WorkoutList";
 export default function MainWorkout({ navigation }) {
   const [showRun, setShowRun] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
+  const { width, height } = Dimensions.get("window");
+  const bottomPadding = Math.min(width, height) / 35;
+  console.log(bottomPadding)
 
   const toggleRunningPage = () => {
     setShowButtons(false);
@@ -56,7 +59,7 @@ export default function MainWorkout({ navigation }) {
           size="medium"
           style={{
             position: "absolute",
-            bottom: 15,
+            bottom: bottomPadding,
             width: "80%",
             alignSelf: "center",
           }}

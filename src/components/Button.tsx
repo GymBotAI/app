@@ -1,6 +1,6 @@
 import type { TouchableOpacityProps } from "react-native";
 
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, Dimensions } from "react-native";
 
 import { colors } from "$styles";
 
@@ -8,6 +8,15 @@ export type ButtonProps = TouchableOpacityProps & {
   text: string;
   size?: "small" | "medium" | "large";
 };
+
+const { width, height } = Dimensions.get("window");
+const holder = Math.min(width, height);
+const smallFont = holder * 0.058;
+const mediumFont = holder * 0.07;
+const largeFont = holder * 0.075;
+const smallPadding = smallFont / 3.66;
+const mediumPadding = mediumFont / 2.9;
+const largePadding = largeFont / 2.8;
 
 function buttonStyles(props: ButtonProps) {
   const baseStyles = {
@@ -27,10 +36,10 @@ function buttonStyles(props: ButtonProps) {
       padding: 10,
     },
     medium: {
-      padding: 8,
+      padding: mediumPadding,
     },
     small: {
-      padding: 6,
+      padding: smallPadding,
     },
   });
 
@@ -48,13 +57,13 @@ function textStyles(props: ButtonProps) {
 
   const sizeStyles = StyleSheet.create({
     large: {
-      fontSize: 28,
+      fontSize: largeFont,
     },
     medium: {
-      fontSize: 26,
+      fontSize: mediumFont,
     },
     small: {
-      fontSize: 24,
+      fontSize: smallFont,
     },
   });
 
