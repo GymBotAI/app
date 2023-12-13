@@ -32,9 +32,6 @@ dependencies:
   '@supabase/supabase-js':
     specifier: ^2.38.2
     version: 2.38.2
-  '@types/babel__core':
-    specifier: ^7.20.5
-    version: 7.20.5
   eas-cli:
     specifier: ^3.9.2
     version: 3.9.2(expo-modules-autolinking@1.5.1)
@@ -65,9 +62,6 @@ dependencies:
   mathjs:
     specifier: ^11.10.0
     version: 11.10.0
-  pnpm:
-    specifier: ^8.9.0
-    version: 8.9.0
   react:
     specifier: 18.2.0
     version: 18.2.0
@@ -136,6 +130,9 @@ devDependencies:
   '@tsconfig/react-native':
     specifier: ^3.0.2
     version: 3.0.2
+  '@types/babel__core':
+    specifier: ^7.20.5
+    version: 7.20.5
   '@types/jest':
     specifier: ^29.5.2
     version: 29.5.2
@@ -2986,26 +2983,26 @@ packages:
       '@types/babel__generator': 7.6.7
       '@types/babel__template': 7.4.4
       '@types/babel__traverse': 7.20.4
-    dev: false
+    dev: true
 
   /@types/babel__generator@7.6.7:
     resolution: {integrity: sha512-6Sfsq+EaaLrw4RmdFWE9Onp63TOUue71AWb4Gpa6JxzgTYtimbM086WnYTy2U67AofR++QKCo08ZP6pwx8YFHQ==}
     dependencies:
       '@babel/types': 7.23.3
-    dev: false
+    dev: true
 
   /@types/babel__template@7.4.4:
     resolution: {integrity: sha512-h/NUaSyG5EyxBIp8YRxo4RMe2/qQgvyowRwVMzhYhBCONbW8PUsg4lkFMrhgZhUe5z3L3MiLDuvyJ/CaPa2A8A==}
     dependencies:
       '@babel/parser': 7.23.3
       '@babel/types': 7.23.3
-    dev: false
+    dev: true
 
   /@types/babel__traverse@7.20.4:
     resolution: {integrity: sha512-mSM/iKUk5fDDrEV/e83qY+Cr3I1+Q3qqTuEn++HAWYjEa1+NxZr6CNrcJGf2ZTnq4HoFGC3zaTPZTobCzCFukA==}
     dependencies:
       '@babel/types': 7.23.3
-    dev: false
+    dev: true
 
   /@types/body-parser@1.19.4:
     resolution: {integrity: sha512-N7UDG0/xiPQa2D/XrVJXjkWbpqHCd2sBaB32ggRF2l83RhPfamgKGF8gwwqyksS95qUS5ZYF9aF+lLPRlwI2UA==}
@@ -8029,12 +8026,6 @@ packages:
   /pngjs@6.0.0:
     resolution: {integrity: sha512-TRzzuFRRmEoSW/p1KVAmiOgPco2Irlah+bGFCeNfJXxxYGwSw7YwAOAcd7X28K/m5bjBWKsC29KyoMfHbypayg==}
     engines: {node: '>=12.13.0'}
-    dev: false
-
-  /pnpm@8.9.0:
-    resolution: {integrity: sha512-74hZk44fBTe5/PAwkEQxE5Lzs4s0QXbmzU/e4hsiVSSwrCobCK4q4t3Vs/9LjKSW1neOlQ8+fJ9VW4EyWYJEHA==}
-    engines: {node: '>=16.14'}
-    hasBin: true
     dev: false
 
   /postcss-calc@8.2.4(postcss@8.4.31):
