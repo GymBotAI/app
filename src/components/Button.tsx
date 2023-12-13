@@ -26,6 +26,7 @@ function buttonStyles(props: ButtonProps) {
     justifyContent: "center",
     backgroundColor: props.disabled ? colors.grey.lighter : colors.blue.default,
     borderRadius: 22,
+    paddingHorizontal: 16,
     shadowColor: colors.black.default,
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.3,
