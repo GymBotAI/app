@@ -12,7 +12,6 @@ import Text from "$components/Text";
 
 import { AntDesign } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import Button from "$components/Button";
 
 export default function CreateWorkoutButton({ goDesignAI, goDesignManual }) {
   const { width, height } = Dimensions.get("window");
@@ -38,7 +37,7 @@ export default function CreateWorkoutButton({ goDesignAI, goDesignManual }) {
             style={createWorkout.designButtonContainer}
             onPress={goDesignManual}
           >
-            {/* <Text style={[createWorkout.buttonText]}>Manually</Text> */}
+            <Text text="Manually" variant="header-default"/>
 
             <AntDesign
               name="arrowright"
@@ -51,7 +50,7 @@ export default function CreateWorkoutButton({ goDesignAI, goDesignManual }) {
             style={createWorkout.designButtonContainer}
             onPress={goDesignAI}
           >
-            {/* <Text style={createWorkout.buttonText}>With AI</Text> */}
+          <Text text="With AI" variant="header-default"/>
             <AntDesign
               name="arrowright"
               size={cameraSize}
