@@ -13,6 +13,9 @@ import SignUp from "$screens/StartUp/EnterInfo";
 import StartUp from "$screens/StartUp/Login";
 import Main from "./src/MainApp";
 
+// https://reactnavigation.org/docs/drawer-navigator#installation
+import "react-native-gesture-handler";
+
 const Stack = createNativeStackNavigator<NavigationScreens>();
 
 export default function App() {

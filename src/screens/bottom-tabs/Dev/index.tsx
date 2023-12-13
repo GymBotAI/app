@@ -1,11 +1,13 @@
-import { SafeAreaView, StatusBar, Text } from "react-native";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+
+import Button from "./screens/Button";
+
+const Drawer = createDrawerNavigator();
 
 export default function Workouts() {
   return (
-    <SafeAreaView style={{ height: "100%", width: "100%" }}>
-      <Text>Dev</Text>
-
-      <StatusBar barStyle="dark-content" />
-    </SafeAreaView>
+    <Drawer.Navigator>
+      <Drawer.Screen name="Button" component={Button} />
+    </Drawer.Navigator>
   );
 }
