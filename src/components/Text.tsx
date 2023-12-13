@@ -61,10 +61,10 @@ function textStyles(props: TextProps) {
       fontSize: 26,
     },
     medium: {
-      fontSize: 20,
+      fontSize: 26,
     },
     small: {
-      fontSize: 14,
+      fontSize: 16,
     },
   });
 
