@@ -40,10 +40,7 @@ export default function MainWorkout({ navigation }) {
 
       <ScreenHeader title="Workouts" />
       <ScrollView style={Box.container}>
-        <CreateWorkoutButton
-          goDesignAI={goDesignAI}
-          goDesignManual={goDesignManual}
-        />
+        <CreateWorkoutButton goDesignAI={goDesignAI} goDesignManual={goDesignManual}/>
 
         <TalkToGymBotSection navigation={navigation} />
         <WorkoutList navigation={navigation} />

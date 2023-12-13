@@ -42,7 +42,7 @@ export const Box = StyleSheet.create({
     width: "90%",
     marginLeft: "5%",
     backgroundColor: colors.blue.default,
-    borderRadius: 4,
+    borderRadius: 24,
     shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.6,
