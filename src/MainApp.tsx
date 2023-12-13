@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Tab screens
 import Chat from "$screens/bottom-tabs/Chat";
+import Dev from "$screens/bottom-tabs/Dev";
 import Food from "$screens/bottom-tabs/Food";
 import Home from "$screens/bottom-tabs/Home";
 import Plans from "$screens/bottom-tabs/Plans";
@@ -65,6 +66,17 @@ export default function MainApp() {
           ),
         }}
       />
+      {__DEV__ && (
+        <Tabs.Screen
+          name="Dev"
+          component={Dev}
+          options={{
+            tabBarIcon: ({ color }) => (
+              <FontAwesome5 name="terminal" size={25} color={color} />
+            ),
+          }}
+        />
+      )}
     </Tabs.Navigator>
   );
 }
