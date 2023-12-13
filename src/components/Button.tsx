@@ -1,3 +1,4 @@
+import type { StylesObject } from "$types/styles";
 import type { TouchableOpacityProps } from "react-native";
 
 import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
@@ -19,7 +20,7 @@ const mediumPadding = mediumFont / 2.9;
 const largePadding = largeFont / 2.8;
 
 function buttonStyles(props: ButtonProps) {
-  const baseStyles = {
+  const baseStyles: StylesObject = {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -51,7 +52,7 @@ function buttonStyles(props: ButtonProps) {
 }
 
 function textStyles(props: ButtonProps) {
-  const baseStyles = {
+  const baseStyles: StylesObject = {
     color: "#ededed",
     fontWeight: "bold",
   } as const;
