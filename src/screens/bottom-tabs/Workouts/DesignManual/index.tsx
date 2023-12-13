@@ -1,12 +1,13 @@
-import { useEffect, useState } from "react";
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
 
 import { colors } from "$styles";
 
 import ScreenHeader from "$components/ScreenHeader";
 import ExerciseSelectionScreen from "./ExerciseSelection";
 import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
-import { bothExercises, lowerExercises, upperExercises } from "./workoutData";
+
+import Button from "$components/Button";
 
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
@@ -47,23 +48,13 @@ export default function CompleteDesignContainer({ route, navigation }) {
               </LinearGradient>
             </View>
 
-            {/* <View style={styles.container2}>
-              <TouchableOpacity style={styles.button2}>
-                <Text style={styles.buttonText}>Design With AI</Text>
-              </TouchableOpacity>
-            </View> */}
-
             <ExerciseSelectionScreen
               setSelectedExercises={setSelectedExercises}
               selectedExercises={selectedExercises}
               exercisesToDisplay={exercisesToDisplay}
             />
-            <TouchableOpacity
-              onPress={() => setShowModal(!showModal)}
-              style={[styles.button]}
-            >
-              <Text style={styles.text}>Continue</Text>
-            </TouchableOpacity>
+            <Button text="Continue" size="medium" style={{position: 'absolute', bottom: 10, width: '80%'}}
+            onPress={() => setShowModal(!showModal)}/>
           </View>
         </>
       )}
