@@ -7,15 +7,18 @@ import { size } from "mathjs";
 
 const { width, height } = Dimensions.get("window");
 const holder = Math.min(width, height);
+const smallFont = holder * 0.042;
 const mediumFont = holder * 0.055;
-const largeFont = holder * 0.095;
+const largeFont = holder * 0.075;
 console.log(largeFont);
+const largerFont = holder * 0.095;
 
 /**
  * The variant prop is used to apply a predefined set of styles to the text.
  * @default "normal"
  */
 export type TextVariant =
+  | "header-huge"
   | "header-big"
   | "header-default"
   | "subheader"
@@ -24,7 +27,7 @@ export type TextVariant =
 export interface TextStylingProps {
   bold?: boolean;
 
-  size?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large" | 'larger';
 }
 export interface TextVariantProps {
   variant: TextVariant;
@@ -38,6 +41,10 @@ export default function Text(props: TextProps) {
 }
 
 const variantStyles: Record<TextVariant, TextStylingProps> = {
+  "header-huge": {
+    size: "larger",
+    bold: true,
+  },
   "header-big": {
     size: "large",
     bold: true,
@@ -65,6 +72,9 @@ function textStyles(props: TextProps) {
   };
 
   const sizeStyles = StyleSheet.create({
+    larger: {
+      fontSize: largerFont,
+    },
     large: {
       fontSize: largeFont,
     },
@@ -72,7 +82,7 @@ function textStyles(props: TextProps) {
       fontSize: mediumFont,
     },
     small: {
-      fontSize: 16,
+      fontSize: smallFont,
     },
   });
 

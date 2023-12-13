@@ -73,10 +73,49 @@ export const createWorkout = StyleSheet.create({
     elevation: 2,
     paddingVertical: buttonPadding,
   },
-  buttonText: {
-    color: colors.black.default,
-    fontWeight: "bold",
-    marginBottom: 5,
-    fontSize: buttonFont,
+});
+
+
+//------------------ TALK TO GYMBOT ------------------//
+containerHeight2 = Math.min(width, height) * 0.55;
+padding = containerHeight2 / 11;
+textBottom = containerHeight2 / 35;
+topSpace = containerHeight2 / 12;
+verticalPadding = containerHeight2 / 20;
+horizontalPadding2 = containerHeight2 / 12;
+marginTop = containerHeight2 / 16;
+
+export const talkTo = StyleSheet.create({
+  container: {
+    backgroundColor: colors.blue.default,
+    width: "93%",
+    alignSelf: "center",
+    borderRadius: 20,
+    padding: padding,
+    marginTop: topSpace,
+    shadowColor: colors.black.default,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+  titleWrapper: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: textBottom, // Adjust the value as needed
+  },
+  button: {
+    marginTop: marginTop,
+    alignItems: "center",
+    alignSelf: "center",
+    paddingVertical: verticalPadding,
+    paddingHorizontal: horizontalPadding2,
+    borderRadius: 20,
+    backgroundColor: colors.grey.lightest,
+    shadowColor: colors.black.default,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 2,
   },
 });

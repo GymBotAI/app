@@ -27,9 +27,14 @@ export default function CreateWorkoutButton({ goDesignAI, goDesignManual }) {
         colors={[colors.blue.default, colors.blue.lightest]}
         style={createWorkout.blueRectangle}
       >
-        <Text text="Create Workout" variant="header-big" style={
+        <Text text="Create Workout" variant="header-huge" style={
           {marginBottom: bottomHeight,
-          color: colors.white.default,}}
+          color: colors.white.default,
+          shadowColor: colors.black.default,
+          shadowOffset: { width: 0, height: 2 },
+          shadowOpacity: 0.2,
+          shadowRadius: 3,
+          elevation: 2,}}
           />
 
         <View style={createWorkout.buttonsContainer}>
