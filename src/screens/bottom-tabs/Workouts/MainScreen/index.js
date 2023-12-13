@@ -37,33 +37,32 @@ export default function MainWorkout({ navigation }) {
 
   return (
     <>
-
       <ScreenHeader title="Workouts" />
       <ScrollView style={Box.container}>
-        <CreateWorkoutButton goDesignAI={goDesignAI} goDesignManual={goDesignManual}/>
+        <CreateWorkoutButton
+          goDesignAI={goDesignAI}
+          goDesignManual={goDesignManual}
+        />
 
         <TalkToGymBotSection navigation={navigation} />
         <WorkoutList navigation={navigation} />
         {showRun && <RunningPage onClose={toggleRunningPage} />}
       </ScrollView>
 
-
-    {!showButtons && (
-      <Button
-        onPress={() =>
-          setShowButtons(!showButtons)
-        }
-        text="Record Exercise"
-        size="medium"
-        style={{
-          position: "absolute",
-          bottom: 15,
-          width: "80%",
-          alignSelf: "center",
-        }}
-      />
-    )}
-    {showButtons && (
+      {!showButtons && (
+        <Button
+          onPress={() => setShowButtons(!showButtons)}
+          text="Record Exercise"
+          size="medium"
+          style={{
+            position: "absolute",
+            bottom: 15,
+            width: "80%",
+            alignSelf: "center",
+          }}
+        />
+      )}
+      {showButtons && (
         <View style={Box.addButton}>
           <TouchableOpacity onPress={toggleRunningPage}>
             <Text style={Box.addText}>Start a Run 🏃‍♂️</Text>
@@ -78,8 +77,6 @@ export default function MainWorkout({ navigation }) {
           </TouchableOpacity>
         </View>
       )}
-
     </>
-  )
-
+  );
 }

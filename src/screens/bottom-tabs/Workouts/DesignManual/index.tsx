@@ -4,23 +4,20 @@ import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { colors } from "$styles";
 
 import ScreenHeader from "$components/ScreenHeader";
-import { bothExercises, lowerExercises, upperExercises } from "./workoutData";
 import ExerciseSelectionScreen from "./ExerciseSelection";
 import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
+import { bothExercises, lowerExercises, upperExercises } from "./workoutData";
 
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
-
 export default function CompleteDesignContainer({ route, navigation }) {
   const { exercisesToDisplay } = route.params;
   const [typedText, setTypedText] = useState("");
-  const [goalText ] = useState("Select your exercises!");
+  const [goalText] = useState("Select your exercises!");
   const [showModal, setShowModal] = useState(false);
 
   const [selectedExercises, setSelectedExercises] = useState([]);
-
-
 
   return (
     <>

@@ -4,9 +4,9 @@ import { StatusBar, View } from "react-native";
 
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
+import DesignAI from "./DesignAI";
 import DesignManual from "./DesignManual";
 import DesignStart from "./DesignStart";
-import DesignAI from "./DesignAI"
 import Workout from "./MainScreen";
 
 const Stack = createNativeStackNavigator<NavigationScreens>();
