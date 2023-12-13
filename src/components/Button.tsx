@@ -1,6 +1,6 @@
 import type { TouchableOpacityProps } from "react-native";
 
-import { StyleSheet, Text, TouchableOpacity, Dimensions } from "react-native";
+import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import { colors } from "$styles";
 
@@ -29,12 +29,12 @@ function buttonStyles(props: ButtonProps) {
     shadowOffset: { width: 1, height: 1 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
-    alignSelf: 'center'
+    alignSelf: "center",
   } as const;
 
   const sizeStyles = StyleSheet.create({
     large: {
-      padding: 10,
+      padding: largePadding,
     },
     medium: {
       padding: mediumPadding,
