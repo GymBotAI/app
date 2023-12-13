@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { ScrollView, Text, TouchableOpacity, View, StatusBar } from "react-native";
 
 //---------- Components ----------//
 import Button from "$components/Button";
@@ -77,6 +77,7 @@ export default function MainWorkout({ navigation }) {
           </TouchableOpacity>
         </View>
       )}
+      <StatusBar barStyle="dark" />
     </>
   );
 }
