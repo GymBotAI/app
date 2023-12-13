@@ -1,6 +1,6 @@
 import type { NavigationProp } from "$types/navigation";
 
-import { useContext, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import {
   Alert,
   Animated,
@@ -10,8 +10,6 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
-import { AppContext } from "$context";
 
 import { colors } from "$styles";
 
@@ -24,7 +22,6 @@ import { Box, bVal } from "./styles";
 
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
-import Modal from "react-native-modal";
 
 const backgroundImages = [
   {
@@ -45,8 +42,6 @@ const backgroundImages = [
   },
 ];
 
-let xButton = null;
-
 export default function StartUp({
   navigation,
 }: {
@@ -55,8 +50,6 @@ export default function StartUp({
   const [showLogin, setShowLogin] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const scrollX = useRef(new Animated.Value(0)).current;
-
-  const { session } = useContext(AppContext);
 
   const viewabilityConfig = useRef({
     itemVisiblePercentThreshold: 50,
@@ -67,55 +60,27 @@ export default function StartUp({
     setShowSignUp(false);
   };
 
-  xButton = (
-    <TouchableOpacity style={Box.touchable} onPress={handleGoBack}>
-      <Feather
-        name="x-circle"
-        size={bVal.buttonSize}
-        color={bVal.buttonColor}
-      />
-    </TouchableOpacity>
-  );
-
   return (
     <View style={{ flex: 1 }}>
-      <Modal
+      <LoginModal
         isVisible={showLogin}
-        backdropOpacity={bVal.backOpacity}
-        backdropColor={bVal.backColor}
-      >
-        {xButton}
-        <LoginModal
-          onAccount={() => {
-            navigation.navigate("Main");
-            setShowLogin(false);
-          }}
-          onError={(error) => {
-            Alert.alert("Error logging in", error.message);
-          }}
-          buttons={["Login", "Sign Up Instead"]}
-          type={true} //Identifies it as a Login
-        />
-      </Modal>
+        onAccount={() => {
+          navigation.navigate("Main");
+          setShowLogin(false);
+        }}
+        onClose={handleGoBack}
+        type={true} // Login
+      />
 
-      <Modal
+      <LoginModal
         isVisible={showSignUp}
-        backdropOpacity={bVal.backOpacity}
-        backdropColor={bVal.backColor}
-      >
-        {xButton}
-        <LoginModal
-          onAccount={() => {
-            navigation.navigate("Main");
-            setShowSignUp(false);
-          }}
-          onError={(error) => {
-            Alert.alert("Error signing up", error.message);
-          }}
-          buttons={["Sign Up", "Login Instead"]}
-          type={false} //Identifies it as a SignUp
-        />
-      </Modal>
+        onAccount={() => {
+          navigation.navigate("Main");
+          setShowSignUp(false);
+        }}
+        onClose={handleGoBack}
+        type={false} // SignUp
+      />
 
       <View style={Box.logoView}>
         <Image source={bVal.gymBotLogo} style={Box.logo} />

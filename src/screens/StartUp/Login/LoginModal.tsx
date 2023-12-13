@@ -2,6 +2,7 @@ import type { User } from "@supabase/supabase-js";
 
 import { useState } from "react";
 import {
+  Alert,
   Keyboard,
   StyleSheet,
   Text,
@@ -15,23 +16,39 @@ import { login, signup } from "$api/auth";
 
 import { colors } from "$styles";
 
-import { aVal, Login } from "./styles";
+import { aVal, Box, bVal, Login } from "./styles";
 
+import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
+import Modal from "react-native-modal";
 
 export default function LoginBox({
-  onAccount,
-  onError,
-  buttons,
+  isVisible,
   type,
+
+  onAccount,
+  onClose,
+  onError,
 }: {
+  isVisible: boolean;
+
   onAccount: (user: User) => void;
-  onError: (error: Error) => void;
-  buttons: [string, string];
+  onClose: () => void;
+  onError?: (error: Error) => void;
+
+  /**
+   * True if login, false if signup
+   */
   type: boolean;
 }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const errorHandler =
+    onError ||
+    ((error) => {
+      Alert.alert(`Error ${type ? "logging in" : "signing up"}`, error.message);
+    });
 
   const handleLogin = async () => {
     const loginResult = await login(email, password);
@@ -39,9 +56,9 @@ export default function LoginBox({
     if (loginResult.success) {
       onAccount(loginResult.user);
     } else if ("error" in loginResult) {
-      onError(loginResult.error);
+      errorHandler(loginResult.error);
     } else {
-      onError(
+      errorHandler(
         new Error("Unreachable in LoginBox handleLogin, no success or error")
       );
     }
@@ -53,9 +70,9 @@ export default function LoginBox({
     if (loginResult.success) {
       onAccount(loginResult.user);
     } else if ("error" in loginResult) {
-      onError(loginResult.error);
+      errorHandler(loginResult.error);
     } else {
-      onError(
+      errorHandler(
         new Error("Unreachable in SignupBox handleSignup, no success or error")
       );
     }
@@ -64,61 +81,77 @@ export default function LoginBox({
   const handleAction = type ? handleLogin : handleSignup; //handleLogin if true, handleSignUp if false
 
   return (
-    <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={Login.container}>
-        <TextInput
-          style={Login.input}
-          placeholder="Email"
-          placeholderTextColor={aVal.placeholder}
-          value={email}
-          keyboardType="email-address"
-          onChangeText={setEmail}
-          autoCapitalize="none"
+    <Modal
+      isVisible={isVisible}
+      backdropOpacity={bVal.backOpacity}
+      backdropColor={bVal.backColor}
+    >
+      <TouchableOpacity style={Box.touchable} onPress={onClose}>
+        <Feather
+          name="x-circle"
+          size={bVal.buttonSize}
+          color={bVal.buttonColor}
         />
-        <TextInput
-          style={Login.input}
-          placeholder="Password"
-          placeholderTextColor={aVal.placeholder}
-          value={password}
-          onChangeText={setPassword}
-          secureTextEntry
-        />
+      </TouchableOpacity>
 
-        <TouchableOpacity>
-          <Text style={styles.forgotText}>Forgot Password?</Text>
-        </TouchableOpacity>
+      <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
+        <View style={Login.container}>
+          <TextInput
+            style={Login.input}
+            placeholder="Email"
+            placeholderTextColor={aVal.placeholder}
+            value={email}
+            keyboardType="email-address"
+            onChangeText={setEmail}
+            autoCapitalize="none"
+          />
+          <TextInput
+            style={Login.input}
+            placeholder="Password"
+            placeholderTextColor={aVal.placeholder}
+            value={password}
+            onChangeText={setPassword}
+            secureTextEntry
+          />
 
-        <View
-          style={{
-            marginTop: 30,
-            alignContent: "center",
-            marginLeft: -10,
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <TouchableOpacity style={styles.login} onPress={handleAction}>
-            <Text style={styles.loginText}>{buttons[0]}</Text>
+          <TouchableOpacity>
+            <Text style={styles.forgotText}>Forgot Password?</Text>
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.signup}>
-            <Text style={styles.signupText}>{buttons[1]}</Text>
+          <View
+            style={{
+              marginTop: 30,
+              alignContent: "center",
+              marginLeft: -10,
+              display: "flex",
+              flexDirection: "column",
+            }}
+          >
+            <TouchableOpacity style={styles.login} onPress={handleAction}>
+              <Text style={styles.loginText}>{type ? "Login" : "Signup"}</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.signup}>
+              <Text style={styles.signupText}>
+                {type ? "Signup instead" : "Login instead"}
+              </Text>
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity style={styles.signInWithGoogleButton}>
+            <View style={styles.googleButtonContent}>
+              <Image
+                source={require("$assets/google.webp")}
+                style={styles.googleLogo}
+              />
+              <Text style={styles.signInWithGoogleButtonText}>
+                Continue with Google
+              </Text>
+            </View>
           </TouchableOpacity>
         </View>
-
-        <TouchableOpacity style={styles.signInWithGoogleButton}>
-          <View style={styles.googleButtonContent}>
-            <Image
-              source={require("$assets/google.webp")}
-              style={styles.googleLogo}
-            />
-            <Text style={styles.signInWithGoogleButtonText}>
-              Continue with Google
-            </Text>
-          </View>
-        </TouchableOpacity>
-      </View>
-    </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
+    </Modal>
   );
 }
 
