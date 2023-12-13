@@ -29,6 +29,8 @@ This folder contains all the screens for the app.
 │ └ 📲 Login                 screen     Screen where users can login or create an account
 └ 📂 bottom-tabs/                       Folder containing all the screens that are part of the bottom tab navigator
   ├ 📲 Chat/                 screen
+  ├ 🧭 Dev/                  navigator
+  │ ├ 📂 screens/
   ├ 📲 Food/                 screen
   ├ 🧭 Home/                 navigator
   │ ├ 📲 Home.tsx            screen
