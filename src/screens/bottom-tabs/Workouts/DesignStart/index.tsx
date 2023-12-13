@@ -3,7 +3,7 @@ import {
   Keyboard,
   StyleSheet,
   Text,
-  TouchableOpacity,
+  Dimensions,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
@@ -28,6 +28,8 @@ import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
 
 export default function WorkoutSelectionScreen({ route, navigation }) {
+  const { width, height } = Dimensions.get("window");
+  const bottomPadding = Math.min(width, height) / 35;
   const { type } = route.params;
 
   const [selectedGoal, setSelectedGoal] = useState(null);
@@ -173,7 +175,8 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
 
             {option1}
 
-            <Button text="Continue" size="medium" onPress={goDesign} style={{width: 20, position: 'absolute', bottom: 20}}/>
+            <Button text="Continue" size="medium" onPress={goDesign}
+            style={{width: '80%', position: 'absolute', bottom: bottomPadding}}/>
             {/* <TouchableOpacity
               style={[styles.button, !isInputFilled && styles.disabledButton]}
               disabled={!isInputFilled}
