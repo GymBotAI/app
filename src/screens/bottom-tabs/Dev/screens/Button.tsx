@@ -49,6 +49,11 @@ export default function ButtonDevScreen() {
         style={styles.exampleButtons}
       />
 
+      <SyntaxHighlighter>
+        {
+          '<Button\n  text="Disabled button"\n  disabled\n  onPress={onPress}\n  style={styles.exampleButtons}\n/>'
+        }
+      </SyntaxHighlighter>
       <Button
         text="Disabled button"
         disabled
