@@ -2,7 +2,7 @@ import type { User } from "@supabase/supabase-js";
 
 import { useState } from "react";
 import {
-  Keyboard, // Import Keyboard
+  Keyboard,
   StyleSheet,
   Text,
   TextInput,
@@ -22,14 +22,12 @@ import { Image } from "expo-image";
 export default function LoginBox({
   onAccount,
   onError,
-  button1,
-  button2,
+  buttons,
   type,
 }: {
   onAccount: (user: User) => void;
   onError: (error: Error) => void;
-  button1: string;
-  button2: string;
+  buttons: [string, string];
   type: boolean;
 }) {
   const [email, setEmail] = useState("");
@@ -100,11 +98,11 @@ export default function LoginBox({
           }}
         >
           <TouchableOpacity style={styles.login} onPress={handleAction}>
-            <Text style={styles.loginText}>{button1}</Text>
+            <Text style={styles.loginText}>{buttons[0]}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity style={styles.signup}>
-            <Text style={styles.signupText}>{button2}</Text>
+            <Text style={styles.signupText}>{buttons[1]}</Text>
           </TouchableOpacity>
         </View>
 

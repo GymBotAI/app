@@ -15,9 +15,9 @@ import { AppContext } from "$context";
 
 import { colors } from "$styles";
 
-import Account from "./Account";
-import Pagination from "./Pagination";
 //------------ Components ------------//
+import LoginModal from "./LoginModal";
+import Pagination from "./Pagination";
 import SlideItem from "./SlideItem";
 //------------ Styles ------------//
 import { Box, bVal } from "./styles";
@@ -85,7 +85,7 @@ export default function StartUp({
         backdropColor={bVal.backColor}
       >
         {xButton}
-        <Account
+        <LoginModal
           onAccount={() => {
             navigation.navigate("Main");
             setShowLogin(false);
@@ -93,8 +93,7 @@ export default function StartUp({
           onError={(error) => {
             Alert.alert("Error logging in", error.message);
           }}
-          button1="Login"
-          button2="Sign Up Instead"
+          buttons={["Login", "Sign Up Instead"]}
           type={true} //Identifies it as a Login
         />
       </Modal>
@@ -105,7 +104,7 @@ export default function StartUp({
         backdropColor={bVal.backColor}
       >
         {xButton}
-        <Account
+        <LoginModal
           onAccount={() => {
             navigation.navigate("Main");
             setShowSignUp(false);
@@ -113,8 +112,7 @@ export default function StartUp({
           onError={(error) => {
             Alert.alert("Error signing up", error.message);
           }}
-          button1="Sign Up"
-          button2="Login Instead"
+          buttons={["Sign Up", "Login Instead"]}
           type={false} //Identifies it as a SignUp
         />
       </Modal>
