@@ -12,13 +12,50 @@ import TalkToGymBotSection from "./TalkToGymBot";
 import WorkoutList from "./WorkoutList";
 
 export default function MainWorkout({ navigation }) {
+  const [showRun, setShowRun] = useState(false);
   const [showButtons, setShowButtons] = useState(false);
+
+  const toggleRunningPage = () => {
+    setShowButtons(false);
+    setShowRun(!showRun);
+  };
+
+  const goDesignAI = () => {
+    navigation.navigate("DesignStart", {
+      type: "AI",
+    });
+  };
+
+  const goDesignManual = () => {
+    navigation.navigate("DesignStart", {
+      type: "Manual",
+    });
+  };
+  const toggleWorkoutButtons = () => {
+    setShowButtons(!showButtons);
+  };
 
   return (
     <>
 
+      <ScreenHeader title="Workouts" />
+      <ScrollView style={Box.container}>
+        <CreateWorkoutButton
+          goDesignAI={goDesignAI}
+          goDesignManual={goDesignManual}
+        />
+
+        <TalkToGymBotSection navigation={navigation} />
+        <WorkoutList navigation={navigation} />
+        {showRun && <RunningPage onClose={toggleRunningPage} />}
+      </ScrollView>
+
+
+    {!showButtons && (
       <Button
-        // onPress={setShowButtons(!showButtons)}
+        onPress={() =>
+          setShowButtons(!showButtons)
+        }
         text="Record Exercise"
         size="medium"
         style={{
@@ -28,6 +65,23 @@ export default function MainWorkout({ navigation }) {
           alignSelf: "center",
         }}
       />
+    )}
+    {showButtons && (
+        <View style={Box.addButton} onPress={toggleWorkoutButtons}>
+          <TouchableOpacity onPress={toggleRunningPage}>
+            <Text style={Box.addText}>Start a Run 🏃‍♂️</Text>
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => {
+              setShowButtons(false);
+              console.log(showButtons);
+            }}
+          >
+            <Text style={Box.addText}>Log Workout💪</Text>
+          </TouchableOpacity>
+        </View>
+      )}
+
     </>
   )
 
