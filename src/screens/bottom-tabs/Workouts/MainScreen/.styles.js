@@ -34,12 +34,14 @@ export const Box = StyleSheet.create({
 
 //------------------ CREATE WORKOUT BUTTON ------------------//
 containerHeight = Math.min(width, height) * 0.5;
+// test = ;
+console.log(test)
 
 export const createWorkout = StyleSheet.create({
   container: {
     marginTop: containerHeight / 16,
     alignSelf: "center",
-    borderRadius: 15,
+    borderRadius: containerHeight / 12.5,
     width: "93%",
     height: containerHeight,
   },
