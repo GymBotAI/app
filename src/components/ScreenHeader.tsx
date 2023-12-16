@@ -4,7 +4,8 @@ import { colors } from "$styles";
 
 const { width, height } = Dimensions.get("window");
 const fontSize = Math.min(width, height) * 0.05;
-console.log(fontSize);
+const headerHeight = fontSize * 4.8;
+console.log(headerHeight);
 
 export default function ScreenHeader({ title }: { title: string }) {
   return (
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     paddingTop: 40,
-    height: 90,
+    height: headerHeight,
     borderWidth: 0.5,
     borderColor: colors.grey.lighter,
   },
