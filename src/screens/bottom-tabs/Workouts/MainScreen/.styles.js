@@ -37,7 +37,7 @@ containerHeight = Math.min(width, height) * 0.5;
 
 export const createWorkout = StyleSheet.create({
   container: {
-    marginTop: 10,
+    marginTop: containerHeight / 16,
     alignSelf: "center",
     borderRadius: 15,
     width: "93%",
