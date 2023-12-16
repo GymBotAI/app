@@ -30,9 +30,6 @@ export default function MainApp() {
         fontSize: fontSize, // Adjust the font size as needed
         marginTop: marginTop,
       },
-      tabBarIconStyle: {
-        marginTop: -marginTop,
-      },
     }}
   >
       <Tabs.Screen
