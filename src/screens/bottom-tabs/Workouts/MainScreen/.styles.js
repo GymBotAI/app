@@ -7,7 +7,6 @@ const { width, height } = Dimensions.get("window");
 //------------------ BOX STYLES ------------------//
 fontSize = Math.min(width, height) * 0.048;
 test = fontSize / 0.82;
-console.log(test);
 
 export const bVal = {};
 export const Box = StyleSheet.create({
@@ -57,7 +56,7 @@ export const createWorkout = StyleSheet.create({
   buttonsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    height: containerHeight / 2.6,
+    height: containerHeight / 2.7,
   },
   designButtonContainer: {
     backgroundColor: colors.white.default,
@@ -69,14 +68,12 @@ export const createWorkout = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 2,
-    paddingVertical: containerHeight * 0.025,
+    paddingVertical: containerHeight * 0.049,
   },
 });
 
 //------------------ TALK TO GYMBOT ------------------//
 containerHeight2 = Math.min(width, height) * 0.55;
-
-console.log(containerHeight2 / 10.3);
 
 export const talkTo = StyleSheet.create({
   container: {
@@ -116,7 +113,13 @@ export const talkTo = StyleSheet.create({
 //------------------ WORKOUT LIST  ------------------//
 containerHeight3 = Math.min(width, height) * 0.55;
 
-console.log(containerHeight3 / 18);
+// 5: containerHeight3 / 35
+// 10: containerHeight3 / 18
+// 12: containerHeight3 / 17
+// 14: containerHeight3 / 14.6
+console.log(containerHeight3 / 8.5);
+
+
 export const workoutList = StyleSheet.create({
   container: {
     marginLeft: containerHeight3 / 20,
@@ -150,24 +153,24 @@ export const workoutList = StyleSheet.create({
     fontSize: 16,
     fontWeight: "bold",
     color: colors.white.default, // White text color
-    padding: 12,
+    padding: containerHeight3 / 17,
   },
   exercisesContainer: {
     flex: 1,
     justifyContent: "center",
   },
   exerciseText: {
-    fontSize: 14,
+    fontSize: containerHeight3 / 14.6,
     color: colors.black.lightest,
     textAlign: "center",
-    marginBottom: 5,
+    marginBottom: containerHeight3 / 35,
   },
   workoutBox: {
-    width: 130,
-    height: 130,
+    width: containerHeight3 / 1.59,
+    height: containerHeight3 / 1.59,
     backgroundColor: colors.grey.lightest,
-    borderRadius: 10,
-    marginHorizontal: 10,
+    borderRadius: containerHeight3 / 18,
+    marginHorizontal: containerHeight3 / 18,
     justifyContent: "center",
     alignItems: "center",
     shadowColor: colors.black.default,
@@ -180,16 +183,16 @@ export const workoutList = StyleSheet.create({
     width: "100%",
     height: "100%",
     borderWidth: 2,
-    borderRadius: 10,
+    borderRadius: containerHeight3 / 18,
     borderStyle: "dashed",
     borderColor: colors.black.lightest,
     justifyContent: "center",
     alignItems: "center",
   },
   sectionTitle: {
-    fontSize: 24,
+    fontSize: containerHeight3 / 8.5,
     fontWeight: "bold",
-    marginTop: 20,
-    marginBottom: 15,
+    marginTop: containerHeight3 / 8.5,
+    marginBottom: containerHeight3 / 14.6,
   },
 });
