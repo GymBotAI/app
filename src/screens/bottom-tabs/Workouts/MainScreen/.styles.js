@@ -122,7 +122,7 @@ export const talkTo = StyleSheet.create({
 containerHeight3 = Math.min(width, height) * 0.55;
 marginLeft = containerHeight3 / 20;
 marginBottom = containerHeight / 3.1;
-headerPadding = containerHeight3/ 40;
+headerPadding = containerHeight3/ 35;
 console.log(marginBottom);
 
 export const workoutList = StyleSheet.create({
