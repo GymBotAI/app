@@ -19,7 +19,7 @@ const smallPadding = smallFont / 3.66;
 const mediumPadding = mediumFont / 2.9;
 const largePadding = largeFont / 2.8;
 const borderRadius = holder / 12.5;
-console.log(borderRadius)
+console.log(borderRadius);
 
 function buttonStyles(props: ButtonProps) {
   const baseStyles: StylesObject = {
