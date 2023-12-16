@@ -56,7 +56,7 @@ export const createWorkout = StyleSheet.create({
   buttonsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    height: containerHeight / 2.6,
+    height: containerHeight / 2.7,
   },
   designButtonContainer: {
     backgroundColor: colors.white.default,
@@ -68,7 +68,7 @@ export const createWorkout = StyleSheet.create({
     shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 2,
-    paddingVertical: containerHeight * 0.025,
+    paddingVertical: containerHeight * 0.049,
   },
 });
 
