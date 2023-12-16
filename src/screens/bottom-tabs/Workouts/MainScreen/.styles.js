@@ -120,3 +120,82 @@ export const talkTo = StyleSheet.create({
 
 //------------------ WORKOUT LIST  ------------------//
 containerHeight3 = Math.min(width, height) * 0.55;
+marginLeft = containerHeight3 / 20;
+console.log(marginLeft);
+
+export const workoutList = StyleSheet.create({
+  container: {
+    marginLeft: marginLeft,
+    marginBottom: 60
+  },
+  headerContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    paddingHorizontal: 5,
+  },
+  boxContainer: {
+    flexDirection: "row",
+    marginHorizontal: -5,
+  },
+  viewAllButton: {
+    fontSize: 18,
+    fontWeight: "bold",
+    color: colors.orange.default,
+  },
+  titleSection: {
+    width: "100%",
+    height: 40, // Set the desired height for the title section
+    backgroundColor: colors.orange.default, // Red background color
+    borderTopLeftRadius: 10,
+    borderTopRightRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  workoutTitle: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: colors.white.default, // White text color
+    padding: 12,
+  },
+  exercisesContainer: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  exerciseText: {
+    fontSize: 14,
+    color: colors.black.lightest,
+    textAlign: "center",
+    marginBottom: 5,
+  },
+  workoutBox: {
+    width: 130,
+    height: 130,
+    backgroundColor: colors.grey.lightest,
+    borderRadius: 10,
+    marginHorizontal: 10,
+    justifyContent: "center",
+    alignItems: "center",
+    shadowColor: colors.black.default,
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 2,
+  },
+  plusIconContainer: {
+    width: "100%",
+    height: "100%",
+    borderWidth: 2,
+    borderRadius: 10,
+    borderStyle: "dashed",
+    borderColor: colors.black.lightest,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  sectionTitle: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginTop: 20,
+    marginBottom: 15,
+  },
+})
