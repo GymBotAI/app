@@ -11,41 +11,21 @@ export type ButtonProps = TouchableOpacityProps & {
 };
 
 const { width, height } = Dimensions.get("window");
-const holder = Math.min(width, height);
-const smallFont = holder * 0.058;
-const mediumFont = holder * 0.07;
-const largeFont = holder * 0.075;
-const smallPadding = smallFont / 3.66;
-const mediumPadding = mediumFont / 2.9;
-const largePadding = largeFont / 2.8;
 
 function buttonStyles(props: ButtonProps) {
   const baseStyles: StylesObject = {
     display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: props.disabled
-      ? colors.white.default
-      : colors.blue.default,
-    borderRadius: holder / 12.5,
-    paddingHorizontal: 16,
-    shadowColor: colors.black.default,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.15,
-    shadowRadius: 2,
-    elevation: 5,
-    alignSelf: "center",
   } as const;
 
   const sizeStyles = StyleSheet.create({
     large: {
-      padding: largePadding,
+      padding: ,
     },
     medium: {
-      padding: mediumPadding,
+      padding: ,
     },
     small: {
-      padding: smallPadding,
+      padding: ,
     },
   });
 
@@ -63,13 +43,13 @@ function textStyles(props: ButtonProps) {
 
   const sizeStyles = StyleSheet.create({
     large: {
-      fontSize: largeFont,
+      fontSize: ,
     },
     medium: {
-      fontSize: mediumFont,
+      fontSize: ,
     },
     small: {
-      fontSize: smallFont,
+      fontSize: ,
     },
   });
 
