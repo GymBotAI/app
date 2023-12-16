@@ -124,6 +124,10 @@ containerHeight3 = Math.min(width, height) * 0.55;
 
 export const workoutList = StyleSheet.create({
   container: {
+    marginLeft: "3%",
+    marginBottom: 60
+  },
+  container2: {
     flexDirection: "row",
     marginHorizontal: -5,
   },

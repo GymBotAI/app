@@ -63,7 +63,7 @@ export default function WorkoutList({ navigation }) {
   };
 
   return (
-    <View style={{ marginLeft: "3%", marginBottom: 60 }}>
+    <View style={workoutList.container}>
       <View style={workoutList.headerContainer}>
         <Text style={workoutList.sectionTitle}>Your Workouts</Text>
         <TouchableOpacity
@@ -88,7 +88,7 @@ export default function WorkoutList({ navigation }) {
           </View>
         </TouchableOpacity>
 
-        <View style={workoutList.container}>
+        <View style={workoutList.container2}>
           {workoutsData.map((workout) => (
             <TouchableOpacity
               key={workout.id}
