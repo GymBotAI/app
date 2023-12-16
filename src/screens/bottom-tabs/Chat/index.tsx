@@ -64,7 +64,7 @@ export default function ChatScreen({
           navigation.navigate("Workouts");
         }}
       />
-      <StatusBar barStyle="light-content" />
+      <StatusBar barStyle="dark-content" />
     </View>
   );
 }
