@@ -123,7 +123,8 @@ containerHeight3 = Math.min(width, height) * 0.55;
 marginLeft = containerHeight3 / 20;
 marginBottom = containerHeight / 3.1;
 headerPadding = containerHeight3/ 35;
-console.log(marginBottom);
+marginHorizontal = containerHeight3 / -40;
+console.log(marginHorizontal);
 
 export const workoutList = StyleSheet.create({
   container: {
@@ -138,7 +139,7 @@ export const workoutList = StyleSheet.create({
   },
   boxContainer: {
     flexDirection: "row",
-    marginHorizontal: -5,
+    marginHorizontal: marginHorizontal,
   },
   viewAllButton: {
     fontSize: 18,
