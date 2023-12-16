@@ -34,7 +34,7 @@ export const Box = StyleSheet.create({
 
 //------------------ CREATE WORKOUT BUTTON ------------------//
 containerHeight = Math.min(width, height) * 0.5;
-// test = ;
+test = containerHeight / 30;
 console.log(test)
 
 export const createWorkout = StyleSheet.create({
@@ -61,7 +61,7 @@ export const createWorkout = StyleSheet.create({
   designButtonContainer: {
     backgroundColor: colors.white.default,
     width: "48%", // Adjust the button widths
-    borderRadius: 5,
+    borderRadius: containerHeight / 30,
     alignItems: "center",
     shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 1 },
