@@ -34,7 +34,6 @@ export const Box = StyleSheet.create({
 
 //------------------ CREATE WORKOUT BUTTON ------------------//
 containerHeight = Math.min(width, height) * 0.5;
-buttonFont = containerHeight * 0.11;
 horizontalPadding = containerHeight / 12;
 
 export const createWorkout = StyleSheet.create({
