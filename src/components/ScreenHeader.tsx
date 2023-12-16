@@ -31,6 +31,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: fontSize,
     fontWeight: "bold",
-    color: colors.black.lightest,
+    color: colors.black.lighter,
   },
 });
