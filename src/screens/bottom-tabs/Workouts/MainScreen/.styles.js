@@ -77,8 +77,6 @@ export const createWorkout = StyleSheet.create({
 //------------------ TALK TO GYMBOT ------------------//
 containerHeight2 = Math.min(width, height) * 0.55;
 
-console.log(borderRadius)
-
 export const talkTo = StyleSheet.create({
   container: {
     backgroundColor: colors.blue.default,
