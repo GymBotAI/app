@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { ScrollView, Text, TouchableOpacity, View, StatusBar, Dimensions } from "react-native";
+import {
+  Dimensions,
+  ScrollView,
+  StatusBar,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 //---------- Components ----------//
 import Button from "$components/Button";

@@ -1,12 +1,6 @@
 // import ScreenHeader from "../../ScreenHeader";
 import { useState } from "react";
-import {
-  ScrollView,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from "react-native";
+import { ScrollView, StyleSheet, Text, TextInput, View } from "react-native";
 
 import Button from "$components/Button";
 import ReviewHeader from "./ReviewHeader";
@@ -158,7 +152,12 @@ export default function ReviewWorkoutContainer({
           ))}
         </ScrollView>
 
-        <Button text="Add Exercise" size="medium" onPress={() => setShowModal(false)} style={{width: '80%', position: 'absolute', bottom: 10,}}/>
+        <Button
+          text="Add Exercise"
+          size="medium"
+          onPress={() => setShowModal(false)}
+          style={{ width: "80%", position: "absolute", bottom: 10 }}
+        />
       </View>
     </>
   );

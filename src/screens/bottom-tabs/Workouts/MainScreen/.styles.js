@@ -39,7 +39,6 @@ buttonPadding = Math.min(width, height) * 0.025;
 buttonFont = containerHeight * 0.11;
 horizontalPadding = containerHeight / 12;
 
-
 export const createWorkout = StyleSheet.create({
   container: {
     marginTop: 10,
@@ -74,7 +73,6 @@ export const createWorkout = StyleSheet.create({
     paddingVertical: buttonPadding,
   },
 });
-
 
 //------------------ TALK TO GYMBOT ------------------//
 containerHeight2 = Math.min(width, height) * 0.55;

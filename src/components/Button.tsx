@@ -24,7 +24,9 @@ function buttonStyles(props: ButtonProps) {
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: props.disabled ? colors.white.default : colors.blue.default,
+    backgroundColor: props.disabled
+      ? colors.white.default
+      : colors.blue.default,
     borderRadius: 22,
     paddingHorizontal: 16,
     shadowColor: colors.black.default,
@@ -32,7 +34,7 @@ function buttonStyles(props: ButtonProps) {
     shadowOpacity: 0.15,
     shadowRadius: 2,
     elevation: 5,
-    alignSelf: 'center'
+    alignSelf: "center",
   } as const;
 
   const sizeStyles = StyleSheet.create({

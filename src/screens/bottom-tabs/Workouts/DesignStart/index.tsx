@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import {
+  Dimensions,
   Keyboard,
   StyleSheet,
   Text,
-  Dimensions,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
 
 import { colors } from "$styles";
 
+import Button from "$components/Button";
 import ScreenHeader from "$components/ScreenHeader";
 import {
   bothExercises,
@@ -21,7 +22,6 @@ import BuildMuscle from "./BuildMuscle";
 import GoalSelector from "./GoalSelector";
 import SportsSpecific from "./SportsSpecific";
 
-import Button from "$components/Button";
 // import Text from "$components/Text";
 
 import { Image } from "expo-image";
@@ -175,8 +175,17 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
 
             {option1}
 
-            <Button text="Continue" size="medium" onPress={goDesign} disabled={!isInputFilled} 
-            style={{width: '80%', position: 'absolute', bottom: bottomPadding}}/>
+            <Button
+              text="Continue"
+              size="medium"
+              onPress={goDesign}
+              disabled={!isInputFilled}
+              style={{
+                width: "80%",
+                position: "absolute",
+                bottom: bottomPadding,
+              }}
+            />
             {/* <TouchableOpacity
               style={[styles.button, !isInputFilled && styles.disabledButton]}
               disabled={!isInputFilled}

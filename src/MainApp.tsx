@@ -1,11 +1,6 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import {Dimensions} from 'react-native';
+import { Dimensions, StatusBar } from "react-native";
 
-const { width, height } = Dimensions.get("window");
-const size = Math.min(width, height)*0.068;
-const fontSize = size * 0.45;
-const marginTop = size * -0.05;
-console.log(marginTop)
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Tab screens
 import Chat from "$screens/bottom-tabs/Chat";
@@ -18,20 +13,26 @@ import Workouts from "$screens/bottom-tabs/Workouts";
 // Icons
 import { FontAwesome5 } from "@expo/vector-icons";
 
+const { width, height } = Dimensions.get("window");
+const size = Math.min(width, height) * 0.068;
+const fontSize = size * 0.45;
+const marginTop = size * -0.05;
+console.log(marginTop);
+
 const Tabs = createBottomTabNavigator();
 
 export default function MainApp() {
   return (
     <Tabs.Navigator
-    initialRouteName="Home"
-    screenOptions={{
-      headerShown: false, // Hide the default header
-      tabBarLabelStyle: {
-        fontSize: fontSize, // Adjust the font size as needed
-        marginTop: marginTop,
-      },
-    }}
-  >
+      initialRouteName="Home"
+      screenOptions={{
+        headerShown: false, // Hide the default header
+        tabBarLabelStyle: {
+          fontSize: fontSize, // Adjust the font size as needed
+          marginTop: marginTop,
+        },
+      }}
+    >
       <Tabs.Screen
         name="Home"
         component={Home}

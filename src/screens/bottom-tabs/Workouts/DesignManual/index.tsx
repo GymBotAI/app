@@ -3,11 +3,10 @@ import { StyleSheet, Text, View } from "react-native";
 
 import { colors } from "$styles";
 
+import Button from "$components/Button";
 import ScreenHeader from "$components/ScreenHeader";
 import ExerciseSelectionScreen from "./ExerciseSelection";
 import ReviewWorkoutContainer from "./ReviewWorkoutContainer";
-
-import Button from "$components/Button";
 
 import { Image } from "expo-image";
 import { LinearGradient } from "expo-linear-gradient";
@@ -53,8 +52,12 @@ export default function CompleteDesignContainer({ route, navigation }) {
               selectedExercises={selectedExercises}
               exercisesToDisplay={exercisesToDisplay}
             />
-            <Button text="Continue" size="medium" style={{position: 'absolute', bottom: 10, width: '80%'}}
-            onPress={() => setShowModal(!showModal)}/>
+            <Button
+              text="Continue"
+              size="medium"
+              style={{ position: "absolute", bottom: 10, width: "80%" }}
+              onPress={() => setShowModal(!showModal)}
+            />
           </View>
         </>
       )}
