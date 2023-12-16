@@ -46,7 +46,7 @@ export const createWorkout = StyleSheet.create({
     height: containerHeight,
   },
   blueRectangle: {
-    borderRadius: 15,
+    borderRadius: containerHeight / 12.5,
     width: "100%",
     height: "100%",
     justifyContent: "flex-end", // Move content to the bottom
