@@ -27,7 +27,7 @@ export const Box = StyleSheet.create({
     width: "90%",
     marginLeft: "5%",
     backgroundColor: colors.blue.default,
-    borderRadius: 22,
+    borderRadius: fontSize / 0.82,
     shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.6,
