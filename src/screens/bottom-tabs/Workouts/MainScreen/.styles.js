@@ -120,7 +120,6 @@ export const talkTo = StyleSheet.create({
 
 //------------------ WORKOUT LIST  ------------------//
 containerHeight3 = Math.min(width, height) * 0.55;;
-fontSize = containerHeight3 / 11.4;
 console.log(fontSize);
 
 export const workoutList = StyleSheet.create({
@@ -139,7 +138,7 @@ export const workoutList = StyleSheet.create({
     marginHorizontal: containerHeight3 / -40,
   },
   viewAllButton: {
-    fontSize: fontSize,
+    fontSize: containerHeight3 / 11.4,
     fontWeight: "bold",
     color: colors.orange.default,
   },
