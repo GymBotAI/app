@@ -6,7 +6,7 @@ const { width, height } = Dimensions.get("window");
 
 //------------------ BOX STYLES ------------------//
 fontSize = Math.min(width, height) * 0.048;
-test = fontSize / 1.8;
+test = fontSize / 0.82;
 console.log(test)
 
 export const bVal = {};
