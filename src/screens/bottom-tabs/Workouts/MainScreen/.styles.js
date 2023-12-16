@@ -6,7 +6,8 @@ const { width, height } = Dimensions.get("window");
 
 //------------------ BOX STYLES ------------------//
 fontSize = Math.min(width, height) * 0.048;
-console.log(fontSize)
+test = fontSize / 1.8;
+console.log(test)
 
 export const bVal = {};
 export const Box = StyleSheet.create({
@@ -17,7 +18,7 @@ export const Box = StyleSheet.create({
     alignSelf: "center",
     fontSize: fontSize,
     fontWeight: "bold",
-    paddingVertical: 10,
+    paddingVertical: fontSize / 1.8,
     color: colors.grey.lightest,
   },
   addButton: {
