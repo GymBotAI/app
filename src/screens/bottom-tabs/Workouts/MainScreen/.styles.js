@@ -121,10 +121,12 @@ export const talkTo = StyleSheet.create({
 
 //------------------ WORKOUT LIST  ------------------//
 containerHeight3 = Math.min(width, height) * 0.55;
+marginLeft = containerHeight3 / 20;
+console.log(marginLeft);
 
 export const workoutList = StyleSheet.create({
   container: {
-    marginLeft: "3%",
+    marginLeft: marginLeft,
     marginBottom: 60
   },
   headerContainer: {
