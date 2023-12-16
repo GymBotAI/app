@@ -7,7 +7,7 @@ const { width, height } = Dimensions.get("window");
 //------------------ BOX STYLES ------------------//
 fontSize = Math.min(width, height) * 0.048;
 test = fontSize / 0.82;
-console.log(test)
+console.log(test);
 
 export const bVal = {};
 export const Box = StyleSheet.create({
@@ -76,7 +76,7 @@ export const createWorkout = StyleSheet.create({
 //------------------ TALK TO GYMBOT ------------------//
 containerHeight2 = Math.min(width, height) * 0.55;
 
-console.log(containerHeight2 / 10.3)
+console.log(containerHeight2 / 10.3);
 
 export const talkTo = StyleSheet.create({
   container: {
@@ -116,7 +116,7 @@ export const talkTo = StyleSheet.create({
 //------------------ WORKOUT LIST  ------------------//
 containerHeight3 = Math.min(width, height) * 0.55;
 
-console.log(containerHeight3 / 18)
+console.log(containerHeight3 / 18);
 export const workoutList = StyleSheet.create({
   container: {
     marginLeft: containerHeight3 / 20,
@@ -126,7 +126,7 @@ export const workoutList = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: containerHeight3/ 35,
+    paddingHorizontal: containerHeight3 / 35,
   },
   boxContainer: {
     flexDirection: "row",
@@ -192,4 +192,4 @@ export const workoutList = StyleSheet.create({
     marginTop: 20,
     marginBottom: 15,
   },
-})
+});

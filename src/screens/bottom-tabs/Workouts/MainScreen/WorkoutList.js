@@ -7,7 +7,9 @@ import {
 } from "react-native";
 
 import { colors } from "$styles";
+
 import { workoutList } from "./.styles";
+
 import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function WorkoutList({ navigation }) {
@@ -82,7 +84,10 @@ export default function WorkoutList({ navigation }) {
         snapToAlignment="start"
         style={{ paddingBottom: 10 }}
       >
-        <TouchableOpacity onPress={handleNewWorkout} style={workoutList.workoutBox}>
+        <TouchableOpacity
+          onPress={handleNewWorkout}
+          style={workoutList.workoutBox}
+        >
           <View style={workoutList.plusIconContainer}>
             <FontAwesome5 name="plus" size={40} color={colors.black.lightest} />
           </View>
