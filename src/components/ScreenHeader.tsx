@@ -1,11 +1,10 @@
-import { StyleSheet, Text, View, Dimensions } from "react-native";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
 
 import { colors } from "$styles";
 
-
 const { width, height } = Dimensions.get("window");
 const fontSize = Math.min(width, height) * 0.05;
-console.log(fontSize)
+console.log(fontSize);
 
 export default function ScreenHeader({ title }: { title: string }) {
   return (
