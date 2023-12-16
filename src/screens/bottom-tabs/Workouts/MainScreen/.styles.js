@@ -129,7 +129,7 @@ console.log(fontSize);
 
 export const workoutList = StyleSheet.create({
   container: {
-    marginLeft: marginLeft,
+    marginLeft: containerHeight3 / 20,
     marginBottom: marginBottom
   },
   headerContainer: {
