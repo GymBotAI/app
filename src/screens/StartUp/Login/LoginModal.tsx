@@ -14,6 +14,7 @@ import {
 
 import { login, signup } from "$api/auth";
 
+import googleImage from "$assets/google.webp";
 import { colors } from "$styles";
 
 import { aVal, Box, bVal, Login } from "./styles";
@@ -140,10 +141,7 @@ export default function LoginBox({
 
           <TouchableOpacity style={styles.signInWithGoogleButton}>
             <View style={styles.googleButtonContent}>
-              <Image
-                source={require("$assets/google.webp")}
-                style={styles.googleLogo}
-              />
+              <Image source={googleImage} style={styles.googleLogo} />
               <Text style={styles.signInWithGoogleButtonText}>
                 Continue with Google
               </Text>
