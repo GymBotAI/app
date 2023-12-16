@@ -117,7 +117,7 @@ containerHeight3 = Math.min(width, height) * 0.55;
 // 10: containerHeight3 / 18
 // 12: containerHeight3 / 17
 // 14: containerHeight3 / 14.6
-console.log(containerHeight3 / 35);
+console.log(containerHeight3 / 1.59);
 
 
 export const workoutList = StyleSheet.create({
@@ -166,8 +166,8 @@ export const workoutList = StyleSheet.create({
     marginBottom: containerHeight3 / 35,
   },
   workoutBox: {
-    width: 130,
-    height: 130,
+    width: containerHeight3 / 1.59,
+    height: containerHeight3 / 1.59,
     backgroundColor: colors.grey.lightest,
     borderRadius: containerHeight3 / 18,
     marginHorizontal: containerHeight3 / 18,
