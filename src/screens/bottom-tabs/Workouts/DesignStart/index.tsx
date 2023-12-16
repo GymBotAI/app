@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import {
   Dimensions,
   Keyboard,
-  StyleSheet,
   Text,
   TouchableWithoutFeedback,
   View,
 } from "react-native";
 
 import { colors } from "$styles";
+import { Box } from "./.styles"
 
 import Button from "$components/Button";
 import ScreenHeader from "$components/ScreenHeader";
@@ -138,14 +138,14 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <View style={styles.container}>
+      <View style={Box.container}>
         <ScreenHeader title="Workouts" />
-        <View style={styles.chatContainer}>
+        <View style={Box.chatContainer}>
           <LinearGradient
             colors={[colors.blue.default, colors.blue.lighter]} // Lighter blue gradient colors
             start={[0, 0.5]}
             end={[1, 0.5]}
-            style={styles.chatBox}
+            style={Box.chatBox}
           >
             <Image
               source={require("$assets/circleicon.png")}
@@ -158,7 +158,7 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
                 marginRight: 10,
               }}
             />
-            <Text style={styles.chatText}>{typedText}</Text>
+            <Text style={Box.chatText}>{typedText}</Text>
           </LinearGradient>
         </View>
 
@@ -186,64 +186,9 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
                 bottom: bottomPadding,
               }}
             />
-            {/* <TouchableOpacity
-              style={[styles.button, !isInputFilled && styles.disabledButton]}
-              disabled={!isInputFilled}
-              onPress={goDesign}
-            >
-              <Text style={styles.text}>Continue</Text>
-            </TouchableOpacity> */}
           </>
         )}
       </View>
     </TouchableWithoutFeedback>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: colors.grey.lightest,
-  },
-  chatContainer: {
-    alignItems: "center",
-    margin: 15,
-    marginBottom: 20,
-  },
-  chatBox: {
-    backgroundColor: colors.white.default,
-    padding: 10,
-    borderRadius: 10,
-    flexDirection: "row",
-    alignItems: "center",
-  },
-  chatText: {
-    flex: 1, // Allow text to wrap within the available space
-    fontSize: 20,
-    fontWeight: "bold",
-    color: colors.white.default,
-  },
-  button: {
-    alignSelf: "center",
-    position: "absolute",
-    bottom: 10,
-    width: "90%",
-    backgroundColor: colors.blue.default,
-    borderRadius: 8,
-    shadowColor: colors.black.default,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    elevation: 5,
-  },
-  disabledButton: {
-    backgroundColor: colors.white.default, // Change the background color of the disabled button
-  },
-  text: {
-    alignSelf: "center",
-    fontSize: 24,
-    paddingVertical: 10,
-    color: colors.grey.lighter,
-    fontWeight: "bold",
-  },
-});
