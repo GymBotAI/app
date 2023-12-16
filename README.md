@@ -48,6 +48,12 @@ Install dependencies:
 pnpm i
 ```
 
+Configure Git hooks:
+
+```sh
+git config core.hooksPath .githooks
+```
+
 Run the app:
 
 ```sh
