@@ -48,7 +48,9 @@ Install dependencies:
 pnpm i
 ```
 
-Configure Git hooks:
+If you're not on Windows, you should also configure Git hooks. This will
+format your code before you commit. If you're on Windows, you'll need to
+manually format your code before you commit by running `pnpm run format`.
 
 ```sh
 git config core.hooksPath .githooks
