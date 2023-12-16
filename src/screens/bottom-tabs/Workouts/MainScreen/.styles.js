@@ -123,6 +123,10 @@ export const talkTo = StyleSheet.create({
 containerHeight3 = Math.min(width, height) * 0.55;
 
 export const workoutList = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    marginHorizontal: -5,
+  },
   headerContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
@@ -133,10 +137,6 @@ export const workoutList = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     color: colors.orange.default,
-  },
-  container: {
-    flexDirection: "row",
-    marginHorizontal: -5,
   },
   titleSection: {
     width: "100%",
