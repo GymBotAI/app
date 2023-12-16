@@ -2,7 +2,6 @@ import type { NavigationProp } from "$types/navigation";
 
 import { useRef, useState } from "react";
 import {
-  Alert,
   Animated,
   FlatList,
   StatusBar,
@@ -11,6 +10,7 @@ import {
   View,
 } from "react-native";
 
+import gymBotLogo from "$assets/GymBotText.png";
 import { colors } from "$styles";
 
 //------------ Components ------------//
@@ -18,9 +18,8 @@ import LoginModal from "./LoginModal";
 import Pagination from "./Pagination";
 import SlideItem from "./SlideItem";
 //------------ Styles ------------//
-import { Box, bVal } from "./styles";
+import { Box } from "./styles";
 
-import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
 
 const backgroundImages = [
@@ -83,7 +82,7 @@ export default function StartUp({
       />
 
       <View style={Box.logoView}>
-        <Image source={bVal.gymBotLogo} style={Box.logo} />
+        <Image source={gymBotLogo} style={Box.logo} />
       </View>
 
       <FlatList
