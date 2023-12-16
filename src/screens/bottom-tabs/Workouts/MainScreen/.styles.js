@@ -124,7 +124,8 @@ marginLeft = containerHeight3 / 20;
 marginBottom = containerHeight / 3.1;
 headerPadding = containerHeight3/ 35;
 marginHorizontal = containerHeight3 / -40;
-console.log(marginHorizontal);
+fontSize = containerHeight3 / 11.4;
+console.log(fontSize);
 
 export const workoutList = StyleSheet.create({
   container: {
@@ -142,7 +143,7 @@ export const workoutList = StyleSheet.create({
     marginHorizontal: marginHorizontal,
   },
   viewAllButton: {
-    fontSize: 18,
+    fontSize: fontSize,
     fontWeight: "bold",
     color: colors.orange.default,
   },
