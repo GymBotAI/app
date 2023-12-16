@@ -34,7 +34,6 @@ export const Box = StyleSheet.create({
 
 //------------------ CREATE WORKOUT BUTTON ------------------//
 containerHeight = Math.min(width, height) * 0.5;
-buttonHeight = containerHeight / 2.6;
 buttonPadding = Math.min(width, height) * 0.025;
 buttonFont = containerHeight * 0.11;
 horizontalPadding = containerHeight / 12;
@@ -58,7 +57,7 @@ export const createWorkout = StyleSheet.create({
   buttonsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    height: buttonHeight,
+    height: containerHeight / 2.6,
   },
   designButtonContainer: {
     backgroundColor: colors.white.default,
