@@ -122,6 +122,7 @@ export const talkTo = StyleSheet.create({
 containerHeight3 = Math.min(width, height) * 0.55;
 marginLeft = containerHeight3 / 20;
 marginBottom = containerHeight / 3.1;
+headerPadding = containerHeight3/ 40;
 console.log(marginBottom);
 
 export const workoutList = StyleSheet.create({
@@ -133,7 +134,7 @@ export const workoutList = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 5,
+    paddingHorizontal: headerPadding,
   },
   boxContainer: {
     flexDirection: "row",
