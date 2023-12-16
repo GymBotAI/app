@@ -22,8 +22,8 @@ export default function TalkToGymBotSection ({ navigation }) {
             color={colors.grey.lightest}
           />
         </View>
-        <Text text='Our special AI will give you personalized workout tips and address
-          any and all of your fitness concerns' size="small" style={{color: colors.white.default}}/>
+        <Text text='Our special AI will give you personalized workout tips and address any and all of your fitness concerns'
+        size="small" style={{color: colors.white.default}}/>
 
       <TouchableOpacity style={talkTo.button} onPress={onPress}>
         <Text text='Take Me!' size="medium" variant="header-default"/>
