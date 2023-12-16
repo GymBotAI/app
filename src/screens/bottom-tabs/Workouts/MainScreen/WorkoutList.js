@@ -64,13 +64,13 @@ export default function WorkoutList({ navigation }) {
 
   return (
     <View style={{ marginLeft: "3%", marginBottom: 60 }}>
-      <View style={styles.headerContainer}>
-        <Text style={styles.sectionTitle}>Your Workouts</Text>
+      <View style={workoutList.headerContainer}>
+        <Text style={workoutList.sectionTitle}>Your Workouts</Text>
         <TouchableOpacity
           onPress={handleViewAllPress}
           style={{ padding: 8, paddingTop: 12 }}
         >
-          <Text style={styles.viewAllButton}>View All</Text>
+          <Text style={workoutList.viewAllButton}>View All</Text>
         </TouchableOpacity>
       </View>
 
@@ -82,31 +82,31 @@ export default function WorkoutList({ navigation }) {
         snapToAlignment="start"
         style={{ paddingBottom: 10 }}
       >
-        <TouchableOpacity onPress={handleNewWorkout} style={styles.workoutBox}>
-          <View style={styles.plusIconContainer}>
+        <TouchableOpacity onPress={handleNewWorkout} style={workoutList.workoutBox}>
+          <View style={workoutList.plusIconContainer}>
             <FontAwesome5 name="plus" size={40} color={colors.black.lightest} />
           </View>
         </TouchableOpacity>
 
-        <View style={styles.container}>
+        <View style={workoutList.container}>
           {workoutsData.map((workout) => (
             <TouchableOpacity
               key={workout.id}
-              style={styles.workoutBox}
+              style={workoutList.workoutBox}
               onPress={() => handleWorkoutPress(workout)}
             >
-              <View style={styles.titleSection}>
+              <View style={workoutList.titleSection}>
                 <Text
                   numberOfLines={1}
                   ellipsizeMode="tail"
-                  style={styles.workoutTitle}
+                  style={workoutList.workoutTitle}
                 >
                   {workout.title}
                 </Text>
               </View>
-              <View style={styles.exercisesContainer}>
+              <View style={workoutList.exercisesContainer}>
                 {workout.exercises.map((exercise, index) => (
-                  <Text key={index} style={styles.exerciseText}>
+                  <Text key={index} style={workoutList.exerciseText}>
                     {exercise}
                   </Text>
                 ))}
