@@ -120,7 +120,6 @@ export const talkTo = StyleSheet.create({
 
 //------------------ WORKOUT LIST  ------------------//
 containerHeight3 = Math.min(width, height) * 0.55;;
-console.log(fontSize);
 
 export const workoutList = StyleSheet.create({
   container: {
