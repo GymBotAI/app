@@ -88,7 +88,7 @@ export default function WorkoutList({ navigation }) {
           </View>
         </TouchableOpacity>
 
-        <View style={workoutList.container2}>
+        <View style={workoutList.boxContainer}>
           {workoutsData.map((workout) => (
             <TouchableOpacity
               key={workout.id}
