@@ -27,7 +27,7 @@ export type TextVariant =
 export interface TextStylingProps {
   bold?: boolean;
 
-  size?: "small" | "medium" | "large" | "larger";
+  size?: "small" | "submedium" | "medium" | "large" | "larger";
 }
 export interface TextVariantProps {
   variant: TextVariant;
