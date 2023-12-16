@@ -113,10 +113,11 @@ export const talkTo = StyleSheet.create({
 //------------------ WORKOUT LIST  ------------------//
 containerHeight3 = Math.min(width, height) * 0.55;
 
+// 5: containerHeight3 / 35
 // 10: containerHeight3 / 18
 // 12: containerHeight3 / 17
 // 14: containerHeight3 / 14.6
-console.log(containerHeight3 / 14.6);
+console.log(containerHeight3 / 35);
 
 
 export const workoutList = StyleSheet.create({
@@ -162,7 +163,7 @@ export const workoutList = StyleSheet.create({
     fontSize: containerHeight3 / 14.6,
     color: colors.black.lightest,
     textAlign: "center",
-    marginBottom: 5,
+    marginBottom: containerHeight3 / 35,
   },
   workoutBox: {
     width: 130,
