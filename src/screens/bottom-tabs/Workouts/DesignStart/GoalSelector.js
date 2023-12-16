@@ -22,15 +22,14 @@ export default function GoalSelector({
   setNotes,
 }) {
   const handleWorkoutSelection = (workoutType) => {
-    Keyboard.dismiss();
     setSelectedGoal(workoutType);
-    if (workoutType === "Build Muscle") {
-      setGoalText("What do you want to train?");
-    } else if (workoutType === "Body Definition") {
-      setGoalText("What is your specific goal?");
-    } else if (workoutType === "Sports-Specific") {
-      setGoalText("Which sport do you want to train for?");
-    }
+    // if (workoutType === "Build Muscle") {
+    //   setGoalText("What do you want to train?");
+    // } else if (workoutType === "Body Definition") {
+    //   setGoalText("What is your specific goal?");
+    // } else if (workoutType === "Sports-Specific") {
+    //   setGoalText("Which sport do you want to train for?");
+    // }
   };
 
   const getButtonStyle = (workoutType) => {
@@ -40,12 +39,15 @@ export default function GoalSelector({
         selectedGoal === workoutType
           ? colors.orange.default
           : colors.white.default,
+      fontWeight: selectedGoal === workoutType ? "bold" : "normal",
     };
   };
 
   const getButtonTextStyle = (workoutType) => {
+    console.log(selectedGoal)
+    console.log(workoutType)
     return {
-      ...styles.buttonText,
+      alignSelf: 'center',
       fontWeight: selectedGoal === workoutType ? "bold" : "normal",
     };
   };
@@ -55,25 +57,24 @@ export default function GoalSelector({
       <View style={styles.buttonContainer}>
         <View style={{ flexDirection: "row" }}>
           
-        <SelectTab text="Build Muscle"/>
+        <SelectTab text="Build Muscle"
+        onPress={() => handleWorkoutSelection("Build Muscle")}
+        style={getButtonStyle("Build Muscle")}
+        textStyle={getButtonTextStyle("Build Muscle")}
+        />
 
-        <SelectTab text="Body Definition"/>
+        <SelectTab text="Body Definition"
+        onPress={() => handleWorkoutSelection("Body Definition")}
+        style={getButtonStyle("Body Definition")}
+        textStyle={getButtonTextStyle("Body Definition")}/>
 
-
-          {/* <TouchableOpacity
-            style={getButtonStyle("Body Definition")}
-            onPress={() => handleWorkoutSelection("Body Definition")}
-          >
-            <Text style={getButtonTextStyle("Body Definition")}>
-              Body Definition
-            </Text>
-          </TouchableOpacity> */}
         </View>
 
         <View style={{ flexDirection: "row" }}>
-        <SelectTab text="Sports Specific"/>
-
-
+        <SelectTab text="Sports Specific"
+        onPress={() => handleWorkoutSelection("Sports Specific")}
+        style={getButtonStyle("Sports Specific")}
+        textStyle={getButtonTextStyle("Sports Specific")}/>
           
           {/* <TextInput
             value={notes}
@@ -107,7 +108,10 @@ export default function GoalSelector({
             }}
           /> */}
 
-          <SelectTab text="Other"/>
+          <SelectTab text="Other"
+        onPress={() => handleWorkoutSelection("Other")}
+        style={getButtonStyle("Other")}
+        textStyle={getButtonTextStyle("Other")}/>
 
         </View>
       </View>

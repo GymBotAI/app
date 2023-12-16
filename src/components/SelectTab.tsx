@@ -7,9 +7,10 @@ import Text from "./Text";
 
 import { colors } from "$styles";
 
-export type ButtonProps = TouchableOpacityProps & {
+export type SelectTabProps = TouchableOpacityProps & {
   text: string;
   size?: "small" | "medium" | "large";
+  textStyle: StylesObject;
 };
 
 const { width, height } = Dimensions.get("window");
@@ -18,7 +19,7 @@ const holder = Math.min(width, height);
 console.log(holder)
 
 
-function buttonStyles(props: ButtonProps) {
+function buttonStyles(props: SelectTabProps) {
   const baseStyles: StylesObject = {
     flex: 1,
     backgroundColor: colors.white.default,
@@ -47,18 +48,18 @@ function buttonStyles(props: ButtonProps) {
   };
 }
 
-export default function SelectTab(props: ButtonProps) {
+export default function SelectTab(props: SelectTabProps) {
   props = {
     size: "small",
     ...props,
   };
-
+  console.log(props.textStyle)
   return (
     <TouchableOpacity
       {...props}
       style={StyleSheet.compose(buttonStyles(props), props.style)}
     >
-      <Text text={props.text} size="submedium" style={{alignSelf: 'center'}}/>
+      <Text text={props.text} size="submedium" style={props.textStyle}/>
     </TouchableOpacity>
   );
 }

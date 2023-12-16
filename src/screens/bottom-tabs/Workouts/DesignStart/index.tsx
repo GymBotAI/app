@@ -93,7 +93,7 @@ export default function WorkoutSelectionScreen({ route, navigation }) {
         />
       </>
     );
-  } else if (selectedGoal === "Sports-Specific") {
+  } else if (selectedGoal === "Sports Specific") {
     option1 = (
       <>
         <View
