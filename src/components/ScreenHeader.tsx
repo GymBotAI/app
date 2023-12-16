@@ -4,7 +4,9 @@ import { colors } from "$styles";
 
 const { width, height } = Dimensions.get("window");
 const fontSize = Math.min(width, height) * 0.05;
-console.log(fontSize);
+const headerHeight = fontSize * 4.8;
+const paddingTop = headerHeight / 2.25;
+console.log(headerHeight);
 
 export default function ScreenHeader({ title }: { title: string }) {
   return (
@@ -19,8 +21,8 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: 40,
-    height: 90,
+    paddingTop: paddingTop,
+    height: headerHeight,
     borderWidth: 0.5,
     borderColor: colors.grey.lighter,
   },
@@ -30,6 +32,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: fontSize,
     fontWeight: "bold",
-    color: colors.black.lightest,
+    color: colors.black.lighter,
   },
 });
