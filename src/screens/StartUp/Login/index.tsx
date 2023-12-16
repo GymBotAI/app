@@ -61,7 +61,7 @@ export default function StartUp({
   };
 
   return (
-    <View style={{ flex: 1 }}>
+    <View>
       <LoginModal
         isVisible={showLogin}
         onAccount={() => {
