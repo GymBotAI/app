@@ -192,6 +192,6 @@ export const workoutList = StyleSheet.create({
     fontSize: 24,
     fontWeight: "bold",
     marginTop: 20,
-    marginBottom: 15,
+    marginBottom: containerHeight3 / 14.6,
   },
 });
