@@ -50,7 +50,7 @@ export const createWorkout = StyleSheet.create({
     width: "100%",
     height: "100%",
     justifyContent: "flex-end", // Move content to the bottom
-    padding: 15,
+    padding: containerHeight / 12.5,
     horizontalPadding: containerHeight / 12,
   },
   buttonsContainer: {
