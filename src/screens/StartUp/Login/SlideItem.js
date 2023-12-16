@@ -19,11 +19,7 @@ const SlideItem = ({ item }) => {
         colors={[colors.black.lightest, colors.black.lighter]} // Adjust opacity values
         style={styles.gradient}
       >
-        <ImageBackground
-          source={item.img}
-          resizeMode="cover"
-          style={styles.image}
-        />
+        <ImageBackground source={item.img} style={styles.image} />
       </LinearGradient>
     </View>
   );
@@ -38,9 +34,8 @@ const styles = StyleSheet.create({
   },
   gradient: StyleSheet.absoluteFillObject, // Make the gradient cover the entire container
   image: {
-    width,
-    height,
-    resizeMode: "cover",
+    width: "100%",
+    height: "100%",
     opacity: 0.5,
   },
 });
