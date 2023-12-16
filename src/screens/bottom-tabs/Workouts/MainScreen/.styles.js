@@ -119,8 +119,7 @@ export const talkTo = StyleSheet.create({
 });
 
 //------------------ WORKOUT LIST  ------------------//
-containerHeight3 = Math.min(width, height) * 0.55;
-marginHorizontal = containerHeight3 / -40;
+containerHeight3 = Math.min(width, height) * 0.55;;
 fontSize = containerHeight3 / 11.4;
 console.log(fontSize);
 
@@ -137,7 +136,7 @@ export const workoutList = StyleSheet.create({
   },
   boxContainer: {
     flexDirection: "row",
-    marginHorizontal: marginHorizontal,
+    marginHorizontal: containerHeight3 / -40,
   },
   viewAllButton: {
     fontSize: fontSize,
