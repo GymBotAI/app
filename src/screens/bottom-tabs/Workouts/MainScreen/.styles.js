@@ -126,7 +126,7 @@ console.log(marginLeft);
 export const workoutList = StyleSheet.create({
   container: {
     marginLeft: marginLeft,
-    marginBottom: 60
+    marginBottom: 60,
   },
   headerContainer: {
     flexDirection: "row",
@@ -198,4 +198,4 @@ export const workoutList = StyleSheet.create({
     marginTop: 20,
     marginBottom: 15,
   },
-})
+});
