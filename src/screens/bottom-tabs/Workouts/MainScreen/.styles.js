@@ -5,6 +5,9 @@ import { colors } from "$styles";
 const { width, height } = Dimensions.get("window");
 
 //------------------ BOX STYLES ------------------//
+fontSize = Math.min(width, height) * 0.048;
+test = fontSize / 0.82;
+console.log(test);
 
 export const bVal = {};
 export const Box = StyleSheet.create({
@@ -13,18 +16,18 @@ export const Box = StyleSheet.create({
   },
   addText: {
     alignSelf: "center",
-    fontSize: 18,
+    fontSize: fontSize,
     fontWeight: "bold",
-    paddingVertical: 10,
+    paddingVertical: fontSize / 1.8,
     color: colors.grey.lightest,
   },
   addButton: {
     position: "absolute",
-    bottom: 10,
+    bottom: fontSize / 1.8,
     width: "90%",
     marginLeft: "5%",
     backgroundColor: colors.blue.default,
-    borderRadius: 22,
+    borderRadius: fontSize / 0.82,
     shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 10 },
     shadowOpacity: 0.6,
@@ -34,63 +37,55 @@ export const Box = StyleSheet.create({
 
 //------------------ CREATE WORKOUT BUTTON ------------------//
 containerHeight = Math.min(width, height) * 0.5;
-buttonHeight = containerHeight / 2.6;
-buttonPadding = Math.min(width, height) * 0.025;
-buttonFont = containerHeight * 0.11;
-horizontalPadding = containerHeight / 12;
 
 export const createWorkout = StyleSheet.create({
   container: {
-    marginTop: 10,
+    marginTop: containerHeight / 16,
     alignSelf: "center",
-    borderRadius: 15,
+    borderRadius: containerHeight / 12.5,
     width: "93%",
     height: containerHeight,
   },
   blueRectangle: {
-    borderRadius: 15,
+    borderRadius: containerHeight / 12.5,
     width: "100%",
     height: "100%",
     justifyContent: "flex-end", // Move content to the bottom
-    padding: 15,
-    horizontalPadding: horizontalPadding,
+    padding: containerHeight / 12.5,
+    horizontalPadding: containerHeight / 12,
   },
   buttonsContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    height: buttonHeight,
+    height: containerHeight / 2.6,
   },
   designButtonContainer: {
     backgroundColor: colors.white.default,
     width: "48%", // Adjust the button widths
-    borderRadius: 5,
+    borderRadius: containerHeight / 30,
     alignItems: "center",
     shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 1 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 2,
-    paddingVertical: buttonPadding,
+    paddingVertical: containerHeight * 0.025,
   },
 });
 
 //------------------ TALK TO GYMBOT ------------------//
 containerHeight2 = Math.min(width, height) * 0.55;
-padding = containerHeight2 / 11;
-textBottom = containerHeight2 / 35;
-topSpace = containerHeight2 / 12;
-verticalPadding = containerHeight2 / 20;
-horizontalPadding2 = containerHeight2 / 12;
-marginTop = containerHeight2 / 16;
+
+console.log(containerHeight2 / 10.3);
 
 export const talkTo = StyleSheet.create({
   container: {
     backgroundColor: colors.blue.default,
     width: "93%",
     alignSelf: "center",
-    borderRadius: 20,
-    padding: padding,
-    marginTop: topSpace,
+    borderRadius: containerHeight2 / 10.3,
+    padding: containerHeight2 / 11,
+    marginTop: containerHeight2 / 12,
     shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.2,
@@ -100,15 +95,15 @@ export const talkTo = StyleSheet.create({
   titleWrapper: {
     flexDirection: "row",
     alignItems: "center",
-    marginBottom: textBottom, // Adjust the value as needed
+    marginBottom: containerHeight2 / 35, // Adjust the value as needed
   },
   button: {
-    marginTop: marginTop,
+    marginTop: containerHeight2 / 16,
     alignItems: "center",
     alignSelf: "center",
-    paddingVertical: verticalPadding,
-    paddingHorizontal: horizontalPadding2,
-    borderRadius: 20,
+    paddingVertical: containerHeight2 / 20,
+    paddingHorizontal: containerHeight2 / 12,
+    borderRadius: containerHeight2 / 10.3,
     backgroundColor: colors.grey.lightest,
     shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 2 },
@@ -120,26 +115,24 @@ export const talkTo = StyleSheet.create({
 
 //------------------ WORKOUT LIST  ------------------//
 containerHeight3 = Math.min(width, height) * 0.55;
-marginLeft = containerHeight3 / 20;
-console.log(marginLeft);
 
 export const workoutList = StyleSheet.create({
   container: {
-    marginLeft: marginLeft,
-    marginBottom: 60,
+    marginLeft: containerHeight3 / 20,
+    marginBottom: containerHeight3 / 3.1,
   },
   headerContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    paddingHorizontal: 5,
+    paddingHorizontal: containerHeight3 / 35,
   },
   boxContainer: {
     flexDirection: "row",
-    marginHorizontal: -5,
+    marginHorizontal: containerHeight3 / -40,
   },
   viewAllButton: {
-    fontSize: 18,
+    fontSize: containerHeight3 / 11.4,
     fontWeight: "bold",
     color: colors.orange.default,
   },
