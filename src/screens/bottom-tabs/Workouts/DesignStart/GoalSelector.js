@@ -11,6 +11,8 @@ import {
 
 import { colors } from "$styles";
 
+import SelectTab from "$components/SelectTab";
+
 export default function GoalSelector({
   selectedGoal,
   setSelectedGoal,
@@ -52,32 +54,28 @@ export default function GoalSelector({
     <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
       <View style={styles.buttonContainer}>
         <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity
-            style={getButtonStyle("Build Muscle")}
-            onPress={() => handleWorkoutSelection("Build Muscle")}
-          >
-            <Text style={getButtonTextStyle("Build Muscle")}>Build Muscle</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
+          
+        <SelectTab text="Build Muscle"/>
+
+        <SelectTab text="Body Definition"/>
+
+
+          {/* <TouchableOpacity
             style={getButtonStyle("Body Definition")}
             onPress={() => handleWorkoutSelection("Body Definition")}
           >
             <Text style={getButtonTextStyle("Body Definition")}>
               Body Definition
             </Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
 
         <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity
-            style={getButtonStyle("Sports-Specific")}
-            onPress={() => handleWorkoutSelection("Sports-Specific")}
-          >
-            <Text style={getButtonTextStyle("Sports-Specific")}>
-              Sports-Specific
-            </Text>
-          </TouchableOpacity>
-          <TextInput
+        <SelectTab text="Sports Specific"/>
+
+
+          
+          {/* <TextInput
             value={notes}
             placeholder="Other"
             style={{
@@ -107,7 +105,10 @@ export default function GoalSelector({
                 setInputFilled(false);
               }
             }}
-          />
+          /> */}
+
+          <SelectTab text="Other"/>
+
         </View>
       </View>
     </TouchableWithoutFeedback>

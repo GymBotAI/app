@@ -8,6 +8,7 @@ import { size } from "mathjs";
 const { width, height } = Dimensions.get("window");
 const holder = Math.min(width, height);
 const smallFont = holder * 0.042;
+const subMedium = holder * 0.05;
 const mediumFont = holder * 0.055;
 const largeFont = holder * 0.075;
 const largerFont = holder * 0.095;
@@ -79,6 +80,9 @@ function textStyles(props: TextProps) {
     },
     medium: {
       fontSize: mediumFont,
+    },
+    submedium: {
+      fontSize: subMedium,
     },
     small: {
       fontSize: smallFont,
