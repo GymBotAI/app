@@ -23,7 +23,7 @@ export const Box = StyleSheet.create({
   },
   addButton: {
     position: "absolute",
-    bottom: 10,
+    bottom: fontSize / 1.8,
     width: "90%",
     marginLeft: "5%",
     backgroundColor: colors.blue.default,
