@@ -116,6 +116,7 @@ export const talkTo = StyleSheet.create({
 //------------------ WORKOUT LIST  ------------------//
 containerHeight3 = Math.min(width, height) * 0.55;
 
+console.log(containerHeight3 / 18)
 export const workoutList = StyleSheet.create({
   container: {
     marginLeft: containerHeight3 / 20,
@@ -138,10 +139,10 @@ export const workoutList = StyleSheet.create({
   },
   titleSection: {
     width: "100%",
-    height: 40, // Set the desired height for the title section
+    height: containerHeight3 / 4.5, // Set the desired height for the title section
     backgroundColor: colors.orange.default, // Red background color
-    borderTopLeftRadius: 10,
-    borderTopRightRadius: 10,
+    borderTopLeftRadius: containerHeight3 / 18,
+    borderTopRightRadius: containerHeight3 / 18,
     justifyContent: "center",
     alignItems: "center",
   },
