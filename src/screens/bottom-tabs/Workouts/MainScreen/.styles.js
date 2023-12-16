@@ -76,7 +76,6 @@ export const createWorkout = StyleSheet.create({
 
 //------------------ TALK TO GYMBOT ------------------//
 containerHeight2 = Math.min(width, height) * 0.55;
-horizontalPadding2 = containerHeight2 / 12;
 
 console.log(borderRadius)
 
@@ -104,7 +103,7 @@ export const talkTo = StyleSheet.create({
     alignItems: "center",
     alignSelf: "center",
     paddingVertical: containerHeight2 / 20,
-    paddingHorizontal: horizontalPadding2,
+    paddingHorizontal: containerHeight2 / 12,
     borderRadius: 20,
     backgroundColor: colors.grey.lightest,
     shadowColor: colors.black.default,
