@@ -5,6 +5,8 @@ import { colors } from "$styles";
 const { width, height } = Dimensions.get("window");
 
 //------------------ BOX STYLES ------------------//
+fontSize = Math.min(width, height) * 0.048;
+console.log(fontSize)
 
 export const bVal = {};
 export const Box = StyleSheet.create({
@@ -13,7 +15,7 @@ export const Box = StyleSheet.create({
   },
   addText: {
     alignSelf: "center",
-    fontSize: 18,
+    fontSize: fontSize,
     fontWeight: "bold",
     paddingVertical: 10,
     color: colors.grey.lightest,
