@@ -7,7 +7,7 @@ import {
 } from "react-native";
 
 import { colors } from "$styles";
-
+import { workoutList } from "./.styles";
 import { FontAwesome5 } from "@expo/vector-icons";
 
 export default function WorkoutList({ navigation }) {
