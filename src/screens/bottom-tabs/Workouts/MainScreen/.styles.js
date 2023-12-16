@@ -82,12 +82,14 @@ verticalPadding = containerHeight2 / 20;
 horizontalPadding2 = containerHeight2 / 12;
 marginTop = containerHeight2 / 16;
 
+console.log(borderRadius)
+
 export const talkTo = StyleSheet.create({
   container: {
     backgroundColor: colors.blue.default,
     width: "93%",
     alignSelf: "center",
-    borderRadius: 20,
+    borderRadius: containerHeight2 / 10.3,
     padding: containerHeight2 / 11,
     marginTop: topSpace,
     shadowColor: colors.black.default,
