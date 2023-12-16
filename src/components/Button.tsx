@@ -18,6 +18,8 @@ const largeFont = holder * 0.075;
 const smallPadding = smallFont / 3.66;
 const mediumPadding = mediumFont / 2.9;
 const largePadding = largeFont / 2.8;
+const borderRadius = holder / 12.5;
+console.log(borderRadius)
 
 function buttonStyles(props: ButtonProps) {
   const baseStyles: StylesObject = {
@@ -27,7 +29,7 @@ function buttonStyles(props: ButtonProps) {
     backgroundColor: props.disabled
       ? colors.white.default
       : colors.blue.default,
-    borderRadius: 22,
+    borderRadius: borderRadius,
     paddingHorizontal: 16,
     shadowColor: colors.black.default,
     shadowOffset: { width: 0, height: 1 },
