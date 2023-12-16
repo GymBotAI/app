@@ -17,7 +17,7 @@ import { login, signup } from "$api/auth";
 import googleImage from "$assets/google.webp";
 import { colors } from "$styles";
 
-import { aVal, Box, bVal, Login } from "./styles";
+import { Box, loginStyles } from "./styles";
 
 import { Feather } from "@expo/vector-icons";
 import { Image } from "expo-image";
@@ -84,32 +84,28 @@ export default function LoginBox({
   return (
     <Modal
       isVisible={isVisible}
-      backdropOpacity={bVal.backOpacity}
-      backdropColor={bVal.backColor}
+      backdropOpacity={0.9}
+      backdropColor={colors.black.lighter}
     >
       <TouchableOpacity style={Box.touchable} onPress={onClose}>
-        <Feather
-          name="x-circle"
-          size={bVal.buttonSize}
-          color={bVal.buttonColor}
-        />
+        <Feather name="x-circle" size={32} color={colors.white.default} />
       </TouchableOpacity>
 
       <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-        <View style={Login.container}>
+        <View style={loginStyles.container}>
           <TextInput
-            style={Login.input}
+            style={loginStyles.input}
             placeholder="Email"
-            placeholderTextColor={aVal.placeholder}
+            placeholderTextColor={colors.white.default}
             value={email}
             keyboardType="email-address"
             onChangeText={setEmail}
             autoCapitalize="none"
           />
           <TextInput
-            style={Login.input}
+            style={loginStyles.input}
             placeholder="Password"
-            placeholderTextColor={aVal.placeholder}
+            placeholderTextColor={colors.white.default}
             value={password}
             onChangeText={setPassword}
             secureTextEntry
@@ -154,8 +150,6 @@ export default function LoginBox({
 }
 
 const styles = StyleSheet.create({
-  container: {},
-  input: {},
   login: {
     alignSelf: "center",
     width: "95%",
@@ -203,18 +197,6 @@ const styles = StyleSheet.create({
     color: "white",
     marginLeft: "auto",
   },
-  guestContainer: {
-    display: "flex",
-    flexDirection: "row",
-    marginTop: 40,
-  },
-  guestText: {
-    fontSize: 16,
-    color: colors.white.default,
-  },
-  button: {
-    marginLeft: 10,
-  },
   signInWithGoogleButton: {
     marginTop: 60,
     alignSelf: "center",
@@ -244,16 +226,5 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     color: colors.black.default,
-  },
-  backButton: {
-    position: "absolute",
-    top: 20, // Adjust the position as needed
-    left: 10, // Adjust the position as needed
-    zIndex: 1,
-  },
-
-  backButtonText: {
-    color: colors.white.default,
-    fontSize: 16,
   },
 });

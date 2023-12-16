@@ -4,14 +4,6 @@ import { colors } from "$styles";
 
 //------------------ BOX STYLES ------------------//
 
-export const bVal = {
-  buttonSize: 40,
-  buttonColor: colors.white.default,
-  backOpacity: 0.9,
-  backColor: colors.black.lighter,
-  gymBotLogo: require("$assets/GymBotText.png"),
-} as const;
-
 const commonButtonStyle = {
   position: "absolute",
   width: "85%",
@@ -77,12 +69,7 @@ export const Box = StyleSheet.create({
 });
 
 //------------------ LOGIN AND SIGNUP STYLES ------------------//
-
-export const aVal = {
-  placeholder: colors.white.default,
-};
-
-export const Login = StyleSheet.create({
+export const loginStyles = StyleSheet.create({
   container: {
     paddingTop: 50,
     height: "100%",
