@@ -74,7 +74,7 @@ export default function StartUp({
       <LoginModal
         isVisible={showSignUp}
         onAccount={() => {
-          navigation.navigate("Main");
+          navigation.navigate("SignUp");
           setShowSignUp(false);
         }}
         onClose={handleGoBack}
