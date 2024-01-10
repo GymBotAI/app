@@ -1,0 +1,26 @@
+{
+  "useTabs": false,
+  "tabWidth": 2,
+
+  "plugins": ["@ianvs/prettier-plugin-sort-imports"],
+
+  "importOrder": [
+    "<TYPES>",
+    "<TYPES>^\\.",
+    "^\\$(types)",
+    "",
+    "^react(-native)?($|/)",
+    "",
+    "^@react-[\\w-]+",
+    "^expo-",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^\\$(api|consts|context|utils)",
+    "",
+    "^\\$(assets|styles)",
+    "",
+    "^\\$(screens|components)",
+    "^\\."
+  ],
+  "importOrderTypeScriptVersion": "5.3.3"
+}

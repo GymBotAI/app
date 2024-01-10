@@ -1,31 +1,37 @@
 {
   "expo": {
-    "name": "gymbot",
+    "name": "GymBot",
     "slug": "gymbot",
     "version": "1.0.0",
+    "scheme": "gymbot",
     "orientation": "portrait",
-    "icon": "./assets/GymBotLogo.png",
+    "icon": "./assets/logo-square.png",
     "userInterfaceStyle": "light",
-    "scheme": "com.gymbotai.gymbot",
     "splash": {
-      "image": "./assets/GymBotLogo.png",
+      "_image": "./assets/logo-square.png",
       "resizeMode": "contain",
-      "backgroundColor": "#1360dd"
+      "backgroundColor": "#ffffff"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.gymbotai.gymbot"
+      "infoPlist": {
+        "LSApplicationQueriesSchemes": ["gymbot"]
+      }
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/GymBotLogo.png",
-        "backgroundColor": "#1360dd"
-      },
-      "package": "com.gymbotai.gymbot"
+        "foregroundImage": "./assets/logo-square.png",
+        "backgroundColor": "#ffffff",
+        "__comment": "TODO: make a valid adaptive icon"
+      }
     },
     "web": {
-      "favicon": "./assets/GymBotLogo.png"
+      "bundler": "metro",
+      "favicon": "./assets/logo-square.png"
+    },
+    "experiments": {
+      "tsconfigPaths": true
     }
   }
 }

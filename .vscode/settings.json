@@ -1,6 +1,5 @@
 {
   "files.exclude": {
-    "**/.expo": true,
-    "**/node_modules": true
+    "**/.expo": true
   }
 }

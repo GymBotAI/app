@@ -3,17 +3,15 @@
     "baseUrl": ".",
     "paths": {
       "$assets/*": ["assets/*"],
-      "$api/*": ["src/api/*"],
-      "$components/*": ["src/components/*"],
-      "$consts/*": ["src/consts/*"],
-      "$context": ["src/context"],
-      "$context/*": ["src/context/*"],
-      "$screens/*": ["src/screens/*"],
-      "$styles": ["src/components/styles"],
-      "$types/*": ["src/types/*"],
-      "$utils/*": ["src/utils/*"]
-    },
-    "jsx": "react-native"
+      "$api/*": ["api/*"],
+      "$components/*": ["components/*"],
+      "$consts/*": ["consts/*"],
+      "$context": ["context"],
+      "$context/*": ["context/*"],
+      "$styles": ["styles"],
+      "$types/*": ["types/*"],
+      "$utils/*": ["utils/*"]
+    }
   },
   "extends": "expo/tsconfig.base"
 }

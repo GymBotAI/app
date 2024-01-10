@@ -1,21 +1,13 @@
-# NPM
-node_modules
-
-# PNPM
-pnpm-lock.yaml
-
-# Assets
-assets
-
 # Expo
-.Expo
 .expo
 
-# Replit
+# PNPM lockfile
+pnpm-lock.yaml
+
+# Replit files
 .config
 .cache
 .upm
 
-# Secrets and env
-.env.*
-!.env
+# MacOS files
+.DS_Store

@@ -1,11 +1,10 @@
-if (process.env.EXPO_PUBLIC_GYMBOT != "1") {
-  throw new Error("Missing env vars");
-}
+const requiredEnvs = ["GYMBOT", "SUPABASE_ANON_KEY", "SUPABASE_URL"];
 
-export default {
-  expo: {
-    experiments: {
-      tsconfigPaths: true,
-    },
-  },
-};
+for (const env of requiredEnvs) {
+  const realEnv = `EXPO_PUBLIC_${env}`;
+  if (!process.env[realEnv]) {
+    throw new Error(
+      `Missing environment variable \"${realEnv}\". Did you forget to set up your .env.local file?`,
+    );
+  }
+}
