@@ -8,3 +8,12 @@ for (const env of requiredEnvs) {
     );
   }
 }
+
+export default {
+  expo: {
+    scheme: "gymbot",
+    experiments: {
+      tsconfigPaths: true,
+    },
+  },
+};

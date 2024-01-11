@@ -3,7 +3,6 @@
     "name": "GymBot",
     "slug": "gymbot",
     "version": "1.0.0",
-    "scheme": "gymbot",
     "orientation": "portrait",
     "icon": "./assets/logo-square.png",
     "userInterfaceStyle": "light",
@@ -29,9 +28,6 @@
     "web": {
       "bundler": "metro",
       "favicon": "./assets/logo-square.png"
-    },
-    "experiments": {
-      "tsconfigPaths": true
     }
   }
 }
