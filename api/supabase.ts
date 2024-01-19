@@ -1,6 +1,6 @@
 import "react-native-url-polyfill/auto";
 
-import type { Session } from "@supabase/supabase-js";
+import type { PostgrestSingleResponse, Session } from "@supabase/supabase-js";
 import type { Database } from "$types/database";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -22,14 +22,18 @@ function userIdOrSession(userId: string | Session): string | null {
   return typeof userId == "string" ? userId : userId?.user?.id;
 }
 
-export function getUserData(userId: string | Session) {
+export async function getUserData(
+  userId: string | Session,
+): Promise<
+  PostgrestSingleResponse<Database["public"]["Tables"]["users"]["Row"]>
+> {
   userId = userIdOrSession(userId);
 
   if (!userId) {
     return Promise.resolve(null);
   }
 
-  return supabase.from("users").select("*").eq("id", userId).single();
+  return await supabase.from("users").select("*").eq("id", userId).single();
 }
 
 export function updateUserData(
