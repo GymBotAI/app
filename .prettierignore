@@ -1,9 +1,6 @@
 # Expo
 .expo
 
-# PNPM lockfile
-pnpm-lock.yaml
-
 # Replit files
 .config
 .cache

@@ -2,14 +2,15 @@
   "expo": {
     "name": "GymBot",
     "slug": "gymbot",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "orientation": "portrait",
-    "icon": "./assets/logo-square.png",
-    "userInterfaceStyle": "light",
+    "icon": "./assets/images/logo-square.png",
+    "scheme": "gymbot",
+    "userInterfaceStyle": "automatic",
     "splash": {
-      "_image": "./assets/logo-square.png",
+      "image": "./assets/images/logo-square.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#0079f3"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -20,14 +21,28 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/logo-square.png",
-        "backgroundColor": "#ffffff",
+        "foregroundImage": "./assets/images/logo-square.png",
+        "backgroundColor": "#0079f3",
         "__comment": "TODO: make a valid adaptive icon"
       }
     },
     "web": {
       "bundler": "metro",
-      "favicon": "./assets/logo-square.png"
-    }
+      "output": "static",
+      "favicon": "./assets/images/logo-square.png"
+    },
+    "plugins": ["expo-router"],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "bba80b0b-b031-4d39-a729-eba9f033bfb2"
+      }
+    },
+    "owner": "gymbot"
   }
 }
