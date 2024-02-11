@@ -59,7 +59,7 @@ git config core.hooksPath .githooks
 Run the app:
 
 ```sh
-pnpm run start
+pnpm start
 ```
 
 Then, scan the QR code on your phone and open it with the Expo Go app.
