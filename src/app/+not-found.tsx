@@ -1,5 +1,3 @@
-import type { NamedStylesObject } from '$types/styles';
-
 import { StyleSheet, View } from 'react-native';
 import { Stack } from 'expo-router';
 

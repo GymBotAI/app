@@ -17,15 +17,15 @@ if (!supabaseAnonKey) {
   throw new Error('Missing environment variable EXPO_PUBLIC_SUPABASE_ANON_KEY');
 }
 
-let storage: Storage | AsyncStorageStatic | null;
+let storage: Storage | AsyncStorageStatic | undefined;
 try {
   storage = window.localStorage;
 } catch {
   try {
-    storage = (await import('@react-native-async-storage/async-storage'))
-      .default;
+    storage = require('@react-native-async-storage/async-storage').default;
   } catch {
-    storage = null;
+    storage = undefined;
+    console.warn('[$api/supabase] No storage available');
   }
 }
 

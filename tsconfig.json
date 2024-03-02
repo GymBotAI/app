@@ -1,10 +1,7 @@
 {
   "extends": "expo/tsconfig.base",
   "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
     "strict": true,
-    "module": "ESNext",
     "paths": {
       "$api/*": ["./src/api/*"],
       "$assets/*": ["./assets/*"],
@@ -15,12 +12,5 @@
       "$utils/*": ["./src/utils/*"],
     },
   },
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "**/*.js",
-    ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "babel.config.cjs",
-  ],
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],
 }

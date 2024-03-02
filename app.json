@@ -17,7 +17,8 @@
       "supportsTablet": true,
       "infoPlist": {
         "LSApplicationQueriesSchemes": ["gymbot"]
-      }
+      },
+      "bundleIdentifier": "com.gymbot.gymbot"
     },
     "android": {
       "adaptiveIcon": {
