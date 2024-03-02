@@ -1,98 +1,76 @@
-import type { StylesObject } from "$types/styles";
-import type { TextProps as RNTextProps } from "react-native";
+import type { ComponentProps } from 'react';
 
-import { Dimensions, Text as RNText, StyleSheet } from "react-native";
+import { Text as DefaultText, StyleSheet } from 'react-native';
 
-import { size } from "mathjs";
+import { ColorValue } from '$constants/baseColors';
+import colors from '$constants/colors';
+import { useStylesContext } from './StylesContext';
 
-const { width, height } = Dimensions.get("window");
-const holder = Math.min(width, height);
-const smallFont = holder * 0.042;
-const subMedium = holder * 0.05;
-const mediumFont = holder * 0.055;
-const largeFont = holder * 0.075;
-const largerFont = holder * 0.095;
+export type TextType = 'normal' | 'code';
+export type TextVariant = 'header' | 'subheader' | 'normal' | 'sub';
+export interface TextProps extends ComponentProps<typeof DefaultText> {
+  color?: ColorValue;
 
-/**
- * The variant prop is used to apply a predefined set of styles to the text.
- * @default "normal"
- */
-export type TextVariant =
-  | "header-huge"
-  | "header-big"
-  | "header-default"
-  | "subheader"
-  | "normal";
+  /**
+   * @default "normal"
+   */
+  type?: TextType;
 
-export interface TextStylingProps {
-  bold?: boolean;
-
-  size?: "small" | "submedium" | "medium" | "large" | "larger";
+  /**
+   * @default "normal"
+   */
+  variant?: TextVariant;
 }
-export interface TextVariantProps {
-  variant: TextVariant;
-}
-export type TextProps = Omit<RNTextProps, "children"> & {
-  text: string;
-} & (TextStylingProps | TextVariantProps);
 
 export default function Text(props: TextProps) {
-  return <RNText style={textStyles(props)}>{props.text}</RNText>;
+  const stylesFromContext = useStylesContext();
+
+  return (
+    <DefaultText
+      {...props}
+      style={[
+        styles[props.variant || 'normal'],
+        ...(props.type && props.type != 'normal' ? [styles[props.type]] : []),
+        ...(props.color
+          ? [
+              {
+                color: props.color,
+              },
+            ]
+          : []),
+        stylesFromContext,
+        props.style,
+      ]}
+    />
+  );
 }
 
-const variantStyles: Record<TextVariant, TextStylingProps> = {
-  "header-huge": {
-    size: "larger",
-    bold: true,
-  },
-  "header-big": {
-    size: "large",
-    bold: true,
-  },
-  "header-default": {
-    size: "medium",
-    bold: true,
+const styles = StyleSheet.create({
+  header: {
+    fontSize: 32,
+    fontWeight: '600',
+    color: colors.black.default,
   },
   subheader: {
-    size: "small",
-    bold: true,
+    fontSize: 24,
+    fontWeight: '600',
+    color: colors.black.default,
   },
   normal: {
-    size: "small",
-    bold: false,
+    // @ts-expect-error
+    // We can ignore UISizes here because font sizes don't
+    // usually follow the same rule
+    fontSize: 14,
+    fontWeight: 'normal',
+    color: colors.black.default,
   },
-};
-
-function textStyles(props: TextProps) {
-  const stylingProps =
-    "variant" in props ? variantStyles[props.variant] : props;
-
-  const baseStyles: StylesObject = {
-    fontWeight: stylingProps.bold ? "bold" : "normal",
-  };
-
-  const sizeStyles = StyleSheet.create({
-    larger: {
-      fontSize: largerFont,
-    },
-    large: {
-      fontSize: largeFont,
-    },
-    medium: {
-      fontSize: mediumFont,
-    },
-    submedium: {
-      fontSize: subMedium,
-    },
-    small: {
-      fontSize: smallFont,
-    },
-  });
-
-  const styles = {
-    ...baseStyles,
-    ...sizeStyles[stylingProps.size || "small"],
-  };
-
-  return StyleSheet.compose(styles, props.style);
-}
+  sub: {
+    fontSize: 12,
+    fontWeight: 'normal',
+    color: colors.black.lightest,
+  },
+  code: {
+    fontFamily: 'SpaceMono',
+    backgroundColor: colors.white.darker,
+  },
+});

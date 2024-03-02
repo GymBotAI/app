@@ -1,14 +1,12 @@
-declare module "*.webp" {
-  const asset: number;
-  export default asset;
-}
+declare module '$assets/*' {
+  import type { ImageRequireSource } from 'react-native';
 
-declare module "*.png" {
-  const asset: number;
-  export default asset;
-}
-
-declare module "*.ttf" {
-  const asset: number;
+  /**
+   * Assets imported from `$assets` will be imported as
+   * a number that can be passed to `<Image source={...} />`.
+   *
+   * @see https://reactnative.dev/docs/image#imagesource
+   */
+  const asset: ImageRequireSource;
   export default asset;
 }

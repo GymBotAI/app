@@ -1,41 +1,62 @@
-import "react-native-url-polyfill/auto";
+import 'react-native-url-polyfill/auto';
 
-import type { Session } from "@supabase/supabase-js";
-import type { Database } from "$types/database";
+import type { AsyncStorageStatic } from '@react-native-async-storage/async-storage';
+import type { Session } from '@supabase/supabase-js';
+import type { Database } from '$types/database';
 
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
-import { createClient } from "@supabase/supabase-js";
+import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = process.env.EXPO_PUBLIC_SUPABASE_URL;
 const supabaseAnonKey = process.env.EXPO_PUBLIC_SUPABASE_ANON_KEY;
 
+if (!supabaseUrl) {
+  throw new Error('Missing environment variable EXPO_PUBLIC_SUPABASE_URL');
+}
+
+if (!supabaseAnonKey) {
+  throw new Error('Missing environment variable EXPO_PUBLIC_SUPABASE_ANON_KEY');
+}
+
+let storage: Storage | AsyncStorageStatic | undefined;
+try {
+  storage = window.localStorage;
+} catch {
+  try {
+    storage = require('@react-native-async-storage/async-storage').default;
+  } catch {
+    storage = undefined;
+    console.warn('[$api/supabase] No storage available');
+  }
+}
+
 export const supabase = createClient<Database>(supabaseUrl, supabaseAnonKey, {
   auth: {
-    storage: AsyncStorage,
+    storage,
     autoRefreshToken: true,
     persistSession: true,
     detectSessionInUrl: false,
   },
 });
 
-function userIdOrSession(userId: string | Session): string | null {
-  return typeof userId == "string" ? userId : userId?.user?.id;
+function userIdOrSession(userId: string | Session): string {
+  return typeof userId == 'string' ? userId : userId?.user?.id;
 }
 
-export function getUserData(userId: string | Session) {
+export type UserData = Database['public']['Tables']['users']['Row'];
+
+export async function getUserData(userId: string | Session) {
   userId = userIdOrSession(userId);
 
   if (!userId) {
     return Promise.resolve(null);
   }
 
-  return supabase.from("users").select("*").eq("id", userId).single();
+  return await supabase.from('users').select('*').eq('id', userId).single();
 }
 
 export function updateUserData(
   userId: string | Session,
-  data: Database["public"]["Tables"]["users"]["Update"]
+  data: Database['public']['Tables']['users']['Update'],
 ) {
   userId = userIdOrSession(userId);
 
@@ -43,5 +64,5 @@ export function updateUserData(
     return Promise.resolve(null);
   }
 
-  return supabase.from("users").update(data).eq("id", userId).single();
+  return supabase.from('users').update(data).eq('id', userId).single();
 }

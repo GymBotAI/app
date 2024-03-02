@@ -1,96 +1,69 @@
-import type { StylesObject } from "$types/styles";
-import type { TouchableOpacityProps } from "react-native";
+import type { JSX } from 'react';
+import type { PressableProps, StyleProp, ViewStyle } from 'react-native';
+import type { IconName } from '$components/Icon';
 
-import { Dimensions, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Pressable } from 'react-native';
 
-import { colors } from "$styles";
+import Icon from '$components/Icon';
+import { StylesContext } from '$components/StylesContext';
+import Text from '$components/Text';
+import { ColorObject } from '$constants/baseColors';
+import colors from '$constants/colors';
 
-export type ButtonProps = TouchableOpacityProps & {
-  text: string;
-  size?: "small" | "medium" | "large";
-};
+export interface ButtonProps extends PressableProps {
+  children?: JSX.Element | string;
+  iconLeft?: IconName;
+  iconRight?: IconName;
 
-const { width, height } = Dimensions.get("window");
-const holder = Math.min(width, height);
-const smallFont = holder * 0.058;
-const mediumFont = holder * 0.07;
-const largeFont = holder * 0.075;
-const smallPadding = smallFont / 3.66;
-const mediumPadding = mediumFont / 2.9;
-const largePadding = largeFont / 2.8;
+  color?: ColorObject;
 
-function buttonStyles(props: ButtonProps) {
-  const baseStyles: StylesObject = {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-    backgroundColor: props.disabled
-      ? colors.white.default
-      : colors.blue.default,
-    borderRadius: holder / 12.5,
-    paddingHorizontal: 16,
-    shadowColor: colors.black.default,
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.15,
-    shadowRadius: 2,
-    elevation: 5,
-    alignSelf: "center",
-  } as const;
+  shrink?: boolean;
 
-  const sizeStyles = StyleSheet.create({
-    large: {
-      padding: largePadding,
-    },
-    medium: {
-      padding: mediumPadding,
-    },
-    small: {
-      padding: smallPadding,
-    },
-  });
-
-  return {
-    ...baseStyles,
-    ...sizeStyles[props.size],
-  };
-}
-
-function textStyles(props: ButtonProps) {
-  const baseStyles: StylesObject = {
-    color: "#ededed",
-    fontWeight: "bold",
-  } as const;
-
-  const sizeStyles = StyleSheet.create({
-    large: {
-      fontSize: largeFont,
-    },
-    medium: {
-      fontSize: mediumFont,
-    },
-    small: {
-      fontSize: smallFont,
-    },
-  });
-
-  return {
-    ...baseStyles,
-    ...sizeStyles[props.size],
-  };
+  style?: ViewStyle;
 }
 
 export default function Button(props: ButtonProps) {
-  props = {
-    size: "small",
-    ...props,
-  };
+  const styles: StyleProp<ViewStyle> = [
+    {
+      display: 'flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 8,
+      padding: 8,
+      borderRadius: 8,
+    },
+  ];
+
+  if (props.shrink) {
+    styles.push({
+      alignSelf: 'flex-start',
+    });
+  }
+
+  styles.push(props.style);
 
   return (
-    <TouchableOpacity
+    <Pressable
       {...props}
-      style={StyleSheet.compose(buttonStyles(props), props.style)}
+      style={({ pressed }) => [
+        ...styles,
+        {
+          backgroundColor: (props.color || colors.primary)[
+            pressed ? 'lighter' : 'default'
+          ],
+        },
+      ]}
     >
-      <Text style={textStyles(props)}>{props.text}</Text>
-    </TouchableOpacity>
+      <StylesContext.Provider value={{ color: colors.white.default }}>
+        {props.iconLeft ? <Icon name={props.iconLeft} /> : null}
+        {typeof props.children == 'string' ? (
+          <Text>{props.children}</Text>
+        ) : (
+          props.children
+        )}
+        {props.iconRight ? <Icon name={props.iconRight} /> : null}
+      </StylesContext.Provider>
+    </Pressable>
   );
 }

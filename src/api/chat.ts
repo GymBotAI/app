@@ -1,16 +1,16 @@
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useCallback, useContext, useEffect, useState } from 'react';
 
-import { wsServerAddr } from "$api/address";
-import { debugLogs } from "$api/debug-logs";
-import { AppContext } from "$context";
+import { wsServerAddr } from '$api/address';
+import { debugLogs } from '$api/debug-logs';
+import { AppContext } from '$context';
 
-import useWebSocket from "react-use-websocket";
+import useWebSocket from 'react-use-websocket';
 
 /**
  * The token that the server sends to indicate
  * that the message stream has ended.
  */
-const streamEndToken = "[DONE]";
+const streamEndToken = '[DONE]';
 
 /**
  * Whether or not to log debug messages.
@@ -18,15 +18,15 @@ const streamEndToken = "[DONE]";
 const debug: boolean = __DEV__ && debugLogs.chat;
 
 if (debug) {
-  console.debug("[GymBot/API/chat] Using server address:", wsServerAddr);
+  console.debug('[GymBot/API/chat] Using server address:', wsServerAddr);
 }
 
 const workoutScreenRegex = /^\s*\u0007\s*$/;
 
 export interface Message {
-  role: "user" | "assistant" | "system";
+  role: 'user' | 'assistant' | 'system';
   content?: string;
-  type?: "workoutScreen" | "chat";
+  type?: 'workoutScreen' | 'chat';
 }
 
 export function useGymBotAI(initialMessages: Message[] = []) {
@@ -41,7 +41,7 @@ export function useGymBotAI(initialMessages: Message[] = []) {
       },
       onOpen() {
         if (debug) {
-          console.debug("[GymBot/API/chat] Sending auth secret to chat WS...");
+          console.debug('[GymBot/API/chat] Sending auth secret to chat WS...');
         }
 
         sendMessage(session.access_token);
@@ -50,7 +50,7 @@ export function useGymBotAI(initialMessages: Message[] = []) {
       onClose() {
         setHasAuthed(false);
       },
-    }
+    },
   );
   const [hasAuthed, setHasAuthed] = useState(false);
   const [isStreaming, setIsStreaming] = useState(false);
@@ -61,11 +61,11 @@ export function useGymBotAI(initialMessages: Message[] = []) {
         setIsStreaming(false);
 
         if (
-          messages[messages.length - 1].role == "assistant" &&
+          messages[messages.length - 1].role == 'assistant' &&
           workoutScreenRegex.test(messages[messages.length - 1].content)
         ) {
           setMessages((a) => {
-            a[a.length - 1].type = "workoutScreen";
+            a[a.length - 1].type = 'workoutScreen';
             delete a[a.length - 1].content;
             return a;
           });
@@ -75,14 +75,14 @@ export function useGymBotAI(initialMessages: Message[] = []) {
       }
 
       setMessages((a) => {
-        const previousData = isStreaming ? a.pop().content : "";
+        const previousData = isStreaming ? a.pop().content : '';
 
         setIsStreaming(true);
 
         return [
           ...a,
           {
-            role: "assistant",
+            role: 'assistant',
             content: previousData + lastMessage.data,
           },
         ];
@@ -95,20 +95,20 @@ export function useGymBotAI(initialMessages: Message[] = []) {
     sendMessage: useCallback(
       (msg: string) => {
         if (debug) {
-          console.debug("[GymBot/API/chat] Sending message to chat WS:", msg);
+          console.debug('[GymBot/API/chat] Sending message to chat WS:', msg);
         }
 
         setMessages((a) => [
           ...a,
           {
-            role: "user",
+            role: 'user',
             content: msg,
           },
         ]);
 
         sendMessage(msg);
       },
-      [setMessages, sendMessage]
+      [setMessages, sendMessage],
     ),
     setMessages,
     readyState,

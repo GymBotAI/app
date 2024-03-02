@@ -1,7 +1,7 @@
-import type { User } from "@supabase/supabase-js";
+import type { User } from '@supabase/supabase-js';
 
-import { debugLogs } from "./debug-logs";
-import { supabase } from "./supabase";
+import { debugLogs } from '$api/debug-logs';
+import { supabase } from '$api/supabase';
 
 /**
  * Whether or not to log debug messages.
@@ -10,7 +10,7 @@ const debug: boolean = __DEV__ && debugLogs.auth;
 
 export async function login(
   email: string,
-  password: string
+  password: string,
 ): Promise<
   | {
       success: true;
@@ -18,12 +18,12 @@ export async function login(
     }
   | {
       success: false;
-      error: Error;
+      error: Error | null;
     }
 > {
   if (debug) {
     console.debug(
-      `[GymBot/API/auth] Logging in with email "${email}" and password "${password}"`
+      `[GymBot/API/auth] Logging in with email "${email}" and password "${password}"`,
     );
   }
 
@@ -35,7 +35,7 @@ export async function login(
   if (response.data.user) {
     if (debug) {
       console.debug(
-        `[GymBot/API/auth] Logged in as user ID "${response.data.user.id}"`
+        `[GymBot/API/auth] Logged in as user ID "${response.data.user.id}"`,
       );
     }
 
@@ -46,7 +46,7 @@ export async function login(
   }
 
   if (debug) {
-    console.debug("[GymBot/API/auth] Failed to log in:", response.error);
+    console.debug('[GymBot/API/auth] Failed to log in:', response.error);
   }
 
   return {
@@ -55,13 +55,15 @@ export async function login(
   };
 }
 
+export const logout = supabase.auth.signOut.bind(supabase.auth);
+
 export async function signup(
   email: string,
-  password: string
+  password: string,
 ): ReturnType<typeof login> {
   if (debug) {
     console.debug(
-      `[GymBot/API/auth] Signing up in with email "${email}" and password "${password}"`
+      `[GymBot/API/auth] Signing up in with email "${email}" and password "${password}"`,
     );
   }
 
@@ -73,7 +75,7 @@ export async function signup(
   if (response.data.user) {
     if (debug) {
       console.debug(
-        `[GymBot/API/auth] Signed up as user ID "${response.data.user.id}"`
+        `[GymBot/API/auth] Signed up as user ID "${response.data.user.id}"`,
       );
     }
 
@@ -84,7 +86,7 @@ export async function signup(
   }
 
   if (debug) {
-    console.debug("[GymBot/API/auth] Failed to sign up:", response.error);
+    console.debug('[GymBot/API/auth] Failed to sign up:', response.error);
   }
 
   return {

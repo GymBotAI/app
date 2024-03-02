@@ -5,14 +5,13 @@ export type HttpServerAddress = `http://${string}` | `https://${string}`;
 /**
  * The base address of the GymBot AI server.
  * Must start with `s://` or `://`.
- * See `app.config.ts` for more information.
  *
  * @example "s://example.com"
  * @example "://example.com"
  */
 export const baseServerAddr =
   (process.env.EXPO_PUBLIC_GYMBOT_SERVER_ADDRESS as BaseServerAddress) ||
-  "s://gymbot.luisafk.workers.dev";
+  's://gymbot.luisafk.workers.dev';
 
 /**
  * The WebSocket address of the GymBot AI server.
@@ -21,7 +20,7 @@ export const baseServerAddr =
  * @example "wss://example.com"
  * @example "ws://example.com"
  */
-export const wsServerAddr = ("ws" + baseServerAddr) as WsServerAddress;
+export const wsServerAddr = ('ws' + baseServerAddr) as WsServerAddress;
 
 /**
  * The HTTP address of the GymBot AI server.
@@ -30,4 +29,4 @@ export const wsServerAddr = ("ws" + baseServerAddr) as WsServerAddress;
  * @example "https://example.com"
  * @example "http://example.com"
  */
-export const httpServerAddr = ("http" + baseServerAddr) as HttpServerAddress;
+export const httpServerAddr = ('http' + baseServerAddr) as HttpServerAddress;

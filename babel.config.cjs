@@ -1,13 +1,10 @@
-// @ts-check
-
 /**
  * @type {import('@babel/core').ConfigFunction}
  */
-module.exports = (api) => {
+module.exports = function (api) {
   api.cache.forever();
-
   return {
-    presets: ["babel-preset-expo"],
-    plugins: ["react-native-reanimated/plugin"],
+    presets: ['babel-preset-expo'],
+    plugins: ['react-native-reanimated/plugin'],
   };
 };
